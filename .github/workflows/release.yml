@@ -1,32 +1,58 @@
-# This is a basic workflow that is manually triggered
-
+# 清理+打包+发布
 name: New release
-
-# Controls when the action will run. Workflow runs when manually triggered using the UI
-# or API.
 on:
   workflow_dispatch:
     # Inputs the workflow accepts.
     inputs:
       name:
         # Friendly description to be shown in the UI instead of 'name'
-        description: 'Person to greet'
+        description: 'Automatic MC server packing'
         # Default value if no value is explicitly provided
-        default: 'World'
+        default: ''
         # Input has to be provided for the workflow to run
-        required: true
+        required: false
         # The data type of the input
         type: string
-
+          
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "greet"
-  greet:
-    # The type of runner that the job will run on
+  # 测试
+  Test:
+    name: Testserver
     runs-on: ubuntu-latest
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    # Runs a single command using the runners shell
-    - name: Send greeting
-      run: echo "Hello ${{ inputs.name }}"
+    - uses: actions/checkout@v4
+    - uses: actions/setup-java@v4
+      with:
+        distribution: 'zulu' # See 'Supported distributions' for available options
+        java-version: '21'
+  # 删除废物+改版本号+打包
+  Init:
+    name: Init
+    runs-on: ubuntu-latest
+    steps:
+    - name: Init
+      uses: actions/checkout@v4
+    - name: Cache
+      uses: actions/cache@v4.2.3
+      with:
+        # A list of files, directories, and wildcard patterns to cache and restore
+        path: /cache
+        # An explicit key for restoring and saving the cache
+        key: 114514
+  # 生成Release
+  Release:
+      name: Releases
+      runs-on: ubuntu-latest
+      steps:
+      - name: Generate Changelog
+        run: echo "# Good things have arrived" > ${{ github.workspace }}-CHANGELOG.txt
+      - name: Upload
+        uses: softprops/action-gh-release@v2
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          body_path: ${{ github.workspace }}-CHANGELOG.txt
+          repository: my_gh_org/my_gh_repo
+          # note you'll typically need to create a personal access token
+          # with permissions to create releases in the other repo
+          token: ${{ secrets.CUSTOM_GITHUB_TOKEN }}
