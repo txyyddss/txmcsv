@@ -42,7 +42,7 @@ jobs:
         issues=$(gh api "repos/${{ github.repository }}/issues?state=closed&since=${encoded_date}" \
           --jq '[.[] | select(any(.labels[]?; .name != "Closed as not planned"))]' \
           --silent \
-          --cache 60)
+          --cache 60s)
         
         # 构建变更日志内容
         changelog_content="📦 更新内容：\n"
