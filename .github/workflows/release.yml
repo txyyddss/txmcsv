@@ -1,7 +1,9 @@
 name: Create Release
 
 on:
-  workflow_dispatch:
+  push:
+    branches: [ main ]  # 或者其他触发条件
+  workflow_dispatch:    # 允许手动触发
 
 jobs:
   build:
@@ -14,144 +16,76 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
         with:
-          fetch-depth: 0
+          fetch-depth: 0  # 获取完整历史以便获取上一个 release
       
-      - name: Delete unwanted files in plugins folder
+      - name: Clean plugins directory
         run: |
-          find ./plugins -type f -not -name "*.yml" -not -name "*.conf" -not -name "*.txt" -not -name "*.jar" -delete
-      
-      - name: Create release.zip
-        run: |
-          zip -r release.zip . -x "README.md" ".github/*" ".gitattributes" "*.git*"
-      
-      - name: Get latest release date
-        id: latest_release
-        run: |
-          latest_release_date=$(gh api repos/${{ github.repository }}/releases/latest --jq '.published_at' 2>/dev/null || echo "")
-          if [ -z "$latest_release_date" ]; then
-            echo "No previous release found, using repository creation date"
-            latest_release_date=$(gh api repos/${{ github.repository }} --jq '.created_at')
+          if [ -d "./plugins" ]; then
+            find ./plugins -type f -not \( -name "*.yml" -o -name "*.conf" -o -name "*.txt" -o -name "*.jar" \) -delete
           fi
-          echo "latest_release_date=$latest_release_date" >> $GITHUB_OUTPUT
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Create release zip
+        run: |
+          zip -r release.zip . -x "README.md" ".github/*" ".gitattributes"
       
       - name: Generate changelog
         id: changelog
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          # 创建GraphQL查询文件
-          echo 'query($repo_owner: String!, $repo_name: String!, $since: DateTime!) {
-            repository(owner: $repo_owner, name: $repo_name) {
-              issues(first: 100, states: CLOSED, filterBy: {since: $since}) {
-                nodes {
-                  number
-                  title
-                  labels(first: 10) {
-                    nodes {
-                      name
-                    }
-                  }
-                  closedAt
-                  stateReason
-                }
-              }
-            }
-          }' > query.graphql
+          # 获取最新 release 的日期
+          LAST_RELEASE=$(gh release list --limit 1)
+          if [ -n "$LAST_RELEASE" ]; then
+            LAST_RELEASE_DATE=$(echo "$LAST_RELEASE" | awk '{print $3}')
+            echo "Last release date: $LAST_RELEASE_DATE"
+          else
+            # 如果没有找到上一个 release，使用一个较早的日期
+            LAST_RELEASE_DATE="1970-01-01"
+            echo "No previous release found, using date: $LAST_RELEASE_DATE"
+          fi
           
-          # 执行GraphQL查询
-          issues=$(gh api graphql -F query=@query.graphql \
-            -f repo_owner=${{ github.repository_owner }} \
-            -f repo_name=$(echo "${{ github.repository }}" | cut -d'/' -f2) \
-            -f since="${{ steps.latest_release.outputs.latest_release_date }}")
+          # 创建临时文件存储 bug fixes 和 features
+          > bug_fixes.txt
+          > features.txt
           
-          # 准备changelog
+          # 获取从上一个 release 以来关闭的 issues
+          # 排除标记为 "Closed as not planned" 的 issues
+          ISSUES=$(gh issue list --state closed --search "closed:>$LAST_RELEASE_DATE -label:\"Closed as not planned\"" --json number,title,labels --limit 100)
+          
+          # 检查是否有 issues
+          if [ -z "$ISSUES" ] || [ "$ISSUES" == "[]" ]; then
+            echo "No issues found since last release"
+          else
+            # 使用 jq 一次性处理所有 issues，避免在循环中处理
+            echo "$ISSUES" | jq -r '.[] | select(.labels | map(.name | ascii_downcase) | any(contains("bug"))) | "修复了\(.title)的问题 #\(.number)"' > bug_fixes.txt
+            echo "$ISSUES" | jq -r '.[] | select(.labels | map(.name | ascii_downcase) | any(contains("feature") or contains("enhancement"))) | "\(.title) #\(.number)"' > features.txt
+          fi
+          
+          # 创建 changelog
           echo "# 📦 更新内容：" > changelog.md
-          echo "" >> changelog.md
-          echo "## Bug修复" >> changelog.建处理Bug的Python脚本
-          cat > process_bugs.py << 'EOF'
-import json
-import sys
-
-data = json.loads(sys.argv[1])
-bug_count = 0
-
-for issue in data["data"]["repository"]["issues"]["nodes"]:
-    # 跳过标记为NOT_PLANNED的issues
-    if issue.get("stateReason") == "NOT_PLANNED":
-        continue
-        
-    # 检查是否有bug标签
-    has_bug_label = False
-    for label in issue["labels"]["nodes"]:
-        if "bug" in label["name"].lower():
-            has_bug_label = True
-            break
-            
-    if has_bug_label:
-        print("修复了{}的问题 #{}".format(issue["title"], issue["number"]))
-        bug_count += 1
-
-if bug_count == 0:
-    print("")
-EOF
-          
-          # 执行Python脚本处理Bug
-          python3 process_bugs.py "$issues" >> changelog.md
+          echo "## Bug修复" >> changelog.md
+          if [ -s bug_fixes.txt ]; then
+            cat bug_fixes.txt >> changelog.md
+          fi
           
           echo "" >> changelog.md
           echo "## 功能更改" >> changelog.md
+          if [ -s features.txt ]; then
+            cat features.txt >> changelog.md
+          fi
           
-          # 创建处理功能的Python脚本
-          cat > process_features.py << 'EOF'
-import json
-import sys
-
-data = json.loads(sys.argv[1])
-feature_count = 0
-
-for issue in data["data"]["repository"]["issues"]["nodes"]:
-    # 跳过标记为NOT_PLANNED的issues
-    if issue.get("stateReason") == "NOT_PLANNED":
-        continue
-        
-    # 检查是否有功能相关标签
-    has_feature_label = False
-    for label in issue["labels"]["nodes"]:
-        if "enhancement" in label["name"].lower() or "feature" in label["name"].lower():
-            has_feature_label = True
-            break
-            
-    if has_feature_label:
-        print("{} #{}".format(issue["title"], issue["number"]))
-        feature_count += 1
-
-if feature_count ==
-          
-          # 执行Python脚本处理功能
-          python3 process_features.py "$issues" >> changelog.md
-          
-          # 显示生成的changelog
+          # 显示生成的 changelog
           cat changelog.md
-          
-          # 将changelog内容设置为输出
-          echo "content<<EOF" >> $GITHUB_OUTPUT
-          cat changelog.md >> $GITHUB_OUTPUT
-          echo "EOF" >> $GITHUB_OUTPUT
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      
-      - name: Generate release date
-        id: date
-        run: echo "release_date=$(date +'%Y.%m.%d')" >> $GITHUB_OUTPUT
       
       - name: Create Release
-        uses: softprops/action-gh-release@v1
-        with:
-          name: ${{ steps.date.outputs.release_date }}
-          tag_name: ${{ steps.date.outputs.release_date }}
-          body: ${{ steps.changelog.outputs.content }}
-          files: release.zip
-          draft: false
-          prerelease: false
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # 生成日期格式的 tag
+          TAG=$(date +'%Y.%m.%d')
+          
+          # 创建 release
+          gh release create "$TAG" \
+            --title "$TAG" \
+            --notes-file changelog.md \
+            release.zip
