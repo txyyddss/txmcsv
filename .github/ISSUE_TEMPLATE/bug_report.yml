@@ -44,14 +44,14 @@ projects: []
   - 'attributes':
         'description': 'What is the current version of MT Network?'
         'label': 'Server version'
-    'id': 'version'
+    'id': 'versionsv'
     'type': 'input'
     'validations':
         'required': true
   - 'attributes':
         'description': 'What version of Minecraft are you using?'
         'label': 'Minecraft version'
-    'id': 'version'
+    'id': 'versioncl'
     'type': 'input'
     'validations':
         'required': true
