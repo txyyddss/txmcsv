@@ -26,7 +26,7 @@ projects: []
     'id': 'prerequisites'
     'type': 'checkboxes'
   - 'attributes':
-        'description': 'On which Platform does the issue occur?'
+        'description': 'Which platform are you using when the problem occurs?'
         'label': 'Platform'
         'options':
           - 'Windows Bedrock'
