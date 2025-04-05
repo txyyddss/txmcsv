@@ -23,22 +23,6 @@ jobs:
         run: |
           find ./plugins -type f -not -name "*.yml" -not -name "*.conf" -not -name "*.txt" -not -name "*.jar" -delete
       
-      - name: Create release.zip
-        run: |
-          zip -r release.zip . -x "README.md" ".github/*" ".gitattributes" "*.git*"
-      
-      - name: Get latest release date
-        id: latest_release
-        run: |
-          latest_release_date=$(gh api repos/${{ github.repository }}/releases/latest --jq '.published_at' 2>/dev/null || echo "")
-          if [ -z "$latest_release_date" ]; then
-            echo "No previous release found, using repository creation date"
-            latest_release_date=$(gh api repos/${{ github.repository }} --jq '.created_at')
-          fi
-          echo "latest_release_date=$latest_release_date" >> $GITHUB_OUTPUT
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      
       - name: Generate changelog
         id: changelog
         run: |
@@ -68,31 +52,31 @@ jobs:
           # 处理Bug修复
           echo "## Bug修复" >> changelog.md
           
-          # 使用Python处理JSON数据
+          # 使用Python处理JSON数据，修改字符串处理方式
           python3 -c '
-          import json, sys
-          data = json.loads(sys.argv[1])
-          bug_count = 0
-          
-          for issue in data["data"]["repository"]["issues"]["nodes"]:
-              # 跳过标记为NOT_PLANNED的issues
-              if issue.get("stateReason") == "NOT_PLANNED":
-                  continue
-                  
-              # 检查是否有bug标签
-              has_bug_label = False
-              for label in issue["labels"]["nodes"]:
-                  if "bug" in label["name"].lower():
-                      has_bug_label = True
-                      break
-                      
-              if has_bug_label:
-                  print(f"修复了{issue[\"title\"]}的问题 #{issue[\"number\"]}")
-                  bug_count += 1
-          
-          if bug_count == 0:
-              print("")
-          ' "$issues" >> changelog.md
+  import json, sys
+  data = json.loads(sys.argv[1])
+  bug_count = 0
+
+  for issue in data["data"]["repository"]["issues"]["nodes"]:
+    # 跳过标记为NOT_PLANNED的issues
+    if issue.get("stateReason") == "NOT_PLANNED":
+        continue
+        
+    # 检查是否有bug标签
+    has_bug_label = False
+    for label in issue["labels"]["nodes"]:
+        if "bug" in label["name"].lower():
+            has_bug_label = True
+            break
+            
+    if has_bug_label:
+        print("修复了" + issue["title"] + "的问题 #" + str(issue["number"]))
+        bug_count += 1
+
+  if bug_count == 0:
+    print("")
+  ' "$issues" >> changelog.md
           
           echo "" >> changelog.md
           
@@ -100,29 +84,29 @@ jobs:
           echo "## 功能更改" >> changelog.md
           
           python3 -c '
-          import json, sys
-          data = json.loads(sys.argv[1])
-          feature_count = 0
-          
-          for issue in data["data"]["repository"]["issues"]["nodes"]:
-              # 跳过标记为NOT_PLANNED的issues
-              if issue.get("stateReason") == "NOT_PLANNED":
-                  continue
-                  
-              # 检查是否有功能相关标签
-              has_feature_label = False
-              for label in issue["labels"]["nodes"]:
-                  if "enhancement" in label["name"].lower() or "feature" in label["name"].lower():
-                      has_feature_label = True
-                      break
-                      
-              if has_feature_label:
-                  print(f"{issue[\"title\"]} #{issue[\"number\"]}")
-                  feature_count += 1
-          
-          if feature_count == 0:
-              print("")
-          ' "$issues" >> changelog.md
+  import json, sys
+  data = json.loads(sys.argv[1])
+  feature_count = 0
+
+  for issue in data["data"]["repository"]["issues"]["nodes"]:
+    # 跳过标记为NOT_PLANNED的issues
+    if issue.get("stateReason") == "NOT_PLANNED":
+        continue
+        
+    # 检查是否有功能相关标签
+    has_feature_label = False
+    for label in issue["labels"]["nodes"]:
+        if "enhancement" in label["name"].lower() or "feature" in label["name"].lower():
+            has_feature_label = True
+            break
+            
+    if has_feature_label:
+        print(issue["title"] + " #" + str(issue["number"]))
+        feature_count += 1
+
+  if feature_count == 0:
+    print("")
+  ' "$issues" >> changelog.md
           
           cat changelog.md
           
