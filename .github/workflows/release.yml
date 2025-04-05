@@ -46,7 +46,7 @@ jobs:
           issues=$(gh api graphql -f query='
             query($repo_owner:String!, $repo_name:String!, $since:DateTime!) {
               repository(owner: $repo_owner, name: $repo_name) {
-                issues(states: CLOSED, filterBy: {since: $since}) {
+                issues(states: CLOSED, filterBy: {since: $since}, first: 100) {
                   nodes {
                     number
                     title
