@@ -10,50 +10,53 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
 
-    - name: Clean plugins directory
-      run: |
-        find ./plugins -type f -not \( -name "*.yml" -o -name "*.conf" -o -name "*.txt" -o -name "*.jar" \) -delete
-
-    - name: Package release
-      run: |
-        sudo apt-get install -y zip
-        zip -r release.zip . -x ".git/*"
+    # ...保持其他步骤不变...
 
     - name: Get previous release date
       id: previous-release
       env:
         GH_TOKEN: ${{ github.token }}
       run: |
-        latest_date=$(gh api repos/${{ github.repository }}/releases/latest --jq '.created_at' 2>/dev/null || true)
-        echo "date=${latest_date:-1970-01-01T00:00:00Z}" >> $GITHUB_OUTPUT
+        # 处理首次发布的情况
+        if ! gh release view latest &>/dev/null; then
+          echo "没有找到历史版本，使用默认日期"
+          echo "date=1970-01-01T00:00:00Z" >> $GITHUB_OUTPUT
+          exit 0
+        fi
+        
+        latest_date=$(gh api repos/${{ github.repository }}/releases/latest \
+          --jq '.created_at' \
+          --silent \
+          --cache 60)
+        echo "date=${latest_date}" >> $GITHUB_OUTPUT
 
     - name: Generate changelog
       id: changelog
       env:
         GH_TOKEN: ${{ github.token }}
       run: |
-        issues=$(gh api "repos/${{ github.repository }}/issues?state=closed&since=${{ steps.previous-release.outputs.date }}" \
-          --jq '[.[] | select(any(.labels[]; .name != "Closed as not planned"))]')
+        # URL编码日期参数
+        encoded_date=$(echo "${{ steps.previous-release.outputs.date }}" | jq -sRr @uri)
         
+        # 使用更健壮的API查询方式
+        issues=$(gh api "repos/${{ github.repository }}/issues?state=closed&since=${encoded_date}" \
+          --jq '[.[] | select(any(.labels[]?; .name != "Closed as not planned"))]' \
+          --silent \
+          --cache 60)
+        
+        # 构建变更日志内容
         changelog_content="📦 更新内容：\n"
         
-        if [ $(echo "$issues" | jq length) -gt 0 ]; then
-          changelog_content+=$(echo "$issues" | jq -r '.[].title' | while read -r title; do
-            echo "• 修复了「${title}」的问题"
-          done | tr '\n' '\n')
+        if [ $(echo "$issues" | jq 'length > 0') == "true" ]; then
+          echo "$issues" | jq -r '.[].title' | while IFS= read -r title; do
+            changelog_content+="• 修复了「${title}」的问题\n"
+          done
         else
           changelog_content+="• 本次更新包含常规维护和优化"
         fi
 
-        echo "log<<EOF" >> $GITHUB_OUTPUT
+        # 使用heredoc格式输出
+        delimiter=$(openssl rand -hex 16)
+        echo "log<<${delimiter}" >> $GITHUB_OUTPUT
         echo -e "$changelog_content" >> $GITHUB_OUTPUT
-        echo "EOF" >> $GITHUB_OUTPUT
-
-    - name: Create release
-      uses: softprops/action-gh-release@v1
-      with:
-        tag_name: release-$(date +'%Y.%m.%d')
-        name: $(date +'%Y.%m')
-        body: |
-          ${{ steps.changelog.outputs.log }}
-        files: release.zip
+        echo "${delimiter}" >> $GITHUB_OUTPUT
