@@ -38,22 +38,47 @@ jobs:
       env:
         GH_TOKEN: ${{ github.token }}
       run: |
-        encoded_date=$(echo "${{ steps.previous-release.outputs.date }}" | jq -sRr @uri)
-        issues=$(gh api "repos/${{ github.repository }}/issues?state=closed&since=${encoded_date}" \
-          --jq '[.[] | select(any(.labels[]?; .name != "Closed as not planned"))]')
+        # 调试信息输出
+        echo "前次发布日期: ${{ steps.previous-release.outputs.date }}"
         
+        # 转换日期格式并编码
+        encoded_date=$(echo "${{ steps.previous-release.outputs.date }}" | jq -sRr @uri)
+        echo "编码后的日期参数: $encoded_date"
+
+        # 执行API请求
+        api_url="repos/${{ github.repository }}/issues?state=closed&since=$encoded_date"
+        echo "请求URL: $api_url"
+        
+        # 获取并处理issues数据
+        issues=$(gh api "$api_url" \
+          --jq '[.[] | select(.state == "closed" and (any(.labels[]?; .name != "Closed as not planned"))]')
+        
+        # 调试输出原始数据
+        echo "原始issues数据: $issues"
+        
+        # 构建变更日志
         changelog_content="📦 更新内容：\n"
-        if [ $(echo "$issues" | jq 'length > 0') == "true" ]; then
-          echo "$issues" | jq -r '.[].title' | while IFS= read -r title; do
-            changelog_content+="• 修复了「${title}」的问题\n"
+        issue_count=$(echo "$issues" | jq 'length')
+        
+        if [ $issue_count -gt 0 ]; then
+          echo "发现 $issue_count 个有效issue"
+          echo "$issues" | jq -r '.[] | "• 修复了「\(.title)」的问题"' | while read line; do
+            changelog_content+="${line}\n"
           done
         else
+          echo "未找到有效issue，使用默认信息"
           changelog_content+="• 本次更新包含常规维护和优化"
         fi
 
+        # 格式化输出
+        changelog_content=$(echo -e "$changelog_content")
+        echo "生成的更新内容："
+        echo "$changelog_content"
+
+        # 输出到环境变量
         delimiter=$(openssl rand -hex 16)
         echo "log<<${delimiter}" >> $GITHUB_OUTPUT
-        echo -e "$changelog_content" >> $GITHUB_OUTPUT
+        echo "$changelog_content" >> $GITHUB_OUTPUT
         echo "${delimiter}" >> $GITHUB_OUTPUT
 
     - name: Create Git tag
