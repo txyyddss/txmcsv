@@ -1,7 +1,7 @@
 name: Feature request
 description: Ask for a improvement or a new feature.
 title: "[Feature request]: "
-labels: ["feature","enhancement"]
+labels: ["enhancement"]
 projects: []
 'body':
   - 'attributes':
