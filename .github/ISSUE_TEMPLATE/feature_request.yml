@@ -1,0 +1,48 @@
+name: Feature request
+description: Ask for a improvement or a new feature.
+title: "[Feature request]: "
+labels: ["Feature request"]
+projects: []
+'body':
+  - 'attributes':
+        'description': >
+            Please make sure that the issue is not a duplicate or a question.
+            If it's a duplicate, please react to the original issue with a
+            thumbs up.
+        'label': 'Prerequisites'
+        'options':
+          - 'label': >
+                I have searched other issues and found no duplicates
+            'required': true
+          - 'label': >
+                I want to request a feature or enhancement and not ask a
+                question
+            'required': true
+    'id': 'prerequisites'
+    'type': 'checkboxes'
+  - 'attributes':
+        'description': 'Please describe the problem you are trying to solve or any feature you want'
+        'label': 'The problem'
+        'placeholder': >
+            Please describe it.
+    'id': 'problem'
+    'type': 'textarea'
+    'validations':
+        'required': true
+  - 'attributes':
+        'description': 'What feature are you proposing to solve this problem?'
+        'label': 'Proposed solution'
+        'placeholder': >
+            What feature are you proposing to solve this problem?
+    'id': 'proposed_solution'
+    'type': 'textarea'
+    'validations':
+        'required': false
+  - 'attributes':
+        'label': 'Alternatives considered and additional information'
+        'placeholder': >
+            Are there any other ways to solve the problem or add the feature? 
+    'id': 'additional'
+    'type': 'textarea'
+    'validations':
+        'required': false
