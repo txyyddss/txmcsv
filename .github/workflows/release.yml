@@ -16,8 +16,8 @@ jobs:
 
     - name: Package release
       run: |
-        sudo apt-get update && sudo apt-get install -y zip
-        zip -r release.zip .
+        sudo apt-get install -y zip
+        zip -r release.zip . -x ".git/*"
 
     - name: Get previous release date
       id: previous-release
@@ -32,23 +32,28 @@ jobs:
       env:
         GH_TOKEN: ${{ github.token }}
       run: |
-        issues=$(gh api "repos/${{ github.repository }}/issues?state=closed&since=${{ steps.previous-release.outputs.date }}" |
-          jq -r '.[] | select(.labels[]?.name != "Closed as not planned") | "修复了\(.title)的问题"')
+        issues=$(gh api "repos/${{ github.repository }}/issues?state=closed&since=${{ steps.previous-release.outputs.date }}" \
+          --jq '[.[] | select(any(.labels[]; .name != "Closed as not planned"))]')
         
-        if [ -z "$issues" ]; then
-          issues="本次更新包含常规维护和优化"
+        changelog_content="📦 更新内容：\n"
+        
+        if [ $(echo "$issues" | jq length) -gt 0 ]; then
+          changelog_content+=$(echo "$issues" | jq -r '.[].title' | while read -r title; do
+            echo "• 修复了「${title}」的问题"
+          done | tr '\n' '\n')
+        else
+          changelog_content+="• 本次更新包含常规维护和优化"
         fi
-        
-        delimiter=$(openssl rand -hex 16)
-        echo "log<<$delimiter" >> $GITHUB_OUTPUT
-        echo "$issues" >> $GITHUB_OUTPUT
-        echo "$delimiter" >> $GITHUB_OUTPUT
+
+        echo "log<<EOF" >> $GITHUB_OUTPUT
+        echo -e "$changelog_content" >> $GITHUB_OUTPUT
+        echo "EOF" >> $GITHUB_OUTPUT
 
     - name: Create release
       uses: softprops/action-gh-release@v1
       with:
+        tag_name: release-$(date +'%Y.%m.%d')
         name: $(date +'%Y.%m')
         body: |
-          📦 更新内容：
           ${{ steps.changelog.outputs.log }}
         files: release.zip
