@@ -5,7 +5,7 @@
           - 'opened'
     'workflow_dispatch':
 'jobs':
-    'run':
+    'checkduplicate':
         'runs-on': 'ubuntu-latest'
         'steps':
           - 'uses': 'wow-actions/potential-duplicates@v1'
@@ -17,3 +17,12 @@
                     Potential duplicates: {{#issues}}
                      *  [#{{ number }}] {{ title }} ({{ accuracy }}%)
                     {{/issues}}
+    add-assigness:
+        runs-on: ubuntu-latest
+        steps:
+          - name: Add assigness
+            uses: actions-cool/issues-helper@v3
+            with:
+              actions: 'add-assignees'
+              token: ${{ secrets.GITHUB_TOKEN }}
+              assignees: 'txyyddss,reallapt'
