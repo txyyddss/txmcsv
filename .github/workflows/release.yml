@@ -9,6 +9,8 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
 
     - name: Clean plugins directory
       run: |
@@ -24,17 +26,11 @@ jobs:
       env:
         GH_TOKEN: ${{ github.token }}
       run: |
-        # 处理首次发布的情况
         if ! gh release view latest &>/dev/null; then
-          echo "没有找到历史版本，使用默认日期"
           echo "date=1970-01-01T00:00:00Z" >> $GITHUB_OUTPUT
           exit 0
         fi
-        
-        latest_date=$(gh api repos/${{ github.repository }}/releases/latest \
-          --jq '.created_at' \
-          --silent \
-          --cache 60)
+        latest_date=$(gh api repos/${{ github.repository }}/releases/latest --jq '.created_at')
         echo "date=${latest_date}" >> $GITHUB_OUTPUT
 
     - name: Generate changelog
@@ -42,17 +38,11 @@ jobs:
       env:
         GH_TOKEN: ${{ github.token }}
       run: |
-        # URL编码日期参数
         encoded_date=$(echo "${{ steps.previous-release.outputs.date }}" | jq -sRr @uri)
-        
-        # 使用更健壮的API查询方式
         issues=$(gh api "repos/${{ github.repository }}/issues?state=closed&since=${encoded_date}" \
-          --jq '[.[] | select(any(.labels[]?; .name != "Closed as not planned"))]' \
-          --cache 60s)
+          --jq '[.[] | select(any(.labels[]?; .name != "Closed as not planned"))]')
         
-        # 构建变更日志内容
         changelog_content="📦 更新内容：\n"
-        
         if [ $(echo "$issues" | jq 'length > 0') == "true" ]; then
           echo "$issues" | jq -r '.[].title' | while IFS= read -r title; do
             changelog_content+="• 修复了「${title}」的问题\n"
@@ -61,16 +51,31 @@ jobs:
           changelog_content+="• 本次更新包含常规维护和优化"
         fi
 
-        # 使用heredoc格式输出
         delimiter=$(openssl rand -hex 16)
         echo "log<<${delimiter}" >> $GITHUB_OUTPUT
         echo -e "$changelog_content" >> $GITHUB_OUTPUT
         echo "${delimiter}" >> $GITHUB_OUTPUT
+
+    - name: Create Git tag
+      id: create-tag
+      env:
+        DATE_TAG: $(date +'v%Y.%m.%d')
+      run: |
+        if git rev-parse $DATE_TAG >/dev/null 2>&1; then
+          git tag -d $DATE_TAG
+          git push origin :refs/tags/$DATE_TAG || true
+        fi
+        git config user.name "GitHub Actions"
+        git config user.email "actions@github.com"
+        git tag -a $DATE_TAG -m "Auto release $(date +'%Y-%m-%d')"
+        git push origin $DATE_TAG
+        echo "tag=$DATE_TAG" >> $GITHUB_OUTPUT
+
     - name: Create release
       uses: softprops/action-gh-release@v1
       with:
-        tag_name: release-$(date +'%Y.%m.%d')
-        name: $(date +'%Y.%m')
+        tag_name: ${{ steps.create-tag.outputs.tag }}
+        name: ${{ steps.create-tag.outputs.tag }}
         body: |
           ${{ steps.changelog.outputs.log }}
         files: release.zip
