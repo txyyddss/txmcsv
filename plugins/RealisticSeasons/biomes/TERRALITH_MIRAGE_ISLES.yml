@@ -1,0 +1,38 @@
+includes: terralith:mirage_isles
+modify-plants: false
+show-snow-instead-of-rain:
+  spring: false
+  summer: false
+  fall: false
+  winter: true
+freeze-in-winter: true
+colors:
+  spring:
+    skycolor: NONE
+    watercolor: NONE
+    waterfogcolor: NONE
+    grasscolor: NONE
+    treecolor: NONE
+    fogcolor: NONE
+  summer:
+    skycolor: NONE
+    watercolor: NONE
+    waterfogcolor: NONE
+    grasscolor: 4BDFAF
+    treecolor: 4BDFAF
+    fogcolor: NONE
+  fall:
+    skycolor: NONE
+    watercolor: NONE
+    waterfogcolor: NONE
+    grasscolor: 2A97C7
+    treecolor: 67D5E6, 67D5E6, B04A5A, B04A5A, 506FE5
+    fogcolor: NONE
+  winter:
+    skycolor: D2DEFF
+    watercolor: 216FC4
+    waterfogcolor: 216FC4
+    grasscolor: 2A71C7
+    treecolor: 506FE5
+    fogcolor: A6D1FF
+temperature-difference: 0

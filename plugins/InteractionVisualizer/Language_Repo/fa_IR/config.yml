@@ -1,0 +1,78 @@
+#Persian Language default config translated by tntbaz
+#https://www.spigotmc.org/members/tntbaz.363572/
+#Replace the original "config.yml" to use!
+
+Database:
+  #Mahal zakhire sazi, SQLITE/MYSQL
+  Type: SQLITE
+  MYSQL:
+    Host: localhost
+    Port: 3306
+    Database: InteractionVisualizer
+    Username: mysql
+    Password: password
+ 
+Messages:
+  NoPermission: "&cShoma Dastresi kafi ra nadarid!"
+  Reload: "&aInteractionVisualizer ba movafaghiyat restart shod!"
+  Toggle:
+    Usage: "&cDastor: /interactionvisualizer toggle <itemstand/itemdrop/hologram>"
+    Modes: "&cToggle Modes: itemstand, itemdrop, hologram"
+    Console: "&cLotfan Esm yek Karbar Ra Vared Namayid: /interactionvisualizer toggle <mode> [Bazikon]"
+    ToggleOn: "&e %s fa'al shod!"
+    ToggleOff: "&e %s gheyr fa'al shod!"
+    PlayerNotFound: "&cBazikon Online Nemibashad!"
+ 
+#fa'al kardan plugin ya gheyr fa'al kardan baraye in block ha!
+Blocks:
+  Anvil:
+    Enabled: true
+  Beacon:
+    Enabled: true
+  BlastFurnace:
+    Enabled: true
+  BrewingStand:
+    Enabled: true
+  CartographyTable:
+    Enabled: true
+  Chest:
+    Enabled: true
+  CraftingTable:
+    Enabled: true
+  DoubleChest:
+    Enabled: true
+  EnchantmentTable:
+    Enabled: true
+  EnderChest:
+    Enabled: true
+  Furnace:
+    Enabled: true
+  Grindstone:
+    Enabled: true
+  Loom:
+    Enabled: true
+  Smoker:
+    Enabled: true
+  Stonecutter:
+    Enabled: true
+  ShulkerBox:
+    Enabled: true
+ 
+Entities:
+  Villager:
+    Enabled: true
+ 
+#Enable these modules for InteractionVisualizer displays
+#ItemStand represents all displays using armorstands and itemframes
+#ItemDrop represents all displays using dropped items
+#Hologram represents all holograpgic displays using armorstands
+Modules:
+  ItemStand:
+    Enabled: true
+  ItemDrop:
+    Enabled: true
+  Hologram:
+    Enabled: true
+ 
+Options:
+  Updater: true

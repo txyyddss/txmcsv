@@ -1,0 +1,34 @@
+{
+  "type": "com.loohp.imageframe.objectholders.URLStaticImageMap",
+  "index": 1,
+  "name": "corn",
+  "url": "https://corn-hub.ru/wp-content/uploads/2022/09/cornhub-logo.png",
+  "width": 4,
+  "height": 1,
+  "ditheringType": "nearest-color",
+  "creator": "28fcb19f-8a07-3f1c-9403-66c0f1275aa2",
+  "hasAccess": {},
+  "creationTime": 1729948043032,
+  "mapdata": [
+    {
+      "mapid": 4,
+      "image": "0.png",
+      "markers": []
+    },
+    {
+      "mapid": 5,
+      "image": "1.png",
+      "markers": []
+    },
+    {
+      "mapid": 6,
+      "image": "2.png",
+      "markers": []
+    },
+    {
+      "mapid": 7,
+      "image": "3.png",
+      "markers": []
+    }
+  ]
+}

@@ -1,0 +1,1436 @@
+# vim: set tabstop=2 softtabstop=0 expandtab shiftwidth=2:
+# This config file will automatically be updated, as long
+# as there are no incompatible changes between versions.
+# This means that additional comments will not be preserved!
+
+# The language for this module. The corresponding language file must be named
+# lang-{lang}.yml. Specifying 'inherit' will load the value set for vane-core.
+# Default: "inherit"
+lang: "inherit"
+
+# The module will only add functionality if this is set to true.
+# Default: true
+enabled: true
+
+# Enable plugin metrics via bStats. You can opt-out here or via the global bStats
+# configuration. All collected information is completely anonymous and publicly
+# available.
+# Default: true
+metrics_enabled: true
+
+better_harvesting:
+  # Enables better harvesting. Right clicking on grown crops with bare hands will
+  # then harvest the plant and also replant it.
+  # Default: true
+  enabled: true
+
+chest_sorting:
+  # Enables chest sorting when a nearby button is pressed.
+  # Default: true
+  enabled: true
+
+  # Chest sorting cooldown in milliseconds.
+  # Valid values: [0,)
+  # Default: 1000
+  cooldown: 1000
+
+  # Chest sorting radius in X-direction from the button (left-right when looking
+  # at the button). A radius of 0 means a column of the block including the
+  # button. It is advised to NEVER set the three radius values to more than THREE
+  # (3), as sorting a huge area of chests can lead to SEVERE lag! Ideally always
+  # keep the Z-radius set to 0 or 1, while only adjusting X and Y. You've been
+  # warned.
+  # Valid values: [0,16]
+  # Default: 1
+  radius_x: 1
+
+  # Chest sorting radius in Y-direction from the button (up-down when looking at
+  # the button - this can be a horizontal direction if the button is on the
+  # ground). A radius of 0 means a column of the block including the button. It is
+  # advised to NEVER set the three radius values to more than THREE (3), as
+  # sorting a huge area of chests can lead to SEVERE lag! Ideally always keep the
+  # Z-radius set to 0 or 1, while only adjusting X and Y. You've been warned.
+  # Valid values: [0,16]
+  # Default: 1
+  radius_y: 1
+
+  # Chest sorting radius in Z-direction from the button (into/out-of the attached
+  # block). A radius of 0 means a column of the block including the button. It is
+  # advised to NEVER set the three radius values to more than THREE (3), as
+  # sorting a huge area of chests can lead to SEVERE lag! Ideally always keep the
+  # Z-radius set to 0 or 1, while only adjusting X and Y. You've been warned.
+  # Valid values: [0,16]
+  # Default: 1
+  radius_z: 1
+
+command_finditem:
+  # Enable command finditem
+  # Default: true
+  enabled: true
+
+command_heads:
+  # Enable command heads
+  # Default: true
+  enabled: true
+
+  # Currency material used to buy heads.
+  # Default: "minecraft:bone"
+  currency: "minecraft:bone"
+
+  # Price (in currency) per head. Set to 0 for free heads.
+  # Valid values: [0,)
+  # Default: 1
+  price_per_head: 1
+
+command_setspawn:
+  # Enable command setspawn
+  # Default: true
+  enabled: false
+
+doubledoor:
+  # Enable updating of double doors automatically when one of the doors is
+  # changed.
+  # Default: true
+  enabled: true
+
+fast_walking:
+  # Enable faster walking on certain materials.
+  # Default: true
+  enabled: true
+
+  # Speed effect duration in milliseconds.
+  # Valid values: [50,5000]
+  # Default: 2000
+  duration: 2000
+
+  # Whether hostile mobs should be allowed to fast walk on paths.
+  # Default: false
+  hostile_speedwalk: false
+
+  # Materials on which players will walk faster.
+  # Default:
+  #   - "minecraft:dirt_path"
+  materials:
+    - "minecraft:dirt_path"
+
+  # Whether players should be the only entities allowed to fast walk on paths
+  # (will override other path walk settings).
+  # Default: false
+  players_only_speedwalk: false
+
+  # Speed effect level.
+  # Valid values: [1,10]
+  # Default: 2
+  speed_level: 2
+
+  # Whether villagers should be allowed to fast walk on paths.
+  # Default: true
+  villager_speedwalk: true
+
+item_empty_xp_bottle:
+  # Enable item empty_xp_bottle
+  # Default: true
+  enabled: false
+
+  # The durability of this item. Set to 0 to use the durability properties of
+  # whatever base material the item is made of.
+  # Valid values: [0,)
+  # Default: 0
+  durability: 0
+
+  # The associated loot. This is a map of loot tables (as defined by minecraft) to
+  # additional loot. This additional loot is a list of loot definitions, which
+  # specify the amount and loot percentage for a particular item.
+  # Default: {}
+  loot: {}
+
+  # Percentage of experience lost when bottling. For 10% loss, bottling 30 levels
+  # will require 30 * (1 / (1 - 0.1)) = 33.33 levels
+  # Valid values: [0.0,0.999]
+  # Default: 0.3
+  loss_percentage: 0.3
+
+  # The associated recipes. This is a map of recipe name to recipe definitions.
+  # Default:
+  #   generic:
+  #     ingredients:
+  #       - "minecraft:experience_bottle"
+  #       - "minecraft:glass_bottle"
+  #       - "minecraft:gold_nugget"
+  #     result: "vane_trifles:empty_xp_bottle"
+  #     type: "shapeless"
+  recipes:
+    generic:
+      ingredients:
+        - "minecraft:experience_bottle"
+        - "minecraft:glass_bottle"
+        - "minecraft:gold_nugget"
+      result: "vane_trifles:empty_xp_bottle"
+      type: "shapeless"
+
+  # Whether the loot should be registered. Set to false to quickly disable all
+  # associated loot.
+  # Default: true
+  register_loot: true
+
+  # Whether these recipes should be registered at all. Set to false to quickly
+  # disable all associated recipes.
+  # Default: true
+  register_recipes: true
+
+item_file:
+  # Enable item file
+  # Default: true
+  enabled: true
+
+  # The durability of this item. Set to 0 to use the durability properties of
+  # whatever base material the item is made of.
+  # Valid values: [0,)
+  # Default: 4000
+  durability: 4000
+
+  # The associated loot. This is a map of loot tables (as defined by minecraft) to
+  # additional loot. This additional loot is a list of loot definitions, which
+  # specify the amount and loot percentage for a particular item.
+  # Default: {}
+  loot: {}
+
+  # The associated recipes. This is a map of recipe name to recipe definitions.
+  # Default:
+  #   generic:
+  #     ingredients:
+  #       m: "minecraft:iron_ingot"
+  #       s: "minecraft:stick"
+  #     result: "vane_trifles:file"
+  #     shape:
+  #       - " m"
+  #       - "s "
+  #     type: "shaped"
+  recipes:
+    generic:
+      ingredients:
+        m: "minecraft:iron_ingot"
+        s: "minecraft:stick"
+      result: "vane_trifles:file"
+      shape:
+        - " m"
+        - "s "
+      type: "shaped"
+
+  # Whether the loot should be registered. Set to false to quickly disable all
+  # associated loot.
+  # Default: true
+  register_loot: true
+
+  # Whether these recipes should be registered at all. Set to false to quickly
+  # disable all associated recipes.
+  # Default: true
+  register_recipes: true
+
+item_finder:
+  # Enables players to search for items in nearby containers by either
+  # shift-right-clicking a similar item in their inventory or by using the
+  # `/finditem <item>` command.
+  # Default: true
+  enabled: true
+
+  # The radius of chunks in which containers (and possibly entities) are checked
+  # for matching items.
+  # Valid values: [1,10]
+  # Default: 2
+  radius: 2
+
+  # Only allow players to use the shift+rightclick shortcut when they have the
+  # shortcut permission `vane.trifles.use_item_find_shortcut`.
+  # Default: false
+  require_permission: false
+
+  # Also search entities such as players, mobs, minecarts, ...
+  # Default: true
+  search_entities: true
+
+item_north_compass:
+  # Enable item north_compass
+  # Default: true
+  enabled: false
+
+  # The durability of this item. Set to 0 to use the durability properties of
+  # whatever base material the item is made of.
+  # Valid values: [0,)
+  # Default: 0
+  durability: 0
+
+  # The associated loot. This is a map of loot tables (as defined by minecraft) to
+  # additional loot. This additional loot is a list of loot definitions, which
+  # specify the amount and loot percentage for a particular item.
+  # Default: {}
+  loot: {}
+
+  # The associated recipes. This is a map of recipe name to recipe definitions.
+  # Default:
+  #   generic:
+  #     ingredients:
+  #       m: "minecraft:copper_ingot"
+  #       r: "minecraft:redstone"
+  #     result: "vane_trifles:north_compass"
+  #     shape:
+  #       - " m "
+  #       - "mrm"
+  #       - " m "
+  #     type: "shaped"
+  recipes:
+    generic:
+      ingredients:
+        m: "minecraft:copper_ingot"
+        r: "minecraft:redstone"
+      result: "vane_trifles:north_compass"
+      shape:
+        - " m "
+        - "mrm"
+        - " m "
+      type: "shaped"
+
+  # Whether the loot should be registered. Set to false to quickly disable all
+  # associated loot.
+  # Default: true
+  register_loot: true
+
+  # Whether these recipes should be registered at all. Set to false to quickly
+  # disable all associated recipes.
+  # Default: true
+  register_recipes: true
+
+item_papyrus_scroll:
+  # Enable item papyrus_scroll
+  # Default: true
+  enabled: false
+
+  # The durability of this item. Set to 0 to use the durability properties of
+  # whatever base material the item is made of.
+  # Valid values: [0,)
+  # Default: 0
+  durability: 0
+
+  # The associated loot. This is a map of loot tables (as defined by minecraft) to
+  # additional loot. This additional loot is a list of loot definitions, which
+  # specify the amount and loot percentage for a particular item.
+  # Default: {}
+  loot: {}
+
+  # The associated recipes. This is a map of recipe name to recipe definitions.
+  # Default:
+  #   generic:
+  #     ingredients:
+  #       e: "minecraft:echo_shard"
+  #       g: "minecraft:gold_nugget"
+  #       p: "minecraft:paper"
+  #       r: "minecraft:rabbit_hide"
+  #     result: "vane_trifles:papyrus_scroll"
+  #     shape:
+  #       - "rpp"
+  #       - "pep"
+  #       - "ppg"
+  #     type: "shaped"
+  recipes:
+    generic:
+      ingredients:
+        e: "minecraft:echo_shard"
+        g: "minecraft:gold_nugget"
+        p: "minecraft:paper"
+        r: "minecraft:rabbit_hide"
+      result: "vane_trifles:papyrus_scroll"
+      shape:
+        - "rpp"
+        - "pep"
+        - "ppg"
+      type: "shaped"
+
+  # Whether the loot should be registered. Set to false to quickly disable all
+  # associated loot.
+  # Default: true
+  register_loot: true
+
+  # Whether these recipes should be registered at all. Set to false to quickly
+  # disable all associated recipes.
+  # Default: true
+  register_recipes: true
+
+item_reinforced_elytra:
+  # Enable item reinforced_elytra
+  # Default: true
+  enabled: true
+
+  # Amount of defense points.
+  # Valid values: [0.0,)
+  # Default: 6.0
+  defense_points: 6.0
+
+  # The durability of this item. Set to 0 to use the durability properties of
+  # whatever base material the item is made of.
+  # Valid values: [0,)
+  # Default: 864
+  durability: 864
+
+  # The associated loot. This is a map of loot tables (as defined by minecraft) to
+  # additional loot. This additional loot is a list of loot definitions, which
+  # specify the amount and loot percentage for a particular item.
+  # Default: {}
+  loot: {}
+
+  # The associated recipes. This is a map of recipe name to recipe definitions.
+  # Default:
+  #   generic:
+  #     addition: "minecraft:netherite_ingot"
+  #     base: "minecraft:elytra"
+  #     copy_nbt: true
+  #     result: "vane_trifles:reinforced_elytra"
+  #     type: "smithing"
+  recipes:
+    generic:
+      addition: "minecraft:netherite_ingot"
+      base: "minecraft:elytra"
+      copy_nbt: true
+      result: "vane_trifles:reinforced_elytra"
+      type: "smithing"
+
+  # Whether the loot should be registered. Set to false to quickly disable all
+  # associated loot.
+  # Default: true
+  register_loot: true
+
+  # Whether these recipes should be registered at all. Set to false to quickly
+  # disable all associated recipes.
+  # Default: true
+  register_recipes: true
+
+item_slime_bucket:
+  # Enable item slime_bucket
+  # Default: true
+  enabled: true
+
+  # The durability of this item. Set to 0 to use the durability properties of
+  # whatever base material the item is made of.
+  # Valid values: [0,)
+  # Default: 0
+  durability: 0
+
+  # The associated loot. This is a map of loot tables (as defined by minecraft) to
+  # additional loot. This additional loot is a list of loot definitions, which
+  # specify the amount and loot percentage for a particular item.
+  # Default: {}
+  loot: {}
+
+  # The associated recipes. This is a map of recipe name to recipe definitions.
+  # Default: {}
+  recipes: {}
+
+  # Whether the loot should be registered. Set to false to quickly disable all
+  # associated loot.
+  # Default: true
+  register_loot: true
+
+  # Whether these recipes should be registered at all. Set to false to quickly
+  # disable all associated recipes.
+  # Default: true
+  register_recipes: true
+
+item_trowel:
+  # Enable item trowel
+  # Default: true
+  enabled: true
+
+  # The durability of this item. Set to 0 to use the durability properties of
+  # whatever base material the item is made of.
+  # Valid values: [0,)
+  # Default: 800
+  durability: 800
+
+  # The associated loot. This is a map of loot tables (as defined by minecraft) to
+  # additional loot. This additional loot is a list of loot definitions, which
+  # specify the amount and loot percentage for a particular item.
+  # Default: {}
+  loot: {}
+
+  # The associated recipes. This is a map of recipe name to recipe definitions.
+  # Default:
+  #   generic:
+  #     ingredients:
+  #       m: "minecraft:iron_ingot"
+  #       s: "minecraft:stick"
+  #     result: "vane_trifles:trowel"
+  #     shape:
+  #       - "  s"
+  #       - "mm "
+  #     type: "shaped"
+  recipes:
+    generic:
+      ingredients:
+        m: "minecraft:iron_ingot"
+        s: "minecraft:stick"
+      result: "vane_trifles:trowel"
+      shape:
+        - "  s"
+        - "mm "
+      type: "shaped"
+
+  # Whether the loot should be registered. Set to false to quickly disable all
+  # associated loot.
+  # Default: true
+  register_loot: true
+
+  # Whether these recipes should be registered at all. Set to false to quickly
+  # disable all associated recipes.
+  # Default: true
+  register_recipes: true
+
+recipe_unlock:
+  # Unlocks all recipes when a player joins.
+  # Default: true
+  enabled: true
+
+repair_cost_limiter:
+  # Removes the cost limit on the anvil for all recipes. This means even if the
+  # client shows 'Too Expensive' in the anvil, the result may still be crafted, as
+  # long as the player has the required amount of levels (which unfortunately will
+  # not be shown).
+  # Default: true
+  enabled: true
+
+  # Limit anvil crafting cost. Set < 40 to remove 'Too Expensive' altogether.
+  # (Costs greater than 40 will still be craftable, even if it shows 'Too
+  # Expensive')
+  # Valid values: [0,)
+  # Default: 39
+  max_repair_cost: 100
+
+scrolls:
+  # Several scrolls that allow player teleportation, and related behavior.
+  # Default: true
+  enabled: true
+
+  # A cooldown in milliseconds that is applied when the player takes damage
+  # (prevents combat logging). Set to 0 to allow combat logging.
+  # Valid values: [0,)
+  # Default: 15000
+  damage_cooldown: 15000
+
+  item_death_scroll:
+    # Enable item death_scroll
+    # Default: true
+    enabled: true
+
+    # Allow this scroll to be repaired via the mending enchantment.
+    # Default: false
+    allow_mending: false
+
+    # Cooldown in milliseconds until another scroll can be used.
+    # Valid values: [0,)
+    # Default: 6000
+    cooldown: 6000
+
+    # The durability of this item. Set to 0 to use the durability properties of
+    # whatever base material the item is made of.
+    # Valid values: [0,)
+    # Default: 2
+    durability: 2
+
+    # The associated loot. This is a map of loot tables (as defined by minecraft)
+    # to additional loot. This additional loot is a list of loot definitions,
+    # which specify the amount and loot percentage for a particular item.
+    # Default: {}
+    loot: {}
+
+    # The associated recipes. This is a map of recipe name to recipe definitions.
+    # Default:
+    #   generic:
+    #     ingredients:
+    #       a: "minecraft:bone"
+    #       b: "minecraft:recovery_compass"
+    #       e: "minecraft:ender_pearl"
+    #       p: "vane_trifles:papyrus_scroll"
+    #     result: "vane_trifles:death_scroll"
+    #     shape:
+    #       - "aba"
+    #       - "epe"
+    #     type: "shaped"
+    recipes:
+      generic:
+        ingredients:
+          a: "minecraft:bone"
+          b: "minecraft:recovery_compass"
+          e: "minecraft:ender_pearl"
+          p: "vane_trifles:papyrus_scroll"
+        result: "vane_trifles:death_scroll"
+        shape:
+          - "aba"
+          - "epe"
+        type: "shaped"
+
+    # Whether the loot should be registered. Set to false to quickly disable all
+    # associated loot.
+    # Default: true
+    register_loot: true
+
+    # Whether these recipes should be registered at all. Set to false to quickly
+    # disable all associated recipes.
+    # Default: true
+    register_recipes: true
+
+  item_home_scroll:
+    # Enable item home_scroll
+    # Default: true
+    enabled: true
+
+    # Allow this scroll to be repaired via the mending enchantment.
+    # Default: false
+    allow_mending: false
+
+    # Cooldown in milliseconds until another scroll can be used.
+    # Valid values: [0,)
+    # Default: 10000
+    cooldown: 10000
+
+    # The durability of this item. Set to 0 to use the durability properties of
+    # whatever base material the item is made of.
+    # Valid values: [0,)
+    # Default: 25
+    durability: 25
+
+    # The associated loot. This is a map of loot tables (as defined by minecraft)
+    # to additional loot. This additional loot is a list of loot definitions,
+    # which specify the amount and loot percentage for a particular item.
+    # Default: {}
+    loot: {}
+
+    # The associated recipes. This is a map of recipe name to recipe definitions.
+    # Default:
+    #   generic:
+    #     ingredients:
+    #       a: "minecraft:campfire"
+    #       b: "minecraft:goat_horn"
+    #       c: "#minecraft:beds"
+    #       e: "minecraft:ender_pearl"
+    #       p: "vane_trifles:papyrus_scroll"
+    #     result: "vane_trifles:home_scroll"
+    #     shape:
+    #       - "abc"
+    #       - "epe"
+    #     type: "shaped"
+    recipes:
+      generic:
+        ingredients:
+          a: "minecraft:campfire"
+          b: "minecraft:goat_horn"
+          c: "#minecraft:beds"
+          e: "minecraft:ender_pearl"
+          p: "vane_trifles:papyrus_scroll"
+        result: "vane_trifles:home_scroll"
+        shape:
+          - "abc"
+          - "epe"
+        type: "shaped"
+
+    # Whether the loot should be registered. Set to false to quickly disable all
+    # associated loot.
+    # Default: true
+    register_loot: true
+
+    # Whether these recipes should be registered at all. Set to false to quickly
+    # disable all associated recipes.
+    # Default: true
+    register_recipes: true
+
+  item_lodestone_scroll:
+    # Enable item lodestone_scroll
+    # Default: true
+    enabled: true
+
+    # Allow this scroll to be repaired via the mending enchantment.
+    # Default: false
+    allow_mending: false
+
+    # Cooldown in milliseconds until another scroll can be used.
+    # Valid values: [0,)
+    # Default: 6000
+    cooldown: 6000
+
+    # The durability of this item. Set to 0 to use the durability properties of
+    # whatever base material the item is made of.
+    # Valid values: [0,)
+    # Default: 15
+    durability: 15
+
+    # The associated loot. This is a map of loot tables (as defined by minecraft)
+    # to additional loot. This additional loot is a list of loot definitions,
+    # which specify the amount and loot percentage for a particular item.
+    # Default: {}
+    loot: {}
+
+    # The associated recipes. This is a map of recipe name to recipe definitions.
+    # Default:
+    #   generic:
+    #     ingredients:
+    #       a: "minecraft:amethyst_shard"
+    #       b: "minecraft:netherite_ingot"
+    #       e: "minecraft:ender_pearl"
+    #       p: "vane_trifles:papyrus_scroll"
+    #     result: "vane_trifles:lodestone_scroll"
+    #     shape:
+    #       - "aba"
+    #       - "epe"
+    #     type: "shaped"
+    recipes:
+      generic:
+        ingredients:
+          a: "minecraft:amethyst_shard"
+          b: "minecraft:netherite_ingot"
+          e: "minecraft:ender_pearl"
+          p: "vane_trifles:papyrus_scroll"
+        result: "vane_trifles:lodestone_scroll"
+        shape:
+          - "aba"
+          - "epe"
+        type: "shaped"
+
+    # Whether the loot should be registered. Set to false to quickly disable all
+    # associated loot.
+    # Default: true
+    register_loot: true
+
+    # Whether these recipes should be registered at all. Set to false to quickly
+    # disable all associated recipes.
+    # Default: true
+    register_recipes: true
+
+  item_spawn_scroll:
+    # Enable item spawn_scroll
+    # Default: true
+    enabled: true
+
+    # Allow this scroll to be repaired via the mending enchantment.
+    # Default: false
+    allow_mending: false
+
+    # Cooldown in milliseconds until another scroll can be used.
+    # Valid values: [0,)
+    # Default: 6000
+    cooldown: 6000
+
+    # The durability of this item. Set to 0 to use the durability properties of
+    # whatever base material the item is made of.
+    # Valid values: [0,)
+    # Default: 40
+    durability: 40
+
+    # The associated loot. This is a map of loot tables (as defined by minecraft)
+    # to additional loot. This additional loot is a list of loot definitions,
+    # which specify the amount and loot percentage for a particular item.
+    # Default: {}
+    loot: {}
+
+    # The associated recipes. This is a map of recipe name to recipe definitions.
+    # Default:
+    #   generic:
+    #     ingredients:
+    #       a: "minecraft:wheat_seeds"
+    #       b: "#minecraft:saplings"
+    #       e: "minecraft:ender_pearl"
+    #       p: "vane_trifles:papyrus_scroll"
+    #     result: "vane_trifles:spawn_scroll"
+    #     shape:
+    #       - "aba"
+    #       - "epe"
+    #     type: "shaped"
+    recipes:
+      generic:
+        ingredients:
+          a: "minecraft:wheat_seeds"
+          b: "#minecraft:saplings"
+          e: "minecraft:ender_pearl"
+          p: "vane_trifles:papyrus_scroll"
+        result: "vane_trifles:spawn_scroll"
+        shape:
+          - "aba"
+          - "epe"
+        type: "shaped"
+
+    # Whether the loot should be registered. Set to false to quickly disable all
+    # associated loot.
+    # Default: true
+    register_loot: true
+
+    # Whether these recipes should be registered at all. Set to false to quickly
+    # disable all associated recipes.
+    # Default: true
+    register_recipes: true
+
+  item_unstable_scroll:
+    # Enable item unstable_scroll
+    # Default: true
+    enabled: true
+
+    # Allow this scroll to be repaired via the mending enchantment.
+    # Default: false
+    allow_mending: false
+
+    # Cooldown in milliseconds until another scroll can be used.
+    # Valid values: [0,)
+    # Default: 6000
+    cooldown: 6000
+
+    # The durability of this item. Set to 0 to use the durability properties of
+    # whatever base material the item is made of.
+    # Valid values: [0,)
+    # Default: 25
+    durability: 25
+
+    # The associated loot. This is a map of loot tables (as defined by minecraft)
+    # to additional loot. This additional loot is a list of loot definitions,
+    # which specify the amount and loot percentage for a particular item.
+    # Default: {}
+    loot: {}
+
+    # The associated recipes. This is a map of recipe name to recipe definitions.
+    # Default:
+    #   generic:
+    #     ingredients:
+    #       a: "minecraft:amethyst_shard"
+    #       b: "minecraft:compass"
+    #       e: "minecraft:chorus_fruit"
+    #       p: "vane_trifles:papyrus_scroll"
+    #     result: "vane_trifles:unstable_scroll"
+    #     shape:
+    #       - "aba"
+    #       - "epe"
+    #     type: "shaped"
+    recipes:
+      generic:
+        ingredients:
+          a: "minecraft:amethyst_shard"
+          b: "minecraft:compass"
+          e: "minecraft:chorus_fruit"
+          p: "vane_trifles:papyrus_scroll"
+        result: "vane_trifles:unstable_scroll"
+        shape:
+          - "aba"
+          - "epe"
+        type: "shaped"
+
+    # Whether the loot should be registered. Set to false to quickly disable all
+    # associated loot.
+    # Default: true
+    register_loot: true
+
+    # Whether these recipes should be registered at all. Set to false to quickly
+    # disable all associated recipes.
+    # Default: true
+    register_recipes: true
+
+sickles:
+  # Several sickles that allow players to harvest crops in a radius.
+  # Default: true
+  enabled: true
+
+  item_diamond_sickle:
+    # Enable item diamond_sickle
+    # Default: true
+    enabled: true
+
+    # Attack damage modifier.
+    # Valid values: Any double
+    # Default: 2.5
+    attack_damage: 2.5
+
+    # Attack speed modifier.
+    # Valid values: Any double
+    # Default: 2.5
+    attack_speed: 2.5
+
+    # The durability of this item. Set to 0 to use the durability properties of
+    # whatever base material the item is made of.
+    # Valid values: [0,)
+    # Default: 0
+    durability: 0
+
+    # Harvest radius.
+    # Valid values: [0,6]
+    # Default: 2
+    harvest_radius: 2
+
+    # The associated loot. This is a map of loot tables (as defined by minecraft)
+    # to additional loot. This additional loot is a list of loot definitions,
+    # which specify the amount and loot percentage for a particular item.
+    # Default: {}
+    loot: {}
+
+    # The associated recipes. This is a map of recipe name to recipe definitions.
+    # Default:
+    #   generic:
+    #     ingredients:
+    #       m: "minecraft:diamond"
+    #       s: "minecraft:stick"
+    #     result: "vane_trifles:diamond_sickle"
+    #     shape:
+    #       - " mm"
+    #       - "  m"
+    #       - " s "
+    #     type: "shaped"
+    recipes:
+      generic:
+        ingredients:
+          m: "minecraft:diamond"
+          s: "minecraft:stick"
+        result: "vane_trifles:diamond_sickle"
+        shape:
+          - " mm"
+          - "  m"
+          - " s "
+        type: "shaped"
+
+    # Whether the loot should be registered. Set to false to quickly disable all
+    # associated loot.
+    # Default: true
+    register_loot: true
+
+    # Whether these recipes should be registered at all. Set to false to quickly
+    # disable all associated recipes.
+    # Default: true
+    register_recipes: true
+
+  item_golden_sickle:
+    # Enable item golden_sickle
+    # Default: true
+    enabled: true
+
+    # Attack damage modifier.
+    # Valid values: Any double
+    # Default: 1.5
+    attack_damage: 1.5
+
+    # Attack speed modifier.
+    # Valid values: Any double
+    # Default: 3.5
+    attack_speed: 3.5
+
+    # The durability of this item. Set to 0 to use the durability properties of
+    # whatever base material the item is made of.
+    # Valid values: [0,)
+    # Default: 0
+    durability: 0
+
+    # Harvest radius.
+    # Valid values: [0,6]
+    # Default: 3
+    harvest_radius: 3
+
+    # The associated loot. This is a map of loot tables (as defined by minecraft)
+    # to additional loot. This additional loot is a list of loot definitions,
+    # which specify the amount and loot percentage for a particular item.
+    # Default: {}
+    loot: {}
+
+    # The associated recipes. This is a map of recipe name to recipe definitions.
+    # Default:
+    #   generic:
+    #     ingredients:
+    #       m: "minecraft:gold_ingot"
+    #       s: "minecraft:stick"
+    #     result: "vane_trifles:golden_sickle"
+    #     shape:
+    #       - " mm"
+    #       - "  m"
+    #       - " s "
+    #     type: "shaped"
+    recipes:
+      generic:
+        ingredients:
+          m: "minecraft:gold_ingot"
+          s: "minecraft:stick"
+        result: "vane_trifles:golden_sickle"
+        shape:
+          - " mm"
+          - "  m"
+          - " s "
+        type: "shaped"
+
+    # Whether the loot should be registered. Set to false to quickly disable all
+    # associated loot.
+    # Default: true
+    register_loot: true
+
+    # Whether these recipes should be registered at all. Set to false to quickly
+    # disable all associated recipes.
+    # Default: true
+    register_recipes: true
+
+  item_iron_sickle:
+    # Enable item iron_sickle
+    # Default: true
+    enabled: true
+
+    # Attack damage modifier.
+    # Valid values: Any double
+    # Default: 2.0
+    attack_damage: 2.0
+
+    # Attack speed modifier.
+    # Valid values: Any double
+    # Default: 2.0
+    attack_speed: 2.0
+
+    # The durability of this item. Set to 0 to use the durability properties of
+    # whatever base material the item is made of.
+    # Valid values: [0,)
+    # Default: 0
+    durability: 0
+
+    # Harvest radius.
+    # Valid values: [0,6]
+    # Default: 2
+    harvest_radius: 2
+
+    # The associated loot. This is a map of loot tables (as defined by minecraft)
+    # to additional loot. This additional loot is a list of loot definitions,
+    # which specify the amount and loot percentage for a particular item.
+    # Default: {}
+    loot: {}
+
+    # The associated recipes. This is a map of recipe name to recipe definitions.
+    # Default:
+    #   generic:
+    #     ingredients:
+    #       m: "minecraft:iron_ingot"
+    #       s: "minecraft:stick"
+    #     result: "vane_trifles:iron_sickle"
+    #     shape:
+    #       - " mm"
+    #       - "  m"
+    #       - " s "
+    #     type: "shaped"
+    recipes:
+      generic:
+        ingredients:
+          m: "minecraft:iron_ingot"
+          s: "minecraft:stick"
+        result: "vane_trifles:iron_sickle"
+        shape:
+          - " mm"
+          - "  m"
+          - " s "
+        type: "shaped"
+
+    # Whether the loot should be registered. Set to false to quickly disable all
+    # associated loot.
+    # Default: true
+    register_loot: true
+
+    # Whether these recipes should be registered at all. Set to false to quickly
+    # disable all associated recipes.
+    # Default: true
+    register_recipes: true
+
+  item_netherite_sickle:
+    # Enable item netherite_sickle
+    # Default: true
+    enabled: true
+
+    # Attack damage modifier.
+    # Valid values: Any double
+    # Default: 3.0
+    attack_damage: 3.0
+
+    # Attack speed modifier.
+    # Valid values: Any double
+    # Default: 3.0
+    attack_speed: 3.0
+
+    # The durability of this item. Set to 0 to use the durability properties of
+    # whatever base material the item is made of.
+    # Valid values: [0,)
+    # Default: 0
+    durability: 0
+
+    # Harvest radius.
+    # Valid values: [0,6]
+    # Default: 2
+    harvest_radius: 2
+
+    # The associated loot. This is a map of loot tables (as defined by minecraft)
+    # to additional loot. This additional loot is a list of loot definitions,
+    # which specify the amount and loot percentage for a particular item.
+    # Default: {}
+    loot: {}
+
+    # The associated recipes. This is a map of recipe name to recipe definitions.
+    # Default:
+    #   generic:
+    #     addition: "minecraft:netherite_ingot"
+    #     base: "vane_trifles:diamond_sickle"
+    #     copy_nbt: true
+    #     result: "vane_trifles:netherite_sickle"
+    #     type: "smithing"
+    recipes:
+      generic:
+        addition: "minecraft:netherite_ingot"
+        base: "vane_trifles:diamond_sickle"
+        copy_nbt: true
+        result: "vane_trifles:netherite_sickle"
+        type: "smithing"
+
+    # Whether the loot should be registered. Set to false to quickly disable all
+    # associated loot.
+    # Default: true
+    register_loot: true
+
+    # Whether these recipes should be registered at all. Set to false to quickly
+    # disable all associated recipes.
+    # Default: true
+    register_recipes: true
+
+  item_stone_sickle:
+    # Enable item stone_sickle
+    # Default: true
+    enabled: true
+
+    # Attack damage modifier.
+    # Valid values: Any double
+    # Default: 1.5
+    attack_damage: 1.5
+
+    # Attack speed modifier.
+    # Valid values: Any double
+    # Default: 1.5
+    attack_speed: 1.5
+
+    # The durability of this item. Set to 0 to use the durability properties of
+    # whatever base material the item is made of.
+    # Valid values: [0,)
+    # Default: 0
+    durability: 0
+
+    # Harvest radius.
+    # Valid values: [0,6]
+    # Default: 1
+    harvest_radius: 1
+
+    # The associated loot. This is a map of loot tables (as defined by minecraft)
+    # to additional loot. This additional loot is a list of loot definitions,
+    # which specify the amount and loot percentage for a particular item.
+    # Default: {}
+    loot: {}
+
+    # The associated recipes. This is a map of recipe name to recipe definitions.
+    # Default:
+    #   generic:
+    #     ingredients:
+    #       m: "#minecraft:stone_tool_materials"
+    #       s: "minecraft:stick"
+    #     result: "vane_trifles:stone_sickle"
+    #     shape:
+    #       - " mm"
+    #       - "  m"
+    #       - " s "
+    #     type: "shaped"
+    recipes:
+      generic:
+        ingredients:
+          m: "#minecraft:stone_tool_materials"
+          s: "minecraft:stick"
+        result: "vane_trifles:stone_sickle"
+        shape:
+          - " mm"
+          - "  m"
+          - " s "
+        type: "shaped"
+
+    # Whether the loot should be registered. Set to false to quickly disable all
+    # associated loot.
+    # Default: true
+    register_loot: true
+
+    # Whether these recipes should be registered at all. Set to false to quickly
+    # disable all associated recipes.
+    # Default: true
+    register_recipes: true
+
+  item_wooden_sickle:
+    # Enable item wooden_sickle
+    # Default: true
+    enabled: true
+
+    # Attack damage modifier.
+    # Valid values: Any double
+    # Default: 1.0
+    attack_damage: 1.0
+
+    # Attack speed modifier.
+    # Valid values: Any double
+    # Default: 1.0
+    attack_speed: 1.0
+
+    # The durability of this item. Set to 0 to use the durability properties of
+    # whatever base material the item is made of.
+    # Valid values: [0,)
+    # Default: 0
+    durability: 0
+
+    # Harvest radius.
+    # Valid values: [0,6]
+    # Default: 1
+    harvest_radius: 1
+
+    # The associated loot. This is a map of loot tables (as defined by minecraft)
+    # to additional loot. This additional loot is a list of loot definitions,
+    # which specify the amount and loot percentage for a particular item.
+    # Default: {}
+    loot: {}
+
+    # The associated recipes. This is a map of recipe name to recipe definitions.
+    # Default:
+    #   generic:
+    #     ingredients:
+    #       m: "#minecraft:planks"
+    #       s: "minecraft:stick"
+    #     result: "vane_trifles:wooden_sickle"
+    #     shape:
+    #       - " mm"
+    #       - "  m"
+    #       - " s "
+    #     type: "shaped"
+    recipes:
+      generic:
+        ingredients:
+          m: "#minecraft:planks"
+          s: "minecraft:stick"
+        result: "vane_trifles:wooden_sickle"
+        shape:
+          - " mm"
+          - "  m"
+          - " s "
+        type: "shaped"
+
+    # Whether the loot should be registered. Set to false to quickly disable all
+    # associated loot.
+    # Default: true
+    register_loot: true
+
+    # Whether these recipes should be registered at all. Set to false to quickly
+    # disable all associated recipes.
+    # Default: true
+    register_recipes: true
+
+storage:
+  # Extensions to storage related stuff will be grouped under here.
+  # Default: true
+  enabled: true
+
+  item_backpack:
+    # Enable item backpack
+    # Default: true
+    enabled: true
+
+    # The durability of this item. Set to 0 to use the durability properties of
+    # whatever base material the item is made of.
+    # Valid values: [0,)
+    # Default: 0
+    durability: 0
+
+    # The associated loot. This is a map of loot tables (as defined by minecraft)
+    # to additional loot. This additional loot is a list of loot definitions,
+    # which specify the amount and loot percentage for a particular item.
+    # Default: {}
+    loot: {}
+
+    # The associated recipes. This is a map of recipe name to recipe definitions.
+    # Default:
+    #   from_shulker_box:
+    #     addition: "minecraft:leather_chestplate"
+    #     base: "#minecraft:shulker_boxes"
+    #     copy_nbt: true
+    #     result: "vane_trifles:backpack"
+    #     type: "smithing"
+    recipes:
+      from_shulker_box:
+        addition: "minecraft:leather_chestplate"
+        base: "#minecraft:shulker_boxes"
+        copy_nbt: true
+        result: "vane_trifles:backpack"
+        type: "smithing"
+
+    # Whether the loot should be registered. Set to false to quickly disable all
+    # associated loot.
+    # Default: true
+    register_loot: true
+
+    # Whether these recipes should be registered at all. Set to false to quickly
+    # disable all associated recipes.
+    # Default: true
+    register_recipes: true
+
+  item_pouch:
+    # Enable item pouch
+    # Default: true
+    enabled: true
+
+    # The durability of this item. Set to 0 to use the durability properties of
+    # whatever base material the item is made of.
+    # Valid values: [0,)
+    # Default: 0
+    durability: 0
+
+    # The associated loot. This is a map of loot tables (as defined by minecraft)
+    # to additional loot. This additional loot is a list of loot definitions,
+    # which specify the amount and loot percentage for a particular item.
+    # Default: {}
+    loot: {}
+
+    # The associated recipes. This is a map of recipe name to recipe definitions.
+    # Default:
+    #   generic:
+    #     ingredients:
+    #       l: "minecraft:rabbit_hide"
+    #       s: "minecraft:string"
+    #     result: "vane_trifles:pouch"
+    #     shape:
+    #       - "sls"
+    #       - "l l"
+    #       - "lll"
+    #     type: "shaped"
+    recipes:
+      generic:
+        ingredients:
+          l: "minecraft:rabbit_hide"
+          s: "minecraft:string"
+        result: "vane_trifles:pouch"
+        shape:
+          - "sls"
+          - "l l"
+          - "lll"
+        type: "shaped"
+
+    # Whether the loot should be registered. Set to false to quickly disable all
+    # associated loot.
+    # Default: true
+    register_loot: true
+
+    # Whether these recipes should be registered at all. Set to false to quickly
+    # disable all associated recipes.
+    # Default: true
+    register_recipes: true
+
+xp_bottles:
+  # Several xp bottles storing a certain amount of experience.
+  # Default: true
+  enabled: true
+
+  item_large_xp_bottle:
+    # Enable item large_xp_bottle
+    # Default: true
+    enabled: true
+
+    # Level capacity.
+    # Valid values: Any int
+    # Default: 30
+    capacity: 30
+
+    # The durability of this item. Set to 0 to use the durability properties of
+    # whatever base material the item is made of.
+    # Valid values: [0,)
+    # Default: 0
+    durability: 0
+
+    # The associated loot. This is a map of loot tables (as defined by minecraft)
+    # to additional loot. This additional loot is a list of loot definitions,
+    # which specify the amount and loot percentage for a particular item.
+    # Default: {}
+    loot: {}
+
+    # The associated recipes. This is a map of recipe name to recipe definitions.
+    # Default: {}
+    recipes: {}
+
+    # Whether the loot should be registered. Set to false to quickly disable all
+    # associated loot.
+    # Default: true
+    register_loot: true
+
+    # Whether these recipes should be registered at all. Set to false to quickly
+    # disable all associated recipes.
+    # Default: true
+    register_recipes: true
+
+  item_medium_xp_bottle:
+    # Enable item medium_xp_bottle
+    # Default: true
+    enabled: true
+
+    # Level capacity.
+    # Valid values: Any int
+    # Default: 20
+    capacity: 20
+
+    # The durability of this item. Set to 0 to use the durability properties of
+    # whatever base material the item is made of.
+    # Valid values: [0,)
+    # Default: 0
+    durability: 0
+
+    # The associated loot. This is a map of loot tables (as defined by minecraft)
+    # to additional loot. This additional loot is a list of loot definitions,
+    # which specify the amount and loot percentage for a particular item.
+    # Default: {}
+    loot: {}
+
+    # The associated recipes. This is a map of recipe name to recipe definitions.
+    # Default: {}
+    recipes: {}
+
+    # Whether the loot should be registered. Set to false to quickly disable all
+    # associated loot.
+    # Default: true
+    register_loot: true
+
+    # Whether these recipes should be registered at all. Set to false to quickly
+    # disable all associated recipes.
+    # Default: true
+    register_recipes: true
+
+  item_small_xp_bottle:
+    # Enable item small_xp_bottle
+    # Default: true
+    enabled: true
+
+    # Level capacity.
+    # Valid values: Any int
+    # Default: 10
+    capacity: 10
+
+    # The durability of this item. Set to 0 to use the durability properties of
+    # whatever base material the item is made of.
+    # Valid values: [0,)
+    # Default: 0
+    durability: 0
+
+    # The associated loot. This is a map of loot tables (as defined by minecraft)
+    # to additional loot. This additional loot is a list of loot definitions,
+    # which specify the amount and loot percentage for a particular item.
+    # Default: {}
+    loot: {}
+
+    # The associated recipes. This is a map of recipe name to recipe definitions.
+    # Default: {}
+    recipes: {}
+
+    # Whether the loot should be registered. Set to false to quickly disable all
+    # associated loot.
+    # Default: true
+    register_loot: true
+
+    # Whether these recipes should be registered at all. Set to false to quickly
+    # disable all associated recipes.
+    # Default: true
+    register_recipes: true
+
+# DO NOT CHANGE! The version of this config file. Used to determine if the config
+# needs to be updated.
+version: 4

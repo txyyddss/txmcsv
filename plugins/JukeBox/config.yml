@@ -1,0 +1,96 @@
+# language - available by default : en, fr, de, se, cn, es, ja, sk, lt, hu, pl, id, ru, zh, ko, nl, it
+lang: en
+
+# force the music played on join (players can't disable it)
+forceJoinMusic: false
+
+# open the plugin GUI when a player click on a jukebox block with a disc
+jukeboxClick: true
+
+# send plugin message when starting/stopping music...
+sendMessages: true
+
+# load files asynchronously
+asyncLoading: true
+
+# list of worlds where music will be enabled (empty = all)
+enabledWorlds: []
+
+# note particles
+noteParticles: true
+
+# enable or not action bar messages instead of chat (not available on 1.8)
+actionBar: false
+
+# enable or not server radio
+radio: true
+
+# automatically play the radio when a player joins
+radioOnJoin: true
+
+# reload the song the player was listening to before it left the server
+reloadOnJoin: true
+
+# periodically stops vanilla music - can cause a bit of lag - working between 1.13 and 1.18
+preventVanillaMusic: false
+
+# materials of songs in the GUI, separated by commas. Example: [DIRT, GOLD_INGOT] -
+# any invalid or empty list will lead to random records.
+songItems: []
+
+# name of songs items for everybody (variables: NAME, ID, AUTHOR)
+itemFormat: '{NAME}'
+
+# name of songs items for everybody when no author is found (variables: NAME, ID)
+itemFormatWithoutAuthor: '{NAME}'
+
+# name of songs items for players with music.adminItem (variables: NAME, ID, AUTHOR)
+itemFormatAdmin: '{NAME}    | {ID}'
+
+# name of songs items for players with music.adminItem when no author is found (variables: NAME, ID)
+itemFormatAdminWithoutAuthor: '{NAME}    | {ID}'
+
+# formatted songs name (variables: NAME, ID, AUTHOR)
+songFormat: '"{NAME}", {AUTHOR}'
+
+# formatted songs name when no author is found (variables: NAME, ID)
+songFormatWithoutAuthor: '"{NAME}"'
+
+# format of the item description for songs (variables: NAME, ID, AUTHOR, DESCRIPTION)
+descriptionFormat: §7{DESCRIPTION}
+
+# format of the item description for songs (variables: NAME, ID, DESCRIPTION)
+descriptionFormatWithoutAuthor: §7{DESCRIPTION}
+
+# are player datas kept in a file when they quit - always enabled if database enabled
+savePlayerDatas: true
+
+# amount of ticks the song fades at the beginning (0 to disable)
+fadeInDuration: 0
+
+# amount of ticks the song fades at the end (0 to disable)
+fadeOutDuration: 20
+
+# decides whether JukeBox will enable the "extended notes range through resource pack" option of NoteBlockAPI
+useExtendedOctaveRange: false
+
+# should JukeBox enforce the mono playback for stereo songs
+forceMono: false
+
+# database configuration
+database:
+  enabled: false
+  host: localhost
+  port: 3306
+  database: jukebox
+  username: unknown
+  password: unknown
+  ssl: false
+
+# player options gived to new players
+defaultPlayerOptions:
+  volume: 70
+  join: false
+  shuffle: false
+  particles: false
+  repeat: false

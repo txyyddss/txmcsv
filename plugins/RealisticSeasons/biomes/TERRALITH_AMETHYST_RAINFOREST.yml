@@ -1,0 +1,38 @@
+includes: terralith:amethyst_canyon,terralith:amethyst_rainforest
+modify-plants: false
+freeze-in-winter: true
+show-snow-instead-of-rain:
+  spring: false
+  summer: false
+  fall: false
+  winter: true
+colors:
+  spring:
+    skycolor: NONE
+    watercolor: NONE
+    waterfogcolor: NONE
+    grasscolor: NONE
+    treecolor: NONE
+    fogcolor: NONE
+  summer:
+    skycolor: NONE
+    watercolor: NONE
+    waterfogcolor: NONE
+    grasscolor: 59BB6D
+    treecolor: E0CDFF
+    fogcolor: NONE
+  fall:
+    skycolor: NONE
+    watercolor: NONE
+    waterfogcolor: NONE
+    grasscolor: 6DBB59
+    treecolor: 985BFF, 985BFF, E0CDFF, 78CA63, AC97CF
+    fogcolor: NONE
+  winter:
+    skycolor: D2DEFF
+    watercolor: 216FC4
+    waterfogcolor: 216FC4
+    grasscolor: D8C8F2
+    treecolor: E0CDFF
+    fogcolor: A6D1FF
+temperature-difference: 8

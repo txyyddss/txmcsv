@@ -1,0 +1,106 @@
+#Configurazione di default in italiano
+
+Database:
+  #Tipo di storage, MYSQL o SQLITE
+  Type: SQLITE
+  MYSQL:
+    Host: localhost
+    Port: 3306
+    Database: InteractionVisualizer
+    Username: mysql
+    Password: password
+
+Messages:
+  NoPermission: "&cNon hai il permesso di usare quel comando!"
+  Reload: "&aInteractionVisualizer ricaricato con successo!"
+  Toggle:
+    Usage: "&cSintassi: /interactionvisualizer toggle <itemstand/itemdrop/hologram>"
+    Modes: "&cModalità dei toggle: itemstand, itemdrop, hologram"
+    Console: "&cPer favore, fornisci il nome di un giocatore: /interactionvisualizer toggle <modalità> [giocatore]"
+    ToggleOn: "&aAcceso"
+    ToggleOff: "&eSpento"
+    PlayerNotFound: "&cIl giocatore non è online!"
+
+GarbageCollector:
+  #Quanto spesso il plugin deve ripulire e rimuovere le entità tile che non hanno più bisogno di essere tracciate
+  #misurato in tick, 20 ticks = 1 secondo
+  #Modifica questo valore se il tuo server non riesce a reggere aggionramenti veloci
+  Period: 600
+
+TileEntityUpdate:
+  #Quanto velocemente il plugin deve raccogliere le modifche alle entità tile dall'ultimo controllo
+  #Il plugin raccoglierà prima i chunk attivi (3x3 chunk attorno al giocatore)
+  #Poi carica tutte le entità tile
+  #Attenzione, il periodo è leggermente più lungo di ChunksPerTick per completare altre operazioni
+  #Modifica questo valore se il tuo server non riesce a reggere aggionramenti veloci
+  ChunksPerTick: 4
+  #Imposta questo valore su false solo se stai avendo problemi
+  LoadTileEntitiesAsync: true
+
+#Abilita il plugin per questi blocchi
+Blocks:
+  Anvil:
+    Enabled: true
+  Beacon:
+    Enabled: true
+    #Quanto spesso il plugin deve controllare per aggiornamenti ai blocchi
+    #Misurato in tick, 20 ticks = 1 secondo
+    #Modifica questo valore se il tuo server non riesce a reggere aggionramenti veloci
+    CheckingPeriod: 20
+  BlastFurnace:
+    Enabled: true
+    CheckingPeriod: 20
+  BrewingStand:
+    Enabled: true
+    CheckingPeriod: 20
+  CartographyTable:
+    Enabled: true
+  Chest:
+    Enabled: true
+  CraftingTable:
+    Enabled: true
+  DoubleChest:
+    Enabled: true
+  EnchantmentTable:
+    Enabled: true
+  EnderChest:
+    Enabled: true
+  Furnace:
+    Enabled: true
+    CheckingPeriod: 20
+  Grindstone:
+    Enabled: true
+  JukeBox:
+    Enabled: true
+    CheckingPeriod: 20
+  Loom:
+    Enabled: true
+  NoteBlock:
+    Enabled: true
+  Smoker:
+    Enabled: true
+    CheckingPeriod: 20
+  Stonecutter:
+    Enabled: true
+  ShulkerBox:
+    Enabled: true
+
+Entities:
+  Villager: 
+    Enabled: true
+
+#Abilita questi moduli per InteractionVisualizer displays
+#ItemStand comprende tutti i display che usano armor stand e item frames
+#ItemDrop comprende tutti i display che usano item droppati
+#Hologram comprende tutti gli holograpgic displays che usano gli armor stand
+Modules:
+  ItemStand:
+    Enabled: true
+  ItemDrop:
+    Enabled: true
+  Hologram:
+    Enabled: true
+
+Options:
+  Updater: true
+  DownloadLanguageFiles: true

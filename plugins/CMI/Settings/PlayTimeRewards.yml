@@ -1,0 +1,77 @@
+hourly1:
+  DisplayName: "&7小时奖励"
+  # 是否自动获得，而不需要手动领取
+  AutoClaim: true
+  Description:
+  - "&2每小时都有在线奖励"
+  - "&2免费治疗+20金币！"
+  # 多少秒可领
+  PayEvery: 3600
+  Commands:
+  - asConsole! cmi heal [playerName] -s
+  - asConsole! cmi money give [playerName] 20
+daily1:
+  DisplayName: "&7每日奖励"
+  AutoClaim: true
+  Description:
+  - "&2别忘了每天的在线奖励"
+  - "&2每天只能领一次的100金币喔"
+  PayEvery: 86400
+  Commands:
+  - asConsole! cmi money give [playerName] 100
+1hour:
+  DisplayName: "&f1小时奖励"
+  AutoClaim: false
+  Description:
+  - "&2你已经在线1小时了"
+  - "&2你获得了500金币"
+  PayFor: 3600
+  Commands:
+  - asConsole! cmi money give [playerName] 500
+6hour:
+  DisplayName: "&f6小时奖励"
+  AutoClaim: false
+  Description:
+  - "&2你已经在线6小时了"
+  - "&2你获得了2000金币"
+  PayFor: 21600
+  Commands:
+  - asConsole! cmi money give [playerName] 2000
+12hour:
+  DisplayName: "&f12小时奖励"
+  AutoClaim: false
+  Description:
+  - "&2你已经在线12小时了"
+  - "&2你获得了5000金币"
+  PayFor: 43200
+  Commands:
+  - asConsole! cmi money give [playerName] 5000
+24hour:
+  DisplayName: "&f24小时奖励"
+  AutoClaim: false
+  Description:
+  - "&2你已经在线24小时了"
+  - "&2你获得了15000金币"
+  PayFor: 86400
+  Commands:
+  - asConsole! cmi money give [playerName] 15000  
+7days:
+  DisplayName: "&f每周奖励"
+  AutoClaim: false
+  Description:
+  - "&2连续保持在线！七天！"
+  - "&2有200金币奖励"
+  PayFor: 604800
+  Commands:
+  - asConsole! cmi money give [playerName] 200
+30days:
+  DisplayName: "&f月度奖励"
+  AutoClaim: false
+  Description:
+  - "&2真棒！你已经在线一个月了"
+  - "&2你获得了500金币喔"
+  PayFor: 2592000
+  Commands:
+  - asConsole! cmi money give [playerName] 500
+
+  

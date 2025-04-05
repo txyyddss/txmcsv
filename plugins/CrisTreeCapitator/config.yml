@@ -1,0 +1,38 @@
+# 	Cristichi's TreeCapitator
+
+# If "axe needed" is set to true, sets if axes used are damaged or not. If "axe needed" is false, this option is ignored.
+damage axe: true
+
+# Sets the maximum number of logs and leaves that can be destroyed at once. -1 to unlimit.
+destroy limit: 20
+
+# If true, it sends each player a message about /tc toggle when they join the server. The message changes depending on the value of "start activated".
+initial message: true
+
+# Sets if trees should be replanted automatically.
+replant: true
+
+# Sets if the new 1.16 nether trees should be treated as regular trees, and therefore cut down entirely as well.
+cut nether "trees": true
+
+# If true, crouching players won't trigger this plugin or only crouching players will. If "inverted", players will have to crouch to destroy trees instantly. False by default so updating from previous versions won't change this behaviour without notice.
+crouch for prevention: false
+
+# If "axe needed" and "damage axe" are set to true, sets if the axe should not be broken. Otherwise this option is ignored.
+break axe: true
+
+# Sets if saplings replanted by this plugin should be unbreakable by regular players (including the block beneath).
+invincible replant: false
+
+# Sets vip mode. If enabled, a permission node (cristreecapitator.vip) is required to take down trees at once.
+vip mode: false
+
+# Sets if this plugin starts activated for players when they enter the server. If false, players will need to use /tc toggle to activate it for themselves.
+start activated: true
+
+# Sets if an axe is required to Cut down trees at once.
+axe needed: false
+
+# If true, leaves will not be destroyed and will not connect logs. In vanilla terrain forests this will prevent several trees to be cut down at once, but it will leave most big oak trees floating.
+ignore leaves: false
+

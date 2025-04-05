@@ -1,0 +1,108 @@
+#Swedish Language default "config.yml" translated by Luracasmus
+#https://luracasmus.wixsite.com/luracasmus
+#Ersätt den originala "config.yml" för att använda!
+
+Database:
+  #Spelardata lagringstyp, MYSQL eller SQLITE
+  Type: SQLITE
+  MYSQL:
+    Host: localhost
+    Port: 3306
+    Database: InteractionVisualizer
+    Username: mysql
+    Password: password
+
+Messages:
+  NoPermission: "&cDu har inte tillåtelse att använda det här kommandot!"
+  Reload: "&aInteractionVisualizer har laddats om!"
+  Toggle:
+    Usage: "&cAnvändning: /interactionvisualizer toggle <itemstand/itemdrop/hologram>"
+    Modes: "&cVälj Läge: itemstand, itemdrop, hologram"
+    Console: "&cVänligen ange ett spelarnamn: /interactionvisualizer toggle <mode> [player]"
+    ToggleOn: "&aAktiverade %s"
+    ToggleOff: "&eAvaktiverade %s"
+    PlayerNotFound: "&cSpelaren är inte aktiv!"
+
+GarbageCollector:
+  #Hur ofta ska detta plugin rensa tile entity block som inte längre behöver spåras
+  #Räknat i ticks, 20 ticks = 1 sekund
+  #Ändra detta om din server inte klarar snabba uppdateringar
+  Period: 600
+
+TileEntityUpdate:
+  #Hur snabbt ska detta plugin samla in ändringar av tile entities sen den senaste kontrollen
+  #Detta plugin kommer först samla in alla aktiva chunks (3x3 chunks runt varje spelare)
+  #Sen ladda in alla tile entities i de chunksen osynkroniserat
+  #Notera att perioden inte bara är ChunksPerTick, den är några ticks längre än det för att ta hand om andra saker
+  #Ändra detta om din server inte klarar snabba uppdateringar
+  ChunksPerTick: 4
+  #Sätt endast detta till false om du märker problem
+  LoadTileEntitiesAsync: true
+
+#Aktivera InteractionVisualizer för dessa block
+Blocks:
+  Anvil:
+    Enabled: true
+  Beacon:
+    Enabled: true
+    #Hur ofta ska detta plugin titta för blockuppdateringar
+    #Räknat i ticks, 20 ticks = 1 sekund
+    #Ändra detta om din server inte klarar snabba uppdateringar / klarar snabbare uppdateringar
+    CheckingPeriod: 20
+  BlastFurnace:
+    Enabled: true
+    CheckingPeriod: 20
+  BrewingStand:
+    Enabled: true
+    CheckingPeriod: 20
+  CartographyTable:
+    Enabled: true
+  Chest:
+    Enabled: true
+  CraftingTable:
+    Enabled: true
+  DoubleChest:
+    Enabled: true
+  EnchantmentTable:
+    Enabled: true
+  EnderChest:
+    Enabled: true
+  Furnace:
+    Enabled: true
+    CheckingPeriod: 20
+  Grindstone:
+    Enabled: true
+  JukeBox:
+    Enabled: true
+    CheckingPeriod: 20
+  Loom:
+    Enabled: true
+  NoteBlock:
+    Enabled: true
+  Smoker:
+    Enabled: true
+    CheckingPeriod: 20
+  Stonecutter:
+    Enabled: true
+  ShulkerBox:
+    Enabled: true
+
+Entities:
+  Villager: 
+    Enabled: true
+
+#Aktivera dessa moduler för InteractionVisualizer displayer
+#ItemStand representerar alla displayer som använder armorstands och itemframes
+#ItemDrop representerar alla displayer som använder släppta föremål
+#Hologram representerar alla holografiska displayer som använder armorstands
+Modules:
+  ItemStand:
+    Enabled: true
+  ItemDrop:
+    Enabled: true
+  Hologram:
+    Enabled: true
+
+Options:
+  Updater: true
+  DownloadLanguageFiles: true

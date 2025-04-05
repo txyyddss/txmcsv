@@ -1,0 +1,43 @@
+NEXT_PAGE: §bNext page
+LATER_PAGE: §bPrevious page
+CURRENT_PAGE: §3§oPage %d of %d
+PLAYER: §cYou must be a player to do this command.
+RELOAD_MUSIC: §aMusic reloaded.
+INV_NAME: §d§lJukebox !
+TOGGLE_PLAYING: §6Pause/play
+VOLUME: '§9Music volume : §b'
+RIGHT_CLICK: '§eRight click: decrease by 10%'
+LEFT_CLICK: '§eLeft click: increase by 10%'
+RANDOM_MUSIC: §3Random music
+STOP: §cStop the music
+MUSIC_STOPPED: §aMusic stopped.
+ENABLE: Enable
+DISABLE: Disable
+ENABLED: Enabled
+DISABLED: Disabled
+TOGGLE_SHUFFLE_MODE: '{TOGGLE} the shuffle mode'
+TOGGLE_LOOP_MODE: '{TOGGLE} the loop mode'
+TOGGLE_CONNEXION_MUSIC: '{TOGGLE} music when connecting'
+TOGGLE_PARTICLES: '{TOGGLE} particles'
+MUSIC_PLAYING: '§aMusic while playing:'
+INCORRECT_SYNTAX: §cIncorrect syntax.
+RELOAD_LAUNCH: §aTrying to reload.
+RELOAD_FINISH: §aReload finished.
+AVAILABLE_COMMANDS: '§aAvailable commands:'
+INVALID_NUMBER: §cInvalid number.
+PLAYER_MUSIC_STOPPED: '§aMusic stopped for player: §b'
+IN_PLAYLIST: §9§oIn Playlist
+PLAYLIST_ITEM: §dPlaylists
+OPTIONS_ITEM: §bOptions
+MENU_ITEM: §6Return to menu
+CLEAR_PLAYLIST: §cClear the current playlist
+NEXT_ITEM: §eNext song
+CHANGE_PLAYLIST: '§6§lSwitch playlist: §r'
+CHANGE_PLAYLIST_LORE: |-
+  §eMiddle-click on a music disc
+  §e to add/remove the song
+PLAYLIST: §5Playlist
+FAVORITES: §4Favorites
+RADIO: §3Radio
+UNAVAILABLE_RADIO: §cThis action is unavailable while listening to the radio.
+NONE: §cnone

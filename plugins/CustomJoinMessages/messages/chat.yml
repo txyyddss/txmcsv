@@ -1,0 +1,34 @@
+# Toggles whether chat messages should be sent.
+Enabled: true
+
+Public:
+  # Whether public chat messages should be sent to the server's console.
+  Send-To-Console: true
+  First-Join:
+    1:
+      Permission: cjm.default
+      Radius: -1
+      Max-Players: -1
+      Messages:
+        1:
+          - "&a%name% &7首次加入服务器！ &8(&a#%uniquejoins%&8)"
+  Join:
+    1:
+      Permission: cjm.default
+      Messages:
+        1:
+          - "&a%name% 使用%floodgate_version%%floodgate_device% &7加入了服务器,TA在%player_first_join_date%首次加入(悲"
+  Quit:
+    1:
+      Permission: cjm.default
+      Messages:
+        1:
+          - "&a%name% &7离开了服务器(喜"
+
+Private:
+  Join:
+    1:
+      Permission: cjm.default
+      Messages:
+        1:
+          - "&8你当前的客户端:\n设备:%floodgate_device%\n语言:%floodgate_locale%\n版本:%floodgate_version%\n用户名:%floodgate_username%\n&c物品追朔和反矿透支持,请不要作弊/偷东西！\n&b上方的动作是个好东西!"

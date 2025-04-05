@@ -1,0 +1,41 @@
+## this file includes the following biomes: BADLANDS, BADLANDS_PLATEAU, MODIFIED_BADLANDS_PLATEAU, MODIFIED_WOODED_BADLANDS_PLATEAU, WOODED_BADLANDS_PLATEAU, ERODED_BADLANDS
+## 1.18: BADLANDS, WOODED_BADLANDS, ERODED_BADLANDS
+## tree color of fall can either be 1 color or 5 colors.
+modify-plants: false
+## Freeze in winter also includes removal of ice and snow afterwards
+freeze-in-winter: false
+temperature-difference: 15
+show-snow-instead-of-rain:
+  spring: false
+  summer: false
+  fall: false
+  winter: false
+colors:
+  spring:
+    skycolor: 78A7FF
+    watercolor: 4397ec
+    waterfogcolor: 4397ec
+    grasscolor: NONE
+    treecolor: FFB0E9
+    fogcolor: NONE
+  summer:
+    skycolor: 84BDE8
+    watercolor: 43D5EE
+    waterfogcolor: 43D5EE
+    grasscolor: 8f6e4d
+    treecolor: 77AB2F
+    fogcolor: NONE
+  fall:
+    skycolor: 89919A
+    watercolor: 617B64
+    waterfogcolor: 617B64
+    grasscolor: NONE
+    treecolor: 'E8962A, E8962A, AEA42A, 6BA941, 60A17B'
+    fogcolor: NONE
+  winter:
+    skycolor: D2DEFF
+    watercolor: 3938C9
+    waterfogcolor: 3938C9
+    grasscolor: 79C05A
+    treecolor: 79C05A
+    fogcolor: NONE 

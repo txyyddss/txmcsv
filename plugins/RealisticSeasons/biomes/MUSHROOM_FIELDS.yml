@@ -1,0 +1,41 @@
+## this file includes the following biomes: MUSHROOM_FIELDS, MUSHROOM_FIELD_SHORE
+## 1.18: MUSHROOM_FIELDS
+## tree color of fall can either be 1 color or 5 colors.
+modify-plants: false
+## Freeze in winter also includes removal of ice and snow afterwards
+freeze-in-winter: false
+temperature-difference: 0
+show-snow-instead-of-rain:
+  spring: false
+  summer: false
+  fall: false
+  winter: false
+colors:
+  spring:
+    skycolor: NONE
+    watercolor: NONE
+    waterfogcolor: NONE
+    grasscolor: NONE
+    treecolor: NONE
+    fogcolor: NONE
+  summer:
+    skycolor: NONE
+    watercolor: NONE
+    waterfogcolor: NONE
+    grasscolor: NONE
+    treecolor: NONE
+    fogcolor: NONE
+  fall:
+    skycolor: NONE
+    watercolor: NONE
+    waterfogcolor: NONE
+    grasscolor: NONE
+    treecolor: NONE
+    fogcolor: NONE
+  winter:
+    skycolor: NONE
+    watercolor: NONE
+    waterfogcolor: NONE
+    grasscolor: NONE
+    treecolor: NONE
+    fogcolor: NONE 

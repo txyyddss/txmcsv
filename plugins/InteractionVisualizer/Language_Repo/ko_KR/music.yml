@@ -1,0 +1,20 @@
+#이것은 한국어로 된 기본 music.yml입니다.
+#원본 "music.yml"을 교체하여 사용하세요!
+
+Instruments:
+  BANJO: 밴조
+  BASS_DRUM: 베이스 드럼
+  BASS_GUITAR: 베이스 기타
+  BELL: 글로켄슈필
+  BIT: 비트
+  CHIME: 차임
+  COW_BELL: 카우벨
+  DIDGERIDOO: 디저리두
+  FLUTE: 플루트
+  GUITAR: 기타
+  IRON_XYLOPHONE: 철 실로폰
+  PIANO: 피아노
+  PLING: 전자 피아노
+  SNARE_DRUM: 스네어 드럼
+  STICKS: 스틱
+  XYLOPHONE: 실로폰

@@ -1,0 +1,38 @@
+includes: terralith:yosemite_lowlands,terralith:yosemite_cliffs
+modify-plants: true
+show-snow-instead-of-rain:
+  spring: false
+  summer: false
+  fall: false
+  winter: true
+freeze-in-winter: true
+colors:
+  spring:
+    skycolor: 78A7FF
+    watercolor: 4397ec
+    waterfogcolor: 4397ec
+    grasscolor: 35AA5A
+    treecolor: 44A853
+    fogcolor: NONE
+  summer:
+    skycolor: 77A8FF
+    watercolor: 77E0F7
+    waterfogcolor: 20827
+    grasscolor: NONE
+    treecolor: NONE
+    fogcolor: NONE
+  fall:
+    skycolor: 89919A
+    watercolor: 617B64
+    waterfogcolor: 617B64
+    grasscolor: D6DB7D
+    treecolor: E8962A, E85C2A, AEA42A, 6BA941, 60A17B
+    fogcolor: NONE
+  winter:
+    skycolor: D2DEFF
+    watercolor: 216FC4
+    waterfogcolor: 216FC4
+    grasscolor: B8D0E1
+    treecolor: B8D0E1
+    fogcolor: A6D1FF
+temperature-difference: 0

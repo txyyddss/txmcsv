@@ -1,0 +1,38 @@
+includes: terralith:alpha_islands_winter
+modify-plants: false
+freeze-in-winter: false
+show-snow-instead-of-rain:
+  spring: true
+  summer: true
+  fall: true
+  winter: true
+colors:
+  spring:
+    skycolor: NONE
+    watercolor: NONE
+    waterfogcolor: NONE
+    grasscolor: NONE
+    treecolor: NONE
+    fogcolor: NONE
+  summer:
+    skycolor: NONE
+    watercolor: NONE
+    waterfogcolor: NONE
+    grasscolor: NONE
+    treecolor: NONE
+    fogcolor: NONE
+  fall:
+    skycolor: A6C1EC
+    watercolor: NONE
+    waterfogcolor: NONE
+    grasscolor: NONE
+    treecolor: NONE
+    fogcolor: A6C1EC
+  winter:
+    skycolor: NONE
+    watercolor: NONE
+    waterfogcolor: NONE
+    grasscolor: A0FF67
+    treecolor: NONE
+    fogcolor: NONE
+temperature-difference: -12

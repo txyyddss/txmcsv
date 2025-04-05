@@ -1,0 +1,38 @@
+includes: terralith:moonlight_grove,terralith:moonlight_valley
+modify-plants: false
+show-snow-instead-of-rain:
+  spring: false
+  summer: false
+  fall: false
+  winter: true
+freeze-in-winter: true
+colors:
+  spring:
+    skycolor: NONE
+    watercolor: NONE
+    waterfogcolor: NONE
+    grasscolor: NONE
+    treecolor: NONE
+    fogcolor: NONE
+  summer:
+    skycolor: NONE
+    watercolor: NONE
+    waterfogcolor: NONE
+    grasscolor: 9EBEE1
+    treecolor: NONE
+    fogcolor: NONE
+  fall:
+    skycolor: NONE
+    watercolor: NONE
+    waterfogcolor: NONE
+    grasscolor: 80BCD9
+    treecolor: 9EB2E1, 9EB2E1, C69EE1, C69EE1, 958AB5
+    fogcolor: NONE
+  winter:
+    skycolor: D2DEFF
+    watercolor: 216FC4
+    waterfogcolor: 216FC4
+    grasscolor: 4AAF9B
+    treecolor: 9EB2E1
+    fogcolor: A6D1FF
+temperature-difference: 0

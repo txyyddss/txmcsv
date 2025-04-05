@@ -1,0 +1,70 @@
+#          Custom Join Messages          #
+#              by Insprill               #
+#                                        #
+##########################################
+# Please visit https://cjm.insprill.net/ for the full CJM wiki.
+
+# What language plugin messages should be sent in. Check the wiki for all supported languages.
+language: en
+
+# Settings for hooks into other plugins. These settings only apply after a restart.
+Addons: 
+  # Settings for Auth plugins like AuthMe.
+   Auth: 
+      Wait-For-Login: true
+
+  # Settings for Vanish plugin hooks.
+   Vanish: 
+      Fake-Messages: 
+         Enabled: true
+
+  # Settings for Jail plugins
+   Jail: 
+      Ignore-Jailed-Players: false
+
+# Settings for formatting text.
+formatting: 
+  # Which formatter should be used to format text. You can choose from the following:
+  # - MINEDOWN
+  # - MINIMESSAGE
+  # - LEGACY
+  # For more information on formatting and what each option does, check out the wiki (https://cjm.insprill.net/en/latest/writing-messages/formatting.html).
+  # This value is CaSe-SeNsItIvE! Ensure it's typed exactly the same as the example.
+   formatter: LEGACY
+
+# If true, messages will be sent when players change worlds instead
+# of only when they join the server. This also only sends messages to players who are in the same world.
+# The Overworld, Nether, and End all count as the same world.
+World-Based-Messages: 
+  # Whether the update checker is enabled.
+   Enabled: false
+  # Messages will only be sent when moving between worlds in different groups.
+  # Those groups can be defined here.
+  # The keys don't matter as long as there's no duplicates.
+  # Note that groups are saved by key name, so while what it is doesn't matter,
+  # it cannot be changed without losing its reference.
+  # All world names are cAsE-SeNsItIvE.
+   Groups: 
+      1: 
+      - world
+      - world_nether
+      - world_the_end
+  # How worlds which aren't in a group should be handled.
+  # You can pick from one of 3 options:
+  #  NONE - Worlds will not send messages when entering/exiting.
+  #  SAME - Worlds will be treated as if they're in one group.
+  #  INDIVIDUAL - Worlds will be treated as if they're all in their own groups.
+   Ungrouped-Mode: INDIVIDUAL
+
+# Settings for the plugins update checker.
+Update-Checker: 
+   Enabled: true
+  # The date format used when displaying the release date of a new version.
+   Date-Format: MM-dd-yyyy HH:mm
+  # Settings for notifications when an update is found.
+   Notifications: 
+      In-Game: true
+      Console: true
+
+# DO NOT TOUCH!!!
+version: 3.0.0

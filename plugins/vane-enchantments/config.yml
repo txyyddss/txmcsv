@@ -1,0 +1,1514 @@
+# vim: set tabstop=2 softtabstop=0 expandtab shiftwidth=2:
+# This config file will automatically be updated, as long
+# as there are no incompatible changes between versions.
+# This means that additional comments will not be preserved!
+
+# The language for this module. The corresponding language file must be named
+# lang-{lang}.yml. Specifying 'inherit' will load the value set for vane-core.
+# Default: "inherit"
+lang: "inherit"
+
+# The module will only add functionality if this is set to true.
+# Default: true
+enabled: true
+
+# Enable plugin metrics via bStats. You can opt-out here or via the global bStats
+# configuration. All collected information is completely anonymous and publicly
+# available.
+# Default: true
+metrics_enabled: true
+
+enchantment_angel:
+  # Enable enchantment angel
+  # Default: true
+  enabled: true
+
+  # Acceleration percentage. Each tick, the current flying speed is increased X
+  # percent towards the target speed. Low values (~0.1) typically result in a
+  # smooth acceleration curve and a natural feeling.
+  # Valid values: [0.0,1.0]
+  # Default: 0.1
+  acceleration_percentage: 0.1
+
+  # The associated loot. This is a map of loot tables (as defined by minecraft) to
+  # additional loot. This additional loot is a list of loot definitions, which
+  # specify the amount and loot percentage for a particular item.
+  # Default:
+  #   generic:
+  #     items:
+  #       -
+  #         amount_max: 1
+  #         amount_min: 1
+  #         chance: 0.004
+  #         item: "vane_enchantments:enchanted_ancient_tome_of_the_gods#enchants{vane_enchantments:angel*1}"
+  #     tables:
+  #       - "minecraft:chests/buried_treasure"
+  #       - "minecraft:chests/pillager_outpost"
+  #       - "minecraft:chests/ruined_portal"
+  #       - "minecraft:chests/stronghold_library"
+  #       - "minecraft:chests/underwater_ruin_big"
+  #       - "minecraft:chests/village/village_temple"
+  loot:
+    generic:
+      items:
+        -
+          amount_max: 1
+          amount_min: 1
+          chance: 0.004
+          item: "vane_enchantments:enchanted_ancient_tome_of_the_gods#enchants{vane_enchantments:angel*1}"
+      tables:
+        - "minecraft:chests/buried_treasure"
+        - "minecraft:chests/pillager_outpost"
+        - "minecraft:chests/ruined_portal"
+        - "minecraft:chests/stronghold_library"
+        - "minecraft:chests/underwater_ruin_big"
+        - "minecraft:chests/village/village_temple"
+
+  # The associated recipes. This is a map of recipe name to recipe definitions.
+  # Default:
+  #   generic:
+  #     ingredients:
+  #       b: "vane_enchantments:ancient_tome_of_the_gods"
+  #       d: "minecraft:dragon_breath"
+  #       m: "minecraft:phantom_membrane"
+  #       p: "minecraft:pufferfish_bucket"
+  #       r: "minecraft:firework_rocket"
+  #     result: "vane_enchantments:enchanted_ancient_tome_of_the_gods#enchants{vane_enchantments:angel*1}"
+  #     shape:
+  #       - "prp"
+  #       - "mbm"
+  #       - "mdm"
+  #     type: "shaped"
+  recipes:
+    generic:
+      ingredients:
+        b: "vane_enchantments:ancient_tome_of_the_gods"
+        d: "minecraft:dragon_breath"
+        m: "minecraft:phantom_membrane"
+        p: "minecraft:pufferfish_bucket"
+        r: "minecraft:firework_rocket"
+      result: "vane_enchantments:enchanted_ancient_tome_of_the_gods#enchants{vane_enchantments:angel*1}"
+      shape:
+        - "prp"
+        - "mbm"
+        - "mdm"
+      type: "shaped"
+
+  # Whether the loot should be registered. Set to false to quickly disable all
+  # associated loot.
+  # Default: true
+  register_loot: true
+
+  # Whether these recipes should be registered at all. Set to false to quickly
+  # disable all associated recipes.
+  # Default: true
+  register_recipes: true
+
+  # Flying speed in blocks per second for each enchantment level.
+  # Valid values: [0.0,)
+  # Default:
+  #   - 0.7
+  #   - 1.1
+  #   - 1.4
+  #   - 1.7
+  #   - 2.0
+  speed:
+    - 0.7
+    - 1.1
+    - 1.4
+    - 1.7
+    - 2.0
+
+enchantment_grappling_hook:
+  # Enable enchantment grappling_hook
+  # Default: true
+  enabled: true
+
+  # Ideal grappling distance for maximum grapple strength. Strength increases
+  # rapidly before, and falls of slowly after.
+  # Valid values: [2.0,50.0]
+  # Default: 16.0
+  ideal_distance: 16.0
+
+  # The associated loot. This is a map of loot tables (as defined by minecraft) to
+  # additional loot. This additional loot is a list of loot definitions, which
+  # specify the amount and loot percentage for a particular item.
+  # Default: {}
+  loot: {}
+
+  # The associated recipes. This is a map of recipe name to recipe definitions.
+  # Default:
+  #   generic:
+  #     ingredients:
+  #       b: "vane_enchantments:ancient_tome_of_knowledge"
+  #       h: "minecraft:tripwire_hook"
+  #       l: "minecraft:lead"
+  #     result: "vane_enchantments:enchanted_ancient_tome_of_knowledge#enchants{vane_enchantments:grappling_hook*1}"
+  #     shape:
+  #       - "h"
+  #       - "l"
+  #       - "b"
+  #     type: "shaped"
+  recipes:
+    generic:
+      ingredients:
+        b: "vane_enchantments:ancient_tome_of_knowledge"
+        h: "minecraft:tripwire_hook"
+        l: "minecraft:lead"
+      result: "vane_enchantments:enchanted_ancient_tome_of_knowledge#enchants{vane_enchantments:grappling_hook*1}"
+      shape:
+        - "h"
+        - "l"
+        - "b"
+      type: "shaped"
+
+  # Whether the loot should be registered. Set to false to quickly disable all
+  # associated loot.
+  # Default: true
+  register_loot: true
+
+  # Whether these recipes should be registered at all. Set to false to quickly
+  # disable all associated recipes.
+  # Default: true
+  register_recipes: true
+
+  # Grappling strength for each enchantment level.
+  # Valid values: [0.0,)
+  # Default:
+  #   - 1.6
+  #   - 2.1
+  #   - 2.7
+  strength:
+    - 1.6
+    - 2.1
+    - 2.7
+
+enchantment_hell_bent:
+  # Enable enchantment hell_bent
+  # Default: true
+  enabled: true
+
+  # The associated loot. This is a map of loot tables (as defined by minecraft) to
+  # additional loot. This additional loot is a list of loot definitions, which
+  # specify the amount and loot percentage for a particular item.
+  # Default:
+  #   generic:
+  #     items:
+  #       -
+  #         amount_max: 1
+  #         amount_min: 1
+  #         chance: 0.02
+  #         item: "vane_enchantments:enchanted_ancient_tome_of_knowledge#enchants{vane_enchantments:hell_bent*1}"
+  #     tables:
+  #       - "minecraft:chests/bastion_bridge"
+  #       - "minecraft:chests/bastion_hoglin_stable"
+  #       - "minecraft:chests/bastion_other"
+  #       - "minecraft:chests/bastion_treasure"
+  loot:
+    generic:
+      items:
+        -
+          amount_max: 1
+          amount_min: 1
+          chance: 0.02
+          item: "vane_enchantments:enchanted_ancient_tome_of_knowledge#enchants{vane_enchantments:hell_bent*1}"
+      tables:
+        - "minecraft:chests/bastion_bridge"
+        - "minecraft:chests/bastion_hoglin_stable"
+        - "minecraft:chests/bastion_other"
+        - "minecraft:chests/bastion_treasure"
+
+  # The associated recipes. This is a map of recipe name to recipe definitions.
+  # Default:
+  #   generic:
+  #     ingredients:
+  #       b: "vane_enchantments:ancient_tome_of_knowledge"
+  #       m: "minecraft:music_disc_pigstep"
+  #       t: "minecraft:turtle_helmet"
+  #     result: "vane_enchantments:enchanted_ancient_tome_of_knowledge#enchants{vane_enchantments:hell_bent*1}"
+  #     shape:
+  #       - "m"
+  #       - "b"
+  #       - "t"
+  #     type: "shaped"
+  recipes:
+    generic:
+      ingredients:
+        b: "vane_enchantments:ancient_tome_of_knowledge"
+        m: "minecraft:music_disc_pigstep"
+        t: "minecraft:turtle_helmet"
+      result: "vane_enchantments:enchanted_ancient_tome_of_knowledge#enchants{vane_enchantments:hell_bent*1}"
+      shape:
+        - "m"
+        - "b"
+        - "t"
+      type: "shaped"
+
+  # Whether the loot should be registered. Set to false to quickly disable all
+  # associated loot.
+  # Default: true
+  register_loot: true
+
+  # Whether these recipes should be registered at all. Set to false to quickly
+  # disable all associated recipes.
+  # Default: true
+  register_recipes: true
+
+enchantment_leafchopper:
+  # Enable enchantment leafchopper
+  # Default: true
+  enabled: true
+
+  # The associated loot. This is a map of loot tables (as defined by minecraft) to
+  # additional loot. This additional loot is a list of loot definitions, which
+  # specify the amount and loot percentage for a particular item.
+  # Default: {}
+  loot: {}
+
+  # The associated recipes. This is a map of recipe name to recipe definitions.
+  # Default:
+  #   generic:
+  #     ingredients:
+  #       b: "vane_enchantments:ancient_tome_of_knowledge"
+  #       s: "minecraft:shears"
+  #     result: "vane_enchantments:enchanted_ancient_tome_of_knowledge#enchants{vane_enchantments:leafchopper*1}"
+  #     shape:
+  #       - " s "
+  #       - "sbs"
+  #       - " s "
+  #     type: "shaped"
+  recipes:
+    generic:
+      ingredients:
+        b: "vane_enchantments:ancient_tome_of_knowledge"
+        s: "minecraft:shears"
+      result: "vane_enchantments:enchanted_ancient_tome_of_knowledge#enchants{vane_enchantments:leafchopper*1}"
+      shape:
+        - " s "
+        - "sbs"
+        - " s "
+      type: "shaped"
+
+  # Whether the loot should be registered. Set to false to quickly disable all
+  # associated loot.
+  # Default: true
+  register_loot: true
+
+  # Whether these recipes should be registered at all. Set to false to quickly
+  # disable all associated recipes.
+  # Default: true
+  register_recipes: true
+
+enchantment_lightning:
+  # Enable enchantment lightning
+  # Default: false
+  enabled: false
+
+  # Damage modifier for the lightning enchant
+  # Valid values: [0,20]
+  # Default: 4
+  lightning_damage: 4
+
+  # Toggle lightning enchantment to cancel lightning damage for wielders of the
+  # enchant
+  # Default: true
+  lightning_protection: true
+
+  # Enable lightning to work in rainstorms as well
+  # Default: true
+  lightning_rain: true
+
+  # The associated loot. This is a map of loot tables (as defined by minecraft) to
+  # additional loot. This additional loot is a list of loot definitions, which
+  # specify the amount and loot percentage for a particular item.
+  # Default: {}
+  loot: {}
+
+  # The associated recipes. This is a map of recipe name to recipe definitions.
+  # Default:
+  #   generic:
+  #     ingredients:
+  #       b: "minecraft:beacon"
+  #       r: "minecraft:lightning_rod"
+  #       t: "vane_enchantments:ancient_tome_of_knowledge"
+  #       u: "minecraft:totem_of_undying"
+  #     result: "vane_enchantments:enchanted_ancient_tome_of_knowledge#enchants{vane_enchantments:lightning*1}"
+  #     shape:
+  #       - "r r"
+  #       - "utu"
+  #       - " b "
+  #     type: "shaped"
+  recipes:
+    generic:
+      ingredients:
+        b: "minecraft:beacon"
+        r: "minecraft:lightning_rod"
+        t: "vane_enchantments:ancient_tome_of_knowledge"
+        u: "minecraft:totem_of_undying"
+      result: "vane_enchantments:enchanted_ancient_tome_of_knowledge#enchants{vane_enchantments:lightning*1}"
+      shape:
+        - "r r"
+        - "utu"
+        - " b "
+      type: "shaped"
+
+  # Whether the loot should be registered. Set to false to quickly disable all
+  # associated loot.
+  # Default: true
+  register_loot: true
+
+  # Whether these recipes should be registered at all. Set to false to quickly
+  # disable all associated recipes.
+  # Default: true
+  register_recipes: true
+
+enchantment_rake:
+  # Enable enchantment rake
+  # Default: true
+  enabled: true
+
+  # The associated loot. This is a map of loot tables (as defined by minecraft) to
+  # additional loot. This additional loot is a list of loot definitions, which
+  # specify the amount and loot percentage for a particular item.
+  # Default: {}
+  loot: {}
+
+  # The associated recipes. This is a map of recipe name to recipe definitions.
+  # Default:
+  #   generic:
+  #     ingredients:
+  #       b: "vane_enchantments:ancient_tome_of_knowledge"
+  #       h: "minecraft:golden_hoe"
+  #     result: "vane_enchantments:enchanted_ancient_tome_of_knowledge#enchants{vane_enchantments:rake*1}"
+  #     shape:
+  #       - " h "
+  #       - "hbh"
+  #       - " h "
+  #     type: "shaped"
+  recipes:
+    generic:
+      ingredients:
+        b: "vane_enchantments:ancient_tome_of_knowledge"
+        h: "minecraft:golden_hoe"
+      result: "vane_enchantments:enchanted_ancient_tome_of_knowledge#enchants{vane_enchantments:rake*1}"
+      shape:
+        - " h "
+        - "hbh"
+        - " h "
+      type: "shaped"
+
+  # Whether the loot should be registered. Set to false to quickly disable all
+  # associated loot.
+  # Default: true
+  register_loot: true
+
+  # Whether these recipes should be registered at all. Set to false to quickly
+  # disable all associated recipes.
+  # Default: true
+  register_recipes: true
+
+enchantment_seeding:
+  # Enable enchantment seeding
+  # Default: true
+  enabled: true
+
+  # The associated loot. This is a map of loot tables (as defined by minecraft) to
+  # additional loot. This additional loot is a list of loot definitions, which
+  # specify the amount and loot percentage for a particular item.
+  # Default: {}
+  loot: {}
+
+  # The associated recipes. This is a map of recipe name to recipe definitions.
+  # Default:
+  #   generic:
+  #     ingredients:
+  #       1: "minecraft:pumpkin_seeds"
+  #       2: "minecraft:carrot"
+  #       3: "minecraft:wheat_seeds"
+  #       4: "minecraft:nether_wart"
+  #       5: "minecraft:beetroot_seeds"
+  #       6: "minecraft:potato"
+  #       7: "minecraft:melon_seeds"
+  #       b: "vane_enchantments:ancient_tome_of_knowledge"
+  #     result: "vane_enchantments:enchanted_ancient_tome_of_knowledge#enchants{vane_enchantments:seeding*1}"
+  #     shape:
+  #       - "1 7"
+  #       - "2b6"
+  #       - "345"
+  #     type: "shaped"
+  recipes:
+    generic:
+      ingredients:
+        1: "minecraft:pumpkin_seeds"
+        2: "minecraft:carrot"
+        3: "minecraft:wheat_seeds"
+        4: "minecraft:nether_wart"
+        5: "minecraft:beetroot_seeds"
+        6: "minecraft:potato"
+        7: "minecraft:melon_seeds"
+        b: "vane_enchantments:ancient_tome_of_knowledge"
+      result: "vane_enchantments:enchanted_ancient_tome_of_knowledge#enchants{vane_enchantments:seeding*1}"
+      shape:
+        - "1 7"
+        - "2b6"
+        - "345"
+      type: "shaped"
+
+  # Whether the loot should be registered. Set to false to quickly disable all
+  # associated loot.
+  # Default: true
+  register_loot: true
+
+  # Whether these recipes should be registered at all. Set to false to quickly
+  # disable all associated recipes.
+  # Default: true
+  register_recipes: true
+
+enchantment_soulbound:
+  # Enable enchantment soulbound
+  # Default: true
+  enabled: true
+
+  # Window to allow Soulbound item drop immediately after a previous drop in
+  # milliseconds
+  # Valid values: [0,)
+  # Default: 2000
+  cooldown: 2000
+
+  # The associated loot. This is a map of loot tables (as defined by minecraft) to
+  # additional loot. This additional loot is a list of loot definitions, which
+  # specify the amount and loot percentage for a particular item.
+  # Default:
+  #   generic:
+  #     items:
+  #       -
+  #         amount_max: 1
+  #         amount_min: 1
+  #         chance: 0.06666666666666667
+  #         item: "vane_enchantments:enchanted_ancient_tome_of_the_gods#enchants{vane_enchantments:soulbound*1}"
+  #     tables:
+  #       - "minecraft:chests/bastion_treasure"
+  loot:
+    generic:
+      items:
+        -
+          amount_max: 1
+          amount_min: 1
+          chance: 0.06666666666666667
+          item: "vane_enchantments:enchanted_ancient_tome_of_the_gods#enchants{vane_enchantments:soulbound*1}"
+      tables:
+        - "minecraft:chests/bastion_treasure"
+
+  # The associated recipes. This is a map of recipe name to recipe definitions.
+  # Default:
+  #   generic:
+  #     ingredients:
+  #       b: "vane_enchantments:ancient_tome_of_the_gods"
+  #       c: "minecraft:chain"
+  #       e: "minecraft:ender_eye"
+  #       g: "minecraft:ghast_tear"
+  #       o: "minecraft:bone"
+  #       q: "minecraft:writable_book"
+  #       r: "minecraft:enchanted_book#enchants{minecraft:binding_curse*1}"
+  #       t: "minecraft:totem_of_undying"
+  #     result: "vane_enchantments:enchanted_ancient_tome_of_the_gods#enchants{vane_enchantments:soulbound*1}"
+  #     shape:
+  #       - "cqc"
+  #       - "obe"
+  #       - "rgt"
+  #     type: "shaped"
+  recipes:
+    generic:
+      ingredients:
+        b: "vane_enchantments:ancient_tome_of_the_gods"
+        c: "minecraft:chain"
+        e: "minecraft:ender_eye"
+        g: "minecraft:ghast_tear"
+        o: "minecraft:bone"
+        q: "minecraft:writable_book"
+        r: "minecraft:enchanted_book#enchants{minecraft:binding_curse*1}"
+        t: "minecraft:totem_of_undying"
+      result: "vane_enchantments:enchanted_ancient_tome_of_the_gods#enchants{vane_enchantments:soulbound*1}"
+      shape:
+        - "cqc"
+        - "obe"
+        - "rgt"
+      type: "shaped"
+
+  # Whether the loot should be registered. Set to false to quickly disable all
+  # associated loot.
+  # Default: true
+  register_loot: true
+
+  # Whether these recipes should be registered at all. Set to false to quickly
+  # disable all associated recipes.
+  # Default: true
+  register_recipes: true
+
+enchantment_take_off:
+  # Enable enchantment take_off
+  # Default: true
+  enabled: true
+
+  # Boost strength for each enchantment level.
+  # Valid values: [0.0,)
+  # Default:
+  #   - 0.2
+  #   - 0.4
+  #   - 0.6
+  boost_strengths:
+    - 0.2
+    - 0.4
+    - 0.6
+
+  # The associated loot. This is a map of loot tables (as defined by minecraft) to
+  # additional loot. This additional loot is a list of loot definitions, which
+  # specify the amount and loot percentage for a particular item.
+  # Default:
+  #   generic:
+  #     items:
+  #       -
+  #         amount_max: 1
+  #         amount_min: 1
+  #         chance: 0.006666666666666667
+  #         item: "vane_enchantments:enchanted_ancient_tome_of_the_gods#enchants{vane_enchantments:take_off*1}"
+  #     tables:
+  #       - "minecraft:chests/buried_treasure"
+  #       - "minecraft:chests/pillager_outpost"
+  #       - "minecraft:chests/ruined_portal"
+  #       - "minecraft:chests/shipwreck_treasure"
+  #       - "minecraft:chests/stronghold_library"
+  #       - "minecraft:chests/underwater_ruin_big"
+  #       - "minecraft:chests/underwater_ruin_small"
+  #       - "minecraft:chests/village/village_temple"
+  #       - "minecraft:chests/woodland_mansion"
+  loot:
+    generic:
+      items:
+        -
+          amount_max: 1
+          amount_min: 1
+          chance: 0.006666666666666667
+          item: "vane_enchantments:enchanted_ancient_tome_of_the_gods#enchants{vane_enchantments:take_off*1}"
+      tables:
+        - "minecraft:chests/buried_treasure"
+        - "minecraft:chests/pillager_outpost"
+        - "minecraft:chests/ruined_portal"
+        - "minecraft:chests/shipwreck_treasure"
+        - "minecraft:chests/stronghold_library"
+        - "minecraft:chests/underwater_ruin_big"
+        - "minecraft:chests/underwater_ruin_small"
+        - "minecraft:chests/village/village_temple"
+        - "minecraft:chests/woodland_mansion"
+
+  # The associated recipes. This is a map of recipe name to recipe definitions.
+  # Default:
+  #   generic:
+  #     ingredients:
+  #       b: "vane_enchantments:ancient_tome_of_the_gods"
+  #       m: "minecraft:phantom_membrane"
+  #       p: "minecraft:piston"
+  #       s: "minecraft:slime_block"
+  #     result: "vane_enchantments:enchanted_ancient_tome_of_the_gods#enchants{vane_enchantments:take_off*1}"
+  #     shape:
+  #       - "mbm"
+  #       - "psp"
+  #     type: "shaped"
+  recipes:
+    generic:
+      ingredients:
+        b: "vane_enchantments:ancient_tome_of_the_gods"
+        m: "minecraft:phantom_membrane"
+        p: "minecraft:piston"
+        s: "minecraft:slime_block"
+      result: "vane_enchantments:enchanted_ancient_tome_of_the_gods#enchants{vane_enchantments:take_off*1}"
+      shape:
+        - "mbm"
+        - "psp"
+      type: "shaped"
+
+  # Whether the loot should be registered. Set to false to quickly disable all
+  # associated loot.
+  # Default: true
+  register_loot: true
+
+  # Whether these recipes should be registered at all. Set to false to quickly
+  # disable all associated recipes.
+  # Default: true
+  register_recipes: true
+
+enchantment_unbreakable:
+  # Enable enchantment unbreakable
+  # Default: true
+  enabled: true
+
+  # The associated loot. This is a map of loot tables (as defined by minecraft) to
+  # additional loot. This additional loot is a list of loot definitions, which
+  # specify the amount and loot percentage for a particular item.
+  # Default:
+  #   bastion:
+  #     items:
+  #       -
+  #         amount_max: 1
+  #         amount_min: 1
+  #         chance: 0.03333333333333333
+  #         item: "vane_enchantments:enchanted_ancient_tome_of_the_gods#enchants{vane_enchantments:unbreakable*1}"
+  #     tables:
+  #       - "minecraft:chests/bastion_treasure"
+  #   generic:
+  #     items:
+  #       -
+  #         amount_max: 1
+  #         amount_min: 1
+  #         chance: 0.008333333333333333
+  #         item: "vane_enchantments:enchanted_ancient_tome_of_the_gods#enchants{vane_enchantments:unbreakable*1}"
+  #     tables:
+  #       - "minecraft:chests/abandoned_mineshaft"
+  loot:
+    bastion:
+      items:
+        -
+          amount_max: 1
+          amount_min: 1
+          chance: 0.03333333333333333
+          item: "vane_enchantments:enchanted_ancient_tome_of_the_gods#enchants{vane_enchantments:unbreakable*1}"
+      tables:
+        - "minecraft:chests/bastion_treasure"
+    generic:
+      items:
+        -
+          amount_max: 1
+          amount_min: 1
+          chance: 0.008333333333333333
+          item: "vane_enchantments:enchanted_ancient_tome_of_the_gods#enchants{vane_enchantments:unbreakable*1}"
+      tables:
+        - "minecraft:chests/abandoned_mineshaft"
+
+  # The associated recipes. This is a map of recipe name to recipe definitions.
+  # Default:
+  #   generic:
+  #     ingredients:
+  #       a: "minecraft:enchanted_golden_apple"
+  #       b: "vane_enchantments:ancient_tome_of_the_gods"
+  #       n: "minecraft:netherite_ingot"
+  #       s: "minecraft:nether_star"
+  #       t: "minecraft:totem_of_undying"
+  #       w: "minecraft:wither_rose"
+  #     result: "vane_enchantments:enchanted_ancient_tome_of_the_gods#enchants{vane_enchantments:unbreakable*1}"
+  #     shape:
+  #       - "waw"
+  #       - "nbn"
+  #       - "tst"
+  #     type: "shaped"
+  recipes:
+    generic:
+      ingredients:
+        a: "minecraft:enchanted_golden_apple"
+        b: "vane_enchantments:ancient_tome_of_the_gods"
+        n: "minecraft:netherite_ingot"
+        s: "minecraft:nether_star"
+        t: "minecraft:totem_of_undying"
+        w: "minecraft:wither_rose"
+      result: "vane_enchantments:enchanted_ancient_tome_of_the_gods#enchants{vane_enchantments:unbreakable*1}"
+      shape:
+        - "waw"
+        - "nbn"
+        - "tst"
+      type: "shaped"
+
+  # Whether the loot should be registered. Set to false to quickly disable all
+  # associated loot.
+  # Default: true
+  register_loot: true
+
+  # Whether these recipes should be registered at all. Set to false to quickly
+  # disable all associated recipes.
+  # Default: true
+  register_recipes: true
+
+enchantment_wings:
+  # Enable enchantment wings
+  # Default: true
+  enabled: true
+
+  # Boost cooldown in milliseconds for each enchantment level.
+  # Valid values: [0,)
+  # Default:
+  #   - 7000
+  #   - 5000
+  #   - 3500
+  #   - 2800
+  boost_cooldowns:
+    - 7000
+    - 5000
+    - 3500
+    - 2800
+
+  # Boost strength for each enchantment level.
+  # Valid values: [0.0,)
+  # Default:
+  #   - 0.4
+  #   - 0.47
+  #   - 0.54
+  #   - 0.6
+  boost_strengths:
+    - 0.4
+    - 0.47
+    - 0.54
+    - 0.6
+
+  # The associated loot. This is a map of loot tables (as defined by minecraft) to
+  # additional loot. This additional loot is a list of loot definitions, which
+  # specify the amount and loot percentage for a particular item.
+  # Default:
+  #   bastion:
+  #     items:
+  #       -
+  #         amount_max: 1
+  #         amount_min: 1
+  #         chance: 0.1
+  #         item: "vane_enchantments:enchanted_ancient_tome_of_knowledge#enchants{vane_enchantments:wings*1}"
+  #     tables:
+  #       - "minecraft:chests/bastion_treasure"
+  #   generic:
+  #     items:
+  #       -
+  #         amount_max: 1
+  #         amount_min: 1
+  #         chance: 0.00909090909090909
+  #         item: "vane_enchantments:enchanted_ancient_tome_of_knowledge#enchants{vane_enchantments:wings*1}"
+  #     tables:
+  #       - "minecraft:chests/buried_treasure"
+  #       - "minecraft:chests/pillager_outpost"
+  #       - "minecraft:chests/ruined_portal"
+  #       - "minecraft:chests/shipwreck_treasure"
+  #       - "minecraft:chests/stronghold_library"
+  #       - "minecraft:chests/underwater_ruin_big"
+  #       - "minecraft:chests/underwater_ruin_small"
+  #       - "minecraft:chests/village/village_temple"
+  #       - "minecraft:chests/woodland_mansion"
+  loot:
+    bastion:
+      items:
+        -
+          amount_max: 1
+          amount_min: 1
+          chance: 0.1
+          item: "vane_enchantments:enchanted_ancient_tome_of_knowledge#enchants{vane_enchantments:wings*1}"
+      tables:
+        - "minecraft:chests/bastion_treasure"
+    generic:
+      items:
+        -
+          amount_max: 1
+          amount_min: 1
+          chance: 0.00909090909090909
+          item: "vane_enchantments:enchanted_ancient_tome_of_knowledge#enchants{vane_enchantments:wings*1}"
+      tables:
+        - "minecraft:chests/buried_treasure"
+        - "minecraft:chests/pillager_outpost"
+        - "minecraft:chests/ruined_portal"
+        - "minecraft:chests/shipwreck_treasure"
+        - "minecraft:chests/stronghold_library"
+        - "minecraft:chests/underwater_ruin_big"
+        - "minecraft:chests/underwater_ruin_small"
+        - "minecraft:chests/village/village_temple"
+        - "minecraft:chests/woodland_mansion"
+
+  # The associated recipes. This is a map of recipe name to recipe definitions.
+  # Default:
+  #   generic:
+  #     ingredients:
+  #       b: "vane_enchantments:ancient_tome_of_knowledge"
+  #       d: "minecraft:dispenser"
+  #       m: "minecraft:phantom_membrane"
+  #       r: "minecraft:firework_rocket"
+  #     result: "vane_enchantments:enchanted_ancient_tome_of_knowledge#enchants{vane_enchantments:wings*1}"
+  #     shape:
+  #       - "m m"
+  #       - "dbd"
+  #       - "r r"
+  #     type: "shaped"
+  recipes:
+    generic:
+      ingredients:
+        b: "vane_enchantments:ancient_tome_of_knowledge"
+        d: "minecraft:dispenser"
+        m: "minecraft:phantom_membrane"
+        r: "minecraft:firework_rocket"
+      result: "vane_enchantments:enchanted_ancient_tome_of_knowledge#enchants{vane_enchantments:wings*1}"
+      shape:
+        - "m m"
+        - "dbd"
+        - "r r"
+      type: "shaped"
+
+  # Whether the loot should be registered. Set to false to quickly disable all
+  # associated loot.
+  # Default: true
+  register_loot: true
+
+  # Whether these recipes should be registered at all. Set to false to quickly
+  # disable all associated recipes.
+  # Default: true
+  register_recipes: true
+
+item_ancient_tome:
+  # Enable item ancient_tome
+  # Default: true
+  enabled: true
+
+  # The durability of this item. Set to 0 to use the durability properties of
+  # whatever base material the item is made of.
+  # Valid values: [0,)
+  # Default: 0
+  durability: 0
+
+  # The associated loot. This is a map of loot tables (as defined by minecraft) to
+  # additional loot. This additional loot is a list of loot definitions, which
+  # specify the amount and loot percentage for a particular item.
+  # Default:
+  #   ancientcity:
+  #     items:
+  #       -
+  #         amount_max: 2
+  #         amount_min: 0
+  #         chance: 0.05
+  #         item: "vane_enchantments:ancient_tome"
+  #     tables:
+  #       - "minecraft:chests/ancient_city"
+  #   generic:
+  #     items:
+  #       -
+  #         amount_max: 2
+  #         amount_min: 0
+  #         chance: 0.2
+  #         item: "vane_enchantments:ancient_tome"
+  #     tables:
+  #       - "minecraft:chests/abandoned_mineshaft"
+  #       - "minecraft:chests/bastion_bridge"
+  #       - "minecraft:chests/bastion_hoglin_stable"
+  #       - "minecraft:chests/bastion_other"
+  #       - "minecraft:chests/bastion_treasure"
+  #       - "minecraft:chests/buried_treasure"
+  #       - "minecraft:chests/desert_pyramid"
+  #       - "minecraft:chests/end_city_treasure"
+  #       - "minecraft:gameplay/fishing/treasure"
+  #       - "minecraft:chests/igloo_chest"
+  #       - "minecraft:chests/jungle_temple"
+  #       - "minecraft:chests/nether_bridge"
+  #       - "minecraft:chests/pillager_outpost"
+  #       - "minecraft:chests/ruined_portal"
+  #       - "minecraft:chests/shipwreck_treasure"
+  #       - "minecraft:chests/stronghold_library"
+  #       - "minecraft:chests/underwater_ruin_big"
+  #       - "minecraft:chests/underwater_ruin_small"
+  #       - "minecraft:chests/village/village_temple"
+  #       - "minecraft:chests/woodland_mansion"
+  #   terralith_generic:
+  #     items:
+  #       -
+  #         amount_max: 2
+  #         amount_min: 0
+  #         chance: 0.2
+  #         item: "vane_enchantments:ancient_tome"
+  #     tables:
+  #       - "terralith:spire/common"
+  #       - "terralith:village/desert/generic_low"
+  #       - "terralith:village/fortified/generic_low"
+  #       - "terralith:village/fortified/smith/novice"
+  #       - "terralith:village/desert/smith/novice"
+  #       - "terralith:village/fortified/tavern_downstairs"
+  #       - "terralith:village/fortified/tavern_upstairs"
+  #       - "terralith:ruin/glacial/main_cs"
+  #       - "terralith:spire/treasure"
+  #       - "terralith:underground/chest"
+  #       - "terralith:village/desert/archer"
+  #       - "terralith:village/desert/attic"
+  #       - "terralith:village/desert/butcher"
+  #       - "terralith:village/desert/cartographer"
+  #       - "terralith:village/desert/generic"
+  #       - "terralith:village/desert/library"
+  #       - "terralith:village/desert/mason"
+  #       - "terralith:village/desert/smith"
+  #       - "terralith:village/desert/treasure"
+  #       - "terralith:village/fortified/archer"
+  #       - "terralith:village/fortified/attic"
+  #       - "terralith:village/fortified/butcher"
+  #       - "terralith:village/fortified/cartographer"
+  #       - "terralith:village/fortified/fisherman"
+  #       - "terralith:village/fortified/food"
+  #       - "terralith:village/fortified/generic"
+  #       - "terralith:village/fortified/library"
+  #       - "terralith:village/fortified/mason"
+  #       - "terralith:village/fortified/smith"
+  #       - "terralith:village/fortified/treasure"
+  #       - "terralith:village/treasure/diamond"
+  #       - "terralith:village/treasure/emerald"
+  #       - "terralith:village/treasure/golem"
+  #   terralith_rare:
+  #     items:
+  #       -
+  #         amount_max: 2
+  #         amount_min: 0
+  #         chance: 0.05
+  #         item: "vane_enchantments:ancient_tome"
+  #     tables:
+  #       - "terralith:village/desert/smith/expert"
+  #       - "terralith:village/fortified/smith/expert"
+  #       - "terralith:spire/rare"
+  loot:
+    ancientcity:
+      items:
+        -
+          amount_max: 2
+          amount_min: 0
+          chance: 0.05
+          item: "vane_enchantments:ancient_tome"
+      tables:
+        - "minecraft:chests/ancient_city"
+    generic:
+      items:
+        -
+          amount_max: 2
+          amount_min: 0
+          chance: 0.2
+          item: "vane_enchantments:ancient_tome"
+      tables:
+        - "minecraft:chests/abandoned_mineshaft"
+        - "minecraft:chests/bastion_bridge"
+        - "minecraft:chests/bastion_hoglin_stable"
+        - "minecraft:chests/bastion_other"
+        - "minecraft:chests/bastion_treasure"
+        - "minecraft:chests/buried_treasure"
+        - "minecraft:chests/desert_pyramid"
+        - "minecraft:chests/end_city_treasure"
+        - "minecraft:gameplay/fishing/treasure"
+        - "minecraft:chests/igloo_chest"
+        - "minecraft:chests/jungle_temple"
+        - "minecraft:chests/nether_bridge"
+        - "minecraft:chests/pillager_outpost"
+        - "minecraft:chests/ruined_portal"
+        - "minecraft:chests/shipwreck_treasure"
+        - "minecraft:chests/stronghold_library"
+        - "minecraft:chests/underwater_ruin_big"
+        - "minecraft:chests/underwater_ruin_small"
+        - "minecraft:chests/village/village_temple"
+        - "minecraft:chests/woodland_mansion"
+    terralith_generic:
+      items:
+        -
+          amount_max: 2
+          amount_min: 0
+          chance: 0.2
+          item: "vane_enchantments:ancient_tome"
+      tables:
+        - "terralith:spire/common"
+        - "terralith:village/desert/generic_low"
+        - "terralith:village/fortified/generic_low"
+        - "terralith:village/fortified/smith/novice"
+        - "terralith:village/desert/smith/novice"
+        - "terralith:village/fortified/tavern_downstairs"
+        - "terralith:village/fortified/tavern_upstairs"
+        - "terralith:ruin/glacial/main_cs"
+        - "terralith:spire/treasure"
+        - "terralith:underground/chest"
+        - "terralith:village/desert/archer"
+        - "terralith:village/desert/attic"
+        - "terralith:village/desert/butcher"
+        - "terralith:village/desert/cartographer"
+        - "terralith:village/desert/generic"
+        - "terralith:village/desert/library"
+        - "terralith:village/desert/mason"
+        - "terralith:village/desert/smith"
+        - "terralith:village/desert/treasure"
+        - "terralith:village/fortified/archer"
+        - "terralith:village/fortified/attic"
+        - "terralith:village/fortified/butcher"
+        - "terralith:village/fortified/cartographer"
+        - "terralith:village/fortified/fisherman"
+        - "terralith:village/fortified/food"
+        - "terralith:village/fortified/generic"
+        - "terralith:village/fortified/library"
+        - "terralith:village/fortified/mason"
+        - "terralith:village/fortified/smith"
+        - "terralith:village/fortified/treasure"
+        - "terralith:village/treasure/diamond"
+        - "terralith:village/treasure/emerald"
+        - "terralith:village/treasure/golem"
+    terralith_rare:
+      items:
+        -
+          amount_max: 2
+          amount_min: 0
+          chance: 0.05
+          item: "vane_enchantments:ancient_tome"
+      tables:
+        - "terralith:village/desert/smith/expert"
+        - "terralith:village/fortified/smith/expert"
+        - "terralith:spire/rare"
+
+  # The associated recipes. This is a map of recipe name to recipe definitions.
+  # Default: {}
+  recipes: {}
+
+  # Whether the loot should be registered. Set to false to quickly disable all
+  # associated loot.
+  # Default: true
+  register_loot: true
+
+  # Whether these recipes should be registered at all. Set to false to quickly
+  # disable all associated recipes.
+  # Default: true
+  register_recipes: true
+
+item_ancient_tome_of_knowledge:
+  # Enable item ancient_tome_of_knowledge
+  # Default: true
+  enabled: true
+
+  # The durability of this item. Set to 0 to use the durability properties of
+  # whatever base material the item is made of.
+  # Valid values: [0,)
+  # Default: 0
+  durability: 0
+
+  # The associated loot. This is a map of loot tables (as defined by minecraft) to
+  # additional loot. This additional loot is a list of loot definitions, which
+  # specify the amount and loot percentage for a particular item.
+  # Default:
+  #   ancientcity:
+  #     items:
+  #       -
+  #         amount_max: 1
+  #         amount_min: 1
+  #         chance: 0.03333333333333333
+  #         item: "vane_enchantments:ancient_tome_of_knowledge"
+  #       -
+  #         amount_max: 1
+  #         amount_min: 1
+  #         chance: 0.03333333333333333
+  #         item: "vane_enchantments:ancient_tome_of_knowledge"
+  #     tables:
+  #       - "minecraft:chests/ancient_city"
+  #   generic:
+  #     items:
+  #       -
+  #         amount_max: 1
+  #         amount_min: 1
+  #         chance: 0.025
+  #         item: "vane_enchantments:ancient_tome_of_knowledge"
+  #     tables:
+  #       - "minecraft:chests/abandoned_mineshaft"
+  #       - "minecraft:chests/bastion_treasure"
+  #       - "minecraft:chests/buried_treasure"
+  #       - "minecraft:chests/desert_pyramid"
+  #       - "minecraft:chests/nether_bridge"
+  #       - "minecraft:chests/ruined_portal"
+  #       - "minecraft:chests/shipwreck_treasure"
+  #       - "minecraft:chests/stronghold_library"
+  #       - "minecraft:chests/underwater_ruin_big"
+  #       - "minecraft:chests/village/village_temple"
+  #       - "minecraft:chests/woodland_mansion"
+  #   terralith_generic:
+  #     items:
+  #       -
+  #         amount_max: 1
+  #         amount_min: 1
+  #         chance: 0.025
+  #         item: "vane_enchantments:ancient_tome_of_knowledge"
+  #     tables:
+  #       - "terralith:ruin/glacial/main_cs"
+  #       - "terralith:spire/treasure"
+  #       - "terralith:underground/chest"
+  #       - "terralith:village/desert/archer"
+  #       - "terralith:village/desert/attic"
+  #       - "terralith:village/desert/butcher"
+  #       - "terralith:village/desert/cartographer"
+  #       - "terralith:village/desert/generic"
+  #       - "terralith:village/desert/library"
+  #       - "terralith:village/desert/mason"
+  #       - "terralith:village/desert/smith"
+  #       - "terralith:village/desert/treasure"
+  #       - "terralith:village/fortified/archer"
+  #       - "terralith:village/fortified/attic"
+  #       - "terralith:village/fortified/butcher"
+  #       - "terralith:village/fortified/cartographer"
+  #       - "terralith:village/fortified/fisherman"
+  #       - "terralith:village/fortified/food"
+  #       - "terralith:village/fortified/generic"
+  #       - "terralith:village/fortified/library"
+  #       - "terralith:village/fortified/mason"
+  #       - "terralith:village/fortified/smith"
+  #       - "terralith:village/fortified/treasure"
+  #       - "terralith:village/treasure/diamond"
+  #       - "terralith:village/treasure/emerald"
+  #       - "terralith:village/treasure/golem"
+  #   terralith_rare:
+  #     items:
+  #       -
+  #         amount_max: 1
+  #         amount_min: 1
+  #         chance: 0.03333333333333333
+  #         item: "vane_enchantments:ancient_tome_of_knowledge"
+  #       -
+  #         amount_max: 1
+  #         amount_min: 1
+  #         chance: 0.03333333333333333
+  #         item: "vane_enchantments:ancient_tome_of_knowledge"
+  #     tables:
+  #       - "terralith:village/desert/smith/expert"
+  #       - "terralith:village/fortified/smith/expert"
+  #       - "terralith:spire/rare"
+  loot:
+    ancientcity:
+      items:
+        -
+          amount_max: 1
+          amount_min: 1
+          chance: 0.03333333333333333
+          item: "vane_enchantments:ancient_tome_of_knowledge"
+        -
+          amount_max: 1
+          amount_min: 1
+          chance: 0.03333333333333333
+          item: "vane_enchantments:ancient_tome_of_knowledge"
+      tables:
+        - "minecraft:chests/ancient_city"
+    generic:
+      items:
+        -
+          amount_max: 1
+          amount_min: 1
+          chance: 0.025
+          item: "vane_enchantments:ancient_tome_of_knowledge"
+      tables:
+        - "minecraft:chests/abandoned_mineshaft"
+        - "minecraft:chests/bastion_treasure"
+        - "minecraft:chests/buried_treasure"
+        - "minecraft:chests/desert_pyramid"
+        - "minecraft:chests/nether_bridge"
+        - "minecraft:chests/ruined_portal"
+        - "minecraft:chests/shipwreck_treasure"
+        - "minecraft:chests/stronghold_library"
+        - "minecraft:chests/underwater_ruin_big"
+        - "minecraft:chests/village/village_temple"
+        - "minecraft:chests/woodland_mansion"
+    terralith_generic:
+      items:
+        -
+          amount_max: 1
+          amount_min: 1
+          chance: 0.025
+          item: "vane_enchantments:ancient_tome_of_knowledge"
+      tables:
+        - "terralith:ruin/glacial/main_cs"
+        - "terralith:spire/treasure"
+        - "terralith:underground/chest"
+        - "terralith:village/desert/archer"
+        - "terralith:village/desert/attic"
+        - "terralith:village/desert/butcher"
+        - "terralith:village/desert/cartographer"
+        - "terralith:village/desert/generic"
+        - "terralith:village/desert/library"
+        - "terralith:village/desert/mason"
+        - "terralith:village/desert/smith"
+        - "terralith:village/desert/treasure"
+        - "terralith:village/fortified/archer"
+        - "terralith:village/fortified/attic"
+        - "terralith:village/fortified/butcher"
+        - "terralith:village/fortified/cartographer"
+        - "terralith:village/fortified/fisherman"
+        - "terralith:village/fortified/food"
+        - "terralith:village/fortified/generic"
+        - "terralith:village/fortified/library"
+        - "terralith:village/fortified/mason"
+        - "terralith:village/fortified/smith"
+        - "terralith:village/fortified/treasure"
+        - "terralith:village/treasure/diamond"
+        - "terralith:village/treasure/emerald"
+        - "terralith:village/treasure/golem"
+    terralith_rare:
+      items:
+        -
+          amount_max: 1
+          amount_min: 1
+          chance: 0.03333333333333333
+          item: "vane_enchantments:ancient_tome_of_knowledge"
+        -
+          amount_max: 1
+          amount_min: 1
+          chance: 0.03333333333333333
+          item: "vane_enchantments:ancient_tome_of_knowledge"
+      tables:
+        - "terralith:village/desert/smith/expert"
+        - "terralith:village/fortified/smith/expert"
+        - "terralith:spire/rare"
+
+  # The associated recipes. This is a map of recipe name to recipe definitions.
+  # Default:
+  #   generic:
+  #     ingredients:
+  #       - "vane_enchantments:ancient_tome"
+  #       - "minecraft:feather"
+  #       - "minecraft:blaze_rod"
+  #       - "minecraft:ghast_tear"
+  #     result: "vane_enchantments:ancient_tome_of_knowledge"
+  #     type: "shapeless"
+  recipes:
+    generic:
+      ingredients:
+        - "vane_enchantments:ancient_tome"
+        - "minecraft:feather"
+        - "minecraft:blaze_rod"
+        - "minecraft:ghast_tear"
+      result: "vane_enchantments:ancient_tome_of_knowledge"
+      type: "shapeless"
+
+  # Whether the loot should be registered. Set to false to quickly disable all
+  # associated loot.
+  # Default: true
+  register_loot: true
+
+  # Whether these recipes should be registered at all. Set to false to quickly
+  # disable all associated recipes.
+  # Default: true
+  register_recipes: true
+
+item_ancient_tome_of_the_gods:
+  # Enable item ancient_tome_of_the_gods
+  # Default: true
+  enabled: true
+
+  # The durability of this item. Set to 0 to use the durability properties of
+  # whatever base material the item is made of.
+  # Valid values: [0,)
+  # Default: 0
+  durability: 0
+
+  # The associated loot. This is a map of loot tables (as defined by minecraft) to
+  # additional loot. This additional loot is a list of loot definitions, which
+  # specify the amount and loot percentage for a particular item.
+  # Default:
+  #   ancientcity:
+  #     items:
+  #       -
+  #         amount_max: 1
+  #         amount_min: 1
+  #         chance: 0.006666666666666667
+  #         item: "vane_enchantments:ancient_tome_of_the_gods"
+  #     tables:
+  #       - "minecraft:chests/ancient_city"
+  #   generic:
+  #     items:
+  #       -
+  #         amount_max: 1
+  #         amount_min: 1
+  #         chance: 0.005
+  #         item: "vane_enchantments:ancient_tome_of_the_gods"
+  #     tables:
+  #       - "minecraft:chests/bastion_treasure"
+  #       - "minecraft:chests/buried_treasure"
+  #       - "minecraft:chests/shipwreck_treasure"
+  #       - "minecraft:chests/underwater_ruin_big"
+  #   terralith_generic:
+  #     items:
+  #       -
+  #         amount_max: 1
+  #         amount_min: 1
+  #         chance: 0.005
+  #         item: "vane_enchantments:ancient_tome_of_the_gods"
+  #     tables:
+  #       - "terralith:spire/treasure"
+  #       - "terralith:underground/chest"
+  #   terralith_rare:
+  #     items:
+  #       -
+  #         amount_max: 1
+  #         amount_min: 1
+  #         chance: 0.006666666666666667
+  #         item: "vane_enchantments:ancient_tome_of_the_gods"
+  #     tables:
+  #       - "terralith:spire/rare"
+  loot:
+    ancientcity:
+      items:
+        -
+          amount_max: 1
+          amount_min: 1
+          chance: 0.006666666666666667
+          item: "vane_enchantments:ancient_tome_of_the_gods"
+      tables:
+        - "minecraft:chests/ancient_city"
+    generic:
+      items:
+        -
+          amount_max: 1
+          amount_min: 1
+          chance: 0.005
+          item: "vane_enchantments:ancient_tome_of_the_gods"
+      tables:
+        - "minecraft:chests/bastion_treasure"
+        - "minecraft:chests/buried_treasure"
+        - "minecraft:chests/shipwreck_treasure"
+        - "minecraft:chests/underwater_ruin_big"
+    terralith_generic:
+      items:
+        -
+          amount_max: 1
+          amount_min: 1
+          chance: 0.005
+          item: "vane_enchantments:ancient_tome_of_the_gods"
+      tables:
+        - "terralith:spire/treasure"
+        - "terralith:underground/chest"
+    terralith_rare:
+      items:
+        -
+          amount_max: 1
+          amount_min: 1
+          chance: 0.006666666666666667
+          item: "vane_enchantments:ancient_tome_of_the_gods"
+      tables:
+        - "terralith:spire/rare"
+
+  # The associated recipes. This is a map of recipe name to recipe definitions.
+  # Default:
+  #   generic:
+  #     ingredients:
+  #       b: "vane_enchantments:ancient_tome_of_knowledge"
+  #       e: "minecraft:enchanted_book"
+  #       n: "minecraft:nautilus_shell"
+  #       s: "minecraft:nether_star"
+  #     result: "vane_enchantments:ancient_tome_of_the_gods"
+  #     shape:
+  #       - " s "
+  #       - "ebe"
+  #       - " n "
+  #     type: "shaped"
+  recipes:
+    generic:
+      ingredients:
+        b: "vane_enchantments:ancient_tome_of_knowledge"
+        e: "minecraft:enchanted_book"
+        n: "minecraft:nautilus_shell"
+        s: "minecraft:nether_star"
+      result: "vane_enchantments:ancient_tome_of_the_gods"
+      shape:
+        - " s "
+        - "ebe"
+        - " n "
+      type: "shaped"
+
+  # Whether the loot should be registered. Set to false to quickly disable all
+  # associated loot.
+  # Default: true
+  register_loot: true
+
+  # Whether these recipes should be registered at all. Set to false to quickly
+  # disable all associated recipes.
+  # Default: true
+  register_recipes: true
+
+item_enchanted_ancient_tome:
+  # Enable item enchanted_ancient_tome
+  # Default: true
+  enabled: true
+
+  # The durability of this item. Set to 0 to use the durability properties of
+  # whatever base material the item is made of.
+  # Valid values: [0,)
+  # Default: 0
+  durability: 0
+
+  # The associated loot. This is a map of loot tables (as defined by minecraft) to
+  # additional loot. This additional loot is a list of loot definitions, which
+  # specify the amount and loot percentage for a particular item.
+  # Default: {}
+  loot: {}
+
+  # The associated recipes. This is a map of recipe name to recipe definitions.
+  # Default: {}
+  recipes: {}
+
+  # Whether the loot should be registered. Set to false to quickly disable all
+  # associated loot.
+  # Default: true
+  register_loot: true
+
+  # Whether these recipes should be registered at all. Set to false to quickly
+  # disable all associated recipes.
+  # Default: true
+  register_recipes: true
+
+item_enchanted_ancient_tome_of_knowledge:
+  # Enable item enchanted_ancient_tome_of_knowledge
+  # Default: true
+  enabled: true
+
+  # The durability of this item. Set to 0 to use the durability properties of
+  # whatever base material the item is made of.
+  # Valid values: [0,)
+  # Default: 0
+  durability: 0
+
+  # The associated loot. This is a map of loot tables (as defined by minecraft) to
+  # additional loot. This additional loot is a list of loot definitions, which
+  # specify the amount and loot percentage for a particular item.
+  # Default: {}
+  loot: {}
+
+  # The associated recipes. This is a map of recipe name to recipe definitions.
+  # Default: {}
+  recipes: {}
+
+  # Whether the loot should be registered. Set to false to quickly disable all
+  # associated loot.
+  # Default: true
+  register_loot: true
+
+  # Whether these recipes should be registered at all. Set to false to quickly
+  # disable all associated recipes.
+  # Default: true
+  register_recipes: true
+
+item_enchanted_ancient_tome_of_the_gods:
+  # Enable item enchanted_ancient_tome_of_the_gods
+  # Default: true
+  enabled: true
+
+  # The durability of this item. Set to 0 to use the durability properties of
+  # whatever base material the item is made of.
+  # Valid values: [0,)
+  # Default: 0
+  durability: 0
+
+  # The associated loot. This is a map of loot tables (as defined by minecraft) to
+  # additional loot. This additional loot is a list of loot definitions, which
+  # specify the amount and loot percentage for a particular item.
+  # Default: {}
+  loot: {}
+
+  # The associated recipes. This is a map of recipe name to recipe definitions.
+  # Default: {}
+  recipes: {}
+
+  # Whether the loot should be registered. Set to false to quickly disable all
+  # associated loot.
+  # Default: true
+  register_loot: true
+
+  # Whether these recipes should be registered at all. Set to false to quickly
+  # disable all associated recipes.
+  # Default: true
+  register_recipes: true
+
+tomes:
+  # These tomes are needed to craft custom enchantments. If you disable them here,
+  # you will need to adjust the recipes for the enchantments accordingly.
+  # Default: true
+  enabled: true
+
+# DO NOT CHANGE! The version of this config file. Used to determine if the config
+# needs to be updated.
+version: 1

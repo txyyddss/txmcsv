@@ -1,0 +1,38 @@
+includes: terralith:sakura_grove,terralith:sakura_valley
+modify-plants: true
+show-snow-instead-of-rain:
+  spring: false
+  summer: false
+  fall: false
+  winter: true
+freeze-in-winter: true
+colors:
+  spring:
+    skycolor: NONE
+    watercolor: NONE
+    waterfogcolor: NONE
+    grasscolor: NONE
+    treecolor: FF8CAF
+    fogcolor: NONE
+  summer:
+    skycolor: 84BDE8
+    watercolor: 43D5EE
+    waterfogcolor: 43D5EE
+    grasscolor: NONE
+    treecolor: FF8CAF
+    fogcolor: NONE
+  fall:
+    skycolor: 89919A
+    watercolor: 617B64
+    waterfogcolor: 617B64
+    grasscolor: BFB755
+    treecolor: EE355D, EE355D, EE355D, BE4F54, BE4F54
+    fogcolor: NONE
+  winter:
+    skycolor: D2DEFF
+    watercolor: 216FC4
+    waterfogcolor: 216FC4
+    grasscolor: C5D9E7
+    treecolor: FFCCDB
+    fogcolor: A6D1FF
+temperature-difference: 0

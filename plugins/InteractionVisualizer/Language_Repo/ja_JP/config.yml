@@ -1,0 +1,247 @@
+Database:
+  #プレイヤーデータを保存するストレージタイプ(MYSQL または SQLITE)
+  Type: SQLITE
+  MYSQL:
+    Host: localhost
+    Port: 3306
+    Database: InteractionVisualizer
+    Username: mysql
+    Password: password
+
+Messages:
+  NoPermission: "&cあなたにはそのコマンドを使う権限がありません！"
+  Reload: "&aInteractionVisualizerが正常にリロードされました！"
+  Toggle:
+    Usage: "&c使用方法: /interactionvisualizer toggle <itemstand/itemdrop/hologram>"
+    Modes: "&c切り替えモード: itemstand, itemdrop, hologram"
+    Console: "&cプレイヤー名を次のように記入してください: /interactionvisualizer toggle <mode> [player]"
+    ToggleOn: "&a%s をonにしました"
+    ToggleOff: "&e%s をoffにしました"
+    PlayerNotFound: "&cそのプレイヤーはオンラインではありません！"
+
+GarbageCollector:
+  #プラグインはどれくらいの頻度で、追跡する必要のなくなったタイル・エンティティ・ブロックを掃き出し、取り除くべきか。
+  #20ティック = 1秒
+  #サーバーが高速な処理を行えない場合は、必要に応じてこの値を調整してください。
+  Period: 600
+
+TileEntityUpdate:
+  #タイルエンティティの更新時にここで定義した速度よりも高速なプレイヤーは無視されます。
+  #これは水平方向の速度です。
+  IgnoreMovementSpeed:
+    Normal: 1.31
+    Flying: 1.49
+    Gliding: 1.23
+  #プレイヤーを囲むチャンクのタイルエンティティをチェックする範囲。
+  #0を指定すると、プレイヤーが立っているチャンクのみがチェックされます。
+  CheckingRange: 1
+
+LightUpdate:
+  #ライトレベルを必要とするブロックが使用されている場合、プラグインはどのくらいの頻度でライトレベルを更新する必要があるか
+  #20ティック = 1秒
+  #サーバーが高速な処理を行えない場合は、必要に応じてこの値を調整してください。
+  Period: 10
+
+#ブロックごとのオプション
+Blocks:
+  Anvil:
+    #有効にするかどうか(true=有効、false=無効)
+    Enabled: true
+  Banner:
+    Enabled: true
+  Beacon:
+    Enabled: true
+    #プラグインがブロックの更新をチェックする頻度
+    #20ティック = 1秒
+    #サーバーの性能に合わせてこの値を調整してください。
+    CheckingPeriod: 20
+    #表示される文字をどのようにプレイヤーに対して追従させるか
+    #FACE, SQUARE, CIRCLEが使えます。
+    PathType: FACE
+  BeeHive:
+    Enabled: true
+    CheckingPeriod: 20
+    Options:
+      HoneyLevelCharacter: "\u2b1b"
+      EmptyColor: "&7"
+      FilledColor: "&e"
+      NoCampfireColor: "&c"
+      BeeCountText: "&e{Current}&6/{Max}"
+  BeeNest:
+    Enabled: true
+    CheckingPeriod: 20
+    Options:
+      HoneyLevelCharacter: "\u2b1b"
+      EmptyColor: "&7"
+      FilledColor: "&e"
+      NoCampfireColor: "&c"
+      BeeCountText: "&e{Current}&6/{Max}"
+  BlastFurnace:
+    Enabled: true
+    CheckingPeriod: 10
+    Options:
+      ProgressBarCharacter: "\u258e"
+      EmptyColor: "&7"
+      FilledColor: "&e"
+      NoFuelColor: "&c"
+      #進捗バーの長さ
+      ProgressBarLength: 10
+      AmountPending: " &7+{Amount}"
+  BrewingStand:
+    Enabled: true
+    CheckingPeriod: 20
+    Options:
+      ProgressBarCharacter: "\u258e"
+      EmptyColor: "&7"
+      FilledColor: "&6"
+      NoFuelColor: "&c"
+      ProgressBarLength: 10
+  Campfire:
+    Enabled: true
+    CheckingPeriod: 20
+    Options:
+      ProgressBarCharacter: "\uff5c"
+      EmptyColor: "&7"
+      FilledColor: "&e"
+      ProgressBarLength: 10
+  CartographyTable:
+    Enabled: true
+  Chest:
+    Enabled: true
+  Conduit:
+    Enabled: true
+    CheckingPeriod: 20
+    PathType: CIRCLE
+  CraftingTable:
+    Enabled: true
+  Dispenser:
+    Enabled: true
+  DoubleChest:
+    Enabled: true
+  Dropper:
+    Enabled: true
+  EnchantmentTable:
+    Enabled: true
+  EnderChest:
+    Enabled: true
+  Furnace:
+    Enabled: true
+    CheckingPeriod: 20
+    Options:
+      ProgressBarCharacter: "\u258e"
+      EmptyColor: "&7"
+      FilledColor: "&e"
+      NoFuelColor: "&c"
+      ProgressBarLength: 10
+      AmountPending: " &7+{Amount}"
+  Grindstone:
+    Enabled: true
+  Hopper:
+    Enabled: true
+  JukeBox:
+    Enabled: true
+    CheckingPeriod: 20
+    Options:
+      #レコードの曲名を表示するかどうか
+      ShowDiscName: true
+  Lectern:
+    Enabled: true
+    CheckingPeriod: 20
+    Options:
+      Line1: "&e{Title}"
+      Line2: "&7&o- {Author}"
+  Loom:
+    Enabled: true
+  NoteBlock:
+    Enabled: true
+  ShulkerBox:
+    Enabled: true
+  SmithingTable:
+    Enabled: true
+  Smoker:
+    Enabled: true
+    CheckingPeriod: 10
+    Options:
+      ProgressBarCharacter: "\u258e"
+      EmptyColor: "&7"
+      FilledColor: "&e"
+      NoFuelColor: "&c"
+      ProgressBarLength: 10
+      AmountPending: " &7+{Amount}"
+  SoulCampfire:
+    Enabled: true
+    CheckingPeriod: 20
+    Options:
+      ProgressBarCharacter: "\uff5c"
+      EmptyColor: "&7"
+      FilledColor: "&b"
+      ProgressBarLength: 10
+  Spawner:
+    Enabled: true
+    CheckingPeriod: 20
+    PathType: FACE
+    Options:
+      ProgressBarCharacter: "\u258e"
+      EmptyColor: "&c"
+      FilledColor: "&a"
+      ProgressBarLength: 10
+      SpawnRange: " &f{SpawnRange}m"
+  Stonecutter:
+    Enabled: true
+
+
+#エンティティごとのオプション
+Entities:
+  Item:
+    #有効にするかどうか(true=有効、false=無効)
+    Enabled: true
+    Options:
+      #一致する項目は表示されない
+      Blacklist:
+        #名前の一致時にカラーコードを削除
+        StripColorWhenMatching: true
+        #正規表現を使った名前一致
+        List:
+          - ["^ALTAR Probe.*", "NETHER_STAR"]
+          - ["^Blacklisted Item$", "*"]
+      RegularFormat: "{Item} &bx{Amount} &6[{Timer}&6]"
+      SingularFormat: "{Item} &6[{Timer}&6]"
+      ToolsFormat: "{Item} &6[{Durability}&6]"
+      #1つのブロックに定義された量以上のアイテムがある場合は非表示にする。(デフォルト: 6)
+      Cramping: 6
+      Color:
+        High: "&a"
+        Medium: "&e"
+        Low: "&c"
+  Villager:
+    Enabled: true
+
+#InteractionVisualizerディスプレイのために、これらのモジュールを有効にします。
+#ItemStand は、防具立てと額縁を使用するすべてのディスプレイを表します。
+#ItemDrop は、ドロップされたアイテムを使用するすべてのディスプレイを表します。
+#Hologram は、防具立てを使用するすべてのホログラフィックディスプレイを表します。
+Modules:
+  ItemStand:
+    Enabled: true
+  ItemDrop:
+    Enabled: true
+  Hologram:
+    Enabled: true
+
+Settings:
+  #手のスイングアニメーションの有無
+  UseHandSwingAnimation: true
+  #アイテムを拾う時の、Y座標のオフセット
+  PickupAnimationPlayerYOffset: 0
+  #機能を無効にするワールド
+  DisabledWorlds: []
+  #視界が遮られた際に非表示にするか
+  HideIfViewObstructed: false
+  #デフォルトの言語
+  #Minecraft 1.13以上では何もしない
+  Language: ja_JP
+
+Options:
+  Updater: true
+  DownloadLanguageFiles: true
+  

@@ -1,0 +1,96 @@
+scores:
+  # Whether scores (red numbers) on server versions 1.20.3 or newer should be hidden
+  hidden: true
+
+#This is where you create the scoreboard, the first section will always be the title. 
+#Every section after that will be a line displayed on the scoreboard. You can have a max
+#of 15 lines display due to the limitations of minecraft.
+display:
+    #This is the first section, it will always be the title of the scoreboard. 
+    #You can also use placeholders here if you want.
+    title: 
+      #This is the text that will be display as the title, it can have as many lines as you want and it will automatically rotate through them or
+      #choose a random one, depending on what you set random to.
+      text:
+      - "%RainbowColor_TX AND MT SERVER%"
+      #If this is true there will be a random line every time it updates. 
+      #If it is false than it will rotate through them and you can make some animations with it.
+      random: false
+      #The time between updates, 20 ticks is 1 second.
+      #Every x ticks it will go to the next line, if random is false, once all lines are displayed it will go to the first line.
+      interval: 2
+    #This section is the first line, here you set the data of that line. It doesn't matter what the name of the section is, as long
+    # as there is no other section with the exact same name 
+    line-1:
+      #Same as with the title, no limit on text. If you just put " " here it will display a blank line on the scoreboard.
+      text:
+      - "&4Ver:7"
+
+      #If it should be random or not.
+      random: false
+      #The time between updates, 20 ticks is 1 second.
+      #Every x ticks it will go to the next line, if random is false, once all lines are displayed it will go to the first line.
+      interval: -1
+      #The score display next to the text, this can only be a number and not removed.
+      # If the score of the other lines are higher than this one, they will be displayed above this one.
+      score: 99   
+    line-2:
+      text:
+      - "&bWebmap_port:&a8123"
+      random: false
+      interval: -1
+      score: 98
+    line-3:
+      text:
+      - "&5%rs_biome%"
+      random: false
+      interval: 20
+      score: 97
+    #This animation works together with the line below it. The interval is the same so it displays the data at the same time.     
+    line-4:
+      text:
+      - "&aCurrent temp:&3%rs_temperature%"
+      random: false
+      interval: 20
+      score: 96
+    line-5:
+      text:
+      - "&bSeason:&3%rs_season%&b,%rs_days_until_next_season%d left"
+      random: false
+      interval: 60
+      score: 95
+    #This animation shows the actual data of the player  
+    line-6:
+      text:
+      - "&bPlayed &3%statistic_hours_played%hours"
+      random: false
+      interval: 120
+      score: 94
+    #This is another blank line to split up the scoreboard in multiple parts, you can have multiple lines with the same text displayed on the scoreboard.  
+    line-7:
+      text:
+      - "&aClaimed:&3%griefprevention_claims%&aregions"
+      random: false
+      interval: 60
+      score: 93
+    #In this animation random is set to true so it will go randomly through all the text and display it on the scoreboard. 
+    #In this case it will just change the color of the text but it could be anything and you are also able to use placeholders here.  
+    line-8:
+      text:
+      - "&aFight score:&3%armorplaceholders_calculate%"  
+      random: true
+      interval: 30
+      score: 92
+    #It will display the player's health here with hearts, you can also use score=%placeholder% if you have PlaceholderAPI installed
+    line-9:
+      text:
+      - "&aCurrent light:%player_light_level%"       
+      random: false
+      interval: 5
+      score: 91
+    line-10:
+      text:
+      - "&bTps:&3%cmi_tps_1%,&a%server_online%&aplayers"       
+      random: false
+      interval: 20
+      score: 90

@@ -1,0 +1,237 @@
+#    _____                   _____ _             _       _   _
+#   |  _  |___ _____ ___ ___|  _  | |___ ___ ___| |_ ___| |_| |___ ___ ___
+#   |     |  _|     | . |  _|   __| | .'|  _| -_|   | . | | . | -_|  _|_ -|
+#   |__|__|_| |_|_|_|___|_| |__|  |_|__,|___|___|_|_|___|_|___|___|_| |___|
+#                                                      Created by stumper66
+
+# ------------- Default Settings -------------
+
+check-main-hand: true
+check-offhand-hand: true
+check-armor: true
+only-include-defined-items: true
+apply-damage-scale-to-enchantments: true
+
+item-default-value: 1.0
+enchantment-default-value: 0.5
+
+use-item-damage-scale: true
+enchantment-level-scale: 1.0
+
+final-scale: 0.1
+final-score-cap: 500
+
+# ------------- Enchantments -------------
+
+enchantments:
+  AQUA_AFFINITY:
+    1: 10.5
+  BANE_OF_ARTHROPODS:
+    1: 15.0
+    2: 23.0
+    3: 31.0
+    4: 39.0
+    5: 47.0
+  BINDING_CURSE:
+    1: 0.0
+  BLAST_PROTECTION:
+    1: 9.0
+    2: 17.0
+    3: 25.0
+    4: 33.0
+  CHANNELING:
+    1: 37.5
+  DEPTH_STRIDER:
+    1: 17.5
+    2: 27.5
+    3: 37.5
+  EFFICIENCY:
+    1: 26.0
+    2: 36.0
+    3: 46.0
+    4: 56.0
+    5: 66.0
+  FEATHER_FALLING:
+    1: 8.0
+    2: 14.0
+    3: 20.0
+    4: 26.0
+  FIRE_ASPECT:
+    1: 35.0
+    2: 55.0
+  FIRE_PROTECTION:
+    1: 14.0
+    2: 22.0
+    3: 30.0
+    4: 38.0
+  FLAME:
+    1: 35.0
+  FORTUNE:
+    1: 40.0
+    2: 49.0
+    3: 58.0
+  FROST_WALKER:
+    1: 17.5
+    2: 27.5
+  IMPALING:
+    1: 11.0
+    2: 19.0
+    3: 27.0
+    4: 35.0
+    5: 43.0
+  INFINITY:
+    1: 35.0
+  KNOCKBACK:
+    1: 30.0
+    2: 50.0
+  LOOTING:
+    1: 40.0
+    2: 49.0
+    3: 58.0
+  LOYALTY:
+    1: 31.0
+    2: 34.5
+    3: 38.0
+  LUCK_OF_THE_SEA:
+    1: 40.0
+    2: 49.0
+    3: 58.0
+  LURE:
+    1: 40.0
+    2: 49.0
+    3: 58.0
+  MENDING:
+    1: 50.0
+  MULTISHOT:
+    1: 35.0
+  PIERCING:
+    1: 25.5
+    2: 30.5
+    3: 35.5
+    4: 40.5
+  POWER:
+    1: 8.5
+    2: 18.5
+    3: 28.5
+    4: 38.5
+    5: 48.5
+  PROJECTILE_PROTECTION:
+    1: 6.0
+    2: 12.0
+    3: 18.0
+    4: 24.0
+  PROTECTION:
+    1: 6.5
+    2: 17.5
+    3: 28.5
+    4: 39.5
+  PUNCH:
+    1: 24.5
+    2: 44.5
+  QUICK_CHARGE:
+    1: 31.0
+    2: 41.0
+    3: 51.0
+  RESPIRATION:
+    1: 25.0
+    2: 35.0
+    3: 45.0
+  RIPTIDE:
+    1: 33.5
+    2: 37.0
+    3: 40.5
+  SHARPNESS:
+    1: 11.0
+    2: 22.0
+    3: 33.0
+    4: 44.0
+    5: 55.0
+  SILK_TOUCH:
+    1: 40.0
+  SMITE:
+    1: 15.0
+    2: 23.0
+    3: 31.0
+    4: 39.0
+    5: 47.0
+  SOUL_SPEED:
+    1: 17.5
+    2: 27.5
+    3: 37.5
+  SWEEPING:
+    1: 12.5
+    2: 21.5
+    3: 30.5
+  SWIFT_SNEAK:
+    1: 17.5
+    2: 27.5
+    3: 37.5
+    4: 47.5
+    5: 57.5
+  THORNS:
+    1: 35.0
+    2: 50.0
+    3: 65.0
+  UNBREAKING:
+    1: 30.0
+    2: 38.0
+    3: 46.0
+  VANISHING_CURSE:
+    1: 0.0
+
+# ------------- Armors -------------
+
+materials:
+  LEATHER_HELMET: 2.0
+  LEATHER_CHESTPLATE: 4.0
+  LEATHER_LEGGINGS: 3.0
+  LEATHER_BOOTS: 1.0
+
+  CHAINMAIL_HELMET: 2.0
+  CHAINMAIL_CHESTPLATE: 4.0
+  CHAINMAIL_LEGGINGS: 3.0
+  CHAINMAIL_BOOTS: 1.0
+
+  IRON_HELMET: 4.0
+  IRON_CHESTPLATE: 7.0
+  IRON_LEGGINGS: 6.0
+  IRON_BOOTS: 3.0
+
+  GOLDEN_HELMET: 2.0
+  GOLDEN_CHESTPLATE: 4.0
+  GOLDEN_LEGGINGS: 3.0
+  GOLDEN_BOOTS: 1.0
+
+  DIAMOND_HELMET: 6.0
+  DIAMOND_CHESTPLATE: 10.0
+  DIAMOND_LEGGINGS: 9.0
+  DIAMOND_BOOTS: 5.0
+
+  NETHERITE_HELMET: 8.0
+  NETHERITE_CHESTPLATE: 13.0
+  NETHERITE_LEGGINGS: 12.0
+  NETHERITE_BOOTS: 7.0
+
+  # ------------- Weapons -------------
+
+  WOODEN_SWORD: 2.0
+  STONE_SWORD: 3.0
+  IRON_SWORD: 7.0
+  GOLDEN_SWORD: 3.0
+  DIAMOND_SWORD: 12.0
+  NETHERITE_SWORD: 17.0
+
+  WOODEN_AXE: 1.0
+  STONE_AXE: 2.0
+  IRON_AXE: 6.0
+  GOLDEN_AXE: 2.0
+  DIAMOND_AXE: 11.0
+  NETHERITE_AXE: 16.0
+
+  BOW: 5.0
+  CROSSBOW: 5.0
+  TRIDENT: 5.0
+
+  # ------------- Miscellaneous -------------
+
+  SHIELD: 5.0

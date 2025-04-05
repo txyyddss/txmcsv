@@ -1,0 +1,243 @@
+#Chinese (Simplified) Language default config translated by StarYunmeng
+#https://www.spigotmc.org/members/staryunmeng.589461/
+#Replace the original "config.yml" to use!
+
+Database:
+  #数据库储存类型 MYSQL 或 SQLITE
+  Type: SQLITE
+  MYSQL:
+    Host: localhost
+    Port: 3306
+    Database: InteractionVisualizer
+    Username: mysql
+    Password: password
+
+Messages:
+  NoPermission: "&c您没有权限使用该命令!"
+  Reload: "&aInteractionVisualizer重载成功!"
+  Toggle:
+    Usage: "&c用法: /interactionvisualizer toggle <itemstand/itemdrop/hologram>"
+    Modes: "&c切换模式: itemstand, itemdrop, hologram"
+    Console: "&c请提供玩家名称: /interactionvisualizer toggle <模式> [玩家名称]"
+    ToggleOn: "&a切换至 %s 开启"
+    ToggleOff: "&e切换至 %s 关闭"
+    PlayerNotFound: "&c玩家并不在线！"
+
+GarbageCollector:
+  #插件应该多久清除一次并删除不再需要跟踪的tile，方块或实体
+  #以 ticks 为度量, 20 ticks = 1秒
+  #当您的服务器无法处理过快的更新时调整此数据值
+  Period: 600
+
+TileEntityUpdate:
+  #该插件将忽略移动速度超过此速度的玩家
+  #更新图块实体
+  #水平速度
+  IgnoreMovementSpeed:
+    Normal: 1.31
+    Flying: 1.49
+    Gliding: 1.23
+  #检查玩家周围区块中的图块实体的范围
+  #范围为0表示仅检查玩家站立的位置
+  CheckingRange: 1
+
+LightUpdate:
+  # 插件应多久更新一次需要使用的方块的光照水平
+  # 以 ticks 为度量， 20 ticks = 1秒
+  # 当您的服务器无法处理过快的照明更新时调整此数据值
+  Period: 10
+
+#指定启动或关闭方块的 InteractionVisualizer 特效
+Blocks:
+  Anvil:
+    Enabled: true
+  Banner:
+    Enabled: true
+  Beacon:
+    Enabled: true
+    #插件应该多久检查一次方块更新
+    #以 ticks 为度量， 20 ticks = 1秒
+    #如果您的服务器无法处理快速的更新或者可以处理更快的更新速度，请更改此处
+    CheckingPeriod: 20
+    #显示的文字应如何跟随玩家
+    #支持 FACE, SQUARE, CIRCLE
+    PathType: FACE
+  BeeHive:
+    Enabled: true
+    CheckingPeriod: 20
+    Options:
+      HoneyLevelCharacter: "\u2b1b"
+      EmptyColor: "&7"
+      FilledColor: "&e"
+      NoCampfireColor: "&c"
+      BeeCountText: "&e{Current}&6/{Max}"
+  BeeNest:
+    Enabled: true
+    CheckingPeriod: 20
+    Options:
+      HoneyLevelCharacter: "\u2b1b"
+      EmptyColor: "&7"
+      FilledColor: "&e"
+      NoCampfireColor: "&c"
+      BeeCountText: "&e{Current}&6/{Max}"
+  BlastFurnace:
+    Enabled: true
+    CheckingPeriod: 10
+    Options:
+      ProgressBarCharacter: "\u258e"
+      EmptyColor: "&7"
+      FilledColor: "&e"
+      NoFuelColor: "&c"
+      ProgressBarLength: 10
+      AmountPending: " &7+{Amount}"
+  BrewingStand:
+    Enabled: true
+    CheckingPeriod: 20
+    Options:
+      ProgressBarCharacter: "\u258e"
+      EmptyColor: "&7"
+      FilledColor: "&6"
+      NoFuelColor: "&c"
+      ProgressBarLength: 10
+  Campfire:
+    Enabled: true
+    CheckingPeriod: 20
+    Options:
+      ProgressBarCharacter: "\uff5c"
+      EmptyColor: "&7"
+      FilledColor: "&e"
+      ProgressBarLength: 10
+  CartographyTable:
+    Enabled: true
+  Chest:
+    Enabled: true
+  Conduit:
+    Enabled: true
+    CheckingPeriod: 20
+    PathType: CIRCLE
+  CraftingTable:
+    Enabled: true
+  Dispenser:
+    Enabled: true
+  DoubleChest:
+    Enabled: true
+  Dropper:
+    Enabled: true
+  EnchantmentTable:
+    Enabled: true
+  EnderChest:
+    Enabled: true
+  Furnace:
+    Enabled: true
+    CheckingPeriod: 20
+    Options:
+      ProgressBarCharacter: "\u258e"
+      EmptyColor: "&7"
+      FilledColor: "&e"
+      NoFuelColor: "&c"
+      ProgressBarLength: 10
+      AmountPending: " &7+{Amount}"
+  Grindstone:
+    Enabled: true
+  Hopper:
+    Enabled: true
+  JukeBox:
+    Enabled: true
+    CheckingPeriod: 20
+    Options:
+      #是否显示音乐唱片浮空名称
+      ShowDiscName: true
+  Lectern:
+    Enabled: true
+    CheckingPeriod: 20
+    Options:
+      Line1: "&e{Title}"
+      Line2: "&7&o- {Author}"
+  Loom:
+    Enabled: true
+  NoteBlock:
+    Enabled: true
+  ShulkerBox:
+    Enabled: true
+  SmithingTable:
+    Enabled: true
+  Smoker:
+    Enabled: true
+    CheckingPeriod: 10
+    Options:
+      ProgressBarCharacter: "\u258e"
+      EmptyColor: "&7"
+      FilledColor: "&e"
+      NoFuelColor: "&c"
+      ProgressBarLength: 10
+      AmountPending: " &7+{Amount}"
+  SoulCampfire:
+    Enabled: true
+    CheckingPeriod: 20
+    Options:
+      ProgressBarCharacter: "\uff5c"
+      EmptyColor: "&7"
+      FilledColor: "&b"
+      ProgressBarLength: 10
+  Spawner:
+    Enabled: true
+    CheckingPeriod: 20
+    PathType: FACE
+    Options:
+      ProgressBarCharacter: "\u258e"
+      EmptyColor: "&c"
+      FilledColor: "&a"
+      ProgressBarLength: 10
+      SpawnRange: " &f{SpawnRange}m"
+  Stonecutter:
+    Enabled: true
+
+Entities:
+  Item:
+    Enabled: true
+    Options:
+      #指定的物品将不会被显示
+      Blacklist:
+        #匹配到对应名称时去除颜色代码
+        StripColorWhenMatching: true
+        #正则表达式
+        List:
+          - ["^ALTAR Probe.*", "NETHER_STAR"]
+          - ["^Blacklisted Item$", "*"]
+      RegularFormat: "{Item} &bx{Amount} &6[{Timer}&6]"
+      SingularFormat: "{Item} &6[{Timer}&6]"
+      ToolsFormat: "{Item} &6[{Durability}&6]"
+      #如果一个块中有超过此指定数量的项实体时，将会被隐藏
+      Cramping: 6
+      Color:
+        High: "&a"
+        Medium: "&e"
+        Low: "&c"
+  Villager:
+    Enabled: true
+
+#为 InteractionVisualizer 启动的显示模块
+#ItemStand 表示使用 盔甲架 和 物品展示框 的显示方式
+#ItemDrop 表示使用 掉落物 的显示方式
+#Hologram 表示使用 盔甲架 进行全息展示
+Modules:
+  ItemStand:
+    Enabled: true
+  ItemDrop:
+    Enabled: true
+  Hologram:
+    Enabled: true
+
+Settings:
+  UseHandSwingAnimation: true
+  PickupAnimationPlayerYOffset: 0
+  DisabledWorlds: []
+  HideIfViewObstructed: false
+  #默认语言
+  #Doesn't do anything on Minecraft 1.13+
+  Language: zh_cn
+
+#联网部分,由于中国网络的特殊性,建议关闭更新
+Options:
+  Updater: false
+  DownloadLanguageFiles: true

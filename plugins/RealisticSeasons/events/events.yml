@@ -1,0 +1,174 @@
+dated-events:
+   christmas:
+      enabled: true
+      name: "&cChristmas"
+      display-event: true
+      disabled-worlds:
+      - NONE
+      times:
+         event-start:
+            date: 25/12
+         event-stop:
+            date: 28/12
+      night-particles: true 
+      christmas-trees:  
+         enabled: true 
+      commands:
+         start:
+            - "&cChristmas &ahas started!"
+            - "&aHead over to a nearby village to celebrate together, you may even find some presents"
+         stop:
+            - NONE
+      presents: 
+         enabled: true 
+         chunk-distance-between-spawns: 10 
+         loot:
+         - "2-8:EXPERIENCE_BOTTLE"
+         - "6-20:FIREWORK_ROCKET"
+         - "1-12:FIRE_CHARGE"
+         - "2-16:POTATO"
+         - "2-8:CARROT"
+         - "1-16:COAL"
+         - "1-16:SNOWBALL"
+         - "2-12:SWEET_BERRIES"
+         - "6-16:COOKIE"
+         - "1-2:ENDER_PEARL"
+         - "4-12:BAKED_POTATO"
+         - "2-8:BOOK"
+         - "4-12:BREAD"
+         - "1:DIAMOND"
+         - "1:GOLD_INGOT"
+         - "2-8:COOKED_RABBIT"
+         - "2-8:COOKED_MUTTON"
+         - "2-8:COOKED_BEEF"
+         - "2-8:COOKED_CHICKEN"
+         - "2-8:COOKED_PORKCHOP"
+         - "2-8:COOKED_SALMON"
+         - "1-3:GOLDEN_APPLE"
+         - "2-8:GOLDEN_CARROT"
+         - "1:LEATHER_HELMET"
+         - "2-16:SPECTRAL_ARROW"
+         - "1:CLOCK"
+         - "1-3:MAGMA_CREAM"
+         - "1-3:NETHER_WART"
+         - "1-3:BLAZE_ROD"
+         - "1-6:GOLD_NUGGET"
+         - "2-8:COOKED_COD"
+         - "1-4:SPRUCE_SAPLING"
+   newyear:
+      enabled: true
+      name: "&cNew year"
+      display-event: true
+      disabled-worlds:
+      - NONE
+      times:
+         event-start:
+            date: 1/1
+         event-stop:
+            date: 1/1
+      spawn-firework-boxes: true 
+      min-distance-between-firework: 34 
+      commands:
+         start:
+            - "&cHappy new year!"
+            - "&aVillagers are celebrating, head over to a nearby village"
+         stop:
+            - NONE
+   halloween:
+      enabled: true
+      name: "&6Halloween"
+      display-event: true
+      disabled-worlds:
+      - NONE
+      times:
+         event-start:
+            date: 31/10
+         event-stop:
+            date: 2/11
+      commands:
+         start:
+            - "&6Halloween &ahas started!"
+            - "&aBe extra careful tonight..."
+         stop:
+            - NONE
+      play-particles-around-halloween-mobs: true
+      witch-extra-potions: 
+         enabled: true 
+         effects:  
+         - BLINDNESS 
+         - CONFUSION 
+         - WITHER 
+         - SLOW_DIGGING 
+         - SLOW_FALLING 
+         - LEVITATION 
+      duplicating-mobs: 
+         enabled: true 
+         spawn-chance: 0.07 
+      invisible-mobs: 
+         enabled: true 
+         spawn-chance: 0.07 
+      fast-mobs: 
+         enabled: true 
+         spawn-chance: 0.07 
+      flame-skeletons:
+         enabled: true 
+         spawn-chance: 0.3 
+      armored-mobs: 
+         enabled: true 
+         spawn-chance: 0.25 
+      zombies-hold-pie: 
+         enabled: true 
+         spawn-chance: 0.3 
+      vincicators-at-night: 
+         enabled: true 
+         spawn-chance: 0.05 
+   easter:
+      enabled: true
+      name: "&dEaster"
+      display-event: true
+      disabled-worlds:
+      - NONE
+      times:
+         event-start:
+            date: 20/4
+         event-stop:
+            date: 24/4
+      spawn-killer-bunnies: true 
+      commands:
+         start:
+            - "&dEaster &ahas started!"
+            - "&aEggs are hidden all throughout the world. However, be careful at night"
+         stop:
+            - NONE
+      easter-eggs:
+         enabled: true 
+         chunk-distance-between-spawns: 4 
+         loot: 
+         - "6-3:COOKIE"
+         - "2-16:CARROT"
+         - "1:RABBIT_FOOT"
+         - "1:CAKE"
+         - "1-20:LEATHER"
+         - "2-24:GOLDEN_CARROT"
+         - "2-48:POTATO"
+         - "2-48:WHEAT"
+         - "2-16:GOLDEN_APPLE"
+         - "2-48:BEETROOT"
+         - "1:SADDLE"
+         - "1:NAME_TAG"
+         - "2-10:EGG"
+         - "2-10:MELON_SEEDS"
+         - "2-10:PUMPKIN_SEEDS"
+         - "2-16:BLUE_DYE"
+         - "2-16:RED_DYE"
+         - "2-16:YELLOW_DYE"
+         - "2-32:BAMBOO"
+         - "2-32:OAK_LOG"
+         - "1:HONEY_BOTTLE"
+         - "1-8:HONEYCOMB"
+         - "1-8:CACTUS"
+         - "1-12:SLIME_BALL"
+         - "1-5:HAY_BLOCK"
+         - "1:MUSHROOM_STEW"
+         - "1-12:GOLD_INGOT"
+         - "1-6:DIAMOND"

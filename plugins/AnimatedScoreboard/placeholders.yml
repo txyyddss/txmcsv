@@ -1,0 +1,11 @@
+scoreboard:
+  names:
+    adminboard: adminboard
+    endscoreboard: endscoreboard
+    globalscoreboard: globalscoreboard
+    netherscoreboard: netherscoreboard
+    defaultscoreboard: defaultscoreboard
+    PVP: PVP
+  disabled: '&cDisabled'
+  enabled: '&aEnabled'
+  none-active: '&7None'

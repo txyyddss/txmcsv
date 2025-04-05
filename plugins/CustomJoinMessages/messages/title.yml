@@ -1,0 +1,26 @@
+# Toggles whether titles should be sent.
+Enabled: true
+
+Public:
+  Quit:
+    1:
+      Permission: cjm.default
+      Messages:
+        1:
+          Title: "&a%name% &7has left,bye!"
+          SubTitle: ""
+          Fade-In: 10
+          Stay: 80
+          Fade-Out: 10
+
+Private:
+  Join:
+    1:
+      Permission: cjm.default
+      Messages:
+        1:
+          Title: "&7Welcome back!"
+          SubTitle: "Love from Martin and Ethan."
+          Fade-In: 10
+          Stay: 80
+          Fade-Out: 10

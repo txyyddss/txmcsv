@@ -1,0 +1,3 @@
+allow-across-dimension: true
+home-command-cooldown-seconds: 0
+default-sethome-limit: 5

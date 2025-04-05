@@ -1,0 +1,153 @@
+# Commands performed on particular event
+# Full color code support and some variables
+# If command starts with msg! and then player name is given, simple message will be sent to that player if he is online.
+# If command starts with broadcast! then message will be sent to everyone on server in simple manear
+# If command starts with actionbar! then all players will get action bar message defined after this variable
+# If command starts with title! then all players will get title message defined after this variable
+# If command starts with subtitle! then all players will get subtitle message defined after this variable
+# If command starts with kickall! then all players will be kicked from server with defined message. Usefull before server stop.
+# If command starts with perm:[permissionNode]! then command will get performed if player has permission node. This will not work when we dont know who is target player. In example: perm:cmi.announce.vip! broadcast! Hello vip guys
+# [playerName] to insert target player name
+# [playerDisplayName] to insert player display name
+# [lvl] to insert player level
+# [exp] to insert player total exp
+# [hp] to insert player health
+# [maxHp] to insert player max health
+# [hunger] to insert player hunger level
+# [gameMode] to insert player gamemode
+# Keep in mind that joinServer commands will not be performd on firstJoinServer event
+
+# ATTENTION!
+# Extreme usage of heavy commands could result in increased load for your server. Try using as little of them as possible for one event
+# and if possible spread them out with a delay by using "delay! 0.3" or similar variable
+# This will allow server to catch up with his calculation instead of forcing him to do all of those commands at once
+firstJoinServer:
+  Enabled: false
+  Commands:
+  - cmi msg [playerName] 此为事件测试消息！
+  - cmi actionbarmsg [playerName] 此为事件测试消息！
+joinServer:
+  Enabled: false
+  Commands:
+  - cmi msg [playerName] 此为事件测试消息！
+  - cmi actionbarmsg [playerName] 此为事件测试消息！
+quitServer:
+  Enabled: false
+  Commands:
+  - cmi msg [playerName] 此为事件测试消息！
+  - cmi actionbarmsg [playerName] 此为事件测试消息！
+playerDeath:
+  Enabled: false
+  Commands:
+  - cmi msg [playerName] 此为事件测试消息！
+  - cmi actionbarmsg [playerName] 此为事件测试消息！
+  SourceCommands: []
+playerKillPlayer:
+  # [sourceName] to insert source player name
+  # [sourceDisplayName] to insert player display name
+  # [sourceLvl] to insert player level
+  # [sourceExp] to insert player total exp
+  # [sourceHp] to insert player health
+  # [sourceMaxHp] to insert player max health
+  # [sourceHunger] to insert player hunger level
+  # [sourceGameMode] to insert player gamemode
+  # Keep in mind that in case you are using specialized commands, then Commands section will be performed on player who died and SourceCommands will be performed on player who killed
+  Enabled: false
+  Commands:
+  - cmi msg [playerName] 此为事件测试消息！
+  - cmi actionbarmsg [playerName] 此为事件测试消息！
+  SourceCommands: []
+playerRespawn:
+  Enabled: false
+  Commands:
+  - cmi msg [playerName] 此为事件测试消息！
+  - cmi actionbarmsg [playerName] 此为事件测试消息！
+playerTeleport:
+  Enabled: false
+  Commands:
+  - cmi msg [playerName] 此为事件测试消息！
+  - cmi actionbarmsg [playerName] 此为事件测试消息！
+bedLeave:
+  Enabled: false
+  Commands:
+  - cmi msg [playerName] 此为事件测试消息！
+  - cmi actionbarmsg [playerName] 此为事件测试消息！
+bedEnter:
+  Enabled: false
+  Commands:
+  - cmi msg [playerName] 此为事件测试消息！
+  - cmi actionbarmsg [playerName] 此为事件测试消息！
+playerWorldChange:
+  Enabled: false
+  Commands:
+  - cmi msg [playerName] 此为事件测试消息！
+  - cmi actionbarmsg [playerName] 此为事件测试消息！
+playerPreWorldChange:
+  Enabled: false
+  Commands:
+  - cmi msg [playerName] 此为事件测试消息！
+  - cmi actionbarmsg [playerName] 此为事件测试消息！
+playerGameModeChange:
+  Enabled: false
+  Commands:
+  - cmi msg [playerName] 此为事件测试消息！
+  - cmi actionbarmsg [playerName] 此为事件测试消息！
+playerKick:
+  Enabled: false
+  Commands:
+  - cmi msg [playerName] 此为事件测试消息！
+  - cmi actionbarmsg [playerName] 此为事件测试消息！
+playerBan:
+  Enabled: false
+  Commands:
+  - cmi msg [playerName] 此为事件测试消息！
+  - cmi actionbarmsg [playerName] 此为事件测试消息！
+playerLevelChange:
+  Enabled: false
+  Commands:
+  - cmi msg [playerName] 此为事件测试消息！
+  - cmi actionbarmsg [playerName] 此为事件测试消息！
+voidFall:
+  Enabled: false
+  Commands:
+  - cmi msg [playerName] 此为事件测试消息！
+  - cmi actionbarmsg [playerName] 此为事件测试消息！
+elytraStartGlide:
+  Enabled: false
+  Commands:
+  - cmi msg [playerName] 此为事件测试消息！
+  - cmi actionbarmsg [playerName] 此为事件测试消息！
+advancementDone:
+  # use [value] variable to insert advancements identificator
+  # This returns path to advancement like recipes/building_blocks/emerald_block which can be used in commands in case you want to filter out specific ones
+  Enabled: false
+  Commands:
+  - cmi msg [playerName] 此为事件测试消息！
+  - cmi actionbarmsg [playerName] 此为事件测试消息！
+elytraEndGlide:
+  Enabled: false
+  Commands:
+  - cmi msg [playerName] 此为事件测试消息！
+  - cmi actionbarmsg [playerName] 此为事件测试消息！
+sneakingSwapHandItems:
+  Enabled: false
+  # Item swap event can be canceled if needed. This only works if event monitor is enabled
+  CancelEvent: false
+  Commands:
+  - cmi msg [playerName] 此为事件测试消息！
+  - cmi actionbarmsg [playerName] 此为事件测试消息！
+swapHandItems:
+  Enabled: false
+  Commands:
+  - cmi msg [playerName] 此为事件测试消息！
+  - cmi actionbarmsg [playerName] 此为事件测试消息！
+pvpstart:
+  Enabled: false
+  Commands:
+  - cmi msg [playerName] 此为事件测试消息！
+  - cmi actionbarmsg [playerName] 此为事件测试消息！
+pvpend:
+  Enabled: false
+  Commands:
+  - cmi msg [playerName] 此为事件测试消息！
+  - cmi actionbarmsg [playerName] 此为事件测试消息！

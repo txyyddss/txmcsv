@@ -1,0 +1,38 @@
+includes: terralith:hot_shrubland
+modify-plants: false
+show-snow-instead-of-rain:
+  spring: false
+  summer: false
+  fall: false
+  winter: false
+freeze-in-winter: false
+colors:
+  spring:
+    skycolor: NONE
+    watercolor: NONE
+    waterfogcolor: NONE
+    grasscolor: NONE
+    treecolor: NONE
+    fogcolor: NONE
+  summer:
+    skycolor: NONE
+    watercolor: NONE
+    waterfogcolor: NONE
+    grasscolor: NONE
+    treecolor: NONE
+    fogcolor: NONE
+  fall:
+    skycolor: NONE
+    watercolor: NONE
+    waterfogcolor: NONE
+    grasscolor: E3C783
+    treecolor: C08851
+    fogcolor: NONE
+  winter:
+    skycolor: NONE
+    watercolor: NONE
+    waterfogcolor: NONE
+    grasscolor: F1DEB2
+    treecolor: BB7A3B
+    fogcolor: NONE
+temperature-difference: 10

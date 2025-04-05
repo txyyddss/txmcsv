@@ -1,0 +1,34 @@
+{
+  "type": "com.loohp.imageframe.objectholders.URLStaticImageMap",
+  "index": 0,
+  "name": "114",
+  "url": "https://tse4-mm.cn.bing.net/th/id/OIP-C.6e6vgS32AUDamdreCkLmoAHaFi?rs\u003d1\u0026pid\u003dImgDetMain",
+  "width": 2,
+  "height": 2,
+  "ditheringType": "nearest-color",
+  "creator": "28fcb19f-8a07-3f1c-9403-66c0f1275aa2",
+  "hasAccess": {},
+  "creationTime": 1729931212912,
+  "mapdata": [
+    {
+      "mapid": 0,
+      "image": "0.png",
+      "markers": []
+    },
+    {
+      "mapid": 1,
+      "image": "1.png",
+      "markers": []
+    },
+    {
+      "mapid": 2,
+      "image": "2.png",
+      "markers": []
+    },
+    {
+      "mapid": 3,
+      "image": "3.png",
+      "markers": []
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+includes: terralith:arid_highlands,terralith:brushland
+modify-plants: false
+freeze-in-winter: false
+show-snow-instead-of-rain:
+  spring: false
+  summer: false
+  fall: false
+  winter: false
+colors:
+  spring:
+    skycolor: 78A7FF
+    watercolor: 4397ec
+    waterfogcolor: 4397ec
+    grasscolor: NONE
+    treecolor: NONE
+    fogcolor: NONE
+  summer:
+    skycolor: 84BDE8
+    watercolor: NONE
+    waterfogcolor: NONE
+    grasscolor: NONE
+    treecolor: NONE
+    fogcolor: NONE
+  fall:
+    skycolor: 89919A
+    watercolor: 617B64
+    waterfogcolor: 617B64
+    grasscolor: BFB755
+    treecolor: 9E814D
+    fogcolor: NONE
+  winter:
+    skycolor: D2DEFF
+    watercolor: 216FC4
+    waterfogcolor: 216FC4
+    grasscolor: B8D0E1
+    treecolor: B8D0E1
+    fogcolor: A6D1FF
+temperature-difference: 10

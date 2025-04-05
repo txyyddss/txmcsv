@@ -1,0 +1,38 @@
+includes: terralith:jungle_mountains,terralith:rocky_jungle,terralith:tropical_jungle
+modify-plants: false
+show-snow-instead-of-rain:
+  spring: false
+  summer: false
+  fall: false
+  winter: false
+freeze-in-winter: false
+colors:
+  spring:
+    skycolor: 78A7FF
+    watercolor: 4397ec
+    waterfogcolor: 4397ec
+    grasscolor: NONE
+    treecolor: NONE
+    fogcolor: NONE
+  summer:
+    skycolor: 84BDE8
+    watercolor: 43D5EE
+    waterfogcolor: 43D5EE
+    grasscolor: NONE
+    treecolor: NONE
+    fogcolor: NONE
+  fall:
+    skycolor: NONE
+    watercolor: NONE
+    waterfogcolor: NONE
+    grasscolor: NONE
+    treecolor: NONE
+    fogcolor: NONE
+  winter:
+    skycolor: NONE
+    watercolor: 617B64
+    waterfogcolor: 617B64
+    grasscolor: AEA42A
+    treecolor: AEA42A
+    fogcolor: NONE
+temperature-difference: 0

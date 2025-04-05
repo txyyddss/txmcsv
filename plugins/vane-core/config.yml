@@ -1,0 +1,226 @@
+# vim: set tabstop=2 softtabstop=0 expandtab shiftwidth=2:
+# This config file will automatically be updated, as long
+# as there are no incompatible changes between versions.
+# This means that additional comments will not be preserved!
+
+# The language for this module. The corresponding language file must be named
+# lang-{lang}.yml. Specifying 'inherit' will load the value set for vane-core.
+# Default: "inherit"
+lang: "inherit"
+
+# The module will only add functionality if this is set to true.
+# Default: true
+enabled: true
+
+# Enable plugin metrics via bStats. You can opt-out here or via the global bStats
+# configuration. All collected information is completely anonymous and publicly
+# available.
+# Default: true
+metrics_enabled: true
+
+# Let the client translate messages using the generated resource pack. This allows
+# every player to select their preferred language, and all plugin messages will
+# also be translated. Disabling this won't allow you to skip generating the
+# resource pack, as it will be needed for custom item textures.
+# Default: true
+client_side_translations: true
+
+command_customitem:
+  # Enable command customitem
+  # Default: true
+  enabled: true
+
+command_enchant:
+  # Enable command enchant
+  # Default: true
+  enabled: true
+
+command_vane:
+  # Enable command vane
+  # Default: true
+  enabled: true
+
+hide_commands:
+  # Hide error messages for all commands for which a player has no permission, by
+  # displaying the default unknown command message instead.
+  # Default: true
+  enabled: true
+
+menus:
+  # Menu configuration for generic selector menus.
+  generic_selector:
+    # Used to cancel selection.
+    cancel:
+      # The item stack amount.
+      # Valid values: [0,)
+      # Default: 1
+      amount: 1
+
+      # The item stack material. Also accepts heads from the head library or from
+      # defined custom items.
+      # Default: "minecraft:prismarine_shard"
+      material: "minecraft:prismarine_shard"
+
+    # Used to indicate current page.
+    current_page:
+      # The item stack amount.
+      # Valid values: [0,)
+      # Default: 1
+      amount: 1
+
+      # The item stack material. Also accepts heads from the head library or from
+      # defined custom items.
+      # Default: "minecraft:map"
+      material: "minecraft:map"
+
+    # Used to filter items.
+    filter:
+      # The item stack amount.
+      # Valid values: [0,)
+      # Default: 1
+      amount: 1
+
+      # The item stack material. Also accepts heads from the head library or from
+      # defined custom items.
+      # Default: "minecraft:hopper"
+      material: "minecraft:hopper"
+
+    # Used to select pages.
+    page:
+      # The item stack amount.
+      # Valid values: [0,)
+      # Default: 1
+      amount: 1
+
+      # The item stack material. Also accepts heads from the head library or from
+      # defined custom items.
+      # Default: "minecraft:paper"
+      material: "minecraft:paper"
+
+  # Menu configuration for the head selector menu.
+  head_selector:
+    # Used to represent a head in the head library.
+    select_head:
+      # The item stack amount.
+      # Valid values: [0,)
+      # Default: 1
+      amount: 1
+
+      # The item stack material. Also accepts heads from the head library or from
+      # defined custom items.
+      # Default: "minecraft:barrier"
+      material: "minecraft:barrier"
+
+  # Menu configuration for item selector menus.
+  item_selector:
+    # Used to confirm item selection.
+    accept:
+      # The item stack amount.
+      # Valid values: [0,)
+      # Default: 1
+      amount: 1
+
+      # The item stack material. Also accepts heads from the head library or from
+      # defined custom items.
+      # Default: "minecraft:lime_terracotta"
+      material: "minecraft:lime_terracotta"
+
+    # Used to cancel item selection.
+    cancel:
+      # The item stack amount.
+      # Valid values: [0,)
+      # Default: 1
+      amount: 1
+
+      # The item stack material. Also accepts heads from the head library or from
+      # defined custom items.
+      # Default: "minecraft:red_terracotta"
+      material: "minecraft:red_terracotta"
+
+    # Represents the selected item. Left-clicking will reset the selection to the
+    # initial value, and right-clicking will clear the selected item. The given
+    # stack is used as the 'empty', cleared item.
+    selected:
+      # The item stack amount.
+      # Valid values: [0,)
+      # Default: 1
+      amount: 1
+
+      # The item stack material. Also accepts heads from the head library or from
+      # defined custom items.
+      # Default: "minecraft:barrier"
+      material: "minecraft:barrier"
+
+# When a player head is broken by a player that exists in /heads, drop the
+# correctly named item as seen in /heads. You can disable this if it interferes
+# with similarly textured heads from other plugins.
+# Default: true
+player_head_drops: true
+
+# Allow loading of player heads in relevant menus. Disabling this will show all
+# player heads using the Steve skin, which may perform better on low-performance
+# servers and clients.
+# Default: true
+player_heads_in_menus: true
+
+resource_pack:
+  # Enable resource pack distribution.
+  # Default: true
+  enabled: false
+
+  custom_resource_pack:
+    # If this is not enabled, vane will automatically distribute the official vane
+    # resource pack. By enabling this option, you can have vane distribute a
+    # custom resource pack (with the given url and sha1) instead of the official
+    # vane resource pack. Use this option only if you either want to distribute
+    # another resource pack (you will need to merge the vane resources by hand!)
+    # or self-host the vane resource pack (generated via `/vane
+    # generate_resource_pack`). The latter is necessary when you make adjustments
+    # to the language files of vane. For more information on this, see the wiki
+    # (https://github.com/oddlama/vane/wiki/Creating-a-Translation).
+    # Default: false
+    enabled: false
+
+    # Resource pack SHA-1 sum. Required to verify resource pack integrity.
+    # Default: ""
+    sha1: ""
+
+    # URL to an resource pack. Will request players to use the specified resource
+    # pack. [as of 1.16.2] Beware that the minecraft client currently has issues
+    # with webservers that serve resource packs via https and don't allow ssl3.
+    # This protocol is considered insecure and therefore should NOT be used. To
+    # workaround this issue, you should host the file in a http context. Using
+    # http is not a security issue, as the file will be verified via its sha1 sum
+    # by the client.
+    # Default: "https://your-server.tld/path/to/pack.zip"
+    url: "https://your-server.tld/path/to/pack.zip"
+
+    # Resource pack UUID.
+    # Default: ""
+    uuid: ""
+
+  # Kick players if they deny to use the specified resource pack (if set).
+  # Individual players can be exempt from this rule by giving them the permission
+  # 'vane.core.resource_pack.bypass'.
+  # Default: true
+  force: false
+
+  message_delaying:
+    # Enable delaying messages to players until their resource pack is fully
+    # loaded. This prevents display of untranslated chat messages.
+    # Default: true
+    enabled: true
+
+# Send update notices to OPed player when a new version of vane is available.
+# Default: true
+update_notices: true
+
+# Prevent players from breaking blocks with loot-tables (like treasure chests)
+# when they first attempt to destroy it. They still can break it, but must do so
+# within a short timeframe.
+# Default: true
+warn_breaking_loot_blocks: true
+
+# DO NOT CHANGE! The version of this config file. Used to determine if the config
+# needs to be updated.
+version: 6

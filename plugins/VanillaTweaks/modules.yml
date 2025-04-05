@@ -1,0 +1,46 @@
+experimental:
+  confetti-creepers: false
+  xp-management: false
+mobs:
+  larger-phantoms: false
+  anti-enderman-grief: false
+  silence-mobs: false
+  more-mob-heads: false
+  anti-ghast-grief: false
+  dragon-drops: false
+  count-mob-deaths: false
+  anti-creeper-grief: false
+  double-shulker-shells: false
+utilities:
+  player-head-drops: false
+  thunder-shrine: false
+  coordinates-hud: false
+  player-graves: false
+  track-raw-stats: false
+  persist-head-data: false
+  tag: false
+  spawning-spheres: false
+  spectator-conduit-power: false
+  multiplayer-sleep: false
+  real-time-clock: false
+  nether-portal-coords: false
+  sethome: false
+  track-stats: false
+  afk-display: false
+  classic-fishing-loot: false
+  spectator-night-vision: false
+item-tools:
+  armor-statues: false
+  kill-empty-boats: false
+  item-averages: false
+  redstone-rotation-wrench: false
+  terracotta-rotation-wrench: false
+  durability-ping: false
+villagers:
+  villagerdeathmessage: false
+  wanderingtrades: false
+  customvillagershops: false
+  pillagertools: false
+  workstationhighlights: false
+survival:
+  unlock-all-recipes: false

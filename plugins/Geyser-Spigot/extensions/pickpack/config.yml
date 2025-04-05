@@ -1,0 +1,32 @@
+# PickPack configuration
+
+# Address/port to use to reconnect players to:
+# Replace these with the address/port you would need for the Geyser server.
+address: 192.168.191.75
+port: 11451
+
+# Defaults, can be changed by players:
+show-pack-descriptions: true
+use-transfer-packet: true
+
+# Command permissions:
+# pickpack.reload: Permission to reload the config with /pickpack reload
+reload-permission: "pickpack.reload"
+
+# pickpack.menu: Permission for /pickpack menu. Blank is for all Bedrock players.
+menu-permission: " "
+
+# pickpack.default: Permission for /pickpack default. Blank is for all Bedrock players.
+default-permission: " "
+
+# The default locale to use. If this is not en_US, you will need to provide your own locale.
+default-locale: en_US
+
+# The translations to use for commands. Menu translations can be found in the locale file(s).
+translations:
+  menu-command-description: "选择你要的资源包"
+  reset-command-description: "已经恢复默认"
+  reload-command-description: "Reload the config"
+
+
+

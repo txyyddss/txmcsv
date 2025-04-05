@@ -1,0 +1,8 @@
+hermit-head-trades:
+  max: 3
+  min: 1
+  enabled: true
+block-trades:
+  max: 7
+  min: 5
+  enabled: true

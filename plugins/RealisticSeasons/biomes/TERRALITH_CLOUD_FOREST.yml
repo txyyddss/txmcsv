@@ -1,0 +1,34 @@
+includes: terralith:cloud_forest
+modify-plants: false
+show-snow-particles-in-winter: true
+freeze-in-winter: true
+colors:
+  spring:
+    skycolor: NONE
+    watercolor: NONE
+    waterfogcolor: NONE
+    grasscolor: NONE
+    treecolor: NONE
+    fogcolor: NONE
+  summer:
+    skycolor: NONE
+    watercolor: NONE
+    waterfogcolor: NONE
+    grasscolor: NONE
+    treecolor: 97C08B
+    fogcolor: 99A9BB
+  fall:
+    skycolor: NONE
+    watercolor: NONE
+    waterfogcolor: NONE
+    grasscolor: 74BB80
+    treecolor: A5C29C, A5C29C, BCC9B7, B0D6A4, BCC9B7
+    fogcolor: D3DBE5
+  winter:
+    skycolor: NONE
+    watercolor: NONE
+    waterfogcolor: NONE
+    grasscolor: 9DC3A4
+    treecolor: 9ABEA0
+    fogcolor: FFFFFF
+temperature-difference: -2

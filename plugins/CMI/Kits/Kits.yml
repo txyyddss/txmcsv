@@ -1,0 +1,75 @@
+# 玩家必须拥有相应权限才能使用相应礼包: cmi.kit.[礼包名]
+# 比如 cmi.kit.newbie 将可以让玩家使用 newbie 礼包
+# 可用变量: {USERNAME} {DISPLAYNAME} {WORLDNAME} {KITNAME} {RANDOMPLAYER}
+# 你可以在游戏内使用 /cmi kiteditor 来编辑礼包
+Newbie:
+  CommandName: Newbie
+  Description:
+  - '&e你可以获得一些有用的东西'
+  - '&e每过一段时间可以再次使用'
+  # 再次使用此礼包的时间
+  Delay: 36000
+  # 需花费金钱和经验
+  MoneyCost: 100
+  ExpCost: 30
+  Group: 'groupName'
+  Items:      
+    '1':
+      type: STONE
+      amount: 70
+      meta:
+        ==: ItemMeta
+        meta-type: UNSPECIFIC
+        display-name: §3石头
+        lore:
+        - §2玩家 §3{USERNAME}
+        - §3玩家显示名 §2{DISPLAYNAME}
+        - §2礼包名 §3{KITNAME}
+        - §3世界名 §2{WORLDNAME}
+        - §3这是变量测试
+        enchants:
+          ARROW_DAMAGE: 3
+          THORNS: 5
+    '3':
+      v: 2730
+      type: OAK_PLANKS
+      amount: 30
+  Commands:
+  - 'asConsole! msg! [playerName] &e你获得了 &6{KITNAME} &e礼包'
+  Conditions:
+  - cmi.kit.get
+  - cmi.command.fly
+Advanced:
+  Delay: 36000
+  Items:
+    '1':
+      v: 2730
+      type: STONE
+Ad2:
+  CommandName: Ad
+  Weight: 2
+  Delay: 36060
+  Group: resources
+  Items:
+    '1':
+      v: 2730
+      type: OAK_PLANKS
+      amount: 10
+Ad1:
+  CommandName: Ad
+  Weight: 1
+  Delay: 36000
+  Group: resources
+  Items:
+    '1':
+      v: 2730
+      type: STONE
+      amount: 10
+Ad3:
+  Delay: 36001
+  Group: resources
+  Items:
+    '1':
+      v: 2730
+      type: DIRT
+      amount: 10

@@ -1,0 +1,104 @@
+# vim: set tabstop=2 softtabstop=0 expandtab shiftwidth=2:
+#
+# >> See lang-en.yml for variable descriptions <<
+#
+# +-----------------------------------+
+# | CAUTION: Do NOT change this file! |
+# +-----------------------------------+
+#
+# It will be silently overwritten with updates! If you want
+# to customize strings yourself, copy this file to lang-custom.yml
+# and set the language in the config.yml to "lang: 'custom'"
+
+# DO NOT CHANGE! The version of this language file. Used to determine
+# if the file needs to be updated.
+version: 4
+# The corresponding language code used in resource packs. Used for
+# resource pack generation. Typically this is a combination of the
+# language code (ISO 639) and the country code (ISO 3166).
+resource_pack_lang_code: 'ru_ru'
+
+command_heads:
+  usage: "%1$s"
+  description: "Получить голову из библиотеки голов."
+  help: "Активируйте чтобы открыть библиотеку голов."
+
+command_finditem:
+  usage: "%1$s"
+  description: "Поиск указанного материала в ближайших контейнерах и у существ."
+  help: "Поиск указанного материала в ближайших контейнерах и у существ."
+
+command_setspawn:
+  usage: "%1$s"
+  description: "Устанавливает глобальный спавнпоинт на текущую позицию."
+  help: "Устанавливает глобальный спавнпоинт на текущую позицию."
+
+storage:
+  open_stacked_item: "Вам нужно разделить эти предметы чтобы открыть их."
+  item_pouch:
+    name: "Сумка"
+  item_backpack:
+    name: "Рюкзак"
+
+xp_bottles:
+  item_small_xp_bottle:
+    name: "Маленькая бутылка опыта"
+  item_medium_xp_bottle:
+    name: "Средняя бутылка опыта"
+  item_large_xp_bottle:
+    name: "Большая бутылка опыта"
+
+item_empty_xp_bottle:
+  name: "Пустая бутылка опыта"
+
+item_north_compass:
+  name: "Северный Компас"
+
+item_reinforced_elytra:
+  name: "Незеритовые элитры"
+
+item_file:
+  name: "Напильник"
+
+item_slime_bucket:
+  name: "Слизень в ведре"
+
+item_papyrus_scroll:
+  name: "Пустой свиток"
+
+item_trowel:
+  name: "Шпатель"
+  lore:
+    - "§7ПКМ по этому предмету в инвентаре чтобы изменить источник сырья."
+    - "§7Текущий источник сырья: %1$s"
+
+sickles:
+  item_wooden_sickle:
+    name: "Деревянный Серп"
+  item_stone_sickle:
+    name: "Каменный Серп"
+  item_iron_sickle:
+    name: "Железный Серп"
+  item_golden_sickle:
+    name: "Золотой Серп"
+  item_diamond_sickle:
+    name: "Алмазный Серп"
+  item_netherite_sickle:
+    name: "Незеритовый Серп"
+
+scrolls:
+  item_home_scroll:
+    name: "Свиток телепортации (Домой)"
+  item_unstable_scroll:
+    name: "Свиток телепортации (Нестабильный)"
+    teleport_no_previous_teleport: "§cВы ещё ни разу не пользовались свитками."
+  item_spawn_scroll:
+    name: "Свиток телепортации (Спавн)"
+  item_lodestone_scroll:
+    name: "Свиток телепортации (Магнетит)"
+    teleport_no_bound_lodestone: "§bПКМ в присяди по магнетиту чтобы (пере)привязать этот свиток."
+    teleport_missing_lodestone: "§cНе похоже чтобы свиток что-то делал.. &6Вы боитесь что привязанный магнетит мог пропасть."
+    bound_lore: "§7Bound to (%2$s§7, %3$s§7, %4$s§7) in %1$s"
+  item_death_scroll:
+    name: "Свиток телепортации (К месту смерти)"
+    teleport_no_recent_death: "§cВы ещё не умирали, или уже использовали этот свиток!"

@@ -1,0 +1,9 @@
+'1':
+  Loc: world;-124.0;64.0;67.0
+  Interval: 1.0
+  Range: 8
+  Personal: true
+  Lines:
+  - '%cmi_iteminhand_realname%'
+  - '%cmi_iteminhand_amount%'
+  - '&7Worth: %cmi_iteminhand_worth%'

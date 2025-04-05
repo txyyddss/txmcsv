@@ -1,0 +1,228 @@
+enabled: true
+temperature-update-interval: 40
+modifiers:
+  season-base-temperature:
+    winter:
+      min-temp: -12
+      max-temp: 5
+    spring:
+      min-temp: 5
+      max-temp: 20
+    summer:
+      min-temp: 20
+      max-temp: 40
+    fall:
+      min-temp: 5
+      max-temp: 20
+  armor:
+    leather: 20
+    leather-temperature-cap: 25
+    iron: 5
+    gold: 5
+    diamond: 5
+    netherite: 3
+  weather:
+    rain: -4
+    storm: -5
+  block-effects:
+    enabled: true
+    blocks:
+    - LAVA{range=7,modifier=22}
+    - TORCH{range=7,modifier=7}
+    - LANTERN{range=7,modifier=7}
+    - CAMPFIRE{range=7,modifier=15}
+    - WALL_TORCH{range=7,modifier=7}
+    - FIRE{range=7,modifier=16}
+    - SOUL_TORCH{range=7,modifier=-7}
+    - SOUL_WALL_TORCH{range=7,modifier=-7}
+    - SOUL_CAMPFIRE{range=7,modifier=-10}
+    - SOUL_FIRE{range=7,modifier=-16}
+    - SOUL_LANTERN{range=7,modifier=-7}
+    - ICE{range=3,modifier=-6}
+    - PACKED_ICE{range=3,modifier=-6}
+    - BLUE_ICE{range=7,modifier=-15}
+  touching-water:
+    summer: -10
+    spring: -4
+    fall: -4
+    winter: -10
+  foods-and-drinks:
+    water-bottle: -10
+    water-bottle-effect-duration: 300
+    hydration-buff:
+      effect: NONE
+      level: 0
+    full-hunger-bar: 5
+  max-sprinting-modifier: 4
+  lava-temperature: 1200
+  height:
+    enabled: true
+    per-block: 0.08
+    overwrites:
+      example-world:
+        per-block: 0.02
+  other-dimensions:
+    nether: 25
+    end: 0
+effects:
+  reduce-movement-speed:
+    enabled: false
+    cold:
+      below: -15
+      until: -100
+    warm:
+      above: 50
+      until: 300
+  cold:
+    hunger:
+      temperature: -10
+      effect: HUNGER
+      level: 2
+    slowness:
+      temperature: -15
+      effect: SLOWNESS
+      level: 3
+    freezing: -20
+  boosts:
+    min: 15
+    max: 30
+    min-hunger: 7
+    potioneffects:
+    - NONE
+  warm:
+    no-healing: 50
+    slowness:
+      temperature: 60
+      effect: SLOWNESS
+      level: 3
+    fire: 65
+display:
+  convert-to-fahrenheit: false
+  ip-location-temp-type: true
+  temperature:
+    actionbar: false
+    actionbar-display: '                         [ %temperature% ]'
+    fahrenheit: °F
+    celcius: °C
+  warnings:
+    messages:
+      enabled: true
+      overheating: '&4&lWarning! &4&rYour temperature is really high, cool down quickly!'
+      freezing: '&3&lWarning! &3&rYour temperature is really low, heat up quickly!'
+    actionbar:
+      enabled: false
+      overheating: Cool down!
+      freezing: Heat up!
+custom:
+  items:
+    example-item:
+      enabled: false
+      material: LEATHER_BOOTS
+      custom-model-data: 5
+      use-custom-model-data: true
+      temperature-modifier: 10
+      works-underwater: true
+      activation:
+        wearing: true
+        holding: false
+    torch:
+      enabled: true
+      material: TORCH
+      custom-model-data: 5
+      use-custom-model-data: false
+      works-underwater: false
+      temperature-modifier: 7
+      activation:
+        wearing: false
+        holding: true
+    lava:
+      enabled: true
+      material: LAVA_BUCKET
+      custom-model-data: 5
+      use-custom-model-data: false
+      temperature-modifier: 15
+      works-underwater: false
+      activation:
+        wearing: false
+        holding: true
+    campfire:
+      enabled: true
+      material: CAMPFIRE
+      custom-model-data: 5
+      use-custom-model-data: false
+      temperature-modifier: 7
+      works-underwater: false
+      activation:
+        wearing: false
+        holding: true
+    lantern:
+      enabled: true
+      material: LANTERN
+      custom-model-data: 5
+      use-custom-model-data: false
+      temperature-modifier: 7
+      works-underwater: true
+      activation:
+        wearing: false
+        holding: true
+    soultorch:
+      enabled: true
+      material: SOUL_TORCH
+      custom-model-data: 5
+      use-custom-model-data: false
+      temperature-modifier: -7
+      works-underwater: false
+      activation:
+        wearing: false
+        holding: true
+    soulcampfire:
+      enabled: true
+      material: SOUL_CAMPFIRE
+      custom-model-data: 5
+      use-custom-model-data: false
+      temperature-modifier: -7
+      works-underwater: false
+      activation:
+        wearing: false
+        holding: true
+    soullantern:
+      enabled: true
+      material: SOUL_LANTERN
+      custom-model-data: 5
+      use-custom-model-data: false
+      temperature-modifier: -7
+      works-underwater: false
+      activation:
+        wearing: false
+        holding: true
+    ice:
+      enabled: true
+      material: ICE
+      custom-model-data: 5
+      use-custom-model-data: false
+      temperature-modifier: -6
+      works-underwater: true
+      activation:
+        wearing: false
+        holding: true
+    packedice:
+      enabled: true
+      material: PACKED_ICE
+      custom-model-data: 5
+      use-custom-model-data: false
+      temperature-modifier: -6
+      works-underwater: true
+      activation:
+        wearing: false
+        holding: true
+    blueice:
+      enabled: true
+      material: BLUE_ICE
+      custom-model-data: 5
+      use-custom-model-data: false
+      temperature-modifier: -15
+      works-underwater: true
+      activation:
+        wearing: false
+        holding: true
+

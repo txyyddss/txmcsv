@@ -1,0 +1,140 @@
+version: 11.3.5
+modify-blocks: true
+remove-ice-in-unloaded-chunks: false
+modify-daynight-length: true
+modify-weather-cycle: true
+modify-biome-on-client: true
+pause-map-plugins-render-in-winter: true
+affect-crop-growth-summer: true
+affect-crop-growth-winter: true
+delay-per-operation: 4
+automatic-season-cycling: true
+send-message-on-season-cycle: true
+spawn-ice-in-winter: false
+optimized-custom-biomes: true
+keep-player-placed-plants: true
+disable-snow-placement-all-snowman: false
+snowman-wear-pumpkin: false
+snowman-attack-mobs: false
+max-berrybushes-per-chunk: 20
+disable-berry-damage-for-entities: true
+flower-chance-in-spring: 5.0%
+unloaded-chunks-check-delay: 80
+no-snow-on-leaves-for-terra: false
+regrow-grass-everywhere: true
+spawn-mushrooms-in-fall: true
+snow-and-ice-removal: true
+biome-display-name: realisticseasons
+keep-natural-snow: true
+snow-placement-enabled: true
+falling-leaf-item: KELP
+falling-leaf-custommodeldata: 0
+sub-seasons:
+  enabled: true
+  foliage-color-adjustments:
+    WINTER-SPRING: NONE
+    SPRING-SUMMER: '#32CD32,WEIGHT:0.3'
+    SUMMER-FALL: NONE
+    FALL-WINTER: NONE
+particles:
+  FALLING_LEAVES:
+    enabled: true
+    spawn-chance: 4%
+    seasons:
+    - SUMMER
+  SMALL_FALLING_LEAVES:
+    enabled: true
+    spawn-chance: 25%
+    seasons:
+    - FALL
+  SHOOTING_STARS:
+    enabled: true
+    relative-height: 150
+    chance: 0.5%
+    seasons:
+    - SUMMER
+  NIGHT_SPARKS:
+    enabled: true
+    particle-count: 200
+    relative-height: 40
+    event-chance: 33%
+    seasons:
+    - WINTER
+  FIREFLIES:
+    enabled: true
+    spawn-chance: 0.1%
+    seasons:
+    - SPRING
+    - SUMMER
+  SWEAT_EFFECT:
+    enabled: true
+    min-player-temperature: 40
+  COLD_BREATH:
+    enabled: true
+    hide-own-breath: true
+    max-air-temperature: 0
+performance:
+  prioritise-tps: true
+  min-tps: 19.5
+weather:
+  winter:
+    daily-extra-downfall-chance: 33.3%
+    has-natural-downfall: true
+  spring:
+    daily-extra-downfall-chance: 0.0%
+    has-natural-downfall: true
+  summer:
+    daily-extra-downfall-chance: 0.0%
+    has-natural-downfall: false
+  fall:
+    daily-extra-downfall-chance: 33.3%
+    has-natural-downfall: true
+entities:
+  spawn-entities: true
+  spawn-chance-animals: 10.0%
+  despawn-season-animals: true
+  spring:
+    spawn-extra-animals: true
+    spawn-extra-bees: true
+    spawn-extra-rabits: true
+  summer:
+    spawn-ocelots: true
+    spawn-pandas: true
+    spawn-parrots: true
+    replace-zombies-with-husks: true
+  fall:
+    spawn-bats: true
+    spawn-cave-spiders: true
+    spawn-foxes: true
+    spawn-mooshrooms: true
+    spawn-frogs: true
+    spawn-extra-spiders: true
+    give-entities-pumpkin: true
+    entities-pumpkin-chance: 20.0%
+  winter:
+    spawn-wolfs: true
+    spawn-foxes: true
+    spawn-polarbears: true
+    spawn-snowman: true
+    replace-skeletons-with-strays: true
+temperature-modify-command:
+  min: -999999
+  max: 999999
+block-replacements:
+  enabled: true
+  replacements:
+    pink-trees:
+      enabled: true
+      to-replace: OAK_LEAVES
+      replacement: CHERRY_LEAVES
+      seasons: SPRING
+      sub-seasons: 2
+    birch-trees:
+      enabled: true
+      to-replace: BIRCH_LEAVES
+      replacement: ACACIA_LEAVES
+      seasons: WINTER, FALL
+      sub-seasons: 0, 1, 2, 3, 4
+on-new-world-creation:
+  sync-with-other-worlds: false
+  default-season: NONE

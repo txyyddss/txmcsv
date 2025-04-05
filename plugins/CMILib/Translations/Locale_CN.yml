@@ -1,0 +1,742 @@
+
+# The phrases support full color (hex) code, and some variables.
+
+# Keep in mind that some variables will not work for certain lines.
+
+# Just keep them where there are now and everything will be okay :)
+
+# Some lines can have global variables set. For the player who will be affected. For example /heal Zrips then Zrips data will be used as variable
+
+# [serverName] to show server name
+
+# [playerName] to show target player name
+
+# [playerDisplayName] to show target player display name
+
+# [lvl] to show target player level
+
+# [exp] to show target player total exp
+
+# [hp] to show target player health
+
+# [maxHp] to show target player max health
+
+# [hunger] to show target player hunger level
+
+# [gameMode] to show target player gamemode
+
+# [prefix] to show target player prefix if possible
+
+# [suffix] to show target player suffix if possible
+
+# Sender is console or player who performs the command. For example Zrips performs /heal Zhax then Zrips data will be used
+
+# [senderName] to show Sender player name
+
+# [senderDisplayName] to show Sender player display name
+
+# [senderLvl] to show Sender player level
+
+# [senderExp] to show Sender player total exp
+
+# [senderHp] to show Sender player health
+
+# [senderMaxHp] to show Sender player max health
+
+# [senderHunger] to show Sender player hunger level
+
+# [senderGameMode] to show Sender player gamemode
+
+# [senderPrefix] to show Sender player prefix if possible
+
+# [senderSuffix] to show Sender player suffix if possible
+
+# Source is player which is being used for extra info. For example Zrips performs /tp Zhax Zrips then Zhax data will be used as its location is being taken for new player location
+
+# [sourceName] to show source player name
+
+# [sourceDisplayName] to show source player display name
+
+# [sourceLvl] to show source player level
+
+# [sourceExp] to show source player total exp
+
+# [sourceHp] to show source player health
+
+# [sourceMaxHp] to show source player max health
+
+# [sourceHunger] to show source player hunger level
+
+# [sourceGameMode] to show source player gamemode
+
+# [sourcePrefix] to show source player prefix if possible
+
+# [sourceSuffix] to show source player suffix if possible
+
+# ***********************************************
+
+# Some lines support the option to send them to custom places, like action bar, title, sub-title, or even create JSON/clickable messages
+
+# If the line starts with !toast! then player will get toast message (advancement popup, only 1.12 and up). Some extra variables can be used to define type and icon. example: !toast! -t:goal -icon:paper Hello world!
+
+# If the line starts with !actionbar! then player will get action bar message defined after this variable
+
+# If the line starts with !actionbar:[seconds]! then player will get action bar message for a defined amount of time
+
+# If the line starts with !broadcast! then everyone will receive message. You can add extra !toast! !actionbar! or !title! to send message for everyone to specific place, in example !broadcast!!title!
+
+# If the line starts with !customtext:[cTextName]! then custom text will be taken by name provided and shown for player. In case it is used after !broadcast! then everyone who is online will get this custom text message
+
+# If the line starts with !title! then player will get title message defined after this variable, in addition it can contain !subtitle! which will add subtitle message
+
+# If the line starts with !bossbar:[name]-[timer]! then player will get bossbar message defined after this variable, in addition you can define how long this message will be visible. You need to define bossbar name which can be anything you want, but lines with same name will override each other to prevent stacking
+
+# To include clickable messages: <T>Text</T><H>Hover text</H><C>command</C><SC>Suggested text</SC>
+
+# <T> and </T> required, other is optional
+
+# Use /n to break line
+
+# To have more than one JSON message use <Next>
+
+# <C> performs command as a player who clicked
+
+# <CC> performs command from console once
+
+# <CCI> performs command from console every time player clicks text
+
+# <URL> includes url
+
+info:
+  # Use !prefix! in any locale line to automatically include this prefix
+  prefix: '&e[&aCMI&e] '
+  NoPermission: '&c你没有权限'
+  CantHavePermission: '&c您没有权限！'
+  WrongGroup: '&c您已经处于被删除的组里！'
+  NoPlayerPermission: '&c[playerName] 没有权限: [permission]'
+  Ingame: '&c你只能在游戏里这么做'
+  NoInformation: '&c找不到信息'
+  Console: '&6服务器'
+  FromConsole: '&c只能在控制台这么做!'
+  NotOnline: '&c玩家不在线!'
+  NobodyOnline: '&c服务器里没有玩家'
+  NoPlayer: '&c找不到这个玩家'
+  NoCommand: '&c未知指令'
+  cantFindCommand: '&5找不到 &7[%1]&5 命令, 您的意思是 &7[%2]&5?'
+  nolocation: '&4找不到合适的位置'
+  FeatureNotEnabled: '&c该机制未启用'
+  ModuleNotEnabled: '&c此模块没有启用!'
+  versionNotSupported: '&c服务器版本不支持此特性'
+  spigotNotSupported: '&c你需要使用 PaperSpigot 服务端才能使用这一特性'
+  bungeeNoGo: '&c此功能在基于bungee网络的服务器上不起作用'
+  clickToTeleport: '&e点击传送'
+  UseMaterial: '&4请使用物品名字!'
+  IncorrectMaterial: '&4错误的物品名!'
+  UseInteger: '&4请使用数字'
+  UseBoolean: '&4请使用布尔值 True 或者 False!'
+  NoLessThan: '&4数值不能小于 [amount]!'
+  NoMoreThan: '&4数值不能大于 [amount]'
+  NoWorld: '&4找不到该世界'
+  IncorrectLocation: '&4位置指定错误'
+  Show: '&e展示'
+  Remove: '&c移除'
+  Back: '&e返回'
+  Forward: '&e向前'
+  Update: '&e更新'
+  Save: '&e保存'
+  Delete: '&c删除'
+  Click: '&e点击'
+  Preview: '&e上一页'
+  PasteOld: '&e粘贴旧内容'
+  ClickToPaste: '&e点击粘贴进聊天'
+  CantTeleportWorld: '&e您不能传送到这个世界!'
+  CantTeleportNoWorld: '&c目标世界不存在. 该传送取消！'
+  ClickToConfirmDelete: '&e点击确认以移除 &6[name]'
+  teleported: '&e您被传送了.'
+  PlayerSpliter: '&e----- &6[playerDisplayName] &e-----'
+  Spliter: '&e--------------------------------------------------'
+  SpliterValue: '&e------------------ &6[value] &e------------------'
+  singleSpliter: '&e-'
+  SpliterMiddle: ' &6[value] '
+  ListSpliter: ', '
+  ProgressBarFill: '&2▏'
+  ProgressBarEmpty: '&e▏'
+  nothingInHand: '!actionbar!&e你需要把这个拿在手上'
+  nothingInHandLeather: '&e你需要把皮革物品拿在手上'
+  nothingToShow: '&e没有东西可以展示'
+  noItem: '&c找不到物品'
+  dontHaveItem: '&c你的背包中没有 &6[itemName] x[amount] &c'
+  wrongWorld: '&c不可在此世界这样做'
+  differentWorld: '&c世界难度'
+  HaveItem: '&c在背包里有&6[amount]x [itemName]'
+  cantDoInGamemode: '&e在此游戏模式下不能这么做'
+  cantDoForPlayer: '&e你不能对 &6[playerDisplayName] &e这么做'
+  cantDoForYourSelf: '&e您不能这样做'
+  cantDetermineMobType: '&c无法指定怪物种类 &e[type] &c'
+  cantRename: '!actionbar!&e你不能更改为这个名字'
+  confirmRedefine: '&e点击确认更改'
+  cantEdit: '&e你无法编辑'
+  wrongName: '&c错误的名字'
+  unknown: unknown
+  invalidName: '&c无效的名字'
+  alreadyexist: '&4该名称已被占用'
+  dontexist: '&4未找到'
+  worldDontExist: '&c目标世界不存在'
+  notSet: 未设置
+  lookAtSign: '&e请指向一个木牌'
+  lookAtBlock: '&e请指向一个方块'
+  lookAtEntity: '&e请指向一个实体'
+  noSpace: '&e空间不够'
+  notOnGround: '&e飞行期间不能这么做'
+  bungee:
+    Online: '&6在线'
+    Offline: '&c离线'
+    not: '&c这个服务器不在群组下'
+    noserver: '&c找不到这个服务器'
+    server: '&e服务器: &7[name]'
+  variables:
+    am: '&e上午'
+    pm: '&e下午'
+    Online: '&6在线'
+    Offline: '&c离线'
+    TrueColor: '&2'
+    FalseColor: '&4'
+    'True': '&6确认'
+    'False': '&c取消'
+    Enabled: '&6启用'
+    Disabled: '&c禁用'
+    survival: '&6生存'
+    creative: '&6创造'
+    adventure: '&6冒险'
+    spectator: '&6旁观'
+    flying: '&6飞行'
+    notflying: '&6未飞行'
+  Inventory:
+    Full: '&5你的背包满了，无法添加新物品了'
+    FullDrop: '&5你的背包满了！该物品已经丢在地上了！'
+  TimeNotRecorded: '&e-我不记得了-'
+  months: '&e[months] &6月 '
+  oneMonth: '&e[months] &6月 '
+  weeks: '&e[weeks] &6周 '
+  oneWeek: '&e[weeks] &6周 '
+  years: '&e[years] &6年 '
+  oneYear: '&e[years] &6年 '
+  day: '&e[days] &6天 '
+  oneDay: '&e[days] &6天 '
+  hour: '&e[hours] &6小时 '
+  oneHour: '&e[hours] &6小时 '
+  min: '&e[mins] &6分钟 '
+  sec: '&e[secs] &6秒 '
+  nextPageConsole: '&f下一页执行&5[command]'
+  prevPage: '&2----<< &6上一页 '
+  prevCustomPage: '&2----<< &6[value] '
+  prevPageGui: '&6上一页 '
+  prevPageClean: '&6上 '
+  prevPageOff: '&2----<< &7上一页 '
+  prevCustomPageOff: '&2----<< &7[value] '
+  prevPageHover: '&7<<<'
+  firstPageHover: '&7|<'
+  nextPage: '&6 下一页 &2>>----'
+  nextCustomPage: '&6 [value] &2>>----'
+  nextPageGui: '&6下一页'
+  nextPageClean: '&6 下'
+  nextPageOff: '&7 下一页 &2>>----'
+  nextCustomPageOff: '&7 [value] &2>>----'
+  nextPageHover: '&7>>>'
+  lastPageHover: '&7>|'
+  pageCount: '&2[current]&7/&2[total]'
+  pageCountHover: '&2[totalEntries]'
+  skullOwner: '!actionbar!&7所有者:&r [playerName]'
+  playerHeadName: '&7[playerName]&e的头颅'
+  mobHeadName: '&f[mobName]&e的头颅'
+  circle: '&3圆形'
+  square: '&5正方形'
+  clear: '&7清除'
+  protectedArea: '&c保护区域. 不可以这样做.'
+  valueToLong: '&e数值过长，最长: [max]'
+  valueToShort: '&e数值过短，最短: [min]'
+  pickIcon: '&8选择图标'
+  Spawner: '&r[type] 刷怪笼'
+  DamageCause:
+    block_explosion: 爆炸
+    campfire: campfire
+    contact: 方块伤害
+    cramming: 拥挤
+    custom: 未知原因
+    dragon_breath: 龙息
+    drowning: 淹死
+    dryout: 口渴
+    entity_attack: 实体伤害
+    entity_explosion: 爆炸
+    entity_sweep_attack: 实体横扫伤害
+    fall: 摔落
+    falling_block: 掉落的方块
+    fire: 火
+    fire_tick: 火
+    fly_into_wall: 飞行卡进墙里
+    freeze: 冻死
+    hot_floor: 岩浆块
+    kill: 击杀
+    lava: 岩浆
+    lightning: 闪电
+    magic: 魔法
+    melting: 融化
+    poison: 药水
+    projectile: 弹射物
+    sonic_boom: 声爆
+    starvation: 饥饿
+    suffocation: 窒息
+    suicide: 自杀
+    thorns: 荆棘
+    void: 虚空
+    wither: 凋零
+    world_border: 世界边界
+  Biomes:
+    BADLANDS: 恶地
+    BAMBOO_JUNGLE: 竹林
+    BASALT_DELTAS: 玄武岩三角洲
+    BEACH: 沙滩
+    BIRCH_FOREST: 桦木森林
+    CHERRY_GROVE: 樱花树林
+    COLD_OCEAN: 冷水海洋
+    CRIMSON_FOREST: 绯红森林
+    CUSTOM: 自定义群系
+    DARK_FOREST: 黑森林
+    DEEP_COLD_OCEAN: 冷水深海
+    DEEP_DARK: 深暗之域
+    DEEP_FROZEN_OCEAN: 冰冻深海
+    DEEP_LUKEWARM_OCEAN: 温水深海
+    DEEP_OCEAN: 深海
+    DESERT: 沙漠
+    DRIPSTONE_CAVES: 溶洞
+    END_BARRENS: 末地荒地
+    END_HIGHLANDS: 末地高地
+    END_MIDLANDS: 末地内陆
+    ERODED_BADLANDS: 风蚀恶地
+    FLOWER_FOREST: 繁花森林
+    FOREST: 森林
+    FROZEN_OCEAN: 冻洋
+    FROZEN_PEAKS: 冰封山峰
+    FROZEN_RIVER: 冻河
+    GROVE: 雪林
+    ICE_SPIKES: 冰刺之地
+    JAGGED_PEAKS: 尖峭山峰
+    JUNGLE: 丛林
+    LUKEWARM_OCEAN: 温水海洋
+    LUSH_CAVES: 繁茂洞穴
+    MANGROVE_SWAMP: 红树林沼泽
+    MEADOW: 草甸
+    MUSHROOM_FIELDS: 蘑菇岛
+    NETHER_WASTES: 下界荒地
+    OCEAN: 海洋
+    OLD_GROWTH_BIRCH_FOREST: 原始桦木森林
+    OLD_GROWTH_PINE_TAIGA: 原始松木针叶林
+    OLD_GROWTH_SPRUCE_TAIGA: 原始云杉针叶林
+    PLAINS: 平原
+    RIVER: 河流
+    SAVANNA: 热带草原
+    SAVANNA_PLATEAU: 热带高原
+    SMALL_END_ISLANDS: 末地小型岛屿
+    SNOWY_BEACH: 积雪沙滩
+    SNOWY_PLAINS: 雪原
+    SNOWY_SLOPES: 积雪山坡
+    SNOWY_TAIGA: 积雪针叶林
+    SOUL_SAND_VALLEY: 灵魂沙峡谷
+    SPARSE_JUNGLE: 稀疏丛林
+    STONY_PEAKS: 裸岩山峰
+    STONY_SHORE: 石岸
+    SUNFLOWER_PLAINS: 向日葵平原
+    SWAMP: 沼泽
+    TAIGA: 针叶林
+    THE_END: 末地
+    THE_VOID: 虚空
+    WARM_OCEAN: 暖水海洋
+    WARPED_FOREST: 诡异森林
+    WINDSWEPT_FOREST: 风袭森林
+    WINDSWEPT_GRAVELLY_HILLS: 风袭沙砾丘陵
+    WINDSWEPT_HILLS: 风袭丘陵
+    WINDSWEPT_SAVANNA: 风袭热带草原
+    WOODED_BADLANDS: 疏林恶地
+  EntityType:
+    allay: 悦灵
+    area_effect_cloud: 药水云
+    armadillo: Armadillo
+    armor_stand: 盔甲架
+    arrow: 箭
+    axolotl: 美西螈
+    bat: 蝙蝠
+    bee: 蜜蜂
+    blaze: 烈焰人
+    block_display: 方块展示
+    boat: 船
+    bogged: Bogged
+    breeze: Breeze
+    breeze_wind_charge: Breeze wind charge
+    camel: 骆驼
+    cat: 猫
+    cave_spider: 洞穴蜘蛛
+    chest_boat: 箱子船
+    chest_minecart: Chest minecart
+    chicken: 鸡
+    cod: 鳕鱼
+    command_block_minecart: Command block minecart
+    cow: 牛
+    creeper: 爬行者
+    dolphin: 海豚
+    donkey: 驴
+    dragon_fireball: 龙之火球
+    drowned: 溺尸
+    egg: 蛋
+    elder_guardian: 远古守卫者
+    enderman: 末影人
+    endermite: 末影螨
+    ender_dragon: 末影龙
+    ender_pearl: 末影珍珠
+    end_crystal: End crystal
+    evoker: 唤魔者
+    evoker_fangs: 地夹
+    experience_bottle: Experience bottle
+    experience_orb: 经验球
+    eye_of_ender: Eye of ender
+    falling_block: 掉落的方块
+    fireball: 火球
+    firework_rocket: Firework rocket
+    fishing_bobber: Fishing bobber
+    fox: 狐狸
+    frog: 青蛙
+    furnace_minecart: Furnace minecart
+    ghast: 恶魂
+    giant: 巨人
+    glow_item_frame: 发光的展示框
+    glow_squid: 发光的鱿鱼
+    goat: 山羊
+    guardian: 守卫者
+    hoglin: 疣猪兽
+    hopper_minecart: Hopper minecart
+    horse: 马
+    husk: 尸壳
+    illusioner: 幻术师
+    interaction: 交互实体
+    iron_golem: 铁傀儡
+    item: Item
+    item_display: 物品展示
+    item_frame: 物品展示框
+    leash_knot: Leash knot
+    lightning_bolt: Lightning bolt
+    llama: 羊驼
+    llama_spit: 羊驼口水
+    magma_cube: 岩浆怪
+    marker: 标记
+    minecart: 矿车
+    mooshroom: Mooshroom
+    mule: 骡
+    ocelot: 豹猫
+    ominous_item_spawner: Ominous item spawner
+    painting: 画
+    panda: 熊猫
+    parrot: 鹦鹉
+    phantom: 幻翼
+    pig: 猪
+    piglin: 猪灵
+    piglin_brute: 猪灵蛮兵
+    pillager: 掠夺者
+    player: 玩家
+    polar_bear: 北极熊
+    potion: Potion
+    pufferfish: 河豚
+    rabbit: 兔子
+    ravager: 劫掠兽
+    salmon: 鲑鱼
+    sheep: 羊
+    shulker: 潜影贝
+    shulker_bullet: 潜影贝子弹
+    silverfish: 蠹虫
+    skeleton: 骷髅
+    skeleton_horse: 骷髅马
+    slime: 史莱姆
+    small_fireball: 小火球
+    sniffer: 嗅探兽
+    snowball: 雪球
+    snow_golem: Snow golem
+    spawner_minecart: Spawner minecart
+    spectral_arrow: 光灵箭
+    spider: 蜘蛛
+    squid: 鱿鱼
+    stray: 流浪者
+    strider: 炽足兽
+    tadpole: 蝌蚪
+    text_display: 文字展示
+    tnt: Tnt
+    tnt_minecart: Tnt minecart
+    trader_llama: 行商羊驼
+    trident: 三叉戟
+    tropical_fish: 热带鱼
+    turtle: 海龟
+    unknown: 未知
+    vex: 恼鬼
+    villager: 村民
+    vindicator: 卫道士
+    wandering_trader: 流浪商人
+    warden: 坚守者
+    wind_charge: Wind charge
+    witch: 女巫
+    wither: 凋灵
+    wither_skeleton: 凋灵骷髅
+    wither_skull: 凋灵之首
+    wolf: 狼
+    zoglin: 僵尸疣猪兽
+    zombie: 僵尸
+    zombie_horse: 僵尸马
+    zombie_villager: 僵尸村民
+    zombified_piglin: 僵尸猪灵
+  # Avoid adding color codes to the enchant name
+  EnchantNames:
+    sweeping_edge: 横扫之刃
+    loot_bonus_mobs: 抢夺
+    quick_charge: 快速装填
+    silk_touch: 精准采集
+    density: Density
+    arrow_fire: 火矢
+    water_worker: 水下速掘
+    loyalty: 忠诚
+    arrow_knockback: 冲击
+    damage_all: 锋利
+    vane_enchantments:grappling_hook: Vane_enchantments:grappling_hook
+    frost_walker: 冰霜行者
+    vane_enchantments:hell_bent: Vane_enchantments:hell_bent
+    impaling: 穿刺
+    riptide: 激流
+    mending: 经验修补
+    protection_environmental: 保护
+    swift_sneak: 迅捷潜行
+    fire_aspect: 火焰附加
+    damage_undead: 亡灵杀手
+    knockback: 击退
+    depth_strider: 深海探索者
+    vane_enchantments:wings: Vane_enchantments:wings
+    arrow_infinite: 无限
+    vanishing_curse: 消失诅咒
+    vane_enchantments:rake: Vane_enchantments:rake
+    dig_speed: 效率
+    soul_speed: 灵魂疾行
+    breach: Breach
+    loot_bonus_blocks: 时运
+    multishot: 多重射击
+    channeling: 召雷
+    vane_enchantments:soulbound: Vane_enchantments:soulbound
+    binding_curse: 绑定诅咒
+    vane_enchantments:angel: Vane_enchantments:angel
+    vane_enchantments:unbreakable: Vane_enchantments:unbreakable
+    arrow_damage: 力量
+    protection_projectile: 弹射物保护
+    protection_fire: 火焰保护
+    luck: 海之眷顾
+    vane_enchantments:seeding: Vane_enchantments:seeding
+    vane_enchantments:leafchopper: Vane_enchantments:leafchopper
+    oxygen: 水下呼吸
+    piercing: 穿透
+    protection_fall: 摔落保护
+    durability: 耐久
+    lure: 饵钓
+    vane_enchantments:take_off: Vane_enchantments:take_off
+    wind_burst: Wind_burst
+    vane_enchantments:lightning: Vane_enchantments:lightning
+    damage_arthropods: 节肢杀手
+    protection_explosions: 爆炸保护
+    thorns: 荆棘
+  PotionEffectAliases:
+    instanthealth:
+    - Instant health
+    invisibility:
+    - 隐身
+    waterbreathing:
+    - Water breathing
+    resistance:
+    - Resistance
+    unluck:
+    - 霉运
+    blindness:
+    - 失明
+    haste:
+    - Haste
+    poison:
+    - 中毒
+    slowness:
+    - Slowness
+    hunger:
+    - 饥饿
+    slowfalling:
+    - Slow falling
+    weaving:
+    - Weaving
+    fireresistance:
+    - Fire resistance
+    saturation:
+    - 饱食
+    raidomen:
+    - Raid omen
+    jumpboost:
+    - Jump boost
+    dolphinsgrace:
+    - Dolphins grace
+    miningfatigue:
+    - Mining fatigue
+    healthboost:
+    - Health boost
+    regeneration:
+    - 生命恢复
+    conduitpower:
+    - Conduit power
+    badomen:
+    - Bad omen
+    luck:
+    - 幸运
+    speed:
+    - 迅捷
+    trialomen:
+    - Trial omen
+    strength:
+    - Strength
+    darkness:
+    - 黑暗
+    heroofthevillage:
+    - Hero of the village
+    levitation:
+    - 飘浮
+    instantdamage:
+    - Instant damage
+    oozing:
+    - Oozing
+    weakness:
+    - 虚弱
+    nausea:
+    - Nausea
+    windcharged:
+    - Wind charged
+    absorption:
+    - 伤害吸收
+    wither:
+    - 凋零
+    glowing:
+    - 发光
+    infested:
+    - Infested
+    nightvision:
+    - Night vision
+direction:
+  n: 北
+  ne: 东北
+  e: 东
+  se: 东南
+  s: 南
+  sw: 西南
+  w: 西
+  nw: 西北
+modify:
+  middlemouse: '&2鼠标中键单击进行编辑'
+  qButtonEdit: '&2点击 Q 编辑'
+  newItem: '&7放置新物品'
+  newLine: '&2<新的一行>'
+  newLineHover: '&2添加新的一行'
+  newPage: '&2<新的一页>'
+  newPageHover: '&2创建新的一页'
+  removePage: '&c<移除一页>'
+  removePageHover: '&c移除一页'
+  deleteSymbol: '&cX'
+  deleteSymbolHover: '&c删除 &e[text]'
+  extraEditSymbol: ' &6!'
+  addSymbol: ' &2+'
+  addSymbolHover: '&2新建'
+  cancelSymbol: ' &7&l[X]'
+  cancelSymbolHover: '&a取消'
+  acceptSymbol: ' &2&l[✔]'
+  acceptSymbolHover: '&2接受'
+  denySymbol: ' &4[X] '
+  denySymbolHover: '&2取消'
+  enabledSymbol: '&2[+]'
+  disabledSymbol: '&c[-]'
+  enabled: '&2启用'
+  disabled: '&c禁用'
+  running: '&2运行中'
+  paused: '&c已暂停'
+  editSymbol: '&e✎'
+  editSymbolHover: '&e编辑 &6[text]'
+  editLineColor: '&f'
+  listUpSymbol: '&6⇑'
+  listUpSymbolHover: '&e上'
+  listDownSymbol: '&6⇓'
+  listDownSymbolHover: '&e下'
+  listNumbering: '&e[number]. '
+  listAlign: '&80'
+  ChangeHover: '&e点击更改'
+  ChangeCommands: '&e指令'
+  enabledColor: '&6'
+  disabledColor: '&7'
+  commandTitle: ' &e--- &6[name] &e---'
+  commandList: ' &e[command]  '
+  emptyLine: '&7[Empty line]'
+  commandEdit: '&e编辑列表'
+  nameAddInfo: '&e输入新名字，或输入 &6cancel &e来取消操作'
+  lineAddInfo: '&e在聊天框中输入cancel来取消操作'
+  commandAddInfo: '&e输入一个新指令，或使用 &6cancel &e取消'
+  commandAddInformationHover: "&e[playerName] 代表玩家变量 \n&e 想给指令加延迟请使用: \n&edelay! 5\
+    \ \n&e支持特殊指令 获得更多信息 \n&ehttps://www.zrips.net/cmi/commands/specialized/"
+  commandEditInfo: '&e点击粘贴旧内容，使用 &6cancel &e取消，或使用 &6remove &e移除一行'
+  listLimit: '&e列表中内容不能多于 &6[amount] &e项'
+  commandEditInfoHover: '&e点击粘贴旧内容'
+teleportation:
+  relocation: '!actionbar!&4你将要传送到的地方不安全，已将你传送至 安全的地方'
+econ:
+  noMoney: '&c你的钱不够'
+  charged: '!actionbar!&f收费: &6[amount]'
+  notEnoughMoney: '&c你没有足够的钱！要求:(&6[amount]&c)'
+  tooMuchMoney: '&c你的钱太多了'
+Selection:
+  SelectPoints: '&c用选择工具选择 2 个点 AKA: &6[tool]'
+  PrimaryPoint: '&e选择 &6第一个 &e选择点 [point]'
+  SecondaryPoint: '&e选择了 &6第二个 &e选择点 [point]'
+  CoordsTop: '&eX:&6[x] &eY:&6[y] &eZ:&6[z]'
+  CoordsBottom: '&eX:&6[x] &eY:&6[y] &eZ:&6[z]'
+  Area: '&7[world] &f(&6[x1]:[y1]:[z1] &e[x2]:[y2]:[z2]&f)'
+Location:
+  Title: '&8玩家位置'
+  Killer: '&e击杀者: &6[killer]'
+  OneLiner: '&e位置: &6[location]'
+  DeathReason: '&e死亡原因: &6[reason]'
+  Full: '&7[world] &f[x]&7:&f[y]&7:&f[z]'
+  World: '&e世界: &6[world]'
+  X: '&eX: &6[x]'
+  Y: '&eY: &6[y]'
+  Z: '&eZ: &6[z]'
+  Pitch: '&ePitch: &6[pitch]'
+  Yaw: '&eYaw: &6[yaw]'
+  WorldNames:
+  - world-&2主世界
+  - world_nether-&2地狱
+  - world_the_end-&2末地
+Locations: '&7位置: '
+command:
+  help:
+    output:
+      usage: '&e使用方法: &7%usage%'
+      cmdInfoFormat: '[command] &f- &e[description]'
+      cmdFormat: '&6/[command]&f[arguments]'
+      helpPageDescription: '&e* [description]'
+      explanation: '&e * [explanation]'
+      title: '&e------ ======= &6帮助&e &e======= ------'
+  nocmd:
+    help:
+      info: '&e显示所有可用指令'
+      args: ''
+  clearcache:
+    help:
+      info: '&e清理缓存'
+      args: ''
+  reload:
+    help:
+      info: '&e重载插件'
+      args: ''
+    info:
+      feedback: '&6配置已重载 耗时 [ms]ms 汉化 by 秋风残叶'
+      failedConfig: '&4config文件重载失败! 请检查拼写错误!'
+      failedLocale: '&4语言文件重载失败! 请检查拼写错误!'

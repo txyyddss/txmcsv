@@ -1,0 +1,21 @@
+#Chinese (Simplified) Language default msuic.yml translated by EsummerConnor
+#https://www.spigotmc.org/members/esummerconnor.882161/
+#Replace the original "msuic.yml" to use!
+
+Instruments:
+  BANJO: 班卓琴
+  BASS_DRUM: 低音鼓
+  BASS_GUITAR: 贝斯
+  BELL: 钢片琴
+  BIT: 叮
+  CHIME: 铃声
+  COW_BELL: 牛铃
+  DIDGERIDOO: 迪吉里杜管
+  FLUTE: 长笛
+  GUITAR: 吉他
+  IRON_XYLOPHONE: 铁木琴
+  PIANO: 钢琴
+  PLING: 电钢琴
+  SNARE_DRUM: 小军鼓
+  STICKS: 鼓棒
+  XYLOPHONE: 木琴
