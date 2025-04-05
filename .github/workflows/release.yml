@@ -23,11 +23,28 @@ jobs:
         run: |
           find ./plugins -type f -not -name "*.yml" -not -name "*.conf" -not -name "*.txt" -not -name "*.jar" -delete
       
+      - name: Create release.zip
+        run: |
+          zip -r release.zip . -x "README.md" ".github/*" ".gitattributes" "*.git*"
+      
+      - name: Get latest release date
+        id: latest_release
+        run: |
+          latest_release_date=$(gh api repos/${{ github.repository }}/releases/latest --jq '.published_at' 2>/dev/null || echo "")
+          if [ -z "$latest_release_date" ]; then
+            echo "No previous release found, using repository creation date"
+            latest_release_date=$(gh api repos/${{ github.repository }} --jq '.created_at')
+          fi
+          echo "latest_release_date=$latest_release_date" >> $GITHUB_OUTPUT
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      
       - name: Generate changelog
         id: changelog
         run: |
-          # 获取上次发布以来的所有已完成的issues
-          issues=$(gh api graphql -f query='query($repo_owner:String!, $repo_name:String!, $since:DateTime!) {
+          # 将GraphQL查询保存到文件中，避免YAML格式问题
+          cat > query.graphql << 'EOL'
+          query($repo_owner: String!, $repo_name: String!, $since: DateTime!) {
             repository(owner: $repo_owner, name: $repo_name) {
               issues(first: 100, states: CLOSED, filterBy: {since: $since}) {
                 nodes {
@@ -43,7 +60,11 @@ jobs:
                 }
               }
             }
-          }' -f repo_owner=${{ github.repository_owner }} -f repo_name=$(echo "${{ github.repository }}" | cut -d'/' -f2) -f since="${{ steps.latest_release.outputs.latest_release_date }}")
+          }
+          EOL
+          
+          # 执行GraphQL查询
+          issues=$(gh api graphql -F query=@query.graphql -f repo_owner=${{ github.repository_owner }} -f repo_name=$(echo "${{ github.repository }}" | cut -d'/' -f2) -f since="${{ steps.latest_release.outputs.latest_release_date }}")
           
           # 准备changelog
           echo "# 📦 更新内容：" > changelog.md
@@ -52,13 +73,15 @@ jobs:
           # 处理Bug修复
           echo "## Bug修复" >> changelog.md
           
-          # 使用Python处理JSON数据，修改字符串处理方式
-          python3 -c '
-  import json, sys
-  data = json.loads(sys.argv[1])
-  bug_count = 0
+          # 将Python脚本保存到文件中，避免YAML中的转义问题
+          cat > process_bugs.py << 'EOL'
+import json
+import sys
 
-  for issue in data["data"]["repository"]["issues"]["nodes"]:
+data = json.loads(sys.argv[1])
+bug_count = 0
+
+for issue in data["data"]["repository"]["issues"]["nodes"]:
     # 跳过标记为NOT_PLANNED的issues
     if issue.get("stateReason") == "NOT_PLANNED":
         continue
@@ -71,24 +94,30 @@ jobs:
             break
             
     if has_bug_label:
-        print("修复了" + issue["title"] + "的问题 #" + str(issue["number"]))
+        print("修复了{}的问题 #{}".format(issue["title"], issue["number"]))
         bug_count += 1
 
-  if bug_count == 0:
+if bug_count == 0:
     print("")
-  ' "$issues" >> changelog.md
+EOL
+          
+          # 执行Python脚本处理Bug
+          python3 process_bugs.py "$issues" >> changelog.md
           
           echo "" >> changelog.md
           
           # 处理功能更改
           echo "## 功能更改" >> changelog.md
           
-          python3 -c '
-  import json, sys
-  data = json.loads(sys.argv[1])
-  feature_count = 0
+          # 将Python脚本保存到文件中，避免YAML中的转义问题
+          cat > process_features.py << 'EOL'
+import json
+import sys
 
-  for issue in data["data"]["repository"]["issues"]["nodes"]:
+data = json.loads(sys.argv[1])
+feature_count = 0
+
+for issue in data["data"]["repository"]["issues"]["nodes"]:
     # 跳过标记为NOT_PLANNED的issues
     if issue.get("stateReason") == "NOT_PLANNED":
         continue
@@ -101,12 +130,15 @@ jobs:
             break
             
     if has_feature_label:
-        print(issue["title"] + " #" + str(issue["number"]))
+        print("{} #{}".format(issue["title"], issue["number"]))
         feature_count += 1
 
-  if feature_count == 0:
+if feature_count == 0:
     print("")
-  ' "$issues" >> changelog.md
+EOL
+          
+          # 执行Python脚本处理功能
+          python3 process_features.py "$issues" >> changelog.md
           
           cat changelog.md
           
