@@ -2,9 +2,6 @@ name: Create Release
 
 on:
   workflow_dispatch:  # 允许手动触发
-  push:
-    tags:
-      - '*'  # 当有新标签推送时也会触发
 
 jobs:
   build:
