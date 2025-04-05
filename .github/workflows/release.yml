@@ -1,120 +1,155 @@
-name: Auto Release Pipeline
+name: Create Release
 
 on:
-  workflow_dispatch:
+  workflow_dispatch:  # 允许手动触发
+  push:
+    tags:
+      - '*'  # 当有新标签推送时也会触发
 
 jobs:
-  build-release:
+  build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write  # 需要写入权限来创建release
+      issues: read     # 需要读取权限来获取issues信息
+    
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
-      with:
-        fetch-depth: 0
-
-    - name: Clean plugins directory
-      run: |
-        find ./plugins -type f -not \( -name "*.yml" -o -name "*.conf" -o -name "*.txt" -o -name "*.jar" \) -delete
-
-    - name: Package release
-      run: |
-        sudo apt-get install -y zip
-        zip -r release.zip . -x ".git/*"
-
-    - name: Get previous release date
-      id: previous-release
-      env:
-        GH_TOKEN: ${{ github.token }}
-      run: |
-        if ! gh release view latest &>/dev/null; then
-          echo "date=1970-01-01T00:00:00Z" >> $GITHUB_OUTPUT
-          exit 0
-        fi
-        latest_date=$(gh api repos/${{ github.repository }}/releases/latest --jq '.created_at')
-        echo "date=${latest_date}" >> $GITHUB_OUTPUT
-
-    - name: Generate changelog
-      id: changelog
-      env:
-        GH_TOKEN: ${{ github.token }}
-      run: |
-        # 调试信息输出
-        echo "前次发布日期: ${{ steps.previous-release.outputs.date }}"
-        
-        # 转换日期格式并编码
-        encoded_date=$(echo "${{ steps.previous-release.outputs.date }}" | jq -sRr @uri)
-        echo "编码后的日期参数: $encoded_date"
-
-        # 执行API请求
-        api_url="repos/${{ github.repository }}/issues?state=closed&since=$encoded_date"
-        echo "请求URL: $api_url"
-        
-        # 获取并处理issues数据
-        issues=$(gh api "$api_url" \
-          --jq '[.[] | select(.state == "closed" and (any(.labels[]?; .name != "Closed as not planned"))]')
-        
-        # 调试输出原始数据
-        echo "原始issues数据: $issues"
-        
-        # 构建变更日志
-        changelog_content="📦 更新内容：\n"
-        issue_count=$(echo "$issues" | jq 'length')
-        
-        if [ $issue_count -gt 0 ]; then
-          echo "发现 $issue_count 个有效issue"
-          echo "$issues" | jq -r '.[] | "• 修复了「\(.title)」的问题"' | while read line; do
-            changelog_content+="${line}\n"
-          done
-        else
-          echo "未找到有效issue，使用默认信息"
-          changelog_content+="• 本次更新包含常规维护和优化"
-        fi
-
-        # 格式化输出
-        changelog_content=$(echo -e "$changelog_content")
-        echo "生成的更新内容："
-        echo "$changelog_content"
-
-        # 输出到环境变量
-        delimiter=$(openssl rand -hex 16)
-        echo "log<<${delimiter}" >> $GITHUB_OUTPUT
-        echo "$changelog_content" >> $GITHUB_OUTPUT
-        echo "${delimiter}" >> $GITHUB_OUTPUT
-
-    - name: Create Git tag
-      id: create-tag
-      run: |
-        # 生成规范的标签名称（示例：v2024.06.25）
-        DATE_TAG=$(date +'v%Y.%m.%d')
-        
-        # 清理可能存在的非法字符
-        CLEAN_TAG=$(echo "$DATE_TAG" | tr -cd '[:alnum:]._-')
-        
-        # 检查标签是否存在
-        if git rev-parse "$CLEAN_TAG" >/dev/null 2>&1; then
-          echo "删除已存在的旧标签: $CLEAN_TAG"
-          git tag -d "$CLEAN_TAG"
-          git push origin ":refs/tags/$CLEAN_TAG" || true
-        fi
-
-        # 配置Git身份
-        git config --global user.name "GitHub Actions"
-        git config --global user.email "actions@github.com"
-
-        # 创建带注释的标签
-        git tag -a "$CLEAN_TAG" -m "自动发布版本 $CLEAN_TAG"
-
-        # 推送标签到远程
-        git push origin "$CLEAN_TAG"
-
-        # 输出标签名称
-        echo "tag=$CLEAN_TAG" >> $GITHUB_OUTPUT
-
-    - name: Create release
-      uses: softprops/action-gh-release@v1
-      with:
-        tag_name: ${{ steps.create-tag.outputs.tag }}
-        name: ${{ steps.create-tag.outputs.tag }}
-        body: |
-          ${{ steps.changelog.outputs.log }}
-        files: release.zip
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0  # 获取完整历史记录
+      
+      - name: Delete unwanted files in plugins folder
+        run: |
+          # 删除plugins文件夹下除了.yml,.conf,.txt,.jar的所有文件，但保留文件夹结构
+          find ./plugins -type f -not -name "*.yml" -not -name "*.conf" -not -name "*.txt" -not -name "*.jar" -delete
+      
+      - name: Create release.zip
+        run: |
+          # 打包除README.md，.github，.gitattributes外的所有文件为release.zip
+          zip -r release.zip . -x "README.md" ".github/*" ".gitattributes" "*.git*"
+      
+      - name: Get latest release date
+        id: latest_release
+        run: |
+          # 获取最新release的发布日期，如果没有则使用仓库创建日期
+          latest_release_date=$(gh api repos/${{ github.repository }}/releases/latest --jq '.published_at' 2>/dev/null || echo "")
+          if [ -z "$latest_release_date" ]; then
+            echo "No previous release found, using repository creation date"
+            latest_release_date=$(gh api repos/${{ github.repository }} --jq '.created_at')
+          fi
+          echo "latest_release_date=$latest_release_date" >> $GITHUB_OUTPUT
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Generate changelog
+        id: changelog
+        run: |
+          # 获取上次发布以来的所有已完成的issues
+          issues=$(gh api graphql -f query='
+            query($repo_owner:String!, $repo_name:String!, $since:DateTime!) {
+              repository(owner: $repo_owner, name: $repo_name) {
+                issues(states: CLOSED, filterBy: {since: $since}) {
+                  nodes {
+                    number
+                    title
+                    labels(first: 10) {
+                      nodes {
+                        name
+                      }
+                    }
+                    closedAt
+                    closedStateReason
+                  }
+                }
+              }
+            }' -f repo_owner=${{ github.repository_owner }} -f repo_name=$(echo "${{ github.repository }}" | cut -d'/' -f2) -f since="${{ steps.latest_release.outputs.latest_release_date }}")
+          
+          # 准备changelog
+          echo "# 📦 更新内容：" > changelog.md
+          echo "" >> changelog.md
+          
+          # 处理Bug修复
+          echo "## Bug修复" >> changelog.md
+          
+          # 使用Python处理JSON数据
+          python3 -c '
+          import json, sys
+          data = json.loads(sys.argv[1])
+          bug_count = 0
+          
+          for issue in data["data"]["repository"]["issues"]["nodes"]:
+              # 跳过标记为NOT_PLANNED的issues
+              if issue.get("closedStateReason") == "NOT_PLANNED":
+                  continue
+                  
+              # 检查是否有bug标签
+              has_bug_label = False
+              for label in issue["labels"]["nodes"]:
+                  if "bug" in label["name"].lower():
+                      has_bug_label = True
+                      break
+                      
+              if has_bug_label:
+                  print(f"修复了{issue[\"title\"]}的问题 #{issue[\"number\"]}")
+                  bug_count += 1
+          
+          if bug_count == 0:
+              print("")
+          ' "$issues" >> changelog.md
+          
+          echo "" >> changelog.md
+          
+          # 处理功能更改
+          echo "## 功能更改" >> changelog.md
+          
+          python3 -c '
+          import json, sys
+          data = json.loads(sys.argv[1])
+          feature_count = 0
+          
+          for issue in data["data"]["repository"]["issues"]["nodes"]:
+              # 跳过标记为NOT_PLANNED的issues
+              if issue.get("closedStateReason") == "NOT_PLANNED":
+                  continue
+                  
+              # 检查是否有功能相关标签
+              has_feature_label = False
+              for label in issue["labels"]["nodes"]:
+                  if "enhancement" in label["name"].lower() or "feature" in label["name"].lower():
+                      has_feature_label = True
+                      break
+                      
+              if has_feature_label:
+                  print(f"{issue[\"title\"]} #{issue[\"number\"]}")
+                  feature_count += 1
+          
+          if feature_count == 0:
+              print("")
+          ' "$issues" >> changelog.md
+          
+          cat changelog.md
+          
+          # 将changelog内容设置为输出
+          changelog_content=$(cat changelog.md)
+          echo "content<<EOF" >> $GITHUB_OUTPUT
+          echo "$changelog_content" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Generate release date
+        id: date
+        run: echo "release_date=$(date +'%Y.%m.%d')" >> $GITHUB_OUTPUT
+      
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          name: ${{ steps.date.outputs.release_date }}
+          tag_name: ${{ steps.date.outputs.release_date }}
+          body: ${{ steps.changelog.outputs.content }}
+          files: release.zip
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
