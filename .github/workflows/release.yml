@@ -10,7 +10,14 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
 
-    # ...保持其他步骤不变...
+    - name: Clean plugins directory
+      run: |
+        find ./plugins -type f -not \( -name "*.yml" -o -name "*.conf" -o -name "*.txt" -o -name "*.jar" \) -delete
+
+    - name: Package release
+      run: |
+        sudo apt-get install -y zip
+        zip -r release.zip . -x ".git/*"
 
     - name: Get previous release date
       id: previous-release
