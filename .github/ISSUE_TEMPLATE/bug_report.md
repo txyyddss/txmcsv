@@ -1,38 +1,93 @@
----
-name: Bug report
-about: Create a report to help us improve
-title: ''
-labels: ''
-assignees: ''
-
----
-
-**Describe the bug**
-A clear and concise description of what the bug is.
-
-**To Reproduce**
-Steps to reproduce the behavior:
-1. Go to '...'
-2. Click on '....'
-3. Scroll down to '....'
-4. See error
-
-**Expected behavior**
-A clear and concise description of what you expected to happen.
-
-**Screenshots**
-If applicable, add screenshots to help explain your problem.
-
-**Desktop (please complete the following information):**
- - OS: [e.g. iOS]
- - Browser [e.g. chrome, safari]
- - Version [e.g. 22]
-
-**Smartphone (please complete the following information):**
- - Device: [e.g. iPhone6]
- - OS: [e.g. iOS8.1]
- - Browser [e.g. stock browser, safari]
- - Version [e.g. 22]
-
-**Additional context**
-Add any other context about the problem here.
+'body':
+  - 'attributes':
+        'description': >
+            Please make sure that the issue is not a duplicate or a question.
+            If it's a duplicate, please react to the original issue with a
+            thumbs up.
+        'label': 'Prerequisites'
+        'options':
+          - 'label': >
+                I have checked that this is not Mojang's issue.
+            'required': true
+          - 'label': >
+                I have searched other issues and found no duplicates
+            'required': true
+          - 'label': >
+                I want to report a bug and not asking a question.
+            'required': true
+          - 'label': >
+                The bug can be repeated and not caused by network.
+            'required': true
+    'id': 'prerequisites'
+    'type': 'checkboxes'
+  - 'attributes':
+        'description': 'On which Platform does the issue occur?'
+        'label': 'Platform'
+        'options':
+          - 'Windows Bedrock'
+          - 'Windows Java'
+          - 'Android Java'
+          - 'Android Bedrock'
+          - 'IOS Java'
+          - 'IOS Bedrock'
+          - 'Mac Java'
+          - 'Custom (please mention in the description)'
+    'id': 'os'
+    'type': 'dropdown'
+    'validations':
+        'required': true
+  - 'attributes':
+        'description': 'What is the current version of MT Network?'
+        'label': 'Server version'
+    'id': 'version'
+    'type': 'input'
+    'validations':
+        'required': true
+  - 'attributes':
+        'description': 'What version of Minecraft are you using?'
+        'label': 'Minecraft version'
+    'id': 'version'
+    'type': 'input'
+    'validations':
+        'required': true
+  - 'attributes':
+        'description': >
+            Please describe what you did.
+        'label': 'Action'
+    'id': 'failing_action'
+    'type': 'textarea'
+    'validations':
+        'required': true
+  - 'attributes':
+        'description': >
+            What did you expect to see?  Please add a description and/or
+            screenshots, if applicable.
+        'label': 'Expected result'
+        'placeholder': >
+            What did you expect to see?
+    'id': 'expected'
+    'type': 'textarea'
+    'validations':
+        'required': true
+  - 'attributes':
+        'description': >
+            What happened instead?  Please add a description and/or screenshots,
+            if applicable.
+        'label': 'Actual result'
+        'placeholder': >
+            What did you see instead?
+    'id': 'result'
+    'type': 'textarea'
+    'validations':
+        'required': true
+  - 'attributes':
+        'description': >
+            You can add additional information.
+        'label': 'Additional information and/or screenshots'
+        'placeholder': >
+            Anything that can help to solve the problem.
+    'id': 'additional'
+    'type': 'textarea'
+    'validations':
+        'required': false
+'name': 'Bug'
