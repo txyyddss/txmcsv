@@ -59,3 +59,11 @@ jobs:
         echo "log<<${delimiter}" >> $GITHUB_OUTPUT
         echo -e "$changelog_content" >> $GITHUB_OUTPUT
         echo "${delimiter}" >> $GITHUB_OUTPUT
+    - name: Create release
+      uses: softprops/action-gh-release@v1
+      with:
+        tag_name: release-$(date +'%Y.%m.%d')
+        name: $(date +'%Y.%m')
+        body: |
+          ${{ steps.changelog.outputs.log }}
+        files: release.zip
