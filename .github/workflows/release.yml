@@ -1,8 +1,6 @@
 name: Create Release
 
 on:
-  push:
-    branches: [ main ]  # 或者其他触发条件
   workflow_dispatch:    # 允许手动触发
 
 jobs:
