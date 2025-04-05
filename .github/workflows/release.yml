@@ -41,7 +41,6 @@ jobs:
         # 使用更健壮的API查询方式
         issues=$(gh api "repos/${{ github.repository }}/issues?state=closed&since=${encoded_date}" \
           --jq '[.[] | select(any(.labels[]?; .name != "Closed as not planned"))]' \
-          --silent \
           --cache 60s)
         
         # 构建变更日志内容
