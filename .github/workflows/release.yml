@@ -1,35 +1,35 @@
 name: Create Release
 
 on:
-  workflow_dispatch:  # 允许手动触发
+  workflow_dispatch:
+  push:
+    tags:
+      - '*'
 
 jobs:
   build:
     runs-on: ubuntu-latest
     permissions:
-      contents: write  # 需要写入权限来创建release
-      issues: read     # 需要读取权限来获取issues信息
+      contents: write
+      issues: read
     
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
         with:
-          fetch-depth: 0  # 获取完整历史记录
+          fetch-depth: 0
       
       - name: Delete unwanted files in plugins folder
         run: |
-          # 删除plugins文件夹下除了.yml,.conf,.txt,.jar的所有文件，但保留文件夹结构
           find ./plugins -type f -not -name "*.yml" -not -name "*.conf" -not -name "*.txt" -not -name "*.jar" -delete
       
       - name: Create release.zip
         run: |
-          # 打包除README.md，.github，.gitattributes外的所有文件为release.zip
           zip -r release.zip . -x "README.md" ".github/*" ".gitattributes" "*.git*"
       
       - name: Get latest release date
         id: latest_release
         run: |
-          # 获取最新release的发布日期，如果没有则使用仓库创建日期
           latest_release_date=$(gh api repos/${{ github.repository }}/releases/latest --jq '.published_at' 2>/dev/null || echo "")
           if [ -z "$latest_release_date" ]; then
             echo "No previous release found, using repository creation date"
@@ -56,7 +56,7 @@ jobs:
                       }
                     }
                     closedAt
-                    closedStateReason
+                    stateReason
                   }
                 }
               }
@@ -77,7 +77,7 @@ jobs:
           
           for issue in data["data"]["repository"]["issues"]["nodes"]:
               # 跳过标记为NOT_PLANNED的issues
-              if issue.get("closedStateReason") == "NOT_PLANNED":
+              if issue.get("stateReason") == "NOT_PLANNED":
                   continue
                   
               # 检查是否有bug标签
@@ -107,7 +107,7 @@ jobs:
           
           for issue in data["data"]["repository"]["issues"]["nodes"]:
               # 跳过标记为NOT_PLANNED的issues
-              if issue.get("closedStateReason") == "NOT_PLANNED":
+              if issue.get("stateReason") == "NOT_PLANNED":
                   continue
                   
               # 检查是否有功能相关标签
