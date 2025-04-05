@@ -58,18 +58,32 @@ jobs:
 
     - name: Create Git tag
       id: create-tag
-      env:
-        DATE_TAG: $(date +'v%Y.%m.%d')
       run: |
-        if git rev-parse $DATE_TAG >/dev/null 2>&1; then
-          git tag -d $DATE_TAG
-          git push origin :refs/tags/$DATE_TAG || true
+        # 生成规范的标签名称（示例：v2024.06.25）
+        DATE_TAG=$(date +'v%Y.%m.%d')
+        
+        # 清理可能存在的非法字符
+        CLEAN_TAG=$(echo "$DATE_TAG" | tr -cd '[:alnum:]._-')
+        
+        # 检查标签是否存在
+        if git rev-parse "$CLEAN_TAG" >/dev/null 2>&1; then
+          echo "删除已存在的旧标签: $CLEAN_TAG"
+          git tag -d "$CLEAN_TAG"
+          git push origin ":refs/tags/$CLEAN_TAG" || true
         fi
-        git config user.name "GitHub Actions"
-        git config user.email "actions@github.com"
-        git tag -a $DATE_TAG -m "Auto release $(date +'%Y-%m-%d')"
-        git push origin $DATE_TAG
-        echo "tag=$DATE_TAG" >> $GITHUB_OUTPUT
+
+        # 配置Git身份
+        git config --global user.name "GitHub Actions"
+        git config --global user.email "actions@github.com"
+
+        # 创建带注释的标签
+        git tag -a "$CLEAN_TAG" -m "自动发布版本 $CLEAN_TAG"
+
+        # 推送标签到远程
+        git push origin "$CLEAN_TAG"
+
+        # 输出标签名称
+        echo "tag=$CLEAN_TAG" >> $GITHUB_OUTPUT
 
     - name: Create release
       uses: softprops/action-gh-release@v1
