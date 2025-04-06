@@ -6,9 +6,9 @@
 ## Minecraft Bedrock(iOS/Android) &  Java (Windows/Mac/Android) 安装教程
 ![Mindmap](https://github.com/user-attachments/assets/9a59c192-acad-424e-b7cf-038fb5397437)
 
-- [进入服务器的方式](#进入服务器有三种办法：)
-- [IOS/Android](#iOS/Android – Minecraft基岩版教程)
-- [Mac/Windows](MacOS/Windows基岩版教程)
+- [进入服务器的方式](#进入服务器有三种办法)
+- [IOS/Android](#iosandroidminecraft基岩版教程)
+- [Mac/Windows](macoswindows基岩版教程)
 
 **我整了一个整合包，里面包含所有安装用到的东西（除了iOS）:**
 [![Download](https://img.shields.io/badge/Download_-red?style=plastic "Download")](https://3q20k3-my.sharepoint.com/personal/tx_1919801_xyz/_layouts/52/download.aspx?share=EbbCfCjRm9xAq6OLtV33VsoBPiMC21SyY1QcW-2PIl1QmQ)
@@ -66,13 +66,13 @@ zerotier ID: **52b337794fa558dd**
 
 ### MacOS/Windows基岩版教程
 #### 1.下载软件（可以在整合包里面看到）
-- [Windows]PCL启动器：[![Download](https://img.shields.io/badge/Download_-red?style=plastic "Download")](https://soft.3dmgame.com/down/323048.html) (点普通下载，千万不要点安全下载)
-- [MacOS]HMCL启动器：[![Download](https://img.shields.io/badge/Download_-red?style=plastic "Download")](https://hmcl.huangyuhui.net/download/) (点开发版的MacOS下载)
-- [Android]FCL启动器：[![Download](https://img.shields.io/badge/Download_-red?style=plastic "Download")](https://klpbbs.com/thread-147627-1-1.html) (划到地下点展开折叠内容然后随便点一个链接)
+- [**Windows**]PCL启动器：[![Download](https://img.shields.io/badge/Download_-red?style=plastic "Download")](https://soft.3dmgame.com/down/323048.html) (点普通下载，千万不要点安全下载)
+- [**MacOS**]HMCL启动器：[![Download](https://img.shields.io/badge/Download_-red?style=plastic "Download")](https://hmcl.huangyuhui.net/download/) (点开发版的MacOS下载)
+- [**Android**]FCL启动器：[![Download](https://img.shields.io/badge/Download_-red?style=plastic "Download")](https://klpbbs.com/thread-147627-1-1.html) (划到地下点展开折叠内容然后随便点一个链接)
 #### 2.打开并安装软件（安卓记得无视风险）macOS用户看下面！
 MacOS用户先下载：
-M系列芯片：[![Download](https://img.shields.io/badge/Download_-red?style=plastic "Download")](https://download.oracle.com/java/17/archive/jdk-17.0.12_macos-aarch64_bin.dmg)
-intel芯片：[![Download](https://img.shields.io/badge/Download_-red?style=plastic "Download")](https://download.oracle.com/java/17/archive/jdk-17.0.12_macos-x64_bin.dmg)
+**M系列**芯片：[![Download](https://img.shields.io/badge/Download_-red?style=plastic "Download")](https://download.oracle.com/java/17/archive/jdk-17.0.12_macos-aarch64_bin.dmg)
+**intel**芯片：[![Download](https://img.shields.io/badge/Download_-red?style=plastic "Download")](https://download.oracle.com/java/17/archive/jdk-17.0.12_macos-x64_bin.dmg)
 下载完右键文件再按打开，弹窗之后点继续（没有就略过），安装需要出电脑密码才能下载
 安装完之后右键文件再打开**HMCL-DEV.jar**， 弹窗之后点继续就能打开。
 其他用户安装完打开即可
@@ -91,8 +91,8 @@ FCL:
 
 下载完之后账号名称输完之后就直接启动游戏
 打开游戏之后来到主页：多人游戏>添加服务器
-#### 1.名称：随便（默认：TX和马丁的小世界）
-#### 2.服务器地址：114.114.51.4:11451/mtmc.1919801.xyz:11451
-#### 3.点完成
-#### 4. 然后点“加入服务器“
+1. 名称：随便（默认：TX和马丁的小世界）
+2. 服务器地址：114.114.51.4:11451/mtmc.1919801.xyz:11451
+3. 点完成
+4. 然后点“加入服务器“
 
