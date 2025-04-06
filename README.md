@@ -1,8 +1,7 @@
 # TX and MT Private MC Server ![](https://img.shields.io/badge/Minecraft-1.20.4-blue?style=flat)
 [![Auto Release Pipeline](https://github.com/txyyddss/txmcsv/actions/workflows/release.yml/badge.svg)](https://github.com/txyyddss/txmcsv/actions/workflows/release.yml) [![potential-duplicates](https://github.com/txyyddss/txmcsv/actions/workflows/checkissue.yml/badge.svg)](https://github.com/txyyddss/txmcsv/actions/workflows/checkissue.yml)
-<p>
-<img src=[[https://img2024.cnblogs.com/blog/2845014/202406/2845014-20240617165451537-517285446.jpg](https://github.com/user-attachments/assets/122d35c0-900e-48e2-9c6a-3a421edefa0f)](https://github.com/user-attachments/assets/122d35c0-900e-48e2-9c6a-3a421edefa0f) align="left" width=400 />
-</p>
+![微信图片_202409290929491](https://github.com/user-attachments/assets/8ed3ae75-70f6-4975-bdc2-f8d374bb5063)
+
 
 **Every member is encouraged to post issues on github. When you have troubles, you will receive a extra help. You will be informed when the bug is fixed.**
 
