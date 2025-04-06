@@ -1,89 +1,143 @@
 name: Create Release
 
 on:
-  workflow_dispatch:    # 允许手动触发
+  workflow_dispatch:  # 手动触发
+  push:
+    tags:
+      - 'v*'  # 当推送带v前缀的tag时触发
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      issues: read
-    
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
         with:
-          fetch-depth: 0  # 获取完整历史以便获取上一个 release
+          fetch-depth: 0  # 获取完整历史以便获取所有issues
       
       - name: Clean plugins directory
         run: |
           if [ -d "./plugins" ]; then
             find ./plugins -type f -not \( -name "*.yml" -o -name "*.conf" -o -name "*.txt" -o -name "*.jar" \) -delete
+          else
+            echo "Plugins directory not found, skipping cleanup."
           fi
       
-      - name: Create release zip
+      - name: Create release.zip
         run: |
           zip -r release.zip . -x "README.md" ".github/*" ".gitattributes"
       
-      - name: Generate changelog
+      - name: Generate changelog and release tag
         id: changelog
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          # 获取最新 release 的日期
-          LAST_RELEASE=$(gh release list --limit 1)
-          if [ -n "$LAST_RELEASE" ]; then
-            LAST_RELEASE_DATE=$(echo "$LAST_RELEASE" | awk '{print $3}')
-            echo "Last release date: $LAST_RELEASE_DATE"
-          else
-            # 如果没有找到上一个 release，使用一个较早的日期
-            LAST_RELEASE_DATE="1970-01-01"
-            echo "No previous release found, using date: $LAST_RELEASE_DATE"
-          fi
-          
-          # 创建临时文件存储 bug fixes 和 features
-          > bug_fixes.txt
-          > features.txt
-          
-          # 获取从上一个 release 以来关闭的 issues
-          # 排除标记为 "Closed as not planned" 的 issues
-          ISSUES=$(gh issue list --state closed --search "closed:>$LAST_RELEASE_DATE -label:\"Closed as not planned\"" --json number,title,labels --limit 100)
-          
-          # 检查是否有 issues
-          if [ -z "$ISSUES" ] || [ "$ISSUES" == "[]" ]; then
-            echo "No issues found since last release"
-          else
-            # 使用 jq 一次性处理所有 issues，避免在循环中处理
-            echo "$ISSUES" | jq -r '.[] | select(.labels | map(.name | ascii_downcase) | any(contains("bug"))) | "修复了\(.title)的问题 #\(.number)"' > bug_fixes.txt
-            echo "$ISSUES" | jq -r '.[] | select(.labels | map(.name | ascii_downcase) | any(contains("feature") or contains("enhancement"))) | "\(.title) #\(.number)"' > features.txt
-          fi
-          
-          # 创建 changelog
-          echo "# 📦 更新内容：" > changelog.md
-          echo "## Bug修复" >> changelog.md
-          if [ -s bug_fixes.txt ]; then
-            cat bug_fixes.txt >> changelog.md
-          fi
-          
-          echo "" >> changelog.md
-          echo "## 功能更改" >> changelog.md
-          if [ -s features.txt ]; then
-            cat features.txt >> changelog.md
-          fi
-          
-          # 显示生成的 changelog
-          cat changelog.md
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const today = new Date();
+            const releaseTag = `${today.getFullYear()}.${String(today.getMonth() + 1).padStart(2, '0')}.${String(today.getDate()).padStart(2, '0')}`;
+            core.exportVariable('RELEASE_TAG', releaseTag);
+            
+            // 获取最新release的日期
+            let lastReleaseDate = null;
+            try {
+              const { data: releases } = await github.rest.repos.listReleases({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                per_page: 1
+              });
+              
+              if (releases.length > 0) {
+                lastReleaseDate = new Date(releases[0].published_at);
+                console.log(`Last release date: ${lastReleaseDate.toISOString()}`);
+              }
+            } catch (error) {
+              console.log("No previous releases found or error occurred:", error);
+            }
+            
+            // 获取所有已关闭的issues
+            const allIssues = [];
+            let page = 1;
+            let hasMoreIssues = true;
+            
+            while (hasMoreIssues) await github.rest.issues.listForRepo({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                state: 'closed',
+                per_page: 100,
+                page: page
+              });
+              
+              if (issues.length === 0) {
+                hasMoreIssues = false;
+              } else {
+                // 过滤issues：
+                // 1. 不是PR
+                // 2. 没有wontfix标签
+                // 3. 如果有lastReleaseDate，则只获取在该日期之后关闭的issues
+                const filteredIssues = issues.filter(issue => {
+                  if (issue.pull_request) return false;
+                  if (issue.labels.some(label => label.name.toLowerCase() === 'wontfix')) return false;
+                  if (lastReleaseDate && new Date(issue.closed_at) <= lastReleaseDate) return false;
+                  return true;
+                });
+                
+                allIssues.push(...filteredIssues);
+                page++;
+              }
+            }
+            
+            console.log(`Found ${allIssues.length} relevant issues`);
+            
+            // 分类issues
+            const bugs = [];
+            const features = [];
+            
+            for (const issue of allIssues) {
+              // 检查issue是否为bug
+              const isBug = issue.labels.some(label => 
+                label.name.toLowerCase().includes('bug') || 
+                label.name.toLowerCase().includes('修复') || 
+                label.name.toLowerCase().includes('fix')
+              );
+              
+              if (isBug) {
+                bugs.push(issue);
+              } else {
+                features.push(issue);
+              }
+            }
+            
+            console.log(`Bugs: ${bugs.length}, Features: ${features.length}`);
+            
+            // 生成changelog
+            let changelog = "# 📦 更新内容：\n";
+            
+            changelog += "\n## Bug修复\n";
+            if (bugs.length > 0) {
+              for (const bug of bugs) {
+                changelog += `修复了${bug.title}的问题 #${bug.number}\n`;
+              }
+            }
+            
+            changelog += "\n## 功能更改\n";
+            if (features.length > 0) {
+              for (const feature of features) {
+                changelog += `${feature.title} #${feature.number}\n`;
+              }
+            }
+            
+            // 输出changelog
+            core.setOutput('changelog', changelog);
+            fs.writeFileSync('CHANGELOG.md', changelog);
       
       - name: Create Release
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          # 生成日期格式的 tag
-          TAG=$(date +'%Y.%m.%d')
-          
-          # 创建 release
-          gh release create "$TAG" \
-            --title "$TAG" \
-            --notes-file changelog.md \
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ env.RELEASE_TAG }}
+          name: ${{ env.RELEASE_TAG }}
+          body_path: CHANGELOG.md
+          draft: false
+          prerelease: false
+          files: |
             release.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
