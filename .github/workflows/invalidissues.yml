@@ -16,11 +16,11 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           issue-number: ${{ github.event.issue.number }}
           body: |
-            Hello @${{ github.event.issue.user.login }}. We need more information for the issue. 请确保所有必要的信息被正确地填入。
+            Hello @${{ github.event.issue.user.login }}. We need more information or futher investigation. Please provide more info or possible guesses/solution for the issue.
   wontfix:
     runs-on: ubuntu-latest
     steps:
-      - name: More information needed
+      - name: Not being fixed
         if: github.event.label.name == 'wontfix'
         uses: actions-cool/issues-helper@v3
         with:
