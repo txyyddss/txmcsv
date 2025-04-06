@@ -2,6 +2,8 @@
 [![Auto Release Pipeline](https://github.com/txyyddss/txmcsv/actions/workflows/release.yml/badge.svg)](https://github.com/txyyddss/txmcsv/actions/workflows/release.yml) [![potential-duplicates](https://github.com/txyyddss/txmcsv/actions/workflows/checkissue.yml/badge.svg)](https://github.com/txyyddss/txmcsv/actions/workflows/checkissue.yml)
  TX and MT private Minecraft Server
 
+**Every member is encouraged to post issues on github. When you have troubles, you will receive a extra help. You will be informed when the bug is fixed.**
+
 # Minecraft Bedrock(iOS/Android) & Java
 
 # (Windows/Mac/Android) 安装教程
