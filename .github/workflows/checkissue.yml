@@ -1,4 +1,4 @@
-'name': 'potential-duplicates'
+'name': 'Check Potential Duplicates'
 'on':
     'issues':
         'types':
