@@ -2,9 +2,6 @@ name: Create Release
 
 on:
   workflow_dispatch:  # 手动触发
-  push:
-    tags:
-      - 'v*'  # 当推送带v前缀的tag时触发
 
 jobs:
   build:
