@@ -6,7 +6,9 @@
 ![Mindmap](https://github.com/user-attachments/assets/9a59c192-acad-424e-b7cf-038fb5397437)
 
 **我会整一个整合包，里面包含所有安装用到的东西（除了iOS）:
-![https://3q20k3-my.sharepoint.com/personal/tx_1919801_xyz/_layouts/52/download.aspx?share=EbbCfCjRm9xAq6OLtV33VsoBPiMC21SyY1QcW-2PIl1QmQ](https://img.shields.io/badge/Download_-red?style=plastic&link=https%3A%2F%2F3q20k3-my.sharepoint.com%2Fpersonal%2Ftx_1919801_xyz%2F_layouts%2F52%2Fdownload.aspx%3Fshare%3DEbbCfCjRm9xAq6OLtV33VsoBPiMC21SyY1QcW-2PIl1QmQ)
+[![Download zip](https://img.shields.io/badge/Download_-red?style=plastic&link=https%3A%2F%2F3q20k3-my.sharepoint.com%2Fpersonal%2Ftx_1919801_xyz%2F_layouts%2F52%2Fdownload.aspx%3Fshare%3DEbbCfCjRm9xAq6OLtV33VsoBPiMC21SyY1QcW-2PIl1QmQ "Download zip")](https://3q20k3-my.sharepoint.com/personal/tx_1919801_xyz/_layouts/52/download.aspx?share=EbbCfCjRm9xAq6OLtV33VsoBPiMC21SyY1QcW-2PIl1QmQ)
+
+![]()
 ### 进入服务器有三种办法：
 1.用zerotier进入（首选，连接速度稍慢、流畅度一般）
 zerotier ID: 52b337794fa558dd
