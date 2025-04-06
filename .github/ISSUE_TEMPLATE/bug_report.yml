@@ -73,7 +73,7 @@ projects: []
     'id': 'expected'
     'type': 'textarea'
     'validations':
-        'required': true
+        'required': false
   - 'attributes':
         'description': >
             What happened instead?  Please add a description and/or screenshots,
