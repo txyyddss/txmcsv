@@ -6,6 +6,10 @@
 ## Minecraft Bedrock(iOS/Android) &  Java (Windows/Mac/Android) 安装教程
 ![Mindmap](https://github.com/user-attachments/assets/9a59c192-acad-424e-b7cf-038fb5397437)
 
+- [进入服务器的方式](#进入服务器有三种办法：)
+- [IOS/Android](#iOS/Android – Minecraft基岩版教程)
+- [Mac/Windows](MacOS/Windows基岩版教程)
+
 **我整了一个整合包，里面包含所有安装用到的东西（除了iOS）:**
 [![Download](https://img.shields.io/badge/Download_-red?style=plastic "Download")](https://3q20k3-my.sharepoint.com/personal/tx_1919801_xyz/_layouts/52/download.aspx?share=EbbCfCjRm9xAq6OLtV33VsoBPiMC21SyY1QcW-2PIl1QmQ)
 
