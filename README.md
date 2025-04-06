@@ -5,7 +5,7 @@
 
 <p align="center">
   <a href="https://github.com/txyyddss/txmcsv">
-    <img src="https://github.com/user-attachments/assets/fcadcb18-f850-44b2-8892-f870c199e113" alt="Logo" width="960" height="600">
+    <img src="https://github.com/user-attachments/assets/fcadcb18-f850-44b2-8892-f870c199e113" alt="Logo" width="640" height="400">
   </a>
 
   <h3 align="center">MTNetwork</h3>
