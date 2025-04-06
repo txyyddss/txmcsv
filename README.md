@@ -8,9 +8,9 @@
     <img src="https://github.com/user-attachments/assets/9f96a1e4-6709-423d-b13c-f66adf37d385" alt="Logo" width="640" height="400">
   </a>
 
-  <h3 align="center">MTNetwork</h3>
+  <h3 align="center">自托管生存互通服</h3>
   <p align="center">
-    软件腐竹:TX·硬件腐竹:MT
+    软件腐竹:TX · 硬件腐竹:MT
     <br />
     <a href="https://github.com/txyyddss/txmcsv?tab=readme-ov-file#minecraftbedrockiosandroidjavawindowsmacandroid%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B">查看教程</a>
     ·
