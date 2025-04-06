@@ -1,5 +1,4 @@
-# TX and MT Private MC Server ![](https://img.shields.io/badge/Minecraft-1.20.4-blue?style=flat) [[![Issues][issues-shield]][issues-url]](https://img.shields.io/github/issues/txyyddss/txmcsv
-)
+# TX and MT Private MC Server ![](https://img.shields.io/badge/Minecraft-1.20.4-blue?style=flat) ![](https://img.shields.io/github/issues/txyyddss/txmcsv)
 [![Auto Release Pipeline](https://github.com/txyyddss/txmcsv/actions/workflows/release.yml/badge.svg)](https://github.com/txyyddss/txmcsv/actions/workflows/release.yml) [![potential-duplicates](https://github.com/txyyddss/txmcsv/actions/workflows/checkissue.yml/badge.svg)](https://github.com/txyyddss/txmcsv/actions/workflows/checkissue.yml)
 
 
