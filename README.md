@@ -4,16 +4,20 @@
 <br />
 
 <p align="center">
-  <a href="https://github.com/txyyddss/txmcsv">
-    <img src="https://github.com/user-attachments/assets/fcadcb18-f850-44b2-8892-f870c199e113" alt="Logo" width="640" height="400">
+  <a href="https://github.com/shaojintian/Best_README_template/">
+    <img src="images/logo.png" alt="Logo" width="320" height="200">
   </a>
 
   <h3 align="center">MTNetwork</h3>
   <p align="center">
     纯净生存互通服
     <br />
-    <a href="https://github.com/txyyddss/txmcsv/issues"><strong>塞爆Issues »</strong></a>
-    <br />
+    <a href="https://github.com/txyyddss/txmcsv?tab=readme-ov-file#minecraftbedrockiosandroidjavawindowsmacandroid%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B">查看教程</a>
+    ·
+    <a href="https://github.com/txyyddss/txmcsv/issues">报告Bug</a>
+    ·
+    <a href="https://github.com/txyyddss/txmcsv/issues">提出新特性</a>
+  </p>
 
 </p>
 
