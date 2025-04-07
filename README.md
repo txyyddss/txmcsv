@@ -5,10 +5,9 @@
 
 <p align="center">
   <a href="https://github.com/txyyddss/txmcsv">
-    <img src="https://github.com/user-attachments/assets/9f96a1e4-6709-423d-b13c-f66adf37d385" alt="Logo" width="640" height="400">
+    <img src="https://github.com/user-attachments/assets/9f96a1e4-6709-423d-b13c-f66adf37d385" alt="Logo" width="320" height="150">
   </a>
-  <span style="color: blue; font-size: 100px;">114</span>
-  <h3 align="center">自托管生存互通服</h3>
+  <h3 align="center">Paper自托管生存互通服</h3>
   <p align="center">
     软件腐竹:TX · 硬件腐竹:MT
     <br />
@@ -22,7 +21,7 @@
 </p>
 
 **Every member is encouraged to post issues on github. When you have troubles, you will receive a extra help. You will be informed when the bug is fixed.**
-
+***
 ## Minecraft Bedrock(iOS/Android) &  Java (Windows/Mac/Android) 安装教程
 ![Mindmap](https://github.com/user-attachments/assets/9a59c192-acad-424e-b7cf-038fb5397437)
 
