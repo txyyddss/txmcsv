@@ -18,10 +18,10 @@ projects: []
                 I have searched other issues and found no duplicates
             'required': true
           - 'label': >
-                I want to report a bug and not asking a question.
+                I will fill in the blanks properly.
             'required': true
           - 'label': >
-                The bug can be repeated and not caused by network.
+                The bug can be repeated and not caused by your network.
             'required': true
     'id': 'prerequisites'
     'type': 'checkboxes'
@@ -67,7 +67,7 @@ projects: []
         'description': >
             What did you expect to see?  Please add a description and/or
             screenshots, if applicable.
-        'label': 'Expected result'
+        'label': 'Expected result（选填）'
         'placeholder': >
             What did you expect to see?
     'id': 'expected'
