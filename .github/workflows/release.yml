@@ -38,10 +38,13 @@ jobs:
             echo "content=" >> $GITHUB_OUTPUT
           fi
 
-      - name: 打包更新文件
+      - name: 安装7zip
+        run: sudo apt-get update && sudo apt-get install -y p7zip-full
+        
+      - name: 创建7zip文件
         run: |
-          find . -type f -not \( -path "./.git*" -o -path "./.github*" -o -name ".gitattributes" -o -name "README.md" -o -name "manual.txt" \) | zip -@ update_pack.zip
-
+          find . -type f -not \( -path "./.git*" -o -path "./.github*" -o -name ".gitattributes" -o -name "README.md" -o -name "manual.txt" \) -print0 | xargs -0 7z a -t7z -m0=lzma2 -mx=9 -ms=on -mfb=273 -md=64m -mmt=on update_pack.7z
+        
       - name: 获取当前日期
         id: date
         run: |
