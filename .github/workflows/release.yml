@@ -36,7 +36,7 @@ jobs:
         run: |
           if [ -d "./plugins" ]; then
             find ./plugins -type f -not \( -name "*.yml" -o -name "*.conf" -o -name "*.txt" -o -name "*.jar" \) -delete
-          fi
+          fi..
 
       # 4. 打包文件
       - name: Create update package
@@ -51,6 +51,7 @@ jobs:
           echo ".git/" >> exclude.txt
           echo ".gitattributes" >> exclude.txt
           echo "manual.txt" >> exclude.txt
+          echo "exclude.txt" >> exclude.txt  # 确保exclude.txt自身也被排除
           
           # 使用7z创建压缩包，使用最高压缩级别
           7z a -t7z -mx=9 -xr@exclude.txt update_pack.7z ./
@@ -124,32 +125,39 @@ jobs:
             // 生成changelog内容
             let changelog = '# 📦 更新内容：\n\n';
             
+            // 手动更改部分
+            changelog += '## 手动更改\n';
             if (manualContent) {
-              changelog += '## 手动更改\n' + manualContent + '\n\n';
+              changelog += manualContent + '\n\n';
             } else {
-              changelog += '## 手动更改\n\n';
+              changelog += '无\n\n';
             }
             
+            // Bug修复部分
             changelog += '## Bug修复\n';
             if (bugfixes.length > 0) {
               for (const bug of bugfixes) {
                 changelog += `修复了${bug.title}的问题 #${bug.number}\n`;
               }
+            } else {
+              changelog += '无\n';
             }
             changelog += '\n';
             
+            // 功能更改部分
             changelog += '## 功能更改\n';
             if (features.length > 0) {
               for (const feature of features) {
                 changelog += `${feature.title} #${feature.number}\n`;
               }
+            } else {
+              changelog += '无\n';
             }
             
             // 保存到文件
             fs.writeFileSync('CHANGELOG.md', changelog);
             
             return changelog;
-
       # 6. 创建release
       - name: Create Release
         id: create_release
