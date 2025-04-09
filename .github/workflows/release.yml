@@ -42,10 +42,18 @@ jobs:
         run: |
           find . -type f -not \( -path "./.git*" -o -path "./.github*" -o -name ".gitattributes" -o -name "README.md" -o -name "manual.txt" \) | zip -@ update_pack.zip
 
+      - name: 获取当前日期
+        id: date
+        run: |
+          echo "year=$(date +'%Y')" >> $GITHUB_OUTPUT
+          echo "month=$(date +'%m')" >> $GITHUB_OUTPUT
+          echo "day=$(date +'%d')" >> $GITHUB_OUTPUT
+
       - name: 获取 Issues 并生成 Changelog
         id: changelog
         uses: actions/github-script@v6
         with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             const { owner, repo } = context.repo;
             
@@ -56,12 +64,16 @@ jobs:
                 owner,
                 repo
               });
+              console.log(`Found latest release: ${latestRelease.data.tag_name}`);
             } catch (error) {
-              console.log('No previous release found');
+              console.log('No previous release found, will include all closed issues');
             }
             
             // 获取时间范围
             const since = latestRelease ? latestRelease.data.created_at : null;
+            if (since) {
+              console.log(`Getting issues closed after: ${since}`);
+            }
             
             // 获取所有已关闭的 issues
             const issuesResponse = await github.rest.issues.listForRepo({
@@ -70,6 +82,8 @@ jobs:
               state: 'closed',
               per_page: 100
             });
+            
+            console.log(`Found ${issuesResponse.data.length} total closed issues`);
             
             // 过滤出 completed 状态，非 wontfix/invalid 的 issues
             const completedIssues = issuesResponse.data.filter(issue => {
@@ -86,6 +100,8 @@ jobs:
               return true;
             });
             
+            console.log(`Found ${completedIssues.length} relevant issues after filtering`);
+            
             // 分类 issues
             const bugFixes = [];
             const features = [];
@@ -101,6 +117,8 @@ jobs:
                 features.push({ title, number: issue.number });
               }
             });
+            
+            console.log(`Categorized issues: ${bugFixes.length} bugs, ${features.length} features`);
             
             // 生成 Changelog
             let changelog = '# 📦 更新内容：\n\n';
@@ -119,6 +137,8 @@ jobs:
               bugFixes.forEach(bug => {
                 changelog += `修复了${bug.title}的问题 #${bug.number}\n`;
               });
+            } else {
+              changelog += '无Bug修复\n';
             }
             changelog += '\n';
             
@@ -128,29 +148,24 @@ jobs:
               features.forEach(feature => {
                 changelog += `${feature.title} #${feature.number}\n`;
               });
+            } else {
+              changelog += '无功能更改\n';
             }
             
             // 输出 changelog
+            core.setOutput('content', changelog);
             return changelog;
         env:
           MANUAL_CONTENT: ${{ steps.manual.outputs.content }}
 
       - name: 创建发布版本
-        id: create_release
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: ${{ format('{0}_{1}', github.event.inputs.version, format('{0}.{1}.{2}', format('{0:04}', steps.date.outputs.year), format('{0:02}', steps.date.outputs.month), format('{0:02}', steps.date.outputs.day))) }}
-          name: ${{ format('{0}.{1}.{2}_{3}', format('{0:04}', steps.date.outputs.year), format('{0:02}', steps.date.outputs.month), format('{0:02}', steps.date.outputs.day), github.event.inputs.version) }}
-          body: ${{ steps.changelog.outputs.result }}
+          tag_name: ${{ format('{0}.{1}.{2}_{3}', steps.date.outputs.year, steps.date.outputs.month, steps.date.outputs.day, github.event.inputs.version) }}
+          name: ${{ format('{0}.{1}.{2}_{3}', steps.date.outputs.year, steps.date.outputs.month, steps.date.outputs.day, github.event.inputs.version) }}
+          body: ${{ steps.changelog.outputs.content }}
           files: update_pack.zip
           draft: false
           prerelease: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: 获取当前日期
-        id: date
-        run: |
-          echo "year=$(date +'%Y')" >> $GITHUB_OUTPUT
-          echo "month=$(date +'%m')" >> $GITHUB_OUTPUT
-          echo "day=$(date +'%d')" >> $GITHUB_OUTPUT
