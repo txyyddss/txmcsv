@@ -1,13 +1,12 @@
-
 name: Create Release
 
 on:
-  workflow_dispatch:  # 手动触发
+  workflow_dispatch:
     inputs:
       version:
         description: '版本号'
         required: true
-        default: '1.0.0'
+        type: string
 
 jobs:
   build:
@@ -16,185 +15,157 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
         with:
-          fetch-depth: 0  # 获取完整历史以便获取所有issues
-      
-      - name: Replace version in files
+          fetch-depth: 0
+
+      - name: 替换版本号
         run: |
-          if [ -f "./plugins/AnimatedScoreboard/scoreboards/globalscoreboard.yml" ]; then
-            sed -i "s/%server_version%/${{ github.event.inputs.version }}/g" ./plugins/AnimatedScoreboard/scoreboards/globalscoreboard.yml
-            echo "已替换 globalscoreboard.yml 中的版本号为 ${{ github.event.inputs.version }}"
-          else
-            echo "globalscoreboard.yml 文件不存在，跳过替换"
-          fi
-          
-          if [ -f "./plugins/AnimatedScoreboard/scoreboards/globalnoseason.yml" ]; then
-            sed -i "s/%server_version%/${{ github.event.inputs.version }}/g" ./plugins/AnimatedScoreboard/scoreboards/globalnoseason.yml
-            echo "已替换 globalnoseason.yml 中的版本号为 ${{ github.event.inputs.version }}"
-          else
-            echo "globalnoseason.yml 文件不存在，跳过替换"
-          fi
-      
-      - name: Clean plugins directory
+          sed -i "s/%server_version%/${{ github.event.inputs.version }}/g" ./plugins/AnimatedScoreboard/scoreboards/globalscoreboard.yml
+          sed -i "s/%server_version%/${{ github.event.inputs.version }}/g" ./plugins/AnimatedScoreboard/scoreboards/globalnoseason.yml
+
+      - name: 清理插件目录
         run: |
-          if [ -d "./plugins" ]; then
-            # 找出所有不符合保留条件的文件并删除它们，但保留目录结构
-            find ./plugins -type f -not \( -name "*.yml" -o -name "*.conf" -o -name "*.txt" -o -name "*.jar" \) -delete
-            echo "Plugins 目录清理完成，已保留所有文件夹结构和指定类型的文件"
-          else
-            echo "Plugins 目录不存在，跳过清理"
-          fi
-      
-      - name: Create update_pack.zip
+          find ./plugins -type f -not \( -name "*.yml" -o -name "*.conf" -o -name "*.txt" -o -name "*.jar" \) -delete
+
+      - name: 读取 manual.txt
+        id: manual
         run: |
-          zip -r update_pack.zip . -x "README.md" ".github/*" ".git/*" ".gitattributes" "manual.txt"
-          echo "已创建 update_pack.zip 文件"
-      
-      - name: Generate changelog and release tag
+          if [ -f "manual.txt" ]; then
+            MANUAL_CONTENT=$(cat manual.txt)
+            echo "content<<EOF" >> $GITHUB_OUTPUT
+            echo "$MANUAL_CONTENT" >> $GITHUB_OUTPUT
+            echo "EOF" >> $GITHUB_OUTPUT
+          else
+            echo "content=" >> $GITHUB_OUTPUT
+          fi
+
+      - name: 打包更新文件
+        run: |
+          find . -type f -not \( -path "./.git*" -o -path "./.github*" -o -name ".gitattributes" -o -name "README.md" -o -name "manual.txt" \) | zip -@ update_pack.zip
+
+      - name: 获取当前日期
+        id: date
+        run: |
+          echo "year=$(date +'%Y')" >> $GITHUB_OUTPUT
+          echo "month=$(date +'%m')" >> $GITHUB_OUTPUT
+          echo "day=$(date +'%d')" >> $GITHUB_OUTPUT
+
+      - name: 获取 Issues 并生成 Changelog
         id: changelog
         uses: actions/github-script@v6
         with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            const fs = require('fs');
-            const today = new Date();
-            const formattedDate = `${today.getFullYear()}.${String(today.getMonth() + 1).padStart(2, '0')}.${String(today.getDate()).padStart(2, '0')}`;
-            const releaseTag = `${formattedDate}_${process.env.VERSION}`;
-            core.exportVariable('RELEASE_TAG', releaseTag);
+            const { owner, repo } = context.repo;
             
-            console.log(`Release tag will be: ${releaseTag}`);
-            
-            // 获取最新release的日期
-            let lastReleaseDate = null;
+            // 获取最新的 release
+            let latestRelease;
             try {
-              const { data: releases } = await github.rest.repos.listReleases({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                per_page: 1
+              latestRelease = await github.rest.repos.getLatestRelease({
+                owner,
+                repo
               });
-              
-              if (releases.length > 0) {
-                lastReleaseDate = new Date(releases[0].published_at);
-                console.log(`Last release date: ${lastReleaseDate.toISOString()}`);
-              }
+              console.log(`Found latest release: ${latestRelease.data.tag_name}`);
             } catch (error) {
-              console.log("No previous releases found or error occurred:", error);
+              console.log('No previous release found, will include all closed issues');
             }
             
-            // 获取所有已关闭的issues
-            const allIssues = [];
-            let page = 1;
-            let hasMoreIssues = true;
+            // 获取时间范围
+            const since = latestRelease ? latestRelease.data.created_at : null;
+            if (since) {
+              console.log(`Getting issues closed after: ${since}`);
+            }
             
-            while (hasMoreIssues) {
-              const { data: issues } = await github.rest.issues.listForRepo({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                state: 'closed',
-                per_page: 100,
-                page: page
-              });
+            // 获取所有已关闭的 issues
+            const issuesResponse = await github.rest.issues.listForRepo({
+              owner,
+              repo,
+              state: 'closed',
+              per_page: 100
+            });
+            
+            console.log(`Found ${issuesResponse.data.length} total closed issues`);
+            
+            // 过滤出 completed 状态，非 wontfix/invalid 的 issues
+            const completedIssues = issuesResponse.data.filter(issue => {
+              // 排除 pull requests
+              if (issue.pull_request) return false;
               
-              if (issues.length === 0) {
-                hasMoreIssues = false;
-              } else {
-                // 过滤issues：
-                // 1. 不是PR
-                // 2. 状态为completed（已完成）
-                // 3. 没有wontfix或invalid标签
-                // 4. 如果有lastReleaseDate，则只获取在该日期之后关闭的issues
-                const filteredIssues = issues.filter(issue => {
-                  if (issue.pull_request) return false;
-                  if (issue.labels.some(label => 
-                    label.name.toLowerCase() === 'wontfix' || 
-                    label.name.toLowerCase() === 'invalid'
-                  )) return false;
-                  if (lastReleaseDate && new Date(issue.closed_at) <= lastReleaseDate) return false;
-                  return true;
-                });
-                
-                allIssues.push(...filteredIssues);
-                page++;
-                
-                // 如果获取的issues数量小于每页数量，说明没有更多issues了
-                if (issues.length < 100) {
-                  hasMoreIssues = false;
-                }
-              }
-            }
+              // 只处理 close 时间在最新 release 之后的 issues
+              if (since && new Date(issue.closed_at) <= new Date(since)) return false;
+              
+              // 排除标记为 wontfix 或 invalid 的 issues
+              const labels = issue.labels.map(label => label.name.toLowerCase());
+              if (labels.includes('wontfix') || labels.includes('invalid')) return false;
+              
+              return true;
+            });
             
-            console.log(`Found ${allIssues.length} relevant issues`);
+            console.log(`Found ${completedIssues.length} relevant issues after filtering`);
             
-            // 分类issues
-            const bugs = [];
+            // 分类 issues
+            const bugFixes = [];
             const features = [];
             
-            for (const issue of allIssues) {
-              // 处理标题，去除前缀
-              let title = issue.title;
-              title = title.replace(/^\[Bug\]:\s*/i, "").replace(/^\[Feature request\]:\s*/i, "").trim();
+            completedIssues.forEach(issue => {
+              const title = issue.title
+                .replace(/\[Bug\]:\s*/i, '')
+                .replace(/\[Feature request\]:\s*/i, '');
               
-              // 检查issue是否为bug
-              const isBug = issue.labels.some(label => 
-                label.name.toLowerCase().includes('bug') || 
-                label.name.toLowerCase().includes('修复') || 
-                label.name.toLowerCase().includes('fix')
-              ) || issue.title.toLowerCase().includes('[bug]');
-              
-              if (isBug) {
-                bugs.push({...issue, cleanTitle: title});
-              } else {
-                features.push({...issue, cleanTitle: title});
+              if (issue.title.toLowerCase().includes('[bug]')) {
+                bugFixes.push({ title, number: issue.number });
+              } else if (issue.title.toLowerCase().includes('[feature request]')) {
+                features.push({ title, number: issue.number });
               }
+            });
+            
+            console.log(`Categorized issues: ${bugFixes.length} bugs, ${features.length} features`);
+            
+            // 生成 Changelog
+            let changelog = '# 📦 更新内容：\n\n';
+            
+            // 添加手动更改部分
+            const manualContent = process.env.MANUAL_CONTENT || '';
+            if (manualContent.trim()) {
+              changelog += '## 手动更改\n' + manualContent + '\n\n';
+            } else {
+              changelog += '## 手动更改\n\n';
             }
             
-            console.log(`Bugs: ${bugs.length}, Features: ${features.length}`);
-            
-            // 生成changelog
-            let changelog = "# 📦 更新内容：\n";
-            
-            // 读取manual.txt文件内容
-            let manualContent = '';
-            try {
-              if (fs.existsSync('manual.txt')) {
-                manualContent = fs.readFileSync('manual.txt', 'utf8');
-                changelog += "\n## 手动更改\n" + manualContent + "\n";
-              } else {
-                console.log("manual.txt file not found");
-                changelog += "\n## 手动更改\n\n";
-              }
-            } catch (error) {
-              console.log("Error reading manual.txt:", error);
-              changelog += "\n## 手动更改\n\n";
+            // 添加 Bug 修复部分
+            changelog += '## Bug修复\n';
+            if (bugFixes.length > 0) {
+              bugFixes.forEach(bug => {
+                changelog += `修复了${bug.title}的问题 #${bug.number}\n`;
+              });
+            } else {
+              changelog += '无Bug修复\n';
             }
+            changelog += '\n';
             
-            changelog += "\n## Bug修复\n";
-            if (bugs.length > 0) {
-              for (const bug of bugs) {
-                changelog += `修复了${bug.cleanTitle}的问题 #${bug.number}\n`;
-              }
-            }
-            
-            changelog += "\n## 功能更改\n";
+            // 添加功能更改部分
+            changelog += '## 功能更改\n';
             if (features.length > 0) {
-              for (const feature of features) {
-                changelog += `${feature.cleanTitle} #${feature.number}\n`;
-              }
+              features.forEach(feature => {
+                changelog += `${feature.title} #${feature.number}\n`;
+              });
+            } else {
+              changelog += '无功能更改\n';
             }
             
-            // 输出changelog
-            core.setOutput('changelog', changelog);
-            fs.writeFileSync('CHANGELOG.md', changelog);
-          env:
-            VERSION: ${{ github.event.inputs.version }}
-      
-      - name: Create Release
+            // 输出 changelog
+            core.setOutput('content', changelog);
+            return changelog;
+        env:
+          MANUAL_CONTENT: ${{ steps.manual.outputs.content }}
+
+      - name: 创建发布版本
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: ${{ env.RELEASE_TAG }}
-          name: ${{ env.RELEASE_TAG }}
-          body_path: CHANGELOG.md
+          tag_name: ${{ format('{0}.{1}.{2}_{3}', steps.date.outputs.year, steps.date.outputs.month, steps.date.outputs.day, github.event.inputs.version) }}
+          name: ${{ format('{0}.{1}.{2}_{3}', steps.date.outputs.year, steps.date.outputs.month, steps.date.outputs.day, github.event.inputs.version) }}
+          body: ${{ steps.changelog.outputs.content }}
+          files: update_pack.zip
           draft: false
           prerelease: false
-          files: |
-            update_pack.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
