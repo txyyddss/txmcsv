@@ -157,8 +157,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ format('{0}.{1}.{2}_{3}', github.event.inputs.version) }}
-          name: ${{ format('{0}.{1}.{2}_{3}', github.event.inputs.version) }}
+          tag_name: ${{ format('{0}_{1}', formatDate(fromJSON('{"year":"numeric","month":"2-digit","day":"2-digit"}'), 'yyyy.MM.dd'), github.event.inputs.version) }}
+          name: ${{ format('{0}_{1}', formatDate(fromJSON('{"year":"numeric","month":"2-digit","day":"2-digit"}'), 'yyyy.MM.dd'), github.event.inputs.version) }}
           body_path: CHANGELOG.md
           draft: false
           prerelease: false
