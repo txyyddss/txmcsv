@@ -66,32 +66,59 @@ jobs:
             const fs = require('fs');
             
             // 获取最新的release
-            let latestRelease;
+            let latestReleaseDate = null;
             try {
-              latestRelease = await github.rest.repos.getLatestRelease({
+              const latestRelease = await github.rest.repos.getLatestRelease({
                 owner: context.repo.owner,
                 repo: context.repo.repo
               });
+              latestReleaseDate = new Date(latestRelease.data.created_at);
+              console.log(`Latest release date: ${latestReleaseDate.toISOString()}`);
             } catch (error) {
               console.log("No previous releases found, will include all issues");
             }
             
-            // 设置查询参数
-            const query = latestRelease 
-              ? `repo:${context.repo.owner}/${context.repo.repo} is:issue is:closed state:closed closed:>${latestRelease.data.created_at}`
-              : `repo:${context.repo.owner}/${context.repo.repo} is:issue is:closed state:closed`;
+            // 使用GraphQL API查询issues (替代已弃用的search/issues endpoint)
+            const query = `
+              query($owner:String!, $repo:String!, $states:[IssueState!]) {
+                repository(owner:$owner, name:$repo) {
+                  issues(states:$states, first:100, orderBy:{field:CREATED_AT, direction:DESC}) {
+                    nodes {
+                      number
+                      title
+                      state
+                      closedAt
+                      labels(first:10) {
+                        nodes {
+                          name
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            `;
             
-            // 搜索符合条件的issues
-            const result = await github.rest.search.issuesAndPullRequests({
-              q: query,
-              per_page: 100
-            });
+            const variables = {
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              states: ["CLOSED"]
+            };
             
-            const issues = result.data.items.filter(issue => {
-              // 排除标记为wontfix或invalid的issue
-              const labels = issue.labels.map(label => label.name.toLowerCase());
-              return !labels.includes('wontfix') && !labels.includes('invalid');
-            });
+            const result = await github.graphql(query, variables);
+            
+            // 处理查询结果
+            const issues = result.repository.issues.nodes
+              .filter(issue => {
+                // 只包括自上次发布后关闭的issues
+                if (latestReleaseDate && new Date(issue.closedAt) <= latestReleaseDate) {
+                  return false;
+                }
+                
+                // 排除带有wontfix或invalid标签的issues
+                const labels = issue.labels.nodes.map(label => label.name.toLowerCase());
+                return !labels.includes('wontfix') && !labels.includes('invalid');
+              });
             
             // 分类issues
             const bugfixes = [];
@@ -126,7 +153,7 @@ jobs:
             let changelog = '# 📦 更新内容：\n\n';
             
             // 手动更改部分
-            changelog += '## 手动更改\n';
+            changelog += '## 非Issues更改\n';
             if (manualContent) {
               changelog += manualContent + '\n\n';
             } else {
@@ -158,6 +185,7 @@ jobs:
             fs.writeFileSync('CHANGELOG.md', changelog);
             
             return changelog;
+
       # 6. 创建release
       - name: Create Release
         id: create_release
