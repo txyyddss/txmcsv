@@ -36,7 +36,7 @@ jobs:
         run: |
           if [ -d "./plugins" ]; then
             find ./plugins -type f -not \( -name "*.yml" -o -name "*.conf" -o -name "*.txt" -o -name "*.jar" \) -delete
-          fi..
+          fi
 
       # 4. 打包文件
       - name: Create update package
