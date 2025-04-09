@@ -7,7 +7,7 @@
 
 <p align="center">
   <a href="https://github.com/txyyddss/txmcsv">
-    <img src="https://github.com/user-attachments/assets/9f96a1e4-6709-423d-b13c-f66adf37d385" alt="Logo" width="320" height="150">
+    <img src="https://github.com/user-attachments/assets/9f96a1e4-6709-423d-b13c-f66adf37d385" alt="Logo" width="320" height="100">
   </a>
   <h3 align="center">Paper自托管生存互通服</h3>
   <p align="center">
