@@ -153,12 +153,19 @@ jobs:
       # 6. 创建release
       - name: Create Release
         id: create_release
+        run: |
+          # 获取今天的日期(格式为yyyy.mm.dd)
+          TODAY=$(date +'%Y.%m.%d')
+          # 生成release标签
+          RELEASE_TAG="${TODAY}_${{ github.event.inputs.version }}"
+          echo "RELEASE_TAG=${RELEASE_TAG}" >> $GITHUB_ENV
+      - name: Upload Release
         uses: softprops/action-gh-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ format('{0}_{1}', formatDate(fromJSON('{"year":"numeric","month":"2-digit","day":"2-digit"}'), 'yyyy.MM.dd'), github.event.inputs.version) }}
-          name: ${{ format('{0}_{1}', formatDate(fromJSON('{"year":"numeric","month":"2-digit","day":"2-digit"}'), 'yyyy.MM.dd'), github.event.inputs.version) }}
+          tag_name: ${{ env.RELEASE_TAG }}
+          name: ${{ env.RELEASE_TAG }}
           body_path: CHANGELOG.md
           draft: false
           prerelease: false
