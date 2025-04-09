@@ -167,7 +167,7 @@ jobs:
           tag_name: ${{ format('{0}.{1}.{2}_{3}', steps.date.outputs.year, steps.date.outputs.month, steps.date.outputs.day, github.event.inputs.version) }}
           name: ${{ format('{0}.{1}.{2}_{3}', steps.date.outputs.year, steps.date.outputs.month, steps.date.outputs.day, github.event.inputs.version) }}
           body: ${{ steps.changelog.outputs.content }}
-          files: update_pack.zip
+          files: update_pack.7z
           draft: false
           prerelease: false
         env:
