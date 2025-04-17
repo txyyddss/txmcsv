@@ -59,17 +59,11 @@ zerotier ID: **52b337794fa558dd**
 到服务器那栏后划到最底下点“添加服务器“
 ![微信图片_202504061831481021_13](https://github.com/user-attachments/assets/066ebd6e-6d33-4f71-879e-ccdf5a9ba203)
 
-#### A.名字：随便（默认：马丁和tx的小世界）
+#### 名字：随便（默认：马丁和tx的小世界）
 服务器IP：**114.114.51.4**
 端口(port): **11451**
 加完zerotier并打开后即可加入
 ![微信图片_202504061831481021_15](https://github.com/user-attachments/assets/a46fb0a5-ce54-4a94-9da0-35433d2c45c4)
-
-#### B. 名字：随便（默认：马丁和tx的小世界）
-服务器IP：**mtmc.1919801.xyz**
-端口(port): **11451**
-有ipv6即可加入
-![微信图片_202504061831481021_17](https://github.com/user-attachments/assets/7d698db5-acfd-4fa8-86b8-3533cf2b0971)
 
 
 ### iOS Zerotier 教程
