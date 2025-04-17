@@ -1,8 +1,0 @@
-players:
-- volume: 70
-  playlist: RADIO
-  repeat: false
-  id: 28fcb19f-8a07-3f1c-9403-66c0f1275aa2
-  join: true
-  shuffle: false
-  particles: true
