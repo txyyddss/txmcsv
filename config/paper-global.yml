@@ -126,7 +126,6 @@ unsupported-settings:
   allow-headless-pistons: true
   allow-permanent-block-break-exploits: true
   allow-piston-duplication: true
-  allow-tripwire-disarming-exploits: true
   allow-unsafe-end-portal-teleportation: false
   compression-format: ZLIB
   perform-username-validation: true

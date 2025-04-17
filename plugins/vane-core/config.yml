@@ -33,7 +33,7 @@ command_customitem:
 command_enchant:
   # Enable command enchant
   # Default: true
-  enabled: true
+  enabled: false
 
 command_vane:
   # Enable command vane

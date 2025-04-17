@@ -1,0 +1,82 @@
+notify-console: true
+user-data-expires-after: 1200000
+base-mute-duration: 600000
+expire-size:
+  chat-request: 10
+  filtered: -1
+  message-record: 30
+  whisper-target: -1
+  score: 10
+expire-time:
+  chat-request: 360000
+  filtered: 270000
+
+  # Using base value(hard) plus quadratic function to check expired with a rate.
+  # Default: 60 + 840 seconds(15m in total) to fully expire
+  message-record:
+    hard-expire-time: 60000
+    quadratic-divider-offset: 60000.0
+    quadratic-divider: 90000.0
+    quadratic-height: 100.0
+  whisper-target: 240000
+  score: -1
+mute-handler:
+  base-mute-duration: 600000
+  mute-on-filtered-size: 8
+  mute-duration-multiplier:
+    # Last Mute must within this interval to trigger a multiplier
+    max-mute-interval: 900000
+    multiplier: 2.0
+  spam-score:
+    calculate-size: 6
+    mute-on-average-score: 0.5625
+
+    # Make sure the player get muted can be scored in this range after unmute
+    safe-score-on-mute: 0.3
+  keep-message-records: true
+  keep-scores: true
+spam-check:
+  _default:
+    notify-filtered: true
+
+    # Efficient to "Spam" module with a fixed send rate
+    fixed-request-mute:
+      enabled: true
+      conditions:
+        - drift: 2000
+          min-request-interval: 20000
+          samples: 5
+    frequency:
+      max-messages: 8
+      max-messages-per: 25000
+      minimal-interval: 1500
+    illegal-characters:
+      enabled: true
+    letter-case:
+      uniform-on-check: true
+    long-message:
+      max-message-size: 144
+    random-characters:
+      remove-random-characters-on-check: true
+    similarity-check:
+      block-on-disallow-count:
+        6: 6
+        14: 4
+        36: 2
+        32767: 1
+      allow-rate-reduce-per-record: 0.015
+      base-allow-rate: 0.8
+      lowest-allow-rate: 0.55
+    spaces:
+      remove-extra-spaces-on-check: true
+      min-length: 9
+      space-rate: 0.333
+  chat: {}
+  death: {}
+  emote: {}
+  whisper: {}
+whisper-targets:
+  max-targets: 10
+  safe-targets: 2
+  safe-targets-max: 6
+module-enabled: false

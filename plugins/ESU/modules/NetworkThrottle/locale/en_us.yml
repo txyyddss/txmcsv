@@ -1,0 +1,13 @@
+high-latency-adjust:
+  adjusted-warning: "<ec><b>Warning: </b><pc>Your network latency seems to be high. \nTo enhance your experience, we have adjusted your view distance. You\
+    \ can always adjust it yourself in the game options."
+analyser:
+  started: <pc>Started the analyser.
+  stopped: <pc>Stopped the analyser.
+  already-started: <ec>The analyser is already running.
+  already-stopped: <ec>The analyser is already stopped.
+  view:
+    no-data: <pc>There's no data for view.
+    header: '<pdc>[Packet Type]<pc> <pc>[count]</pc>: <sc>[size]'
+    entry: '<tdc><packet-type> <pc>x<pdc><counts></pc><tc>: <sdc><size>'
+    footer: <pc>The analyser has been running for <duration>

@@ -79,6 +79,7 @@ Messages:
       'FALSE': '&cDisabled'
       UNSET: '&7Unset'
     UpdateMessage: '&ePlayer Preference {Preference}&e has been updated to {Value}&e!'
+  UnableToChangeImageType: '&cChanging the image type is currently not supported. Please create a new image map instead.'
 
 Settings:
   MapItemFormat: '&f{Name} &7({X}, {Y})'

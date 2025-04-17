@@ -250,6 +250,7 @@ afk:
     through discord'
 BossBar:
   hpBar: '&f[victim] &e[current]&f/&e[max] &f(&c-[damage]&f)'
+  playerhpBar: '&f%cmi_user_display_name% &7[current]&f/&7[max] &f(&c-[damage]&f)'
 Potion:
   Effects: '&8Potion effects'
   List: '&e[PotionName] [PotionAmplifier] &eDuration: &e[LeftDuration] &esec'
@@ -398,6 +399,9 @@ command:
       fileExplanation: '&7Current destination file: &e[file]'
       addTabComplete: ' AddTab'
       addTabExplanation: '&6When enabled we will add defined tabs to existing ones'
+      exact: ' Exact'
+      addExactExplanation: '&6When enabled we will only use this alias when exact
+        command is provided'
       newAliasInfo: '&eEnter new alias command name and press enter'
       addInfo: '&eEnter new command. Type &6cancel &eto cancel'
       addInformationHover: "&eGlobal variables supported as of sender category \n\
@@ -534,9 +538,9 @@ command:
       info: '&eToggle auto flight recharge'
       args: (playerName) [exp/money/off] (-s)
     info:
-      disabled: '&eAuto recharge disabled'
-      moneyEnabled: '&eEnabled automatic flight charge recharging by using &6money'
-      expEnabled: '&eEnabled automatic flight charge recharging by using &2exp'
+      moneyState: '&eMoney recharge: [state]'
+      expState: '&eExp recharge: [state]'
+      updated: '&eState changed to [state]'
   back:
     help:
       info: '&eTeleports back to last saved location'
@@ -1394,6 +1398,8 @@ command:
     help:
       info: '&eManage gamerules'
       args: ''
+    info:
+      updated: '&eGame rule (&6[rule]&e) changed for &6[world] &eto &6[value]'
   generateworth:
     help:
       info: '&eAuto generate possible item worth values'
@@ -1406,6 +1412,16 @@ command:
       list: '&eBooks: &6'
       check: '&eCheck: &6[text]'
       title: '&7[title]'
+  giftpet:
+    help:
+      info: '&eGift your tamed pet to another player'
+      args: '[playerName] (-s)'
+    info:
+      notTameable: '&eThis entity isin''t tameable'
+      notTamed: '&eThis entity isin''t tamed'
+      notOwner: '&eYou are not owner of this entity'
+      gifted: '&eYou gifted &6[type] &eentity &eto &6[playerDisplayName]'
+      received: '&eYou received &6[type] &eentity &efrom &6[sourceDisplayName]'
   give:
     help:
       info: '&eGive item to player'
@@ -1695,6 +1711,7 @@ command:
       bedButton: '&7Bed location'
       homeButton: '&7Home location'
       deathButton: '&7Death location'
+      backButton: '&7Back location'
       slot: '&7Slot: &e[slot]'
       private: '&7Private: &e[state]'
       favorite: '&7Favorite: &e[state]'
@@ -2729,6 +2746,7 @@ command:
         pveDamageNumbers: '&eShows PvE damage numbers'
         pvpDamageNumbers: '&eShows PvP damage numbers'
         InformDurability: '&eInform on item durability loss'
+        receivePets: '&eDo you want to receive pets as gifts'
   panimation:
     help:
       info: '&ePlay custom particle animation'
@@ -3009,6 +3027,7 @@ command:
       types:
         Shaped: Shaped
         Shapeless: Shapeless
+        Transmute: Transmute
         Furnace: Furnace
         Blasting: Blasting
         Campfire: Campfire
@@ -3021,6 +3040,12 @@ command:
         Unknown: Unknown
       page: ' &0[current]&7/&0[total]'
       noRecipes: '&cCant find any recipes for this item'
+  releasepet:
+    help:
+      info: '&eRelease your tamed pet'
+      args: (-s)
+    info:
+      released: '&eYou have released &6[type] &einto wilderness!'
   reload:
     help:
       info: '&eReloads plugins config and locale files'
@@ -4249,6 +4274,7 @@ command:
       joinVanished: '&eAlways join in vanish mode'
       deathMessages: '&eShow death message'
       hookPlayers: '&eHooking entities'
+      level: '&eVanish level'
       bossbarTitle: '&fVanished'
   version:
     help:

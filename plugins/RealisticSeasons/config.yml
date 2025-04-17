@@ -1,12 +1,13 @@
-version: 11.3.5
+snowman-immune-to-water: true
+spawn-snow-on-leaves: true
+first-snowfall-sub-season: 1
+version: 11.7.0
 modify-blocks: true
 remove-ice-in-unloaded-chunks: false
 modify-daynight-length: true
 modify-weather-cycle: true
 modify-biome-on-client: true
 pause-map-plugins-render-in-winter: true
-affect-crop-growth-summer: true
-affect-crop-growth-winter: true
 delay-per-operation: 4
 automatic-season-cycling: true
 send-message-on-season-cycle: true

@@ -1,0 +1,27 @@
+# This is being used with <player_display:player_key> below.
+player-display: <hover:show_text:'<pc>Click to whisper <pdc><player_key>'><click:suggest_command:/m <player_key_name> ><player_key></hover>
+chat:
+  format: \<<player_display:sender>> <message>
+
+  # The format used for console logs.
+  console-format: <#48c0c0>\<<player_display:sender>> <message>
+whisper:
+  prefix: <sdc><hover:show_text:'<pc>Whisper channel'>📨 </hover>
+  format-incoming: <prefix><pdc><player_display:sender> <sc>➡ <tdc><message><sound:minecraft:entity.silverfish.ambient:voice:0.2:2:-7007683334921848987>
+  format-outgoing: <prefix><sc>➡ <pdc><player_display:receiver> <tc><message>
+  reply-no-last-target: <ec>There's no last direct message target.
+  receiver-offline: <ec>The receiver is not online.
+  spy:
+    prefix: '<sc>[<sdc>SPY<sc>] '
+    dm-format: <prefix><pc>[<pdc><player_display:sender> <sdc>➡ <tdc><player_display:receiver><pc>] <tc><message>
+    dm-reply-format: <prefix><pc>[<tdc><player_display:receiver> <sc>⬅ <pdc><player_display:sender><pc>] <tdc><message>
+    enabled: <prefix><pdc><capitalize:'<enable-state>'> <pc>spy for <pdc><user></pdc>.
+    disabled: <prefix><pdc><capitalize:'<enable-state>'> <pc>spy for <pdc><user></pdc>.
+    already-enabled: <prefix><edc><user> <ec>has already enabled spy.
+    already-disabled: <prefix><edc><user> <ec>has already disabled spy.
+emote:
+  format: <pc><hover:show_text:'<pc>Emote message'>* </hover><pdc><player_display:sender></pdc> <message>
+ignore:
+  prefix: '<sc>[<sdc>Ignore<sc>] '
+  ignoring-player: <prefix><nc>You are now <vnc>ignoring</vnc> <pdc><player></pdc>.
+  receiving-player: <prefix><pc>You are now <vpc>receiving</vpc> <pdc><player></pdc>.

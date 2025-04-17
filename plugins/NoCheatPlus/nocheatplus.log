@@ -1135,3 +1135,928 @@
 24-12-21 20:19:36 [INFO] Removed hook: ViolationFrequency(NCP) [1.0].
 24-12-21 20:19:36 [FINE] | cancel.dead 2 (2/0) | cancel.offline 0 | block.interact.look.current 29 (29/0) | block.interact.look.flying.first 0 | block.interact.look.flying.other 0 | illegalitem 0 | boatsanywhere 0 | throwenderpearl 0 | fakeinvulnerable 0 | eggonentity 0 | event.player.move 10532 (10532/0) | packet.nullplayer 0 | packet.inconsistent.isasync 0 | packet.flying 15707 (0/15707) | packet.flying.asynchronous 15707 (0/15707) | packet.outgoing_position.untracked 61 (61/0) |
 24-12-21 20:19:36 [INFO] [GenericInstanceRegistry] Registry cleared.
+25-04-12 23:18:27 [信息] Logger started.
+25-04-12 23:18:27 [信息] Logging system initialized.
+25-04-12 23:18:27 [信息] Detected Minecraft version: 1.21.1
+25-04-12 23:18:47 [INFO] McAccess set to: 1.13-1.21|? / Bukkit-API
+25-04-12 23:18:47 [INFO] Applied block patches for multi client protocol support: water_lily, soil, vine, honey_block, shulker_box
+25-04-12 23:18:47 [INFO] Update block-info: Block shape patch for multi client protocol support.
+25-04-12 23:18:48 [INFO] Inventory checks: FastConsume is available, disabled InstantEat.
+25-04-12 23:18:48 [INFO] Adding packet level hooks for ProtocolLib (MC 1.21.1)...
+25-04-12 23:18:48 [INFO] Available (and activated) packet level hooks: UseEntityAdapter | MovingFlying | OutgoingPosition | KeepAliveAdapter | WrongTurnAdapter | NoSlow | Fight
+25-04-12 23:18:48 [INFO] Force disable FastHeal, FastConsume, PacketFrequency and InstantBow on Minecraft 1.9 and later.
+25-04-12 23:18:48 [INFO] Version 3.17.1-SNAPSHOT-Updated-b191 is enabled.
+25-04-12 23:19:20 [INFO] [GenericInstanceRegistry] Registered (override) for itself: fr.neatmonster.nocheatplus.hooks.ExemptionSettings
+25-04-12 23:19:20 [INFO] [GenericInstanceRegistry] Registered for itself: fr.neatmonster.nocheatplus.stats.Counters
+25-04-12 23:19:20 [INFO] [GenericInstanceRegistry] Registered for itself: fr.neatmonster.nocheatplus.checks.workaround.WRPT
+25-04-12 23:19:20 [INFO] [GenericInstanceRegistry] Registered for itself: fr.neatmonster.nocheatplus.checks.moving.location.tracking.LocationTrace$TraceEntryPool
+25-04-12 23:19:20 [INFO] [GenericInstanceRegistry] Registered for itself: fr.neatmonster.nocheatplus.utilities.entity.PassengerUtil
+25-04-12 23:19:20 [INFO] [GenericInstanceRegistry] Registered for fr.neatmonster.nocheatplus.compat.IBridgeCrossPlugin: fr.neatmonster.nocheatplus.compat.meta.BridgeCrossPlugin
+25-04-12 23:19:20 [INFO] [GenericInstanceRegistry] Registered for fr.neatmonster.nocheatplus.compat.MCAccess: fr.neatmonster.nocheatplus.compat.bukkit.MCAccessBukkitModern
+25-04-12 23:19:20 [INFO] [GenericInstanceRegistry] Registered for fr.neatmonster.nocheatplus.utilities.map.BlockCache: fr.neatmonster.nocheatplus.compat.bukkit.BlockCacheBukkitModern
+25-04-12 23:19:20 [INFO] [GenericInstanceRegistry] Registered for fr.neatmonster.nocheatplus.components.modifier.IAttributeAccess: fr.neatmonster.nocheatplus.compat.bukkit.NSBukkitAttributeAccess
+25-04-12 23:19:20 [INFO] [GenericInstanceRegistry] Registered for fr.neatmonster.nocheatplus.components.entity.IEntityAccessVehicle: fr.neatmonster.nocheatplus.compat.bukkit.EntityAccessVehicleMultiPassenger
+25-04-12 23:19:20 [INFO] [GenericInstanceRegistry] Registered for itself: fr.neatmonster.nocheatplus.checks.moving.util.AuxMoving
+25-04-12 23:19:20 [INFO] Added hook: ViolationFrequency(NCP) [1.0].
+25-04-12 23:19:20 [INFO] Added hook: mcMMO(cncp) [2.3].
+25-04-12 23:19:20 [INFO] Added hook: CMI(cncp) [1.0].
+25-04-12 23:19:21 [INFO] Post-enable running...
+25-04-12 23:19:21 [INFO] Post-enable finished.
+25-04-12 23:19:23 [INFO] §c§l»Version information«§7
+§6§lServer:§7
+§71.21.1-128-d348cb8 ~MC: 1.21.1~
+§7§eDetected: §71.21.1
+§6§lNoCheatPlus:§7
+§7§ePlugin: §73.17.1-SNAPSHOT-Updated-b191
+§7§eMCAccess: §71.13-1.21|? / Bukkit-API
+§6§lFeatures:
+§7§eblocks§7: BlocksMC1_4§f, §7BlocksMC1_5§f, §7BlocksMC1_6_1§f, §7BlocksMC1_7_2§f, §7BlocksMC1_8§f, §7BlocksMC1_9§f, §7BlocksMC1_10§f, §7BlocksMC1_11§f, §7BlocksMC1_12§f, §7BlocksMC1_13§f, §7BlocksMC1_14§f, §7BlocksMC1_15§f, §7BlocksMC1_16§f, §7BlocksMC1_17§f, §7BlocksMC1_19§f, §7BlocksMC1_20§f, §7MCAccessBukkitModern
+§7§echecks§7: FastConsume§f, §7Gutenberg§f, §7HotFixFallingBlockPortalEnter§f, §7AttackFrequency§f, §7FlyingFrequency§f, §7KeepAliveFrequency
+§7§edefaults§7: pvpKnockBackVelocity
+§7§epacket-listeners§7: UseEntityAdapter§f, §7MovingFlying§f, §7OutgoingPosition§f, §7KeepAliveAdapter§f, §7WrongTurnAdapter§f, §7NoSlow§f, §7Fight
+§6§lHooks:
+§7CMI~cncp~ 1.0§f, §7mcMMO~cncp~ 2.3§f, §7ViolationFrequency~NCP~ 1.0
+§c§l»Related Plugins«§7
+§7CompatNoCheatPlus v6.6.7-SNAPSHOT-b10§f, §7ProtocolLib v5.3.0§f, §7ViaVersion v5.1.0
+25-04-12 23:19:30 [INFO] Removed hook: mcMMO(cncp) [2.3].
+25-04-12 23:19:30 [INFO] Removed hook: CMI(cncp) [1.0].
+25-04-12 23:19:30 [INFO] Removed hook: ViolationFrequency(NCP) [1.0].
+25-04-12 23:19:30 [FINE] | cancel.dead 0 | cancel.offline 0 | block.interact.look.current 0 | block.interact.look.flying.first 0 | block.interact.look.flying.other 0 | illegalitem 0 | boatsanywhere 0 | throwenderpearl 0 | fakeinvulnerable 0 | eggonentity 0 | event.player.move 0 | packet.nullplayer 0 | packet.inconsistent.isasync 0 | packet.flying 0 | packet.flying.asynchronous 0 | packet.outgoing_position.untracked 0 |
+25-04-12 23:19:30 [INFO] [GenericInstanceRegistry] Registry cleared.
+25-04-13 08:21:54 [信息] Logger started.
+25-04-13 08:21:54 [信息] Logging system initialized.
+25-04-13 08:21:54 [信息] Detected Minecraft version: 1.21.3
+25-04-13 08:22:05 [INFO] McAccess set to: 1.13-1.21|? / Bukkit-API
+25-04-13 08:22:05 [INFO] Applied block patches for multi client protocol support: water_lily, soil, vine, honey_block, shulker_box
+25-04-13 08:22:05 [INFO] Update block-info: Block shape patch for multi client protocol support.
+25-04-13 08:22:05 [FINE] The following blocks can not be modeled correctly: PALE_OAK_LEAVES, PALE_HANGING_MOSS, PALE_OAK_FENCE, PALE_OAK_FENCE_GATE, PALE_OAK_SIGN, PALE_OAK_HANGING_SIGN, PALE_OAK_WALL_SIGN, PALE_OAK_WALL_HANGING_SIGN
+25-04-13 08:22:05 [INFO] Inventory checks: FastConsume is available, disabled InstantEat.
+25-04-13 08:22:05 [INFO] Adding packet level hooks for ProtocolLib (MC 1.21.3)...
+25-04-13 08:22:05 [INFO] Available (and activated) packet level hooks: UseEntityAdapter | MovingFlying | OutgoingPosition | KeepAliveAdapter | WrongTurnAdapter | NoSlow | Fight
+25-04-13 08:22:05 [INFO] Force disable FastHeal, FastConsume, PacketFrequency and InstantBow on Minecraft 1.9 and later.
+25-04-13 08:22:05 [INFO] Version 3.17.1-SNAPSHOT-Updated-b191 is enabled.
+25-04-13 08:22:14 [INFO] [GenericInstanceRegistry] Registered (override) for itself: fr.neatmonster.nocheatplus.hooks.ExemptionSettings
+25-04-13 08:22:14 [INFO] [GenericInstanceRegistry] Registered for itself: fr.neatmonster.nocheatplus.stats.Counters
+25-04-13 08:22:14 [INFO] [GenericInstanceRegistry] Registered for itself: fr.neatmonster.nocheatplus.checks.workaround.WRPT
+25-04-13 08:22:14 [INFO] [GenericInstanceRegistry] Registered for itself: fr.neatmonster.nocheatplus.checks.moving.location.tracking.LocationTrace$TraceEntryPool
+25-04-13 08:22:14 [INFO] [GenericInstanceRegistry] Registered for itself: fr.neatmonster.nocheatplus.utilities.entity.PassengerUtil
+25-04-13 08:22:14 [INFO] [GenericInstanceRegistry] Registered for fr.neatmonster.nocheatplus.compat.IBridgeCrossPlugin: fr.neatmonster.nocheatplus.compat.meta.BridgeCrossPlugin
+25-04-13 08:22:14 [INFO] [GenericInstanceRegistry] Registered for fr.neatmonster.nocheatplus.compat.MCAccess: fr.neatmonster.nocheatplus.compat.bukkit.MCAccessBukkitModern
+25-04-13 08:22:14 [INFO] [GenericInstanceRegistry] Registered for fr.neatmonster.nocheatplus.utilities.map.BlockCache: fr.neatmonster.nocheatplus.compat.bukkit.BlockCacheBukkitModern
+25-04-13 08:22:14 [INFO] [GenericInstanceRegistry] Registered for fr.neatmonster.nocheatplus.components.modifier.IAttributeAccess: fr.neatmonster.nocheatplus.compat.bukkit.NSBukkitAttributeAccess
+25-04-13 08:22:14 [INFO] [GenericInstanceRegistry] Registered for fr.neatmonster.nocheatplus.components.entity.IEntityAccessVehicle: fr.neatmonster.nocheatplus.compat.bukkit.EntityAccessVehicleMultiPassenger
+25-04-13 08:22:14 [INFO] [GenericInstanceRegistry] Registered for itself: fr.neatmonster.nocheatplus.checks.moving.util.AuxMoving
+25-04-13 08:22:14 [INFO] Added hook: ViolationFrequency(NCP) [1.0].
+25-04-13 08:22:14 [INFO] Added hook: mcMMO(cncp) [2.3].
+25-04-13 08:22:14 [INFO] Added hook: CMI(cncp) [1.0].
+25-04-13 08:22:14 [WARNING] The block data is incomplete:
+--- Missing entries -------------------------------
+* BLOCK BREAKING (PALE_OAK_LOG / SOLID+GROUND) 
+* BLOCK BREAKING (PALE_OAK_WOOD / SOLID+GROUND) 
+* BLOCK BREAKING (PALE_OAK_LEAVES / SOLID+IGN_PASSABLE+GROUND) 
+* BLOCK BREAKING (PALE_HANGING_MOSS / IGN_PASSABLE) 
+* BLOCK BREAKING (PALE_MOSS_BLOCK / SOLID+GROUND) 
+* BLOCK BREAKING (PALE_OAK_SLAB / SOLID+GROUND+XZ100) 
+* BLOCK BREAKING (CREAKING_HEART / SOLID+GROUND) 
+* BLOCK BREAKING (PALE_OAK_FENCE / SOLID+IGN_PASSABLE+GROUND) 
+* BLOCK BREAKING (PALE_OAK_STAIRS / STAIRS+SOLID+GROUND) 
+* BLOCK BREAKING (PALE_OAK_BUTTON / IGN_PASSABLE) 
+* BLOCK BREAKING (PALE_OAK_PRESSURE_PLATE / IGN_PASSABLE) 
+* BLOCK BREAKING (PALE_OAK_DOOR / SOLID+GROUND+VARIABLE_USE+VARIABLE_REDSTONE) 
+* BLOCK BREAKING (PALE_OAK_TRAPDOOR / SOLID+GROUND+VARIABLE_USE+VARIABLE_REDSTONE) 
+* BLOCK BREAKING (PALE_OAK_FENCE_GATE / SOLID+IGN_PASSABLE+GROUND+VARIABLE_USE+VARIABLE_REDSTONE) 
+* BLOCK BREAKING (PALE_OAK_SIGN / SOLID+IGN_PASSABLE+GROUND) 
+* BLOCK BREAKING (PALE_OAK_HANGING_SIGN / SOLID+IGN_PASSABLE+GROUND) 
+* BLOCK BREAKING (PALE_OAK_WALL_SIGN / SOLID+IGN_PASSABLE+GROUND) 
+* BLOCK BREAKING (PALE_OAK_WALL_HANGING_SIGN / SOLID+IGN_PASSABLE+GROUND) 
+25-04-13 08:22:14 [INFO] Post-enable running...
+25-04-13 08:22:14 [INFO] Post-enable finished.
+25-04-13 08:22:15 [INFO] §c§l»Version information«§7
+§6§lServer:§7
+§71.21.3-27-04bc249 ~MC: 1.21.3~
+§7§eDetected: §71.21.3
+§6§lNoCheatPlus:§7
+§7§ePlugin: §73.17.1-SNAPSHOT-Updated-b191
+§7§eMCAccess: §71.13-1.21|? / Bukkit-API
+§6§lFeatures:
+§7§eblocks§7: BlocksMC1_4§f, §7BlocksMC1_5§f, §7BlocksMC1_6_1§f, §7BlocksMC1_7_2§f, §7BlocksMC1_8§f, §7BlocksMC1_9§f, §7BlocksMC1_10§f, §7BlocksMC1_11§f, §7BlocksMC1_12§f, §7BlocksMC1_13§f, §7BlocksMC1_14§f, §7BlocksMC1_15§f, §7BlocksMC1_16§f, §7BlocksMC1_17§f, §7BlocksMC1_19§f, §7BlocksMC1_20§f, §7MCAccessBukkitModern
+§7§echecks§7: FastConsume§f, §7Gutenberg§f, §7HotFixFallingBlockPortalEnter§f, §7AttackFrequency§f, §7FlyingFrequency§f, §7KeepAliveFrequency
+§7§edefaults§7: pvpKnockBackVelocity
+§7§epacket-listeners§7: UseEntityAdapter§f, §7MovingFlying§f, §7OutgoingPosition§f, §7KeepAliveAdapter§f, §7WrongTurnAdapter§f, §7NoSlow§f, §7Fight
+§6§lHooks:
+§7CMI~cncp~ 1.0§f, §7mcMMO~cncp~ 2.3§f, §7ViolationFrequency~NCP~ 1.0
+§c§l»Related Plugins«§7
+§7CompatNoCheatPlus v6.6.7-SNAPSHOT-b10§f, §7ProtocolLib v5.3.0§f, §7ViaVersion v5.1.0
+25-04-13 08:23:11 [INFO] Removed hook: mcMMO(cncp) [2.3].
+25-04-13 08:23:11 [INFO] Removed hook: CMI(cncp) [1.0].
+25-04-13 08:23:11 [INFO] Removed hook: ViolationFrequency(NCP) [1.0].
+25-04-13 08:23:11 [FINE] | cancel.dead 0 | cancel.offline 0 | block.interact.look.current 0 | block.interact.look.flying.first 0 | block.interact.look.flying.other 0 | illegalitem 0 | boatsanywhere 0 | throwenderpearl 0 | fakeinvulnerable 0 | eggonentity 0 | event.player.move 0 | packet.nullplayer 0 | packet.inconsistent.isasync 0 | packet.flying 0 | packet.flying.asynchronous 0 | packet.outgoing_position.untracked 0 |
+25-04-13 08:23:11 [INFO] [GenericInstanceRegistry] Registry cleared.
+25-04-13 08:28:07 [信息] Logger started.
+25-04-13 08:28:07 [信息] Logging system initialized.
+25-04-13 08:28:07 [信息] Detected Minecraft version: 1.21.3
+25-04-13 08:28:17 [INFO] McAccess set to: 1.13-1.21|? / Bukkit-API
+25-04-13 08:28:17 [INFO] Applied block patches for multi client protocol support: water_lily, soil, vine, honey_block, shulker_box
+25-04-13 08:28:17 [INFO] Update block-info: Block shape patch for multi client protocol support.
+25-04-13 08:28:17 [FINE] The following blocks can not be modeled correctly: PALE_OAK_LEAVES, PALE_HANGING_MOSS, PALE_OAK_FENCE, PALE_OAK_FENCE_GATE, PALE_OAK_SIGN, PALE_OAK_HANGING_SIGN, PALE_OAK_WALL_SIGN, PALE_OAK_WALL_HANGING_SIGN
+25-04-13 08:28:17 [INFO] Inventory checks: FastConsume is available, disabled InstantEat.
+25-04-13 08:28:17 [INFO] Adding packet level hooks for ProtocolLib (MC 1.21.3)...
+25-04-13 08:28:17 [INFO] Available (and activated) packet level hooks: UseEntityAdapter | MovingFlying | OutgoingPosition | KeepAliveAdapter | WrongTurnAdapter | NoSlow | Fight
+25-04-13 08:28:17 [INFO] Force disable FastHeal, FastConsume, PacketFrequency and InstantBow on Minecraft 1.9 and later.
+25-04-13 08:28:17 [INFO] Version 3.17.1-SNAPSHOT-Updated-b191 is enabled.
+25-04-13 08:28:25 [INFO] [GenericInstanceRegistry] Registered (override) for itself: fr.neatmonster.nocheatplus.hooks.ExemptionSettings
+25-04-13 08:28:25 [INFO] [GenericInstanceRegistry] Registered for itself: fr.neatmonster.nocheatplus.stats.Counters
+25-04-13 08:28:25 [INFO] [GenericInstanceRegistry] Registered for itself: fr.neatmonster.nocheatplus.checks.workaround.WRPT
+25-04-13 08:28:25 [INFO] [GenericInstanceRegistry] Registered for itself: fr.neatmonster.nocheatplus.checks.moving.location.tracking.LocationTrace$TraceEntryPool
+25-04-13 08:28:25 [INFO] [GenericInstanceRegistry] Registered for itself: fr.neatmonster.nocheatplus.utilities.entity.PassengerUtil
+25-04-13 08:28:25 [INFO] [GenericInstanceRegistry] Registered for fr.neatmonster.nocheatplus.compat.IBridgeCrossPlugin: fr.neatmonster.nocheatplus.compat.meta.BridgeCrossPlugin
+25-04-13 08:28:25 [INFO] [GenericInstanceRegistry] Registered for fr.neatmonster.nocheatplus.compat.MCAccess: fr.neatmonster.nocheatplus.compat.bukkit.MCAccessBukkitModern
+25-04-13 08:28:25 [INFO] [GenericInstanceRegistry] Registered for fr.neatmonster.nocheatplus.utilities.map.BlockCache: fr.neatmonster.nocheatplus.compat.bukkit.BlockCacheBukkitModern
+25-04-13 08:28:25 [INFO] [GenericInstanceRegistry] Registered for fr.neatmonster.nocheatplus.components.modifier.IAttributeAccess: fr.neatmonster.nocheatplus.compat.bukkit.NSBukkitAttributeAccess
+25-04-13 08:28:25 [INFO] [GenericInstanceRegistry] Registered for fr.neatmonster.nocheatplus.components.entity.IEntityAccessVehicle: fr.neatmonster.nocheatplus.compat.bukkit.EntityAccessVehicleMultiPassenger
+25-04-13 08:28:25 [INFO] [GenericInstanceRegistry] Registered for itself: fr.neatmonster.nocheatplus.checks.moving.util.AuxMoving
+25-04-13 08:28:25 [INFO] Added hook: ViolationFrequency(NCP) [1.0].
+25-04-13 08:28:25 [INFO] Added hook: CMI(cncp) [1.0].
+25-04-13 08:28:25 [INFO] Added hook: mcMMO(cncp) [2.3].
+25-04-13 08:28:25 [WARNING] The block data is incomplete:
+--- Missing entries -------------------------------
+* BLOCK BREAKING (PALE_OAK_LOG / SOLID+GROUND) 
+* BLOCK BREAKING (PALE_OAK_WOOD / SOLID+GROUND) 
+* BLOCK BREAKING (PALE_OAK_LEAVES / SOLID+IGN_PASSABLE+GROUND) 
+* BLOCK BREAKING (PALE_HANGING_MOSS / IGN_PASSABLE) 
+* BLOCK BREAKING (PALE_MOSS_BLOCK / SOLID+GROUND) 
+* BLOCK BREAKING (PALE_OAK_SLAB / SOLID+GROUND+XZ100) 
+* BLOCK BREAKING (CREAKING_HEART / SOLID+GROUND) 
+* BLOCK BREAKING (PALE_OAK_FENCE / SOLID+IGN_PASSABLE+GROUND) 
+* BLOCK BREAKING (PALE_OAK_STAIRS / STAIRS+SOLID+GROUND) 
+* BLOCK BREAKING (PALE_OAK_BUTTON / IGN_PASSABLE) 
+* BLOCK BREAKING (PALE_OAK_PRESSURE_PLATE / IGN_PASSABLE) 
+* BLOCK BREAKING (PALE_OAK_DOOR / SOLID+GROUND+VARIABLE_USE+VARIABLE_REDSTONE) 
+* BLOCK BREAKING (PALE_OAK_TRAPDOOR / SOLID+GROUND+VARIABLE_USE+VARIABLE_REDSTONE) 
+* BLOCK BREAKING (PALE_OAK_FENCE_GATE / SOLID+IGN_PASSABLE+GROUND+VARIABLE_USE+VARIABLE_REDSTONE) 
+* BLOCK BREAKING (PALE_OAK_SIGN / SOLID+IGN_PASSABLE+GROUND) 
+* BLOCK BREAKING (PALE_OAK_HANGING_SIGN / SOLID+IGN_PASSABLE+GROUND) 
+* BLOCK BREAKING (PALE_OAK_WALL_SIGN / SOLID+IGN_PASSABLE+GROUND) 
+* BLOCK BREAKING (PALE_OAK_WALL_HANGING_SIGN / SOLID+IGN_PASSABLE+GROUND) 
+25-04-13 08:28:25 [INFO] Post-enable running...
+25-04-13 08:28:25 [INFO] Post-enable finished.
+25-04-13 08:28:26 [INFO] §c§l»Version information«§7
+§6§lServer:§7
+§71.21.3-27-04bc249 ~MC: 1.21.3~
+§7§eDetected: §71.21.3
+§6§lNoCheatPlus:§7
+§7§ePlugin: §73.17.1-SNAPSHOT-Updated-b191
+§7§eMCAccess: §71.13-1.21|? / Bukkit-API
+§6§lFeatures:
+§7§eblocks§7: BlocksMC1_4§f, §7BlocksMC1_5§f, §7BlocksMC1_6_1§f, §7BlocksMC1_7_2§f, §7BlocksMC1_8§f, §7BlocksMC1_9§f, §7BlocksMC1_10§f, §7BlocksMC1_11§f, §7BlocksMC1_12§f, §7BlocksMC1_13§f, §7BlocksMC1_14§f, §7BlocksMC1_15§f, §7BlocksMC1_16§f, §7BlocksMC1_17§f, §7BlocksMC1_19§f, §7BlocksMC1_20§f, §7MCAccessBukkitModern
+§7§echecks§7: FastConsume§f, §7Gutenberg§f, §7HotFixFallingBlockPortalEnter§f, §7AttackFrequency§f, §7FlyingFrequency§f, §7KeepAliveFrequency
+§7§edefaults§7: pvpKnockBackVelocity
+§7§epacket-listeners§7: UseEntityAdapter§f, §7MovingFlying§f, §7OutgoingPosition§f, §7KeepAliveAdapter§f, §7WrongTurnAdapter§f, §7NoSlow§f, §7Fight
+§6§lHooks:
+§7CMI~cncp~ 1.0§f, §7mcMMO~cncp~ 2.3§f, §7ViolationFrequency~NCP~ 1.0
+§c§l»Related Plugins«§7
+§7CompatNoCheatPlus v6.6.7-SNAPSHOT-b10§f, §7ProtocolLib v5.3.0§f, §7ViaVersion v5.1.0
+25-04-13 08:28:34 [INFO] Removed hook: CMI(cncp) [1.0].
+25-04-13 08:28:34 [INFO] Removed hook: mcMMO(cncp) [2.3].
+25-04-13 08:28:34 [INFO] Removed hook: ViolationFrequency(NCP) [1.0].
+25-04-13 08:28:34 [FINE] | cancel.dead 0 | cancel.offline 0 | block.interact.look.current 0 | block.interact.look.flying.first 0 | block.interact.look.flying.other 0 | illegalitem 0 | boatsanywhere 0 | throwenderpearl 0 | fakeinvulnerable 0 | eggonentity 0 | event.player.move 0 | packet.nullplayer 0 | packet.inconsistent.isasync 0 | packet.flying 0 | packet.flying.asynchronous 0 | packet.outgoing_position.untracked 0 |
+25-04-13 08:28:34 [INFO] [GenericInstanceRegistry] Registry cleared.
+25-04-13 09:06:38 [信息] Logger started.
+25-04-13 09:06:38 [信息] Logging system initialized.
+25-04-13 09:06:38 [信息] Detected Minecraft version: 1.21.3
+25-04-13 09:10:20 [信息] Logger started.
+25-04-13 09:10:20 [信息] Logging system initialized.
+25-04-13 09:10:20 [信息] Detected Minecraft version: 1.21.3
+25-04-13 09:16:59 [信息] Logger started.
+25-04-13 09:16:59 [信息] Logging system initialized.
+25-04-13 09:16:59 [信息] Detected Minecraft version: 1.21.3
+25-04-13 09:17:08 [INFO] McAccess set to: 1.13-1.21|? / Bukkit-API
+25-04-13 09:17:08 [INFO] Applied block patches for multi client protocol support: water_lily, soil, vine, honey_block, shulker_box
+25-04-13 09:17:08 [INFO] Update block-info: Block shape patch for multi client protocol support.
+25-04-13 09:17:08 [FINE] The following blocks can not be modeled correctly: PALE_OAK_LEAVES, PALE_HANGING_MOSS, PALE_OAK_FENCE, PALE_OAK_FENCE_GATE, PALE_OAK_SIGN, PALE_OAK_HANGING_SIGN, PALE_OAK_WALL_SIGN, PALE_OAK_WALL_HANGING_SIGN
+25-04-13 09:17:08 [INFO] Inventory checks: FastConsume is available, disabled InstantEat.
+25-04-13 09:17:08 [INFO] Adding packet level hooks for ProtocolLib (MC 1.21.3)...
+25-04-13 09:17:08 [INFO] Available (and activated) packet level hooks: UseEntityAdapter | MovingFlying | OutgoingPosition | KeepAliveAdapter | WrongTurnAdapter | NoSlow | Fight
+25-04-13 09:17:08 [INFO] Force disable FastHeal, FastConsume, PacketFrequency and InstantBow on Minecraft 1.9 and later.
+25-04-13 09:17:08 [INFO] Version 3.17.1-SNAPSHOT-Updated-b191 is enabled.
+25-04-13 09:17:26 [INFO] [GenericInstanceRegistry] Registered (override) for itself: fr.neatmonster.nocheatplus.hooks.ExemptionSettings
+25-04-13 09:17:26 [INFO] [GenericInstanceRegistry] Registered for itself: fr.neatmonster.nocheatplus.stats.Counters
+25-04-13 09:17:26 [INFO] [GenericInstanceRegistry] Registered for itself: fr.neatmonster.nocheatplus.checks.workaround.WRPT
+25-04-13 09:17:26 [INFO] [GenericInstanceRegistry] Registered for itself: fr.neatmonster.nocheatplus.checks.moving.location.tracking.LocationTrace$TraceEntryPool
+25-04-13 09:17:26 [INFO] [GenericInstanceRegistry] Registered for itself: fr.neatmonster.nocheatplus.utilities.entity.PassengerUtil
+25-04-13 09:17:26 [INFO] [GenericInstanceRegistry] Registered for fr.neatmonster.nocheatplus.compat.IBridgeCrossPlugin: fr.neatmonster.nocheatplus.compat.meta.BridgeCrossPlugin
+25-04-13 09:17:26 [INFO] [GenericInstanceRegistry] Registered for fr.neatmonster.nocheatplus.compat.MCAccess: fr.neatmonster.nocheatplus.compat.bukkit.MCAccessBukkitModern
+25-04-13 09:17:26 [INFO] [GenericInstanceRegistry] Registered for fr.neatmonster.nocheatplus.utilities.map.BlockCache: fr.neatmonster.nocheatplus.compat.bukkit.BlockCacheBukkitModern
+25-04-13 09:17:26 [INFO] [GenericInstanceRegistry] Registered for fr.neatmonster.nocheatplus.components.modifier.IAttributeAccess: fr.neatmonster.nocheatplus.compat.bukkit.NSBukkitAttributeAccess
+25-04-13 09:17:26 [INFO] [GenericInstanceRegistry] Registered for fr.neatmonster.nocheatplus.components.entity.IEntityAccessVehicle: fr.neatmonster.nocheatplus.compat.bukkit.EntityAccessVehicleMultiPassenger
+25-04-13 09:17:26 [INFO] [GenericInstanceRegistry] Registered for itself: fr.neatmonster.nocheatplus.checks.moving.util.AuxMoving
+25-04-13 09:17:26 [INFO] Added hook: ViolationFrequency(NCP) [1.0].
+25-04-13 09:17:26 [INFO] Added hook: mcMMO(cncp) [2.3].
+25-04-13 09:17:26 [INFO] Added hook: CMI(cncp) [1.0].
+25-04-13 09:17:27 [WARNING] The block data is incomplete:
+--- Missing entries -------------------------------
+* BLOCK BREAKING (PALE_OAK_LOG / SOLID+GROUND) 
+* BLOCK BREAKING (PALE_OAK_WOOD / SOLID+GROUND) 
+* BLOCK BREAKING (PALE_OAK_LEAVES / SOLID+IGN_PASSABLE+GROUND) 
+* BLOCK BREAKING (PALE_HANGING_MOSS / IGN_PASSABLE) 
+* BLOCK BREAKING (PALE_MOSS_BLOCK / SOLID+GROUND) 
+* BLOCK BREAKING (PALE_OAK_SLAB / SOLID+GROUND+XZ100) 
+* BLOCK BREAKING (CREAKING_HEART / SOLID+GROUND) 
+* BLOCK BREAKING (PALE_OAK_FENCE / SOLID+IGN_PASSABLE+GROUND) 
+* BLOCK BREAKING (PALE_OAK_STAIRS / STAIRS+SOLID+GROUND) 
+* BLOCK BREAKING (PALE_OAK_BUTTON / IGN_PASSABLE) 
+* BLOCK BREAKING (PALE_OAK_PRESSURE_PLATE / IGN_PASSABLE) 
+* BLOCK BREAKING (PALE_OAK_DOOR / SOLID+GROUND+VARIABLE_USE+VARIABLE_REDSTONE) 
+* BLOCK BREAKING (PALE_OAK_TRAPDOOR / SOLID+GROUND+VARIABLE_USE+VARIABLE_REDSTONE) 
+* BLOCK BREAKING (PALE_OAK_FENCE_GATE / SOLID+IGN_PASSABLE+GROUND+VARIABLE_USE+VARIABLE_REDSTONE) 
+* BLOCK BREAKING (PALE_OAK_SIGN / SOLID+IGN_PASSABLE+GROUND) 
+* BLOCK BREAKING (PALE_OAK_HANGING_SIGN / SOLID+IGN_PASSABLE+GROUND) 
+* BLOCK BREAKING (PALE_OAK_WALL_SIGN / SOLID+IGN_PASSABLE+GROUND) 
+* BLOCK BREAKING (PALE_OAK_WALL_HANGING_SIGN / SOLID+IGN_PASSABLE+GROUND) 
+25-04-13 09:17:27 [INFO] Post-enable running...
+25-04-13 09:17:27 [INFO] Post-enable finished.
+25-04-13 09:17:28 [INFO] §c§l»Version information«§7
+§6§lServer:§7
+§71.21.3-27-04bc249 ~MC: 1.21.3~
+§7§eDetected: §71.21.3
+§6§lNoCheatPlus:§7
+§7§ePlugin: §73.17.1-SNAPSHOT-Updated-b191
+§7§eMCAccess: §71.13-1.21|? / Bukkit-API
+§6§lFeatures:
+§7§eblocks§7: BlocksMC1_4§f, §7BlocksMC1_5§f, §7BlocksMC1_6_1§f, §7BlocksMC1_7_2§f, §7BlocksMC1_8§f, §7BlocksMC1_9§f, §7BlocksMC1_10§f, §7BlocksMC1_11§f, §7BlocksMC1_12§f, §7BlocksMC1_13§f, §7BlocksMC1_14§f, §7BlocksMC1_15§f, §7BlocksMC1_16§f, §7BlocksMC1_17§f, §7BlocksMC1_19§f, §7BlocksMC1_20§f, §7MCAccessBukkitModern
+§7§echecks§7: FastConsume§f, §7Gutenberg§f, §7HotFixFallingBlockPortalEnter§f, §7AttackFrequency§f, §7FlyingFrequency§f, §7KeepAliveFrequency
+§7§edefaults§7: pvpKnockBackVelocity
+§7§epacket-listeners§7: UseEntityAdapter§f, §7MovingFlying§f, §7OutgoingPosition§f, §7KeepAliveAdapter§f, §7WrongTurnAdapter§f, §7NoSlow§f, §7Fight
+§6§lHooks:
+§7CMI~cncp~ 1.0§f, §7mcMMO~cncp~ 2.3§f, §7ViolationFrequency~NCP~ 1.0
+§c§l»Related Plugins«§7
+§7CompatNoCheatPlus v6.6.7-SNAPSHOT-b10§f, §7ProtocolLib v5.3.0§f, §7ViaVersion v5.3.1
+25-04-13 09:18:13 [WARNING] Failed to create action: NoCheatPlus doesn't know command 'javaerror'. Have you forgotten to define it?
+25-04-13 09:18:14 [WARNING] [NET] [txrog] Incoming packet could not be interpreted. Are server and plugins up to date (NCP/ProtocolLib...)? This message is logged every 60 seconds, disregarding for which player this happens.
+25-04-13 09:19:14 [WARNING] [NET] [txrog] Incoming packet could not be interpreted. Are server and plugins up to date (NCP/ProtocolLib...)? This message is logged every 60 seconds, disregarding for which player this happens.
+25-04-13 09:19:21 [WARNING] Failed to create action: NoCheatPlus doesn't know command 'blockdirectionbreak'. Have you forgotten to define it?
+25-04-13 09:19:34 [WARNING] Failed to create action: NoCheatPlus doesn't know command 'javaerror'. Have you forgotten to define it?
+25-04-13 09:20:14 [WARNING] [NET] [txrog] Incoming packet could not be interpreted. Are server and plugins up to date (NCP/ProtocolLib...)? This message is logged every 60 seconds, disregarding for which player this happens.
+25-04-13 09:21:14 [WARNING] [NET] [txrog] Incoming packet could not be interpreted. Are server and plugins up to date (NCP/ProtocolLib...)? This message is logged every 60 seconds, disregarding for which player this happens.
+25-04-13 09:22:14 [WARNING] [NET] [txrog] Incoming packet could not be interpreted. Are server and plugins up to date (NCP/ProtocolLib...)? This message is logged every 60 seconds, disregarding for which player this happens.
+25-04-13 09:23:07 [INFO] Removed hook: mcMMO(cncp) [2.3].
+25-04-13 09:23:07 [INFO] Removed hook: CMI(cncp) [1.0].
+25-04-13 09:23:07 [INFO] Removed hook: ViolationFrequency(NCP) [1.0].
+25-04-13 09:23:07 [FINE] | cancel.dead 0 | cancel.offline 0 | block.interact.look.current 8 (8/0) | block.interact.look.flying.first 0 | block.interact.look.flying.other 0 | illegalitem 0 | boatsanywhere 0 | throwenderpearl 0 | fakeinvulnerable 0 | eggonentity 0 | event.player.move 3310 (3310/0) | packet.nullplayer 0 | packet.inconsistent.isasync 0 | packet.flying 4060 (0/4060) | packet.flying.asynchronous 4060 (0/4060) | packet.outgoing_position.untracked 0 |
+25-04-13 09:23:07 [INFO] [GenericInstanceRegistry] Registry cleared.
+25-04-13 09:36:22 [信息] Logger started.
+25-04-13 09:36:22 [信息] Logging system initialized.
+25-04-13 09:36:22 [信息] Detected Minecraft version: 1.21.3
+25-04-13 09:43:11 [信息] Logger started.
+25-04-13 09:43:11 [信息] Logging system initialized.
+25-04-13 09:43:11 [信息] Detected Minecraft version: 1.21.3
+25-04-13 09:44:10 [信息] Logger started.
+25-04-13 09:44:10 [信息] Logging system initialized.
+25-04-13 09:44:10 [信息] Detected Minecraft version: 1.21.3
+25-04-13 09:45:27 [信息] Logger started.
+25-04-13 09:45:27 [信息] Logging system initialized.
+25-04-13 09:45:27 [信息] Detected Minecraft version: 1.21.3
+25-04-13 09:45:42 [INFO] McAccess set to: 1.13-1.21|? / Bukkit-API
+25-04-13 09:45:42 [INFO] Applied block patches for multi client protocol support: water_lily, soil, vine, honey_block, shulker_box
+25-04-13 09:45:42 [INFO] Update block-info: Block shape patch for multi client protocol support.
+25-04-13 09:45:42 [FINE] The following blocks can not be modeled correctly: PALE_OAK_LEAVES, PALE_HANGING_MOSS, PALE_OAK_FENCE, PALE_OAK_FENCE_GATE, PALE_OAK_SIGN, PALE_OAK_HANGING_SIGN, PALE_OAK_WALL_SIGN, PALE_OAK_WALL_HANGING_SIGN
+25-04-13 09:45:42 [INFO] Inventory checks: FastConsume is available, disabled InstantEat.
+25-04-13 09:45:42 [INFO] Adding packet level hooks for ProtocolLib (MC 1.21.3)...
+25-04-13 09:45:42 [INFO] Confirm teleport packet available (via name): TELEPORT_ACCEPT[class=ServerboundAcceptTeleportationPacket, id=0]
+25-04-13 09:45:42 [INFO] Available (and activated) packet level hooks: UseEntityAdapter | MovingFlying | OutgoingPosition | KeepAliveAdapter | WrongTurnAdapter | NoSlow | Fight
+25-04-13 09:45:43 [INFO] Force disable FastHeal, FastConsume, PacketFrequency and InstantBow on Minecraft 1.9 and later.
+25-04-13 09:45:43 [INFO] Version 3.17.1-SNAPSHOT-Updated-b198 is enabled.
+25-04-13 09:46:18 [INFO] [GenericInstanceRegistry] Registered (override) for itself: fr.neatmonster.nocheatplus.hooks.ExemptionSettings
+25-04-13 09:46:18 [INFO] [GenericInstanceRegistry] Registered for itself: fr.neatmonster.nocheatplus.stats.Counters
+25-04-13 09:46:18 [INFO] [GenericInstanceRegistry] Registered for itself: fr.neatmonster.nocheatplus.checks.workaround.WRPT
+25-04-13 09:46:18 [INFO] [GenericInstanceRegistry] Registered for itself: fr.neatmonster.nocheatplus.checks.moving.location.tracking.LocationTrace$TraceEntryPool
+25-04-13 09:46:18 [INFO] [GenericInstanceRegistry] Registered for itself: fr.neatmonster.nocheatplus.utilities.entity.PassengerUtil
+25-04-13 09:46:18 [INFO] [GenericInstanceRegistry] Registered for fr.neatmonster.nocheatplus.compat.IBridgeCrossPlugin: fr.neatmonster.nocheatplus.compat.meta.BridgeCrossPlugin
+25-04-13 09:46:18 [INFO] [GenericInstanceRegistry] Registered for fr.neatmonster.nocheatplus.compat.MCAccess: fr.neatmonster.nocheatplus.compat.bukkit.MCAccessBukkitModern
+25-04-13 09:46:18 [INFO] [GenericInstanceRegistry] Registered for fr.neatmonster.nocheatplus.utilities.map.BlockCache: fr.neatmonster.nocheatplus.compat.bukkit.BlockCacheBukkitModern
+25-04-13 09:46:18 [INFO] [GenericInstanceRegistry] Registered for fr.neatmonster.nocheatplus.components.modifier.IAttributeAccess: fr.neatmonster.nocheatplus.compat.bukkit.NSBukkitAttributeAccess
+25-04-13 09:46:18 [INFO] [GenericInstanceRegistry] Registered for fr.neatmonster.nocheatplus.components.entity.IEntityAccessVehicle: fr.neatmonster.nocheatplus.compat.bukkit.EntityAccessVehicleMultiPassenger
+25-04-13 09:46:18 [INFO] [GenericInstanceRegistry] Registered for itself: fr.neatmonster.nocheatplus.checks.moving.util.AuxMoving
+25-04-13 09:46:18 [INFO] Added hook: ViolationFrequency(NCP) [1.0].
+25-04-13 09:46:18 [INFO] Added hook: mcMMO(cncp) [2.3].
+25-04-13 09:46:18 [INFO] Added hook: CMI(cncp) [1.0].
+25-04-13 09:46:18 [WARNING] The block data is incomplete:
+--- Missing entries -------------------------------
+* BLOCK BREAKING (PALE_OAK_LOG / SOLID+GROUND) 
+* BLOCK BREAKING (PALE_OAK_WOOD / SOLID+GROUND) 
+* BLOCK BREAKING (PALE_OAK_LEAVES / SOLID+IGN_PASSABLE+GROUND) 
+* BLOCK BREAKING (PALE_HANGING_MOSS / IGN_PASSABLE) 
+* BLOCK BREAKING (PALE_MOSS_BLOCK / SOLID+GROUND) 
+* BLOCK BREAKING (PALE_OAK_SLAB / SOLID+GROUND+XZ100) 
+* BLOCK BREAKING (CREAKING_HEART / SOLID+GROUND) 
+* BLOCK BREAKING (PALE_OAK_FENCE / SOLID+IGN_PASSABLE+GROUND) 
+* BLOCK BREAKING (PALE_OAK_STAIRS / STAIRS+SOLID+GROUND) 
+* BLOCK BREAKING (PALE_OAK_BUTTON / IGN_PASSABLE) 
+* BLOCK BREAKING (PALE_OAK_PRESSURE_PLATE / IGN_PASSABLE) 
+* BLOCK BREAKING (PALE_OAK_DOOR / SOLID+GROUND+VARIABLE_USE+VARIABLE_REDSTONE) 
+* BLOCK BREAKING (PALE_OAK_TRAPDOOR / SOLID+GROUND+VARIABLE_USE+VARIABLE_REDSTONE) 
+* BLOCK BREAKING (PALE_OAK_FENCE_GATE / SOLID+IGN_PASSABLE+GROUND+VARIABLE_USE+VARIABLE_REDSTONE) 
+* BLOCK BREAKING (PALE_OAK_SIGN / SOLID+IGN_PASSABLE+GROUND) 
+* BLOCK BREAKING (PALE_OAK_HANGING_SIGN / SOLID+IGN_PASSABLE+GROUND) 
+* BLOCK BREAKING (PALE_OAK_WALL_SIGN / SOLID+IGN_PASSABLE+GROUND) 
+* BLOCK BREAKING (PALE_OAK_WALL_HANGING_SIGN / SOLID+IGN_PASSABLE+GROUND) 
+25-04-13 09:46:18 [INFO] Post-enable running...
+25-04-13 09:46:18 [INFO] Post-enable finished.
+25-04-13 09:46:19 [INFO] §c§l»Version information«§7
+§6§lServer:§7
+§71.21.3-27-04bc249 ~MC: 1.21.3~
+§7§eDetected: §71.21.3
+§6§lNoCheatPlus:§7
+§7§ePlugin: §73.17.1-SNAPSHOT-Updated-b198
+§7§eMCAccess: §71.13-1.21|? / Bukkit-API
+§6§lFeatures:
+§7§eblocks§7: BlocksMC1_4§f, §7BlocksMC1_5§f, §7BlocksMC1_6_1§f, §7BlocksMC1_7_2§f, §7BlocksMC1_8§f, §7BlocksMC1_9§f, §7BlocksMC1_10§f, §7BlocksMC1_11§f, §7BlocksMC1_12§f, §7BlocksMC1_13§f, §7BlocksMC1_14§f, §7BlocksMC1_15§f, §7BlocksMC1_16§f, §7BlocksMC1_17§f, §7BlocksMC1_19§f, §7BlocksMC1_20§f, §7MCAccessBukkitModern
+§7§echecks§7: FastConsume§f, §7Gutenberg§f, §7HotFixFallingBlockPortalEnter§f, §7AttackFrequency§f, §7FlyingFrequency§f, §7KeepAliveFrequency
+§7§edefaults§7: pvpKnockBackVelocity
+§7§epacket-listeners§7: UseEntityAdapter§f, §7MovingFlying§f, §7OutgoingPosition§f, §7KeepAliveAdapter§f, §7WrongTurnAdapter§f, §7NoSlow§f, §7Fight
+§6§lHooks:
+§7CMI~cncp~ 1.0§f, §7mcMMO~cncp~ 2.3§f, §7ViolationFrequency~NCP~ 1.0
+§c§l»Related Plugins«§7
+§7CompatNoCheatPlus v6.6.7-SNAPSHOT-b10§f, §7ProtocolLib v5.3.0§f, §7ViaVersion v5.3.1
+25-04-13 09:46:37 [WARNING] Failed to create action: NoCheatPlus doesn't know command 'javaerror'. Have you forgotten to define it?
+25-04-13 09:47:07 [WARNING] Failed to create action: NoCheatPlus doesn't know command 'blockdirectionbreak'. Have you forgotten to define it?
+25-04-13 09:47:07 [WARNING] Failed to create action: NoCheatPlus doesn't know command 'javaerror'. Have you forgotten to define it?
+25-04-13 09:54:34 [信息] Logger started.
+25-04-13 09:54:34 [信息] Logging system initialized.
+25-04-13 09:54:34 [信息] Detected Minecraft version: 1.21.3
+25-04-13 09:54:49 [INFO] McAccess set to: 1.13-1.21|? / Bukkit-API
+25-04-13 09:54:49 [INFO] Applied block patches for multi client protocol support: water_lily, soil, vine, honey_block, shulker_box
+25-04-13 09:54:49 [INFO] Update block-info: Block shape patch for multi client protocol support.
+25-04-13 09:54:49 [FINE] The following blocks can not be modeled correctly: PALE_OAK_LEAVES, PALE_HANGING_MOSS, PALE_OAK_FENCE, PALE_OAK_FENCE_GATE, PALE_OAK_SIGN, PALE_OAK_HANGING_SIGN, PALE_OAK_WALL_SIGN, PALE_OAK_WALL_HANGING_SIGN
+25-04-13 09:54:49 [INFO] Inventory checks: FastConsume is available, disabled InstantEat.
+25-04-13 09:54:49 [INFO] Adding packet level hooks for ProtocolLib (MC 1.21.3)...
+25-04-13 09:54:49 [INFO] Confirm teleport packet available (via name): TELEPORT_ACCEPT[class=ServerboundAcceptTeleportationPacket, id=0]
+25-04-13 09:54:49 [INFO] Available (and activated) packet level hooks: UseEntityAdapter | MovingFlying | OutgoingPosition | KeepAliveAdapter | WrongTurnAdapter | NoSlow | Fight
+25-04-13 09:54:49 [INFO] Force disable FastHeal, FastConsume, PacketFrequency and InstantBow on Minecraft 1.9 and later.
+25-04-13 09:54:49 [INFO] Version 3.17.1-SNAPSHOT-Updated-b198 is enabled.
+25-04-13 09:55:25 [INFO] [GenericInstanceRegistry] Registered (override) for itself: fr.neatmonster.nocheatplus.hooks.ExemptionSettings
+25-04-13 09:55:25 [INFO] [GenericInstanceRegistry] Registered for itself: fr.neatmonster.nocheatplus.stats.Counters
+25-04-13 09:55:25 [INFO] [GenericInstanceRegistry] Registered for itself: fr.neatmonster.nocheatplus.checks.workaround.WRPT
+25-04-13 09:55:25 [INFO] [GenericInstanceRegistry] Registered for itself: fr.neatmonster.nocheatplus.checks.moving.location.tracking.LocationTrace$TraceEntryPool
+25-04-13 09:55:25 [INFO] [GenericInstanceRegistry] Registered for itself: fr.neatmonster.nocheatplus.utilities.entity.PassengerUtil
+25-04-13 09:55:25 [INFO] [GenericInstanceRegistry] Registered for fr.neatmonster.nocheatplus.compat.IBridgeCrossPlugin: fr.neatmonster.nocheatplus.compat.meta.BridgeCrossPlugin
+25-04-13 09:55:25 [INFO] [GenericInstanceRegistry] Registered for fr.neatmonster.nocheatplus.compat.MCAccess: fr.neatmonster.nocheatplus.compat.bukkit.MCAccessBukkitModern
+25-04-13 09:55:25 [INFO] [GenericInstanceRegistry] Registered for fr.neatmonster.nocheatplus.utilities.map.BlockCache: fr.neatmonster.nocheatplus.compat.bukkit.BlockCacheBukkitModern
+25-04-13 09:55:25 [INFO] [GenericInstanceRegistry] Registered for fr.neatmonster.nocheatplus.components.modifier.IAttributeAccess: fr.neatmonster.nocheatplus.compat.bukkit.NSBukkitAttributeAccess
+25-04-13 09:55:25 [INFO] [GenericInstanceRegistry] Registered for fr.neatmonster.nocheatplus.components.entity.IEntityAccessVehicle: fr.neatmonster.nocheatplus.compat.bukkit.EntityAccessVehicleMultiPassenger
+25-04-13 09:55:25 [INFO] [GenericInstanceRegistry] Registered for itself: fr.neatmonster.nocheatplus.checks.moving.util.AuxMoving
+25-04-13 09:55:25 [INFO] Added hook: ViolationFrequency(NCP) [1.0].
+25-04-13 09:55:25 [INFO] Added hook: mcMMO(cncp) [2.3].
+25-04-13 09:55:25 [INFO] Added hook: CMI(cncp) [1.0].
+25-04-13 09:55:25 [WARNING] The block data is incomplete:
+--- Missing entries -------------------------------
+* BLOCK BREAKING (PALE_OAK_LOG / SOLID+GROUND) 
+* BLOCK BREAKING (PALE_OAK_WOOD / SOLID+GROUND) 
+* BLOCK BREAKING (PALE_OAK_LEAVES / SOLID+IGN_PASSABLE+GROUND) 
+* BLOCK BREAKING (PALE_HANGING_MOSS / IGN_PASSABLE) 
+* BLOCK BREAKING (PALE_MOSS_BLOCK / SOLID+GROUND) 
+* BLOCK BREAKING (PALE_OAK_SLAB / SOLID+GROUND+XZ100) 
+* BLOCK BREAKING (CREAKING_HEART / SOLID+GROUND) 
+* BLOCK BREAKING (PALE_OAK_FENCE / SOLID+IGN_PASSABLE+GROUND) 
+* BLOCK BREAKING (PALE_OAK_STAIRS / STAIRS+SOLID+GROUND) 
+* BLOCK BREAKING (PALE_OAK_BUTTON / IGN_PASSABLE) 
+* BLOCK BREAKING (PALE_OAK_PRESSURE_PLATE / IGN_PASSABLE) 
+* BLOCK BREAKING (PALE_OAK_DOOR / SOLID+GROUND+VARIABLE_USE+VARIABLE_REDSTONE) 
+* BLOCK BREAKING (PALE_OAK_TRAPDOOR / SOLID+GROUND+VARIABLE_USE+VARIABLE_REDSTONE) 
+* BLOCK BREAKING (PALE_OAK_FENCE_GATE / SOLID+IGN_PASSABLE+GROUND+VARIABLE_USE+VARIABLE_REDSTONE) 
+* BLOCK BREAKING (PALE_OAK_SIGN / SOLID+IGN_PASSABLE+GROUND) 
+* BLOCK BREAKING (PALE_OAK_HANGING_SIGN / SOLID+IGN_PASSABLE+GROUND) 
+* BLOCK BREAKING (PALE_OAK_WALL_SIGN / SOLID+IGN_PASSABLE+GROUND) 
+* BLOCK BREAKING (PALE_OAK_WALL_HANGING_SIGN / SOLID+IGN_PASSABLE+GROUND) 
+25-04-13 09:55:25 [INFO] Post-enable running...
+25-04-13 09:55:25 [INFO] Post-enable finished.
+25-04-13 09:55:27 [INFO] §c§l»Version information«§7
+§6§lServer:§7
+§71.21.3-27-04bc249 ~MC: 1.21.3~
+§7§eDetected: §71.21.3
+§6§lNoCheatPlus:§7
+§7§ePlugin: §73.17.1-SNAPSHOT-Updated-b198
+§7§eMCAccess: §71.13-1.21|? / Bukkit-API
+§6§lFeatures:
+§7§eblocks§7: BlocksMC1_4§f, §7BlocksMC1_5§f, §7BlocksMC1_6_1§f, §7BlocksMC1_7_2§f, §7BlocksMC1_8§f, §7BlocksMC1_9§f, §7BlocksMC1_10§f, §7BlocksMC1_11§f, §7BlocksMC1_12§f, §7BlocksMC1_13§f, §7BlocksMC1_14§f, §7BlocksMC1_15§f, §7BlocksMC1_16§f, §7BlocksMC1_17§f, §7BlocksMC1_19§f, §7BlocksMC1_20§f, §7MCAccessBukkitModern
+§7§echecks§7: FastConsume§f, §7Gutenberg§f, §7HotFixFallingBlockPortalEnter§f, §7AttackFrequency§f, §7FlyingFrequency§f, §7KeepAliveFrequency
+§7§edefaults§7: pvpKnockBackVelocity
+§7§epacket-listeners§7: UseEntityAdapter§f, §7MovingFlying§f, §7OutgoingPosition§f, §7KeepAliveAdapter§f, §7WrongTurnAdapter§f, §7NoSlow§f, §7Fight
+§6§lHooks:
+§7CMI~cncp~ 1.0§f, §7mcMMO~cncp~ 2.3§f, §7ViolationFrequency~NCP~ 1.0
+§c§l»Related Plugins«§7
+§7CompatNoCheatPlus v6.6.7-SNAPSHOT-b10§f, §7ProtocolLib v5.3.0§f, §7ViaVersion v5.3.1
+25-04-13 09:55:32 [WARNING] Failed to create action: NoCheatPlus doesn't know command 'javaerror'. Have you forgotten to define it?
+25-04-13 10:11:51 [信息] Logger started.
+25-04-13 10:11:51 [信息] Logging system initialized.
+25-04-13 10:11:51 [信息] Detected Minecraft version: 1.21.3
+25-04-13 10:12:05 [信息] McAccess set to: 1.13-1.21|? / Bukkit-API
+25-04-13 10:12:05 [信息] Applied block patches for multi client protocol support: water_lily, soil, vine, honey_block, shulker_box
+25-04-13 10:12:05 [信息] Update block-info: Block shape patch for multi client protocol support.
+25-04-13 10:12:05 [详细] The following blocks can not be modeled correctly: PALE_OAK_LEAVES, PALE_HANGING_MOSS, PALE_OAK_FENCE, PALE_OAK_FENCE_GATE, PALE_OAK_SIGN, PALE_OAK_HANGING_SIGN, PALE_OAK_WALL_SIGN, PALE_OAK_WALL_HANGING_SIGN
+25-04-13 10:12:06 [信息] Inventory checks: FastConsume is available, disabled InstantEat.
+25-04-13 10:12:06 [信息] Adding packet level hooks for ProtocolLib (MC 1.21.3)...
+25-04-13 10:12:06 [信息] Confirm teleport packet available (via name): TELEPORT_ACCEPT[class=ServerboundAcceptTeleportationPacket, id=0]
+25-04-13 10:12:06 [信息] Available (and activated) packet level hooks: UseEntityAdapter | MovingFlying | OutgoingPosition | KeepAliveAdapter | WrongTurnAdapter | NoSlow | Fight
+25-04-13 10:12:06 [信息] Force disable FastHeal, FastConsume, PacketFrequency and InstantBow on Minecraft 1.9 and later.
+25-04-13 10:12:06 [信息] Version 3.17.1-SNAPSHOT-Updated-b198 is enabled.
+25-04-13 10:12:39 [信息] [GenericInstanceRegistry] Registered (override) for itself: fr.neatmonster.nocheatplus.hooks.ExemptionSettings
+25-04-13 10:12:39 [信息] [GenericInstanceRegistry] Registered for itself: fr.neatmonster.nocheatplus.stats.Counters
+25-04-13 10:12:39 [信息] [GenericInstanceRegistry] Registered for itself: fr.neatmonster.nocheatplus.checks.workaround.WRPT
+25-04-13 10:12:39 [信息] [GenericInstanceRegistry] Registered for itself: fr.neatmonster.nocheatplus.checks.moving.location.tracking.LocationTrace$TraceEntryPool
+25-04-13 10:12:39 [信息] [GenericInstanceRegistry] Registered for itself: fr.neatmonster.nocheatplus.utilities.entity.PassengerUtil
+25-04-13 10:12:39 [信息] [GenericInstanceRegistry] Registered for fr.neatmonster.nocheatplus.compat.IBridgeCrossPlugin: fr.neatmonster.nocheatplus.compat.meta.BridgeCrossPlugin
+25-04-13 10:12:39 [信息] [GenericInstanceRegistry] Registered for fr.neatmonster.nocheatplus.compat.MCAccess: fr.neatmonster.nocheatplus.compat.bukkit.MCAccessBukkitModern
+25-04-13 10:12:39 [信息] [GenericInstanceRegistry] Registered for fr.neatmonster.nocheatplus.utilities.map.BlockCache: fr.neatmonster.nocheatplus.compat.bukkit.BlockCacheBukkitModern
+25-04-13 10:12:39 [信息] [GenericInstanceRegistry] Registered for fr.neatmonster.nocheatplus.components.modifier.IAttributeAccess: fr.neatmonster.nocheatplus.compat.bukkit.NSBukkitAttributeAccess
+25-04-13 10:12:39 [信息] [GenericInstanceRegistry] Registered for fr.neatmonster.nocheatplus.components.entity.IEntityAccessVehicle: fr.neatmonster.nocheatplus.compat.bukkit.EntityAccessVehicleMultiPassenger
+25-04-13 10:12:39 [信息] [GenericInstanceRegistry] Registered for itself: fr.neatmonster.nocheatplus.checks.moving.util.AuxMoving
+25-04-13 10:12:39 [信息] Added hook: ViolationFrequency(NCP) [1.0].
+25-04-13 10:12:39 [信息] Added hook: mcMMO(cncp) [2.3].
+25-04-13 10:12:39 [信息] Added hook: CMI(cncp) [1.0].
+25-04-13 10:12:39 [警告] The block data is incomplete:
+--- Missing entries -------------------------------
+* BLOCK BREAKING (PALE_OAK_LOG / SOLID+GROUND) 
+* BLOCK BREAKING (PALE_OAK_WOOD / SOLID+GROUND) 
+* BLOCK BREAKING (PALE_OAK_LEAVES / SOLID+IGN_PASSABLE+GROUND) 
+* BLOCK BREAKING (PALE_HANGING_MOSS / IGN_PASSABLE) 
+* BLOCK BREAKING (PALE_MOSS_BLOCK / SOLID+GROUND) 
+* BLOCK BREAKING (PALE_OAK_SLAB / SOLID+GROUND+XZ100) 
+* BLOCK BREAKING (CREAKING_HEART / SOLID+GROUND) 
+* BLOCK BREAKING (PALE_OAK_FENCE / SOLID+IGN_PASSABLE+GROUND) 
+* BLOCK BREAKING (PALE_OAK_STAIRS / STAIRS+SOLID+GROUND) 
+* BLOCK BREAKING (PALE_OAK_BUTTON / IGN_PASSABLE) 
+* BLOCK BREAKING (PALE_OAK_PRESSURE_PLATE / IGN_PASSABLE) 
+* BLOCK BREAKING (PALE_OAK_DOOR / SOLID+GROUND+VARIABLE_USE+VARIABLE_REDSTONE) 
+* BLOCK BREAKING (PALE_OAK_TRAPDOOR / SOLID+GROUND+VARIABLE_USE+VARIABLE_REDSTONE) 
+* BLOCK BREAKING (PALE_OAK_FENCE_GATE / SOLID+IGN_PASSABLE+GROUND+VARIABLE_USE+VARIABLE_REDSTONE) 
+* BLOCK BREAKING (PALE_OAK_SIGN / SOLID+IGN_PASSABLE+GROUND) 
+* BLOCK BREAKING (PALE_OAK_HANGING_SIGN / SOLID+IGN_PASSABLE+GROUND) 
+* BLOCK BREAKING (PALE_OAK_WALL_SIGN / SOLID+IGN_PASSABLE+GROUND) 
+* BLOCK BREAKING (PALE_OAK_WALL_HANGING_SIGN / SOLID+IGN_PASSABLE+GROUND) 
+25-04-13 10:12:39 [信息] Post-enable running...
+25-04-13 10:12:39 [信息] Post-enable finished.
+25-04-13 10:12:41 [信息] §c§l»Version information«§7
+§6§lServer:§7
+§71.21.3-27-04bc249 ~MC: 1.21.3~
+§7§eDetected: §71.21.3
+§6§lNoCheatPlus:§7
+§7§ePlugin: §73.17.1-SNAPSHOT-Updated-b198
+§7§eMCAccess: §71.13-1.21|? / Bukkit-API
+§6§lFeatures:
+§7§eblocks§7: BlocksMC1_4§f, §7BlocksMC1_5§f, §7BlocksMC1_6_1§f, §7BlocksMC1_7_2§f, §7BlocksMC1_8§f, §7BlocksMC1_9§f, §7BlocksMC1_10§f, §7BlocksMC1_11§f, §7BlocksMC1_12§f, §7BlocksMC1_13§f, §7BlocksMC1_14§f, §7BlocksMC1_15§f, §7BlocksMC1_16§f, §7BlocksMC1_17§f, §7BlocksMC1_19§f, §7BlocksMC1_20§f, §7MCAccessBukkitModern
+§7§echecks§7: FastConsume§f, §7Gutenberg§f, §7HotFixFallingBlockPortalEnter§f, §7AttackFrequency§f, §7FlyingFrequency§f, §7KeepAliveFrequency
+§7§edefaults§7: pvpKnockBackVelocity
+§7§epacket-listeners§7: UseEntityAdapter§f, §7MovingFlying§f, §7OutgoingPosition§f, §7KeepAliveAdapter§f, §7WrongTurnAdapter§f, §7NoSlow§f, §7Fight
+§6§lHooks:
+§7CMI~cncp~ 1.0§f, §7mcMMO~cncp~ 2.3§f, §7ViolationFrequency~NCP~ 1.0
+§c§l»Related Plugins«§7
+§7CompatNoCheatPlus v6.6.7-SNAPSHOT-b10§f, §7ProtocolLib v5.3.0§f, §7ViaVersion v5.3.1
+25-04-13 10:12:51 [警告] Failed to create action: NoCheatPlus doesn't know command 'javaerror'. Have you forgotten to define it?
+25-04-13 10:17:25 [警告] Failed to create action: NoCheatPlus doesn't know command 'blockdirectionbreak'. Have you forgotten to define it?
+25-04-13 20:27:06 [信息] Logger started.
+25-04-13 20:27:06 [信息] Logging system initialized.
+25-04-13 20:27:06 [信息] Detected Minecraft version: 1.21.3
+25-04-13 20:27:15 [信息] McAccess set to: 1.13-1.21|? / Bukkit-API
+25-04-13 20:27:15 [信息] Applied block patches for multi client protocol support: water_lily, soil, vine, honey_block, shulker_box
+25-04-13 20:27:15 [信息] Update block-info: Block shape patch for multi client protocol support.
+25-04-13 20:27:15 [详细] The following blocks can not be modeled correctly: PALE_OAK_LEAVES, PALE_HANGING_MOSS, PALE_OAK_FENCE, PALE_OAK_FENCE_GATE, PALE_OAK_SIGN, PALE_OAK_HANGING_SIGN, PALE_OAK_WALL_SIGN, PALE_OAK_WALL_HANGING_SIGN
+25-04-13 20:27:16 [信息] Inventory checks: FastConsume is available, disabled InstantEat.
+25-04-13 20:27:16 [信息] Adding packet level hooks for ProtocolLib (MC 1.21.3)...
+25-04-13 20:27:16 [信息] Confirm teleport packet available (via name): TELEPORT_ACCEPT[class=ServerboundAcceptTeleportationPacket, id=0]
+25-04-13 20:27:16 [信息] Available (and activated) packet level hooks: UseEntityAdapter | MovingFlying | OutgoingPosition | KeepAliveAdapter | WrongTurnAdapter | NoSlow | Fight
+25-04-13 20:27:16 [信息] Force disable FastHeal, FastConsume, PacketFrequency and InstantBow on Minecraft 1.9 and later.
+25-04-13 20:27:16 [信息] Version 3.17.1-SNAPSHOT-Updated-b198 is enabled.
+25-04-13 20:27:32 [信息] [GenericInstanceRegistry] Registered (override) for itself: fr.neatmonster.nocheatplus.hooks.ExemptionSettings
+25-04-13 20:27:32 [信息] [GenericInstanceRegistry] Registered for itself: fr.neatmonster.nocheatplus.stats.Counters
+25-04-13 20:27:32 [信息] [GenericInstanceRegistry] Registered for itself: fr.neatmonster.nocheatplus.checks.workaround.WRPT
+25-04-13 20:27:32 [信息] [GenericInstanceRegistry] Registered for itself: fr.neatmonster.nocheatplus.checks.moving.location.tracking.LocationTrace$TraceEntryPool
+25-04-13 20:27:32 [信息] [GenericInstanceRegistry] Registered for itself: fr.neatmonster.nocheatplus.utilities.entity.PassengerUtil
+25-04-13 20:27:32 [信息] [GenericInstanceRegistry] Registered for fr.neatmonster.nocheatplus.compat.IBridgeCrossPlugin: fr.neatmonster.nocheatplus.compat.meta.BridgeCrossPlugin
+25-04-13 20:27:32 [信息] [GenericInstanceRegistry] Registered for fr.neatmonster.nocheatplus.compat.MCAccess: fr.neatmonster.nocheatplus.compat.bukkit.MCAccessBukkitModern
+25-04-13 20:27:32 [信息] [GenericInstanceRegistry] Registered for fr.neatmonster.nocheatplus.utilities.map.BlockCache: fr.neatmonster.nocheatplus.compat.bukkit.BlockCacheBukkitModern
+25-04-13 20:27:32 [信息] [GenericInstanceRegistry] Registered for fr.neatmonster.nocheatplus.components.modifier.IAttributeAccess: fr.neatmonster.nocheatplus.compat.bukkit.NSBukkitAttributeAccess
+25-04-13 20:27:32 [信息] [GenericInstanceRegistry] Registered for fr.neatmonster.nocheatplus.components.entity.IEntityAccessVehicle: fr.neatmonster.nocheatplus.compat.bukkit.EntityAccessVehicleMultiPassenger
+25-04-13 20:27:32 [信息] [GenericInstanceRegistry] Registered for itself: fr.neatmonster.nocheatplus.checks.moving.util.AuxMoving
+25-04-13 20:27:32 [信息] Added hook: ViolationFrequency(NCP) [1.0].
+25-04-13 20:27:32 [信息] Added hook: CMI(cncp) [1.0].
+25-04-13 20:27:32 [信息] Added hook: mcMMO(cncp) [2.3].
+25-04-13 20:27:32 [警告] The block data is incomplete:
+--- Missing entries -------------------------------
+* BLOCK BREAKING (PALE_OAK_LOG / SOLID+GROUND) 
+* BLOCK BREAKING (PALE_OAK_WOOD / SOLID+GROUND) 
+* BLOCK BREAKING (PALE_OAK_LEAVES / SOLID+IGN_PASSABLE+GROUND) 
+* BLOCK BREAKING (PALE_HANGING_MOSS / IGN_PASSABLE) 
+* BLOCK BREAKING (PALE_MOSS_BLOCK / SOLID+GROUND) 
+* BLOCK BREAKING (PALE_OAK_SLAB / SOLID+GROUND+XZ100) 
+* BLOCK BREAKING (CREAKING_HEART / SOLID+GROUND) 
+* BLOCK BREAKING (PALE_OAK_FENCE / SOLID+IGN_PASSABLE+GROUND) 
+* BLOCK BREAKING (PALE_OAK_STAIRS / STAIRS+SOLID+GROUND) 
+* BLOCK BREAKING (PALE_OAK_BUTTON / IGN_PASSABLE) 
+* BLOCK BREAKING (PALE_OAK_PRESSURE_PLATE / IGN_PASSABLE) 
+* BLOCK BREAKING (PALE_OAK_DOOR / SOLID+GROUND+VARIABLE_USE+VARIABLE_REDSTONE) 
+* BLOCK BREAKING (PALE_OAK_TRAPDOOR / SOLID+GROUND+VARIABLE_USE+VARIABLE_REDSTONE) 
+* BLOCK BREAKING (PALE_OAK_FENCE_GATE / SOLID+IGN_PASSABLE+GROUND+VARIABLE_USE+VARIABLE_REDSTONE) 
+* BLOCK BREAKING (PALE_OAK_SIGN / SOLID+IGN_PASSABLE+GROUND) 
+* BLOCK BREAKING (PALE_OAK_HANGING_SIGN / SOLID+IGN_PASSABLE+GROUND) 
+* BLOCK BREAKING (PALE_OAK_WALL_SIGN / SOLID+IGN_PASSABLE+GROUND) 
+* BLOCK BREAKING (PALE_OAK_WALL_HANGING_SIGN / SOLID+IGN_PASSABLE+GROUND) 
+25-04-13 20:27:32 [信息] Post-enable running...
+25-04-13 20:27:32 [信息] Post-enable finished.
+25-04-13 20:27:33 [信息] §c§l»Version information«§7
+§6§lServer:§7
+§71.21.3-27-04bc249 ~MC: 1.21.3~
+§7§eDetected: §71.21.3
+§6§lNoCheatPlus:§7
+§7§ePlugin: §73.17.1-SNAPSHOT-Updated-b198
+§7§eMCAccess: §71.13-1.21|? / Bukkit-API
+§6§lFeatures:
+§7§eblocks§7: BlocksMC1_4§f, §7BlocksMC1_5§f, §7BlocksMC1_6_1§f, §7BlocksMC1_7_2§f, §7BlocksMC1_8§f, §7BlocksMC1_9§f, §7BlocksMC1_10§f, §7BlocksMC1_11§f, §7BlocksMC1_12§f, §7BlocksMC1_13§f, §7BlocksMC1_14§f, §7BlocksMC1_15§f, §7BlocksMC1_16§f, §7BlocksMC1_17§f, §7BlocksMC1_19§f, §7BlocksMC1_20§f, §7MCAccessBukkitModern
+§7§echecks§7: FastConsume§f, §7Gutenberg§f, §7HotFixFallingBlockPortalEnter§f, §7AttackFrequency§f, §7FlyingFrequency§f, §7KeepAliveFrequency
+§7§edefaults§7: pvpKnockBackVelocity
+§7§epacket-listeners§7: UseEntityAdapter§f, §7MovingFlying§f, §7OutgoingPosition§f, §7KeepAliveAdapter§f, §7WrongTurnAdapter§f, §7NoSlow§f, §7Fight
+§6§lHooks:
+§7CMI~cncp~ 1.0§f, §7mcMMO~cncp~ 2.3§f, §7ViolationFrequency~NCP~ 1.0
+§c§l»Related Plugins«§7
+§7CompatNoCheatPlus v6.6.7-SNAPSHOT-b10§f, §7ProtocolLib v5.3.0§f, §7ViaVersion v5.3.1
+25-04-13 20:27:44 [信息] Removed hook: CMI(cncp) [1.0].
+25-04-13 20:27:44 [信息] Removed hook: mcMMO(cncp) [2.3].
+25-04-13 20:27:44 [信息] Removed hook: ViolationFrequency(NCP) [1.0].
+25-04-13 20:27:44 [详细] | cancel.dead 0 | cancel.offline 0 | block.interact.look.current 0 | block.interact.look.flying.first 0 | block.interact.look.flying.other 0 | illegalitem 0 | boatsanywhere 0 | throwenderpearl 0 | fakeinvulnerable 0 | eggonentity 0 | event.player.move 0 | packet.nullplayer 0 | packet.inconsistent.isasync 0 | packet.flying 0 | packet.flying.asynchronous 0 | packet.outgoing_position.untracked 0 |
+25-04-13 20:27:44 [信息] [GenericInstanceRegistry] Registry cleared.
+25-04-13 20:28:16 [信息] Logger started.
+25-04-13 20:28:16 [信息] Logging system initialized.
+25-04-13 20:28:16 [信息] Detected Minecraft version: 1.21.3
+25-04-13 20:28:22 [信息] McAccess set to: 1.13-1.21|? / Bukkit-API
+25-04-13 20:28:22 [信息] Applied block patches for multi client protocol support: water_lily, soil, vine, honey_block, shulker_box
+25-04-13 20:28:22 [信息] Update block-info: Block shape patch for multi client protocol support.
+25-04-13 20:28:22 [详细] The following blocks can not be modeled correctly: PALE_OAK_LEAVES, PALE_HANGING_MOSS, PALE_OAK_FENCE, PALE_OAK_FENCE_GATE, PALE_OAK_SIGN, PALE_OAK_HANGING_SIGN, PALE_OAK_WALL_SIGN, PALE_OAK_WALL_HANGING_SIGN
+25-04-13 20:28:22 [信息] Inventory checks: FastConsume is available, disabled InstantEat.
+25-04-13 20:28:22 [信息] Adding packet level hooks for ProtocolLib (MC 1.21.3)...
+25-04-13 20:28:22 [信息] Confirm teleport packet available (via name): TELEPORT_ACCEPT[class=ServerboundAcceptTeleportationPacket, id=0]
+25-04-13 20:28:22 [信息] Available (and activated) packet level hooks: UseEntityAdapter | MovingFlying | OutgoingPosition | KeepAliveAdapter | WrongTurnAdapter | NoSlow | Fight
+25-04-13 20:28:22 [信息] Force disable FastHeal, FastConsume, PacketFrequency and InstantBow on Minecraft 1.9 and later.
+25-04-13 20:28:22 [信息] Version 3.17.1-SNAPSHOT-Updated-b198 is enabled.
+25-04-13 20:30:31 [信息] Logger started.
+25-04-13 20:30:31 [信息] Logging system initialized.
+25-04-13 20:30:31 [信息] Detected Minecraft version: 1.21.3
+25-04-13 20:30:37 [信息] McAccess set to: 1.13-1.21|? / Bukkit-API
+25-04-13 20:30:38 [信息] Applied block patches for multi client protocol support: water_lily, soil, vine, honey_block, shulker_box
+25-04-13 20:30:38 [信息] Update block-info: Block shape patch for multi client protocol support.
+25-04-13 20:30:38 [详细] The following blocks can not be modeled correctly: PALE_OAK_LEAVES, PALE_HANGING_MOSS, PALE_OAK_FENCE, PALE_OAK_FENCE_GATE, PALE_OAK_SIGN, PALE_OAK_HANGING_SIGN, PALE_OAK_WALL_SIGN, PALE_OAK_WALL_HANGING_SIGN
+25-04-13 20:30:38 [信息] Inventory checks: FastConsume is available, disabled InstantEat.
+25-04-13 20:30:38 [信息] Adding packet level hooks for ProtocolLib (MC 1.21.3)...
+25-04-13 20:30:38 [信息] Confirm teleport packet available (via name): TELEPORT_ACCEPT[class=ServerboundAcceptTeleportationPacket, id=0]
+25-04-13 20:30:38 [信息] Available (and activated) packet level hooks: UseEntityAdapter | MovingFlying | OutgoingPosition | KeepAliveAdapter | WrongTurnAdapter | NoSlow | Fight
+25-04-13 20:30:38 [信息] Force disable FastHeal, FastConsume, PacketFrequency and InstantBow on Minecraft 1.9 and later.
+25-04-13 20:30:38 [信息] Version 3.17.1-SNAPSHOT-Updated-b198 is enabled.
+25-04-13 20:30:52 [信息] [GenericInstanceRegistry] Registered (override) for itself: fr.neatmonster.nocheatplus.hooks.ExemptionSettings
+25-04-13 20:30:52 [信息] [GenericInstanceRegistry] Registered for itself: fr.neatmonster.nocheatplus.stats.Counters
+25-04-13 20:30:52 [信息] [GenericInstanceRegistry] Registered for itself: fr.neatmonster.nocheatplus.checks.workaround.WRPT
+25-04-13 20:30:52 [信息] [GenericInstanceRegistry] Registered for itself: fr.neatmonster.nocheatplus.checks.moving.location.tracking.LocationTrace$TraceEntryPool
+25-04-13 20:30:52 [信息] [GenericInstanceRegistry] Registered for itself: fr.neatmonster.nocheatplus.utilities.entity.PassengerUtil
+25-04-13 20:30:52 [信息] [GenericInstanceRegistry] Registered for fr.neatmonster.nocheatplus.compat.IBridgeCrossPlugin: fr.neatmonster.nocheatplus.compat.meta.BridgeCrossPlugin
+25-04-13 20:30:52 [信息] [GenericInstanceRegistry] Registered for fr.neatmonster.nocheatplus.compat.MCAccess: fr.neatmonster.nocheatplus.compat.bukkit.MCAccessBukkitModern
+25-04-13 20:30:52 [信息] [GenericInstanceRegistry] Registered for fr.neatmonster.nocheatplus.utilities.map.BlockCache: fr.neatmonster.nocheatplus.compat.bukkit.BlockCacheBukkitModern
+25-04-13 20:30:52 [信息] [GenericInstanceRegistry] Registered for fr.neatmonster.nocheatplus.components.modifier.IAttributeAccess: fr.neatmonster.nocheatplus.compat.bukkit.NSBukkitAttributeAccess
+25-04-13 20:30:52 [信息] [GenericInstanceRegistry] Registered for fr.neatmonster.nocheatplus.components.entity.IEntityAccessVehicle: fr.neatmonster.nocheatplus.compat.bukkit.EntityAccessVehicleMultiPassenger
+25-04-13 20:30:52 [信息] [GenericInstanceRegistry] Registered for itself: fr.neatmonster.nocheatplus.checks.moving.util.AuxMoving
+25-04-13 20:30:52 [信息] Added hook: ViolationFrequency(NCP) [1.0].
+25-04-13 20:30:52 [信息] Added hook: mcMMO(cncp) [2.3].
+25-04-13 20:30:52 [信息] Added hook: CMI(cncp) [1.0].
+25-04-13 20:30:52 [警告] The block data is incomplete:
+--- Missing entries -------------------------------
+* BLOCK BREAKING (PALE_OAK_LOG / SOLID+GROUND) 
+* BLOCK BREAKING (PALE_OAK_WOOD / SOLID+GROUND) 
+* BLOCK BREAKING (PALE_OAK_LEAVES / SOLID+IGN_PASSABLE+GROUND) 
+* BLOCK BREAKING (PALE_HANGING_MOSS / IGN_PASSABLE) 
+* BLOCK BREAKING (PALE_MOSS_BLOCK / SOLID+GROUND) 
+* BLOCK BREAKING (PALE_OAK_SLAB / SOLID+GROUND+XZ100) 
+* BLOCK BREAKING (CREAKING_HEART / SOLID+GROUND) 
+* BLOCK BREAKING (PALE_OAK_FENCE / SOLID+IGN_PASSABLE+GROUND) 
+* BLOCK BREAKING (PALE_OAK_STAIRS / STAIRS+SOLID+GROUND) 
+* BLOCK BREAKING (PALE_OAK_BUTTON / IGN_PASSABLE) 
+* BLOCK BREAKING (PALE_OAK_PRESSURE_PLATE / IGN_PASSABLE) 
+* BLOCK BREAKING (PALE_OAK_DOOR / SOLID+GROUND+VARIABLE_USE+VARIABLE_REDSTONE) 
+* BLOCK BREAKING (PALE_OAK_TRAPDOOR / SOLID+GROUND+VARIABLE_USE+VARIABLE_REDSTONE) 
+* BLOCK BREAKING (PALE_OAK_FENCE_GATE / SOLID+IGN_PASSABLE+GROUND+VARIABLE_USE+VARIABLE_REDSTONE) 
+* BLOCK BREAKING (PALE_OAK_SIGN / SOLID+IGN_PASSABLE+GROUND) 
+* BLOCK BREAKING (PALE_OAK_HANGING_SIGN / SOLID+IGN_PASSABLE+GROUND) 
+* BLOCK BREAKING (PALE_OAK_WALL_SIGN / SOLID+IGN_PASSABLE+GROUND) 
+* BLOCK BREAKING (PALE_OAK_WALL_HANGING_SIGN / SOLID+IGN_PASSABLE+GROUND) 
+25-04-13 20:30:52 [信息] Post-enable running...
+25-04-13 20:30:52 [信息] Post-enable finished.
+25-04-13 20:30:53 [信息] §c§l»Version information«§7
+§6§lServer:§7
+§71.21.3-27-04bc249 ~MC: 1.21.3~
+§7§eDetected: §71.21.3
+§6§lNoCheatPlus:§7
+§7§ePlugin: §73.17.1-SNAPSHOT-Updated-b198
+§7§eMCAccess: §71.13-1.21|? / Bukkit-API
+§6§lFeatures:
+§7§eblocks§7: BlocksMC1_4§f, §7BlocksMC1_5§f, §7BlocksMC1_6_1§f, §7BlocksMC1_7_2§f, §7BlocksMC1_8§f, §7BlocksMC1_9§f, §7BlocksMC1_10§f, §7BlocksMC1_11§f, §7BlocksMC1_12§f, §7BlocksMC1_13§f, §7BlocksMC1_14§f, §7BlocksMC1_15§f, §7BlocksMC1_16§f, §7BlocksMC1_17§f, §7BlocksMC1_19§f, §7BlocksMC1_20§f, §7MCAccessBukkitModern
+§7§echecks§7: FastConsume§f, §7Gutenberg§f, §7HotFixFallingBlockPortalEnter§f, §7AttackFrequency§f, §7FlyingFrequency§f, §7KeepAliveFrequency
+§7§edefaults§7: pvpKnockBackVelocity
+§7§epacket-listeners§7: UseEntityAdapter§f, §7MovingFlying§f, §7OutgoingPosition§f, §7KeepAliveAdapter§f, §7WrongTurnAdapter§f, §7NoSlow§f, §7Fight
+§6§lHooks:
+§7CMI~cncp~ 1.0§f, §7mcMMO~cncp~ 2.3§f, §7ViolationFrequency~NCP~ 1.0
+§c§l»Related Plugins«§7
+§7CompatNoCheatPlus v6.6.7-SNAPSHOT-b10§f, §7ProtocolLib v5.3.0§f, §7ViaVersion v5.3.1
+25-04-13 20:31:04 [警告] Failed to create action: NoCheatPlus doesn't know command 'javaerror'. Have you forgotten to define it?
+25-04-13 20:34:33 [警告] Failed to create action: NoCheatPlus doesn't know command 'blockdirectionbreak'. Have you forgotten to define it?
+25-04-13 20:35:09 [信息] Removed hook: mcMMO(cncp) [2.3].
+25-04-13 20:35:09 [信息] Removed hook: CMI(cncp) [1.0].
+25-04-13 20:35:09 [信息] Removed hook: ViolationFrequency(NCP) [1.0].
+25-04-13 20:35:09 [详细] | cancel.dead 0 | cancel.offline 0 | block.interact.look.current 0 | block.interact.look.flying.first 0 | block.interact.look.flying.other 0 | illegalitem 0 | boatsanywhere 0 | throwenderpearl 0 | fakeinvulnerable 0 | eggonentity 0 | event.player.move 1423 (1423/0) | packet.nullplayer 0 | packet.inconsistent.isasync 0 | packet.flying 2123 (0/2123) | packet.flying.asynchronous 2123 (0/2123) | packet.outgoing_position.untracked 0 |
+25-04-13 20:35:09 [信息] [GenericInstanceRegistry] Registry cleared.
+25-04-13 20:43:12 [信息] Logger started.
+25-04-13 20:43:12 [信息] Logging system initialized.
+25-04-13 20:43:12 [信息] Detected Minecraft version: 1.21.3
+25-04-13 20:43:27 [信息] McAccess set to: 1.13-1.21|? / Bukkit-API
+25-04-13 20:43:27 [信息] Applied block patches for multi client protocol support: water_lily, soil, vine, honey_block, shulker_box
+25-04-13 20:43:27 [信息] Update block-info: Block shape patch for multi client protocol support.
+25-04-13 20:43:27 [详细] The following blocks can not be modeled correctly: PALE_OAK_LEAVES, PALE_HANGING_MOSS, PALE_OAK_FENCE, PALE_OAK_FENCE_GATE, PALE_OAK_SIGN, PALE_OAK_HANGING_SIGN, PALE_OAK_WALL_SIGN, PALE_OAK_WALL_HANGING_SIGN
+25-04-13 20:43:27 [信息] Inventory checks: FastConsume is available, disabled InstantEat.
+25-04-13 20:43:27 [信息] Adding packet level hooks for ProtocolLib (MC 1.21.3)...
+25-04-13 20:43:27 [信息] Confirm teleport packet available (via name): TELEPORT_ACCEPT[class=ServerboundAcceptTeleportationPacket, id=0]
+25-04-13 20:43:27 [信息] Available (and activated) packet level hooks: UseEntityAdapter | MovingFlying | OutgoingPosition | KeepAliveAdapter | WrongTurnAdapter | NoSlow | Fight
+25-04-13 20:43:27 [信息] Force disable FastHeal, FastConsume, PacketFrequency and InstantBow on Minecraft 1.9 and later.
+25-04-13 20:43:27 [信息] Version 3.17.1-SNAPSHOT-Updated-b198 is enabled.
+25-04-13 20:45:41 [信息] Logger started.
+25-04-13 20:45:41 [信息] Logging system initialized.
+25-04-13 20:45:41 [信息] Detected Minecraft version: 1.21.3
+25-04-13 20:45:54 [信息] McAccess set to: 1.13-1.21|? / Bukkit-API
+25-04-13 20:45:54 [信息] Applied block patches for multi client protocol support: water_lily, soil, vine, honey_block, shulker_box
+25-04-13 20:45:54 [信息] Update block-info: Block shape patch for multi client protocol support.
+25-04-13 20:45:54 [详细] The following blocks can not be modeled correctly: PALE_OAK_LEAVES, PALE_HANGING_MOSS, PALE_OAK_FENCE, PALE_OAK_FENCE_GATE, PALE_OAK_SIGN, PALE_OAK_HANGING_SIGN, PALE_OAK_WALL_SIGN, PALE_OAK_WALL_HANGING_SIGN
+25-04-13 20:45:55 [信息] Inventory checks: FastConsume is available, disabled InstantEat.
+25-04-13 20:45:55 [信息] Adding packet level hooks for ProtocolLib (MC 1.21.3)...
+25-04-13 20:45:55 [信息] Confirm teleport packet available (via name): TELEPORT_ACCEPT[class=ServerboundAcceptTeleportationPacket, id=0]
+25-04-13 20:45:55 [信息] Available (and activated) packet level hooks: UseEntityAdapter | MovingFlying | OutgoingPosition | KeepAliveAdapter | WrongTurnAdapter | NoSlow | Fight
+25-04-13 20:45:55 [信息] Force disable FastHeal, FastConsume, PacketFrequency and InstantBow on Minecraft 1.9 and later.
+25-04-13 20:45:55 [信息] Version 3.17.1-SNAPSHOT-Updated-b198 is enabled.
+25-04-13 20:46:26 [信息] [GenericInstanceRegistry] Registered (override) for itself: fr.neatmonster.nocheatplus.hooks.ExemptionSettings
+25-04-13 20:46:26 [信息] [GenericInstanceRegistry] Registered for itself: fr.neatmonster.nocheatplus.stats.Counters
+25-04-13 20:46:26 [信息] [GenericInstanceRegistry] Registered for itself: fr.neatmonster.nocheatplus.checks.workaround.WRPT
+25-04-13 20:46:26 [信息] [GenericInstanceRegistry] Registered for itself: fr.neatmonster.nocheatplus.checks.moving.location.tracking.LocationTrace$TraceEntryPool
+25-04-13 20:46:26 [信息] [GenericInstanceRegistry] Registered for itself: fr.neatmonster.nocheatplus.utilities.entity.PassengerUtil
+25-04-13 20:46:26 [信息] [GenericInstanceRegistry] Registered for fr.neatmonster.nocheatplus.compat.IBridgeCrossPlugin: fr.neatmonster.nocheatplus.compat.meta.BridgeCrossPlugin
+25-04-13 20:46:26 [信息] [GenericInstanceRegistry] Registered for fr.neatmonster.nocheatplus.compat.MCAccess: fr.neatmonster.nocheatplus.compat.bukkit.MCAccessBukkitModern
+25-04-13 20:46:26 [信息] [GenericInstanceRegistry] Registered for fr.neatmonster.nocheatplus.utilities.map.BlockCache: fr.neatmonster.nocheatplus.compat.bukkit.BlockCacheBukkitModern
+25-04-13 20:46:26 [信息] [GenericInstanceRegistry] Registered for fr.neatmonster.nocheatplus.components.modifier.IAttributeAccess: fr.neatmonster.nocheatplus.compat.bukkit.NSBukkitAttributeAccess
+25-04-13 20:46:26 [信息] [GenericInstanceRegistry] Registered for fr.neatmonster.nocheatplus.components.entity.IEntityAccessVehicle: fr.neatmonster.nocheatplus.compat.bukkit.EntityAccessVehicleMultiPassenger
+25-04-13 20:46:26 [信息] [GenericInstanceRegistry] Registered for itself: fr.neatmonster.nocheatplus.checks.moving.util.AuxMoving
+25-04-13 20:46:26 [信息] Added hook: ViolationFrequency(NCP) [1.0].
+25-04-13 20:46:26 [信息] Added hook: mcMMO(cncp) [2.3].
+25-04-13 20:46:26 [信息] Added hook: CMI(cncp) [1.0].
+25-04-13 20:46:26 [警告] The block data is incomplete:
+--- Missing entries -------------------------------
+* BLOCK BREAKING (PALE_OAK_LOG / SOLID+GROUND) 
+* BLOCK BREAKING (PALE_OAK_WOOD / SOLID+GROUND) 
+* BLOCK BREAKING (PALE_OAK_LEAVES / SOLID+IGN_PASSABLE+GROUND) 
+* BLOCK BREAKING (PALE_HANGING_MOSS / IGN_PASSABLE) 
+* BLOCK BREAKING (PALE_MOSS_BLOCK / SOLID+GROUND) 
+* BLOCK BREAKING (PALE_OAK_SLAB / SOLID+GROUND+XZ100) 
+* BLOCK BREAKING (CREAKING_HEART / SOLID+GROUND) 
+* BLOCK BREAKING (PALE_OAK_FENCE / SOLID+IGN_PASSABLE+GROUND) 
+* BLOCK BREAKING (PALE_OAK_STAIRS / STAIRS+SOLID+GROUND) 
+* BLOCK BREAKING (PALE_OAK_BUTTON / IGN_PASSABLE) 
+* BLOCK BREAKING (PALE_OAK_PRESSURE_PLATE / IGN_PASSABLE) 
+* BLOCK BREAKING (PALE_OAK_DOOR / SOLID+GROUND+VARIABLE_USE+VARIABLE_REDSTONE) 
+* BLOCK BREAKING (PALE_OAK_TRAPDOOR / SOLID+GROUND+VARIABLE_USE+VARIABLE_REDSTONE) 
+* BLOCK BREAKING (PALE_OAK_FENCE_GATE / SOLID+IGN_PASSABLE+GROUND+VARIABLE_USE+VARIABLE_REDSTONE) 
+* BLOCK BREAKING (PALE_OAK_SIGN / SOLID+IGN_PASSABLE+GROUND) 
+* BLOCK BREAKING (PALE_OAK_HANGING_SIGN / SOLID+IGN_PASSABLE+GROUND) 
+* BLOCK BREAKING (PALE_OAK_WALL_SIGN / SOLID+IGN_PASSABLE+GROUND) 
+* BLOCK BREAKING (PALE_OAK_WALL_HANGING_SIGN / SOLID+IGN_PASSABLE+GROUND) 
+25-04-13 20:46:26 [信息] Post-enable running...
+25-04-13 20:46:26 [信息] Post-enable finished.
+25-04-13 20:46:27 [信息] §c§l»Version information«§7
+§6§lServer:§7
+§71.21.3-27-04bc249 ~MC: 1.21.3~
+§7§eDetected: §71.21.3
+§6§lNoCheatPlus:§7
+§7§ePlugin: §73.17.1-SNAPSHOT-Updated-b198
+§7§eMCAccess: §71.13-1.21|? / Bukkit-API
+§6§lFeatures:
+§7§eblocks§7: BlocksMC1_4§f, §7BlocksMC1_5§f, §7BlocksMC1_6_1§f, §7BlocksMC1_7_2§f, §7BlocksMC1_8§f, §7BlocksMC1_9§f, §7BlocksMC1_10§f, §7BlocksMC1_11§f, §7BlocksMC1_12§f, §7BlocksMC1_13§f, §7BlocksMC1_14§f, §7BlocksMC1_15§f, §7BlocksMC1_16§f, §7BlocksMC1_17§f, §7BlocksMC1_19§f, §7BlocksMC1_20§f, §7MCAccessBukkitModern
+§7§echecks§7: FastConsume§f, §7Gutenberg§f, §7HotFixFallingBlockPortalEnter§f, §7AttackFrequency§f, §7FlyingFrequency§f, §7KeepAliveFrequency
+§7§edefaults§7: pvpKnockBackVelocity
+§7§epacket-listeners§7: UseEntityAdapter§f, §7MovingFlying§f, §7OutgoingPosition§f, §7KeepAliveAdapter§f, §7WrongTurnAdapter§f, §7NoSlow§f, §7Fight
+§6§lHooks:
+§7CMI~cncp~ 1.0§f, §7mcMMO~cncp~ 2.3§f, §7ViolationFrequency~NCP~ 1.0
+§c§l»Related Plugins«§7
+§7CompatNoCheatPlus v6.6.7-SNAPSHOT-b10§f, §7ProtocolLib v5.3.0§f, §7ViaVersion v5.3.1
+25-04-13 20:47:05 [警告] Failed to create action: NoCheatPlus doesn't know command 'javaerror'. Have you forgotten to define it?
+25-04-13 20:58:53 [警告] Failed to create action: NoCheatPlus doesn't know command 'blockdirectionbreak'. Have you forgotten to define it?
+25-04-13 21:01:12 [信息] Logger started.
+25-04-13 21:01:12 [信息] Logging system initialized.
+25-04-13 21:01:12 [信息] Detected Minecraft version: 1.21.3
+25-04-13 21:01:26 [信息] McAccess set to: 1.13-1.21|? / Bukkit-API
+25-04-13 21:01:26 [信息] Applied block patches for multi client protocol support: water_lily, soil, vine, honey_block, shulker_box
+25-04-13 21:01:26 [信息] Update block-info: Block shape patch for multi client protocol support.
+25-04-13 21:01:26 [详细] The following blocks can not be modeled correctly: PALE_OAK_LEAVES, PALE_HANGING_MOSS, PALE_OAK_FENCE, PALE_OAK_FENCE_GATE, PALE_OAK_SIGN, PALE_OAK_HANGING_SIGN, PALE_OAK_WALL_SIGN, PALE_OAK_WALL_HANGING_SIGN
+25-04-13 21:01:27 [信息] Inventory checks: FastConsume is available, disabled InstantEat.
+25-04-13 21:01:27 [信息] Adding packet level hooks for ProtocolLib (MC 1.21.3)...
+25-04-13 21:01:27 [信息] Confirm teleport packet available (via name): TELEPORT_ACCEPT[class=ServerboundAcceptTeleportationPacket, id=0]
+25-04-13 21:01:27 [信息] Available (and activated) packet level hooks: UseEntityAdapter | MovingFlying | OutgoingPosition | KeepAliveAdapter | WrongTurnAdapter | NoSlow | Fight
+25-04-13 21:01:27 [信息] Force disable FastHeal, FastConsume, PacketFrequency and InstantBow on Minecraft 1.9 and later.
+25-04-13 21:01:27 [信息] Version 3.17.1-SNAPSHOT-Updated-b198 is enabled.
+25-04-13 21:01:59 [信息] [GenericInstanceRegistry] Registered (override) for itself: fr.neatmonster.nocheatplus.hooks.ExemptionSettings
+25-04-13 21:01:59 [信息] [GenericInstanceRegistry] Registered for itself: fr.neatmonster.nocheatplus.stats.Counters
+25-04-13 21:01:59 [信息] [GenericInstanceRegistry] Registered for itself: fr.neatmonster.nocheatplus.checks.workaround.WRPT
+25-04-13 21:01:59 [信息] [GenericInstanceRegistry] Registered for itself: fr.neatmonster.nocheatplus.checks.moving.location.tracking.LocationTrace$TraceEntryPool
+25-04-13 21:01:59 [信息] [GenericInstanceRegistry] Registered for itself: fr.neatmonster.nocheatplus.utilities.entity.PassengerUtil
+25-04-13 21:01:59 [信息] [GenericInstanceRegistry] Registered for fr.neatmonster.nocheatplus.compat.IBridgeCrossPlugin: fr.neatmonster.nocheatplus.compat.meta.BridgeCrossPlugin
+25-04-13 21:01:59 [信息] [GenericInstanceRegistry] Registered for fr.neatmonster.nocheatplus.compat.MCAccess: fr.neatmonster.nocheatplus.compat.bukkit.MCAccessBukkitModern
+25-04-13 21:01:59 [信息] [GenericInstanceRegistry] Registered for fr.neatmonster.nocheatplus.utilities.map.BlockCache: fr.neatmonster.nocheatplus.compat.bukkit.BlockCacheBukkitModern
+25-04-13 21:01:59 [信息] [GenericInstanceRegistry] Registered for fr.neatmonster.nocheatplus.components.modifier.IAttributeAccess: fr.neatmonster.nocheatplus.compat.bukkit.NSBukkitAttributeAccess
+25-04-13 21:01:59 [信息] [GenericInstanceRegistry] Registered for fr.neatmonster.nocheatplus.components.entity.IEntityAccessVehicle: fr.neatmonster.nocheatplus.compat.bukkit.EntityAccessVehicleMultiPassenger
+25-04-13 21:01:59 [信息] [GenericInstanceRegistry] Registered for itself: fr.neatmonster.nocheatplus.checks.moving.util.AuxMoving
+25-04-13 21:01:59 [信息] Added hook: ViolationFrequency(NCP) [1.0].
+25-04-13 21:01:59 [信息] Added hook: CMI(cncp) [1.0].
+25-04-13 21:01:59 [信息] Added hook: mcMMO(cncp) [2.3].
+25-04-13 21:01:59 [警告] The block data is incomplete:
+--- Missing entries -------------------------------
+* BLOCK BREAKING (PALE_OAK_LOG / SOLID+GROUND) 
+* BLOCK BREAKING (PALE_OAK_WOOD / SOLID+GROUND) 
+* BLOCK BREAKING (PALE_OAK_LEAVES / SOLID+IGN_PASSABLE+GROUND) 
+* BLOCK BREAKING (PALE_HANGING_MOSS / IGN_PASSABLE) 
+* BLOCK BREAKING (PALE_MOSS_BLOCK / SOLID+GROUND) 
+* BLOCK BREAKING (PALE_OAK_SLAB / SOLID+GROUND+XZ100) 
+* BLOCK BREAKING (CREAKING_HEART / SOLID+GROUND) 
+* BLOCK BREAKING (PALE_OAK_FENCE / SOLID+IGN_PASSABLE+GROUND) 
+* BLOCK BREAKING (PALE_OAK_STAIRS / STAIRS+SOLID+GROUND) 
+* BLOCK BREAKING (PALE_OAK_BUTTON / IGN_PASSABLE) 
+* BLOCK BREAKING (PALE_OAK_PRESSURE_PLATE / IGN_PASSABLE) 
+* BLOCK BREAKING (PALE_OAK_DOOR / SOLID+GROUND+VARIABLE_USE+VARIABLE_REDSTONE) 
+* BLOCK BREAKING (PALE_OAK_TRAPDOOR / SOLID+GROUND+VARIABLE_USE+VARIABLE_REDSTONE) 
+* BLOCK BREAKING (PALE_OAK_FENCE_GATE / SOLID+IGN_PASSABLE+GROUND+VARIABLE_USE+VARIABLE_REDSTONE) 
+* BLOCK BREAKING (PALE_OAK_SIGN / SOLID+IGN_PASSABLE+GROUND) 
+* BLOCK BREAKING (PALE_OAK_HANGING_SIGN / SOLID+IGN_PASSABLE+GROUND) 
+* BLOCK BREAKING (PALE_OAK_WALL_SIGN / SOLID+IGN_PASSABLE+GROUND) 
+* BLOCK BREAKING (PALE_OAK_WALL_HANGING_SIGN / SOLID+IGN_PASSABLE+GROUND) 
+25-04-13 21:01:59 [信息] Post-enable running...
+25-04-13 21:01:59 [信息] Post-enable finished.
+25-04-13 21:02:00 [信息] §c§l»Version information«§7
+§6§lServer:§7
+§71.21.3-27-04bc249 ~MC: 1.21.3~
+§7§eDetected: §71.21.3
+§6§lNoCheatPlus:§7
+§7§ePlugin: §73.17.1-SNAPSHOT-Updated-b198
+§7§eMCAccess: §71.13-1.21|? / Bukkit-API
+§6§lFeatures:
+§7§eblocks§7: BlocksMC1_4§f, §7BlocksMC1_5§f, §7BlocksMC1_6_1§f, §7BlocksMC1_7_2§f, §7BlocksMC1_8§f, §7BlocksMC1_9§f, §7BlocksMC1_10§f, §7BlocksMC1_11§f, §7BlocksMC1_12§f, §7BlocksMC1_13§f, §7BlocksMC1_14§f, §7BlocksMC1_15§f, §7BlocksMC1_16§f, §7BlocksMC1_17§f, §7BlocksMC1_19§f, §7BlocksMC1_20§f, §7MCAccessBukkitModern
+§7§echecks§7: FastConsume§f, §7Gutenberg§f, §7HotFixFallingBlockPortalEnter§f, §7AttackFrequency§f, §7FlyingFrequency§f, §7KeepAliveFrequency
+§7§edefaults§7: pvpKnockBackVelocity
+§7§epacket-listeners§7: UseEntityAdapter§f, §7MovingFlying§f, §7OutgoingPosition§f, §7KeepAliveAdapter§f, §7WrongTurnAdapter§f, §7NoSlow§f, §7Fight
+§6§lHooks:
+§7CMI~cncp~ 1.0§f, §7mcMMO~cncp~ 2.3§f, §7ViolationFrequency~NCP~ 1.0
+§c§l»Related Plugins«§7
+§7CompatNoCheatPlus v6.6.7-SNAPSHOT-b10§f, §7ProtocolLib v5.3.0§f, §7ViaVersion v5.3.1
+25-04-13 21:02:11 [警告] Failed to create action: NoCheatPlus doesn't know command 'javaerror'. Have you forgotten to define it?
+25-04-13 21:02:12 [警告] Failed to create action: NoCheatPlus doesn't know command 'blockdirectionbreak'. Have you forgotten to define it?
+25-04-17 14:48:06 [信息] Logger started.
+25-04-17 14:48:06 [信息] Logging system initialized.
+25-04-17 14:48:06 [信息] Detected Minecraft version: 1.21.3
+25-04-17 14:48:21 [信息] McAccess set to: 1.13-1.21|? / Bukkit-API
+25-04-17 14:48:21 [信息] Applied block patches for multi client protocol support: water_lily, soil, vine, honey_block, shulker_box
+25-04-17 14:48:21 [信息] Update block-info: Block shape patch for multi client protocol support.
+25-04-17 14:48:21 [详细] The following blocks can not be modeled correctly: PALE_OAK_LEAVES, PALE_HANGING_MOSS, PALE_OAK_FENCE, PALE_OAK_FENCE_GATE, PALE_OAK_SIGN, PALE_OAK_HANGING_SIGN, PALE_OAK_WALL_SIGN, PALE_OAK_WALL_HANGING_SIGN
+25-04-17 14:48:21 [信息] Inventory checks: FastConsume is available, disabled InstantEat.
+25-04-17 14:48:21 [信息] Adding packet level hooks for ProtocolLib (MC 1.21.3)...
+25-04-17 14:48:21 [信息] Confirm teleport packet available (via name): TELEPORT_ACCEPT[class=ServerboundAcceptTeleportationPacket, id=0]
+25-04-17 14:48:21 [信息] Available (and activated) packet level hooks: UseEntityAdapter | MovingFlying | OutgoingPosition | KeepAliveAdapter | WrongTurnAdapter | NoSlow | Fight
+25-04-17 14:48:21 [信息] Force disable FastHeal, FastConsume, PacketFrequency and InstantBow on Minecraft 1.9 and later.
+25-04-17 14:48:21 [信息] Version 3.17.1-SNAPSHOT-Updated-b198 is enabled.
+25-04-17 14:48:53 [信息] [GenericInstanceRegistry] Registered (override) for itself: fr.neatmonster.nocheatplus.hooks.ExemptionSettings
+25-04-17 14:48:53 [信息] [GenericInstanceRegistry] Registered for itself: fr.neatmonster.nocheatplus.stats.Counters
+25-04-17 14:48:53 [信息] [GenericInstanceRegistry] Registered for itself: fr.neatmonster.nocheatplus.checks.workaround.WRPT
+25-04-17 14:48:53 [信息] [GenericInstanceRegistry] Registered for itself: fr.neatmonster.nocheatplus.checks.moving.location.tracking.LocationTrace$TraceEntryPool
+25-04-17 14:48:53 [信息] [GenericInstanceRegistry] Registered for itself: fr.neatmonster.nocheatplus.utilities.entity.PassengerUtil
+25-04-17 14:48:53 [信息] [GenericInstanceRegistry] Registered for fr.neatmonster.nocheatplus.compat.IBridgeCrossPlugin: fr.neatmonster.nocheatplus.compat.meta.BridgeCrossPlugin
+25-04-17 14:48:53 [信息] [GenericInstanceRegistry] Registered for fr.neatmonster.nocheatplus.compat.MCAccess: fr.neatmonster.nocheatplus.compat.bukkit.MCAccessBukkitModern
+25-04-17 14:48:53 [信息] [GenericInstanceRegistry] Registered for fr.neatmonster.nocheatplus.utilities.map.BlockCache: fr.neatmonster.nocheatplus.compat.bukkit.BlockCacheBukkitModern
+25-04-17 14:48:53 [信息] [GenericInstanceRegistry] Registered for fr.neatmonster.nocheatplus.components.modifier.IAttributeAccess: fr.neatmonster.nocheatplus.compat.bukkit.NSBukkitAttributeAccess
+25-04-17 14:48:53 [信息] [GenericInstanceRegistry] Registered for fr.neatmonster.nocheatplus.components.entity.IEntityAccessVehicle: fr.neatmonster.nocheatplus.compat.bukkit.EntityAccessVehicleMultiPassenger
+25-04-17 14:48:53 [信息] [GenericInstanceRegistry] Registered for itself: fr.neatmonster.nocheatplus.checks.moving.util.AuxMoving
+25-04-17 14:48:53 [信息] Added hook: ViolationFrequency(NCP) [1.0].
+25-04-17 14:48:53 [信息] Added hook: mcMMO(cncp) [2.3].
+25-04-17 14:48:53 [信息] Added hook: CMI(cncp) [1.0].
+25-04-17 14:48:53 [警告] The block data is incomplete:
+--- Missing entries -------------------------------
+* BLOCK BREAKING (PALE_OAK_LOG / SOLID+GROUND) 
+* BLOCK BREAKING (PALE_OAK_WOOD / SOLID+GROUND) 
+* BLOCK BREAKING (PALE_OAK_LEAVES / SOLID+IGN_PASSABLE+GROUND) 
+* BLOCK BREAKING (PALE_HANGING_MOSS / IGN_PASSABLE) 
+* BLOCK BREAKING (PALE_MOSS_BLOCK / SOLID+GROUND) 
+* BLOCK BREAKING (PALE_OAK_SLAB / SOLID+GROUND+XZ100) 
+* BLOCK BREAKING (CREAKING_HEART / SOLID+GROUND) 
+* BLOCK BREAKING (PALE_OAK_FENCE / SOLID+IGN_PASSABLE+GROUND) 
+* BLOCK BREAKING (PALE_OAK_STAIRS / STAIRS+SOLID+GROUND) 
+* BLOCK BREAKING (PALE_OAK_BUTTON / IGN_PASSABLE) 
+* BLOCK BREAKING (PALE_OAK_PRESSURE_PLATE / IGN_PASSABLE) 
+* BLOCK BREAKING (PALE_OAK_DOOR / SOLID+GROUND+VARIABLE_USE+VARIABLE_REDSTONE) 
+* BLOCK BREAKING (PALE_OAK_TRAPDOOR / SOLID+GROUND+VARIABLE_USE+VARIABLE_REDSTONE) 
+* BLOCK BREAKING (PALE_OAK_FENCE_GATE / SOLID+IGN_PASSABLE+GROUND+VARIABLE_USE+VARIABLE_REDSTONE) 
+* BLOCK BREAKING (PALE_OAK_SIGN / SOLID+IGN_PASSABLE+GROUND) 
+* BLOCK BREAKING (PALE_OAK_HANGING_SIGN / SOLID+IGN_PASSABLE+GROUND) 
+* BLOCK BREAKING (PALE_OAK_WALL_SIGN / SOLID+IGN_PASSABLE+GROUND) 
+* BLOCK BREAKING (PALE_OAK_WALL_HANGING_SIGN / SOLID+IGN_PASSABLE+GROUND) 
+25-04-17 14:48:53 [信息] Post-enable running...
+25-04-17 14:48:53 [信息] Post-enable finished.
+25-04-17 14:48:55 [信息] §c§l»Version information«§7
+§6§lServer:§7
+§71.21.3-27-04bc249 ~MC: 1.21.3~
+§7§eDetected: §71.21.3
+§6§lNoCheatPlus:§7
+§7§ePlugin: §73.17.1-SNAPSHOT-Updated-b198
+§7§eMCAccess: §71.13-1.21|? / Bukkit-API
+§6§lFeatures:
+§7§eblocks§7: BlocksMC1_4§f, §7BlocksMC1_5§f, §7BlocksMC1_6_1§f, §7BlocksMC1_7_2§f, §7BlocksMC1_8§f, §7BlocksMC1_9§f, §7BlocksMC1_10§f, §7BlocksMC1_11§f, §7BlocksMC1_12§f, §7BlocksMC1_13§f, §7BlocksMC1_14§f, §7BlocksMC1_15§f, §7BlocksMC1_16§f, §7BlocksMC1_17§f, §7BlocksMC1_19§f, §7BlocksMC1_20§f, §7MCAccessBukkitModern
+§7§echecks§7: FastConsume§f, §7Gutenberg§f, §7HotFixFallingBlockPortalEnter§f, §7AttackFrequency§f, §7FlyingFrequency§f, §7KeepAliveFrequency
+§7§edefaults§7: pvpKnockBackVelocity
+§7§epacket-listeners§7: UseEntityAdapter§f, §7MovingFlying§f, §7OutgoingPosition§f, §7KeepAliveAdapter§f, §7WrongTurnAdapter§f, §7NoSlow§f, §7Fight
+§6§lHooks:
+§7CMI~cncp~ 1.0§f, §7mcMMO~cncp~ 2.3§f, §7ViolationFrequency~NCP~ 1.0
+§c§l»Related Plugins«§7
+§7CompatNoCheatPlus v6.6.7-SNAPSHOT-b10§f, §7ProtocolLib v5.3.0§f, §7ViaVersion v5.3.1
+25-04-17 14:49:46 [警告] Failed to create action: NoCheatPlus doesn't know command 'javaerror'. Have you forgotten to define it?
+25-04-17 14:50:44 [警告] Failed to create action: NoCheatPlus doesn't know command 'blockdirectionbreak'. Have you forgotten to define it?
+25-04-17 15:05:35 [信息] Removed hook: mcMMO(cncp) [2.3].
+25-04-17 15:05:35 [信息] Removed hook: CMI(cncp) [1.0].
+25-04-17 15:05:35 [信息] Removed hook: ViolationFrequency(NCP) [1.0].
+25-04-17 15:05:35 [详细] | cancel.dead 0 | cancel.offline 0 | block.interact.look.current 0 | block.interact.look.flying.first 0 | block.interact.look.flying.other 0 | illegalitem 0 | boatsanywhere 0 | throwenderpearl 0 | fakeinvulnerable 0 | eggonentity 0 | event.player.move 5611 (5611/0) | packet.nullplayer 0 | packet.inconsistent.isasync 0 | packet.flying 7467 (0/7467) | packet.flying.asynchronous 7467 (0/7467) | packet.outgoing_position.untracked 0 |
+25-04-17 15:05:35 [信息] [GenericInstanceRegistry] Registry cleared.
+25-04-17 15:10:32 [信息] Logger started.
+25-04-17 15:10:32 [信息] Logging system initialized.
+25-04-17 15:10:32 [信息] Detected Minecraft version: 1.21.3
+25-04-17 15:10:45 [信息] McAccess set to: 1.13-1.21|? / Bukkit-API
+25-04-17 15:10:45 [信息] Applied block patches for multi client protocol support: water_lily, soil, vine, honey_block, shulker_box
+25-04-17 15:10:45 [信息] Update block-info: Block shape patch for multi client protocol support.
+25-04-17 15:10:45 [详细] The following blocks can not be modeled correctly: PALE_OAK_LEAVES, PALE_HANGING_MOSS, PALE_OAK_FENCE, PALE_OAK_FENCE_GATE, PALE_OAK_SIGN, PALE_OAK_HANGING_SIGN, PALE_OAK_WALL_SIGN, PALE_OAK_WALL_HANGING_SIGN
+25-04-17 15:10:45 [信息] Inventory checks: FastConsume is available, disabled InstantEat.
+25-04-17 15:10:45 [信息] Adding packet level hooks for ProtocolLib (MC 1.21.3)...
+25-04-17 15:10:45 [信息] Confirm teleport packet available (via name): TELEPORT_ACCEPT[class=ServerboundAcceptTeleportationPacket, id=0]
+25-04-17 15:10:45 [信息] Available (and activated) packet level hooks: UseEntityAdapter | MovingFlying | OutgoingPosition | KeepAliveAdapter | WrongTurnAdapter | NoSlow | Fight
+25-04-17 15:10:45 [信息] Force disable FastHeal, FastConsume, PacketFrequency and InstantBow on Minecraft 1.9 and later.
+25-04-17 15:10:45 [信息] Version 3.17.1-SNAPSHOT-Updated-b198 is enabled.
+25-04-17 15:11:15 [信息] [GenericInstanceRegistry] Registered (override) for itself: fr.neatmonster.nocheatplus.hooks.ExemptionSettings
+25-04-17 15:11:15 [信息] [GenericInstanceRegistry] Registered for itself: fr.neatmonster.nocheatplus.stats.Counters
+25-04-17 15:11:15 [信息] [GenericInstanceRegistry] Registered for itself: fr.neatmonster.nocheatplus.checks.workaround.WRPT
+25-04-17 15:11:15 [信息] [GenericInstanceRegistry] Registered for itself: fr.neatmonster.nocheatplus.checks.moving.location.tracking.LocationTrace$TraceEntryPool
+25-04-17 15:11:15 [信息] [GenericInstanceRegistry] Registered for itself: fr.neatmonster.nocheatplus.utilities.entity.PassengerUtil
+25-04-17 15:11:15 [信息] [GenericInstanceRegistry] Registered for fr.neatmonster.nocheatplus.compat.IBridgeCrossPlugin: fr.neatmonster.nocheatplus.compat.meta.BridgeCrossPlugin
+25-04-17 15:11:15 [信息] [GenericInstanceRegistry] Registered for fr.neatmonster.nocheatplus.compat.MCAccess: fr.neatmonster.nocheatplus.compat.bukkit.MCAccessBukkitModern
+25-04-17 15:11:15 [信息] [GenericInstanceRegistry] Registered for fr.neatmonster.nocheatplus.utilities.map.BlockCache: fr.neatmonster.nocheatplus.compat.bukkit.BlockCacheBukkitModern
+25-04-17 15:11:15 [信息] [GenericInstanceRegistry] Registered for fr.neatmonster.nocheatplus.components.modifier.IAttributeAccess: fr.neatmonster.nocheatplus.compat.bukkit.NSBukkitAttributeAccess
+25-04-17 15:11:15 [信息] [GenericInstanceRegistry] Registered for fr.neatmonster.nocheatplus.components.entity.IEntityAccessVehicle: fr.neatmonster.nocheatplus.compat.bukkit.EntityAccessVehicleMultiPassenger
+25-04-17 15:11:15 [信息] [GenericInstanceRegistry] Registered for itself: fr.neatmonster.nocheatplus.checks.moving.util.AuxMoving
+25-04-17 15:11:15 [信息] Added hook: ViolationFrequency(NCP) [1.0].
+25-04-17 15:11:15 [信息] Added hook: CMI(cncp) [1.0].
+25-04-17 15:11:15 [信息] Added hook: mcMMO(cncp) [2.3].
+25-04-17 15:11:15 [警告] The block data is incomplete:
+--- Missing entries -------------------------------
+* BLOCK BREAKING (PALE_OAK_LOG / SOLID+GROUND) 
+* BLOCK BREAKING (PALE_OAK_WOOD / SOLID+GROUND) 
+* BLOCK BREAKING (PALE_OAK_LEAVES / SOLID+IGN_PASSABLE+GROUND) 
+* BLOCK BREAKING (PALE_HANGING_MOSS / IGN_PASSABLE) 
+* BLOCK BREAKING (PALE_MOSS_BLOCK / SOLID+GROUND) 
+* BLOCK BREAKING (PALE_OAK_SLAB / SOLID+GROUND+XZ100) 
+* BLOCK BREAKING (CREAKING_HEART / SOLID+GROUND) 
+* BLOCK BREAKING (PALE_OAK_FENCE / SOLID+IGN_PASSABLE+GROUND) 
+* BLOCK BREAKING (PALE_OAK_STAIRS / STAIRS+SOLID+GROUND) 
+* BLOCK BREAKING (PALE_OAK_BUTTON / IGN_PASSABLE) 
+* BLOCK BREAKING (PALE_OAK_PRESSURE_PLATE / IGN_PASSABLE) 
+* BLOCK BREAKING (PALE_OAK_DOOR / SOLID+GROUND+VARIABLE_USE+VARIABLE_REDSTONE) 
+* BLOCK BREAKING (PALE_OAK_TRAPDOOR / SOLID+GROUND+VARIABLE_USE+VARIABLE_REDSTONE) 
+* BLOCK BREAKING (PALE_OAK_FENCE_GATE / SOLID+IGN_PASSABLE+GROUND+VARIABLE_USE+VARIABLE_REDSTONE) 
+* BLOCK BREAKING (PALE_OAK_SIGN / SOLID+IGN_PASSABLE+GROUND) 
+* BLOCK BREAKING (PALE_OAK_HANGING_SIGN / SOLID+IGN_PASSABLE+GROUND) 
+* BLOCK BREAKING (PALE_OAK_WALL_SIGN / SOLID+IGN_PASSABLE+GROUND) 
+* BLOCK BREAKING (PALE_OAK_WALL_HANGING_SIGN / SOLID+IGN_PASSABLE+GROUND) 
+25-04-17 15:11:15 [信息] Post-enable running...
+25-04-17 15:11:15 [信息] Post-enable finished.
+25-04-17 15:11:17 [信息] §c§l»Version information«§7
+§6§lServer:§7
+§71.21.3-27-04bc249 ~MC: 1.21.3~
+§7§eDetected: §71.21.3
+§6§lNoCheatPlus:§7
+§7§ePlugin: §73.17.1-SNAPSHOT-Updated-b198
+§7§eMCAccess: §71.13-1.21|? / Bukkit-API
+§6§lFeatures:
+§7§eblocks§7: BlocksMC1_4§f, §7BlocksMC1_5§f, §7BlocksMC1_6_1§f, §7BlocksMC1_7_2§f, §7BlocksMC1_8§f, §7BlocksMC1_9§f, §7BlocksMC1_10§f, §7BlocksMC1_11§f, §7BlocksMC1_12§f, §7BlocksMC1_13§f, §7BlocksMC1_14§f, §7BlocksMC1_15§f, §7BlocksMC1_16§f, §7BlocksMC1_17§f, §7BlocksMC1_19§f, §7BlocksMC1_20§f, §7MCAccessBukkitModern
+§7§echecks§7: FastConsume§f, §7Gutenberg§f, §7HotFixFallingBlockPortalEnter§f, §7AttackFrequency§f, §7FlyingFrequency§f, §7KeepAliveFrequency
+§7§edefaults§7: pvpKnockBackVelocity
+§7§epacket-listeners§7: UseEntityAdapter§f, §7MovingFlying§f, §7OutgoingPosition§f, §7KeepAliveAdapter§f, §7WrongTurnAdapter§f, §7NoSlow§f, §7Fight
+§6§lHooks:
+§7CMI~cncp~ 1.0§f, §7mcMMO~cncp~ 2.3§f, §7ViolationFrequency~NCP~ 1.0
+§c§l»Related Plugins«§7
+§7CompatNoCheatPlus v6.6.7-SNAPSHOT-b10§f, §7ProtocolLib v5.3.0§f, §7ViaVersion v5.3.1
+25-04-17 15:12:53 [警告] Failed to create action: NoCheatPlus doesn't know command 'javaerror'. Have you forgotten to define it?
+25-04-17 15:16:49 [警告] Failed to create action: NoCheatPlus doesn't know command 'blockdirectionbreak'. Have you forgotten to define it?
+25-04-17 20:25:28 [信息] Removed hook: CMI(cncp) [1.0].
+25-04-17 20:25:28 [信息] Removed hook: mcMMO(cncp) [2.3].
+25-04-17 20:25:28 [信息] Removed hook: ViolationFrequency(NCP) [1.0].
+25-04-17 20:25:28 [详细] | cancel.dead 0 | cancel.offline 0 | block.interact.look.current 0 | block.interact.look.flying.first 0 | block.interact.look.flying.other 0 | illegalitem 0 | boatsanywhere 0 | throwenderpearl 0 | fakeinvulnerable 0 | eggonentity 0 | event.player.move 4784 (4784/0) | packet.nullplayer 0 | packet.inconsistent.isasync 0 | packet.flying 6466 (0/6466) | packet.flying.asynchronous 6466 (0/6466) | packet.outgoing_position.untracked 0 |
+25-04-17 20:25:28 [信息] [GenericInstanceRegistry] Registry cleared.

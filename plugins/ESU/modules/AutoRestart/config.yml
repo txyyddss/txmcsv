@@ -1,0 +1,11 @@
+commands:
+  - stop
+notify-restart-at:
+  - 10m
+  - 5m
+  - 1m
+  - 30s
+  - 5s
+restart-at: 05:00
+restart-interval: 3d
+module-enabled: false

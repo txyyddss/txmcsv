@@ -18,6 +18,8 @@ RandomTeleportation:
       # Amount of times we should try to find valid location. This is mostly directly correlates with amount of chunks we will check
       # If set to 0 we will use default MaxTries set at the top of file
       MaxTries: 0
+      # Cooldown when looking for valid location, if set to 0 we will use default Cooldown set at the top of file
+      Cooldown: 0
       Range:
         # Max coordinate to teleport, setting to 1000, player can be teleported between -1000 and 1000 blocks between defined center location
         # For example having centerX at 2000 and centerZ at 3000 while MaxRange is set to 1500 we will teleport player between x:500;z:1500 and x:3500;z:4500 coordinates
@@ -46,6 +48,8 @@ RandomTeleportation:
         Lava: true
         Leaves: true
         PowderSnow: false
+        # When enabled we will not teleport player to single block spaces which forces player into crawl mode
+        CrawlSpaces: false
         # List of floor materials we should ignore when random teleporting
         Materials: []
         # List of biomes we should ignore when random teleporting
@@ -58,6 +62,7 @@ RandomTeleportation:
     world_nether:
       Enabled: true
       MaxTries: 0
+      Cooldown: 0
       Range:
         Max: 1000
         Min: 500
@@ -76,12 +81,14 @@ RandomTeleportation:
         Lava: true
         Leaves: true
         PowderSnow: false
+        CrawlSpaces: false
         Materials: []
         Biomes: []
       PreferredBiomes: []
     world_the_end:
       Enabled: true
       MaxTries: 0
+      Cooldown: 0
       Range:
         Max: 1000
         Min: 500
@@ -100,6 +107,7 @@ RandomTeleportation:
         Lava: true
         Leaves: true
         PowderSnow: false
+        CrawlSpaces: false
         Materials: []
         Biomes: []
       PreferredBiomes: []

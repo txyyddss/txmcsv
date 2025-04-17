@@ -1,0 +1,44 @@
+chat:
+  enable-chat-formatting: true
+
+  # If the message player sent starts with 'messagePrefix' and player has the permission,
+  # the 'head' and 'foot' will be appended to the chat message.
+  prefixed-message-modifiers:
+    - message-prefix: '>'
+      remove-prefix: false
+      permission: ''
+      head: <green>
+      foot: </green>
+    - message-prefix: '*'
+      remove-prefix: true
+      permission: ''
+      head: <gradient:#c8b3fd:#4bacc8>
+      foot: </gradient>
+whisper:
+  # Enable esu whisper commands.
+  enabled: true
+  intercept-namespaces: true
+  prefixed-message-modifiers:
+    - message-prefix: '>'
+      remove-prefix: false
+      permission: ''
+      head: <green>
+      foot: </green>
+    - message-prefix: '*'
+      remove-prefix: true
+      permission: ''
+      head: <gradient:#c8b3fd:#4bacc8>
+      foot: </gradient>
+emote:
+  # Enable esu emote/me commands.
+  enabled: true
+
+  # Enabling this will redirect all emote commands to esu one, to avoid mixing usage.
+  intercept-namespaces: true
+  prefixed-message-modifiers:
+    - message-prefix: ''
+      remove-prefix: true
+      permission: ''
+      head: <gray>
+      foot: </gray>
+module-enabled: false

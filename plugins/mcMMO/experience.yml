@@ -324,6 +324,10 @@ Experience_Values:
         Red_Mushroom_Block: 70
         Brown_Mushroom_Block: 70
         Mushroom_Stem: 80
+        Pale_Oak_Log: 130
+        Stripped_Pale_Oak_Log: 130
+        Stripped_Pale_Oak_Wood: 90
+        Pale_Oak_Wood: 110
     Herbalism:
         Pitcher_Plant: 160
         Pink_Petals: 10
@@ -420,6 +424,10 @@ Experience_Values:
         Lily_Of_The_Valley: 150
         Wither_Rose: 500
         Torchflower: 90
+        Eyeblossom: 66
+        Pale_Hanging_Moss: 150
+        Pale_Moss_Block: 10
+        Pale_Moss_Carpet: 10
     Mining:
         Sculk: 4
         Sculk_Vein: 3

@@ -6,7 +6,7 @@
 # If command starts with title! then all players will get title message defined after this variable
 # If command starts with subtitle! then all players will get subtitle message defined after this variable
 # If command starts with kickall! then all players will be kicked from server with defined message. Usefull before server stop.
-# If command starts with perm:[permissionNode]! then command will get performed if player has permission node. This will not work when we dont know who is target player. In example: perm:cmi.announce.vip! broadcast! Hello vip guys
+# If command starts with perm:[permissionNode]! then command will get performed if player has permission node. This will not work when we don't know who is target player. In example: perm:cmi.announce.vip! broadcast! Hello vip guys
 # [playerName] to insert target player name
 # [playerDisplayName] to insert player display name
 # [lvl] to insert player level

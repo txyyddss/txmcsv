@@ -1,0 +1,8 @@
+time-formatter: MM/dd HH:mm:ss
+could-not-parse-time: '<ec>The time you provided could not be parsed: <edc><message>'
+no-task: <pc>This server has no scheduled restart!
+notify: <sc><st>一一一一一一一一一一一一一一一一一一一一一一一一</st><br><pc>This server is restarting in <pdc><interval></pdc> at <pdc><time></pdc> !<br><sc><st>一一一一一一一一一一一一一一一一一一一一一一一一<sound:minecraft:ui.stonecutter.take_result>
+overrides-to: <pc>Overrides restart time to <pdc><interval></pdc> at <pdc><time></pdc> !
+overrides-reset: <pc>Reset restart time overrides. Now it's using the configured values.
+toggled-pausing: <pc>Toggled pausing to <pdc><state>
+kick-message: <pc>Server restarting, please wait a minute.

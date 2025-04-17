@@ -25,18 +25,19 @@
 #   This defaults to false and placeholders will be translated before hand
 #   Exception for delay! specialized command variable which always gets translated before hand
 # Commands: List of commands to be performed when time is correct. 
+#   You can multiple commands defined in single line, separate each one with ;; for example: command1;;command2;;command3
 #   If command starts with msg! and then player name is given, simple message will be sent to that player if he is online.
 #   If command starts with broadcast! then message will be sent to everyone on server in simple manear
 #   If command starts with actionbar! then all players will get action bar message defined after this variable
 #   If command starts with title! then all players will get title message defined after this variable
 #   If command starts with subtitle! then all players will get subtitle message defined after this variable
 #   If command starts with kickall! then all players will be kicked from server with defined message. Usefull before server stop.
-#   If command starts with perm:[permissionNode]! then command will get performed if player has permission node. This will not work when we dont know who is target player. In example: perm:cmi.announce.vip! broadcast! Hello vip guys
+#   If command starts with perm:[permissionNode]! then command will get performed if player has permission node. This will not work when we don't know who is target player. In example: perm:cmi.announce.vip! broadcast! Hello vip guys
 #   If command starts with moneycost:[amount]! then command will get performed if player has enough money. 
 #   If command starts with expcost:[amount]! then command will get performed if player has enough exp.
 #   If command starts with allPlayers! then command will get performed by using everyones who is online name. Command itself need to contain [allPlayers] to indicate where player name needs to be added
 #   Insert line with 'delay! 5' to perform rest of commands after 5 seconds from scheduler trigger. This allows to create in example counter before server stop. Check example.
-#   [randomPlayer] placeholder can be used to get random online player name who dont have cmi.scheduler.exclude permission node. This can be used to give rewards for random players on particular time. In example: - cmi give [randomPlayer] diamond %rand/1-5% will give rando mamount from 1 to 5 diamonds to random online player
+#   [randomPlayer] placeholder can be used to get random online player name who don't have cmi.scheduler.exclude permission node. This can be used to give rewards for random players on particular time. In example: - cmi give [randomPlayer] diamond %rand/1-5% will give rando mamount from 1 to 5 diamonds to random online player
 # Supports PlaceHolderAPI variables
 # More information about specialized commands can be found at https://www.zrips.net/cmi/commands/specialized/
 

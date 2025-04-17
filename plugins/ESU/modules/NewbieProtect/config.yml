@@ -1,0 +1,10 @@
+spawn-wither-nerf:
+  - radius: 256
+    max-amount: 0
+    speed-modifier: 0.5
+    follow-range-modifier: 0.25
+  - radius: 1024
+    max-amount: 1
+    speed-modifier: 0.5
+    follow-range-modifier: 0.25
+module-enabled: false

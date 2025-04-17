@@ -1,4 +1,4 @@
-# List of modules you can turn on and off if you dont use them to save some server resources
+# List of modules you can turn on and off if you don't use them to save some server resources
 # This will COMPLETELY disable some of the features
 # For this to take effect you will need to perform full server restart
 # Disabling some of modules will disable appropriate commands, like cuffed will disable cuff command, silentChest will disable silentChest command and so on
@@ -261,10 +261,14 @@ anvilRenameColor: true
 # Applies for servers from 1.9.x and up
 launchPad: true
 #  
-# Handling of launch custom death messages
+# Handling of custom death messages
 # Applies for servers from 1.7.x and up
 deathMessages: true
 #  
 # Handling of server links
 # Applies for servers from 1.7.x and up
 serverLinks: false
+#  
+# Handling of hats
+# Applies for servers from 1.7.x and up
+hat: true

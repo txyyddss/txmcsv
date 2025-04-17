@@ -7,12 +7,43 @@ players:
   - 4f675ad4-bc83-3165-b8db-005d9d9d644b
   fahrenheit-mode: []
 worlds:
-  world: WINTER
+  world: SPRING
 dates:
   world:
-    day: 31
-    month: 1
+    day: 22
+    month: 4
     year: 1
 temperature:
   world: true
 time-paused: []
+placedeggs:
+  world:
+  - -269,67,404,world
+  - 10,63,13,world
+  - -89,23,57,world
+  - -46,88,623,world
+  - -140,69,426,world
+  - -64,99,445,world
+  - 43,65,107,world
+  - 85,68,25,world
+  - -133,84,565,world
+  - 85,60,25,world
+  - 177,61,219,world
+  - -280,83,568,world
+  - -89,-49,57,world
+  - -110,83,636,world
+  - -208,84,630,world
+  - -264,89,638,world
+  - -110,-11,636,world
+  - -100,71,-109,world
+  - -1,95,521,world
+  - -110,3,636,world
+  - -28,68,65,world
+  - -28,-42,65,world
+  - -88,98,520,world
+  - -89,63,57,world
+  - -210,75,533,world
+  - 85,25,25,world
+  - 113,79,-100,world
+  - -28,22,65,world
+  - 62,67,-50,world

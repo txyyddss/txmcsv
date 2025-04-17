@@ -248,7 +248,6 @@ info:
   pageCount: '&2[current]&7/&2[total]'
   pageCountHover: '&e[totalEntries] entries'
   skullOwner: '!actionbar!&7Owner:&r [playerName]'
-  playerHeadName: '&eHead of &7[playerName]'
   mobHeadName: '&eHead of &f[mobName]'
   circle: '&3Circle'
   square: '&5Square'
@@ -292,97 +291,41 @@ info:
     void: Void
     wither: Wither
     world_border: world border
-  Biomes:
-    BADLANDS: Badlands
-    BAMBOO_JUNGLE: Bamboo jungle
-    BASALT_DELTAS: Basalt deltas
-    BEACH: Beach
-    BIRCH_FOREST: Birch forest
-    CHERRY_GROVE: Cherry grove
-    COLD_OCEAN: Cold ocean
-    CRIMSON_FOREST: Crimson forest
-    CUSTOM: Custom
-    DARK_FOREST: Dark forest
-    DEEP_COLD_OCEAN: Deep cold ocean
-    DEEP_DARK: Deep dark
-    DEEP_FROZEN_OCEAN: Deep frozen ocean
-    DEEP_LUKEWARM_OCEAN: Deep lukewarm ocean
-    DEEP_OCEAN: Deep ocean
-    DESERT: Desert
-    DRIPSTONE_CAVES: Dripstone caves
-    END_BARRENS: End barrens
-    END_HIGHLANDS: End highlands
-    END_MIDLANDS: End midlands
-    ERODED_BADLANDS: Eroded badlands
-    FLOWER_FOREST: Flower forest
-    FOREST: Forest
-    FROZEN_OCEAN: Frozen ocean
-    FROZEN_PEAKS: Frozen peaks
-    FROZEN_RIVER: Frozen river
-    GROVE: Grove
-    ICE_SPIKES: Ice spikes
-    JAGGED_PEAKS: Jagged peaks
-    JUNGLE: Jungle
-    LUKEWARM_OCEAN: Lukewarm ocean
-    LUSH_CAVES: Lush caves
-    MANGROVE_SWAMP: Mangrove swamp
-    MEADOW: Meadow
-    MUSHROOM_FIELDS: Mushroom fields
-    NETHER_WASTES: Nether wastes
-    OCEAN: Ocean
-    OLD_GROWTH_BIRCH_FOREST: Old growth birch forest
-    OLD_GROWTH_PINE_TAIGA: Old growth pine taiga
-    OLD_GROWTH_SPRUCE_TAIGA: Old growth spruce taiga
-    PLAINS: Plains
-    RIVER: River
-    SAVANNA: Savanna
-    SAVANNA_PLATEAU: Savanna plateau
-    SMALL_END_ISLANDS: Small end islands
-    SNOWY_BEACH: Snowy beach
-    SNOWY_PLAINS: Snowy plains
-    SNOWY_SLOPES: Snowy slopes
-    SNOWY_TAIGA: Snowy taiga
-    SOUL_SAND_VALLEY: Soul sand valley
-    SPARSE_JUNGLE: Sparse jungle
-    STONY_PEAKS: Stony peaks
-    STONY_SHORE: Stony shore
-    SUNFLOWER_PLAINS: Sunflower plains
-    SWAMP: Swamp
-    TAIGA: Taiga
-    THE_END: The end
-    THE_VOID: The void
-    WARM_OCEAN: Warm ocean
-    WARPED_FOREST: Warped forest
-    WINDSWEPT_FOREST: Windswept forest
-    WINDSWEPT_GRAVELLY_HILLS: Windswept gravelly hills
-    WINDSWEPT_HILLS: Windswept hills
-    WINDSWEPT_SAVANNA: Windswept savanna
-    WOODED_BADLANDS: Wooded badlands
   EntityType:
+    acacia_boat: Acacia boat
+    acacia_chest_boat: Acacia chest boat
     allay: Allay
     area_effect_cloud: Area effect cloud
     armadillo: Armadillo
     armor_stand: Armor stand
     arrow: Arrow
     axolotl: Axolotl
+    bamboo_chest_raft: Bamboo chest raft
+    bamboo_raft: Bamboo raft
     bat: Bat
     bee: Bee
+    birch_boat: Birch boat
+    birch_chest_boat: Birch chest boat
     blaze: Blaze
     block_display: Block display
-    boat: Boat
     bogged: Bogged
     breeze: Breeze
     breeze_wind_charge: Breeze wind charge
     camel: Camel
     cat: Cat
     cave_spider: Cave spider
-    chest_boat: Chest boat
+    cherry_boat: Cherry boat
+    cherry_chest_boat: Cherry chest boat
     chest_minecart: Chest minecart
     chicken: Chicken
     cod: Cod
     command_block_minecart: Command block minecart
     cow: Cow
+    creaking: Creaking
+    creaking_transient: Creaking transient
     creeper: Creeper
+    dark_oak_boat: Dark oak boat
+    dark_oak_chest_boat: Dark oak chest boat
     dolphin: Dolphin
     donkey: Donkey
     dragon_fireball: Dragon fireball
@@ -422,18 +365,26 @@ info:
     item: Item
     item_display: Item display
     item_frame: Item frame
+    jungle_boat: Jungle boat
+    jungle_chest_boat: Jungle chest boat
     leash_knot: Leash knot
     lightning_bolt: Lightning bolt
     llama: Llama
     llama_spit: Llama spit
     magma_cube: Magma cube
+    mangrove_boat: Mangrove boat
+    mangrove_chest_boat: Mangrove chest boat
     marker: Marker
     minecart: Minecart
     mooshroom: Mooshroom
     mule: Mule
+    oak_boat: Oak boat
+    oak_chest_boat: Oak chest boat
     ocelot: Ocelot
     ominous_item_spawner: Ominous item spawner
     painting: Painting
+    pale_oak_boat: Pale oak boat
+    pale_oak_chest_boat: Pale oak chest boat
     panda: Panda
     parrot: Parrot
     phantom: Phantom
@@ -462,6 +413,8 @@ info:
     spawner_minecart: Spawner minecart
     spectral_arrow: Spectral arrow
     spider: Spider
+    spruce_boat: Spruce boat
+    spruce_chest_boat: Spruce chest boat
     squid: Squid
     stray: Stray
     strider: Strider

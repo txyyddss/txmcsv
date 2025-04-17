@@ -1,0 +1,82 @@
+# Helps to reduce chunk upload bandwidth. Plugin will compress invisible blocks in chunk data packet.
+# If necessary, we send a full chunk data again.
+# This can save about 50% bandwidth usage in overworld and 30% in nether averagely.
+# Make sure you enabled network-compression on proxy or this server.
+chunk-data-throttle:
+  enabled: true
+
+  # Plugin will resent whole chunk data if resent block amount exceeds this value.
+  # Set it to -1 will never resent chunk but keep updating nearby blocks, 
+  #  0 to always resent chunks.
+  threshold-to-resent-whole-chunk: 448
+
+  # How many distance of blocks to update while necessary.
+  update-distance: 2
+
+  # The bedrock level(minimal height) is never visible unless you are in void.
+  # We would skip the check, and if you don't like it you can enable it.
+  minimal-height-invisible-check: true
+
+  # Same with minimal-height but it's for nether roof.
+  nether-roof-invisible-check: true
+
+  # Minecraft 1.18+ indexes and maps block types for chunk sections to improve compression,
+  # However the mapping is not created based on the amount of blocks.
+  # If this option is enabled, we will rebuild the mapping by sorted blocks amount.
+  # This may slightly help with the compression rate, especially since we are changing the blocks too.
+  # It also reduces the probability of ghost chunks(full chunk with portals [with sound], eta.) .
+  # This could easily double the process time, if you care about the extra about ~0.2ms, disable it.
+  #  * We are planing to enhance this by another two approaches, which may help more.
+  rebuild-palette-mappings: true
+
+  # Plugin will convert chunks with all non-visible blocks to single-valued palette format,
+  # This could save a lot of bandwidth. And since we are conflicting with anti-xray things,
+  # you can use this for some kind of substitution.
+  # We choose a random block from the list and make it of a 16*16*16 chunk section.
+  single-valued-section-block-list:
+    _default:
+      - bedrock
+    world:
+      - coal_ore
+      - copper_ore
+      - iron_ore
+      - gold_ore
+      - emerald_ore
+      - diamond_ore
+      - redstone_ore
+      - lapis_ore
+      - deepslate_coal_ore
+      - deepslate_copper_ore
+      - deepslate_iron_ore
+      - deepslate_gold_ore
+      - deepslate_emerald_ore
+      - deepslate_diamond_ore
+      - deepslate_redstone_ore
+      - deepslate_lapis_ore
+    world_nether:
+      - nether_quartz_ore
+      - nether_gold_ore
+    world_the_end:
+      - end_stone
+
+# Enable DynamicChunkSendRate. Make sure you have velocity mode on, and installed ESU on velocity.
+dynamic-chunk-send-rate:
+  enabled: false
+
+# Adjust the settings the players with high latency to lower value.
+# So they won't affect average quality of all players.
+high-latency-adjust:
+  enabled: true
+
+  # Trigger a adjust when player's ping is greater than or equal this.
+  latency-threshold: 150
+
+  # The high ping must keep for the duration to trigger a adjust finally.
+  duration: 1m
+
+  # Plugin detects CLIENT_SETTINGS packets to reset the view distance for players.
+  # If true, player must change the client view distance for a reset;
+  # If false, any new settings could reset the view distance for the player.
+  new-view-distance-to-reset: true
+  min-view-distance: 5
+module-enabled: true

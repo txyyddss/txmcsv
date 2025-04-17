@@ -1,0 +1,17 @@
+ping-command: <pdc><player><pc>'s ping is <sdc><ping><sc>ms
+client-locale-command: <pdc><player><pc>'s client locale is <sdc><locale>
+ip-command: <pdc><player><pc>'s ip is <sdc><address>
+ip-group-command:
+  no-same-ip: <pc>There's no players on same ip.
+  entry: '<tdc><address><tc>: <players>'
+  player-prefix: <sdc>
+  player-separator: <pc>, <sdc>
+tp-chunk-teleporting: <tc>Teleporting <tdc><player></tdc>...
+gen-rate-top:
+  no-data: <pc>There's no chunk generate at this moment.
+  header: '<pdc>[player]<pc>: <sc>[chunk generate tickets/sec]'
+  entry: '<tdc><player><tc>: <sdc><rate>'
+load-rate-top:
+  no-data: <pc>There's no chunk load at this moment.
+  header: '<pdc>[player]<pc>: <sc>[chunk load tickets/sec]'
+  entry: '<tdc><player><tc>: <sdc><rate>'

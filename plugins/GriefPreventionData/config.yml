@@ -98,9 +98,9 @@ GriefPrevention:
   ProtectItemsDroppedOnDeath:
     PvPWorlds: false
     NonPvPWorlds: true
-  BlockLandClaimExplosions: true
-  BlockSurfaceCreeperExplosions: true
-  BlockSurfaceOtherExplosions: true
+  BlockLandClaimExplosions: false
+  BlockSurfaceCreeperExplosions: false
+  BlockSurfaceOtherExplosions: false
   LimitSkyTrees: true
   LimitTreeGrowth: false
   PistonMovement: EVERYWHERE

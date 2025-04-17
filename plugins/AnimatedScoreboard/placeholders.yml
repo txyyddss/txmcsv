@@ -6,6 +6,7 @@ scoreboard:
     netherscoreboard: netherscoreboard
     defaultscoreboard: defaultscoreboard
     PVP: PVP
+    globalnoseason: globalnoseason
   disabled: '&cDisabled'
   enabled: '&aEnabled'
   none-active: '&7None'

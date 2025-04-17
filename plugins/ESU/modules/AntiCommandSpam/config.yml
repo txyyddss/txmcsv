@@ -1,0 +1,23 @@
+# Plugin will increase the count for the command player send if it matches any condition,
+# and handle the limit with the first limit it hits.
+commands:
+  - commands:
+      - ^(.+:)?suicide$
+      - ^(.+:)?kill$
+    # The message key to send to users. You need to set the message in locale configs.
+    warn-message: suicide-spam
+    kick-message: suicide-spam
+    cancel-count: 3
+    warn-count: 3
+    kick-count: 5
+    expire-interval: 20000
+  - commands:
+      - .
+    # The message key to send to users. You need to set the message in locale configs.
+    warn-message: generic-spam
+    kick-message: generic-spam
+    cancel-count: 3
+    warn-count: 3
+    kick-count: 5
+    expire-interval: 20000
+module-enabled: false

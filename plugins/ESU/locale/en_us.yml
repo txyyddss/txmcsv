@@ -1,0 +1,52 @@
+booleans:
+  enabled: enabled
+  disabled: disabled
+  'on': 'on'
+  'off': 'off'
+  'yes': 'yes'
+  'no': 'no'
+format:
+  duration:
+    day: <value>d
+    hour: <value>h
+    minute: <value>m
+    second: <value>s
+    millis: <value>ms
+    separator: ' '
+command-captions:
+  argument.parse.failure.boolean: Could not parse boolean from '<input>'
+  argument.parse.failure.number: '''<input>'' is not a valid number in the range <min> to <max>'
+  argument.parse.failure.char: '''<input>'' is not a valid character'
+  argument.parse.failure.enum: '''<input>'' is not one of the following: <acceptableValues>'
+  argument.parse.failure.string: '''<input>'' is not a valid string of type <stringMode>'
+  argument.parse.failure.uuid: '''<input>'' is not a valid UUID'
+  argument.parse.failure.regex: '''<input>'' does not match ''<pattern>'''
+  argument.parse.failure.color: '''<input>'' is not a valid color'
+  argument.parse.failure.duration: '''<input>'' is not a duration format'
+  argument.parse.failure.flag.unknown: Unknown flag '<flag>'
+  argument.parse.failure.flag.duplicate_flag: Duplicate flag '<flag>'
+  argument.parse.failure.flag.no_flag_started: No flag started. Don't know what to do with '<input>'
+  argument.parse.failure.flag.missing_argument: Missing argument for '<flag>'
+  argument.parse.failure.flag.no_permission: You don't have permission to use '<flag>'
+  argument.parse.failure.aggregate.missing: Missing component '<component>'
+  argument.parse.failure.aggregate.failure: 'Invalid component ''<component>'': <failure>'
+  argument.parse.failure.either: Could not resolve <primary> or <fallback> from '<input>'
+  exception.unexpected: An internal error occurred while attempting to perform this command.
+  exception.invalid_argument: 'Invalid command argument: <cause>.'
+  exception.no_such_command: Unknown command.
+  exception.no_permission: I'm sorry, but you do not have permission to perform this command.
+  exception.invalid_sender: <actual> is not allowed to execute that command. Must be of type <expected>
+  exception.invalid_sender_list: <actual> is not allowed to execute that command. Must be one of <expected>
+  exception.invalid_syntax: 'Invalid command syntax. Correct command syntax is: <syntax>.'
+  argument.parse.failure.enchantment: '''<input>'' is not a valid enchantment'
+  argument.parse.failure.material: '''<input>'' is not a valid material name'
+  argument.parse.failure.offlineplayer: No player found for input '<input>'
+  argument.parse.failure.player: No player found for input '<input>'
+  argument.parse.failure.world: '''<input>'' is not a valid Minecraft world'
+  argument.parse.failure.selector.unsupported: Entity selector argument type not supported below Minecraft 1.13.
+  argument.parse.failure.location.invalid_format: '''<input>'' is not a valid location. Required format is ''<x> <y> <z>'''
+  argument.parse.failure.location.mixed_local_absolute: Cannot mix local and absolute coordinates. (either all coordinates use '^' or none do)
+  argument.parse.failure.namespacedkey.namespace: Invalid namespace '<input>'. Must be [a-z0-9._-]
+  argument.parse.failure.namespacedkey.key: Invalid key '<input>'. Must be [a-z0-9/._-]
+  argument.parse.failure.namespacedkey.need_namespace: Invalid input '<input>', requires an explicit namespace.
+  argument.parse.failure.registry_entry.missing: No such entry '<input>' in '<registry>' registry.

@@ -1,0 +1,4 @@
+player-only-command: <ec>Only players can use this command.
+item-in-hand-required: <ec>A item must be hold in your main hand.
+attribute-cleared: <pc>The <pdc><attribute></pdc> is cleared.
+attribute-set: <pc>The <pdc><attribute></pdc> has been set to <pdc><value></pdc>.

@@ -1,0 +1,26 @@
+# Customize the message behaviours.
+# Set 'color' to 'disabled' or a color to change the default color of the message.
+# Set 'head' and 'foot' the prefix and suffix to be added to the original message.
+# If 'show-in-console' is false, only the online players can see the message.
+message:
+  death:
+    color: '#dd9090'
+    head: ''
+    foot: ''
+    show-in-console: true
+  done-advancement:
+    color: '#edde0e'
+    head: ''
+    foot: ''
+    show-in-console: true
+  player-join:
+    color: gray
+    head: '<tc>[<pc>+<tc>] '
+    foot: ''
+    show-in-console: true
+  player-quit:
+    color: gray
+    head: '<tc>[<pc>-<tc>] '
+    foot: ''
+    show-in-console: true
+module-enabled: false

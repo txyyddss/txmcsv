@@ -247,7 +247,6 @@ info:
   pageCount: '&2[current]&7/&2[total]'
   pageCountHover: '&2[totalEntries]'
   skullOwner: '!actionbar!&7所有者:&r [playerName]'
-  playerHeadName: '&7[playerName]&e的头颅'
   mobHeadName: '&f[mobName]&e的头颅'
   circle: '&3圆形'
   square: '&5正方形'
@@ -291,97 +290,41 @@ info:
     void: 虚空
     wither: 凋零
     world_border: 世界边界
-  Biomes:
-    BADLANDS: 恶地
-    BAMBOO_JUNGLE: 竹林
-    BASALT_DELTAS: 玄武岩三角洲
-    BEACH: 沙滩
-    BIRCH_FOREST: 桦木森林
-    CHERRY_GROVE: 樱花树林
-    COLD_OCEAN: 冷水海洋
-    CRIMSON_FOREST: 绯红森林
-    CUSTOM: 自定义群系
-    DARK_FOREST: 黑森林
-    DEEP_COLD_OCEAN: 冷水深海
-    DEEP_DARK: 深暗之域
-    DEEP_FROZEN_OCEAN: 冰冻深海
-    DEEP_LUKEWARM_OCEAN: 温水深海
-    DEEP_OCEAN: 深海
-    DESERT: 沙漠
-    DRIPSTONE_CAVES: 溶洞
-    END_BARRENS: 末地荒地
-    END_HIGHLANDS: 末地高地
-    END_MIDLANDS: 末地内陆
-    ERODED_BADLANDS: 风蚀恶地
-    FLOWER_FOREST: 繁花森林
-    FOREST: 森林
-    FROZEN_OCEAN: 冻洋
-    FROZEN_PEAKS: 冰封山峰
-    FROZEN_RIVER: 冻河
-    GROVE: 雪林
-    ICE_SPIKES: 冰刺之地
-    JAGGED_PEAKS: 尖峭山峰
-    JUNGLE: 丛林
-    LUKEWARM_OCEAN: 温水海洋
-    LUSH_CAVES: 繁茂洞穴
-    MANGROVE_SWAMP: 红树林沼泽
-    MEADOW: 草甸
-    MUSHROOM_FIELDS: 蘑菇岛
-    NETHER_WASTES: 下界荒地
-    OCEAN: 海洋
-    OLD_GROWTH_BIRCH_FOREST: 原始桦木森林
-    OLD_GROWTH_PINE_TAIGA: 原始松木针叶林
-    OLD_GROWTH_SPRUCE_TAIGA: 原始云杉针叶林
-    PLAINS: 平原
-    RIVER: 河流
-    SAVANNA: 热带草原
-    SAVANNA_PLATEAU: 热带高原
-    SMALL_END_ISLANDS: 末地小型岛屿
-    SNOWY_BEACH: 积雪沙滩
-    SNOWY_PLAINS: 雪原
-    SNOWY_SLOPES: 积雪山坡
-    SNOWY_TAIGA: 积雪针叶林
-    SOUL_SAND_VALLEY: 灵魂沙峡谷
-    SPARSE_JUNGLE: 稀疏丛林
-    STONY_PEAKS: 裸岩山峰
-    STONY_SHORE: 石岸
-    SUNFLOWER_PLAINS: 向日葵平原
-    SWAMP: 沼泽
-    TAIGA: 针叶林
-    THE_END: 末地
-    THE_VOID: 虚空
-    WARM_OCEAN: 暖水海洋
-    WARPED_FOREST: 诡异森林
-    WINDSWEPT_FOREST: 风袭森林
-    WINDSWEPT_GRAVELLY_HILLS: 风袭沙砾丘陵
-    WINDSWEPT_HILLS: 风袭丘陵
-    WINDSWEPT_SAVANNA: 风袭热带草原
-    WOODED_BADLANDS: 疏林恶地
   EntityType:
+    acacia_boat: Acacia boat
+    acacia_chest_boat: Acacia chest boat
     allay: 悦灵
     area_effect_cloud: 药水云
     armadillo: Armadillo
     armor_stand: 盔甲架
     arrow: 箭
     axolotl: 美西螈
+    bamboo_chest_raft: Bamboo chest raft
+    bamboo_raft: Bamboo raft
     bat: 蝙蝠
     bee: 蜜蜂
+    birch_boat: Birch boat
+    birch_chest_boat: Birch chest boat
     blaze: 烈焰人
     block_display: 方块展示
-    boat: 船
     bogged: Bogged
     breeze: Breeze
     breeze_wind_charge: Breeze wind charge
     camel: 骆驼
     cat: 猫
     cave_spider: 洞穴蜘蛛
-    chest_boat: 箱子船
+    cherry_boat: Cherry boat
+    cherry_chest_boat: Cherry chest boat
     chest_minecart: Chest minecart
     chicken: 鸡
     cod: 鳕鱼
     command_block_minecart: Command block minecart
     cow: 牛
+    creaking: Creaking
+    creaking_transient: Creaking transient
     creeper: 爬行者
+    dark_oak_boat: Dark oak boat
+    dark_oak_chest_boat: Dark oak chest boat
     dolphin: 海豚
     donkey: 驴
     dragon_fireball: 龙之火球
@@ -421,18 +364,26 @@ info:
     item: Item
     item_display: 物品展示
     item_frame: 物品展示框
+    jungle_boat: Jungle boat
+    jungle_chest_boat: Jungle chest boat
     leash_knot: Leash knot
     lightning_bolt: Lightning bolt
     llama: 羊驼
     llama_spit: 羊驼口水
     magma_cube: 岩浆怪
+    mangrove_boat: Mangrove boat
+    mangrove_chest_boat: Mangrove chest boat
     marker: 标记
     minecart: 矿车
     mooshroom: Mooshroom
     mule: 骡
+    oak_boat: Oak boat
+    oak_chest_boat: Oak chest boat
     ocelot: 豹猫
     ominous_item_spawner: Ominous item spawner
     painting: 画
+    pale_oak_boat: Pale oak boat
+    pale_oak_chest_boat: Pale oak chest boat
     panda: 熊猫
     parrot: 鹦鹉
     phantom: 幻翼
@@ -461,6 +412,8 @@ info:
     spawner_minecart: Spawner minecart
     spectral_arrow: 光灵箭
     spider: 蜘蛛
+    spruce_boat: Spruce boat
+    spruce_chest_boat: Spruce chest boat
     squid: 鱿鱼
     stray: 流浪者
     strider: 炽足兽

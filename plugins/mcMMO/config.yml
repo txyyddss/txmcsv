@@ -539,6 +539,7 @@ Bonus_Drops:
         Rose_Bush: true
         Peony: true
         Lily_Of_The_Valley: true
+        Eyeblossom: true
     Mining:
         Tuff: true
         Deepslate_Redstone_Ore: true
@@ -635,6 +636,8 @@ Bonus_Drops:
         Spruce_Log: true
         Mangrove_Wood: true
         Mangrove_Log: true
+        Pale_Oak_Wood: true
+        Pale_Oak_Log: true
     Smelting:
         Iron_Ingot: true
         Gold_Ingot: true

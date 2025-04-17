@@ -1,0 +1,22 @@
+prefix: '<sc><b>AS </b><pdc>» '
+notify:
+  filtered: '<prefix><pc><player><tc>: <sdc><message> <tc>filtered (<pdc><check-type> <chat-type></pdc>)'
+  muted: <prefix><pc><player> <tc>has been muted (<pdc><duration>, <multiplier>x</pdc>)
+command:
+  data:
+    no-data: <prefix><pc>Player <pdc><player> <pc>has no chat data.
+    data: |-
+      <prefix><pc>Data of player <pdc><player> :
+      <tdc><debug-data>
+      <sc>Filters: <sdc><filtered-size>
+      <pc>Requests: <pdc><requested-size>
+      <sc>Score: <sdc><spam-score>
+      <pc>Mute duration: <pdc><mute-duration>
+    not-muted: Not muted
+  notify:
+    enabled: <prefix><vpc>Receiving spam notify now.
+    disabled: <prefix><vnc>Rejecting spam notify now.
+  mute:
+    muted-player: <prefix><pc>Muted <pdc><player></pdc> for <pdc><duration></pdc>.
+  reset:
+    reset-player: <prefix><pc>Reset data for player <pdc><player></pdc>.

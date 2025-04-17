@@ -1,9 +1,9 @@
 # These first 6 aren't configurable
 issues: "https://github.com/IntellectualSites/FastAsyncWorldEdit/issues"
 wiki: "https://intellectualsites.github.io/fastasyncworldedit-documentation/"
-date: "Wed Jun 19 00:00:00 CST 2024"
+date: "Wed Jan 29 00:00:00 CST 2025"
 build: "https://ci.athion.net/job/FastAsyncWorldEdit/0"
-commit: "https://github.com/IntellectualSites/FastAsyncWorldEdit/commit/f2714fc1"
+commit: "https://github.com/IntellectualSites/FastAsyncWorldEdit/commit/f0c96050"
 platform: "Bukkit"
 # Set true to enable WorldEdit restrictions per region (e.g. PlotSquared or WorldGuard).
 # To be allowed to WorldEdit in a region, users need the appropriate
@@ -80,6 +80,14 @@ web:
   #  - Downloads can be deleted by the user
   #  - Supports clipboard uploads, downloads and saves
   url: "https://schem.intellectualsites.com/fawe/"
+  # The url of the backend server (Arkitektonika)
+  arkitektonika-backend-url: "https://api.schematic.cloud/"
+  # The url used to generate a download link from.
+  # {key} will be replaced with the generated key
+  arkitektonika-download-url: "https://schematic.cloud/download/{key}"
+  # The url used to generate a deletion link from.
+  # {key} will be replaced with the generated key
+  arkitektonika-delete-url: "https://schematic.cloud/delete/{key}"
   # The maximum amount of time in seconds the plugin can attempt to load images for.
   max-image-load-time: 5
   # The maximum size (width x length) an image being loaded can be.
@@ -104,6 +112,11 @@ extent:
 #  - UNSAFE = Can cause permanent damage to the server
 #  - SAFE = Can be buggy but unlikely to cause any damage
 experimental:
+  # Undo operation batch size
+  #  - The size defines the number of changes read at once.
+  #  - Larger numbers might reduce overhead but increase latency for edits with only few changes.
+  #  - 0 means undo operations are not batched.
+  undo-batch-size: 128
   # [UNSAFE] Directly modify the region files. (OBSOLETE - USE ANVIL COMMANDS)
   #  - IMPROPER USE CAN CAUSE WORLD CORRUPTION!
   anvil-queue-mode: false
@@ -131,6 +144,8 @@ experimental:
   # This has no effect on existing blocks one way or the other.
   # Changes due to fluid flow will not be tracked by history, thus may have unintended consequences
   allow-tick-fluids: false
+  # Whether FAWE should use the incubator Vector API to accelerate some operations
+  use-vector-api: false
 
 # This relates to how FAWE places chunks
 queue:
@@ -213,6 +228,8 @@ history:
   delete-after-days: 7
   # Delete history in memory on logout (does not effect disk)
   delete-on-logout: true
+  # Delete history on disk on logout
+  delete-disk-on-logout: true
   # If history should be enabled by default for plugins using WorldEdit:
   #  - It is faster to have disabled
   #  - It is faster to have disabled
@@ -271,6 +288,8 @@ region-restrictions-options:
 general:
   # If the player should be relocated/unstuck when a generation command would bury them
   unstuck-on-generate: true
+  # If unlimited limits should still require /confirm on large. Defaults to limits.default.confirm-large otherwise.
+  limit-unlimited-confirms: true
 # The "default" limit group affects those without a specific limit permission.
 # To grant someone different limits, copy the default limits group
 # and give it a different name (e.g. newbie). Then give the user the limit 
@@ -289,6 +308,14 @@ limits:
     max-iterations: 1000
     # Max allowed entities (e.g. cows)
     max-entities: 1337
+    # Max allowed radius (e.g. for //sphere)
+    max-radius: -1
+    # Max allowed superpickaxe size
+    max-super-pickaxe-size: 5
+    # Max allowed brush radius
+    max-brush-radius: 100
+    # Max allowed butcher radius
+    max-butcher-radius: -1
     # Blockstates include Banner, Beacon, BrewingStand, Chest, CommandBlock, 
     # CreatureSpawner, Dispenser, Dropper, EndGateway, Furnace, Hopper, Jukebox, 
     # NoteBlock, Sign, Skull, Structure
@@ -329,6 +356,8 @@ limits:
     #  - Can prevent blocks being pasted from clipboards, etc.
     #  - If fast-placement is disabled, this may cause edits to be slower.
     universal-disallowed-blocks: true
+    # If legacy, mumerical, blocks IDs should be able to be used (i.e. 12:2),
+    allow-legacy: true
     # List of blocks to deny use of. Can be either an entire block type or a block with a specific property value.
     # Where block properties are specified, any blockstate with the property will be disallowed (e.g. all directions
     # of a waterlogged fence). For blocking/remapping of all occurrences of a property like waterlogged, see

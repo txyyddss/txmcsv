@@ -1,0 +1,7 @@
+# This module will automatically reload the plugins that depend
+# on ESU when ESU is reloaded with a plugin management plugin.
+# PlugMan/PlugManX is required to enable this.
+
+plugin-blacklist:
+  - EsuAddonPlugin
+module-enabled: false

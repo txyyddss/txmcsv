@@ -1,0 +1,14 @@
+locale: en_us
+
+# Automatically create soft link for locale directories. You can specify the path to ESU plugin directory from another server.
+# Example: /home/user/server/plugins/ESU
+locale-soft-link-path: disabled
+database:
+  # If you have a MySQL/MariaDB server, and want to use it,
+  # set 'jdbc-driver' to 'com.mysql.jdbc.Driver'
+  # and 'jdbc-url' to 'jdbc:mysql://127.0.0.1:3306/esu'
+  jdbc-driver: org.h2.Driver
+  jdbc-url: jdbc:h2:file:./plugins/ESU/h2;MODE=MYSQL
+  username: root
+  password: root
+default-color-scheme: amethyst

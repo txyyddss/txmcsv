@@ -1,6 +1,107 @@
+temperature-change-rate: 0.2
+entity-temperature:
+  enabled: false
+  entity-effects:
+    cold:
+      slowness:
+        temperature: -15
+        effect: SLOWNESS
+        level: 3
+      freezing: -20
+    warm:
+      slowness:
+        temperature: 60
+        effect: SLOWNESS
+        level: 3
+      fire: 65
+  entities:
+    resilient:
+    - ALLAY
+    - ARMADILLO
+    - BAT
+    - CAMEL
+    - CAT
+    - CHICKEN
+    - COW
+    - DONKEY
+    - HORSE
+    - MOOSHROOM
+    - MULE
+    - OCELOT
+    - PARROT
+    - PIG
+    - RABBIT
+    - SHEEP
+    - SNIFFER
+    - BEE
+    - FOX
+    - GOAT
+    - LLAMA
+    - TRADER_LLAMA
+    - PANDA
+    - SILVERFISH
+    - EVOKER
+    - ILLUSIONER
+    - VINDICATOR
+    - PILLAGER
+    - VEX
+    - VILLAGER
+    - WITCH
+    - WANDERING_TRADER
+    immune-to-cold:
+    - AXOLOTL
+    - COD
+    - FROG
+    - GLOW_SQUID
+    - PUFFERFISH
+    - SALMON
+    - SQUID
+    - SNOW_GOLEM
+    - TADPOLE
+    - TROPICAL_FISH
+    - TURTLE
+    - DOLPHIN
+    - POLAR_BEAR
+    - WOLF
+    - GUARDIAN
+    - ELDER_GUARDIAN
+    - ZOMBIE_HORSE
+    - GIANT
+    - DROWNED
+    - BOGGED
+    - HUSK
+    - PHANTOM
+    - ZOMBIE
+    - ZOMBIE_VILLAGER
+    - ZOGLIN
+    - ZOMBIFIED_PIGLIN
+    immune-to-heat:
+    - STRIDER
+    - PIGLIN
+    - BLAZE
+    - HOGLIN
+    - MAGMA_CUBE
+    - PIGLIN_BRUTE
+    no-temperature:
+    - BREEZE
+    - CREAKING
+    - ENDER_DRAGON
+    - ENDERMAN
+    - ENDERMITE
+    - GHAST
+    - RAVAGER
+    - SHULKER
+    - SLIME
+    - SKELETON
+    - STRAY
+    - SKELETON_HORSE
+    - WARDEN
+    - WITHER
+    - WITHER_SKELETON
 enabled: true
 temperature-update-interval: 40
 modifiers:
+  velocity-per-ms: -0.3
   season-base-temperature:
     winter:
       min-temp: -12
@@ -97,6 +198,7 @@ effects:
       level: 3
     fire: 65
 display:
+  overwrite-actionbar: false
   convert-to-fahrenheit: false
   ip-location-temp-type: true
   temperature:

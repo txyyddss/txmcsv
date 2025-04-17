@@ -105,7 +105,7 @@ fast_walking:
 
   # Whether hostile mobs should be allowed to fast walk on paths.
   # Default: false
-  hostile_speedwalk: false
+  hostile_speedwalk: true
 
   # Materials on which players will walk faster.
   # Default:
@@ -121,7 +121,7 @@ fast_walking:
   # Speed effect level.
   # Valid values: [1,10]
   # Default: 2
-  speed_level: 2
+  speed_level: 3
 
   # Whether villagers should be allowed to fast walk on paths.
   # Default: true

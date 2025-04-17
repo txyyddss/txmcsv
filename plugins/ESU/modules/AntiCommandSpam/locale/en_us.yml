@@ -1,0 +1,6 @@
+warn-message:
+  suicide-spam: <ec>Please do not spam suicide. Continue will lead to a kick.
+  generic-spam: <ec>Please do not spam commands. Continue will lead to a kick.
+kick-message:
+  suicide-spam: <ec>Please do not spam suicide.
+  generic-spam: <ec>Please do not spam commands.

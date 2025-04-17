@@ -1,0 +1,18 @@
+# The default color scheme for ESU.
+# To use the color defined in color scheme, use <primary_color>, <primary_dim_color> or so.
+# Alternatively, you can abridge them like <pc>, <pdc>.
+# 
+# We make dim color of its original of HSL(+0°, -10%, -8%), error color excluded.
+
+primary: '#c8b3fd'
+primary-dim: '#af92f6'
+secondary: '#cfa0f3'
+secondary-dim: '#bc83e7'
+tertiary: '#c0b4cf'
+tertiary-dim: '#ada5b8'
+value-positive: '#36c450'
+value-positive-dim: '#379a49'
+value-negative: '#ff6e4e'
+value-negative-dim: '#f4532f'
+error: '#ff6666'
+error-dim: '#ff5050'

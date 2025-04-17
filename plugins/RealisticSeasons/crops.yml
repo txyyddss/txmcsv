@@ -1,0 +1,422 @@
+seasonal-growth-speed:
+  enabled: true
+  WHEAT:
+    enabled: true
+    seasons:
+      SUMMER:
+        outdoor:
+          growth-speed: 2.0
+        indoor:
+          growth-speed: 1.4
+        light:
+          requires-constant-block-light: false
+          light-level: 8
+      WINTER:
+        outdoor:
+          growth-speed: 0.0
+        indoor:
+          growth-speed: 1.0
+        light:
+          requires-constant-block-light: true
+          light-level: 8
+      SPRING:
+        outdoor:
+          growth-speed: 1.2
+        indoor:
+          growth-speed: 1.0
+        light:
+          requires-constant-block-light: false
+          light-level: 8
+      FALL:
+        outdoor:
+          growth-speed: 0.8
+        indoor:
+          growth-speed: 1.0
+        light:
+          requires-constant-block-light: false
+          light-level: 8
+  BEETROOTS:
+    enabled: true
+    seasons:
+      SUMMER:
+        outdoor:
+          growth-speed: 2.0
+        indoor:
+          growth-speed: 1.4
+        light:
+          requires-constant-block-light: false
+          light-level: 8
+      WINTER:
+        outdoor:
+          growth-speed: 0.0
+        indoor:
+          growth-speed: 1.0
+        light:
+          requires-constant-block-light: true
+          light-level: 8
+      SPRING:
+        outdoor:
+          growth-speed: 1.2
+        indoor:
+          growth-speed: 1.0
+        light:
+          requires-constant-block-light: false
+          light-level: 8
+      FALL:
+        outdoor:
+          growth-speed: 0.8
+        indoor:
+          growth-speed: 1.0
+        light:
+          requires-constant-block-light: false
+          light-level: 8
+  CARROTS:
+    enabled: true
+    seasons:
+      SUMMER:
+        outdoor:
+          growth-speed: 2.0
+        indoor:
+          growth-speed: 1.4
+        light:
+          requires-constant-block-light: false
+          light-level: 8
+      WINTER:
+        outdoor:
+          growth-speed: 0.0
+        indoor:
+          growth-speed: 1.0
+        light:
+          requires-constant-block-light: true
+          light-level: 8
+      SPRING:
+        outdoor:
+          growth-speed: 1.2
+        indoor:
+          growth-speed: 1.0
+        light:
+          requires-constant-block-light: false
+          light-level: 8
+      FALL:
+        outdoor:
+          growth-speed: 0.8
+        indoor:
+          growth-speed: 1.0
+        light:
+          requires-constant-block-light: false
+          light-level: 8
+  POTATOES:
+    enabled: true
+    seasons:
+      SUMMER:
+        outdoor:
+          growth-speed: 2.0
+        indoor:
+          growth-speed: 1.4
+        light:
+          requires-constant-block-light: false
+          light-level: 8
+      WINTER:
+        outdoor:
+          growth-speed: 0.0
+        indoor:
+          growth-speed: 1.0
+        light:
+          requires-constant-block-light: true
+          light-level: 8
+      SPRING:
+        outdoor:
+          growth-speed: 1.2
+        indoor:
+          growth-speed: 1.0
+        light:
+          requires-constant-block-light: false
+          light-level: 8
+      FALL:
+        outdoor:
+          growth-speed: 0.8
+        indoor:
+          growth-speed: 1.0
+        light:
+          requires-constant-block-light: false
+          light-level: 8
+  MELON_STEM:
+    enabled: true
+    seasons:
+      SUMMER:
+        outdoor:
+          growth-speed: 2.0
+        indoor:
+          growth-speed: 1.4
+        light:
+          requires-constant-block-light: false
+          light-level: 8
+      WINTER:
+        outdoor:
+          growth-speed: 0.0
+        indoor:
+          growth-speed: 1.0
+        light:
+          requires-constant-block-light: true
+          light-level: 8
+      SPRING:
+        outdoor:
+          growth-speed: 1.2
+        indoor:
+          growth-speed: 1.0
+        light:
+          requires-constant-block-light: false
+          light-level: 8
+      FALL:
+        outdoor:
+          growth-speed: 0.8
+        indoor:
+          growth-speed: 1.0
+        light:
+          requires-constant-block-light: false
+          light-level: 8
+  PUMPKIN_STEM:
+    enabled: true
+    seasons:
+      SUMMER:
+        outdoor:
+          growth-speed: 2.0
+        indoor:
+          growth-speed: 1.4
+        light:
+          requires-constant-block-light: false
+          light-level: 8
+      WINTER:
+        outdoor:
+          growth-speed: 0.0
+        indoor:
+          growth-speed: 1.0
+        light:
+          requires-constant-block-light: true
+          light-level: 8
+      SPRING:
+        outdoor:
+          growth-speed: 1.2
+        indoor:
+          growth-speed: 1.0
+        light:
+          requires-constant-block-light: false
+          light-level: 8
+      FALL:
+        outdoor:
+          growth-speed: 0.8
+        indoor:
+          growth-speed: 1.0
+        light:
+          requires-constant-block-light: false
+          light-level: 8
+  BAMBOO:
+    enabled: true
+    seasons:
+      SUMMER:
+        outdoor:
+          growth-speed: 2.0
+        indoor:
+          growth-speed: 1.4
+        light:
+          requires-constant-block-light: false
+          light-level: 8
+      WINTER:
+        outdoor:
+          growth-speed: 0.0
+        indoor:
+          growth-speed: 1.0
+        light:
+          requires-constant-block-light: true
+          light-level: 8
+      SPRING:
+        outdoor:
+          growth-speed: 1.2
+        indoor:
+          growth-speed: 1.0
+        light:
+          requires-constant-block-light: false
+          light-level: 8
+      FALL:
+        outdoor:
+          growth-speed: 0.8
+        indoor:
+          growth-speed: 1.0
+        light:
+          requires-constant-block-light: false
+          light-level: 8
+  COCOA:
+    enabled: true
+    seasons:
+      SUMMER:
+        outdoor:
+          growth-speed: 2.0
+        indoor:
+          growth-speed: 1.4
+        light:
+          requires-constant-block-light: false
+          light-level: 8
+      WINTER:
+        outdoor:
+          growth-speed: 0.0
+        indoor:
+          growth-speed: 1.0
+        light:
+          requires-constant-block-light: true
+          light-level: 8
+      SPRING:
+        outdoor:
+          growth-speed: 1.2
+        indoor:
+          growth-speed: 1.0
+        light:
+          requires-constant-block-light: false
+          light-level: 8
+      FALL:
+        outdoor:
+          growth-speed: 0.8
+        indoor:
+          growth-speed: 1.0
+        light:
+          requires-constant-block-light: false
+          light-level: 8
+  SUGAR_CANE:
+    enabled: true
+    seasons:
+      SUMMER:
+        outdoor:
+          growth-speed: 2.0
+        indoor:
+          growth-speed: 1.4
+        light:
+          requires-constant-block-light: false
+          light-level: 8
+      WINTER:
+        outdoor:
+          growth-speed: 0.0
+        indoor:
+          growth-speed: 1.0
+        light:
+          requires-constant-block-light: true
+          light-level: 8
+      SPRING:
+        outdoor:
+          growth-speed: 1.2
+        indoor:
+          growth-speed: 1.0
+        light:
+          requires-constant-block-light: false
+          light-level: 8
+      FALL:
+        outdoor:
+          growth-speed: 0.8
+        indoor:
+          growth-speed: 1.0
+        light:
+          requires-constant-block-light: false
+          light-level: 8
+  SWEET_BERRY_BUSH:
+    enabled: true
+    seasons:
+      SUMMER:
+        outdoor:
+          growth-speed: 2.0
+        indoor:
+          growth-speed: 1.4
+        light:
+          requires-constant-block-light: false
+          light-level: 8
+      WINTER:
+        outdoor:
+          growth-speed: 0.0
+        indoor:
+          growth-speed: 1.0
+        light:
+          requires-constant-block-light: true
+          light-level: 8
+      SPRING:
+        outdoor:
+          growth-speed: 1.2
+        indoor:
+          growth-speed: 1.0
+        light:
+          requires-constant-block-light: false
+          light-level: 8
+      FALL:
+        outdoor:
+          growth-speed: 0.8
+        indoor:
+          growth-speed: 1.0
+        light:
+          requires-constant-block-light: false
+          light-level: 8
+  CACTUS:
+    enabled: true
+    seasons:
+      SUMMER:
+        outdoor:
+          growth-speed: 2.0
+        indoor:
+          growth-speed: 1.4
+        light:
+          requires-constant-block-light: false
+          light-level: 8
+      WINTER:
+        outdoor:
+          growth-speed: 0.0
+        indoor:
+          growth-speed: 1.0
+        light:
+          requires-constant-block-light: true
+          light-level: 8
+      SPRING:
+        outdoor:
+          growth-speed: 1.2
+        indoor:
+          growth-speed: 1.0
+        light:
+          requires-constant-block-light: false
+          light-level: 8
+      FALL:
+        outdoor:
+          growth-speed: 0.8
+        indoor:
+          growth-speed: 1.0
+        light:
+          requires-constant-block-light: false
+          light-level: 8
+  NETHER_WART:
+    enabled: true
+    seasons:
+      SUMMER:
+        outdoor:
+          growth-speed: 2.0
+        indoor:
+          growth-speed: 1.4
+        light:
+          requires-constant-block-light: false
+          light-level: 8
+      WINTER:
+        outdoor:
+          growth-speed: 0.0
+        indoor:
+          growth-speed: 1.0
+        light:
+          requires-constant-block-light: false
+          light-level: 8
+      SPRING:
+        outdoor:
+          growth-speed: 1.2
+        indoor:
+          growth-speed: 1.0
+        light:
+          requires-constant-block-light: false
+          light-level: 8
+      FALL:
+        outdoor:
+          growth-speed: 0.8
+        indoor:
+          growth-speed: 1.0
+        light:
+          requires-constant-block-light: false
+          light-level: 8
