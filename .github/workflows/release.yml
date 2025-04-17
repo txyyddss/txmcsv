@@ -117,7 +117,7 @@ jobs:
                 
                 // 排除带有wontfix或invalid标签的issues
                 const labels = issue.labels.nodes.map(label => label.name.toLowerCase());
-                return !labels.includes('wontfix') && !labels.includes('invalid');
+                return !labels.includes('wontfix') && !labels.includes('invalid') && !labels.includes('potential-duplicate');
               });
             
             // 分类issues
