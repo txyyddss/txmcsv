@@ -15,9 +15,9 @@
     <br />
     <a href="https://github.com/txyyddss/txmcsv?tab=readme-ov-file#minecraftbedrockiosandroidjavawindowsmacandroid%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B">查看教程</a>
     ·
-    <a href="https://github.com/txyyddss/txmcsv/issues">报告Bug</a>
+    <a href="https://github.com/txyyddss/txmcsv/issues">报告Bug/提出特性</a>
     ·
-    <a href="https://github.com/txyyddss/txmcsv/issues">提出新特性</a>
+    <a href="https://github.com/txyyddss/txmcsv/wiki">编辑/查看Wiki</a>
   </p>
 
 </p>
