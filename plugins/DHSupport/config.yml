@@ -1,0 +1,111 @@
+# Maximum supported render distance. Clients will be capped to this value.
+# Required.
+# Default: 1024
+render_distance: 2560
+
+# Are LOD features enabled at all?
+# Disable if you only want to use the plugin for level key info in a proxied setup.
+# Required.
+# Default: true
+distant_generation_enabled: true
+
+# Number of parallel LOD requests per client.
+# Required.
+# Default: 20
+full_data_request_concurrency_limit: 20
+
+# Send LOD updates to players in real-time?
+# Required.
+# Default: true
+real_time_updates_enabled: true
+
+# Currently unsupported.
+# Required.
+# Default: 128
+real_time_update_radius: 128
+
+# Let clients ask for updates to LODs they've previously downloaded.
+# Required.
+# Default: true
+login_data_sync_enabled: true
+
+# How far away can a player request updates for during login sync?
+# Required.
+# Default: 128
+login_data_sync_radius: 128
+
+# How many login sync requests can a client send at once?
+# Required.
+# Default: 50
+login_data_sync_rc_limit: 50
+
+# Currently unsupported.
+# Required.
+# Default: 0
+max_data_transfer_speed: 0
+
+# Output builder activity to the server console.
+# Optional.
+# Default: true
+show_builder_activity: false
+
+# Select which LOD builder to use.
+# Valid options are: FullBuilder, FastOverworldBuilder, and None.
+# Required.
+# Default: FullBuilder
+builder_type: FastOverworldBuilder
+
+# Number of blocks to advance between each sample on the Y axis when generating LODs.
+# A setting of 1 will sample every block, while 2 will sample every other block, and so on.
+# Required.
+# Default: 2
+builder_resolution: 3
+
+# Whether to include non-colliding blocks when they are the top-most block.
+# True means tall grass, flowers, and snow will color the block below them.
+# Optional.
+# Default: true
+include_non-colliding_top_layer: false
+
+# Should beacons be included in LOD data?
+# It's recommended to leave this disabled for the initial LOD generation, then enable it afterward.
+# Optional.
+# Default: false
+include_beacons: true
+
+# When running DHS on a proxied server, set this to a value that is unique to this specific server.
+# Optional.
+#level_key_prefix:
+
+# World specific settings.
+# You can override any of the above settings on a per-world basis.
+worlds:
+  world:
+    # Use builder that is optimized for overworld.
+    builder_type: FastOverworldBuilder
+
+    # When using the FastOverworldBuilder, should LODs always contain data down to at least sea level?
+    # Enable if your world has floating islands or mountains/structures with large overhangs above sea level.
+    # Optional.
+    # Default: false
+    scan_to_sea_level: true
+
+    # Limit LOD generation to within this area.
+    # Optional.
+    #border_center_x: 0
+    #border_center_z: 0
+    #border_radius: 5000
+
+  # It might make sense to have a lower view distance in the nether, since visibility will be low simply because of
+  # the level design anyway.
+  world_nether:
+    render_distance: 128
+
+# Number of worker threads used to generate LODs.
+# Does not affect Folia servers.
+# Required.
+# Default: 2
+scheduler_threads: 3
+
+# Don't touch :)
+config_version: 5

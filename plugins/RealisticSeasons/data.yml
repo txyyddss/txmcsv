@@ -10,7 +10,7 @@ worlds:
   world: SPRING
 dates:
   world:
-    day: 22
+    day: 23
     month: 4
     year: 1
 temperature:
@@ -18,32 +18,85 @@ temperature:
 time-paused: []
 placedeggs:
   world:
-  - -269,67,404,world
-  - 10,63,13,world
+  - 5,72,-192,world
+  - 104,87,453,world
   - -89,23,57,world
+  - 165,-36,274,world
   - -46,88,623,world
-  - -140,69,426,world
-  - -64,99,445,world
+  - 49,106,573,world
   - 43,65,107,world
   - 85,68,25,world
-  - -133,84,565,world
+  - -115,69,167,world
+  - -151,29,95,world
+  - 188,36,277,world
   - 85,60,25,world
-  - 177,61,219,world
   - -280,83,568,world
-  - -89,-49,57,world
   - -110,83,636,world
-  - -208,84,630,world
+  - -175,69,309,world
+  - 49,17,573,world
+  - 215,72,-168,world
+  - 72,72,56,world
   - -264,89,638,world
-  - -110,-11,636,world
-  - -100,71,-109,world
+  - -219,63,502,world
+  - -170,71,109,world
+  - 165,14,274,world
   - -1,95,521,world
-  - -110,3,636,world
+  - 49,-9,573,world
+  - -367,99,684,world
+  - 72,27,56,world
   - -28,68,65,world
   - -28,-42,65,world
+  - -367,5,684,world
+  - -188,27,-154,world
+  - 165,67,274,world
+  - -244,88,29,world
+  - 28,69,72,world
+  - 85,25,25,world
+  - -129,58,16,world
+  - -151,70,95,world
+  - -70,71,-219,world
+  - 62,67,-50,world
+  - 55,69,-75,world
+  - 188,-19,277,world
+  - -269,67,404,world
+  - 253,65,-28,world
+  - -151,-34,95,world
+  - 10,63,13,world
+  - -10,66,44,world
+  - 72,25,56,world
+  - 188,1,277,world
+  - -140,69,426,world
+  - -64,99,445,world
+  - -133,84,565,world
+  - -239,84,56,world
+  - 72,-54,56,world
+  - 177,61,219,world
+  - -89,-49,57,world
+  - -70,-11,-219,world
+  - 119,71,137,world
+  - -208,84,630,world
+  - -126,37,261,world
+  - 48,68,-6,world
+  - -275,-30,290,world
+  - -33,69,118,world
+  - -110,-11,636,world
+  - 188,8,277,world
+  - -270,7,276,world
+  - -100,71,-109,world
+  - -110,3,636,world
+  - -270,65,276,world
+  - 46,71,-143,world
+  - -275,38,290,world
   - -88,98,520,world
+  - -3,95,415,world
+  - -151,40,95,world
   - -89,63,57,world
   - -210,75,533,world
-  - 85,25,25,world
+  - -20,75,275,world
+  - -104,72,-131,world
+  - -275,64,290,world
+  - -67,100,445,world
   - 113,79,-100,world
+  - -126,65,261,world
   - -28,22,65,world
-  - 62,67,-50,world
+  - 188,68,277,world

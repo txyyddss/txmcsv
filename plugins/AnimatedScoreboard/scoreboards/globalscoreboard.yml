@@ -24,7 +24,7 @@ display:
     line-1:
       #Same as with the title, no limit on text. If you just put " " here it will display a blank line on the scoreboard.
       text:
-      - "&4Ver:7"
+      - "&4Ver:%server_version%"
 
       #If it should be random or not.
       random: false

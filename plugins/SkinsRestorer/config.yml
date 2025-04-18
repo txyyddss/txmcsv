@@ -311,6 +311,11 @@ advanced:
     # If your players are experiencing extremely long loading screens, try disabling this.
     enablePaperJoinListener: true
     # <!! Warning !!>
+    # This is a very dangerous feature that should only be used if you know what you are doing.
+    # Instead of resending player skins to other players by hiding and shadowing them, we will teleport them to a far away location and back
+    # This is a workaround for some server software with broken vanishing support, like Arclight.
+    teleportRefresh: false
+    # <!! Warning !!>
     # When enabled SkinsRestorer will not try to connect to any web server, which means the follow things won't work:
     # Getting new skins from Mojang, looking up uuids of players, skin url, update checking and more.
     # SkinsRestorer will only be able to access already downloaded skins.
