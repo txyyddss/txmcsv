@@ -24,7 +24,7 @@ projects: []
                 The bug can be repeated and not caused by your network.
             'required': true
           - 'label': >
-                I have added the labels. (ex.P1/2/3 Breaking/Network)
+                I correctly added the labels. (ex.P1/2/3 Breaking/Network)
             'required': true
     'id': 'prerequisites'
     'type': 'checkboxes'
