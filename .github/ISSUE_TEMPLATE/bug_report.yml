@@ -1,5 +1,5 @@
 name: Bug Report
-description: Report a Bug.
+description: 报告一个BUG,一些部分选填
 title: "[Bug]: "
 labels: ["bug"]
 projects: []
@@ -70,7 +70,7 @@ projects: []
         'description': >
             What did you expect to see?  Please add a description and/or
             screenshots, if applicable.
-        'label': 'Expected result（选填）'
+        'label': 'Expected result (If applicable)'
         'placeholder': >
             What did you expect to see?
     'id': 'expected'
@@ -81,13 +81,13 @@ projects: []
         'description': >
             What happened instead?  Please add a description and/or screenshots,
             if applicable.
-        'label': 'Actual result'
+        'label': 'Actual result (If applicable)'
         'placeholder': >
             What did you see instead?
     'id': 'result'
     'type': 'textarea'
     'validations':
-        'required': true
+        'required': false
   - 'attributes':
         'description': >
             You can add additional information.
