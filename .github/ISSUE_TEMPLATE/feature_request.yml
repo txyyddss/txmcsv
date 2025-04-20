@@ -18,6 +18,9 @@ projects: []
                 I want to request a feature or enhancement and not ask a
                 question
             'required': true
+          - 'label': >
+                I correctly added the labels. (ex.P1/2/3 Breaking/Network)
+            'required': true
     'id': 'prerequisites'
     'type': 'checkboxes'
   - 'attributes':
