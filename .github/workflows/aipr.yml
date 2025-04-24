@@ -139,7 +139,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPO: ${{ github.repository }}
         run: |
-          # Prepare prompt for Grok model (in English)
+          # Prepare prompt for Deepseek model (in English)
           PROMPT=$(cat <<'EOT'
           You are a Minecraft Paper server configuration expert. Analyze the following issue and provide a concise solution.
           ## Issue Details
@@ -176,9 +176,10 @@ jobs:
           ```
           
           Your response must:
-          - Focus ONLY on configuration file changes
+          - Skip all reasoning steps and thinking process
+          - Direct answers only
+          - Focus only on configuration file changes
           - Be under 250 words
-          - Contain NO thinking process or explanation
           - Follow the EXACT format specified above
           EOT
           )
@@ -199,22 +200,22 @@ jobs:
             API_URL="https://api.openai.com/v1/chat/completions"
           fi
           
-          # Build request JSON for Grok model
+          # Build request JSON for Deepseek model
           REQUEST_JSON=$(cat <<EOF
           {
-            "model": "grok-3-mini-beta",
+            "model": "deepseek-ai/DeepSeek-R1-Distill-Qwen-32B",
             "messages": [
               {
                 "role": "system", 
-                "content": "You are a Minecraft Paper server configuration expert. Provide configuration changes only. If the issue cannot be solved by configuration changes, respond with 'WONTFIX: [reason]'. Use the exact format specified."
+                "content": "You are a Minecraft Paper server configuration expert. Provide direct configuration changes only without any reasoning or thought process. If the issue cannot be solved by configuration changes, respond with 'WONTFIX: [reason]'. Use the exact format specified in the user's request."
               },
               {
                 "role": "user",
                 "content": ${ESCAPED_PROMPT}
               }
             ],
-            "temperature": 0.2,
-            "max_tokens": 300
+            "temperature": 0.7,
+            "max_tokens": 3000
           }
           EOF
           )
@@ -231,11 +232,39 @@ jobs:
             exit 1
           fi
           
-          # Extract response content
-          SOLUTION=$(echo "$RESPONSE" | jq -r '.choices[0].message.content')
+          # Extract and clean the response content
+          RAW_SOLUTION=$(echo "$RESPONSE" | jq -r '.choices[0].message.content')
+          
+          # Advanced cleaning to remove thinking process
+          SOLUTION=$(echo "$RAW_SOLUTION" | \
+            # Remove thinking phrases in English
+            sed -E '/^(Let me|I think|First|Let\'s|After|Based on|According to|Looking at)/d' | \
+            sed -E 's/^(Let me|I think|First|Let\'s|After|Based on|According to|Looking at).*$//' | \
+            # Remove thinking phrases in Chinese
+            sed -E '/^(让我|我认为|首先|让我们|分析|思考|根据|查看)/d' | \
+            sed -E 's/^(让我|我认为|首先|让我们|分析|思考|根据|查看).*$//' | \
+            # Remove specific thinking markers
+            sed '/^Reasoning:/d' | \
+            sed '/^Thought:/d' | \
+            sed '/^Analysis:/d' | \
+            sed '/^Step [0-9]:/d' | \
+            sed '/^思路:/d' | \
+            sed '/^分析:/d' | \
+            sed '/^思考:/d' | \
+            # Remove common explanation phrases
+            sed -E 's/This is because.*$//' | \
+            sed -E 's/The reason is.*$//' | \
+            sed -E 's/We need to.*$//' | \
+            sed -E 's/这是因为.*$//' | \
+            sed -E 's/原因是.*$//' | \
+            sed -E 's/我们需要.*$//' | \
+            # Extract only the solution part
+            grep -v "^$" | \
+            # Detect if we have a WONTFIX response or a config solution
+            awk '/^WONTFIX:/{print; exit} /^### Files to Modify/,0{print}')
           
           # Check if solution contains WONTFIX indicator
-          if [[ $SOLUTION == *"WONTFIX:"* ]]; then
+          if [[ "$SOLUTION" == *"WONTFIX:"* ]]; then
             echo "AI determined this cannot be fixed by configuration changes."
             
             # Extract the reason
