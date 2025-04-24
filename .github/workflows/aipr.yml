@@ -140,24 +140,22 @@ jobs:
         if: steps.find_issue.outputs.result != 'null'
         id: prepare_repo
         run: |
-          ISSUE_NUMBER=$(node -e "console.log(JSON.parse('${{ steps.find_issue.outputs.result }}').issueNumber)")
-          ISSUE_TITLE=$(node -e "console.log(JSON.parse('${{ steps.find_issue.outputs.result }}').issueTitle)")
-          
+          # 使用jq处理JSON而不是直接用node解析，避免引号嵌套问题
+          ISSUE_NUMBER=$(echo '${{ steps.find_issue.outputs.result }}' | jq -r '.issueNumber')
+          ISSUE_TITLE=$(echo '${{ steps.find_issue.outputs.result }}' | jq -r '.issueTitle')
           # 创建新分支
           git config --global user.name "GitHub Action Bot"
           git config --global user.email "action@github.com"
-          
           BRANCH_NAME="ai-solution-${ISSUE_NUMBER}"
           git checkout -b $BRANCH_NAME
-          
           # 生成文件树
           echo "生成仓库文件树..."
           FILE_TREE=$(find . -type f -not -path "*/\.*" -not -path "*/node_modules/*" -not -path "*/vendor/*" | sort)
           echo "$FILE_TREE" > file_tree.txt
-          
-          echo "::set-output name=branch_name::$BRANCH_NAME"
-          echo "::set-output name=issue_number::$ISSUE_NUMBER"
-          echo "::set-output name=issue_title::$ISSUE_TITLE"
+          # 使用环境文件而不是set-output（set-output已弃用）
+          echo "branch_name=$BRANCH_NAME" >> $GITHUB_OUTPUT
+          echo "issue_number=$ISSUE_NUMBER" >> $GITHUB_OUTPUT
+          echo "issue_title=$ISSUE_TITLE" >> $GITHUB_OUTPUT
 
       - name: Get issue content with images
         if: steps.find_issue.outputs.result != 'null'
@@ -208,8 +206,9 @@ jobs:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           OPENAI_API_URL: ${{ secrets.OPENAI_API_URL || 'https://api.openai.com/v1/chat/completions' }}
         run: |
-          ISSUE_NUMBER=$(node -e "console.log(JSON.parse('${{ steps.find_issue.outputs.result }}').issueNumber)")
-          ISSUE_TITLE=$(node -e "console.log(JSON.parse('${{ steps.find_issue.outputs.result }}').issueTitle)")
+          # 使用jq处理JSON
+          ISSUE_NUMBER=$(echo '${{ steps.find_issue.outputs.result }}' | jq -r '.issueNumber')
+          ISSUE_TITLE=$(echo '${{ steps.find_issue.outputs.result }}' | jq -r '.issueTitle')
           ISSUE_BODY=$(cat issue_content.md)
           FILE_TREE=$(cat file_tree.txt)
           
