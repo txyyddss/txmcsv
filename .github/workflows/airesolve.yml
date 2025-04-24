@@ -1,201 +1,133 @@
-name: AI Helper for Issues
+name: AI Help Issue Response
 
 on:
   issues:
     types: [opened, labeled]
-  push:
-    tags:
-      - '*'
 
 jobs:
-  ai-assistant:
+  ai-help:
+    if: ${{ contains(github.event.issue.labels.*.name, 'AI Help') }}
     runs-on: ubuntu-latest
-    if: contains(github.event.issue.labels.*.name, 'AI Help') || contains(github.event.issue.title, 'AI Help')
+    environment: AI
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
         with:
           fetch-depth: 0
 
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.10'
-
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install requests
-
-      - name: Generate file tree of configs
-        id: filetree
-        run: |
-          CONFIG_TREE=$(find . -type f \
-            -not -path "*/\.*" \
-            -not -path "*/node_modules/*" \
-            -not -path "*/vendor/*" \
-            -not -path "*/build/*" \
-            -not -path "*/dist/*" \
-            -not -path "*/target/*" \
-            -not -path "*/.git/*" \
-            -name "*.yml" -o -name "*.yaml" -o -name "*.json" -o -name "*.conf" -o -name "*.cfg" -o -name "*.properties" -o -name "*.toml" -o -name "*.ini" \
-            | grep -v -i "locale\|lang\|data" \
-            | sort)
-          
-          FILE_TREE=""
-          for file in $CONFIG_TREE; do
-            if [ -f "$file" ]; then
-              echo "Processing file: $file"
-              FILE_TREE+="$file\n"
-              FILE_TREE+="$(cat "$file" | sed 's/^/  /' | sed 's/$/\\n/')"
-              FILE_TREE+="\n---\n"
-            fi
-          done
-          
-          # Save to file and then to output to handle multiline output
-          echo "$FILE_TREE" > config_tree.txt
-          echo "config_tree_file=config_tree.txt" >> $GITHUB_OUTPUT
-
       - name: Get issue information
         id: issue
-        if: github.event_name == 'issues'
         run: |
-          echo "issue_number=${{ github.event.issue.number }}" >> $GITHUB_OUTPUT
-          echo "issue_title=${{ github.event.issue.title }}" >> $GITHUB_OUTPUT
-          
-          # Escape special characters in issue body
+          ISSUE_NUMBER="${{ github.event.issue.number }}"
+          ISSUE_TITLE="${{ github.event.issue.title }}"
           ISSUE_BODY="${{ github.event.issue.body }}"
+          echo "ISSUE_NUMBER=$ISSUE_NUMBER" >> $GITHUB_ENV
+          echo "ISSUE_TITLE=$ISSUE_TITLE" >> $GITHUB_ENV
+          # 处理多行文本
           ISSUE_BODY="${ISSUE_BODY//'%'/'%25'}"
           ISSUE_BODY="${ISSUE_BODY//$'\n'/'%0A'}"
           ISSUE_BODY="${ISSUE_BODY//$'\r'/'%0D'}"
-          echo "issue_body=$ISSUE_BODY" >> $GITHUB_OUTPUT
+          echo "ISSUE_BODY=$ISSUE_BODY" >> $GITHUB_ENV
+
+      - name: Generate config file tree
+        id: file-tree
+        run: |
+          # 生成配置文件的文件树，排除数据文件、语言文件和包含locale/lang关键词的文件
+          CONFIG_FILES=$(find . -type f -name "*.yml" -o -name "*.yaml" -o -name "*.json" -o -name "*.properties" -o -name "*.conf" -o -name "*.cfg" -o -name "*.toml" -o -name "*.xml" | grep -v "locale\|lang\|data\|language" | sort)
           
-          # Check for images in the issue
-          if [[ "${{ github.event.issue.body }}" == *"![image]"* ]]; then
-            echo "has_images=true" >> $GITHUB_OUTPUT
+          # 创建文件树输出
+          FILE_TREE="# Configuration Files\n"
+          
+          for file in $CONFIG_FILES; do
+            # 添加文件到文件树
+            FILE_TREE="$FILE_TREE\n- $file"
+            
+            # 对于小文件，可以添加内容
+            if [ -f "$file" ] && [ $(wc -c < "$file") -lt 10240 ]; then
+              FILE_TREE="$FILE_TREE\n\`\`\`\n$(cat $file)\n\`\`\`\n"
+            else
+              FILE_TREE="$FILE_TREE (file too large to display)"
+            fi
+          done
+          
+          # 处理多行文本
+          FILE_TREE="${FILE_TREE//'%'/'%25'}"
+          FILE_TREE="${FILE_TREE//$'\n'/'%0A'}"
+          FILE_TREE="${FILE_TREE//$'\r'/'%0D'}"
+          
+          echo "FILE_TREE=$FILE_TREE" >> $GITHUB_ENV
+
+      - name: Query AI for solution
+        id: ai-solution
+        run: |
+          API_URL="${{ secrets.openai_api_url }}"
+          
+          # 准备提示信息
+          PROMPT="你是一个专门帮助解决Minecraft Paper服务器配置问题的AI助手。请分析以下issue，并提供解决方案：
+
+          Issue标题: ${{ env.ISSUE_TITLE }}
+          Issue内容: ${{ env.ISSUE_BODY }}
+
+          以下是可用的配置文件列表：
+          ${{ env.FILE_TREE }}
+
+          请提供一个简洁但完整的解决方案，专注于如何修改配置文件来解决这个问题。
+          如果你认为这个问题无法通过修改配置文件解决，请明确说明'无法通过配置修改解决'。
+          请不要提供除修改配置文件以外的解决方案。"
+          
+          # 调用API
+          RESPONSE=$(curl -s -X POST "$API_URL/chat/completions" \
+            -H "Content-Type: application/json" \
+            -H "Authorization: Bearer ${{ secrets.OPENAI_API_KEY }}" \
+            -d "{
+              \"model\": \"deepseek-r1\",
+              \"messages\": [{\"role\": \"user\", \"content\": \"$PROMPT\"}],
+              \"temperature\": 0.7
+            }")
+          
+          # 提取AI回答
+          AI_RESPONSE=$(echo $RESPONSE | jq -r '.choices[0].message.content')
+          
+          # 确定是否可以通过配置修改解决
+          if echo "$AI_RESPONSE" | grep -q "无法通过配置修改解决"; then
+            echo "CANT_FIX=true" >> $GITHUB_ENV
           else
-            echo "has_images=false" >> $GITHUB_OUTPUT
+            echo "CANT_FIX=false" >> $GITHUB_ENV
           fi
+          
+          # 处理多行文本
+          AI_RESPONSE="${AI_RESPONSE//'%'/'%25'}"
+          AI_RESPONSE="${AI_RESPONSE//$'\n'/'%0A'}"
+          AI_RESPONSE="${AI_RESPONSE//$'\r'/'%0D'}"
+          
+          echo "AI_RESPONSE=$AI_RESPONSE" >> $GITHUB_ENV
 
-      - name: Prepare AI query
-        id: prepare-query
-        run: |
-          CONFIG_TREE=$(cat ${{ steps.filetree.outputs.config_tree_file }})
-          
-          # Create AI prompt
-          cat > ai_prompt.txt << EOL
-          你是一个专业的 Minecraft Paper 服务器配置专家。请帮助解决以下问题：
-          
-          问题标题: ${{ steps.issue.outputs.issue_title }}
-          
-          问题描述:
-          ${{ steps.issue.outputs.issue_body }}
-          
-          ${CONFIG_TREE}
-          
-          基于以上信息，请提供解决方案：
-          1. 只提供与配置文件相关的解决方案
-          2. 如果需要修改配置文件，请明确指出需要修改哪些文件和具体如何修改
-          3. 如果有多个解决方案，请列出所有可能的解决方案
-          4. 如果你认为这个问题无法通过修改配置文件解决，请明确说明
-          5. 请尽量简洁但包含完整的解决方案
-          
-          请以 Markdown 格式回答。
-          EOL
-          
-          echo "ai_prompt_file=ai_prompt.txt" >> $GITHUB_OUTPUT
-
-      - name: Call AI API
-        id: ai-response
-        run: |
-          python - << 'EOF' > ai_response.txt
-          import requests
-          import json
-          import os
-          
-          api_key = "${{ secrets.OPENAI_API_KEY }}"
-          api_url = "${{ secrets.openai_api_url }}"
-          
-          with open("${{ steps.prepare-query.outputs.ai_prompt_file }}", "r") as f:
-              prompt = f.read()
-              
-          headers = {
-              "Content-Type": "application/json",
-              "Authorization": f"Bearer {api_key}"
-          }
-          
-          payload = {
-              "model": "deepseek-ai/DeepSeek-R1-Distill-Qwen-32B",
-              "messages": [
-                  {"role": "system", "content": "You are an expert in Minecraft Paper server configuration. Provide clear, concise solutions to configuration problems."},
-                  {"role": "user", "content": prompt}
-              ],
-              "temperature": 0.3,
-              "max_tokens": 2048
-          }
-          
-          try:
-              response = requests.post(api_url, headers=headers, json=payload)
-              response.raise_for_status()
-              
-              result = response.json()
-              ai_response = result["choices"][0]["message"]["content"]
-              
-              # Check if AI says it can't be fixed with config changes
-              cannot_fix = any(phrase in ai_response.lower() for phrase in [
-                  "无法通过修改配置", 
-                  "不能通过配置", 
-                  "无法仅通过配置",
-                  "不能仅通过配置",
-                  "无法解决",
-                  "无法修复"
-              ])
-              
-              print(ai_response)
-              print("\n---WONTFIX_STATUS---")
-              print("true" if cannot_fix else "false")
-              
-          except Exception as e:
-              print(f"Error calling API: {str(e)}")
-              print("\n---WONTFIX_STATUS---")
-              print("false")
-          EOF
-          
-          # Extract the response and wontfix status
-          AI_RESPONSE=$(sed -n '1,/---WONTFIX_STATUS---/p' ai_response.txt | sed '$d')
-          WONTFIX_STATUS=$(sed -n '/---WONTFIX_STATUS---/,$p' ai_response.txt | sed '1d')
-          
-          # Save to outputs
-          echo "response<<EOF" >> $GITHUB_OUTPUT
-          echo "$AI_RESPONSE" >> $GITHUB_OUTPUT
-          echo "EOF" >> $GITHUB_OUTPUT
-          
-          echo "wontfix=$WONTFIX_STATUS" >> $GITHUB_OUTPUT
-
-      - name: Add comment to issue
-        if: github.event_name == 'issues'
+      - name: Add comment with solution
         uses: actions/github-script@v6
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
-            const aiResponse = `${{ steps.ai-response.outputs.response }}`;
+            const issueNumber = process.env.ISSUE_NUMBER;
+            const aiResponse = process.env.AI_RESPONSE.replace(/%0A/g, '\n').replace(/%0D/g, '\r').replace(/%25/g, '%');
             
             await github.rest.issues.createComment({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              issue_number: ${{ steps.issue.outputs.issue_number }},
-              body: `## AI 助手回复\n\n${aiResponse}\n\n---\n*这是由 AI 生成的回复，可能需要人工审核。*`
+              issue_number: issueNumber,
+              body: `## AI 助手解决方案\n\n${aiResponse}\n\n> 注：此回复由 AI 自动生成，如有疑问请联系管理员。`
             });
 
       - name: Add wontfix label if needed
-        if: github.event_name == 'issues' && steps.ai-response.outputs.wontfix == 'true'
+        if: env.CANT_FIX == 'true'
         uses: actions/github-script@v6
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
+            const issueNumber = process.env.ISSUE_NUMBER;
+            
             await github.rest.issues.addLabels({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              issue_number: ${{ steps.issue.outputs.issue_number }},
+              issue_number: issueNumber,
               labels: ['🙅wontfix']
             });
