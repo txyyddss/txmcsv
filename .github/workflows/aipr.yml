@@ -148,7 +148,7 @@ jobs:
               
               // 准备向 OpenAI 发送的提示内容
               let promptContent = `
-              你是一个专业的开发助手。请帮忙解决以下 GitHub Issue：
+              你要处理的是一个Paper端我的世界服务器，并且添加了插件，请帮忙解决以下 GitHub Issue：
               
               标题：${issue.title}
               
