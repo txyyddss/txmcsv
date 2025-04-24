@@ -102,35 +102,40 @@ jobs:
             echo "IMAGE_SECTION=" >> $GITHUB_ENV
           fi
       
-      - name: Call API for solution
-        id: call-solution
+
+      - name: Call Claude API for solution
+        id: claude-solution
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           ISSUE_NUMBER: ${{ steps.get-issue.outputs.issue-number }}
           ISSUE_TITLE: ${{ steps.get-issue.outputs.issue-title }}
           ISSUE_BODY: ${{ steps.get-issue.outputs.issue-body }}
         run: |
-          # 准备Claude的提示并转义JSON特殊字符
+          # 准备Gemini的提示并转义JSON特殊字符
           PROMPT=$(cat <<'EOT'
-          You are helping to resolve an issue in a Minecraft Paper server project with plugins.
-          
-          ## Issue Details
+          你是Minecraft Paper服务器配置专家。请分析以下问题并提供简短的解决方案。
+          ## 问题详情
           Issue #$ISSUE_NUMBER: $ISSUE_TITLE
           
-          Description:
+          描述:
           $ISSUE_BODY
           
           $IMAGE_SECTION
           
-          ## Project File Structure
+          ## 配置文件列表
           $FILE_TREE
           
-          Based on the issue description and file structure, please provide:
-          1. An analysis of the issue
-          2. Possible solutions or configuration changes needed
-          3. Clear, step-by-step instructions that would help resolve the issue
+          请提供：
+          1. 需要修改的配置文件路径
+          2. 应该如何修改这些配置（具体的参数和值）
+          3. 简短说明这些更改会解决什么问题
           
-          Format your response in markdown and keep it concise yet comprehensive and as short as possible while including the detailed solution.
+          你的回答必须：
+          - 仅关注配置文件的修改
+          - 不超过250字
+          - 使用markdown格式
+          - 不提供配置文件修改以外的解决方案
+          - 不提供长篇解释或背景信息
           EOT
           )
           
@@ -156,16 +161,16 @@ jobs:
             "model": "$model",
             "messages": [
               {
-                "role": "system",
-                "content": "You are an expert assistant for Minecraft Paper server configurations and plugins. Your task is to analyze issues and provide solutions."
+                "role": "system", 
+                "content": "你是Minecraft Paper服务器配置专家。提供简短、直接的配置文件修改建议。不要解释原理，只给出具体修改。"
               },
               {
                 "role": "user",
                 "content": ${ESCAPED_PROMPT}
               }
             ],
-            "temperature": 0.3,
-            "max_tokens": 8000
+            "temperature": 0.2,
+            "max_tokens": 300
           }
           EOF
           )
