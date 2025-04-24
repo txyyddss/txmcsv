@@ -28,11 +28,11 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPO_OWNER: ${{ github.repository_owner }}
-          REPO_NAME: ${{ github.repository.name || github.event.repository.name }}
+          REPO_NAME: ${{ github.event.repository.name || github.repository }}
         run: |
-          # 使用GraphQL查询带有"AI Help"标签的最新issue
-          cat > query.js << 'EOF'
-          const { graphql } = require('@octokit/graphql');
+          # 使用动态导入处理 ES Module
+          cat > query.mjs << 'EOF'
+          import { graphql } from '@octokit/graphql';
           
           async function run() {
             const graphqlWithAuth = graphql.defaults({
@@ -47,7 +47,7 @@ jobs:
             const query = `
               query GetAIHelpIssues($owner: String!, $repo: String!) {
                 repository(owner: $owner, name: $repo) {
-                  issues(first: 5, states: [OPEN], orderBy: {field: CREATED_AT, direction: DESC}, labels: ["AI Help"]) {
+                  issues(first: 5, states: [OPEN], orderBy: {field: CREATED_AT, direction: DESC}) {
                     nodes {
                       number
                       title
@@ -67,8 +67,15 @@ jobs:
               const result = await graphqlWithAuth(query, { owner, repo });
               const issues = result.repository.issues.nodes;
               
-              if (issues.length > 0) {
-                const latestIssue = issues[0];
+              // 过滤出带有 "AI Help" 标签的 issues
+              const aiHelpIssues = issues.filter(issue => 
+                issue.labels.nodes.some(label => 
+                  label.name.toLowerCase() === 'ai help'
+                )
+              );
+              
+              if (aiHelpIssues.length > 0) {
+                const latestIssue = aiHelpIssues[0];
                 const issueLabels = latestIssue.labels.nodes.map(label => label.name).join(', ');
                 
                 console.log(JSON.stringify({
@@ -89,7 +96,7 @@ jobs:
           run();
           EOF
           
-          RESULT=$(node query.js)
+          RESULT=$(node --experimental-modules query.mjs)
           echo "result=$RESULT" >> $GITHUB_OUTPUT
           
           # 如果找到issue，保存issue内容到文件中
