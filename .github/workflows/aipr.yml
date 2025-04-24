@@ -23,113 +23,42 @@ jobs:
           sudo apt-get install -y jq
           npm install @octokit/graphql @octokit/rest axios fs-extra glob
 
-      - name: Find latest AI Help issue
-        id: find_issue
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          REPO_OWNER: ${{ github.repository_owner }}
-          REPO_NAME: ${{ github.event.repository.name || github.repository }}
+      - name: Setup dependencies
         run: |
-          # 使用动态导入处理 ES Module
-          cat > query.mjs << 'EOF'
-          import { graphql } from '@octokit/graphql';
-          
-          async function run() {
-            const graphqlWithAuth = graphql.defaults({
-              headers: {
-                authorization: `token ${process.env.GITHUB_TOKEN}`,
-              },
-            });
-            
-            const repo = process.env.REPO_NAME;
-            const owner = process.env.REPO_OWNER;
-            
-            const query = `
-              query GetAIHelpIssues($owner: String!, $repo: String!) {
-                repository(owner: $owner, name: $repo) {
-                  issues(first: 5, states: [OPEN], orderBy: {field: CREATED_AT, direction: DESC}) {
-                    nodes {
-                      number
-                      title
-                      body
-                      labels(first: 10) {
-                        nodes {
-                          name
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            `;
-            
-            try {
-              const result = await graphqlWithAuth(query, { owner, repo });
-              const issues = result.repository.issues.nodes;
-              
-              // 过滤出带有 "AI Help" 标签的 issues
-              const aiHelpIssues = issues.filter(issue => 
-                issue.labels.nodes.some(label => 
-                  label.name.toLowerCase() === 'ai help'
-                )
-              );
-              
-              if (aiHelpIssues.length > 0) {
-                const latestIssue = aiHelpIssues[0];
-                const issueLabels = latestIssue.labels.nodes.map(label => label.name).join(', ');
-                
-                console.log(JSON.stringify({
-                  issueNumber: latestIssue.number,
-                  issueTitle: latestIssue.title,
-                  issueBody: latestIssue.body,
-                  issueLabels: issueLabels
-                }));
-              } else {
-                console.log('null');
-              }
-            } catch (error) {
-              console.error('Error:', error);
-              console.log('null');
-            }
-          }
-          
-          run();
-          EOF
-          
-          RESULT=$(node --experimental-modules query.mjs)
-          echo "result=$RESULT" >> $GITHUB_OUTPUT
-          
-          # 如果找到issue，保存issue内容到文件中
-          if [ "$RESULT" != "null" ]; then
-            echo "$RESULT" | jq -r '.issueBody' > issue_content.md
+          sudo apt-get update
+          sudo apt-get install -y jq
+      - name: Find AI Help issue
+        id: find_issue
+        run: |
+          # 使用 REST API 获取最新 issue (更可靠)
+          ISSUES=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            "https://api.github.com/repos/${{ github.repository }}/issues?state=open&sort=created&direction=desc&per_page=10")
+          # 保存到文件以便处理
+          echo "$ISSUES" > all_issues.json
+          # 找到有 AI Help 标签的 issue
+          AI_HELP_ISSUE=$(jq '[.[] | select(.labels[].name | ascii_downcase | contains("ai help"))] | first' all_issues.json)
+          if [ "$AI_HELP_ISSUE" != "null" ]; then
+            echo "$AI_HELP_ISSUE" > ai_help_issue.json
+            echo "result=found" >> $GITHUB_OUTPUT
+          else
+            echo "result=notfound" >> $GITHUB_OUTPUT
           fi
-
-      - name: Prepare repository for AI
-        if: steps.find_issue.outputs.result != 'null'
+      - name: Prepare repository
+        if: steps.find_issue.outputs.result == 'found'
         id: prepare_repo
         run: |
-          # 使用 heredoc 方式保存 JSON 数据到文件，避免 shell 解析
-          cat > issue_data.json << 'EOJSON'
-          {"issueNumber":35,"issueTitle":"[Bug]: 登入系统大小写冲突","issueBody":"### Prerequisites\n\n- [x] I have checked that this is not Mojang's issue.\n\n- [x] I have searched other issues and found no duplicates\n\n- [x] I will fill in the blanks properly.\n\n- [x] The bug can be repeated and not caused by your network.\n\n- [x] I correctly added the labels. (ex.P1/2/3 Breaking/Network)\n\n\n### Platform\n\nWindows Bedrock\n\n### Server version\n\n6\n\n### Minecraft version\n\n1.20.4\n\n### Action\n\n同时登入java大号mc9957和基岩小号MC9957\n\n### Expected result (If applicable)\n\n_No response_\n\n### Actual result (If applicable)\n\n显示名字应该为mc9957，不应该是MC9957\n\n### Additional information and/or screenshots\n\n![Image](https://github.com/user-attachments/assets/e920d79f-d38f-4d9f-8897-dddf9e7f4454)","issueLabels":"🐛bug, 🟠P2:Medium impact, AI Help"}
-          EOJSON
-          
-          # 从文件读取数据而不是直接在 shell 中处理
-          ISSUE_NUMBER=$(jq -r '.issueNumber' issue_data.json)
-          ISSUE_TITLE=$(jq -r '.issueTitle' issue_data.json)
-          echo "ISSUE_NUMBER: $ISSUE_NUMBER"
-          echo "ISSUE_TITLE: $ISSUE_TITLE"
-          
-          # 创建新分支
+          # 使用文件处理，避免 shell 字符转义问题
+          ISSUE_NUMBER=$(jq -r '.number' ai_help_issue.json)
+          ISSUE_TITLE=$(jq -r '.title' ai_help_issue.json)
+          jq -r '.body' ai_help_issue.json > issue_body.md
+          # 分支设置
           git config --global user.name "GitHub Action Bot"
           git config --global user.email "action@github.com"
           BRANCH_NAME="ai-solution-${ISSUE_NUMBER}"
           git checkout -b "$BRANCH_NAME"
-          
           # 生成文件树
-          FILE_TREE=$(find . -type f -not -path "*/\.*" -not -path "*/node_modules/*" -not -path "*/vendor/*" | sort)
-          echo "$FILE_TREE" > file_tree.txt
-          
-          # 保存输出变量
+          find . -type f -not -path "*/\.*" -not -path "*/node_modules/*" -not -path "*/vendor/*" | sort > file_tree.txt
+          # 输出变量
           echo "branch_name=$BRANCH_NAME" >> $GITHUB_OUTPUT
           echo "issue_number=$ISSUE_NUMBER" >> $GITHUB_OUTPUT
           echo "issue_title=$ISSUE_TITLE" >> $GITHUB_OUTPUT
