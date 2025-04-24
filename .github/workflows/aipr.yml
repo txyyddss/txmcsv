@@ -102,8 +102,8 @@ jobs:
           ISSUE_TITLE: ${{ steps.get-issue.outputs.issue-title }}
           ISSUE_BODY: ${{ steps.get-issue.outputs.issue-body }}
         run: |
-          # 准备Claude的提示
-          PROMPT=$(cat <<EOF
+          # 准备Claude的提示并转义JSON特殊字符
+          PROMPT=$(cat <<'EOT'
           You are helping to resolve an issue in a Minecraft Paper server project with plugins.
           
           ## Issue Details
@@ -123,8 +123,18 @@ jobs:
           3. Clear, step-by-step instructions that would help resolve the issue
           
           Format your response in markdown and keep it concise yet comprehensive.
-          EOF
+          EOT
           )
+          
+          # 处理环境变量替换
+          PROMPT="${PROMPT//\$ISSUE_NUMBER/$ISSUE_NUMBER}"
+          PROMPT="${PROMPT//\$ISSUE_TITLE/$ISSUE_TITLE}"
+          PROMPT="${PROMPT//\$ISSUE_BODY/$ISSUE_BODY}"
+          PROMPT="${PROMPT//\$IMAGE_SECTION/$IMAGE_SECTION}"
+          PROMPT="${PROMPT//\$FILE_TREE/$FILE_TREE}"
+          
+          # 使用jq正确转义JSON字符串
+          ESCAPED_PROMPT=$(echo "$PROMPT" | jq -Rs .)
           
           # 使用自定义API URL（如果提供）
           API_URL="${{ secrets.OPENAI_API_URL }}"
@@ -132,25 +142,31 @@ jobs:
             API_URL="https://api.openai.com/v1/chat/completions"
           fi
           
-          # 调用OpenAI API（使用Claude 3.7 Sonnet模型）
+          # 构建请求JSON
+          REQUEST_JSON=$(cat <<EOF
+          {
+            "model": "claude-3-7-sonnet-all",
+            "messages": [
+              {
+                "role": "system",
+                "content": "You are an expert assistant for Minecraft Paper server configurations and plugins. Your task is to analyze issues and provide solutions."
+              },
+              {
+                "role": "user",
+                "content": ${ESCAPED_PROMPT}
+              }
+            ],
+            "temperature": 0.3,
+            "max_tokens": 8000
+          }
+          EOF
+          )
+          
+          # 调用API
           RESPONSE=$(curl -s -X POST "$API_URL" \
             -H "Authorization: Bearer $OPENAI_API_KEY" \
             -H "Content-Type: application/json" \
-            -d "{
-              \"model\": \"claude-3-7-sonnet-all\",
-              \"messages\": [
-                {
-                  \"role\": \"system\",
-                  \"content\": \"You are an expert assistant for Minecraft Paper server configurations and plugins. Your task is to analyze issues and provide solutions.\"
-                },
-                {
-                  \"role\": \"user\",
-                  \"content\": \"$PROMPT\"
-                }
-              ],
-              \"temperature\": 0.3,
-              \"max_tokens\": 2000
-            }")
+            -d "$REQUEST_JSON")
           
           # 检查API调用是否成功
           if [[ $RESPONSE == *"error"* ]]; then
@@ -166,7 +182,7 @@ jobs:
           echo "SOLUTION<<EOF" >> $GITHUB_ENV
           echo "$SOLUTION" >> $GITHUB_ENV
           echo "EOF" >> $GITHUB_ENV
-      
+
       - name: Comment on Issue
         uses: actions/github-script@v6
         with:
