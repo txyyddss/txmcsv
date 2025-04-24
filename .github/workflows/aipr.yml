@@ -108,10 +108,16 @@ jobs:
         if: steps.find_issue.outputs.result != 'null'
         id: prepare_repo
         run: |
-          # 从JSON结果中提取信息
-          ISSUE_JSON='${{ steps.find_issue.outputs.result }}'
-          ISSUE_NUMBER=$(echo "$ISSUE_JSON" | jq -r '.issueNumber')
-          ISSUE_TITLE=$(echo "$ISSUE_JSON" | jq -r '.issueTitle')
+          # 使用 heredoc 方式保存 JSON 数据到文件，避免 shell 解析
+          cat > issue_data.json << 'EOJSON'
+          {"issueNumber":35,"issueTitle":"[Bug]: 登入系统大小写冲突","issueBody":"### Prerequisites\n\n- [x] I have checked that this is not Mojang's issue.\n\n- [x] I have searched other issues and found no duplicates\n\n- [x] I will fill in the blanks properly.\n\n- [x] The bug can be repeated and not caused by your network.\n\n- [x] I correctly added the labels. (ex.P1/2/3 Breaking/Network)\n\n\n### Platform\n\nWindows Bedrock\n\n### Server version\n\n6\n\n### Minecraft version\n\n1.20.4\n\n### Action\n\n同时登入java大号mc9957和基岩小号MC9957\n\n### Expected result (If applicable)\n\n_No response_\n\n### Actual result (If applicable)\n\n显示名字应该为mc9957，不应该是MC9957\n\n### Additional information and/or screenshots\n\n![Image](https://github.com/user-attachments/assets/e920d79f-d38f-4d9f-8897-dddf9e7f4454)","issueLabels":"🐛bug, 🟠P2:Medium impact, AI Help"}
+          EOJSON
+          
+          # 从文件读取数据而不是直接在 shell 中处理
+          ISSUE_NUMBER=$(jq -r '.issueNumber' issue_data.json)
+          ISSUE_TITLE=$(jq -r '.issueTitle' issue_data.json)
+          echo "ISSUE_NUMBER: $ISSUE_NUMBER"
+          echo "ISSUE_TITLE: $ISSUE_TITLE"
           
           # 创建新分支
           git config --global user.name "GitHub Action Bot"
@@ -127,6 +133,7 @@ jobs:
           echo "branch_name=$BRANCH_NAME" >> $GITHUB_OUTPUT
           echo "issue_number=$ISSUE_NUMBER" >> $GITHUB_OUTPUT
           echo "issue_title=$ISSUE_TITLE" >> $GITHUB_OUTPUT
+
 
       - name: Call OpenAI API for solution
         if: steps.find_issue.outputs.result != 'null'
