@@ -35,19 +35,12 @@ jobs:
           # 生成配置文件的文件树，排除数据文件、语言文件和包含locale/lang关键词的文件
           CONFIG_FILES=$(find . -type f -name "*.yml" -o -name "*.yaml" -o -name "*.json" -o -name "*.properties" -o -name "*.conf" -o -name "*.cfg" -o -name "*.toml" -o -name "*.xml" | grep -v "locale\|lang\|data\|language" | sort)
           
-          # 创建文件树输出
+          # 创建文件树输出，只包含文件路径，不包含文件内容
           FILE_TREE="# Configuration Files\n"
           
           for file in $CONFIG_FILES; do
-            # 添加文件到文件树
+            # 只添加文件路径到文件树
             FILE_TREE="$FILE_TREE\n- $file"
-            
-            # 对于小文件，可以添加内容
-            if [ -f "$file" ] && [ $(wc -c < "$file") -lt 10240 ]; then
-              FILE_TREE="$FILE_TREE\n\`\`\`\n$(cat $file)\n\`\`\`\n"
-            else
-              FILE_TREE="$FILE_TREE (file too large to display)"
-            fi
           done
           
           # 处理多行文本
@@ -80,7 +73,7 @@ jobs:
             -H "Content-Type: application/json" \
             -H "Authorization: Bearer ${{ secrets.OPENAI_API_KEY }}" \
             -d "{
-              \"model\": \"deepseek-r1\",
+              \"model\": \"deepseek-ai/DeepSeek-R1-Distill-Qwen-32B\",
               \"messages\": [{\"role\": \"user\", \"content\": \"$PROMPT\"}],
               \"temperature\": 0.7
             }")
