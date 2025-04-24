@@ -1,188 +1,125 @@
-name: AI Help Issue Solver
+name: AI Issue Processor
 
 on:
-  workflow_dispatch:  # 允许手动触发
+  workflow_dispatch:
+
+env:
+  AI_MODEL: claude-3-7-sonnet-all
+  MAX_TOKENS: 4000
 
 jobs:
-  solve-issue:
+  process-issue:
     runs-on: ubuntu-latest
     environment: AI
+    permissions:
+      issues: write
+      contents: read
+
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18'
-
-      - name: Install dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y jq
-          npm install @octokit/graphql @octokit/rest axios fs-extra glob
-
-      - name: Setup dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y jq
-      - name: Find AI Help issue
-        id: find_issue
-        run: |
-          # 使用 REST API 获取最新 issue (更可靠)
-          ISSUES=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-            "https://api.github.com/repos/${{ github.repository }}/issues?state=open&sort=created&direction=desc&per_page=10")
-          # 保存到文件以便处理
-          echo "$ISSUES" > all_issues.json
-          # 找到有 AI Help 标签的 issue
-          AI_HELP_ISSUE=$(jq '[.[] | select(.labels[].name | ascii_downcase | contains("ai help"))] | first' all_issues.json)
-          if [ "$AI_HELP_ISSUE" != "null" ]; then
-            echo "$AI_HELP_ISSUE" > ai_help_issue.json
-            echo "result=found" >> $GITHUB_OUTPUT
-          else
-            echo "result=notfound" >> $GITHUB_OUTPUT
-          fi
-      - name: Prepare repository
-        if: steps.find_issue.outputs.result == 'found'
-        id: prepare_repo
-        run: |
-          # 使用文件处理，避免 shell 字符转义问题
-          ISSUE_NUMBER=$(jq -r '.number' ai_help_issue.json)
-          ISSUE_TITLE=$(jq -r '.title' ai_help_issue.json)
-          jq -r '.body' ai_help_issue.json > issue_body.md
-          # 分支设置
-          git config --global user.name "GitHub Action Bot"
-          git config --global user.email "action@github.com"
-          BRANCH_NAME="ai-solution-${ISSUE_NUMBER}"
-          git checkout -b "$BRANCH_NAME"
-          # 生成文件树
-          find . -type f -not -path "*/\.*" -not -path "*/node_modules/*" -not -path "*/vendor/*" | sort > file_tree.txt
-          # 输出变量
-          echo "branch_name=$BRANCH_NAME" >> $GITHUB_OUTPUT
-          echo "issue_number=$ISSUE_NUMBER" >> $GITHUB_OUTPUT
-          echo "issue_title=$ISSUE_TITLE" >> $GITHUB_OUTPUT
-
-
-      - name: Call OpenAI for solution
-        id: openai_solution
-        env:
-          Key: ${{ secrets.OPENAI_API_KEY }}
-          Url: ${{ secrets.openai_api_url }}
-        run: |
-          # 准备请求数据
-          cat > openai_request.json << 'EOF'
-          {
-            "model": "claude-3-5-sonnet-all",
-            "messages": [
-              {
-                "role": "system",
-                "content": "你是一位专业的开发者兼自身我的世界服务器运维，擅长解决各种问题。你要处理的是一个Paper端我的世界服务器，并且添加了插件，请分析以下Issue，并给出清晰的解决方案。"
-              },
-              {
-                "role": "user",
-                "content": "我需要你帮我解决以下Issue:\n\n标题: ${{ steps.prepare_repo.outputs.issue_title }}\n\n内容:\n$(cat issue_body.md)\n\n文件结构:\n$(cat file_tree.txt)\n\n请提出解决方案并解释你的思路。如果需要新建或修改文件，请提供完整的代码。"
-              }
-            ],
-            "temperature": 0.7,
-            "max_tokens": 2000
-          }
-          EOF
-          
-          # 调用OpenAI API并保存完整响应到文件
-          curl -s -X POST \
-            -H "Content-Type: application/json" \
-            -H "Authorization: Bearer $Key" \
-            -d @openai_request.json \
-            "$Url" > openai_response.json
-          
-          # 检查curl是否成功
-          if [ $? -ne 0 ]; then
-            echo "Error: Failed to call OpenAI API"
-            exit 1
-          fi
-          
-          # 检查response文件是否存在且不为空
-          if [ ! -s openai_response.json ]; then
-            echo "Error: Empty response from OpenAI API"
-            exit 1
-          fi
-          
-          # 从响应中提取content内容
-          CONTENT=$(jq -r '.choices[0].message.content // empty' openai_response.json)
-          
-          # 如果提取失败，检查错误信息并打印调试信息
-          if [ -z "$CONTENT" ]; then
-            echo "警告: 无法提取内容，原始响应:"
-            cat openai_response.json
-            echo "尝试使用备选方法提取内容..."
-            CONTENT=$(jq -r '.choices[0].message.content' openai_response.json 2>/dev/null || echo "无法获取AI响应")
-          fi
-          
-          # 保存AI响应到文件
-          echo "$CONTENT" > ai_solution.md
-          
-          # 预处理AI响应以确保正确的JSON转义
-          SOLUTION_JSON=$(jq -n --arg content "$CONTENT" '{content: $content}')
-          echo "solution=$SOLUTION_JSON" >> $GITHUB_OUTPUT
-
-
-      - name: Implement AI solution
-        if: steps.find_issue.outputs.result != 'null'
-        run: |
-          # 这里可以添加代码来解析AI解决方案并自动进行文件修改
-          # 例如使用正则表达式提取代码块并应用到相应文件
-          # 简单示例，实际实现可能需要更复杂的逻辑
-          
-          # 解析AI解决方案中的代码块
-          node -e '
-            const fs = require("fs");
-            const solution = fs.readFileSync("ai_solution.md", "utf8");
-            
-            // 查找代码块 ```filepath content ```
-            const codeBlockRegex = /```(?:(\S+)\n)?([\s\S]+?)```/g;
-            let match;
-            
-            while ((match = codeBlockRegex.exec(solution)) !== null) {
-              const filepath = match[1];
-              let content = match[2];
-              
-              if (filepath && !filepath.startsWith("output") && !filepath.startsWith("shell") && !filepath.startsWith("bash")) {
-                console.log(`处理文件: ${filepath}`);
-                
-                // 确保目录存在
-                const dir = filepath.substring(0, filepath.lastIndexOf("/"));
-                if (dir && dir !== "" && !fs.existsSync(dir)) {
-                  fs.mkdirSync(dir, { recursive: true });
+    - name: Setup GraphQL query
+      id: get-issue
+      uses: actions/github-script@v6
+      with:
+        script: |
+          const query = `query ($owner: String!, $repo: String!) {
+            repository(owner: $owner, name: $repo) {
+              issues(labels: ["AI Help"], states: OPEN, first: 1, orderBy: {field: UPDATED_AT, direction: DESC}) {
+                nodes {
+                  number
+                  body
+                  author {
+                    login
+                  }
                 }
-                
-                // 写入或更新文件
-                fs.writeFileSync(filepath, content, "utf8");
               }
             }
-          '
+          }`;
           
-          # 添加更改
-          git add .
-          git status
+          const result = await github.graphql(query, {
+            owner: context.repo.owner,
+            repo: context.repo.repo
+          });
           
-          # 检查是否有更改
-          if git diff --staged --quiet; then
-            echo "没有发现文件更改，添加一个占位文件"
-            echo "AI解决方案已经提供，但没有找到需要实现的代码更改。请查看PR描述了解更多信息。" > AI_SOLUTION.md
-            git add AI_SOLUTION.md
-          fi
-          
-          git commit -m "AI解决方案: ${{ steps.prepare_repo.outputs.issue_title }} (#${{ steps.prepare_repo.outputs.issue_number }})"
+          const issue = result.repository.issues.nodes[0];
+          core.setOutput('number', issue.number);
+          core.setOutput('body', issue.body);
+          core.setOutput('author', issue.author.login);
 
-      - name: Create Pull Request
-        if: steps.find_issue.outputs.result != 'null'
-        uses: peter-evans/create-pull-request@v5
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          commit-message: "AI Solution: ${{ steps.prepare_repo.outputs.issue_title }}"
-          branch: ${{ steps.prepare_repo.outputs.branch_name }}
-          title: "AI Solution - ${{ steps.prepare_repo.outputs.issue_title }}"
-          body-path: pr_description.md
-          labels: "AI-generated"
+    - name: Generate file structure
+      id: file-structure
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y tree
+        tree -a -I '.git|node_modules|logs|cache|plugins' --noreport > file_tree.txt
+        echo "FILE_TREE=$(cat file_tree.txt)" >> $GITHUB_ENV
+
+    - name: Extract image URLs
+      id: extract-images
+      run: |
+        IMAGE_URLS=$(grep -oE '\!\[.*\]\(https?:\/\/[^\)]+\)' <<< "${{ steps.get-issue.outputs.body }}" | sed 's/.*(//;s/)//' | tr '\n' ' ')
+        echo "image_urls=$IMAGE_URLS" >> $GITHUB_OUTPUT
+
+    - name: Create AI prompt
+      id: create-prompt
+      run: |
+        PROMPT=$(cat <<EOF
+        你是一个经验丰富的Minecraft服务器管理员，请分析以下Paper服务器问题：
+
+        ### 问题描述：
+        ${{ steps.get-issue.outputs.body }}
+
+        ### 文件结构：
+        $(cat file_tree.txt)
+
+        ### 相关图片链接：
+        ${{ steps.extract-images.outputs.image_urls }}
+
+        请：
+        1. 分析可能的问题原因
+        2. 给出具体的解决方案
+        3. 说明需要修改的配置文件及位置
+        4. 注意插件兼容性问题
+        请用中文回答，保持专业但易于理解。
+        EOF
+        )
+        echo "PROMPT=$PROMPT" >> $GITHUB_ENV
+
+    - name: Call Claude API
+      id: call-api
+      run: |
+        RESPONSE=$(curl -s -X POST "${{ secrets.openai_api_url }}" \
+          -H "Content-Type: application/json" \
+          -H "Authorization: Bearer ${{ secrets.OPENAI_API_KEY }}" \
+          -d @- <<EOF
+        {
+          "model": "${{ env.AI_MODEL }}",
+          "max_tokens": ${{ env.MAX_TOKENS }},
+          "messages": [
+            {
+              "role": "user",
+              "content": "${{ env.PROMPT }}"
+            }
+          ]
+        }
+        EOF
+        )
+
+        echo "API Response: $RESPONSE"
+        COMMENT=$(echo "$RESPONSE" | jq -r '.choices[0].message.content')
+        echo "comment=$COMMENT" >> $GITHUB_OUTPUT
+
+    - name: Post AI response
+      uses: actions/github-script@v6
+      with:
+        script: |
+          await github.rest.issues.createComment({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            issue_number: ${{ steps.get-issue.outputs.number }},
+            body: `🤖 **AI分析结果**（由@${{ steps.get-issue.outputs.author }} 触发）\n\n${{ steps.call-api.outputs.comment }}`
+          });
