@@ -61,19 +61,25 @@ jobs:
             core.setOutput('issue-url', issue.url);
             core.setOutput('image-links', JSON.stringify(imageLinks));
       
+
       - name: Generate file tree
         id: file-tree
         run: |
-          # 生成文件树
-          echo "::group::File Tree"
-          find . -type f -not -path "*/\.*" -not -path "*/node_modules/*" -not -path "*/.git/*" | sort > file_tree.txt
-          cat file_tree.txt
+          # 生成仅包含配置文件的文件树
+          echo "::group::Config Files Tree"
+          
+          # 查找所有配置文件
+          find . -name "*.yml" -o -name "*.yaml" -o -name "*.json" -o -name "*.properties" -o -name "*.conf" -o -name "*.cfg" -o -name "*.toml" -o -name "config.txt" -o -path "*/plugins/*/config*" | grep -v "node_modules" | grep -v ".git" | sort > config_files.txt
+          
+          # 显示找到的配置文件
+          cat config_files.txt
           echo "::endgroup::"
           
-          # 创建文件树文本
-          TREE=$(find . -type f -not -path "*/\.*" -not -path "*/node_modules/*" -not -path "*/.git/*" | sort | sed 's/^/- /')
+          # 创建配置文件树文本
+          CONFIG_TREE=$(cat config_files.txt | sed 's/^/- /')
           echo "FILE_TREE<<EOF" >> $GITHUB_ENV
-          echo "$TREE" >> $GITHUB_ENV
+          echo "以下是服务器配置文件列表:" >> $GITHUB_ENV
+          echo "$CONFIG_TREE" >> $GITHUB_ENV
           echo "EOF" >> $GITHUB_ENV
       
       - name: Process images
