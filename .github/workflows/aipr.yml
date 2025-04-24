@@ -1,0 +1,298 @@
+name: AI Help Solution Generator
+
+on:
+  # 定时触发 - 每小时运行一次
+  schedule:
+    - cron: '0 * * * *'
+  # 手动触发
+  workflow_dispatch:
+    inputs:
+      issue_number:
+        description: 'Issue 编号（可选，留空则自动获取最新的）'
+        required: false
+        type: string
+
+jobs:
+  generate-solution:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      issues: read
+      pull-requests: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm install @octokit/graphql @octokit/rest openai
+
+      - name: Get latest AI Help issue and generate solution
+        id: generate-solution
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_API_URL: ${{ secrets.OPENAI_API_URL || 'https://api.openai.com/v1' }}
+        run: |
+          node -e '
+          const { graphql } = require("@octokit/graphql");
+          const { Octokit } = require("@octokit/rest");
+          const { OpenAI } = require("openai");
+          
+          async function run() {
+            try {
+              // 初始化客户端
+              const graphqlWithAuth = graphql.defaults({
+                headers: {
+                  authorization: `token ${process.env.GITHUB_TOKEN}`,
+                },
+              });
+              
+              const octokit = new Octokit({ 
+                auth: process.env.GITHUB_TOKEN 
+              });
+              
+              const openai = new OpenAI({ 
+                apiKey: process.env.OPENAI_API_KEY,
+                baseURL: process.env.OPENAI_API_URL 
+              });
+              
+              const repo = process.env.GITHUB_REPOSITORY.split("/");
+              const owner = repo[0];
+              const repoName = repo[1];
+              
+              console.log(`仓库信息: ${owner}/${repoName}`);
+              
+              // 确定要处理的 Issue 编号
+              let issueNumber = process.env.INPUT_ISSUE_NUMBER;
+              
+              // 如果没有指定 Issue 编号，则使用 GraphQL 查询获取最新的有 "AI Help" 标签的 Issue
+              if (!issueNumber) {
+                console.log("正在查询最新的 AI Help Issue...");
+                
+                const query = `
+                  query getAIHelpIssues($owner: String!, $repo: String!) {
+                    repository(owner: $owner, name: $repo) {
+                      issues(first: 10, states: OPEN, orderBy: {field: CREATED_AT, direction: DESC}, labels: ["AI Help"]) {
+                        nodes {
+                          number
+                          title
+                          body
+                          url
+                        }
+                      }
+                    }
+                  }
+                `;
+                
+                const result = await graphqlWithAuth(query, {
+                  owner,
+                  repo: repoName,
+                });
+                
+                const issues = result.repository.issues.nodes;
+                
+                if (!issues || issues.length === 0) {
+                  console.log("没有找到带有 AI Help 标签的开放 Issue");
+                  return;
+                }
+                
+                // 获取第一个（最新的）issue
+                const latestIssue = issues[0];
+                issueNumber = latestIssue.number;
+                console.log(`找到最新的 AI Help Issue #${issueNumber}: ${latestIssue.title}`);
+              }
+              
+              // 获取 Issue 详细信息
+              const { data: issue } = await octokit.issues.get({
+                owner,
+                repo: repoName,
+                issue_number: issueNumber,
+              });
+              
+              // 检查 Issue 是否有 "AI Help" 标签（如果手动指定了 Issue 编号）
+              if (!issue.labels.some(label => label.name === "AI Help" || label.name === "ai help")) {
+                console.log(`Issue #${issueNumber} 没有 "AI Help" 标签，跳过处理`);
+                return;
+              }
+              
+              // 检查是否已经有针对该 Issue 的 PR
+              const { data: pulls } = await octokit.pulls.list({
+                owner,
+                repo: repoName,
+                state: "open",
+              });
+              
+              if (pulls.some(pr => pr.title === `AI Solution-${issue.title}` || pr.body.includes(`Closes #${issueNumber}`))) {
+                console.log(`Issue #${issueNumber} 已经有对应的 PR，跳过处理`);
+                return;
+              }
+              
+              console.log(`正在为 Issue #${issueNumber} 生成解决方案...`);
+              
+              // 处理 Issue 内容，提取图片链接
+              let issueBody = issue.body || "";
+              const imageUrls = [];
+              const imageRegex = /!\[.*?\]\((.*?)\)/g;
+              let match;
+              
+              while ((match = imageRegex.exec(issueBody)) !== null) {
+                imageUrls.push(match[1]);
+              }
+              
+              // 准备向 OpenAI 发送的提示内容
+              let promptContent = `
+              你是一个专业的开发助手。请帮忙解决以下 GitHub Issue：
+              
+              标题：${issue.title}
+              
+              内容：${issueBody}
+              `;
+              
+              if (imageUrls.length > 0) {
+                promptContent += `\n注意：Issue 中包含 ${imageUrls.length} 张图片，图片URL：${imageUrls.join(", ")}`;
+              }
+              
+              promptContent += `
+              
+              请提供：
+              1. 对问题的简要分析
+              2. 解决方案的详细说明
+              3. 必要的代码更改
+              
+              你的回答将被用于创建一个 Pull Request 来解决这个 Issue。
+              `;
+              
+              // 调用 OpenAI API 获取解决方案
+              console.log("正在调用 OpenAI API...");
+              const completion = await openai.chat.completions.create({
+                model: "claude-3-7-sonnet-thinking",  // 可以根据需要更改模型
+                messages: [
+                  { role: "system", content: "你是一个专业的开发助手，擅长解决编程问题并提供详细的技术解决方案。" },
+                  { role: "user", content: promptContent }
+                ],
+                temperature: 0.2,
+                max_tokens: 4000
+              });
+              
+              const solution = completion.choices[0].message.content;
+              console.log("AI 解决方案已生成");
+              
+              // 创建新分支
+              const baseBranch = "main";  // 或者 "master"，取决于你的默认分支
+              const newBranch = `ai-solution-issue-${issueNumber}`;
+              
+              console.log(`正在创建新分支: ${newBranch}`);
+              
+              // 获取基础分支的最新 commit SHA
+              const { data: refData } = await octokit.git.getRef({
+                owner,
+                repo: repoName,
+                ref: `heads/${baseBranch}`,
+              });
+              
+              const baseSha = refData.object.sha;
+              
+              // 创建新分支
+              try {
+                await octokit.git.createRef({
+                  owner,
+                  repo: repoName,
+                  ref: `refs/heads/${newBranch}`,
+                  sha: baseSha,
+                });
+              } catch (error) {
+                if (error.message.includes("Reference already exists")) {
+                  console.log(`分支 ${newBranch} 已存在，将继续使用`);
+                } else {
+                  throw error;
+                }
+              }
+              
+              // 创建包含解决方案的 README 文件（实际项目中可能需要修改特定文件）
+              // 这只是一个示例，实际情况应根据 AI 的建议修改相关文件
+              const solutionFilePath = "AI_SOLUTION.md";
+              
+              // 检查文件是否已存在
+              try {
+                await octokit.repos.getContent({
+                  owner,
+                  repo: repoName,
+                  path: solutionFilePath,
+                  ref: newBranch,
+                });
+                
+                // 如果文件存在，更新它
+                const { data: existingFile } = await octokit.repos.getContent({
+                  owner,
+                  repo: repoName,
+                  path: solutionFilePath,
+                  ref: newBranch,
+                });
+                
+                await octokit.repos.createOrUpdateFileContents({
+                  owner,
+                  repo: repoName,
+                  path: solutionFilePath,
+                  message: `AI 解决方案：${issue.title}`,
+                  content: Buffer.from(`# AI 解决方案：Issue #${issueNumber}\n\n${solution}`).toString("base64"),
+                  branch: newBranch,
+                  sha: existingFile.sha,
+                });
+              } catch (error) {
+                if (error.status === 404) {
+                  // 如果文件不存在，创建它
+                  await octokit.repos.createOrUpdateFileContents({
+                    owner,
+                    repo: repoName,
+                    path: solutionFilePath,
+                    message: `AI 解决方案：${issue.title}`,
+                    content: Buffer.from(`# AI 解决方案：Issue #${issueNumber}\n\n${solution}`).toString("base64"),
+                    branch: newBranch,
+                  });
+                } else {
+                  throw error;
+                }
+              }
+              
+              // 创建 Pull Request
+              console.log("正在创建 Pull Request...");
+              const { data: pull } = await octokit.pulls.create({
+                owner,
+                repo: repoName,
+                title: `AI Solution-${issue.title}`,
+                body: `这是针对 Issue #${issueNumber} 的 AI 生成解决方案。\n\n${solution}\n\nCloses #${issueNumber}`,
+                head: newBranch,
+                base: baseBranch,
+              });
+              
+              console.log(`成功创建 PR #${pull.number}: ${pull.html_url}`);
+              
+              // 添加评论到原始 Issue
+              await octokit.issues.createComment({
+                owner,
+                repo: repoName,
+                issue_number: issueNumber,
+                body: `我已经为此 Issue 创建了一个解决方案 PR: ${pull.html_url}`
+              });
+              
+            } catch (error) {
+              console.error("发生错误:", error.message);
+              // 如果是 API 错误，提供更详细的信息
+              if (error.response) {
+                console.error("API 错误详情:", JSON.stringify(error.response.data, null, 2));
+              }
+              process.exit(1);
+            }
+          }
+          
+          run();
+          '

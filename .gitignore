@@ -12,6 +12,8 @@ backup
 .zip
 *.db
 .db
+*.bat
+.bat
 # Don't want include
 /bluemap
 /cache
