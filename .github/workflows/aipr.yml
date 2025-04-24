@@ -67,11 +67,37 @@ jobs:
       - name: Generate file tree
         id: file-tree
         run: |
-          # 生成仅包含配置文件的文件树
+          # 生成仅包含关键配置文件的文件树
           echo "::group::Config Files Tree"
           
-          # 查找所有配置文件
-          find . -name "*.yml" -o -name "*.yaml" -o -name "*.json" -o -name "*.properties" -o -name "*.conf" -o -name "*.cfg" -o -name "*.toml" -o -name "config.txt" -o -path "*/plugins/*/config*" | grep -v "node_modules" | grep -v ".git" | sort > config_files.txt
+          # 查找配置文件但排除数据/语言文件等
+          find . \
+            -name "*.yml" -o -name "*.yaml" -o -name "*.json" -o -name "*.properties" -o -name "*.conf" -o -name "*.cfg" -o -name "*.toml" -o -name "config.txt" \
+            | grep -v "node_modules" \
+            | grep -v ".git" \
+            | grep -v "/world/" \
+            | grep -v "/logs/" \
+            | grep -v "/cache/" \
+            | grep -v "/backup/" \
+            | grep -v "/crash-reports/" \
+            | grep -v "/libraries/" \
+            | grep -v "/versions/" \
+            | grep -v "/assets/" \
+            | grep -v "/tmp/" \
+            | grep -v "/temp/" \
+            | grep -v "\.dat$" \
+            | grep -v "\.mca$" \
+            | grep -v "\/playerdata\/" \
+            | grep -v "\/advancements\/" \
+            | grep -v "\/stats\/" \
+            | grep -v "\/data\/" \
+            | grep -v "\/region\/" \
+            | grep -iv "locale" \
+            | grep -iv "lang" \
+            | grep -iv "i18n" \
+            | grep -iv "translation" \
+            | grep -i -e "config" -e "settings" -e "permissions" -e "bukkit" -e "spigot" -e "paper" -e "plugin" \
+            | sort > config_files.txt
           
           # 显示找到的配置文件
           cat config_files.txt
@@ -80,7 +106,7 @@ jobs:
           # 创建配置文件树文本
           CONFIG_TREE=$(cat config_files.txt | sed 's/^/- /')
           echo "FILE_TREE<<EOF" >> $GITHUB_ENV
-          echo "以下是服务器配置文件列表:" >> $GITHUB_ENV
+          echo "以下是服务器关键配置文件列表:" >> $GITHUB_ENV
           echo "$CONFIG_TREE" >> $GITHUB_ENV
           echo "EOF" >> $GITHUB_ENV
       
@@ -129,7 +155,7 @@ jobs:
           1. 需要修改的配置文件路径
           2. 应该如何修改这些配置（具体的参数和值）
           3. 简短说明这些更改会解决什么问题
-          
+          你可以上网搜索解决方案
           你的回答必须：
           - 仅关注配置文件的修改
           - 不超过250字
@@ -170,7 +196,7 @@ jobs:
               }
             ],
             "temperature": 0.2,
-            "max_tokens": 300
+            "max_tokens": 1000
           }
           EOF
           )
