@@ -11,8 +11,6 @@ jobs:
     # 仅在Issue有"AI Help"标签或手动触发时运行
     if: contains(github.event.issue.labels.*.name, 'AI Help') || github.event_name == 'workflow_dispatch'
     environment: AI
-    env: 
-      model: gemini-2.0-flash
     
     steps:
       - name: Checkout repository
@@ -131,69 +129,84 @@ jobs:
           fi
       
 
-      - name: Call Claude API for solution
-        id: claude-solution
+      - name: Call AI API for solution
+        id: ai-solution
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           ISSUE_NUMBER: ${{ steps.get-issue.outputs.issue-number }}
           ISSUE_TITLE: ${{ steps.get-issue.outputs.issue-title }}
           ISSUE_BODY: ${{ steps.get-issue.outputs.issue-body }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
         run: |
-          # 准备Gemini的提示并转义JSON特殊字符
+          # Prepare prompt for Grok model (in English)
           PROMPT=$(cat <<'EOT'
-          你是Minecraft Paper服务器配置专家。请分析以下问题并提供简短的解决方案。
-
-          ## 问题详情
+          You are a Minecraft Paper server configuration expert. Analyze the following issue and provide a concise solution.
+          ## Issue Details
           Issue #$ISSUE_NUMBER: $ISSUE_TITLE
           
-          描述:
+          Description:
           $ISSUE_BODY
           
           $IMAGE_SECTION
           
-          ## 配置文件列表
+          ## Configuration Files
           $FILE_TREE
           
-          需要包含以下内容：
-          1. 使用非常简短的语言总结这个issue
-          2. 需要修改的配置文件路径
-          3. 应该如何修改这些配置（具体的参数和值）
-          4. 简短说明这些更改会解决什么问题
-          你可以上网搜索相关问题,解决方案,或任何可以帮助你解决问题的网页,你也可以查找与插件或Paper相关的官方配置文档
-          如果问题可能有多个解决方案,请全部包含
-          你的回答必须：
-          - 提供配置文件的修改
-          - 使用markdown格式
-          - 不提供配置文件修改以外的解决方案
-          - 不提供长篇解释或背景信息
-          - 排版清晰,不要使用编号或列表
+          If this issue CAN be solved by configuration changes, provide your solution in this EXACT format:
+          ```markdown
+          ### Files to Modify
+          - file/path1
+          - file/path2
+          
+          ### Changes
+          - file/path1:
+            ```yaml
+            setting: new_value
+            ```
+          - file/path2:
+            ```yaml
+            setting: new_value
+            ```
+          ```
+          
+          If this issue CANNOT be solved by configuration changes alone, respond EXACTLY with:
+          ```
+          WONTFIX: [brief reason why configuration changes won't solve this]
+          ```
+          
+          Your response must:
+          - Focus ONLY on configuration file changes
+          - Be under 250 words
+          - Contain NO thinking process or explanation
+          - Follow the EXACT format specified above
           EOT
           )
           
-          # 处理环境变量替换
+          # Process environment variable replacements
           PROMPT="${PROMPT//\$ISSUE_NUMBER/$ISSUE_NUMBER}"
           PROMPT="${PROMPT//\$ISSUE_TITLE/$ISSUE_TITLE}"
           PROMPT="${PROMPT//\$ISSUE_BODY/$ISSUE_BODY}"
           PROMPT="${PROMPT//\$IMAGE_SECTION/$IMAGE_SECTION}"
           PROMPT="${PROMPT//\$FILE_TREE/$FILE_TREE}"
           
-          # 使用jq正确转义JSON字符串
+          # Escape JSON string properly
           ESCAPED_PROMPT=$(echo "$PROMPT" | jq -Rs .)
           
-          # 使用自定义API URL（如果提供）
+          # Use custom API URL if provided
           API_URL="${{ secrets.OPENAI_API_URL }}"
           if [ -z "$API_URL" ]; then
             API_URL="https://api.openai.com/v1/chat/completions"
           fi
           
-          # 构建请求JSON
+          # Build request JSON for Grok model
           REQUEST_JSON=$(cat <<EOF
           {
-            "model": "$model",
+            "model": "grok-3-mini-beta",
             "messages": [
               {
                 "role": "system", 
-                "content": "你是Minecraft Paper服务器配置专家。提供简短、直接的配置文件修改建议。不要解释原理，只给出具体修改。"
+                "content": "You are a Minecraft Paper server configuration expert. Provide configuration changes only. If the issue cannot be solved by configuration changes, respond with 'WONTFIX: [reason]'. Use the exact format specified."
               },
               {
                 "role": "user",
@@ -201,27 +214,52 @@ jobs:
               }
             ],
             "temperature": 0.2,
-            "max_tokens": 1000
+            "max_tokens": 300
           }
           EOF
           )
           
-          # 调用API
+          # Call API
           RESPONSE=$(curl -s -X POST "$API_URL" \
             -H "Authorization: Bearer $OPENAI_API_KEY" \
             -H "Content-Type: application/json" \
             -d "$REQUEST_JSON")
           
-          # 检查API调用是否成功
+          # Check if API call was successful
           if [[ $RESPONSE == *"error"* ]]; then
             echo "API Error: $RESPONSE"
             exit 1
           fi
           
-          # 提取响应内容
+          # Extract response content
           SOLUTION=$(echo "$RESPONSE" | jq -r '.choices[0].message.content')
           
-          # 保存解决方案
+          # Check if solution contains WONTFIX indicator
+          if [[ $SOLUTION == *"WONTFIX:"* ]]; then
+            echo "AI determined this cannot be fixed by configuration changes."
+            
+            # Extract the reason
+            WONTFIX_REASON=$(echo "$SOLUTION" | grep -o "WONTFIX:.*" | sed 's/WONTFIX: //')
+            
+            # Add wontfix label to the issue
+            curl -s -X POST \
+              -H "Authorization: token $GITHUB_TOKEN" \
+              -H "Accept: application/vnd.github.v3+json" \
+              "https://api.github.com/repos/$REPO/issues/$ISSUE_NUMBER/labels" \
+              -d "{\"labels\":[\"🙅wontfix\"]}"
+              
+            # Comment on the issue with the reason
+            COMMENT="**Cannot be solved through configuration:**\n\n${WONTFIX_REASON}\n\n*This issue has been labeled as wontfix as the AI determined configuration changes alone cannot resolve it.*"
+            ESCAPED_COMMENT=$(echo "$COMMENT" | jq -Rs .)
+            
+            curl -s -X POST \
+              -H "Authorization: token $GITHUB_TOKEN" \
+              -H "Accept: application/vnd.github.v3+json" \
+              "https://api.github.com/repos/$REPO/issues/$ISSUE_NUMBER/comments" \
+              -d "{\"body\":${ESCAPED_COMMENT}}"
+          fi
+          
+          # Save solution
           echo "$SOLUTION" > solution.md
           echo "SOLUTION<<EOF" >> $GITHUB_ENV
           echo "$SOLUTION" >> $GITHUB_ENV
