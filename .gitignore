@@ -1,0 +1,24 @@
+# Temp files
+.log
+*.log
+/logs
+.console_history
+*.dat
+.dat
+*.json
+.json
+backup
+*.zip
+.zip
+*.db
+.db
+# Don't want include
+/bluemap
+/cache
+/libraries
+/world
+/world_nether
+/world_the_end
+/bluemap.7z
+/plugins/.paper-remapped
+*.exe
