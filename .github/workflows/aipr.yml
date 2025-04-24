@@ -74,11 +74,11 @@ jobs:
           # 准备请求数据
           cat > openai_request.json << 'EOF'
           {
-            "model": "claude-3-7-sonnet-thinking",
+            "model": "claude-3-7-sonnet",
             "messages": [
               {
                 "role": "system",
-                "content": "你是一位专业的开发者，擅长解决各种编程问题。你要处理的是一个Paper端我的世界服务器，并且添加了插件，请分析以下Issue，并给出清晰的解决方案。"
+                "content": "你是一位专业的开发者兼自身我的世界服务器运维，擅长解决各种问题。你要处理的是一个Paper端我的世界服务器，并且添加了插件，请分析以下Issue，并给出清晰的解决方案。"
               },
               {
                 "role": "user",
