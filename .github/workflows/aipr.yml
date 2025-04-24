@@ -93,7 +93,7 @@ jobs:
           # 调用OpenAI API并保存完整响应到文件
           curl -s -X POST \
             -H "Content-Type: application/json" \
-            -H "Authorization: Bearer '$Key'" \
+            -H "Authorization: Bearer $Key" \
             -d @openai_request.json \
             "$Url" > openai_response.json
           
