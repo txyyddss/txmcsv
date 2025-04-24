@@ -1,125 +1,185 @@
-name: AI Issue Processor
+name: AI Help Issue Resolver
 
 on:
   workflow_dispatch:
 
-env:
-  AI_MODEL: claude-3-7-sonnet-all
-  MAX_TOKENS: 4000
-
 jobs:
-  process-issue:
+  resolve-ai-help-issue:
     runs-on: ubuntu-latest
+    # 仅在Issue有"AI Help"标签或手动触发时运行
+    if: contains(github.event.issue.labels.*.name, 'AI Help') || github.event_name == 'workflow_dispatch'
     environment: AI
-    permissions:
-      issues: write
-      contents: read
-
+    
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v3
-      with:
-        fetch-depth: 0
-
-    - name: Setup GraphQL query
-      id: get-issue
-      uses: actions/github-script@v6
-      with:
-        script: |
-          const query = `query ($owner: String!, $repo: String!) {
-            repository(owner: $owner, name: $repo) {
-              issues(labels: ["AI Help"], states: OPEN, first: 1, orderBy: {field: UPDATED_AT, direction: DESC}) {
-                nodes {
-                  number
-                  body
-                  author {
-                    login
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      
+      - name: Get latest AI Help issue
+        id: get-issue
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const query = `
+            query GetAIHelpIssue {
+              repository(owner: "${context.repo.owner}", name: "${context.repo.repo}") {
+                issues(first: 1, states: OPEN, orderBy: {field: CREATED_AT, direction: DESC}, labels: ["AI Help"]) {
+                  nodes {
+                    number
+                    title
+                    body
+                    url
                   }
                 }
               }
+            }`;
+            
+            const result = await github.graphql(query);
+            const issues = result.repository.issues.nodes;
+            
+            if (issues.length === 0) {
+              console.log('No open issues with "AI Help" label found');
+              return core.setFailed('No open issues with "AI Help" label found');
             }
-          }`;
-          
-          const result = await github.graphql(query, {
-            owner: context.repo.owner,
-            repo: context.repo.repo
-          });
-          
-          const issue = result.repository.issues.nodes[0];
-          core.setOutput('number', issue.number);
-          core.setOutput('body', issue.body);
-          core.setOutput('author', issue.author.login);
-
-    - name: Generate file structure
-      id: file-structure
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y tree
-        tree -a -I '.git|node_modules|logs|cache|plugins' --noreport > file_tree.txt
-        echo "FILE_TREE=$(cat file_tree.txt)" >> $GITHUB_ENV
-
-    - name: Extract image URLs
-      id: extract-images
-      run: |
-        IMAGE_URLS=$(grep -oE '\!\[.*\]\(https?:\/\/[^\)]+\)' <<< "${{ steps.get-issue.outputs.body }}" | sed 's/.*(//;s/)//' | tr '\n' ' ')
-        echo "image_urls=$IMAGE_URLS" >> $GITHUB_OUTPUT
-
-    - name: Create AI prompt
-      id: create-prompt
-      run: |
-        PROMPT=$(cat <<EOF
-        你是一个经验丰富的Minecraft服务器管理员，请分析以下Paper服务器问题：
-
-        ### 问题描述：
-        ${{ steps.get-issue.outputs.body }}
-
-        ### 文件结构：
-        $(cat file_tree.txt)
-
-        ### 相关图片链接：
-        ${{ steps.extract-images.outputs.image_urls }}
-
-        请：
-        1. 分析可能的问题原因
-        2. 给出具体的解决方案
-        3. 说明需要修改的配置文件及位置
-        4. 注意插件兼容性问题
-        请用中文回答，保持专业但易于理解。
-        EOF
-        )
-        echo "PROMPT=$PROMPT" >> $GITHUB_ENV
-
-    - name: Call Claude API
-      id: call-api
-      run: |
-        RESPONSE=$(curl -s -X POST "${{ secrets.openai_api_url }}" \
-          -H "Content-Type: application/json" \
-          -H "Authorization: Bearer ${{ secrets.OPENAI_API_KEY }}" \
-          -d @- <<EOF
-        {
-          "model": "${{ env.AI_MODEL }}",
-          "max_tokens": ${{ env.MAX_TOKENS }},
-          "messages": [
-            {
-              "role": "user",
-              "content": "${{ env.PROMPT }}"
+            
+            const issue = issues[0];
+            console.log(`Processing issue #${issue.number}: ${issue.title}`);
+            
+            // 提取Issue中的图片链接
+            const imageRegex = /!\[.*?\]\((.*?)\)/g;
+            const imageLinks = [];
+            let match;
+            while ((match = imageRegex.exec(issue.body)) !== null) {
+              imageLinks.push(match[1]);
             }
-          ]
-        }
-        EOF
-        )
-
-        echo "API Response: $RESPONSE"
-        COMMENT=$(echo "$RESPONSE" | jq -r '.choices[0].message.content')
-        echo "comment=$COMMENT" >> $GITHUB_OUTPUT
-
-    - name: Post AI response
-      uses: actions/github-script@v6
-      with:
-        script: |
-          await github.rest.issues.createComment({
-            owner: context.repo.owner,
-            repo: context.repo.repo,
-            issue_number: ${{ steps.get-issue.outputs.number }},
-            body: `🤖 **AI分析结果**（由@${{ steps.get-issue.outputs.author }} 触发）\n\n${{ steps.call-api.outputs.comment }}`
-          });
+            
+            core.setOutput('issue-number', issue.number);
+            core.setOutput('issue-title', issue.title);
+            core.setOutput('issue-body', issue.body);
+            core.setOutput('issue-url', issue.url);
+            core.setOutput('image-links', JSON.stringify(imageLinks));
+      
+      - name: Generate file tree
+        id: file-tree
+        run: |
+          # 生成文件树
+          echo "::group::File Tree"
+          find . -type f -not -path "*/\.*" -not -path "*/node_modules/*" -not -path "*/.git/*" | sort > file_tree.txt
+          cat file_tree.txt
+          echo "::endgroup::"
+          
+          # 创建文件树文本
+          TREE=$(find . -type f -not -path "*/\.*" -not -path "*/node_modules/*" -not -path "*/.git/*" | sort | sed 's/^/- /')
+          echo "FILE_TREE<<EOF" >> $GITHUB_ENV
+          echo "$TREE" >> $GITHUB_ENV
+          echo "EOF" >> $GITHUB_ENV
+      
+      - name: Process images
+        id: process-images
+        run: |
+          IMAGE_LINKS='${{ steps.get-issue.outputs.image-links }}'
+          if [ "$IMAGE_LINKS" != "[]" ]; then
+            echo "Issue contains images. Adding image references to prompt."
+            IMAGE_SECTION="The issue contains the following images:\n"
+            for link in $(echo $IMAGE_LINKS | jq -r '.[]'); do
+              IMAGE_SECTION+="- $link\n"
+            done
+            echo "IMAGE_SECTION<<EOF" >> $GITHUB_ENV
+            echo -e "$IMAGE_SECTION" >> $GITHUB_ENV
+            echo "EOF" >> $GITHUB_ENV
+          else
+            echo "No images found in the issue."
+            echo "IMAGE_SECTION=" >> $GITHUB_ENV
+          fi
+      
+      - name: Call Claude API for solution
+        id: claude-solution
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          ISSUE_NUMBER: ${{ steps.get-issue.outputs.issue-number }}
+          ISSUE_TITLE: ${{ steps.get-issue.outputs.issue-title }}
+          ISSUE_BODY: ${{ steps.get-issue.outputs.issue-body }}
+        run: |
+          # 准备Claude的提示
+          PROMPT=$(cat <<EOF
+          You are helping to resolve an issue in a Minecraft Paper server project with plugins.
+          
+          ## Issue Details
+          Issue #$ISSUE_NUMBER: $ISSUE_TITLE
+          
+          Description:
+          $ISSUE_BODY
+          
+          $IMAGE_SECTION
+          
+          ## Project File Structure
+          $FILE_TREE
+          
+          Based on the issue description and file structure, please provide:
+          1. An analysis of the issue
+          2. Possible solutions or configuration changes needed
+          3. Clear, step-by-step instructions that would help resolve the issue
+          
+          Format your response in markdown and keep it concise yet comprehensive.
+          EOF
+          )
+          
+          # 使用自定义API URL（如果提供）
+          API_URL="${{ secrets.OPENAI_API_URL }}"
+          if [ -z "$API_URL" ]; then
+            API_URL="https://api.openai.com/v1/chat/completions"
+          fi
+          
+          # 调用OpenAI API（使用Claude 3.7 Sonnet模型）
+          RESPONSE=$(curl -s -X POST "$API_URL" \
+            -H "Authorization: Bearer $OPENAI_API_KEY" \
+            -H "Content-Type: application/json" \
+            -d "{
+              \"model\": \"claude-3-7-sonnet-all\",
+              \"messages\": [
+                {
+                  \"role\": \"system\",
+                  \"content\": \"You are an expert assistant for Minecraft Paper server configurations and plugins. Your task is to analyze issues and provide solutions.\"
+                },
+                {
+                  \"role\": \"user\",
+                  \"content\": \"$PROMPT\"
+                }
+              ],
+              \"temperature\": 0.3,
+              \"max_tokens\": 2000
+            }")
+          
+          # 检查API调用是否成功
+          if [[ $RESPONSE == *"error"* ]]; then
+            echo "API Error: $RESPONSE"
+            exit 1
+          fi
+          
+          # 提取响应内容
+          SOLUTION=$(echo "$RESPONSE" | jq -r '.choices[0].message.content')
+          
+          # 保存解决方案
+          echo "$SOLUTION" > solution.md
+          echo "SOLUTION<<EOF" >> $GITHUB_ENV
+          echo "$SOLUTION" >> $GITHUB_ENV
+          echo "EOF" >> $GITHUB_ENV
+      
+      - name: Comment on Issue
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const issueNumber = ${{ steps.get-issue.outputs.issue-number }};
+            const solution = process.env.SOLUTION;
+            
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: issueNumber,
+              body: `## AI-Generated Solution\n\n${solution}\n\n---\n*This solution was automatically generated by Claude 3.7 Sonnet. If it doesn't address your issue completely, please provide more details.*`
+            });
+            
+            console.log(`Posted solution to issue #${issueNumber}`);
