@@ -1,4 +1,4 @@
-'name': 'Check Potential Duplicates'
+'name': 'Process New Opened Issue'
 'on':
     'issues':
         'types':
