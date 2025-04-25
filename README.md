@@ -2,7 +2,7 @@
 ![](https://img.shields.io/badge/Minecraft-1.21.3-blue?style=flat) ![](https://img.shields.io/github/v/release/txyyddss/txmcsv) ![](https://img.shields.io/github/issues/txyyddss/txmcsv)
 
 
-[![CodeQL](https://github.com/txyyddss/txmcsv/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/txyyddss/txmcsv/actions/workflows/github-code-scanning/codeql)[![Auto Release Pipeline](https://github.com/txyyddss/txmcsv/actions/workflows/release.yml/badge.svg)](https://github.com/txyyddss/txmcsv/actions/workflows/release.yml) [![potential-duplicates](https://github.com/txyyddss/txmcsv/actions/workflows/checkissue.yml/badge.svg)](https://github.com/txyyddss/txmcsv/actions/workflows/checkissue.yml) 
+[![CodeQL](https://github.com/txyyddss/txmcsv/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/txyyddss/txmcsv/actions/workflows/github-code-scanning/codeql)[![Auto Release Pipeline](https://github.com/txyyddss/txmcsv/actions/workflows/release.yml/badge.svg)](https://github.com/txyyddss/txmcsv/actions/workflows/release.yml) [![potential-duplicates](https://github.com/txyyddss/txmcsv/actions/workflows/checkissue.yml/badge.svg)](https://github.com/txyyddss/txmcsv/actions/workflows/checkissue.yml) [![AI Help Issue Response](https://github.com/txyyddss/txmcsv/actions/workflows/airesolve.yml/badge.svg)](https://github.com/txyyddss/txmcsv/actions/workflows/airesolve.yml)
 <br />
 
 <p align="center">
