@@ -126,10 +126,10 @@ unsupported-settings:
   allow-headless-pistons: true
   allow-permanent-block-break-exploits: true
   allow-piston-duplication: true
-  allow-unsafe-end-portal-teleportation: false
+  allow-unsafe-end-portal-teleportation: true
   compression-format: ZLIB
-  perform-username-validation: true
-  skip-vanilla-damage-tick-when-shield-blocked: false
+  perform-username-validation: false
+  skip-vanilla-damage-tick-when-shield-blocked: true
 watchdog:
   early-warning-delay: 10000
   early-warning-every: 5000
