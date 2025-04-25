@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: More information needed
-        if: github.event.label.name == 'need-more-info'
+        if: github.event.label.name == '❓need-more-info'
         uses: actions-cool/issues-helper@v3
         with:
           actions: 'create-comment'
@@ -21,7 +21,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Not being fixed
-        if: github.event.label.name == 'wontfix'
+        if: github.event.label.name == '🙅wontfix'
         uses: actions-cool/issues-helper@v3
         with:
           actions: 'close-issue'
