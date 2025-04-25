@@ -24,6 +24,14 @@
 
 **Every member is encouraged to post issues on github. When you have troubles, you will receive a extra help. You will be informed when the bug is fixed.**
 ***
+
+## 下个大版本更新概况
+- 基岩版玩家体验大幅优化
+- 升级1.21.5
+- 死亡掉落+死亡箱子
+- 开放更多便捷指令
+- 指令可以通过GUI执行
+- (粘液科技)[https://github.com/SlimefunGuguProject/Slimefun4]
 ## Minecraft Bedrock(iOS/Android) &  Java (Windows/Mac/Android) 安装教程
 ![Mindmap](https://github.com/user-attachments/assets/9a59c192-acad-424e-b7cf-038fb5397437)
 
