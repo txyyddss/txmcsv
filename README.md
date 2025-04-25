@@ -122,6 +122,9 @@ FCL:
 4. 然后点“加入服务器“
 
 ## Special Thanks
-- [MC教程](https://nitwikit.8aka.org/)
+- [MC开服教程](https://nitwikit.8aka.org/)
 - [Paper](https://papermc.io/)
+- [Zerotier](https://www.zerotier.com/)
+- [Cloudflare](https://cloudflare.com/)
+- Plugins作者们
 
