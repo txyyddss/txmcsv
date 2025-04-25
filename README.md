@@ -27,11 +27,13 @@
 
 ## 下个大版本更新概况
 - 基岩版玩家体验大幅优化
+- 基岩玩家体验和JAVA玩家更加接近
 - 升级1.21.5
 - 死亡掉落+死亡箱子
 - 开放更多便捷指令
 - 指令可以通过GUI执行
-- (粘液科技)[https://github.com/SlimefunGuguProject/Slimefun4]
+- [粘液科技](https://github.com/SlimefunGuguProject/Slimefun4)
+
 ## Minecraft Bedrock(iOS/Android) &  Java (Windows/Mac/Android) 安装教程
 ![Mindmap](https://github.com/user-attachments/assets/9a59c192-acad-424e-b7cf-038fb5397437)
 
@@ -118,4 +120,8 @@ FCL:
 2. 服务器地址：114.114.51.4:11451/mtmc.1919801.xyz:11451
 3. 点完成
 4. 然后点“加入服务器“
+
+## Special Thanks
+- [MC教程](https://nitwikit.8aka.org/)
+- [Paper](https://papermc.io/)
 
