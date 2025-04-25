@@ -6,7 +6,6 @@ on:
 
 jobs:
   ai-help:
-    if: ${{ contains(github.event.issue.labels.*.name, 'AI Help') }}
     runs-on: ubuntu-latest
     environment: AI
     env:
