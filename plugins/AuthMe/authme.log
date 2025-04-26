@@ -710,3 +710,8 @@
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
 	at java.base/java.lang.Thread.run(Thread.java:1583)
 
+[04-26 19:39:36]: [INFO] SQLite Setup finished
+[04-26 19:39:36]: [INFO] No supported permissions system found! Permissions are disabled!
+[04-26 19:39:36]: [INFO] Hooked successfully into CMI
+[04-26 19:39:37]: [INFO] AuthMe 5.6.0 build n.CUSTOM successfully enabled!
+[04-26 19:40:01]: [INFO] AuthMe 5.6.0-bCUSTOM disabled!

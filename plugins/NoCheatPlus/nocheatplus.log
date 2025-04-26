@@ -2610,3 +2610,35 @@
 §7CMI~cncp~ 1.0§f, §7mcMMO~cncp~ 2.3§f, §7ViolationFrequency~NCP~ 1.0
 §c§l»Related Plugins«§7
 §7CompatNoCheatPlus v6.6.7-SNAPSHOT-b10§f, §7ProtocolLib v5.4.0-SNAPSHOT-742§f, §7ViaVersion v5.3.1
+25-04-26 19:39:06 [信息] Logger started.
+25-04-26 19:39:06 [信息] Logging system initialized.
+25-04-26 19:39:06 [信息] Detected Minecraft version: 1.21.3
+25-04-26 19:39:18 [信息] McAccess set to: 1.13-1.21|? / Bukkit-API
+25-04-26 19:39:18 [信息] Applied block patches for multi client protocol support: water_lily, soil, vine, honey_block, shulker_box
+25-04-26 19:39:18 [信息] Update block-info: Block shape patch for multi client protocol support.
+25-04-26 19:39:18 [详细] The following blocks can not be modeled correctly: PALE_OAK_LEAVES, PALE_HANGING_MOSS, PALE_OAK_FENCE, PALE_OAK_FENCE_GATE, PALE_OAK_SIGN, PALE_OAK_HANGING_SIGN, PALE_OAK_WALL_SIGN, PALE_OAK_WALL_HANGING_SIGN
+25-04-26 19:39:19 [信息] Inventory checks: FastConsume is available, disabled InstantEat.
+25-04-26 19:39:19 [信息] Adding packet level hooks for ProtocolLib (MC 1.21.3)...
+25-04-26 19:39:19 [信息] Confirm teleport packet available (via name): TELEPORT_ACCEPT[class=ServerboundAcceptTeleportationPacket, id=0]
+25-04-26 19:39:19 [信息] Available (and activated) packet level hooks: UseEntityAdapter | MovingFlying | OutgoingPosition | KeepAliveAdapter | WrongTurnAdapter | NoSlow | Fight
+25-04-26 19:39:19 [信息] Force disable FastHeal, FastConsume, PacketFrequency and InstantBow on Minecraft 1.9 and later.
+25-04-26 19:39:19 [信息] Version 3.17.1-SNAPSHOT-Updated-b198 is enabled.
+25-04-26 19:40:01 [信息] [GenericInstanceRegistry] Registered (override) for itself: fr.neatmonster.nocheatplus.hooks.ExemptionSettings
+25-04-26 19:40:01 [信息] [GenericInstanceRegistry] Registered for itself: fr.neatmonster.nocheatplus.stats.Counters
+25-04-26 19:40:01 [信息] [GenericInstanceRegistry] Registered for itself: fr.neatmonster.nocheatplus.checks.workaround.WRPT
+25-04-26 19:40:01 [信息] [GenericInstanceRegistry] Registered for itself: fr.neatmonster.nocheatplus.checks.moving.location.tracking.LocationTrace$TraceEntryPool
+25-04-26 19:40:01 [信息] [GenericInstanceRegistry] Registered for itself: fr.neatmonster.nocheatplus.utilities.entity.PassengerUtil
+25-04-26 19:40:01 [信息] [GenericInstanceRegistry] Registered for fr.neatmonster.nocheatplus.compat.IBridgeCrossPlugin: fr.neatmonster.nocheatplus.compat.meta.BridgeCrossPlugin
+25-04-26 19:40:01 [信息] [GenericInstanceRegistry] Registered for fr.neatmonster.nocheatplus.compat.MCAccess: fr.neatmonster.nocheatplus.compat.bukkit.MCAccessBukkitModern
+25-04-26 19:40:01 [信息] [GenericInstanceRegistry] Registered for fr.neatmonster.nocheatplus.utilities.map.BlockCache: fr.neatmonster.nocheatplus.compat.bukkit.BlockCacheBukkitModern
+25-04-26 19:40:01 [信息] [GenericInstanceRegistry] Registered for fr.neatmonster.nocheatplus.components.modifier.IAttributeAccess: fr.neatmonster.nocheatplus.compat.bukkit.NSBukkitAttributeAccess
+25-04-26 19:40:01 [信息] [GenericInstanceRegistry] Registered for fr.neatmonster.nocheatplus.components.entity.IEntityAccessVehicle: fr.neatmonster.nocheatplus.compat.bukkit.EntityAccessVehicleMultiPassenger
+25-04-26 19:40:01 [信息] [GenericInstanceRegistry] Registered for itself: fr.neatmonster.nocheatplus.checks.moving.util.AuxMoving
+25-04-26 19:40:01 [信息] Added hook: ViolationFrequency(NCP) [1.0].
+25-04-26 19:40:01 [信息] Added hook: mcMMO(cncp) [2.3].
+25-04-26 19:40:01 [信息] Added hook: CMI(cncp) [1.0].
+25-04-26 19:40:01 [信息] Removed hook: mcMMO(cncp) [2.3].
+25-04-26 19:40:01 [信息] Removed hook: CMI(cncp) [1.0].
+25-04-26 19:40:01 [信息] Removed hook: ViolationFrequency(NCP) [1.0].
+25-04-26 19:40:01 [详细] | cancel.dead 0 | cancel.offline 0 | block.interact.look.current 0 | block.interact.look.flying.first 0 | block.interact.look.flying.other 0 | illegalitem 0 | boatsanywhere 0 | throwenderpearl 0 | fakeinvulnerable 0 | eggonentity 0 | event.player.move 0 | packet.nullplayer 0 | packet.inconsistent.isasync 0 | packet.flying 0 | packet.flying.asynchronous 0 | packet.outgoing_position.untracked 0 |
+25-04-26 19:40:01 [信息] [GenericInstanceRegistry] Registry cleared.
