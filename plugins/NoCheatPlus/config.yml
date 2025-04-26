@@ -496,7 +496,7 @@ checks:
       cancelother: true
     hotfix:
       duplication:
-        fallingblockendportal: true
+        fallingblockendportal: false
   moving:
     active: true
     creativefly:
