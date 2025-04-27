@@ -33,6 +33,7 @@
 - 开放更多便捷指令
 - 指令可以通过GUI执行
 - [粘液科技](https://github.com/SlimefunGuguProject/Slimefun4)
+- 服务器实时网页Status Page
 
 ## Minecraft Bedrock(iOS/Android) &  Java (Windows/Mac/Android) 安装教程
 ![Mindmap](https://github.com/user-attachments/assets/9a59c192-acad-424e-b7cf-038fb5397437)
