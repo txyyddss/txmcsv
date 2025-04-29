@@ -23,11 +23,11 @@ worldLimitsElytra: true
 #  
 # Login, logout and death messages
 # Applies for servers from 1.7.x and up
-customMessages: true
+customMessages: false
 #  
 # First join messages
 # Applies for servers from 1.7.x and up
-firstJoinMessages: true
+firstJoinMessages: false
 #  
 # Handling of cuffed players
 # Applies for servers from 1.7.x and up

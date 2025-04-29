@@ -28,8 +28,8 @@ chunk-loading-basic:
   player-max-chunk-send-rate: 75.0
 chunk-system:
   gen-parallelism: default
-  io-threads: -1
-  worker-threads: -1
+  io-threads: 2
+  worker-threads: 2
 collisions:
   enable-player-collisions: true
   send-full-pos-for-hard-colliding-entities: true
@@ -71,16 +71,16 @@ misc:
   compression-level: 9
   fix-entity-position-desync: true
   load-permissions-yml-before-plugins: true
-  max-joins-per-tick: 2
+  max-joins-per-tick: 1
   region-file-cache-size: 512
   strict-advancement-dimension-check: false
   use-alternative-luck-formula: true
   use-dimension-type-for-custom-spawners: false
 packet-limiter:
   all-packets:
-    action: KICK
+    action: DROP
     interval: 7.0
-    max-packet-rate: 500.0
+    max-packet-rate: 1000.0
   kick-message: <red><lang:disconnect.exceeded_packet_rate>
   overrides:
     ServerboundPlaceRecipePacket:
@@ -92,7 +92,7 @@ player-auto-save:
   rate: -1
 proxies:
   bungee-cord:
-    online-mode: true
+    online-mode: false
   proxy-protocol: false
   velocity:
     enabled: false
@@ -127,7 +127,7 @@ unsupported-settings:
   allow-permanent-block-break-exploits: true
   allow-piston-duplication: true
   allow-unsafe-end-portal-teleportation: true
-  compression-format: ZLIB
+  compression-format: LZ4
   perform-username-validation: false
   skip-vanilla-damage-tick-when-shield-blocked: true
 watchdog:

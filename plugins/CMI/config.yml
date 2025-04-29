@@ -1155,7 +1155,7 @@ Messages:
       ServerSwitch: true
   # Check locale file for translation and custom placeholders: [playername], [totalUsers], [onlinePlayers]
   FirstJoinMessage:
-    Use: true
+    Use: false
   # When enabled player names will be checked against provided regex and if match is found then login and/or logout message will not be shown
   Filter:
     ForLogin: false

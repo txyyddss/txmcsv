@@ -161,7 +161,7 @@ queue:
     # Delay sending progress in milliseconds (so quick edits don't spam)
     delay: 5000
   # This should equal the number of processors you have
-  parallel-threads: 16
+  parallel-threads: 4
   # When doing edits that effect more than this many chunks:
   #  - FAWE will start placing before all calculations are finished
   #  - A larger value will use slightly less CPU time
