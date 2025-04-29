@@ -1,7 +1,7 @@
 name: Feature request
 description: 🙋‍♂️请求改进或新功能
 title: "[Feature request]: "
-labels: ["enhancement"]
+labels: ["🪄enhancement"]
 projects: []
 'body':
   - 'attributes':
