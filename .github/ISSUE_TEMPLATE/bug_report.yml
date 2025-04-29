@@ -94,7 +94,7 @@ projects: []
   - 'attributes':
         'description': >
             You can add additional information.
-        'label': 'Additional information and/or screenshots'
+        'label': 'Additional information/screenshots/guesses'
         'placeholder': >
             Anything that can help to solve the problem.
     'id': 'additional'
