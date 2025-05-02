@@ -55,15 +55,21 @@
           - name: Process issue information
             run: |
               # Sanitize ISSUE_NUMBER
-              SANITIZED_ISSUE_NUMBER=$(echo "$ISSUE_NUMBER" | tr -cd '[:alnum:]')
+              SANITIZED_ISSUE_NUMBER="${ISSUE_NUMBER//'%'/'%25'}"
+              SANITIZED_ISSUE_NUMBER="${SANITIZED_ISSUE_NUMBER//$'\n'/'%0A'}"
+              SANITIZED_ISSUE_NUMBER="${SANITIZED_ISSUE_NUMBER//$'\r'/'%0D'}"
               echo "ISSUE_NUMBER=${SANITIZED_ISSUE_NUMBER}" >> $GITHUB_ENV
               
               # Sanitize ISSUE_TITLE
-              SANITIZED_ISSUE_TITLE=$(echo "$ISSUE_TITLE" | tr -cd '[:alnum:][:space:][:punct:]')
+              SANITIZED_ISSUE_TITLE="${ISSUE_TITLE//'%'/'%25'}"
+              SANITIZED_ISSUE_TITLE="${SANITIZED_ISSUE_TITLE//$'\n'/'%0A'}"
+              SANITIZED_ISSUE_TITLE="${SANITIZED_ISSUE_TITLE//$'\r'/'%0D'}"
               echo "ISSUE_TITLE=${SANITIZED_ISSUE_TITLE}" >> $GITHUB_ENV
               
               # Sanitize ISSUE_BODY (multi-line text)
-              PROCESSED_BODY=$(echo "$ISSUE_BODY" | tr -cd '[:alnum:][:space:][:punct:]')
+              PROCESSED_BODY="${ISSUE_BODY//'%'/'%25'}"
+              PROCESSED_BODY="${PROCESSED_BODY//$'\n'/'%0A'}"
+              PROCESSED_BODY="${PROCESSED_BODY//$'\r'/'%0D'}"
               echo "PROCESSED_BODY=${PROCESSED_BODY}" >> $GITHUB_ENV
     
           - name: Generate config file tree
