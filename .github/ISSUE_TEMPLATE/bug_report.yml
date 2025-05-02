@@ -27,7 +27,7 @@ projects: []
                 I correctly added the labels. (ex.P1/2/3 Breaking/Network)
             'required': true
           - 'label': >
-                I included all details for AI if you want to solve the problem quicker or by yourself.
+                I included all details and described the picture you uploaded for AI.
             'required': true
     'id': 'prerequisites'
     'type': 'checkboxes'
