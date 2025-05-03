@@ -22,7 +22,10 @@
 
 </p>
 
-[服务器3D在线地图](https://map.1919801.xyz)
+<p align="center">
+    <a href="https://map.1919801.xyz">服务器3D在线地图</a>
+</p>
+
 
 
 **致力于使用各种技术打造一个完美的MC服务器**
