@@ -13,7 +13,7 @@
   <p align="center">
     软件腐竹:TX · 硬件腐竹:MT
     <br />
-    <a href="https://github.com/txyyddss/txmcsv?tab=readme-ov-file#minecraftbedrockiosandroidjavawindowsmacandroid%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B">查看教程</a>
+    <a href="https://github.com/txyyddss/txmcsv?tab=readme-ov-file#minecraftbedrockiosandroidjavawindowsmacandroid%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B">进服教程</a>
     ·
     <a href="https://github.com/txyyddss/txmcsv/issues">报告Bug/提出特性</a>
     ·
@@ -22,6 +22,7 @@
 
 </p>
 
+[Bluemap街景地图](https://map.1919801.xyz)
 **致力于使用各种技术打造一个完美的MC服务器**
 ***
 
