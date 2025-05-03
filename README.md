@@ -1,5 +1,5 @@
 # TX and MT Private MC Server 
-![](https://img.shields.io/badge/Minecraft-1.21.3-blue?style=flat) ![](https://img.shields.io/github/v/release/txyyddss/txmcsv) ![](https://img.shields.io/github/issues/txyyddss/txmcsv)
+![](https://img.shields.io/badge/Minecraft-1.21.4-blue?style=flat) ![](https://img.shields.io/github/v/release/txyyddss/txmcsv) ![](https://img.shields.io/github/issues/txyyddss/txmcsv)
 
 
 [![CodeQL](https://github.com/txyyddss/txmcsv/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/txyyddss/txmcsv/actions/workflows/github-code-scanning/codeql)[![Auto Release Pipeline](https://github.com/txyyddss/txmcsv/actions/workflows/release.yml/badge.svg)](https://github.com/txyyddss/txmcsv/actions/workflows/release.yml) [![potential-duplicates](https://github.com/txyyddss/txmcsv/actions/workflows/checkissue.yml/badge.svg)](https://github.com/txyyddss/txmcsv/actions/workflows/checkissue.yml)
@@ -22,7 +22,7 @@
 
 </p>
 
-[Bluemap街景地图](https://map.1919801.xyz)
+[服务器3D在线地图](https://map.1919801.xyz)
 
 
 **致力于使用各种技术打造一个完美的MC服务器**
@@ -31,7 +31,7 @@
 ## 下个大版本更新概况(8月)
 - 基岩版玩家体验大幅优化
 - 基岩玩家体验和JAVA玩家更加接近
-- 升级1.21.5
+- 升级1.21.5/6
 - 死亡掉落+死亡箱子
 - 开放更多便捷指令
 - 指令可以通过GUI执行
