@@ -22,7 +22,7 @@
 
 </p>
 
-**Every member is encouraged to post issues on github. When you have troubles, you will receive a extra help. You will be informed when the bug is fixed.**
+**致力于使用各种技术打造一个完美的MC服务器**
 ***
 
 ## 下个大版本更新概况(8月)
