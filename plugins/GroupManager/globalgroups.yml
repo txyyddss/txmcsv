@@ -58,6 +58,7 @@ groups:
     - cmi.command.staffmsg
     - cmi.command.msg
     - cmi.elytra.*
+    - cmi.signs.shiftedit
 
   g:se_admin:
     permissions:

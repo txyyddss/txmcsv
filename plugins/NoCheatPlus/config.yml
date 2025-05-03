@@ -186,7 +186,7 @@ checks:
         weight: 0.3
       actions: cancel vl>60 log:projectilespeed:1:11:i cancel
     preventmisc:
-      boatsanywhere: true
+      boatsanywhere: false
   chat:
     active: true
     captcha:
