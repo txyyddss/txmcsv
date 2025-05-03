@@ -55,6 +55,7 @@ placedeggs:
   - -129,58,16,world
   - -151,70,95,world
   - -70,71,-219,world
+  - 33,66,44,world
   - 62,67,-50,world
   - 55,69,-75,world
   - 188,-19,277,world
@@ -65,6 +66,7 @@ placedeggs:
   - -10,66,44,world
   - 72,25,56,world
   - 188,1,277,world
+  - 35,98,316,world
   - -140,69,426,world
   - -64,99,445,world
   - -133,84,565,world
@@ -82,6 +84,7 @@ placedeggs:
   - -110,-11,636,world
   - 188,8,277,world
   - -270,7,276,world
+  - -234,70,308,world
   - -100,71,-109,world
   - -110,3,636,world
   - -270,65,276,world
@@ -93,6 +96,7 @@ placedeggs:
   - -89,63,57,world
   - -210,75,533,world
   - -20,75,275,world
+  - 33,-14,44,world
   - -104,72,-131,world
   - -275,64,290,world
   - -67,100,445,world

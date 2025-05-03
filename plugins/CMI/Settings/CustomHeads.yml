@@ -549,7 +549,3 @@ EntityHeads:
     LowerWithEachDrop: 50.0
     Heads:
     - 100:Default:ZGUzNzNmYTUzNGM3YzNmOTM0MGQzM2MzMmMyMTM0MDJhMmNmODkxN2U3NTBlYjhiYzg3MTBmY2QzZWU5YTE1ZCJ9fX0=
-  creaking_transient:
-    DropChance: 1.0
-    LowerWithEachDrop: 50.0
-    Heads: []

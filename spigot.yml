@@ -57,6 +57,7 @@ commands:
   - tellraw
   tab-complete: 0
   send-namespaced: true
+  enable-spam-exclusions: false
 players:
   disable-saving: false
 config-version: 12

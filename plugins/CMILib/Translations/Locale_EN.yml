@@ -322,7 +322,6 @@ info:
     command_block_minecart: Command block minecart
     cow: Cow
     creaking: Creaking
-    creaking_transient: Creaking transient
     creeper: Creeper
     dark_oak_boat: Dark oak boat
     dark_oak_chest_boat: Dark oak chest boat
@@ -445,59 +444,59 @@ info:
     zombified_piglin: Zombified piglin
   # Avoid adding color codes to the enchant name
   EnchantNames:
-    sweeping_edge: Sweeping_edge
-    loot_bonus_mobs: Loot_bonus_mobs
+    protection_explosions: Protection_explosions
+    protection_fall: Protection_fall
+    damage_arthropods: Damage_arthropods
+    binding_curse: Binding_curse
+    vane_enchantments:grappling_hook: Vane_enchantments:grappling_hook
+    vane_enchantments:rake: Vane_enchantments:rake
+    vane_enchantments:angel: Vane_enchantments:angel
+    protection_environmental: Protection_environmental
+    loot_bonus_blocks: Loot_bonus_blocks
+    vane_enchantments:hell_bent: Vane_enchantments:hell_bent
+    vane_enchantments:unbreakable: Vane_enchantments:unbreakable
+    arrow_infinite: Arrow_infinite
     quick_charge: Quick_charge
-    silk_touch: Silk_touch
+    durability: Durability
+    loot_bonus_mobs: Loot_bonus_mobs
+    wind_burst: Wind_burst
+    frost_walker: Frost_walker
+    sweeping_edge: Sweeping_edge
+    channeling: Channeling
     density: Density
+    depth_strider: Depth_strider
+    swift_sneak: Swift_sneak
+    vane_enchantments:wings: Vane_enchantments:wings
+    protection_projectile: Protection_projectile
+    riptide: Riptide
+    breach: Breach
+    thorns: Thorns
+    oxygen: Oxygen
+    vanishing_curse: Vanishing_curse
+    protection_fire: Protection_fire
+    damage_all: Damage_all
+    vane_enchantments:lightning: Vane_enchantments:lightning
+    luck: Luck
+    piercing: Piercing
+    arrow_damage: Arrow_damage
+    vane_enchantments:take_off: Vane_enchantments:take_off
+    vane_enchantments:leafchopper: Vane_enchantments:leafchopper
+    mending: Mending
+    damage_undead: Damage_undead
+    impaling: Impaling
     arrow_fire: Arrow_fire
+    dig_speed: Dig_speed
     water_worker: Water_worker
+    multishot: Multishot
+    soul_speed: Soul_speed
+    silk_touch: Silk_touch
+    lure: Lure
+    vane_enchantments:seeding: Vane_enchantments:seeding
+    vane_enchantments:soulbound: Vane_enchantments:soulbound
+    fire_aspect: Fire_aspect
     loyalty: Loyalty
     arrow_knockback: Arrow_knockback
-    damage_all: Damage_all
-    vane_enchantments:grappling_hook: Vane_enchantments:grappling_hook
-    frost_walker: Frost_walker
-    vane_enchantments:hell_bent: Vane_enchantments:hell_bent
-    impaling: Impaling
-    riptide: Riptide
-    mending: Mending
-    protection_environmental: Protection_environmental
-    swift_sneak: Swift_sneak
-    fire_aspect: Fire_aspect
-    damage_undead: Damage_undead
     knockback: Knockback
-    depth_strider: Depth_strider
-    vane_enchantments:wings: Vane_enchantments:wings
-    arrow_infinite: Arrow_infinite
-    vanishing_curse: Vanishing_curse
-    vane_enchantments:rake: Vane_enchantments:rake
-    dig_speed: Dig_speed
-    soul_speed: Soul_speed
-    breach: Breach
-    loot_bonus_blocks: Loot_bonus_blocks
-    multishot: Multishot
-    channeling: Channeling
-    vane_enchantments:soulbound: Vane_enchantments:soulbound
-    binding_curse: Binding_curse
-    vane_enchantments:angel: Vane_enchantments:angel
-    vane_enchantments:unbreakable: Vane_enchantments:unbreakable
-    arrow_damage: Arrow_damage
-    protection_projectile: Protection_projectile
-    protection_fire: Protection_fire
-    luck: Luck
-    vane_enchantments:seeding: Vane_enchantments:seeding
-    vane_enchantments:leafchopper: Vane_enchantments:leafchopper
-    oxygen: Oxygen
-    piercing: Piercing
-    protection_fall: Protection_fall
-    durability: Durability
-    lure: Lure
-    vane_enchantments:take_off: Vane_enchantments:take_off
-    wind_burst: Wind_burst
-    vane_enchantments:lightning: Vane_enchantments:lightning
-    damage_arthropods: Damage_arthropods
-    protection_explosions: Protection_explosions
-    thorns: Thorns
   PotionEffectAliases:
     instanthealth:
     - Instant health
