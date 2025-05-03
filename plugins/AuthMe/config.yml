@@ -324,7 +324,7 @@ settings:
     applyBlindEffect: false
     # Do we need to prevent people to login with another case?
     # If Xephi is registered, then Xephi can login, but not XEPHI/xephi/XePhI
-    preventOtherCase: true
+    preventOtherCase: false
 GroupOptions:
     # Enables switching a player to defined permission groups before they log in.
     # See below for a detailed explanation.
