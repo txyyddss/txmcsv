@@ -64,6 +64,8 @@ groups:
     - bedrockplayersupport.command.homegui
     - bedrockplayersupport.command.msggui
     - bedrockplayersupport.form.backdeath
+    - enderchest.command
+    - enderchest.size.6
 
   g:se_admin:
     permissions:

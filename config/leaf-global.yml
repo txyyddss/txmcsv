@@ -112,9 +112,9 @@ performance:
     # 警告: 此项会影响世界生成!!!
     enable-for-worldgen: false
     # 是否在没有为史莱姆区块使用原版随机生成器的情况下进行警告.
-    warn-for-slime-chunk: true
+    warn-for-slime-chunk: false
     # 是否使用原版随机生成器来生成史莱姆区块.
-    use-legacy-random-for-slime-chunk: false
+    use-legacy-random-for-slime-chunk: true
     # 使用直接随机实现而不是委派给 RandomGenerator.
     # 这可能会提高性能, 但可能会改变 RNG 行为.
     use-direct-implementation: true

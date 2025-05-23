@@ -444,57 +444,57 @@ info:
     zombified_piglin: Zombified piglin
   # Avoid adding color codes to the enchant name
   EnchantNames:
-    piercing: Piercing
-    breach: Breach
-    knockback: Knockback
-    durability: Durability
-    thorns: Thorns
-    fire_aspect: Fire_aspect
-    oxygen: Oxygen
-    protection_environmental: Protection_environmental
-    vane_enchantments:seeding: Vane_enchantments:seeding
-    arrow_knockback: Arrow_knockback
-    silk_touch: Silk_touch
-    vane_enchantments:wings: Vane_enchantments:wings
-    vane_enchantments:lightning: Vane_enchantments:lightning
-    quick_charge: Quick_charge
-    vane_enchantments:angel: Vane_enchantments:angel
-    loyalty: Loyalty
-    wind_burst: Wind_burst
-    vane_enchantments:leafchopper: Vane_enchantments:leafchopper
-    riptide: Riptide
-    protection_projectile: Protection_projectile
-    sweeping_edge: Sweeping_edge
-    vane_enchantments:hell_bent: Vane_enchantments:hell_bent
-    binding_curse: Binding_curse
-    channeling: Channeling
-    arrow_damage: Arrow_damage
-    damage_all: Damage_all
-    depth_strider: Depth_strider
-    soul_speed: Soul_speed
-    density: Density
-    lure: Lure
     water_worker: Water_worker
-    damage_arthropods: Damage_arthropods
-    vane_enchantments:unbreakable: Vane_enchantments:unbreakable
-    impaling: Impaling
-    arrow_infinite: Arrow_infinite
-    dig_speed: Dig_speed
-    vane_enchantments:take_off: Vane_enchantments:take_off
-    vane_enchantments:grappling_hook: Vane_enchantments:grappling_hook
-    multishot: Multishot
-    protection_explosions: Protection_explosions
-    damage_undead: Damage_undead
-    frost_walker: Frost_walker
-    swift_sneak: Swift_sneak
-    protection_fall: Protection_fall
-    protection_fire: Protection_fire
-    loot_bonus_mobs: Loot_bonus_mobs
-    mending: Mending
     vane_enchantments:rake: Vane_enchantments:rake
-    loot_bonus_blocks: Loot_bonus_blocks
+    dig_speed: Dig_speed
+    breach: Breach
+    channeling: Channeling
+    knockback: Knockback
+    quick_charge: Quick_charge
+    soul_speed: Soul_speed
+    vane_enchantments:seeding: Vane_enchantments:seeding
+    sweeping_edge: Sweeping_edge
+    vane_enchantments:leafchopper: Vane_enchantments:leafchopper
+    vane_enchantments:lightning: Vane_enchantments:lightning
+    durability: Durability
     arrow_fire: Arrow_fire
+    lure: Lure
+    protection_explosions: Protection_explosions
+    density: Density
+    fire_aspect: Fire_aspect
+    loot_bonus_blocks: Loot_bonus_blocks
+    protection_environmental: Protection_environmental
     vanishing_curse: Vanishing_curse
+    vane_enchantments:unbreakable: Vane_enchantments:unbreakable
+    riptide: Riptide
+    arrow_infinite: Arrow_infinite
+    mending: Mending
+    arrow_knockback: Arrow_knockback
+    oxygen: Oxygen
+    silk_touch: Silk_touch
+    impaling: Impaling
+    wind_burst: Wind_burst
+    frost_walker: Frost_walker
+    loot_bonus_mobs: Loot_bonus_mobs
+    swift_sneak: Swift_sneak
+    piercing: Piercing
+    damage_undead: Damage_undead
+    binding_curse: Binding_curse
+    thorns: Thorns
+    vane_enchantments:angel: Vane_enchantments:angel
+    arrow_damage: Arrow_damage
+    multishot: Multishot
+    vane_enchantments:grappling_hook: Vane_enchantments:grappling_hook
+    depth_strider: Depth_strider
+    vane_enchantments:take_off: Vane_enchantments:take_off
+    protection_fire: Protection_fire
+    damage_all: Damage_all
+    vane_enchantments:wings: Vane_enchantments:wings
+    loyalty: Loyalty
+    damage_arthropods: Damage_arthropods
+    protection_fall: Protection_fall
+    protection_projectile: Protection_projectile
+    vane_enchantments:hell_bent: Vane_enchantments:hell_bent
     vane_enchantments:soulbound: Vane_enchantments:soulbound
     luck: Luck
   PotionEffectAliases:

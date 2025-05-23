@@ -890,3 +890,21 @@
 [05-23 12:57:19]: [INFO] You are running the latest version.
 [05-23 12:57:58]: [INFO:FINE] txrog logged in 127.0.0.1
 [05-23 13:17:15]: [INFO] AuthMe 5.7.0-FORK-b53 is unloaded successfully!
+[05-23 13:23:12]: [INFO] SQLite Setup finished
+[05-23 13:23:12]: [INFO] No supported permissions system found! Permissions are disabled!
+[05-23 13:23:12]: [INFO] Hooked successfully into CMI
+[05-23 13:23:12]: [INFO] Hooked successfully into PlaceholderAPI
+[05-23 13:23:12]: [WARN] You are running an 1.13+ minecraft server, AdvancedShulkerFix won't enable.
+[05-23 13:23:12]: [INFO] 
+    ___         __  __    __  ___   
+   /   | __  __/ /_/ /_  /  |/  /__ 
+  / /| |/ / / / __/ __ \/ /|_/ / _ \
+ / ___ / /_/ / /_/ / / / /  / /  __/
+/_/  |_\__,_/\__/_/ /_/_/  /_/\___/ 
+                                    
+[05-23 13:23:12]: [INFO] AuthMeReReloaded is running on Paper
+[05-23 13:23:12]: [INFO] AuthMeReReloaded is enabled successfully!
+[05-23 13:23:12]: [INFO] GitHub: https://github.com/HaHaWTH/AuthMeReReloaded/
+[05-23 13:23:12]: [INFO] Checking for updates...
+[05-23 13:23:36]: [INFO] You are running the latest version.
+[05-23 13:23:51]: [INFO:FINE] txrog logged in 127.0.0.1
