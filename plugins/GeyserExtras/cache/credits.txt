@@ -1,0 +1,31 @@
+&6&lContributors
+-------------&r
+
+&bLetsGoAway&r (me :D) - Creator and Developer of GeyserExtras
+&bonechris&r - Helped out with config stuff and is a Geyser developer, very helpful with debugging stuff, thanks :D
+
+&2&lTranslators
+-------------&r
+
+Thank you to all translators on the discord that have helped with this project!
+
+&aLetsGoAway&r - English (en_UK, en_US)
+&aVincent Wang (vincentx0905)&r - Traditional Chinese (zh_TW)
+&a柠枺(NingMo)&r - Simplified Chinese (zh_CN)
+&aClumsius Pavillion (clumsius)&r - French (fr_FR)
+&aLa Piedra (lapiedraomg)&r - Spanish (es_ES, es_MX)
+&aariiiiiq&r - Indonesian (id_ID)
+&aBeq4u&r - Russian, Ukranian (ru_RU, uk_UA)
+&a梦泽(MengZe2) - Japanese (ja_JP)
+
+&3&lOther
+-------------&r
+
+&bThe GeyserMC Team and Discord&r - Providing feedback, help and interest for GeyserExtras. 
+
+Thank you everyone in the #creations channel who showed support behind the original cooldown demo, I probably would have never finished v1.0 if it wasn't for people actually being interested lolol
+
+&bYou&r - Using GeyserExtras and reading this text
+
+&5Discord&r - &dhttps://discord.gg/2FfuShKQgy
+&fGitHub&r - &7https://github.com/GeyserExtras

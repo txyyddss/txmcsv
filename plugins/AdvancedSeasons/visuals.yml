@@ -1,0 +1,11 @@
+# Configure visuals
+enabled: true
+
+# Toggle each visual on or off
+visuals:
+  blizzard: true
+  fallingSnow: true
+  fallingLeaves: true
+  fallingLeavesSummer: true
+  applesDropping: true
+  aurora: true

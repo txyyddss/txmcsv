@@ -205,7 +205,7 @@ Optimizations:
   # When set to true, commands in help page starting with /cmi will get shortened by hiding base command. Example /cmi back becomes /back
   # Keep in mind that this is automatic feature if alias or custom alias is set to that command
   # And keep in mind that this is only cosmetic change and will not impact command usage
-  RemoveLabel: false
+  RemoveLabel: true
   # When set to true, all players can see missing permission node by hovering over error message
   # When set to false only players with cmi.permisiononerror permission node can see missing permission node
   # Keep in mind that by default players have acces to permission node, so negate it if you want to hide missing permission nodes from them

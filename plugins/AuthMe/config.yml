@@ -1,15 +1,25 @@
 DataSource:
     # What type of database do you want to use?
-    # Valid values: SQLITE, MARIADB, MYSQL, POSTGRESQL
+    # Valid values: H2, SQLITE, MARIADB, MYSQL, POSTGRESQL
     backend: SQLITE
     # Enable the database caching system, should be disabled on bungeecord environments
     # or when a website integration is being used.
     caching: true
+    # Should we try to use VirtualThreads(Java 21+) for database cache loader?
+    useVirtualThreadsCache: false
     # Database host address
     mySQLHost: 127.0.0.1
     # Database port
     mySQLPort: '3306'
+    # Replacement of Mysql's useSsl (for MariaDB only).
+    # - disable: No SSL
+    # - trust: Trust blindly (no validation)
+    # - verify_ca:  Encryption, certificates validation, BUT no hostname verification
+    # - verify_full: Encryption, certificate validation and hostname validation
+    # Read more: https://bit.ly/mariadb-sslmode
+    MariaDbSslMode: disabled
     # Connect to MySQL database over SSL
+    # If you're using MariaDB, use sslMode instead
     mySQLUseSSL: true
     # Verification of server's certificate.
     # We would not recommend to set this option to false.
@@ -17,6 +27,7 @@ DataSource:
     mySQLCheckServerCertificate: true
     # Authorize client to retrieve RSA server public key.
     # Advanced option, ignore if you don't know what it means.
+    # If you are using MariaDB, use MariaDbSslMode instead.
     mySQLAllowPublicKeyRetrieval: true
     # Username to connect to the MySQL database
     mySQLUsername: authme
@@ -96,6 +107,49 @@ ExternalBoardOptions:
     XFActivatedGroupId: 2
     # Wordpress prefix defined during WordPress installation
     wordpressTablePrefix: wp_
+3rdPartyFeature:
+    compatibility:
+        # Should we execute /help command when unregistered players press Shift+F?
+        # This keeps compatibility with some menu plugins
+        # If you are using TrMenu, don't enable this because TrMenu already implemented this.
+        menuPlugins: true
+    features:
+        i18nMessages:
+            # Send i18n messages to player based on their client settings, this option will override `settings.messagesLanguage`
+            # (Requires ProtocolLib)
+            # This will not affect language of AuthMe help command.
+            enabled: true
+            # Redirect locale code to certain AuthMe language code as you want
+            # Minecraft locale list: https://minecraft.wiki/w/Language
+            # AuthMe language code: https://github.com/HaHaWTH/AuthMeReReloaded/blob/master/docs/translations.md
+            # For example, if you want to show Russian messages to player using language Tatar(tt_ru),
+            # and show Chinese Simplified messages to player using language Classical Chinese(lzh), then:
+            # locale-code-redirect:
+            # - 'tt_ru:ru'
+            # - 'lzh:zhcn'
+            locale-code-redirect: 
+            - tt_ru:ru
+            - lzh:zhcn
+        # Should we let Bedrock players login automatically?
+        # (Requires hookFloodgate to be true & floodgate loaded)
+        # (**THIS IS SAFE DO NOT WORRY**)
+        bedrockAutoLogin: true
+        purgeData:
+            # Should we purge data on non-registered players quit?
+            purgeOnQuit: false
+            # Which world's player data should be deleted?(Enter the world *FOLDER* name where your players first logged in)
+            purgeWorldFolderName: world
+    fixes:
+        # Enable the new feature to prevent ghost players?
+        antiGhostPlayer: true
+        # (MC1.13- only)
+        # Should we fix the shulker crash bug with advanced method?
+        advancedShulkerFix: true
+        loginLocationFix:
+            # Should we fix the location when players logged in the portal?
+            fixPortalStuck: true
+            # Should we fix the location when players logged underground?
+            fixGroundStuck: true
 settings:
     sessions:
         # Do you want to enable the session feature?
@@ -110,6 +164,7 @@ settings:
         timeout: 1440
     # Message language, available languages:
     # https://github.com/AuthMe/AuthMeReloaded/blob/master/docs/translations.md
+    # Example: zhcn, en
     messagesLanguage: zhcn
     # Forces authme to hook into Vault instead of a specific permission handler system.
     forceVaultHook: false
@@ -216,6 +271,8 @@ settings:
         # characters, which is what we recommend. See also http://asciitable.com
         # You can test your regex with https://regex101.com
         allowedPasswordCharacters: '[!-~]*'
+        # Regex syntax for allowed chars in email.
+        allowedEmailCharacters: ^([a-zA-Z0-9_.+-]+)@([a-zA-Z0-9-]+)\.([a-zA-Z]{2,})$
     GameMode:
         # Force survival gamemode when player joins?
         ForceSurvivalMode: false
@@ -236,6 +293,8 @@ settings:
         # - 'myCustomInventory1'
         # - 'myCustomInventory2'
         UnrestrictedInventories: []
+        # Should we check unrestricted inventories strictly? (Original behavior)
+        StrictUnrestrictedInventoriesCheck: true
     security:
         # Minimum length of password
         minPasswordLength: 5
@@ -243,7 +302,7 @@ settings:
         passwordMaxLength: 30
         # Possible values: SHA256, BCRYPT, BCRYPT2Y, PBKDF2, SALTEDSHA512,
         # MYBB, IPB3, PHPBB, PHPFUSION, SMF, XENFORO, XAUTH, JOOMLA, WBB3, WBB4, MD5VB,
-        # PBKDF2DJANGO, WORDPRESS, ROYALAUTH, ARGON2, CUSTOM (for developers only). See full list at
+        # PBKDF2DJANGO, WORDPRESS, ROYALAUTH, ARGON2, NOCRYPT, CUSTOM (for developers only). See full list at
         # https://github.com/AuthMe/AuthMeReloaded/blob/master/docs/hash_algorithms.md
         # If you use ARGON2, check that you have the argon2 c library on your system
         passwordHash: SHA256
@@ -285,26 +344,24 @@ settings:
         # EMAIL = password is generated and sent to the email provided by the user.
         # More info at https://github.com/AuthMe/AuthMeReloaded/wiki/Registration
         type: PASSWORD
-        # Second argument the /register command should take: NONE = no 2nd argument
+        # Second argument the /register command should take: 
+        # NONE = no 2nd argument
         # CONFIRMATION = must repeat first argument (pass or email)
         # EMAIL_OPTIONAL = for password register: 2nd argument can be empty or have email address
         # EMAIL_MANDATORY = for password register: 2nd argument MUST be an email address
         secondArg: CONFIRMATION
+        email:
+            # Should we unregister the player when he didn't verify the email?
+            # This only works if you enabled email registration.
+            unregisterOnEmailVerificationFailure: false
+            # How many minutes should we wait before unregister the player
+            # when he didn't verify the email?
+            unregisterAfterMinutes: 10
         # Do we force kick a player after a successful registration?
         # Do not use with login feature below
         forceKickAfterRegister: false
         # Does AuthMe need to enforce a /login after a successful registration?
         forceLoginAfterRegister: false
-    # Enable to display the welcome message (welcome.txt) after a login
-    # You can use colors in this welcome.txt + some replaced strings:
-    # {PLAYER}: player name, {ONLINE}: display number of online players,
-    # {MAXPLAYERS}: display server slots, {IP}: player ip, {LOGINS}: number of players logged,
-    # {WORLD}: player current world, {SERVER}: server name
-    # {VERSION}: get current bukkit version, {COUNTRY}: player country
-    useWelcomeMessage: true
-    # Broadcast the welcome message to the server or only to the player?
-    # set true for server or false for player
-    broadcastWelcomeMessage: false
     # Should we delay the join message and display it once the player has logged in?
     delayJoinMessage: false
     # The custom join message that will be sent after a successful login,
@@ -368,20 +425,32 @@ Email:
     recallPlayers: false
     # Delay in minute for the recall scheduler
     delayRecall: 5
-    # Blacklist these domains for emails
-    emailBlacklisted: 
-    - 10minutemail.com
-    # Whitelist ONLY these domains for emails
-    emailWhitelisted: []
     # Send the new password drawn in an image?
     generateImage: false
     # The OAuth2 token
     emailOauth2Token: ''
+    # Email notifications when the server shuts down
+    shutDownEmail: false
+    # Email notification address when the server is shut down
+    shutDownEmailAddress: your@mail.com
 Hooks:
     # Do we need to hook with multiverse for spawn checking?
     multiverse: true
+    # Do we need to hook with PlaceholderAPI for AuthMe placeholders?
+    placeholderapi: true
     # Do we need to hook with BungeeCord?
     bungeecord: false
+    # Do we need to hook with Velocity?
+    velocity: false
+    # How many ticks should we wait before sending login info to proxy?
+    # Change this to higher if your player has high ping.
+    # See: https://www.spigotmc.org/wiki/bukkit-bungee-plugin-messaging-channel/
+    proxySendDelay: 10
+    # Hook into floodgate.
+    # This must be true if you want to use other bedrock features.
+    floodgate: true
+    # Allow bedrock players join without check isValidName?
+    ignoreBedrockNameCheck: true
     # Send player to this BungeeCord server after register/login
     sendPlayerTo: ''
     # Do we need to disable Essentials SocialSpy on join?
@@ -393,16 +462,6 @@ Protection:
     enableProtection: false
     # Apply the protection also to registered usernames
     enableProtectionRegistered: true
-    geoIpDatabase:
-        # Enable GeoIp database
-        enabled: true
-        # The MaxMind clientId used to download the GeoIp database,
-        # get one at https://www.maxmind.com/en/accounts/current/license-key
-        # The EssentialsX project has a very useful tutorial on how to generate
-        # the license key: https://github.com/EssentialsX/Wiki/blob/master/GeoIP.md
-        clientId: ''
-        # The MaxMind licenseKey used to download the GeoIp database.
-        licenseKey: ''
     # Countries allowed to join the server and register. For country codes, see
     # https://dev.maxmind.com/geoip/legacy/codes/iso3166/
     # Use "LOCALHOST" for local addresses.
@@ -455,6 +514,17 @@ Security:
     console:
         # Copy AuthMe log output in a separate file as well?
         logConsole: true
+    account:
+        haveIBeenPwned:
+            # Query haveibeenpwned.com with a hashed version of the password.
+            # This is used to check whether it is safe.
+            check: false
+            # If the password is used more than this number of times, it is considered unsafe.
+            limit: 0
+        emailVerification:
+            # Require email verification when changing password if email feature enabled.
+            # Original behavior is true
+            required: true
     captcha:
         # Enable captcha when a player uses wrong password too many times
         useCaptcha: false
@@ -503,6 +573,13 @@ Security:
         enableEmailMasking: false
         # Minutes after which a verification code will expire
         verificationCodeExpiration: 10
+Plugin:
+    updates:
+        # Check for updates on enabled from GitHub?
+        checkForUpdates: true
+    banners:
+        # Should we show the AuthMe banner on startup?
+        showBanners: true
 # Before a user logs in, various properties are temporarily removed from the player,
 # such as OP status, ability to fly, and walk/fly speed.
 # Once the user is logged in, we add back the properties we previously saved.
@@ -551,13 +628,6 @@ BackupSystem:
     MysqlWindowsPath: C:\Program Files\MySQL\MySQL Server 5.1\
 # Converter settings: see https://github.com/AuthMe/AuthMeReloaded/wiki/Converters
 Converter:
-    Rakamak:
-        # Rakamak file name
-        fileName: users.rak
-        # Rakamak use IP?
-        useIP: false
-        # Rakamak IP file name
-        ipFileName: UsersIp.rak
     CrazyLogin:
         # CrazyLogin database file name
         fileName: accounts.db

@@ -1,0 +1,48 @@
+# \u00BB is » (double >>), ANSI and UTF-8 interpret this differently... you may even see ? due to this
+prefix: "&9&lNEKO WORKs &7>"
+
+alerts-enabled: "%prefix% &f播报开启"
+alerts-disabled: "%prefix% &f播报关闭"
+client-brand-format: "%prefix% &7%player% 的 &f客户端 &7唯一标识符是 &c&l%brand%"
+console-specify-target: "%prefix% &c您必须选定一个对象!"
+player-not-found: "%prefix% &c玩家找不到!"
+player-not-this-server: "%prefix% &c玩家不在本字符!"
+spectate-return: "\n%prefix% &f点击这里返回\n"
+cannot-spectate-return: "%prefix% &c您不能在视察玩家之后执行这个指令"
+cannot-run-on-self: "%prefix% &c您不能执行这个指令!"
+upload-log: "%prefix% &f已经上传日志至: %url%"
+upload-log-start: "%prefix% &f请稍等，正在上传日志"
+upload-log-not-found: "%prefix% &c不能找到这个日志!"
+upload-log-upload-failure: "%prefix% &cSomething went wrong while uploading this log, see console for more info"
+
+# Valid placeholders:
+# %prefix%
+# %player%
+# %check_name%
+# %vl% - violations
+# %verbose% - extra information from the check such as offsets, not all checks will add information
+alerts-format: "%prefix% &f%player% &b触犯了 &f%check_name% &f(x&c%vl%&f) &7%verbose%"
+alerts-format-proxy: "%prefix% &f[&cproxy&f] &f%player% &bfailed &f%check_name% &f(x&c%vl%&f) &7%verbose%"
+
+profile:
+  - "&7======================"
+  - "%prefix% &f%player% &b档案"
+  - "&b延时: &f%ping%"
+  - "&b版本: &f%version%"
+  - "&b客户端唯一表示: &f%brand%"
+  - "&bHorizontal Sensitivity: &f%h_sensitivity%%"
+  - "&bVertical Sensitivity: &f%v_sensitivity%%"
+  - "&bOF(BetterFPS) 快速运算检查: &f%fast_math%"
+  - "&7======================"
+help:
+  - "&7======================"
+  - "&c/grim alerts &8- &7启用"
+  - "&c/grim profile <player> &f- &7查询某个玩家信息"
+  - "&c/grim help &8- &7查看帮助指南"
+  - "&c/grim debug <player> &8- &7调试某个玩家模式"
+  - "&c/grim perf &8- &7开发者调试*没做好"
+  - "&c/grim reload &8- &7重载插件"
+  - "&c/grim spectate <player> &8- &7观察玩家"
+  - "&c/grim verbose &8- &7向你播报每个Flags"
+  - "&c/grim log [0-255] &8- &7查看日志"
+  - "&7======================"

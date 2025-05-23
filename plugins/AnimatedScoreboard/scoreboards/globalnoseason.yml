@@ -36,13 +36,13 @@ display:
       score: 99   
     line-2:
       text:
-      - "&bWebmap see wechat"
+      - "&bmap.1919801.xyz"
       random: false
       interval: -1
       score: 98
     line-3:
       text:
-      - "&5%rs_biome%"
+      - "&5%cmi_player_biome%"
       random: false
       interval: 20
       score: 97

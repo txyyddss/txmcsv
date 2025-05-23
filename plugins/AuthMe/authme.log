@@ -741,3 +741,151 @@
 
 [05-03 19:54:28]: [FINE] txrog logged in 127.0.0.1
 [05-03 19:55:39]: [INFO] AuthMe 5.6.0-bCUSTOM disabled!
+[05-22 22:23:34]: [INFO] SQLite Setup finished
+[05-22 22:23:34]: [INFO] No supported permissions system found! Permissions are disabled!
+[05-22 22:23:34]: [INFO] [LICENSE] This product includes GeoLite2 data created by MaxMind, available at https://www.maxmind.com
+[05-22 22:23:34]: [INFO] Hooked successfully into CMI
+[05-22 22:23:34]: [INFO] AuthMe 5.6.0 build n.CUSTOM successfully enabled!
+[05-22 22:24:20]: [INFO] AuthMe 5.6.0-bCUSTOM disabled!
+[05-23 09:13:57]: [INFO] SQLite Setup finished
+[05-23 09:13:57]: [INFO] No supported permissions system found! Permissions are disabled!
+[05-23 09:13:57]: [INFO] Added 6 missing keys to your messages_xx.yml file: [password.pwned_password, bedrock_auto_login.success, login_location_fix.fix_portal, login_location_fix.fix_underground, login_location_fix.cannot_fix_underground, double_login_fix.fix_message]
+[05-23 09:13:57]: [INFO] Hooked successfully into CMI
+[05-23 09:13:57]: [INFO] Hooked successfully into PlaceholderAPI
+[05-23 09:13:57]: [INFO] 
+    ___         __  __    __  ___   
+   /   | __  __/ /_/ /_  /  |/  /__ 
+  / /| |/ / / / __/ __ \/ /|_/ / _ \
+ / ___ / /_/ / /_/ / / / /  / /  __/
+/_/  |_\__,_/\__/_/ /_/_/  /_/\___/ 
+                                    
+[05-23 09:13:57]: [INFO] AuthMeReReloaded is running on Paper
+[05-23 09:13:57]: [INFO] AuthMeReReloaded is enabled successfully!
+[05-23 09:13:57]: [INFO] GitHub: https://github.com/HaHaWTH/AuthMeReReloaded/
+[05-23 09:13:57]: [INFO] Checking for updates...
+[05-23 09:14:16]: [INFO] You are running the latest version.
+[05-23 09:15:14]: [INFO] AuthMe 5.7.0-FORK-b53 is unloaded successfully!
+[05-23 09:51:57]: [INFO] SQLite Setup finished
+[05-23 09:51:57]: [INFO] No supported permissions system found! Permissions are disabled!
+[05-23 09:51:57]: [INFO] Hooked successfully into CMI
+[05-23 09:51:57]: [INFO] Hooked successfully into PlaceholderAPI
+[05-23 09:51:57]: [INFO] 
+    ___         __  __    __  ___   
+   /   | __  __/ /_/ /_  /  |/  /__ 
+  / /| |/ / / / __/ __ \/ /|_/ / _ \
+ / ___ / /_/ / /_/ / / / /  / /  __/
+/_/  |_\__,_/\__/_/ /_/_/  /_/\___/ 
+                                    
+[05-23 09:51:57]: [INFO] AuthMeReReloaded is running on Paper
+[05-23 09:51:57]: [INFO] AuthMeReReloaded is enabled successfully!
+[05-23 09:51:57]: [INFO] GitHub: https://github.com/HaHaWTH/AuthMeReReloaded/
+[05-23 09:51:57]: [INFO] Checking for updates...
+[05-23 09:52:26]: [INFO] You are running the latest version.
+[05-23 09:52:38]: [INFO] AuthMe 5.7.0-FORK-b53 is unloaded successfully!
+[05-23 10:31:22]: [INFO] SQLite Setup finished
+[05-23 10:31:22]: [INFO] No supported permissions system found! Permissions are disabled!
+[05-23 10:31:23]: [INFO] Hooked successfully into CMI
+[05-23 10:31:23]: [INFO] Hooked successfully into PlaceholderAPI
+[05-23 10:31:23]: [WARN] You are running an 1.13+ minecraft server, AdvancedShulkerFix won't enable.
+[05-23 10:31:23]: [INFO] 
+    ___         __  __    __  ___   
+   /   | __  __/ /_/ /_  /  |/  /__ 
+  / /| |/ / / / __/ __ \/ /|_/ / _ \
+ / ___ / /_/ / /_/ / / / /  / /  __/
+/_/  |_\__,_/\__/_/ /_/_/  /_/\___/ 
+                                    
+[05-23 10:31:23]: [INFO] AuthMeReReloaded is running on Paper
+[05-23 10:31:23]: [INFO] AuthMeReReloaded is enabled successfully!
+[05-23 10:31:23]: [INFO] GitHub: https://github.com/HaHaWTH/AuthMeReReloaded/
+[05-23 10:31:23]: [INFO] Checking for updates...
+[05-23 10:33:04]: [INFO] SQLite Setup finished
+[05-23 10:33:04]: [INFO] No supported permissions system found! Permissions are disabled!
+[05-23 10:33:04]: [INFO] Hooked successfully into CMI
+[05-23 10:33:04]: [INFO] Hooked successfully into PlaceholderAPI
+[05-23 10:33:05]: [WARN] You are running an 1.13+ minecraft server, AdvancedShulkerFix won't enable.
+[05-23 10:33:05]: [INFO] 
+    ___         __  __    __  ___   
+   /   | __  __/ /_/ /_  /  |/  /__ 
+  / /| |/ / / / __/ __ \/ /|_/ / _ \
+ / ___ / /_/ / /_/ / / / /  / /  __/
+/_/  |_\__,_/\__/_/ /_/_/  /_/\___/ 
+                                    
+[05-23 10:33:05]: [INFO] AuthMeReReloaded is running on Paper
+[05-23 10:33:05]: [INFO] AuthMeReReloaded is enabled successfully!
+[05-23 10:33:05]: [INFO] GitHub: https://github.com/HaHaWTH/AuthMeReReloaded/
+[05-23 10:33:05]: [INFO] Checking for updates...
+[05-23 10:33:28]: [INFO] You are running the latest version.
+[05-23 10:38:05]: [INFO:FINE] txrog logged in 127.0.0.1
+[05-23 10:42:52]: [INFO] SQLite Setup finished
+[05-23 10:42:52]: [INFO] No supported permissions system found! Permissions are disabled!
+[05-23 10:42:53]: [INFO] Hooked successfully into CMI
+[05-23 10:42:53]: [INFO] Hooked successfully into PlaceholderAPI
+[05-23 10:42:53]: [WARN] You are running an 1.13+ minecraft server, AdvancedShulkerFix won't enable.
+[05-23 10:42:53]: [INFO] 
+    ___         __  __    __  ___   
+   /   | __  __/ /_/ /_  /  |/  /__ 
+  / /| |/ / / / __/ __ \/ /|_/ / _ \
+ / ___ / /_/ / /_/ / / / /  / /  __/
+/_/  |_\__,_/\__/_/ /_/_/  /_/\___/ 
+                                    
+[05-23 10:42:53]: [INFO] AuthMeReReloaded is running on Paper
+[05-23 10:42:53]: [INFO] AuthMeReReloaded is enabled successfully!
+[05-23 10:42:53]: [INFO] GitHub: https://github.com/HaHaWTH/AuthMeReReloaded/
+[05-23 10:42:53]: [INFO] Checking for updates...
+[05-23 10:43:14]: [INFO] You are running the latest version.
+[05-23 10:43:28]: [INFO:FINE] txrog logged in 127.0.0.1
+[05-23 11:16:17]: [INFO] AuthMe 5.7.0-FORK-b53 is unloaded successfully!
+[05-23 11:20:30]: [INFO] SQLite Setup finished
+[05-23 11:20:30]: [INFO] No supported permissions system found! Permissions are disabled!
+[05-23 11:20:30]: [INFO] Hooked successfully into CMI
+[05-23 11:20:30]: [INFO] Hooked successfully into PlaceholderAPI
+[05-23 11:20:31]: [WARN] You are running an 1.13+ minecraft server, AdvancedShulkerFix won't enable.
+[05-23 11:20:31]: [INFO] 
+    ___         __  __    __  ___   
+   /   | __  __/ /_/ /_  /  |/  /__ 
+  / /| |/ / / / __/ __ \/ /|_/ / _ \
+ / ___ / /_/ / /_/ / / / /  / /  __/
+/_/  |_\__,_/\__/_/ /_/_/  /_/\___/ 
+                                    
+[05-23 11:20:31]: [INFO] AuthMeReReloaded is running on Paper
+[05-23 11:20:31]: [INFO] AuthMeReReloaded is enabled successfully!
+[05-23 11:20:31]: [INFO] GitHub: https://github.com/HaHaWTH/AuthMeReReloaded/
+[05-23 11:20:31]: [INFO] Checking for updates...
+[05-23 11:20:52]: [INFO] You are running the latest version.
+[05-23 11:21:10]: [INFO] AuthMe 5.7.0-FORK-b53 is unloaded successfully!
+[05-23 12:49:35]: [INFO] SQLite Setup finished
+[05-23 12:49:35]: [INFO] No supported permissions system found! Permissions are disabled!
+[05-23 12:49:35]: [INFO] Hooked successfully into CMI
+[05-23 12:49:35]: [INFO] Hooked successfully into PlaceholderAPI
+[05-23 12:49:36]: [WARN] You are running an 1.13+ minecraft server, AdvancedShulkerFix won't enable.
+[05-23 12:49:36]: [INFO] 
+    ___         __  __    __  ___   
+   /   | __  __/ /_/ /_  /  |/  /__ 
+  / /| |/ / / / __/ __ \/ /|_/ / _ \
+ / ___ / /_/ / /_/ / / / /  / /  __/
+/_/  |_\__,_/\__/_/ /_/_/  /_/\___/ 
+                                    
+[05-23 12:49:36]: [INFO] AuthMeReReloaded is running on Paper
+[05-23 12:49:36]: [INFO] AuthMeReReloaded is enabled successfully!
+[05-23 12:49:36]: [INFO] GitHub: https://github.com/HaHaWTH/AuthMeReReloaded/
+[05-23 12:49:36]: [INFO] Checking for updates...
+[05-23 12:49:56]: [INFO] You are running the latest version.
+[05-23 12:50:08]: [INFO:FINE] txrog logged in 127.0.0.1
+[05-23 12:56:52]: [INFO] SQLite Setup finished
+[05-23 12:56:52]: [INFO] No supported permissions system found! Permissions are disabled!
+[05-23 12:56:52]: [INFO] Hooked successfully into CMI
+[05-23 12:56:52]: [INFO] Hooked successfully into PlaceholderAPI
+[05-23 12:56:52]: [WARN] You are running an 1.13+ minecraft server, AdvancedShulkerFix won't enable.
+[05-23 12:56:52]: [INFO] 
+    ___         __  __    __  ___   
+   /   | __  __/ /_/ /_  /  |/  /__ 
+  / /| |/ / / / __/ __ \/ /|_/ / _ \
+ / ___ / /_/ / /_/ / / / /  / /  __/
+/_/  |_\__,_/\__/_/ /_/_/  /_/\___/ 
+                                    
+[05-23 12:56:52]: [INFO] AuthMeReReloaded is running on Paper
+[05-23 12:56:52]: [INFO] AuthMeReReloaded is enabled successfully!
+[05-23 12:56:52]: [INFO] GitHub: https://github.com/HaHaWTH/AuthMeReReloaded/
+[05-23 12:56:52]: [INFO] Checking for updates...
+[05-23 12:57:19]: [INFO] You are running the latest version.
+[05-23 12:57:58]: [INFO:FINE] txrog logged in 127.0.0.1

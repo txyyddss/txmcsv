@@ -205,6 +205,16 @@ entities:
       underground_water_creature: -1
       water_ambient: -1
       water_creature: -1
+    spawning-throttle:
+      failed-attempts-threshold: disabled
+      throttled-ticks-per-spawn:
+        ambient: -1
+        axolotls: -1
+        creature: -1
+        monster: -1
+        underground_water_creature: -1
+        water_ambient: -1
+        water_creature: -1
     ticks-per-spawn:
       ambient: -1
       axolotls: -1

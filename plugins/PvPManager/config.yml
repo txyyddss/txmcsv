@@ -213,10 +213,8 @@ PvP Toggle:
   PvP Disabled Money Fee: 0
   Commands PvP On:
   - 'announce %p 开启了PVP模式!'
-  - 'animatedscoreboard switch PVP %p'
   Commands PvP Off:
   - 'announce %p 关闭了PVP模式!'
-  - 'animatedscoreboard switch globalscoreboard %p'
   WorldGuard Overrides: true
   WorldGuard Overrides Region List:
   - 'example'

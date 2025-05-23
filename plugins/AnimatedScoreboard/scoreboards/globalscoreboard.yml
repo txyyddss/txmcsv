@@ -36,26 +36,26 @@ display:
       score: 99   
     line-2:
       text:
-      - "&bWebmap see Wechat"
+      - "&bPing:%player_ping%"
       random: false
-      interval: -1
+      interval: 5
       score: 98
     line-3:
       text:
-      - "&5%rs_biome%"
+      - "&5%cmi_player_biome%"
       random: false
       interval: 20
       score: 97
     #This animation works together with the line below it. The interval is the same so it displays the data at the same time.     
     line-4:
       text:
-      - "&aCurrent temp:&3%rs_temperature%"
+      - "&aCurrent:&3%advancedseasons_temperature%°C"
       random: false
       interval: 20
       score: 96
     line-5:
       text:
-      - "&bSeason:&3%rs_season%&b,%rs_days_until_next_season%d left"
+      - "&bSeason:&3%advancedseasons_season%"
       random: false
       interval: 60
       score: 95
@@ -84,7 +84,7 @@ display:
     #It will display the player's health here with hearts, you can also use score=%placeholder% if you have PlaceholderAPI installed
     line-9:
       text:
-      - "&aCurrent light:%player_light_level%"       
+      - "&aLight:%player_light_level%"       
       random: false
       interval: 5
       score: 91

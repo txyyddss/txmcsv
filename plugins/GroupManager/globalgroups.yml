@@ -45,7 +45,7 @@ groups:
     - cmi.command.home
     - cmi.command.back
     - cmi.command.sethome
-    - cmi.command.sethome.3
+    - cmi.command.sethome.4
     - cmi.command.homes
     - cmi.command.removehome
     - cmi.command.sethome
@@ -59,6 +59,11 @@ groups:
     - cmi.command.msg
     - cmi.elytra.*
     - cmi.signs.shiftedit
+    - cmi.command.dback
+    - bedrockplayersupport.command.tpgui
+    - bedrockplayersupport.command.homegui
+    - bedrockplayersupport.command.msggui
+    - bedrockplayersupport.form.backdeath
 
   g:se_admin:
     permissions:

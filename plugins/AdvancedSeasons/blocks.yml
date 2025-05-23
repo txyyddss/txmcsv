@@ -1,0 +1,8 @@
+# Configure block generation, grass and snow per world.
+# If "snowEnabled" is set to false in config.yml, this configuration will be ignored.
+
+worlds:
+  exampleWorld:
+    # Setting this to false will stop plugin from removing grass and generating snow only in empty AIR blocks.
+    # It will also make new grass to not generate when snow is clearing - old grass will stay.
+    generateCustomGrass: true
