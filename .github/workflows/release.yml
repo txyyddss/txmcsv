@@ -21,15 +21,11 @@ jobs:
       # 2. 替换版本号
       - name: Update version in files
         run: |
-          # 替换globalscoreboard.yml中的版本号
-          if [ -f "./plugins/AnimatedScoreboard/scoreboards/globalscoreboard.yml" ]; then
-            sed -i "s/%server_version%/${{ github.event.inputs.version }}/g" "./plugins/AnimatedScoreboard/scoreboards/globalscoreboard.yml"
+          # 替换TAB.yml中的版本号
+          if [ -f "./plugins/TAB/config.yml" ]; then
+            sed -i "s/%server_version%/${{ github.event.inputs.version }}/g" "./plugins/TAB/config.yml"
           fi
           
-          # 替换globalnoseason.yml中的版本号
-          if [ -f "./plugins/AnimatedScoreboard/scoreboards/globalnoseason.yml" ]; then
-            sed -i "s/%server_version%/${{ github.event.inputs.version }}/g" "./plugins/AnimatedScoreboard/scoreboards/globalnoseason.yml"
-          fi
 
       # 3. 清理plugins目录 - 只保留.yml,.conf,.txt,.jar文件和所有文件夹结构
       - name: Clean plugins directory
