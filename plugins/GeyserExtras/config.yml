@@ -17,7 +17,7 @@
 # `preferences/java/default.json`.
 #  
 # Setting this to `false` also disables saving of preferences.
-enable-geyser-extras-menu: true
+enable-geyser-extras-menu: false
 
 # Enable the Java Edition styled cooldown.
 enable-custom-cooldown: true
