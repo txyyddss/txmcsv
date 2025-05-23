@@ -11,7 +11,7 @@
   </a>
   <h3 align="center">Paper自托管生存互通服</h3>
   <p align="center">
-    全栈CV工程师:TX · 土豆硬件提供商:MT
+    全栈CV工程师:TX · 土豆硬件托管:MT
     <br />
     <a href="https://github.com/txyyddss/txmcsv?tab=readme-ov-file#minecraftbedrockiosandroidjavawindowsmacandroid%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B">进服教程</a>
     ·
