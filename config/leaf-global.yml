@@ -11,7 +11,7 @@ async:
   # **实验性功能**
   # 启用并行世界处理以提高多核 CPU 使用率.
   parallel-world-tracking:
-    enabled: true
+    enabled: false
     threads: 4
     log-container-creation-stacktraces: false
     disable-hard-throw: false
@@ -46,7 +46,7 @@ async:
     # FLUSH_ALL: 所有等待中的任务都将在主线程上运行.
     # CALLER_RUNS: 新提交的任务将在主线程上运行.
     # DISCARD: 新提交的任务会被直接丢弃.
-    reject-policy: FLUSH_ALL
+    reject-policy: DISCARD
   # 是否异步化生物生成.
   # 在实体较多的服务器上, 异步生成可最高带来 15% 的性能提升.
   # 须在Paper配置文件中打开 per-player-mob-spawns 才能生效.
@@ -55,7 +55,7 @@ async:
   # 是否启用异步结构搜索.
   # 目前可用于 /locate 指令, 海豚寻宝和末影之眼.
   async-locator:
-    enabled: false
+    enabled: true
     threads: 0
     keepalive: 60
   # 使区块数据包准备和发送异步化以提高服务器性能.

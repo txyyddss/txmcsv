@@ -1,0 +1,30 @@
+SEASON-TO-WINTER: '&b&lWinter is starting!'
+SEASON-TO-FALL: '&b&lFall is starting!'
+SEASON-TO-SPRING: '&b&lSpring is starting!'
+SEASON-TO-SUMMER: '&b&lSummer is starting!'
+NO-PERMISSION-MESSAGE: '&cYou don''t have the permission to do that!'
+WINTER-DISPLAY-NAME: Winter
+FALL-DISPLAY-NAME: Fall
+SPRING-DISPLAY-NAME: Spring
+SUMMER-DISPLAY-NAME: Summer
+SEASONCOMMAND-DISABLED: '&cSeasons are disabled in this world'
+SEASONCOMMAND-RESTORING: '&cThis world is currently restoring!'
+SEASONCOMMAND-CURRENTDATE: '&aCurrent date: &2$current_weekday$, $current_month$ $current_day$,
+  year $current_year$'
+SEASONSCOMMAND-CURRENTSEASON: '&aCurrent season: &2$current_season$'
+SEASONSCOMMAND-AIRTEMPERATURE: '&aCurrent air temperature: $air_temperature$'
+SEASONSCOMMAND-DAYSUNTILNEXTSEASON: '&aDays until next season (&2$next_season$&a):
+  &7$days_until_next_season$'
+SEASONSCOMMAND-DAYSUNTILNEXTEVENT: '&aDays until next event (&2$next_event$&a): &7$days_until_next_event$'
+SEASONCOMMAND-TIME: '&aCurrent time: &2$time$'
+SEASONCOMMAND-EVENTS: '&aActive events: &2$events$'
+TOGGLESEASONSCOMMAND-MESSAGE: '&aSeason colors are now &2$status$ &afor you'
+TOGGLETEMPERATURECOMMAND-MESSAGE: '&aThe temperature system is now &2$status$ &afor
+  you'
+TOGGLEPARTICLESCOMMAND-MESSAGE: '&aThe season particles are now &2$status$ &afor you'
+TOGGLEFAHRENHEITCOMMAND-TOFAHRENHEIT: '&aYour temperature will now be displayed in
+  &2Fahrenheit'
+TOGGLEFAHRENHEITCOMMAND-TOCELCIUS: '&aYour temperature will now be displayed in &2Celcius'
+ENABLED: enabled
+DISABLED: disabled
+CURRENTBIOME-MESSAGE: '&aCurrent biome: $biome$'

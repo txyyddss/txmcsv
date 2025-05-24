@@ -1,0 +1,38 @@
+includes: terralith:warped_mesa
+modify-plants: false
+freeze-in-winter: false
+temperature-difference: 15
+show-snow-instead-of-rain:
+  spring: false
+  summer: false
+  fall: false
+  winter: false
+colors:
+  spring:
+    skycolor: NONE
+    watercolor: NONE
+    waterfogcolor: NONE
+    grasscolor: NONE
+    treecolor: NONE
+    fogcolor: NONE
+  summer:
+    skycolor: 84BDE8
+    watercolor: 43D5EE
+    waterfogcolor: 43D5EE
+    grasscolor: 8f6e4d
+    treecolor: 77AB2F
+    fogcolor: NONE
+  fall:
+    skycolor: NONE
+    watercolor: NONE
+    waterfogcolor: NONE
+    grasscolor: NONE
+    treecolor: NONE
+    fogcolor: NONE
+  winter:
+    skycolor: 8E7CC3
+    watercolor: 8E7CC3
+    waterfogcolor: 8E7CC3
+    grasscolor: NONE
+    treecolor: NONE
+    fogcolor: NONE 

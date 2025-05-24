@@ -1,0 +1,42 @@
+## This file allows you to create as many planned events as you want. These events can be daily, weekly or on specific dates (see sections below).
+## You can send messages to the player or run commands as the console (include a '/' before the command).
+## The dates in dated events can be: dd/mm/yyyy (or mm/dd/yyyy if american date format is selected in calendar.yml).
+## Not including the year makes the event run every year (see october-event-example). You can also enter only a day ("date: 5"), this will make the event run every month between the specified days. 
+## Active events can be viewed by the user through /season or the placeholder %rs_active_events%
+## You can toggle this for each event with "display-event". The "name" field will be used to display it. Color codes can be used.
+## Possible placeholders in commands are %day%, %month%, %month_asname%, %year%, %weekday%, %season%, %world%. All external placeholders by PlaceHolderAPI are also supported.
+custom-events:
+   dated-events:
+      october-event-example:
+         enabled: false
+         name: "&6Spooky October"
+         display-event: true
+         times:
+            event-start:
+               date: 1/10
+            event-stop:
+               date: 1/11
+         commands:
+            start:
+               - "&aOctober has started, monsters are becoming stronger and stronger.."
+               - "/difficulty hard"
+            stop:
+               - "/difficulty normal"
+   weekly-events:
+     safe-sunday-example:
+         enabled: false
+         name: "&aSafe Sunday"
+         display-event: true
+         day: Sunday
+         commands:
+            start:
+               - "&6It is now &7Sunday %day%/%month%/%year%. &6Time for a break, dying isn't dangerous for the day"
+               - "/gamerule keepInventory true"
+            stop:
+               - "/gamerule keepInventory false"
+   daily-events:
+      daily-message-example:
+         enabled: false
+         commands:
+            - "&3Midnight has passed, &f%weekday%, %month_asname% %day%, year %year%&3 has started"
+            - "&3Current season: &f%season%"

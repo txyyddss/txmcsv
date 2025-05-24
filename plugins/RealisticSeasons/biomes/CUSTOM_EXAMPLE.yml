@@ -1,0 +1,46 @@
+## this file is an example file of how to use this plugin with custom biomes. This file should not be used unless you have some kind of worldgenerator plugin, or other custom biome plugin.
+## You can create as many copies of this file as you want, the plugin will register them all seperately. That way you can customize all custombiomes The name of the file doesn't matter, plugin doesn't use that.
+## Enter all custom biomes you would like to include in this file here (after includes). All biomes on this list will get the colors applied you enter below.
+## Don't forget to add the prename to the names (like "prename:biomename"). The prename is visible in f3 while standing in the custombiome.
+## Seperate the list with comma's. Example would be: 
+## includes: realisticseasons:testbiome, otherplugin:rainforest, worldgenerator:coolbiome
+## You could also use "includes: ALL" this will select all custom biomes. Much easier if you don't want to configure every single biome.
+## Any additional custom biome file in the biomes folder will overwrite the effect of "includes: ALL" for the biomes specified.
+includes: ALL
+modify-plants: true
+freeze-in-winter: true
+temperature-difference: 0
+show-snow-instead-of-rain:
+  spring: false
+  summer: false
+  fall: false
+  winter: true
+colors:
+  spring:
+    skycolor: NONE
+    watercolor: NONE
+    waterfogcolor: NONE
+    grasscolor: NONE
+    treecolor: NONE
+    fogcolor: NONE
+  summer:
+    skycolor: NONE
+    watercolor: NONE
+    waterfogcolor: NONE
+    grasscolor: NONE
+    treecolor: NONE
+    fogcolor: NONE
+  fall:
+    skycolor: 89919A
+    watercolor: 617B64
+    waterfogcolor: 617B64
+    grasscolor: BFB755
+    treecolor: 'E8962A, E8962A, AEA42A, 6BA941, 60A17B'
+    fogcolor: NONE
+  winter:
+    skycolor: D2DEFF
+    watercolor: 216FC4
+    waterfogcolor: 216FC4
+    grasscolor: B8D0E1
+    treecolor: B8D0E1
+    fogcolor: A6D1FF

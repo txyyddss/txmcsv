@@ -1,0 +1,41 @@
+## this file includes the following biomes: TAIGA, GIANT_SPRUCE_TAIGA, GIANT_SPRUCE_TAIGA_HILLS, GIANT_TREE_TAIGA, GIANT_TREE_TAIGA_HILLS, TAIGA_HILLS, TAIGA_MOUNTAINS
+## 1.18: TAIGA, OLD_GROWTH_SPRUCE_TAIGA, OLD_GROWTH_PINE_TAIGA
+## tree color of fall can either be 1 color or 5 colors.
+modify-plants: true
+## Freeze in winter also includes removal of ice and snow afterwards
+freeze-in-winter: true
+temperature-difference: -4
+show-snow-instead-of-rain:
+  spring: false
+  summer: false
+  fall: true
+  winter: true
+colors:
+  spring:
+    skycolor: NONE
+    watercolor: NONE
+    waterfogcolor: NONE
+    grasscolor: NONE
+    treecolor: NONE
+    fogcolor: NONE
+  summer:
+    skycolor: 84BDE8
+    watercolor: 3F76E4
+    waterfogcolor: 3F76E4
+    grasscolor: 79C05A
+    treecolor: 79C05A
+    fogcolor: NONE
+  fall:
+    skycolor: 89919A
+    watercolor: 617B64
+    waterfogcolor: 617B64
+    grasscolor: BFB755
+    treecolor: E8962A 
+    fogcolor: NONE
+  winter:
+    skycolor: D2DEFF
+    watercolor: 216FC4
+    waterfogcolor: 216FC4
+    grasscolor: B8D0E1
+    treecolor: B8D0E1
+    fogcolor: A6D1FF

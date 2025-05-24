@@ -1,0 +1,38 @@
+includes: terralith:alpine_highlands,terralith:forested_highlands
+modify-plants: false
+freeze-in-winter: true
+show-snow-instead-of-rain:
+  spring: false
+  summer: false
+  fall: false
+  winter: true
+colors:
+  spring:
+    skycolor: NONE
+    watercolor: NONE
+    waterfogcolor: NONE
+    grasscolor: NONE
+    treecolor: NONE
+    fogcolor: NONE
+  summer:
+    skycolor: 84BDE8
+    watercolor: 3F76E4
+    waterfogcolor: 3F76E4
+    grasscolor: 79C05A
+    treecolor: 79C05A
+    fogcolor: NONE
+  fall:
+    skycolor: 89919A
+    watercolor: 617B64
+    waterfogcolor: 617B64
+    grasscolor: BFB755
+    treecolor: NONE
+    fogcolor: NONE
+  winter:
+    skycolor: D2DEFF
+    watercolor: 216FC4
+    waterfogcolor: 216FC4
+    grasscolor: B8D0E1
+    treecolor: B8D0E1
+    fogcolor: A6D1FF
+temperature-difference: -4

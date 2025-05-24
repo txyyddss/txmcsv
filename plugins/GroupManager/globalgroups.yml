@@ -50,7 +50,6 @@ groups:
     - cmi.command.removehome
     - cmi.command.sethome
     - cmi.command.tpa
-    - cmi.command.tphere
     - cmi.command.tpaccept
     - cmi.command.tpdeny
     - cmi.bedhome

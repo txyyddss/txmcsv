@@ -1,0 +1,41 @@
+## this file includes the following biomes: JUNGLE, BAMBOO_JUNGLE, BAMBOO_JUNGLE_HILLS, JUNGLE_EDGE, JUNGLE_HILLS, MODIFIED_JUNGLE, MODIFIED_JUNGLE_EDGE
+## 1.18: JUNGLE, BAMBOO_JUNGLE, SPARSE_JUNGLE
+## tree color of fall can either be 1 color or 5 colors.
+modify-plants: false
+## Freeze in winter also includes removal of ice and snow afterwards
+freeze-in-winter: false
+temperature-difference: 12
+show-snow-instead-of-rain:
+  spring: false
+  summer: false
+  fall: false
+  winter: false
+colors:
+  spring:
+    skycolor: 78A7FF
+    watercolor: 4397ec
+    waterfogcolor: 4397ec
+    grasscolor: NONE
+    treecolor: NONE
+    fogcolor: NONE
+  summer:
+    skycolor: 84BDE8
+    watercolor: 43D5EE
+    waterfogcolor: 43D5EE
+    grasscolor: NONE
+    treecolor: NONE
+    fogcolor: NONE
+  fall:
+    skycolor: NONE
+    watercolor: NONE
+    waterfogcolor: NONE
+    grasscolor: NONE
+    treecolor: NONE
+    fogcolor: NONE
+  winter:
+    skycolor: NONE
+    watercolor: 617B64
+    waterfogcolor: 617B64
+    grasscolor: AEA42A
+    treecolor: AEA42A
+    fogcolor: NONE 

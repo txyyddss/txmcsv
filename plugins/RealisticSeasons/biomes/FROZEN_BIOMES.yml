@@ -1,0 +1,41 @@
+## this file includes the following biomes: SNOWY_BEACH, SNOWY_MOUNTAINS, SNOWY_TAIGA, SNOWY_TAIGA_HILLS, SNOWY_TAIGA_MOUNTAINS, SNOWY_TUNDRA, FROZEN_RIVER, ICE_SPIKES, FROZEN_OCEAN, DEEP_FROZEN_OCEAN
+## 1.18: SNOWY_BEACH, SNOWY_TAIGA, SNOWY_PLAINS, FROZEN_RIVER, ICE_SPIKES, FROZEN_OCEAN, DEEP_FROZEN_OCEAN
+## tree color of fall can either be 1 color or 5 colors.
+modify-plants: false
+## Freeze in winter also includes removal of ice and snow afterwards
+freeze-in-winter: false
+temperature-difference: -12
+show-snow-instead-of-rain:
+  spring: true
+  summer: true
+  fall: true
+  winter: true
+colors:
+  spring:
+    skycolor: NONE
+    watercolor: NONE
+    waterfogcolor: NONE
+    grasscolor: NONE
+    treecolor: NONE
+    fogcolor: NONE
+  summer:
+    skycolor: 84BDE8
+    watercolor: 3F76E4
+    waterfogcolor: 3F76E4
+    grasscolor: 91BD59
+    treecolor: 59AE30
+    fogcolor: NONE
+  fall:
+    skycolor: NONE
+    watercolor: NONE
+    waterfogcolor: NONE
+    grasscolor: NONE
+    treecolor: NONE
+    fogcolor: NONE
+  winter:
+    skycolor: NONE
+    watercolor: NONE
+    waterfogcolor: NONE
+    grasscolor: NONE
+    treecolor: NONE
+    fogcolor: NONE 

@@ -1,0 +1,38 @@
+includes: terralith:basalt_cliffs
+modify-plants: false
+show-snow-instead-of-rain:
+  spring: false
+  summer: false
+  fall: false
+  winter: true
+freeze-in-winter: true
+colors:
+  spring:
+    skycolor: 78A7FF
+    watercolor: 4397ec
+    waterfogcolor: 4397ec
+    grasscolor: NONE
+    treecolor: 87AE2A
+    fogcolor: NONE
+  summer:
+    skycolor: 84BDE8
+    watercolor: 43D5EE
+    waterfogcolor: 43D5EE
+    grasscolor: NONE
+    treecolor: NONE
+    fogcolor: NONE
+  fall:
+    skycolor: 89919A
+    watercolor: 617B64
+    waterfogcolor: 617B64
+    grasscolor: BFB755
+    treecolor: E8962A, E8962A, AEA42A, 6BA941, 60A17B
+    fogcolor: NONE
+  winter:
+    skycolor: D2DEFF
+    watercolor: 3938C9
+    waterfogcolor: 3938C9
+    grasscolor: NONE
+    treecolor: NONE
+    fogcolor: NONE
+temperature-difference: -2

@@ -1,0 +1,38 @@
+includes: terralith:ancient_sands,terralith:bryce_canyon,terralith:desert_oasis,terralith:desert_spires,terralith:sandstone_valley
+modify-plants: false
+show-snow-instead-of-rain:
+  spring: false
+  summer: false
+  fall: false
+  winter: false
+freeze-in-winter: false
+colors:
+  spring:
+    skycolor: 78A7FF
+    watercolor: 4397ec
+    waterfogcolor: 4397ec
+    grasscolor: NONE
+    treecolor: NONE
+    fogcolor: NONE
+  summer:
+    skycolor: 84BDE8
+    watercolor: 43D5EE
+    waterfogcolor: 43D5EE
+    grasscolor: NONE
+    treecolor: NONE
+    fogcolor: NONE
+  fall:
+    skycolor: 89919A
+    watercolor: 617B64
+    waterfogcolor: 617B64
+    grasscolor: BFB755
+    treecolor: AEA42A
+    fogcolor: NONE
+  winter:
+    skycolor: D2DEFF
+    watercolor: 3938C9
+    waterfogcolor: 3938C9
+    grasscolor: 90814D
+    treecolor: 9E814D
+    fogcolor: NONE
+temperature-difference: 15

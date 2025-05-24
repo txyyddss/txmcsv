@@ -41,7 +41,6 @@ scoreboard-teams:
   anti-override: true
   # https://github.com/NEZNAMY/TAB/wiki/Feature-guide:-Sorting-players-in-tablist
   sorting-types:
-    - "GROUPS:owner,admin,mod,helper,builder,vip,default"
     - "PLACEHOLDER_A_TO_Z:%player%"
   case-sensitive-sorting: true
   can-see-friendly-invisibles: false
@@ -61,7 +60,7 @@ belowname-objective:
   enabled: true
   value: "&c%health%"
   title: "&4❤"
-  fancy-value: "&c%health%"
+  fancy-value: "%health%"
   fancy-value-default: "NPC"
   disable-condition: '%world%=disabledworld'
 
@@ -99,14 +98,13 @@ scoreboard:
         - "&4Ver:%server_version%"
         - "&6Server Info:"
         - "* &eOnline&7:||%online%"
-        - "* &eSeason&7:||%advancedseasons_season%"
+        - "* &eSeason&7:||%rs_season%"
         - "* &eMSPT&7:||%mspt%"
         - "* &eMemory:||%memory-used-gb%GB"
         - ""
         - "&6Personal Info:"
         - "* &bPing&7:||%ping%&8ms"
         - "* &bBiome&7:||%world_biome%"
-        - "* &bTemprature&7:||%advancedseasons_temperature%°C"
         - "* &bPlayed&7:||%statistic_hours_played%hours"
         - "* &bClaimed&7:||%griefprevention_claims%regions"
         - "* &bFight Score&7:||%armorplaceholders_calculate%"
@@ -115,7 +113,7 @@ scoreboard:
       title: "%RainbowColor_TX AND MT SERVER%"
       lines:
         - "&4Ver:%server_version%"
-        - "* &bPing&7:&f%ping%&8ms"
+        - "* &eSeason&7:&f%rs_season%"
         - "* &bBiome&7:&f%world_biome%"
         - "* &bTemprature&7:&f%advancedseasons_temperature%°C"
         - "* &bPlayed&7:&f%statistic_hours_played%hours"
