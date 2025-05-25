@@ -1,5 +1,5 @@
 @echo off
 cd %~dp0
 echo ----Martin's Server Launcher Script by TX----
-java --add-modules=jdk.incubator.vector -Xms4G -Xmx4G -XX:+UnlockExperimentalVMOptions -XX:+UseZGC -XX:+ZGenerational -XX:+DisableExplicitGC -XX:+AlwaysPreTouch -XX:-ZUncommit -XX:+ParallelRefProcEnabled -XX:ZAllocationSpikeTolerance=12 -DLeaf.enableFMA -jar server.jar --nogui
+java --add-modules=jdk.incubator.vector -Xmx8G -DLeaf.enableFMA -XX:+UseZGC -XX:+ZGenerational -XX:+UseLargePages -Dpaper.playerconnection.keepalive=180 -Dpaper.disableWorldSymlinkValidation=true -Dgale.log.warning.root=false -Dgale.log.warning.offline.mode=false -XX:LargePageSizeInBytes=2m -XX:-ZProactive -XX:+UnlockExperimentalVMOptions -XX:+UnlockDiagnosticVMOptions -XX:+DisableExplicitGC -XX:+AlwaysPreTouch -XX:+PerfDisableSharedMem -XX:+UseFastUnorderedTimeStamps -XX:+UseCriticalJavaThreadPriority -XX:+UseStringDeduplication -XX:+UseAES -XX:+UseAESIntrinsics -XX:+UseFMA -XX:+UseLoopPredicate -XX:+OptimizeStringConcat -XX:+UseThreadPriorities -XX:+OmitStackTraceInFastThrow -XX:+UseFPUForSpilling -XX:+OptimizeFill -XX:+EnableVectorSupport -XX:UseAVX=2 -XX:UseSSE=4 -XX:+UseFastJNIAccessors -Dgraal.VectorizeHashes=true -Dgraal.VectorizeSIMD=true -jar server.jar
 pause

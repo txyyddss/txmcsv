@@ -18,14 +18,14 @@ settings:
   timeout-time: 240
   restart-on-crash: false
   restart-script: ./start.sh
-  sample-count: 64
+  sample-count: 12
   bungeecord: false
   moved-too-quickly-multiplier: 60.0
   moved-wrongly-threshold: 1.0625
   save-user-cache-on-stop-only: false
   user-cache-size: 1000
   player-shuffle: 0
-  netty-threads: 2
+  netty-threads: 1
   log-villager-deaths: false
   log-named-deaths: false
   attribute:

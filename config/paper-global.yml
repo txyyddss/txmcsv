@@ -43,8 +43,8 @@ chunk-loading-basic:
   player-max-chunk-send-rate: 75.0
 chunk-system:
   gen-parallelism: default
-  io-threads: 2
-  worker-threads: 2
+  io-threads: 1
+  worker-threads: -1
 collisions:
   enable-player-collisions: true
   send-full-pos-for-hard-colliding-entities: true
@@ -83,7 +83,7 @@ misc:
     chat-executor-core-size: -1
     chat-executor-max-size: -1
   client-interaction-leniency-distance: default
-  compression-level: 9
+  compression-level: 1
   fix-entity-position-desync: true
   load-permissions-yml-before-plugins: true
   max-joins-per-tick: 1

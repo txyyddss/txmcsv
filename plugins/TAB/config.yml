@@ -58,9 +58,9 @@ playerlist-objective:
 # https://github.com/NEZNAMY/TAB/wiki/Feature-guide:-Belowname
 belowname-objective:
   enabled: true
-  value: "&c%health%"
+  value: "%health%"
   title: "&4❤"
-  fancy-value: "%health%"
+  fancy-value: "&c%health%"
   fancy-value-default: "NPC"
   disable-condition: '%world%=disabledworld'
 
@@ -113,9 +113,9 @@ scoreboard:
       title: "%RainbowColor_TX AND MT SERVER%"
       lines:
         - "&4Ver:%server_version%"
+        - "&eOnline&7:||%online%"
         - "* &eSeason&7:&f%rs_season%"
         - "* &bBiome&7:&f%world_biome%"
-        - "* &bTemprature&7:&f%advancedseasons_temperature%°C"
         - "* &bPlayed&7:&f%statistic_hours_played%hours"
         - "* &bClaimed&7:&f%griefprevention_claims%regions"
         - "* &bFight Score&7:&f%armorplaceholders_calculate%"

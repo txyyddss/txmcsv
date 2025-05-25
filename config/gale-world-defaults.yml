@@ -20,12 +20,12 @@ gameplay-mechanics:
     broadcast-crit-animations-as-the-entity-being-critted: false
     mc-121706: false
     mc-238526: false
-  hide-flames-on-entities-with-fire-resistance: false
+  hide-flames-on-entities-with-fire-resistance: true
   try-respawn-ender-dragon-after-end-crystal-place: true
 small-optimizations:
   load-chunks:
-    to-activate-climbing-entities: false
-    to-spawn-phantoms: false
+    to-activate-climbing-entities: true
+    to-spawn-phantoms: true
   max-projectile-chunk-loads:
     per-projectile:
       max: 10

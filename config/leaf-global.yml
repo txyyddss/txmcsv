@@ -306,7 +306,7 @@ misc:
   # 切换到Linear前请备份服务器.
   region-format-settings:
     # 可用格式: MCA, LINEAR
-    region-format: MCA
+    region-format: LINEAR
     linear-compress-level: 1
     throw-on-unknown-extension-detected: false
     flush-interval-seconds: 5
