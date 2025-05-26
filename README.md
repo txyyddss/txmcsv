@@ -32,15 +32,14 @@
 ***
 
 ## 下个大版本更新概况(8月)
-- 基岩版玩家体验大幅优化
-- 基岩玩家体验和JAVA玩家更加接近
-- 升级1.21.5/6
-- 死亡掉落+死亡箱子
-- 开放更多便捷指令
-- 指令可以通过GUI执行
-- [粘液科技](https://github.com/SlimefunGuguProject/Slimefun4)
-- 服务器实时网页Status Page
-- 简单的wiki（gitbook）
+[x] 基岩版玩家体验大幅优化
+[x] 基岩玩家体验和JAVA玩家更加接近
+[] 死亡掉落+死亡箱子
+[] 开放更多便捷指令
+[] 指令可以通过GUI执行
+[] [粘液科技](https://github.com/SlimefunGuguProject/Slimefun4)
+[x] 服务器实时网页Status Page
+[x] 简单的wiki（gitbook）
 
 ## Minecraft Bedrock(iOS/Android) &  Java (Windows/Mac/Android) 安装教程
 ![Mindmap](https://github.com/user-attachments/assets/9a59c192-acad-424e-b7cf-038fb5397437)
