@@ -5,6 +5,19 @@
       "name": "txrog",
       "uniqueId": "28fcb19f-8a07-3f1c-9403-66c0f1275aa2"
     },
+    "time": 1749214913722,
+    "type": "Profiler (live)",
+    "data": {
+      "type": "url",
+      "value": "https://spark.lucko.me/S6kTsf9Fkt"
+    }
+  },
+  {
+    "user": {
+      "type": "player",
+      "name": "txrog",
+      "uniqueId": "28fcb19f-8a07-3f1c-9403-66c0f1275aa2"
+    },
     "time": 1748153311108,
     "type": "Profiler",
     "data": {

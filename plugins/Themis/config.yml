@@ -1,0 +1,113 @@
+# ----------------------------------------------------------------------------------------------------
+# Welcome to the Themis configuration file!
+#
+# This config file was generated from Themis version 0.14.0
+# --> if you're using a newer version of Themis you should check the changelog to see if your config needs to be updated.
+# If you want to update your config file, you can either change it manually, or rename this file which will lead to a new
+# up to date one being generated on the next server restart.
+#
+# Important: This configuration file allows you to change every single setting for each check individually for maximum
+# flexibility. Often however you'll want to use the same values for most of the checks. Because of this, there is the
+# "default" section, which defines the default values for all checks, and these can then be overwritten in the check
+# specific sections below.
+# For example if you wanted to disable the tickrate check, you could overwrite the "enable" setting by adding it like this:
+# ----------
+# tickrate:             <-- this should already be in the config, remove the {} at the end if it's still there
+#   enable: false       <-- this is what you add
+# ----------
+#
+# All values are either booleans (true / false) or doubles (1.0, 2.5, -123.456, ...).
+# All time values are in seconds.
+#
+# If you have any questions, problems, or just generally want to stay up to date, you can join the Themis Discord:
+# https://discord.gg/jjkR2EU
+# However before asking questions first please read everything here carefully, this only takes a few minutes and will answer
+# lots of questions. We are happy to help you on the Discord, but we often get the same questions over and over again even
+# though they are already answered here.
+# ----------------------------------------------------------------------------------------------------
+
+# These are the default values which are used for all checks that don't explicitly overwrite them below
+default:
+
+  # Should the check be enabled?
+  enable: true
+
+  # Should Themis block hacks (e.g. by dragging players back)?
+  block: true
+  # At which score should Themis start blocking the hacks?
+  block-threshold: 10.0
+
+  # Themis allows you to configure actions which can each run a list of arbitrary commands. You can specify exactly when
+  # an action should be run. Refer to the notify action below for a detailed example:
+  actions:
+    # What is the name of the action? This name needs to be unique.
+    notify:
+      # What is the minimum score for Themis to run this action?
+      execution-threshold: 10.0
+      # Which amount of new violations need to happen for this action to be repeated?
+      repetition-threshold: 5.0
+      # Which amount of time needs to pass for this action to be repeated?
+      repetition-delay: 10.0
+      # Which commands should be run? You can specify as many as you'd like which will be run in the order they're listed.
+      # Currently, you can use the following placeholders: %player_name%, %detection_type%, %score%, %ping%, %tps%
+      commands:
+        - "themis notify §5[Themis] §4%player_name% §cwas flagged for §4%detection_type% §chacks!\n§c[Score: §4%score% §c| Ping: §4%ping% §c| TPS: §4%tps%§c]"
+
+  # Should only Bedrock Edition players be checked and Java Edition players be ignored?
+  bedrock-only: true
+
+  # Until which maximum ping should Themis check players? Themis will not check player who have a higher ping than this.
+  # Warning: Hacked clients can fake a high ping, use this setting with caution!
+  # Set to -1.0 to always check
+  max-ping: -1.0
+
+  # Until which minimum TPS should Themis perform checks? Themis will not check any players when the server's TPS are below this value
+  # Set to -1.0 to always check
+  min-tps: -1.0
+
+  # After which amount of time should violations expire?
+  # Set this to -1.0 to disable this feature and store violations until the server is restarted
+  violation-expiration: 900.0
+
+# Note: It is totally fine if the sections below are empty. Please refer to the third paragraph at the top of the
+# configuration for the explanation. The {} marks it as an empty section, you need to remove when adding settings.
+
+# This checks movement while in a boat
+# Ingame name: Boat Movement
+# Hacks that can trigger this: BoatFly, BoatSpeed, ...
+boat_movement: {}
+
+# This checks movement while flying with an elytra
+# Ingame name: Elytra Flight
+# Hacks that can trigger this: Elytra+, Extra Elytra, ...
+elytra_flight: {}
+
+# This checks horizontal movements (along the x- and z-axis).
+# Ingame name: Speed
+# Hacks that can trigger this: All types of Speed, Fly, ...
+horizontal_movement: {}
+
+# This checks for some impossible packets
+# Ingame name: Illegal Packets
+# Hacks that can trigger this: Fly (e.g. in Aristois or Inertia), ...
+illegal_packets: {}
+
+# This checks for a certain type of illegal packet data which is used in many movement hacks.
+# Ingame name: Spoofed Packets
+# Hacks that can trigger this: NoFall, WaterWalk/Jesus, some Fly and Speed hacks, ...
+packet_spoof: {}
+
+# This checks if a player is hitting entities farther away than they should be able to.
+# Ingame name: Reach
+# Hacks that can trigger this: Reach, KillAura
+reach: {}
+
+# This check detects if a client is speeding up the time, which means it can e.g. move faster.
+# Ingame name: Timer / Blink
+# Hacks that can trigger this: Timer, Blink, ...
+tickrate: {}
+
+# This checks vertical movements (along the y-axis).
+# Ingame name: Flight / Y-Movement
+# Hacks that can trigger this: Fly, Glide, Jetpack, HighJump, Step, some Speed modes, ...
+vertical_movement: {}

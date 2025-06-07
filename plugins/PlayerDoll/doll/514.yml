@@ -1,0 +1,47 @@
+Doll-UUID: 20e610a4-263c-4bb6-b516-bdcdbd141e1b
+Doll-Name: '514'
+Owner-Name: txrog
+Owner-UUID: 28fcb19f-8a07-3f1c-9403-66c0f1275aa2
+Doll-Setting:
+  glow: false
+  gravity: true
+  hostility: true
+  hide_from_list: false
+  invulnerable: false
+  join_at_start: false
+  large_step_size: false
+  phantom: false
+  pickable: true
+  pushable: false
+  real_player_tick_update: false
+  real_player_tick_action: false
+General-Setting:
+  admin: false
+  attack: false
+  despawn: false
+  dismount: false
+  drop: false
+  echest: false
+  exp: false
+  gset: false
+  hidden: false
+  inv: false
+  jump: false
+  look: false
+  lookat: false
+  menu: false
+  mount: false
+  move: false
+  pset: false
+  set: false
+  slot: false
+  sneak: false
+  spawn: false
+  sprint: false
+  stop: false
+  swap: false
+  tp: false
+  turn: false
+  unsneak: false
+  unsprint: false
+  use: false

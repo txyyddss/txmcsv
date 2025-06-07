@@ -6,7 +6,7 @@ key-file-name: key.pem
 # Floodgate prepends a prefix to bedrock usernames to avoid conflicts
 # However, certain conflicts can cause issues with some plugins so this prefix is configurable using the property below
 # It is recommended to use a prefix that does not contain alphanumerical to avoid the possibility of duplicate usernames.
-username-prefix: ""
+username-prefix: "."
 
 # Should spaces be replaced with '_' in bedrock usernames?
 replace-spaces: true
@@ -35,7 +35,7 @@ player-link:
   # -> This can work in addition to global linking.
   # Note that you have to install a linking database implementation before enabling this, because
   # it'll cause errors otherwise.
-  enable-own-linking: false
+  enable-own-linking: true
 
   # The following three options only apply when 'enable-own-linking' is set to 'true'
 

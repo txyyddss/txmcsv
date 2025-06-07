@@ -1,0 +1,6 @@
+enable: false
+playerdoll:
+  perm:
+    max-doll-create: {}
+    doll-prefix: {}
+    doll-suffix: {}

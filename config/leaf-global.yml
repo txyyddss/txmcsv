@@ -10,12 +10,12 @@ config-version: '3.0'
 async:
   # **实验性功能**
   # 启用并行世界处理以提高多核 CPU 使用率.
-  parallel-world-tracking:
+  parallel-world-ticking:
     enabled: false
-    threads: 4
+    threads: 8
     log-container-creation-stacktraces: false
     disable-hard-throw: false
-    run-async-tasks-sync: false
+    async-unsafe-read-handling: BUFFERED
   # 异步实体跟踪,
   # 在实体数量多且密集的情况下效果明显.
   async-entity-tracker:
@@ -71,13 +71,37 @@ performance:
   use-virtual-thread-for-user-authenticator: true
   # 是否为档案查询执行器使用虚拟线程（如果可用）。
   use-virtual-thread-for-profile-executor: true
-  # 是否为下载工作线程池使用虚拟线程（如果可用）。
-  use-virtual-thread-for-download-pool: true
   # 是否为异步聊天线程使用虚拟线程.
   use-virtual-thread-for-async-chat-executor: true
   # 是否为异步任务调度器使用虚拟线程.
   use-virtual-thread-for-async-scheduler: true
   create-snapshot-on-retrieving-blockstate: true
+  throttle-mob-spawning:
+    enabled: false
+    monster:
+      min-failed: 8
+      spawn-chance: 25.0
+    creature:
+      min-failed: 8
+      spawn-chance: 25.0
+    ambient:
+      min-failed: 8
+      spawn-chance: 25.0
+    axolotls:
+      min-failed: 8
+      spawn-chance: 25.0
+    underground_water_creature:
+      min-failed: 8
+      spawn-chance: 25.0
+    water_creature:
+      min-failed: 8
+      spawn-chance: 25.0
+    water_ambient:
+      min-failed: 8
+      spawn-chance: 25.0
+    misc:
+      min-failed: 8
+      spawn-chance: 25.0
   # 是否在实体不活跃 tick 时阻塞 AI 目标选择器.
   # 有助于提升性能, 但对游戏有轻微影响.
   inactive-goal-selector-throttle: true
@@ -93,10 +117,17 @@ performance:
   reduce-chunk-source-updates:
     # 减少玩家跨区块移动时的区块源更新。
     enabled: true
+  preload-mob-spawning-position:
+    enabled: false
+  optimized-powered-rails: false
   # 是否优化玩家移动处理，跳过不必要的边缘检查并避免冗余的视距更新。
   optimize-player-movement: true
   # 是否只对主手和副手中的物品进行 tick / 更新，而不是整个物品栏中的所有物品。
   only-tick-items-in-hand: true
+  cache-biome:
+    enabled: false
+    mob-spawning: false
+    advancements: false
   optimise-block-entities: true
   # 更快的结构生成任务分段.
   faster-structure-gen-future-sequencing: true
@@ -176,18 +207,16 @@ gameplay-mechanisms:
       spawner-max-nearby-check: true
       # 检查是否有玩家在生成怪物的半径范围内
       check-for-nearby-players: true
-      # 检查是否有方块阻挡刷怪笼生成怪物
+      # 检查是否有物理方块阻挡生成位置, 或自定义生成规则(isValidPosition)因方块条件失败.
       spawner-block-checks: false
       # 检查周围是否有水阻止生成
       water-prevent-spawn-check: false
+      # 忽略特定于生物的生成规则, 例如动物需要草方块或特定的生物群系/方块 (不影响光照等级或物理障碍物检查).
+      ignore-spawn-rules: false
     # 刷怪笼生成怪物之间的最小延迟 (以刻为单位). 较高的值会减缓刷怪笼的速度.
     min-spawn-delay: 200
     # 刷怪笼生成怪物之间的最大延迟 (以刻为单位). 较高的值会减缓刷怪笼的速度.
     max-spawn-delay: 800
-  # **实验性功能**
-  # 是否在玩家切换世界时尝试使用 "平滑传送".
-  # 此项要求源世界和目标世界逻辑高度相同才会生效.
-  smooth-teleport: false
   # 是否只允许玩家被实体推动
   only-player-pushable: false
   knockback:
@@ -198,6 +227,7 @@ gameplay-mechanisms:
     # 使玩家可以击退僵尸.
     can-player-knockback-zombie: true
     flush-location-while-knockback-player: false
+    old-blast-protection-explosion-knockback: false
   # 控制哪些物品组件信息会被发送至客户端.
   # 可能会导致依赖物品组件的资源包/模组无法正常工作.
   # 可以避免一些客户端动画效果.
@@ -255,7 +285,6 @@ network:
     do-a-barrel-roll-force-enabled: false
     do-a-barrel-roll-force-installed: false
     do-a-barrel-roll-installed-timeout: 0
-    do-a-barrel-roll-kinetic-damage: VANILLA
   # 警告: 此选项与 ProtocolLib 不兼容, 并可能导致与其他修改数据包
   # 处理的插件出现问题.
   # 

@@ -126,7 +126,7 @@ forward-player-ping: false
 max-players: 114514
 
 # If debug messages should be sent through console
-debug-mode: false
+debug-mode: true
 
 # Allow third party capes to be visible. Currently allowing:
 # OptiFine capes, LabyMod capes, 5Zig capes and MinecraftCapes

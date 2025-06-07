@@ -107,6 +107,9 @@ Tagged In Combat:
     Cooldown: 15
     # If enabled, will retag the player when they throw an enderpearl
     Renew Tag: true
+  WindCharge:
+    # If enabled, will retag the player when they use a wind charge
+    Renew Tag: true
   Block:
     EnderPearls: true
     ChorusFruits: true
@@ -191,6 +194,11 @@ Player Kills:
   # Commands to execute on kill (<player> is the killer, <victim> is the victim, <item> is the item material in hand)
   Commands On Kill:
   - 'examplecommand <player> killed <victim> with <item>'
+  # Time in seconds between kill commands, -1 to disable cooldown
+  Commands On Kill Cooldown: -1
+  # Commands to execute on respawn (<player> is the respawning player)
+  Commands On Respawn:
+  - 'examplecommand <player> respawned after dying in PvP combat'
   WorldGuard Exclusions:
   - 'exampleregion'
 
@@ -235,6 +243,9 @@ Plugin Hooks:
     No Protection In War: true
     # Essentially only pushes back if a town is peaceful, it ignores if the town PvP is on or off, can be useful to prevent traps
     Pushback on Peaceful: false
+  HuskTowns:
+    # Disable PvP and newbie protection if the players are in a siege war
+    No Protection In War: true
   CooldownsX:
     # Change this into the cooldown id for enderpearls in CooldownsX, by default they have it as exampleOne in cooldowns.yml
     # If setup correctly PvPManager will use a different cooldown while in combat and then revert back to CooldownsX
@@ -279,5 +290,5 @@ Harmful Potions:
 Debug Mode: false
 
 # Informs PvPManager if the config is updated, do not touch it unless you want to reset the config
-Config Version: 82
+Config Version: 83
 Database Version: 1
