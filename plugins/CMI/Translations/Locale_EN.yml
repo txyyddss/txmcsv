@@ -165,9 +165,9 @@ info:
   spamConsoleInform: '&cPlayer (&7[playerName]&c) triggered (&7[rules]&c) chat filter
     with:&r [message]'
   # This line can have extra variables: [totalUsers] [onlinePlayers]
-  FirstJoin: '&eWelcome &6[playerDisplayName] &eto our server!'
-  LogoutCustom: ' &6[playerDisplayName] &eleft the game'
-  LoginCustom: ' &6[playerDisplayName] &ejoined the game'
+  FirstJoin: '&eWelcome &6[playerDisplayName]！There are totally [totalUsers] users in our server！'
+  LogoutCustom: ' &a%name% &7leaved the server(happy'
+  LoginCustom: ' &a%name% Used%floodgate_version%%floodgate_device% &7to join the server,First join:%player_first_join_date%(Sad'
   deathlocation: '&eYou died at x:&6[x]&e, y:&6[y]&e, z:&6[z]&e in &6[world]'
   book:
     exploit: '&cYou cant create book with more than [amount] pages'

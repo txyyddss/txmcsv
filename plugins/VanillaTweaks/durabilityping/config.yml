@@ -1,3 +1,0 @@
-notification-cooldown-seconds: 10
-enabled-by-default: true
-notification-threshold-percent: 0.02

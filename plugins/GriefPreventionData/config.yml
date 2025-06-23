@@ -96,7 +96,7 @@ GriefPrevention:
     ClaimBlocksPurchaseCost: 0.0
     ClaimBlocksSellValue: 0.0
   ProtectItemsDroppedOnDeath:
-    PvPWorlds: false
+    PvPWorlds: true
     NonPvPWorlds: true
   BlockLandClaimExplosions: false
   BlockSurfaceCreeperExplosions: true
@@ -112,7 +112,7 @@ GriefPrevention:
   VisualizationAntiCheatCompatMode: false
   SmartBan: true
   Mute New Players Using Banned Words: false
-  MaxPlayersPerIpAddress: 3
+  MaxPlayersPerIpAddress: 100
   SilenceBans: true
   Siege:
     Worlds: []
@@ -162,7 +162,7 @@ GriefPrevention:
     URL: ''
     UserName: ''
     Password: ''
-  UseBanCommand: false
+  UseBanCommand: true
   BanCommandPattern: ban %name% %reason%
   Advanced:
     fixNegativeClaimblockAmounts: true

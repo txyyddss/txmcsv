@@ -55,10 +55,10 @@
 ###############################
 
 # When false, new players have to run /besttools or /bt once to enable BestTools
-besttools-enabled-by-default: false
+besttools-enabled-by-default: true
 
 # When false, new players have to run /refill or /rf once to enable hotbar refill
-refill-enabled-by-default: false
+refill-enabled-by-default: true
 
 # Only use tools from the hotbar? Can be changed per player using /besttools hotbar
 hotbar-only: true

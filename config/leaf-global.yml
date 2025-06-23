@@ -23,7 +23,7 @@ async:
     # 是否启用兼容模式,
     # 如果你的服务器安装了 Citizens 或其他类似非发包 NPC 插件, 请开启此项.
     compat-mode: false
-    max-threads: 0
+    max-threads: 4
     keepalive: 60
     queue-size: 0
   # 这会将昂贵的实体目标搜索计算移至后台线程, 同时在主线程上保持实际的实体验证.
@@ -39,7 +39,7 @@ async:
     enabled: true
   async-pathfinding:
     enabled: true
-    max-threads: 0
+    max-threads: 1
     keepalive: 60
     queue-size: 0
     # 当队列满时, 新提交的任务将使用以下策略处理.
@@ -107,7 +107,7 @@ performance:
   inactive-goal-selector-throttle: true
   throttle-hopper-when-full:
     # 是否在目标容器已满时阻塞漏斗.
-    enabled: false
+    enabled: true
     # 每次阻塞多少 tick.
     skip-ticks: 8
   skip-map-item-data-updates-if-map-does-not-have-craftmaprenderer: true
@@ -118,8 +118,8 @@ performance:
     # 减少玩家跨区块移动时的区块源更新。
     enabled: true
   preload-mob-spawning-position:
-    enabled: false
-  optimized-powered-rails: false
+    enabled: true
+  optimized-powered-rails: true
   # 是否优化玩家移动处理，跳过不必要的边缘检查并避免冗余的视距更新。
   optimize-player-movement: true
   # 是否只对主手和副手中的物品进行 tick / 更新，而不是整个物品栏中的所有物品。
@@ -160,14 +160,14 @@ performance:
     # 可以避免距离玩家较远的生物在水里淹死.
     dont-enable-if-in-water: true
     # 生物距离玩家多少格 DAB 开始生效
-    start-distance: 12
+    start-distance: 6
     # 最远处的实体每隔多少刻tick一次
-    max-tick-freq: 20
+    max-tick-freq: 30
     # This value defines how much distance modifies an entity's
     # tick frequency. freq = (distanceToPlayer^2) / (2^value)",
     # If you want further away entities to tick less often, use 7.
     # If you want further away entities to tick more often, try 9.
-    activation-dist-mod: 8
+    activation-dist-mod: 7
     # 不会被 DAB 影响的实体列表
     blacklisted-entities: []
   dont-save-entity:
@@ -198,7 +198,7 @@ gameplay-mechanisms:
   # 此部分包含刷怪笼生物生成的设置.
   spawner-settings:
     # 启用自定义刷怪笼设置. 设为 true 以启用以下所有功能.
-    enabled: false
+    enabled: true
     # 可以为刷怪笼启用或禁用的各种检查.
     checks:
       # 检查是否有所需的光照等级来生成怪物
@@ -245,7 +245,7 @@ gameplay-mechanisms:
     horizontal-force: 0.5
     # 随机掉落物品的向上运动.
     vertical-force: 0.2
-  allow-tripwire-dupe: false
+  allow-tripwire-dupe: true
   player:
     # 玩家 UseItem 的最大距离.
     # 设置为 -1 来禁用最大距离检测.
@@ -272,7 +272,7 @@ network:
   protocol-support:
     jade-protocol: true
     appleskin-protocol: true
-    appleskin-protocol-sync-tick-interval: 20
+    appleskin-protocol-sync-tick-interval: 40
     asteorbar-protocol: false
     chatimage-protocol: false
     xaero-map-protocol: true
@@ -309,8 +309,8 @@ misc:
     # <detail>, 显示命令错误详细信息.
     unknown-command: default
   rebrand:
-    server-mod-name: Leaf
-    server-gui-name: Leaf Console
+    server-mod-name: MTN
+    server-gui-name: MTN Console
   sentry:
     # Sentry DSN (出现严重错误时将发送至配置的Sentry DSN地址) (留空关闭)
     dsn: ''
@@ -342,9 +342,9 @@ misc:
   # 这部分包含滞后补偿功能,
   # 可以在卡顿情况下保障基本游戏体验.
   lag-compensation:
-    enabled: true
-    enable-for-water: true
-    enable-for-lava: true
+    enabled: false
+    enable-for-water: false
+    enable-for-lava: false
   including-5s-in-get-tps: true
   # 自定义加入 & 退出消息 (MiniMessage 格式), 设置为 'default' 将使用原版消息.
   # 可用的内置变量:

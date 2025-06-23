@@ -321,7 +321,7 @@ Optimizations:
     # When set to true, players ip will be recorded for future use, like recognizing players other accounts
     # Some commands will have limited usage when this is disabled
     # Keep in mind that this could increase cached data size due to how much data this stores for each player, especially if users have dynamic ip's
-    Record: true
+    Record: false
     # How long in second to wait until players ip is being recorded into data base
     # This only applies for offline servers to allow for player first of all to login before recording ip
     # Try to keep this value higher than your login plugin's allowed login time so that we are recording actual players IP who has permission to use this name

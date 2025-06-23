@@ -37,7 +37,7 @@ settings:
       stonecutter: <player> has sawed themself in half
   register-minecraft-debug-commands: false
   disable-give-dropping: false
-  use-alternate-keepalive: false
+  use-alternate-keepalive: true
   blast-resistance-overrides: {}
   username-valid-characters: ^[a-zA-Z0-9_.]*$
   allow-water-placement-in-the-end: true
@@ -49,7 +49,7 @@ settings:
       replace-incompatible-enchants: false
     allow-unsafe-enchant-command: false
     clamp-levels: true
-  player-deaths-always-show-item: false
+  player-deaths-always-show-item: true
   server-mod-name: Purpur
   bee-count-payload: false
   blocks:
@@ -89,7 +89,7 @@ settings:
     soul-sand:
       reverse-bubble-column-flow: false
   network:
-    upnp-port-forwarding: false
+    upnp-port-forwarding: true
     max-joins-per-second: false
     kick-for-out-of-order-chat: true
   command:
@@ -321,7 +321,7 @@ world-settings:
       door:
         requires-redstone: []
       chest:
-        open-with-solid-block-on-top: false
+        open-with-solid-block-on-top: true
       powder_snow:
         bypass-mob-griefing: false
       conduit:
@@ -400,9 +400,9 @@ world-settings:
         allow-trading: true
         always-drop-exp: false
       skeleton_horse:
-        ridable: false
+        ridable: true
         ridable-in-water: true
-        can-swim: false
+        can-swim: true
         attributes:
           max_health:
             min: 15.0
@@ -1768,7 +1768,7 @@ world-settings:
           lightning: []
         ender-pearl:
           damage: 5.0
-          cooldown: 20
+          cooldown: 1
           creative-cooldown: 20
           endermite-spawn-chance: 0.05000000074505806
         glow_berries:
@@ -1838,15 +1838,15 @@ world-settings:
         head-chance: 0.25
       minecart:
         max-speed: 0.4
-        place-anywhere: false
+        place-anywhere: true
         powered-rail:
           boost-modifier: 0.06
         controllable:
-          enabled: false
+          enabled: true
           step-height: 1.0
           hop-boost: 0.5
           fall-damage: true
           base-speed: 0.1
           block-speed:
-            grass_block: 0.3
-            stone: 0.5
+            grass_block: 0.4
+            stone: 0.8

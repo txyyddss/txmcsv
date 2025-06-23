@@ -1,6 +1,6 @@
 Combat:
   # Defines combat timer to be used in particular features
-  Timer: 15
+  Timer: 12
   # When enabled we will allow for players to be damaged in safe zone if they are tagged for pvp
   safeZoneDamage: false
   Player:
@@ -8,7 +8,7 @@ Combat:
     # This will disable players fly mode which will result in player dropping down and will disable option to start flying
     # This can be bypassed by player performing fly command if he has access to it and commands durring combat are not blocked
     # Can be bypassed with cmi.pvp.PFlyBypass permission node
-    DisableFlight: false
+    DisableFlight: true
     # If set to true, then attacked player will be included into combat mode even if he doesnt fight back
     # If set to false then only attacker will be marked for pvp mode
     IncludeVictim: true
@@ -16,18 +16,18 @@ Combat:
     DisableFallDamage: false
     # When set to true player will see boss bar message indicating how long until combat mode ends
     # This only applies for pvp type combat
-    ShowBossBar: false
+    ShowBossBar: true
     # When enabled we will show damage numbers in a form of holograms when damaging players
     ShowDamageNumbers: true
     DamageNumbersFormat: '&c⚔[damage]'
     # Prevents damage from players with god mode enabled
     # Can be bypassed with cmi.pvp.godBypass permission node
-    noGodDamage: false
+    noGodDamage: true
     # Informs player that he cant damage players while in god mode
     noGodDamageInform: false
     # When set to true players will be only able to use commands defined in the list
     # This only applies for pvp type combat
-    BlockCommands: false
+    BlockCommands: true
     AllowedCommands:
     - msg
     - r

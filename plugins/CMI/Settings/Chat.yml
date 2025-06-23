@@ -2,7 +2,7 @@ Chat:
   ModifyChatFormat:
     # Will try to modify chat to display it in defined format
     # If this is disabled and you have 3rd party plugin handling chat messages, consider disabling ClickHoverMessages section too if you notice any problems with chat formatting
-    Enabled: false
+    Enabled: true
     # Priority of public message format listener
     # Changed priority will only take effect on full server restart. Possible options: LOWEST, LOW, NORMAL, HIGH, HIGHEST
     # Default: NORMAL

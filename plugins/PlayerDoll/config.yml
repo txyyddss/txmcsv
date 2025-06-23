@@ -6,7 +6,7 @@ preserved-doll-name:
 adjustable-max-player: true
 server-max-doll-spawn: -1
 broadcast-doll-death: true
-broadcast-doll-join: false
+broadcast-doll-join: true
 broadcast-doll-disconnect: true
 display-doll-when-ping: false
 op-can-see-hidden-doll: true
@@ -16,8 +16,8 @@ doll-metadata:
 - ''
 chat-when-join-interval: 10
 chat-when-join:
-- /register %name%123 %name%123 (becomes /register {dollname}123 {dollname}123)
-- /login %name%123 (becomes /login {dollname}123)
+- /register %name%114 %name%114
+- /login %name%114
 convert-player: false
 broadcast-convert-shutdown: true
 force-proxy-ip: false

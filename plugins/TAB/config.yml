@@ -113,7 +113,7 @@ scoreboard:
       title: "%RainbowColor_TX AND MT SERVER%"
       lines:
         - "&4Ver:%server_version%"
-        - "&eOnline&7:||%online%"
+        - "&eOnline&7:&f%online%"
         - "* &eSeason&7:&f%rs_season%"
         - "* &bBiome&7:&f%world_biome%"
         - "* &bPlayed&7:&f%statistic_hours_played%hours"

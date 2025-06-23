@@ -18,14 +18,14 @@ gameplay-mechanics:
   entity-wake-up-duration-ratio-standard-deviation: 0.2
   fixes:
     broadcast-crit-animations-as-the-entity-being-critted: false
-    mc-121706: false
-    mc-238526: false
+    mc-121706: true
+    mc-238526: true
   hide-flames-on-entities-with-fire-resistance: true
   try-respawn-ender-dragon-after-end-crystal-place: true
 small-optimizations:
   load-chunks:
-    to-activate-climbing-entities: true
-    to-spawn-phantoms: true
+    to-activate-climbing-entities: false
+    to-spawn-phantoms: false
   max-projectile-chunk-loads:
     per-projectile:
       max: 10

@@ -14,7 +14,7 @@
 bedrock:
     # The IP address that will listen for connections.
     # Generally, you should only uncomment and change this if you want to limit what IPs can connect to your server.
-    address: "[::]"
+    address: 0.0.0.0
 
     # The port that will listen for connections
     port: 11451
@@ -34,7 +34,7 @@ bedrock:
 
     # How much to compress network traffic to the Bedrock client. The higher the number, the more CPU usage used, but
     # the smaller the bandwidth used. Does not have any effect below -1 or above 9. Set to -1 to disable.
-    compression-level: -1
+    compression-level: 2
 
     # The port to broadcast to Bedrock clients with the MOTD that they should use to connect to the server.
     # DO NOT uncomment and change this unless Geyser runs on a different internal port than the one that is used to connect.

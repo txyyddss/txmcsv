@@ -154,9 +154,9 @@ info:
   noCmdSpam: '!title!&c指令使用频率太快！'
   spamConsoleInform: '&c玩家(&7[playerName]&c)已经触发(&7[rules]&c) 聊天过滤:&r[message]'
   # This line can have extra variables: [totalUsers] [onlinePlayers]
-  FirstJoin: '&e欢迎 &6[playerDisplayName] &e来到本服务器'
-  LogoutCustom: ' &6[playerDisplayName] &e退出了游戏'
-  LoginCustom: ' &6[playerDisplayName] &e加入了游戏'
+  FirstJoin: '&e欢迎 &6[playerDisplayName] &e来到本服务器！服务器总共有[totalUsers]个玩家！'
+  LogoutCustom: ' &a%name% &7离开了服务器(喜'
+  LoginCustom: ' &a%name% 使用%floodgate_version%%floodgate_device% &7加入了服务器,TA在%player_first_join_date%首次加入(悲'
   deathlocation: '&e你死在了位于世界&6[world]的x:&6[x]&e,y:&6[y]&e z:&6[z]'
   book:
     exploit: '&c你无法创建页数超过 [amount] 页的书'
