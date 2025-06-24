@@ -16,7 +16,7 @@ plugin:
    # Fill in the basic plugins currently in use
    # Optional value: auto/cmi/essentialsx/huskhomes/advancedteleport/sunlight/none
    # auto is for automatic detection, none for no basic plugin (i.e. disable function)
-  basic: 'cmi'
+  basic: 'sunlight'
    # 填写正在使用的登录插件
    # 可选值: auto/authme/catseedlogin/nexauth/other/none
    # auto 为自动检测, other 为其他登录插件, none 为没有登录插件(即关闭功能)
