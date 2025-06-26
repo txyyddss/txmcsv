@@ -1,0 +1,120 @@
+# Sets the range for death messages broadcast.
+# Set to 0 for a world-wide messages.
+# Set to -1 for a server-wide messages.
+# Set other value for blocks distance.
+Range: 0
+By_DamageType:
+  mob_attack:
+    Messages:
+    - <gray>(<lred>⚔</lred>) <lred>%player_display_name%</lred> was slain by <lred>%source%</lred>.</gray>
+  explosion:
+    Messages:
+    - <gray>(<lred>☠</lred>) <lred>%player_display_name%</lred> blowed up!</gray>
+  lightning_bolt:
+    Messages:
+    - <gray>(<lred>☠</lred>) <lred>%player_display_name%</lred> was shot by a Lightning.</gray>
+  sonic_boom:
+    Messages:
+    - <gray>(<lred>☠</lred>) <lred>%player_display_name%</lred>''s eardrums were exploded.</gray>
+  drown:
+    Messages:
+    - <gray>(<lred>☠</lred>) <lred>%player_display_name%</lred> drowned.</gray>
+    - <gray>(<lred>☠</lred>) <lred>%player_display_name%</lred> forgot how to swim.</gray>
+  thorns:
+    Messages:
+    - <gray>(<lred>☠</lred>) <lred>%player_display_name%</lred> died when touching <lred>%source%</lred>.</gray>
+  freeze:
+    Messages:
+    - <gray>(<lred>☠</lred>) <lred>%player_display_name%</lred> frozen to death.</gray>
+    - <gray>(<lred>☠</lred>) <lred>%player_display_name%</lred> fell asleep in the snow.</gray>
+  player_attack:
+    Messages:
+    - <gray>(<lred>⚔</lred>) <lred>%source%</lred> killed <lred>%player_display_name%</lred>.</gray>
+  starve:
+    Messages:
+    - <gray>(<lred>☠</lred>) <lred>%player_display_name%</lred> forgot to eat.</gray>
+  on_fire:
+    Messages:
+    - <gray>(<lred>☠</lred>) <lred>%player_display_name%</lred> burned to the ground.</gray>
+  mob_projectile:
+    Messages:
+    - <gray>(<lred>⚔</lred>) <lred>%player_display_name%</lred> was shot by a <lred>%source%</lred>.</gray>
+  in_wall:
+    Messages:
+    - <gray>(<lred>☠</lred>) <lred>%player_display_name%</lred> was buried alive.</gray>
+  arrow:
+    Messages:
+    - <gray>(<lred>⚔</lred>) <lred>%player_display_name%</lred> was shot by a <lred>%source%</lred>.</gray>
+  in_fire:
+    Messages:
+    - <gray>(<lred>☠</lred>) <lred>%player_display_name%</lred> burned to the ground.</gray>
+  lava:
+    Messages:
+    - <gray>(<lred>☠</lred>) <lred>%player_display_name%</lred> tried to swim in lava.</gray>
+  fly_into_wall:
+    Messages:
+    - <gray>(<lred>☠</lred>) <lred>%player_display_name%</lred> exceeded the speed limit with elytras.</gray>
+  fall:
+    Messages:
+    - <gray>(<lred>☠</lred>) <lred>%player_display_name%</lred> fell from a high spot.</gray>
+  magic:
+    Messages:
+    - <gray>(<lred>☠</lred>) <lred>%player_display_name%</lred> killed by a deadly magic.</gray>
+  falling_anvil:
+    Messages:
+    - <gray>(<lred>☠</lred>) <lred>%player_display_name%</lred> was unable to hold an Anvil.</gray>
+  hot_floor:
+    Messages:
+    - <gray>(<lred>☠</lred>) <lred>%player_display_name%</lred> walked too long on Magma Blocks.</gray>
+  cactus:
+    Messages:
+    - <gray>(<lred>☠</lred>) <lred>%player_display_name%</lred> tried to obtain some water from cactus.</gray>
+    - <gray>(<lred>☠</lred>) <lred>%player_display_name%</lred> died when accidiently touch a cactus.</gray>
+  cramming:
+    Messages:
+    - <gray>(<lred>☠</lred>) <lred>%player_display_name%</lred> trampled into the ground by a crowd.</gray>
+  dragon_breath:
+    Messages:
+    - <gray>(<lred>☠</lred>) <lred>%player_display_name%</lred> was incinerated by a Dragon Breath.</gray>
+By_CausingEntity:
+  drowned:
+    Messages:
+    - <gray>(<lred>⚔</lred>) <lred>%player_display_name%</lred> was drowned by Drowned.</gray>
+  blaze:
+    Messages:
+    - <gray>(<lred>⚔</lred>) <lred>%player_display_name%</lred> could not reflect Blaze''s fireball.</gray>
+    - <gray>(<lred>⚔</lred>) <lred>%player_display_name%</lred> catched a fireball with his head.</gray>
+  enderman:
+    Messages:
+    - <gray>(<lred>⚔</lred>) <lred>%player_display_name%</lred> looked strange at Enderman.</gray>
+  creeper:
+    Messages:
+    - <gray>(<lred>⚔</lred>) <lred>%player_display_name%</lred> could not run away from a Creeper in time.</gray>
+  skeleton:
+    Messages:
+    - <gray>(<lred>⚔</lred>) <lred>%player_display_name%</lred> was shot by a skeleton.</gray>
+  piglin:
+    Messages:
+    - <gray>(<lred>⚔</lred>) <lred>%player_display_name%</lred> offered a very bad trade to Piglin.</gray>
+  bee:
+    Messages:
+    - <gray>(<lred>⚔</lred>) <lred>%player_display_name%</lred> attempted to steal honey from Bees.</gray>
+  zombie_villager:
+    Messages:
+    - <gray>(<lred>⚔</lred>) <lred>%player_display_name%</lred> tried to talk with Zombie Villager.</gray>
+  ghast:
+    Messages:
+    - <gray>(<lred>⚔</lred>) <lred>%player_display_name%</lred> was fireballed by a Ghast.</gray>
+  cave_spider:
+    Messages:
+    - <gray>(<lred>⚔</lred>) <lred>%player_display_name%</lred> was bited to death by a little spidee.</gray>
+    - <gray>(<lred>⚔</lred>) <lred>%player_display_name%</lred> climb down too deep in a cave with Spiders.</gray>
+  zombie:
+    Messages:
+    - <gray>(<lred>⚔</lred>) <lred>%player_display_name%</lred>''s brain was eaten by Zombie.</gray>
+  wither:
+    Messages:
+    - <gray>(<lred>⚔</lred>) <lred>%player_display_name%</lred> could not beat Wither.</gray>
+  tnt:
+    Messages:
+    - <gray>(<lred>☠</lred>) <lred>%player_display_name%</lred> lost his limbs due to TNT explosion!</gray>

@@ -1,0 +1,13 @@
+# Individual per-player scoreboard format based on player's rank and world.
+# [You must have Vault with compatible Permissions plugins installed for this feature to work properly]
+#
+# If multiple scoreboards are available for a player, the one with the greatest priority will be used.
+# If no scoreboard is available for a player, the one labeled 'default' will be used (if present).
+#
+# Add '*' to the 'Groups' list to make scoreboard available for any rank.
+# Add '*' to the 'Worlds' list to make scoreboard available in any world.
+#
+# Use '%animation:[name]%' placeholder to include dynamic text (animation) from the animations.yml config file.
+# Text and Color Formations: https://nightexpressdev.com/nightcore/configuration/text-formation/
+# You can use PlaceholderAPI placeholders.
+Boards:

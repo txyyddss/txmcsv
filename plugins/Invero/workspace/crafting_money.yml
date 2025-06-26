@@ -1,0 +1,83 @@
+#
+# 金币铸造
+# 可以将铁锭铸造为金币 (money)
+# 借鉴: (crafting_apple.yml)
+#
+# @author 老廖
+# @since 2023/04/16 16:44
+#
+
+title:
+  mode: reversable
+  period: 5
+  values:
+  - '<gradient:#d8dc50:#aedc50>金_'
+  - '<gradient:#d8dc50:#aedc50>金币_'
+  - '<gradient:#d8dc50:#aedc50>金币铸_'
+  - '<gradient:#d8dc50:#aedc50>金币铸造_'
+  - '<gradient:#d8dc50:#aedc50>金币铸造师_'
+  - '<gradient:#d8dc50:#aedc50>金币铸造师'
+  - '<gradient:#d8dc50:#aedc50>金币铸造师_'
+  - '<gradient:#d8dc50:#aedc50>金币铸造师'
+  - '<gradient:#d8dc50:#aedc50>金币铸造_'
+  - '<gradient:#d8dc50:#aedc50>金币铸_'
+  - '<gradient:#d8dc50:#aedc50>金币_'
+  - '<gradient:#d8dc50:#aedc50>金_'
+  - '<gradient:#d8dc50:#aedc50>_'
+
+layout: '-# #*#a#-'
+
+bindings:
+  command: moneyBuild
+
+events:
+  # 默认锁定槽位 6
+ # opened: storage at 6 lock
+  post_open: sound ENTITY_VINDICATOR_CELEBRATE by 0.5 1
+  close: sound ENTITY_WANDERING_TRADER_NO by 0.5 1
+
+crafting:
+  # 存储槽位发生改变时更新图标 *
+  listener: |-
+    icon by literal '*' refresh
+    icon by literal 'a' refresh
+
+items:
+  '-':
+    material: black stained glass pane
+  '#':
+    material: gray stained glass pane
+    
+  'a':
+    material: 'ANVIL'
+    name: '&e开始铸造'
+    action: |-
+        set item to storage at 2 get
+          if check &item != null then {
+            if check &item[type] is? 'GOLD_INGOT' then {
+              context set amount to &item[amt]
+              storage at 2 del
+              sound BLOCK_ANVIL_USE by 0.7 0.9
+              sleep 1.0s
+              sound BLOCK_CHEST_LOCKED by 8 0.9
+              msg "&e金币铸造师&7: &f成功铸造 {{&amount}} &f枚&e金币"
+              command "money give {{player name}} {{&amount}}" as console
+            } else {
+              sound ITEM_SHIELD_BREAK by 1 1
+               msg "&e金币铸造师&7: &c你这个不是金锭..."
+            }
+          }
+    sub:
+      if: storage at 2 empty
+      material: AIR
+      
+      
+  '*':
+    material: soule latern
+    name: '&e金锭 &8-> &e금'
+    enhancedLore: true
+    lore: |-
+      放入金锭点击即可铸造
+    sub:
+      if: storage at 2 exists
+      material: latern

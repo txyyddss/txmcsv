@@ -1,0 +1,7 @@
+# When enabled, all items a player receives from a kit will be bound to that player.
+# Players can not use/pick up items that are bound to other players.
+Bind_Items_To_Players: false
+GUI:
+  # Sets whether or not kits with permission requirement enabled should be hidden from
+  # players that don't have permission to those kits.
+  Hide_No_Permission: false

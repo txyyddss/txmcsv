@@ -1,0 +1,145 @@
+title: 'Sounds <black>[{{page get}}/{{page max}}]'
+
+layout: |-
+  ####*####
+  |       |
+  |       |
+  |       |
+  <#######>
+
+events:
+  post_open:
+    context set pitch to 0
+
+bindings:
+ command:
+   name: 'sounds'
+   permission: 'sounds.preview'
+   usage: '/sounds <filter>'
+   argument:
+   - label: filter
+     type: ANY
+     suggest:
+     - ambient
+     - block
+     - enchant
+     - entity
+     - event
+     - item
+     - music
+     - particle
+     - ui
+     - weather
+
+generator:
+  source: sound
+  sortBy: name
+  filter: |-
+    any [ 
+      ctx without filter
+      check &element_name[lower] has &filter[lower]
+    ]
+  output:
+    material: book
+    name: '<green><bold>{{&element_name}} <gray>#{{element ordinal}}'
+    lore: |-
+      &r
+      &8· &fVolume: 1
+      &8· &fPitch: <green>{{&pitch}}
+      &r
+      &b→ &3Press &b1~9 &3to adjust & preview
+      &b→ &3Press &bMiddle &3to copy its name
+    sub:
+      - if: check &last_previewed == &element_name
+        material: enchanted book
+        glow: true
+    action:
+      right: 'context set pitch to 0'
+      number_key_1: 'context set pitch to 1'
+      number_key_2: 'context set pitch to 2'
+      number_key_3: 'context set pitch to 3'
+      number_key_4: 'context set pitch to 4'
+      number_key_5: 'context set pitch to 5'
+      number_key_6: 'context set pitch to 6'
+      number_key_7: 'context set pitch to 7'
+      number_key_8: 'context set pitch to 8'
+      number_key_9: 'context set pitch to 9'
+      middle: |-
+        msg "<dark_gray>..."
+        msg "<bold><gold>[Pitch: <yellow>{{&pitch}}<gold>] <u><green><click:suggest_command:'sound {{&element_name}} by 1 {{&pitch}}'><hover:show_text:'<green>Click to copy'>{{&element_name}}</hover></click>"
+      def: |-
+        sound &element_name by 1 &pitch
+        context set last_previewed to &element_name
+        icons refresh
+
+icons:
+  '*':
+    material: sign
+    name: '<gold>Elements Filter'
+    lore: |-
+      &r
+      &7Filter: &e{{&filter}}
+      &8(left click to set / right click remove)
+      &r
+      &7Quick filters (Press Numberkey):
+      &7- &3[1] &fambient
+      &7- &3[2] &fblock
+      &7- &3[3] &fenchant
+      &7- &3[4] &fentity
+      &7- &3[5] &fevent
+      &7- &3[6] &fitem
+      &7- &3[7] &fmusic
+      &7- &3[8] &fparticle
+      &7- &3[9] &fui
+    action:
+      number_key_1: context set filter to ambient
+      number_key_2: context set filter to block
+      number_key_3: context set filter to enchant
+      number_key_4: context set filter to entity
+      number_key_5: context set filter to event
+      number_key_6: context set filter to *item
+      number_key_7: context set filter to music
+      number_key_8: context set filter to particle
+      number_key_9: context set filter to ui
+      number_key: |-
+        if regenerate then {
+          icons refresh
+          sound BLOCK_NOTE_BLOCK_PLING-1-2
+          menu title update
+        }
+      left:
+        catch: filter
+        signIndex: -1
+        cancel: [ 'exit', 'cancel' ]
+      right: context del filter regenerate icons refresh menu title update
+  '#':
+    material: black stained glass pane
+    name: '<dark_gray>...'
+  '|':
+    material: gray stained glass pane
+    name: '<dark_gray>...'
+
+  '>':
+    material: black stained glass pane
+    name: '<dark_gray>...'
+    lore: '{{page current}} / {{page max}}'
+    sub:
+      - if: not page isLast
+        material: lime stained glass pane
+        name: '<green>Next page →'
+        action: |-
+          page next
+          icons refresh
+          menu title update
+  '<':
+    material: black stained glass pane
+    name: '<dark_gray>...'
+    lore: '{{page current}} / {{page max}}'
+    sub:
+      - if: not page isFirst
+        material: cyan stained glass pane
+        name: '<aqua>← Previous page'
+        action: |-
+          page previous
+          icons refresh
+          menu title update

@@ -1,0 +1,43 @@
+identifier: "deeprock_lord"
+name: "&2&l深岩领主&a"
+content: "&2&l深岩领主&a"
+weight: 40
+permission: "yc.deeprock_lord"
+actions:
+  - "[CONSOLE] say %player_name% 的镐声响彻地心！"
+item:
+  has-perm:
+    material: DIAMOND_ORE
+    name: "&2&l深岩领主 &a称号"
+    lore:
+      - "&7地底王国的守护者"
+      - ""
+      - "&f钻石是王座的基石"
+      - "&f熔岩是流淌的血液"
+      - ""
+      - "&a➥ 点击加冕为王"
+  using:
+    material: DIAMOND_ORE
+    name: "&2&l深岩领主 &a称号"
+    flags:
+      - HIDE_ENCHANTS
+    enchants:
+      LOOT_BONUS_BLOCKS: 1
+    lore:
+      - "&7地底王国的守护者"
+      - ""
+      - "&f钻石是王座的基石"
+      - "&f熔岩是流淌的血液"
+      - ""
+      - "&a✔ 王冠闪耀中"
+  no-perm:
+    material: COAL_ORE
+    name: "&8&l深岩领主 &7(未解锁)"
+    lore:
+      - "&7地底王国的守护者"
+      - ""
+      - "&c需要达成成就："
+      - "&c- 挖掘10组钻石矿"
+      - "&c- 到达Y=-64深度"
+      - ""
+      - "&e✧ 深入矿洞来挑战"

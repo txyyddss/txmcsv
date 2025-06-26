@@ -11,11 +11,15 @@ broadcast-doll-disconnect: true
 display-doll-when-ping: false
 op-can-see-hidden-doll: true
 doll-permission:
-- ''
+- 'yc.npc'
+- 'yc.set'
+- 'nocheatplus.check'
+- 'grim.exempt'
 doll-metadata:
 - ''
 chat-when-join-interval: 10
 chat-when-join:
+- /upa set %name% npc
 - /register %name%114 %name%114
 - /login %name%114
 convert-player: false

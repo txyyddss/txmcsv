@@ -1,0 +1,43 @@
+#
+# 跨面板更新图标操作示例
+#
+
+title: 'cross-panel-operator usage'
+rows: 5
+
+events:
+  post_open: |-
+    context set dynamicAmount to 1
+
+panels:
+# 第一个面板
+- layout: |-
+    #########
+    |   A   |
+    #########
+  items:
+    '#': { material: gray stained glass pane }
+    'A':
+      material: apple
+      amount: |
+        {{context get dynamicAmount}}
+      action: |
+        context inc dynamicAmount by 1
+        icon update
+# 第二个面板
+- layout: |-
+    
+    ####B####
+  items:
+    '#': { material: black stained glass pane }
+    'B':
+      material: diamond
+      #
+      # 1. dynamicAmount++1
+      # 2. 当前语句环境：选择面板为第一个面板
+      # 3. 让第一个面板中的图标 A 更新
+      #
+      action: |
+        context inc dynamicAmount by 1
+        panel at 0 select
+        icon by A update

@@ -1,0 +1,39 @@
+title: 'Scroll Foods~'
+
+bindings:
+  command: foods
+
+layout: |-
+  <       >
+
+items:
+  '>':
+    material: arrow
+    name: '&aScroll Right'
+    action: scroll right
+  '<':
+    material: arrow
+    name: '&aScroll Left'
+    action: scroll left
+
+
+scroll:
+  direction: horizontal
+  tail: -1
+  colums:
+  - material: enchanted golden apple
+  - material: melon slice
+  - material: sweet berries
+  - material: glow berries
+  - material: chorus fruit
+  - material: carrot
+  - material: golden carrot
+  - material: potato
+  - material: baked potato
+  - material: poisonous potato
+  - material: beetroot
+  - material: dried kelp
+  - material: raw beef
+  - material: steak
+  - material: raw porkchop
+  - material: cooked porkchop

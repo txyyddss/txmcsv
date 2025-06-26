@@ -1,0 +1,46 @@
+#
+# This language file is translated using DeepL & ChatGPT
+# If you find any errors, please submit an issue on Github.
+#
+
+database-errored: '&8[&3I&8] &cInitialization of &7{0} &cdatabase failed... Please check the relevant configurations.'
+database-connected: '&8[&3I&8] &7Successfully connected to &a{0} &7database.'
+
+plugin-hooked: '&8[&3I&8] &7Successfully loaded support for plugin &e{0}&7.'
+
+menu-loader-workspace-empty: '&8[&3I&8] &cNo valid workspace found. Menu loading stopped.'
+menu-loader-workspace-inited: '&8[&3I&8] &7Initializing &a{0} &7workspaces... Starting to load menus.'
+menu-loader-file-errored: '&8[&3I&8] &cLoading configuration file &7{0} &cencountered errors, ignoring...'
+menu-loader-menu-errored: '&8[&3I&8] &cMenu &7{0} &cencountered errors during deserialization. Please check the relevant configuration files...'
+menu-loader-menu-duplicate: '&8[&3I&8] &cMenu &7{0} &calready exists as another menu with the same name. Skipping loading...'
+menu-loader-menu-finished: '&8[&3I&8] &7Successfully loaded &a{0} &7valid menus... &8({1} secs)'
+menu-loader-auto-reload-errored: '&8[&3I&8] &cAutomatic reloading of menu &7{0} &cfailed.'
+menu-loader-auto-reload-successed: '&8[&3I&8] &7Auto-reloaded changes for menu {0}.'
+
+menu-list-empty: '&8[&3I&8] &7No menu found &8(filter = {0}).'
+menu-list-header: [
+  '&r',
+  '&8[&3I&8] &7Found &f{0} &7menus, listed below:',
+  '&r'
+]
+menu-list-item:
+  - type: JSON
+    text: '&8- &7({1} line) [&3{0}]    &8{2}'
+    args:
+      - hover: '&7Click to open'
+        command: '/menu open {0}'
+
+item-air: '&8[&3I&8] &7Target item is empty. Operation cannot be continued.'
+
+paste-init: '&8[&3I&8] &7Creating paste content for you, please wait...'
+paste-failed: '&8[&3I&8] &7An error occurred while creating clipboard content. Operation cannot continue.'
+paste-success: '&8[&3I&8] &7Please follow this link to view the related text: &a{0}'
+paste-config-loaded: '&8[&3I&8] &7Paste configuration loaded, current service: &f{0}'
+paste-service-error: '&8[&3I&8] &cPaste service error: &7{0}'
+
+update-checking: '&8[&3I&8] &7Checking for updates...'
+update-available: '&8[&3I&8] &eNew version available! Current version: &c{0}&e, Latest version: &a{1}'
+update-url: '&8[&3I&8] &eVisit: &bhttps://invero.8aka.org/download &eto get the latest version'
+up-to-date: '&8[&3I&8] &7You are using the latest version!'
+
+throwable-print: '&8[&3I&8] &cAn error occurred.'

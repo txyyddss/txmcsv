@@ -1,0 +1,189 @@
+General:
+  # A list of player names/IP addresses that are immune to all punishments. Lower case only.
+  Immunies:
+  - put_here_your_staff_names
+  - 127.0.0.1
+  - 192.168.31.1
+  # Sets default reason to use when no other reason specified in punishment commands.
+  # Must be a valid reason name from the 'Reasons' section.
+  # If invalid reason provided, a reason with the 'NoReason' text field from the lang config will be used.
+  Default_Reason: default
+  # Add here punishment reasons you would like to use in all punishment commands.
+  Reasons:
+    toxic:
+      Message: Toxic behavior
+    default:
+      Message: Violation of the rules
+    advertisement:
+      Message: Advertising other servers/websites
+    cheating:
+      Message: Cheating
+    grief:
+      Message: Griefing
+  DisconnectInfo:
+    # Text to display for player in disconnect window when kicked.
+    Kick:
+    - <lred><b>Server</b></lred> <dgray>»</dgray> <gray>You have been kicked!</gray>
+    - ' '
+    - <lred>Reason</lred> <dgray>»</dgray> <gray>%punishment_reason%</gray>
+    - <lred>By</lred> <dgray>»</dgray> <gray>%punishment_punisher%</gray>
+    Ban:
+      # Text to display for player in disconnect window when kicked.
+      Permanent:
+      - <lred><b>Server</b></lred> <dgray>»</dgray> <gray>You're permanently banned!</gray>
+      - ' '
+      - <lred>Reason</lred> <dgray>»</dgray> <gray>%punishment_reason%</gray>
+      - <lred>Date</lred> <dgray>»</dgray> <gray>%punishment_date_created%</gray>
+      - <lred>By</lred> <dgray>»</dgray> <gray>%punishment_punisher%</gray>
+      - ' '
+      - <lgreen>Appeal at</lgreen> <dgray>»</dgray> <yellow><u>http://put_your_site.com</u></yellow>
+      # Text to display for player in disconnect window when kicked.
+      Temp:
+      - <lred><b>Server</b></lred> <dgray>»</dgray> <gray>You're banned!</gray>
+      - ' '
+      - <lred>Reason</lred> <dgray>»</dgray> <gray>%punishment_reason%</gray>
+      - <lred>Date</lred> <dgray>»</dgray> <gray>%punishment_date_created%</gray>
+      - <lred>By</lred> <dgray>»</dgray> <gray>%punishment_punisher%</gray>
+      - <lred>Unban in</lred> <dgray>»</dgray> <gray>%punishment_expires_in%</gray>
+      - ' '
+      - <lgreen>Appeal at</lgreen> <dgray>»</dgray> <yellow><u>http://put_your_site.com</u></yellow>
+  Time_Aliases:
+    PERMANENT: permanent
+    SECONDS: sec,s
+    MINUTES: min
+    HOURS: hour,h
+    DAYS: day,d
+    WEEKS: week,w
+    MONTHS: mon
+    YEARS: year,y
+AltsCheck:
+  # Sets whether or not alt-account checker feature is enabled.
+  Enabled: true
+  # Sets whether or not plugin should cache IPs only of players that joined since the latest server or plugin reboot.
+  # When disabled, plugin will cache IPs of all players in the database, which can increase memory usage.
+  # [*] Keep in mind that local IPs (127.0.0.1) are never cached.
+  # [Default is false]
+  Cache_Joined_Players_Only: false
+Punishments:
+  Mute:
+    # List of disabled commands for muted players.
+    # All aliases for listed commands will be auto-detected and disabled too.
+    Blocked_Commands:
+    - broadcast
+    - tell
+    - me
+  Rank:
+    # ==================== BETA FEATURE ====================
+    # Set here priority for each rank that has access to punishment commands.
+    # Players with greatest ranks can not be punished by lowest ones.
+    # [WARNING] This setting will not prevent IP bans!
+    Priority:
+      # Available values: RANK, PERMISSION
+      # ==================== RANK MODE ====================
+      # Get value by player's permission group. All keys in 'Values' list will represent permission group names.
+      # If player has none of specified groups, the 'Default_Value' setting will be used then
+      #   Values:
+      #     vip: 1 # -> Player must be in 'vip' permission group.
+      #     gold: 2 # -> Player must be in 'gold' permission group.
+      #     emerald: 3 # -> Player must be in 'emerald' permission group.
+      #
+      # ==================== PERMISSION MODE ====================
+      # Get value by player's permissions. All keys in 'Values' list will represent postfixes for the 'Permission_Prefix' setting (see below).
+      # If player has none of specified permissions, the 'Default_Value' setting will be used then
+      #   Permission_Prefix: 'example.prefix.'
+      #   Values:
+      #     vip: 1 # -> Player must have 'example.prefix.vip' permission.
+      #     gold: 2 # -> Player must have 'example.prefix.gold' permission.
+      #     emerald: 3 # -> Player must have 'example.prefix.emerald' permission.
+      Mode: RANK
+      # Sets permission prefix for the 'PERMISSION' mode.
+      Permission_Prefix: sunlight.bans.priority.
+      Default_Value: 0
+      Values:
+        helper: 1
+        admin: 1000
+        moderator: 2
+    # When enabled, the 'Duration_Limit' settings will apply to all unpunish commands as well (unban, unmute, unwarn).
+    # Players can not remove punishments with a duration greater than set in player's limit.
+    Duration_Limit_to_Unpunish: true
+    # A list of rank based duration limits for each punishment type.
+    # (Vault and a compatible permissions plugins are required)
+    # (Player permission groups are auto-detected)
+    # This will prevent players to punish others for a time longer than you set here.
+    # 'Amount' = amount of units for specified time unit. Example: 'TimeUnit' = 'DAYS' and 'Amount' = '3' equals to 3 days.
+    # For the 'PERMANENT' time unit, amount value does not matter.
+    # Available Time Units: PERMANENT, SECONDS, MINUTES, HOURS, DAYS, WEEKS, MONTHS, YEARS
+    # Available Punishment Types: BAN, MUTE, WARN
+    # The greatest duration limit will be used if player has multiple ranks with duration limits.
+    # To remove limit for certain punishment type, set 'Amount' to -1.
+    # To remove all limits, give 'sunlight.bans.bypass.duration.limit' permission.
+    Duration_Limit:
+      helper:
+        WARN:
+          Amount: 3
+          TimeUnit: WEEKS
+        MUTE:
+          Amount: 1
+          TimeUnit: DAYS
+        BAN:
+          Amount: 2
+          TimeUnit: WEEKS
+      moderator:
+        WARN:
+          Amount: 3
+          TimeUnit: MONTHS
+        MUTE:
+          Amount: 1
+          TimeUnit: WEEKS
+        BAN:
+          Amount: 2
+          TimeUnit: MONTHS
+  Warn:
+    # Sets active warn limit for a player when all previous warns gets expired.
+    # Example: With default value 5, when player gets 5th active warn, all previous 4 active warns becomes expired.
+    # This setting is required for the 'Warns -> Auto_Commands' feature to work properly.
+    # Set to '0' or '-1' for unlimit.
+    Max_Amount: 5
+    # Executes custom commands (from console) when player reaches certain amount of active warns.
+    # Use '%player_name%' placeholder for a player name.
+    Auto_Commands:
+      '3':
+      - mute %player_name% 15min
+      '5':
+      - kick %player_name%
+Database:
+  # Sets database type.
+  # Available values: MYSQL,SQLITE
+  Type: SQLITE
+  # Sets how often (in minutes) plugin data of online players will be saved to the database.
+  # Set to '-1' to disable.
+  Auto_Save_Interval: 20
+  # Sets how often (in seconds) plugin data will be fetched and loaded from the remote database.
+  # Useless for SQLITE.
+  # Set to '-1' to disable.
+  Sync_Interval: -1
+  # Custom prefix for plugin tables in database.
+  Table_Prefix: sunlight_bans
+  MySQL:
+    # Database user name.
+    Username: root
+    # Database password.
+    Password: root
+    # Database host. Example: localhost:3306, 127.0.0.1:3306
+    Host: localhost:3306
+    # Name of the MySQL database where plugin will create tables.
+    Database: minecraft
+    # Connection options. Do not touch unless you know what you're doing.
+    Options: ?allowPublicKeyRetrieval=true&useSSL=false
+  SQLite:
+    # File name for the SQLite database file.
+    # Actually it's a path to the file, so you can use directories here.
+    FileName: bans.db
+  Purge:
+    # Enables the purge feature.
+    # Purge will remove all records from the plugin tables that are 'old' enough.
+    Enabled: false
+    # Sets maximal 'age' for the database records before they will be purged.
+    # This option may have different behavior depends on the plugin.
+    # By default it's days of inactivity for the plugin users.
+    For_Period: 60

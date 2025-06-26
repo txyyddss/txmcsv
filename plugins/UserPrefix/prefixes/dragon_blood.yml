@@ -1,0 +1,43 @@
+identifier: "dragon_blood"
+name: "&4&l龙血继承者&c"
+content: "&4&l龙血继承者&c"
+weight: 30
+permission: "yc.dragon_blood"
+actions:
+  - "[CONSOLE] say %player_name% 的龙之血脉正在燃烧！"
+item:
+  has-perm:
+    material: DRAGON_HEAD
+    name: "&4&l龙血继承者 &c称号"
+    lore:
+      - "&7末影龙的征服者"
+      - ""
+      - "&f沐浴龙息的战士"
+      - "&f掌握末地的力量"
+      - ""
+      - "&a➥ 点击唤醒龙魂"
+  using:
+    material: DRAGON_HEAD
+    name: "&4&l龙血继承者 &c称号"
+    flags:
+      - HIDE_ENCHANTS
+    enchants:
+      DAMAGE_ALL: 1
+    lore:
+      - "&7末影龙的征服者"
+      - ""
+      - "&f沐浴龙息的战士"
+      - "&f掌握末地的力量"
+      - ""
+      - "&a✔ 龙魂与你同在"
+  no-perm:
+    material: SKELETON_SKULL
+    name: "&8&l龙血继承者 &7(未解锁)"
+    lore:
+      - "&7末影龙的征服者"
+      - ""
+      - "&c需要达成成就："
+      - "&c- 击败末影龙"
+      - "&c- 获得龙首战利品"
+      - ""
+      - "&e✧ 征服末地来证明"

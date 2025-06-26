@@ -3,7 +3,7 @@ header-footer:
   enabled: true
   header:
     - "<#FFFFFF>&m                                                </#FFFF00>"
-    - "&3&lMT NETWORK"
+    - "%animation:MTN%"
     - "&r&7&l>> %animation:Welcome%&3 &l%player%&7&l! &7&l<<"
     - "&r&7Online players: &f%online%"
     - "&6Online staff: &e%staffonline%"
@@ -91,18 +91,28 @@ scoreboard:
   static-number: 0
   delay-on-join-milliseconds: 0
   scoreboards:
+    combact:
+      title: "&cPVP"
+      display-condition: "%pvpmanager_in_combat%=yes" # Only display it to players using 1.20.3+ AND NOT bedrock edition
+      lines:
+        - "&eTime&7:&f%pvpmanager_combat_timeleft%"
+        - "&eWith&7:&f%pvpmanager_current_enemy%"
+        - "&eHealth&7:&f%pvpmanager_current_enemy_health%"
+        - "&c打赢拿钱"
+        - "&c打输赔钱"
     scoreboard-1.20.3+:
-      title: "%RainbowColor_TX AND MT SERVER%"
+      title: "%animation:MTN%&d&e%server_version%"
       display-condition: "%player-version-id%>=765;%bedrock%=false" # Only display it to players using 1.20.3+ AND NOT bedrock edition
       lines:
-        - "&4Ver:%server_version%"
         - "&6Server Info:"
         - "* &eOnline&7:||%online%"
         - "* &eSeason&7:||%rs_season%"
         - "* &eMSPT&7:||%mspt%"
         - "* &eMemory:||%memory-used-gb%GB"
+        - "* &eTotal:||$%xconomy_sum_balance_value%"
         - ""
         - "&6Personal Info:"
+        - "* &bBalance&7:||#%xconomy_top_rank%,$%xconomy_balance_value%"
         - "* &bPing&7:||%ping%&8ms"
         - "* &bBiome&7:||%world_biome%"
         - "* &bPlayed&7:||%statistic_hours_played%hours"
@@ -110,10 +120,10 @@ scoreboard:
         - "* &bFight Score&7:||%armorplaceholders_calculate%"
         - "* &bLight&7:||%player_light_level%"
     scoreboard:
-      title: "%RainbowColor_TX AND MT SERVER%"
+      title: "%animation:MTN%&e%server_version%"
       lines:
-        - "&4Ver:%server_version%"
         - "&eOnline&7:&f%online%"
+        - "* &bBalance&7:&7#%xconomy_top_rank%,$%xconomy_balance_value%"
         - "* &eSeason&7:&f%rs_season%"
         - "* &bBiome&7:&f%world_biome%"
         - "* &bPlayed&7:&f%statistic_hours_played%hours"

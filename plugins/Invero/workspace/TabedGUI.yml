@@ -1,0 +1,59 @@
+#
+# 标签翻页
+#
+# @author Arasple
+# @since 2023/04/02 21:45
+#
+
+title: tabed_gui
+rows: 5
+
+activator:
+  command: tabed_gui
+
+panels:
+# 第一个面板
+# 用于导航
+- layout: |-
+    #ABCDEFG#
+  items:
+    '#': { material: gray stained glass pane }
+    'A':
+      material: apple
+      action: page set to 0
+    'B':
+      material: iron ingot
+      action: page set to 1
+    'C':
+      material: diamond
+      action: page set to 2
+
+# 第二个面板
+# 翻页面板
+# 第 0 页 - 苹果
+# 第 1 页 - 铁锭
+# 第 2 页 - 钻石
+
+- scale: [ 9, 4 ]
+  pages:
+    - layout: |-
+        #########
+        #########
+        #########
+        #########
+      items:
+        '#': { material: apple }
+    - layout: |-
+        #########
+        #########
+        #########
+        #########
+      items:
+        '#': { material: iron ingot }
+    - layout: |-
+        #########
+        #########
+        #########
+        #########
+      items:
+        '#': { material: diamond }

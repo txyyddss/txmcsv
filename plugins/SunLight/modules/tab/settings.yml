@@ -1,0 +1,91 @@
+Tablist:
+  # Sets tablist update interval (in ticks).
+  # [Asynchronous]
+  # [1 second = 20 ticks]
+  # [Default is 1]
+  Update_Interval: 1
+  # Individual per-player tablist format based on player's rank and world.
+  # [You must have Vault with compatible Permissions plugins installed for this feature to work properly]
+  #
+  # If multiple tablists are available for a player, the one with the greatest priority will be used.
+  # If no tablist is available for a player, the one labeled 'default' will be used (if present).
+  #
+  # Add '*' to the 'Groups' list to make tablist available for any rank.
+  # Add '*' to the 'Worlds' list to make tablist available in any world.
+  #
+  # Use '%animation:[name]%' placeholder to include dynamic text (animation) from the animations.yml config file.
+  # Text and Color Formations: https://nightexpressdev.com/nightcore/configuration/text-formation/
+  # You can use PlaceholderAPI placeholders.
+  Format:
+    default:
+      Priority: 1
+      Worlds:
+      - '*'
+      Groups:
+      - '*'
+      Header:
+      - <gradient:#84CCFB:#C9E5FD><b>SampleSMP.com</b></gradient>
+      - <lgray>%server_time_d MMMM%, %server_time_HH:mm:ss%</lgray>
+      - ' '
+      Footer:
+      - ' '
+      - '%animation:foot_1%'
+      - ' '
+      - '%animation:foot_2%'
+      - '%animation:foot_3%'
+  # Tablist name format based on player's rank.
+  # [You must have Vault with compatible Permissions plugins installed for this feature to work properly]
+  #
+  # ====================[ IMPORTANT! ]====================
+  # This option does NOT affect player sorting in tablist!
+  # To make tablist sorted by player ranks you MUST setup 'Nametags' option!
+  # This is just how the game works.
+  #
+  # If multiple name formats are available for a player, the one with the greatest priority will be used.
+  # If no name format is available for a player, the one labeled 'default' will be used (if present).
+  #
+  # Use '%animation:[name]%' placeholder to include dynamic text (animation) from the animations.yml config file.
+  # Text and Color Formations: https://nightexpressdev.com/nightcore/configuration/text-formation/
+  # You can use PlaceholderAPI placeholders.
+  Player_Names:
+    default:
+      Priority: 1
+      Format: <lcyan>[Member]</lcyan> <lgray>%player_display_name%</lgray>%sunlight_afk_mode%
+    admin:
+      Priority: 100
+      Format: <lred>[Admin]</lred> <lgray>%player_display_name%</lgray>%sunlight_afk_mode%
+    vip:
+      Priority: 10
+      Format: <lgreen>[VIP]</lgreen> <lgray>%player_display_name%</lgray>%sunlight_afk_mode%
+Nametags:
+  # Sets player nametag update interval (in ticks).
+  # [Asynchronous, Packet-Based]
+  # [1 second = 20 ticks]
+  # [Default is 300]
+  Update_Interval: 300
+  # Player nametag format based on their permission group.
+  # [You must have Vault with compatible Permissions plugins installed for this feature to work properly]
+  #
+  # If multiple tag formats are available for a player, the one with the greatest priority will be used.
+  # If no tag format is available for a player, the one labeled 'default' will be used (if present).
+  #
+  # You can use PlaceholderAPI placeholders for 'Prefix' and 'Suffix' options.
+  #
+  # The game does not support RGB colors for tag names yet!
+  # List of available colors: https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/ChatColor.html
+  Groups:
+    default:
+      Priority: 1
+      Prefix: <lcyan>Member </lcyan>
+      Suffix: ' <lcyan>$%vault_eco_balance_formatted%</lcyan>'
+      Color: GRAY
+    admin:
+      Priority: 100
+      Prefix: <lred>Admin </lred>
+      Suffix: ' <lred>$%vault_eco_balance_formatted%</lred>'
+      Color: GRAY
+    vip:
+      Priority: 10
+      Prefix: <lgreen>VIP </lgreen>
+      Suffix: ' <lgreen>$%vault_eco_balance_formatted%</lgreen>'
+      Color: GRAY

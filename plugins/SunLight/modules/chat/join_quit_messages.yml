@@ -1,0 +1,14 @@
+Join_Messages:
+  default:
+    Ranks:
+    - '*'
+    Priority: 0
+    Message: <gray>[<green>+</green>] %vault_prefix%%player_display_name% [<green>%floodgate_version% %floodgate_device%</green>] First Join:<yellow>%player_first_join_date%</yellow></gray>
+    DisplayMode: CHAT
+Quit_Messages:
+  default:
+    Ranks:
+    - '*'
+    Priority: 0
+    Message: <gray>[<red>-</red>] %vault_prefix%%player_display_name%</gray>
+    DisplayMode: CHAT

@@ -1,0 +1,22 @@
+MTN:
+  Update_Interval_MS: 500
+  Texts:
+  - <red>M</red>
+  - <blue>M</blue><red>T</red>
+  - <blue>MT </blue><red>N</red>
+  - <blue>MT N</blue><red>E</red>
+  - <blue>MT NE</blue><red>T</red>
+  - <blue>MT NET</blue><red>W</red>
+  - <blue>MT NETW</blue><red>O</red>
+  - <blue>MT NETWO</blue><red>R</red>
+  - <blue>MT NETWOR</blue><red>K</red>
+  - <blue>MT NETWORK</blue>
+  - <blue>MT NETWOR_</blue>
+  - <blue>MT NETWO_</blue>
+  - <blue>MT NETW_</blue>
+  - <blue>MT NET_</blue>
+  - <blue>MT NE_</blue>
+  - <red>MTN</red>
+  - <blue>MTN</blue>
+  - <blue>MT_</blue>
+  - <blue>M_</blue>

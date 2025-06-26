@@ -1,0 +1,27 @@
+title: 'Unclosable'
+
+layout: |-
+  ########E
+  |       |
+  |       |
+  #########
+
+events:
+  # 如果没被标记 allow_close 变量，就重新开启菜单
+  close: |-
+    if not &allow_close then { 
+      menu open Unclosable
+    }
+
+items:
+  '#': { material: cyan stained glass pane }
+  '|': { material: black stained glass pane }
+  # 唯一关闭菜单的渠道
+  'E':
+    material: 'barrier'
+    name: '&cExit'
+    # 标记 allow_close 变量再关闭菜单
+    action: |-
+      context set allow_close to true
+      menu close
+      

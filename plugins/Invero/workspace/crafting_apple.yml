@@ -1,0 +1,66 @@
+title: 'Convert'
+
+
+layout: |-
+  -   *   -
+
+bindings:
+  command: apple
+
+events:
+  # 默认锁定槽位 6
+  opened: |-
+    storage at -1 lock
+    storage at 2 free
+
+crafting:
+  # 存储槽位发生改变时更新图标 *
+  listener: |-
+    icon by literal '*' refresh
+
+items:
+  '-':
+    material: black stained glass pane
+  # '#':
+  #   material: gray stained glass pane
+  '*':
+    material: stone
+    name: '&cApple &8-> &eGolden Apple'
+    lore: |-
+      
+      Put an apple at left
+
+    action: |-
+
+      msg "<red>pls put an apple in storage 2"
+      sound ITEM_SHIELD_BREAK by 1 1
+
+    sub:
+      if: storage at 2 exists
+      material: gold
+      lore: |-
+        
+        &aClick to convert now
+      # 保存槽位2的物品为变量 item
+      # 判断：
+      # 如果 item 类型为 APPLE，则删除槽位 2、输出槽位 6、解锁槽位 6
+      # 否则提示物品类型不对
+      action: |-
+
+        if storage at 6 exists then {
+          msg "<red>storage 6 exists some items."
+          sound ITEM_SHIELD_BREAK by 1 1
+          exit
+        }
+
+        set item to storage at 2 get
+
+        if check &item[type] is? 'APPLE' then {
+          storage at 2 del
+          storage at 6 set to item "golden_apple" amount &item[amt]
+          storage at 6 free
+          sound BLOCK_NOTE_PLING by 1 1
+        } else {
+          msg "<red>Apple is required"
+          sound ITEM_SHIELD_BREAK by 1 1
+        }

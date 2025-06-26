@@ -1,0 +1,30 @@
+Location:
+  Previous:
+    # Sets whether or not Previous Location feature is enabled.
+    # It will track player teleports to store previous location.
+    # Players can teleport to previous location using the 'back' command.
+    Enabled: true
+    # Sets for how long (in seconds) previous location will last.
+    Expire_Time: 3600
+    # Sets minimal distance between current and destination locations to save it.
+    Min_Distance_Difference: 10.0
+    # When Previous Location stored in any of the worlds listed below, players won't be able to use it without the 'sunlight.backlocation.bypass.previous.worlds' permission.
+    Disabled_Worlds:
+    - my_custom_world
+    # List of teleport causes that are ignored by Previous Location.
+    # This setting can be bypassed with 'sunlight.backlocation.bypass.previous.causes' permission
+    # https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/event/player/PlayerTeleportEvent.TeleportCause.html
+    Ignored_Causes:
+    - ENDER_PEARL
+  Death:
+    # Sets whether or not Death Location feature is enabled.
+    # It will track player deaths to store death locations.
+    # Players can teleport to death locations using the 'deathback' command.
+    Enabled: true
+    # Sets whether or not death location should be removed after use.
+    ResetOnUse: true
+    # Sets for how long (in seconds) death location will last.
+    Expire_Time: 3600
+    # When Death Location stored in any of the worlds listed below, players won't be able to use it without the 'sunlight.backlocation.bypass.death.worlds' permission.
+    Disabled_Worlds:
+    - my_custom_world

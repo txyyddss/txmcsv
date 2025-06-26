@@ -1,0 +1,17 @@
+Global:
+  # When enabled, players with respawn location (a bed or an respawn anchor) won't teleported to a spawn on death.
+  Respect_Player_Beds: true
+Settings:
+  # Sets spawn used by default.
+  # If no other spawn is set, specified or available, the default one will be used.
+  # Examples:
+  # - When player types /spawn command without spawn name.
+  #
+  # [*] Players always has access to the default spawn.
+  Default_Spawn: default
+Teleport_New_Players:
+  # Sets whether or not players joined the first time should be teleported to a certain spawn.
+  Enabled: true
+  # Sets spawn ID for new players teleportation.
+  # Spawn permission check will be ignored for new players.
+  SpawnId: default

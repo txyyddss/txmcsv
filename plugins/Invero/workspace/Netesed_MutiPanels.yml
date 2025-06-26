@@ -1,0 +1,144 @@
+#
+# 多面板嵌套翻页案例
+#
+# @author Arasple
+# @date 2023/03/17 20:14
+#
+
+title: netesed_mutipanels
+
+hide-player-inventory: true
+
+activator:
+  command: netesed_mutipanels
+  shift_f: 500
+
+#
+# 一些供引用的配置
+#
+
+layouts:
+  mainUILayout: &mainLayout |-
+    #########
+    #       #
+    # <   > #
+    #       #
+    #########
+  subUILayout: &subLayout |-
+    #########
+    #########
+    #########
+  subUIPagedLayout: &subPagedLayout |-
+    #########
+    <#######>
+    #########
+
+buttons:
+  nextPage: &nextPage
+    material: lime stained glass pane
+    name: Next Page
+    lore: &pagelore |
+      &r
+      &7Index: &f{{page get}} / {{page max}}
+    action: page next icons update
+  previousPage: &previousPage
+    material: cyan stained glass pane
+    name: Previous Page
+    lore: *pagelore
+    action: page previous icons update
+
+#
+# < 翻页面板 >
+# [ 主面板 ] 9x5 , 位于容器上部分
+#
+ui_main: &mainUI
+  scale: [ 9, 5 ]
+  pages:
+  - layout: *mainLayout
+    items:
+      '#': { material: black stained glass pane }
+      '>': *nextPage
+      '<': *previousPage
+  - layout: *mainLayout
+    items:
+      '#': { material: green stained glass pane }
+      '>': *nextPage
+      '<': *previousPage
+  - layout: *mainLayout
+    items:
+      '#': { material: red stained glass pane }
+      '>': *nextPage
+      '<': *previousPage
+
+#
+# < 翻页面板 >
+# [ 子面板 ] 9x3 , 位于玩家容器位置
+#
+ui_sub: &subUI
+  scale: [ 9, 3 ]
+  pages:
+  - layout: *subLayout
+    items: { '#': { material: grass_block } }
+  - layout: *subLayout
+    items: { '#': { material: iron ore } }
+  - layout: *subLayout
+    items: { '#': { material: diamond ore } }
+  # 子面板里的一个嵌套多页面板
+  - scale: [ 9, 3 ]
+    pages:
+    - layout: *subPagedLayout
+      items:
+        '#': { material: red wool }
+        '<': *previousPage
+        '>': *nextPage
+    - layout: *subPagedLayout
+      items:
+        '#': { material: green wool }
+        '<': *previousPage
+        '>': *nextPage
+    - layout: *subPagedLayout
+      items:
+        '#': { material: blue wool }
+        '<': *previousPage
+        '>': *nextPage
+    - layout: *subPagedLayout
+      items:
+        '#': { material: yellow wool }
+        '<': *previousPage
+        '>': *nextPage
+  - layout: *subLayout
+    items: { '#': { material: emerald ore } }
+#
+# < 标准面板 >
+# [ 子面板控制器 ] 9x1 , 位于容器下部分
+#
+ui_sub_controller: &controllerUI
+  scale: [ 9, 1 ]
+  layout: |-
+    <       >
+  items:
+    '>':
+      <<: *nextPage
+      material: arrow
+      # 这里的 Lore 描述如果需要准确描述多页页码，则需要重写一下
+      # 因为多页面板需要手动选定
+      lore: &overrideLore |
+        &r
+        &7Index: &f{{panel at 1 select page get}} / {{panel at 1 select page max}}
+      action: |
+        panel at 1 select
+        page next
+        icons update
+    '<':
+      <<: *previousPage
+      lore: *overrideLore
+      material: arrow
+      action: |
+        panel at 1 select
+        page previous
+        icons update
+
+panels:
+  - <<: *mainUI
+  - <<: *subUI
+  - <<: *controllerUI

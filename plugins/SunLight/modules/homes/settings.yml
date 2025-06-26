@@ -1,0 +1,59 @@
+Data:
+  # Sets how often (in seconds) loaded homes will save their changes to the database.
+  Save_Interval: 30
+  # Sets how often (in seconds) homes loaded for offline users will be removed from the memory.
+  Cleanup_Interval: 900
+Home:
+  # Default home icon used for new homes.
+  # Item Options: https://nightexpressdev.com/nightcore/configuration/item-formation/
+  Defaut_Icon:
+    Material: PLAYER_HEAD
+    SkinURL: cf7cdeefc6d37fecab676c584bf620832aaac85375e9fcbff27372492d69f
+Creation:
+  BedMode:
+    # Sets whether or not players can use beds to set home locations.
+    Enabled: true
+    # When enabled, overrides vanilla bed respawn point mechanic.
+    # Respawn point is set to the latest created/updated bed home.
+    OverrideRespawn: true
+    # When enabled, each bed color will set different home point.
+    Colors: false
+  # When enabled, simulates player block place event to check for build access.
+  # If building is not allowed, home can't be created.
+  Check_Build_Access: true
+  # A list of worlds, where homes can not be created.
+  World_Blacklist:
+  - world_name
+  - another_world
+  # Sets how much homes a player can create depends on their rank/permissions.
+  #
+  # If player is in multiple groups listed here, the greater value will be used.
+  # If player is not in any group listed here, the 'default' value will be used if present.
+  #
+  # You must have Vault and permissions plugins installed for this feature to work.
+  # Use '-1' for unlimited amount.
+  Amount_Per_Rank:
+    # Available values: RANK, PERMISSION
+    # ==================== RANK MODE ====================
+    # Get value by player's permission group. All keys in 'Values' list will represent permission group names.
+    # If player has none of specified groups, the 'Default_Value' setting will be used then
+    #   Values:
+    #     vip: 1 # -> Player must be in 'vip' permission group.
+    #     gold: 2 # -> Player must be in 'gold' permission group.
+    #     emerald: 3 # -> Player must be in 'emerald' permission group.
+    #
+    # ==================== PERMISSION MODE ====================
+    # Get value by player's permissions. All keys in 'Values' list will represent postfixes for the 'Permission_Prefix' setting (see below).
+    # If player has none of specified permissions, the 'Default_Value' setting will be used then
+    #   Permission_Prefix: 'example.prefix.'
+    #   Values:
+    #     vip: 1 # -> Player must have 'example.prefix.vip' permission.
+    #     gold: 2 # -> Player must have 'example.prefix.gold' permission.
+    #     emerald: 3 # -> Player must have 'example.prefix.emerald' permission.
+    Mode: RANK
+    # Sets permission prefix for the 'PERMISSION' mode.
+    Permission_Prefix: sunlight.homes.amount.
+    Default_Value: 5
+    Values:
+      admin: -1
+      premium: 3

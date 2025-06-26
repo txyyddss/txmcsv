@@ -10,19 +10,11 @@ worlds:
   world: SPRING
 dates:
   world:
-    day: 29
-    month: 4
+    day: 3
+    month: 5
     year: 1
 temperature:
   world: true
 time-paused: []
 placedeggs:
-  world:
-  - -264,89,638,world
-  - -367,5,684,world
-  - -110,83,636,world
-  - -110,-11,636,world
-  - -46,88,623,world
-  - -110,3,636,world
-  - -208,84,630,world
-  - -367,99,684,world
+  world: []

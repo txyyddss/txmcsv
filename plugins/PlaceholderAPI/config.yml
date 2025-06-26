@@ -95,3 +95,12 @@ expansions:
       trusted: '&a'
       enemy: '&4'
       neutral: '&7'
+  vault:
+    formatting:
+      thousands: k
+      millions: M
+      billions: B
+      trillions: T
+      quadrillions: Q
+  localtime:
+    date_format: dd/MM/yyyy hh:mma

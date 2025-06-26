@@ -1,0 +1,22 @@
+title: 'rubbish_bin'
+
+layout:
+  - '         '
+  - '         '
+  - '         '
+  - '         '
+  - '         '
+  - '    #    '
+
+crafting:
+  listener: |-
+    icons refresh
+
+items:
+  '#':
+    material: barrier
+    name: '&dclick to delete all items'
+    action:
+      for i in range 0 to 53 then {
+        storage at &i delete
+      }

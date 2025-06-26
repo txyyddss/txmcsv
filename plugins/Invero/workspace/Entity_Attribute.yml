@@ -1,0 +1,41 @@
+#
+# 右键看 pig 🐖
+#
+
+title: 'entity view: {{&activator_entity_name}}'
+rows: 5
+
+activators:
+  entity: PIG
+
+events:
+  post_open: |-
+    context set dynamicAmount to 1
+
+layout: |-
+  #########
+  |       |
+  |   X   |
+  |       |
+  #########
+
+items:
+  '#':
+    material: black stained glass pane
+  '|':
+    material: cyan stained glass pane
+  'X':
+    material: lever
+    name: |-
+      <#339999>{{&activator_entity_name}}
+    lore: |-
+      &r
+      &8· Name: &f{{&activator_entity_name}}
+      &8· Type: &6{{&activator_entity_type}}
+      &8· UUID: &e{{&activator_entity_uuid}}
+      &8· Location: &3{{&activator_entity_location_x}} / {{&activator_entity_location_y}} / {{&activator_entity_location_z}}
+      &r
+      &6Click to kill this pig
+    # 点击杀之（1.19.3）
+    action: |-
+      command "minecraft:kill @e[type=minecraft:{{&activator_entity_type[lowercase]}},distance=..5]"

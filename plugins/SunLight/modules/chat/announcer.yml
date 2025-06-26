@@ -1,0 +1,22 @@
+# Here you can create your own custom announcers.
+# Announcers must have unqiue names.
+# Announcer options:
+# -- Interval: Sets how often (in seconds) announcer will broadcast messages.
+# -- RandomOrder: Sets whether or not announcer messages will have random order insteaod sequental one.
+# -- Ranks: List of permission groups, that can see announcer messages. Add '*' to include all groups.
+# -- Text: Announcer messages.
+# Placeholders:
+# -- %player_display_name%: Player display (custom) name.
+# -- %player_name%: Player name.
+# -- PlaceholderAPI
+# Text Formations: https://nightexpressdev.com/nightcore/configuration/text-formation/
+
+Announcers:
+  global:
+    Interval: 0
+    RandomOrder: true
+    Ranks:
+    - '*'
+    Text:
+      '0':
+      - ' '

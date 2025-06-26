@@ -1,0 +1,177 @@
+Settings:
+  # GUI title.
+  Title: <black>Warp Settings</black>
+  # GUI size. Must be multiply of 9.
+  # Useful for 'CHEST' Inventory Type only.
+  Size: 27
+  # GUI type.
+  # https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/event/inventory/InventoryType.html
+  Inventory_Type: CHEST
+  # Sets GUI auto-refresh interval (in seconds). Set this to 0 to disable.
+  Auto_Refresh: 0
+  PlaceholderAPI:
+    # Sets whether PlaceholderAPI placeholders will be applied on all items from the 'Content' section of this GUI.
+    # [*] Disable if you don't use any PlaceholderAPI placeholders on your items to improve GUI performance.
+    Enabled: false
+# ==================== GUI CONTENT ====================
+# You can freely edit items in this section as you wish (add, remove, modify items).
+# The following values are available as button Types:
+# CLOSE
+# RETURN
+# WARP_CHANGE_COMMAND_SHORTCUT
+# WARP_CHANGE_DESCRIPTION
+# WARP_CHANGE_ICON
+# WARP_CHANGE_NAME
+# WARP_CHANGE_PERMISSION
+# WARP_CHANGE_TYPE
+# WARP_CHANGE_VISIT_COOLDOWN
+# WARP_CHANGE_VISIT_COST
+# WARP_CHANGE_VISIT_TIMES
+# ==================== ITEM OPTIONS ====================
+# > Item: Item to display. Please check: https://nightexpressdev.com/nightcore/configuration/item-formation/
+# > Priority: Button priority. Better values will override other item(s) in the same slot(s).
+# > Slots: Button slots. From [0] to [Size - 1]. Split with commas.
+# > Click_Commands: Execute custom commands on click. PlaceholderAPI available here.
+#     Available click types: LEFT, RIGHT, SHIFT_LEFT, SHIFT_RIGHT, DROP_KEY, SWAP_KEY, NUMBER_1, NUMBER_2, NUMBER_3, NUMBER_4, NUMBER_5, NUMBER_6, NUMBER_7, NUMBER_8, NUMBER_9
+#     Use prefix 'player:' to run command by a player.
+#     Click_Commands:
+#       LEFT:
+#       - say Hello
+#       - give %player_name% diamond 1
+#       - player: menu open shops
+# ==================================================
+Content:
+  return:
+    Priority: 10
+    Item:
+      Material: PLAYER_HEAD
+      SkinURL: be9ae7a4be65fcbaee65181389a2f7d47e2e326db59ea3eb789a92c85ea46
+      Name: <lgray><b>Return</b></lgray>
+      Display_Name: <lgray><b>Return</b></lgray>
+    Slots: '22'
+    Type: return
+  display_name:
+    Priority: 10
+    Item:
+      Material: PLAYER_HEAD
+      SkinURL: f5a19af0e61ca42532c0599fa0a391753df6b71f9fa4a177f1aa9b1d81fe6ee2
+      Name: <lyellow><b>Display Name</b></lyellow>
+      Lore:
+      - '<lyellow>▪ <lgray>Current: </lgray>%warp_name%</lyellow>'
+      - ' '
+      - <lgray><lyellow>[▶]</lyellow> Click to <lyellow>change</lyellow>.</lgray>
+      Display_Name: <lyellow><b>Display Name</b></lyellow>
+    Slots: '3'
+    Type: warp_change_name
+  descrpition:
+    Priority: 10
+    Item:
+      Material: WRITABLE_BOOK
+      Name: <lyellow><b>Descrpition</b></lyellow>
+      Lore:
+      - '%warp_description%'
+      - ''
+      - <lgray><lyellow>[▶]</lyellow> Click to <lyellow>change</lyellow>.</lgray>
+      Display_Name: <lyellow><b>Descrpition</b></lyellow>
+    Slots: '4'
+    Type: warp_change_description
+  icon:
+    Priority: 10
+    Item:
+      Material: ITEM_FRAME
+      Name: <lyellow><b>Icon</b></lyellow>
+      Lore:
+      - <lgray><lyellow>[▶]</lyellow> Drag & Drop to <lyellow>change</lyellow>.</lgray>
+      Display_Name: <lyellow><b>Icon</b></lyellow>
+    Slots: '5'
+    Type: warp_change_icon
+  permission_requirement:
+    Priority: 10
+    Item:
+      Material: REDSTONE_TORCH
+      Name: <lyellow><b>Permission Requirement</b></lyellow>
+      Lore:
+      - '<lyellow>▪ <lgray>Enabled: </lgray>%warp_permission_required%</lyellow>'
+      - '<lyellow>▪ <lgray>Node: </lgray>%warp_permission_node%</lyellow>'
+      - ''
+      - <lgray>Sets whether or not permission is</lgray>
+      - <lgray>required to visit this warp.</lgray>
+      - ''
+      - <lgray><lyellow>[▶]</lyellow> Click to <lyellow>toggle</lyellow>.</lgray>
+      Display_Name: <lyellow><b>Permission Requirement</b></lyellow>
+    Slots: '11'
+    Type: warp_change_permission
+  visit_cost:
+    Priority: 10
+    Item:
+      Material: GOLD_NUGGET
+      Name: <lyellow><b>Visit Cost</b></lyellow>
+      Lore:
+      - <lyellow>▪ <lgray>Current:</lgray> %warp_visit_cost%</lyellow>
+      - ''
+      - <lgray>Sets how much money player will have to pay</lgray>
+      - <lgray>in order to use this warp.</lgray>
+      - ''
+      - <lgray><lyellow>[▶]</lyellow> Left-Click to <lyellow>change</lyellow>.</lgray>
+      - <lgray><lyellow>[▶]</lyellow> Right-Click to <lyellow>disable</lyellow>.</lgray>
+      Display_Name: <lyellow><b>Visit Cost</b></lyellow>
+    Slots: '12'
+    Type: warp_change_visit_cost
+  visit_cooldown:
+    Priority: 10
+    Item:
+      Material: CLOCK
+      Name: <lyellow><b>Visit Cooldown</b></lyellow>
+      Lore:
+      - '<lyellow>▪ <lgray>Current: </lgray>%warp_visit_cooldown%</lyellow>'
+      - ''
+      - <lgray>Sets the cooldown for next warp visit per a player.</lgray>
+      - ''
+      - <lgray><lyellow>[▶]</lyellow> Left-Click to <lyellow>change</lyellow>.</lgray>
+      - <lgray><lyellow>[▶]</lyellow> Right-Click to <lyellow>disable</lyellow>.</lgray>
+      Display_Name: <lyellow><b>Visit Cooldown</b></lyellow>
+    Slots: '13'
+    Type: warp_change_visit_cooldown
+  visit_times:
+    Priority: 10
+    Item:
+      Material: DAYLIGHT_DETECTOR
+      Name: <lyellow><b>Visit Times</b></lyellow>
+      Lore:
+      - '%warp_visit_times%'
+      - ''
+      - <lgray>Sets the times when the warp is available for visits.</lgray>
+      - ''
+      - <lgray><lyellow>[▶]</lyellow> Left-Click to <lyellow>add time</lyellow>.</lgray>
+      - <lgray><lyellow>[▶]</lyellow> Right-Click to <lyellow>remove all</lyellow>.</lgray>
+      Display_Name: <lyellow><b>Visit Times</b></lyellow>
+    Slots: '14'
+    Type: warp_change_visit_times
+  type:
+    Priority: 10
+    Item:
+      Material: BEACON
+      Name: <lyellow><b>Type</b></lyellow>
+      Lore:
+      - '<lyellow>▪ <lgray>Current: </lgray>%warp_type%</lyellow>'
+      - ' '
+      - <lgray><lyellow>[▶]</lyellow> Click to <lyellow>toggle</lyellow>.</lgray>
+      Display_Name: <lyellow><b>Type</b></lyellow>
+    Slots: '15'
+    Type: warp_change_type
+  dedicated_command:
+    Priority: 10
+    Item:
+      Material: COMMAND_BLOCK
+      Name: <lyellow><b>Dedicated Command</b></lyellow>
+      Lore:
+      - <lyellow>▪ <lgray>Current:</lgray> /%warp_command_shortcut%</lyellow>
+      - ''
+      - <lgray>Allows to access the warp</lgray>
+      - <lgray>using dedicated command.</lgray>
+      - ''
+      - <lgray><lyellow>[▶]</lyellow> Left-Click to <lyellow>change</lyellow>.</lgray>
+      - <lgray><lyellow>[▶]</lyellow> Right-Click to <lyellow>disable</lyellow>.</lgray>
+      Display_Name: <lyellow><b>Dedicated Command</b></lyellow>
+    Slots: '16'
+    Type: warp_change_command_shortcut

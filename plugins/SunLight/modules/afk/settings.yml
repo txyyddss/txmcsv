@@ -1,0 +1,104 @@
+WakeUp:
+  # Sets max. amount of player's activity points to leave AFK mode.
+  # You can configure how much points every activity produces below.
+  Threshold: 3
+  # Sets the time interval during which activity points are accumulated.
+  # If player got enough activity points (see 'Threshold' value) during that time, they will leave AFK mode.
+  # Otherwise activity points will reset back to zero and player will stay in AFK mode.
+  # Example: By default player have to do 3 interactions in 5 seconds to leave AFK mode.
+  Timeout: 5
+  ActivityPoints:
+    # Sets how much activity points are produced by player movement.
+    Movement: 1
+    # Sets how much activity points are produced by player chat messages.
+    Chat: 5
+    # Sets how much activity points are produced by player commands.
+    Command: 0
+    # Sets how much activity points are produced by player interactions with items, blocks or entities.
+    Interaction: 1
+  # List of commands to execute when player leaves AFK mode.
+  # Use '%player_name%' for player name.
+  # PlaceholderAPI placeholders are supported here.
+  Commands: []
+AFK:
+  # Sets auto AFK mode cooldown.
+  # This will prevent players from being moved into afk mode back soon after they leave it.
+  # This setting does NOT affect manual afk transition using commands.
+  Cooldown: 60
+  Placeholder:
+    # Custom placeholder text for afk players.
+    # Used by %sunlight_afk_mode% and %sunlight_afk_since% placeholders.
+    # Use '%time%' to display AFK time.
+    In: <dgray> [AFK]</dgray>
+    # Custom placeholder text for non-afk players.
+    # Used by %sunlight_afk_mode% and %sunlight_afk_since% placeholders.
+    Out: ''
+  # Here you can setup auto-afk times (in seconds) based on permissions or permission groups.
+  # When player stays inactive at the same place, their idle time increased by 1.
+  # When idle time reaches suitable value (that is > 0) from the list below, player will be moved to AFK mode.
+  # Use '-1' to make players never be moved into AFK mode for idleness.
+  Idle_Time:
+    # Available values: RANK, PERMISSION
+    # ==================== RANK MODE ====================
+    # Get value by player's permission group. All keys in 'Values' list will represent permission group names.
+    # If player has none of specified groups, the 'Default_Value' setting will be used then
+    #   Values:
+    #     vip: 1 # -> Player must be in 'vip' permission group.
+    #     gold: 2 # -> Player must be in 'gold' permission group.
+    #     emerald: 3 # -> Player must be in 'emerald' permission group.
+    #
+    # ==================== PERMISSION MODE ====================
+    # Get value by player's permissions. All keys in 'Values' list will represent postfixes for the 'Permission_Prefix' setting (see below).
+    # If player has none of specified permissions, the 'Default_Value' setting will be used then
+    #   Permission_Prefix: 'example.prefix.'
+    #   Values:
+    #     vip: 1 # -> Player must have 'example.prefix.vip' permission.
+    #     gold: 2 # -> Player must have 'example.prefix.gold' permission.
+    #     emerald: 3 # -> Player must have 'example.prefix.emerald' permission.
+    Mode: RANK
+    # Sets permission prefix for the 'PERMISSION' mode.
+    Permission_Prefix: sunlight.afk.idletime.
+    Default_Value: 300
+    Values:
+      gold: 900
+      vip: 600
+  # Here you can setup afk kick times based on permissions or permission groups.
+  # When player stays in AFK, their idle time is also increased by 1 every second.
+  # When idle time reaches suitable value (that is > 0) from the list below, player will be kicked from the server.
+  # Use '-1' to make players never be kicked for being AFK.
+  Kick_Time:
+    # Available values: RANK, PERMISSION
+    # ==================== RANK MODE ====================
+    # Get value by player's permission group. All keys in 'Values' list will represent permission group names.
+    # If player has none of specified groups, the 'Default_Value' setting will be used then
+    #   Values:
+    #     vip: 1 # -> Player must be in 'vip' permission group.
+    #     gold: 2 # -> Player must be in 'gold' permission group.
+    #     emerald: 3 # -> Player must be in 'emerald' permission group.
+    #
+    # ==================== PERMISSION MODE ====================
+    # Get value by player's permissions. All keys in 'Values' list will represent postfixes for the 'Permission_Prefix' setting (see below).
+    # If player has none of specified permissions, the 'Default_Value' setting will be used then
+    #   Permission_Prefix: 'example.prefix.'
+    #   Values:
+    #     vip: 1 # -> Player must have 'example.prefix.vip' permission.
+    #     gold: 2 # -> Player must have 'example.prefix.gold' permission.
+    #     emerald: 3 # -> Player must have 'example.prefix.emerald' permission.
+    Mode: RANK
+    # Sets permission prefix for the 'PERMISSION' mode.
+    Permission_Prefix: sunlight.afk.kicktime.
+    Default_Value: -1
+    Values:
+      vip: 1500
+      gold: 1800
+      admin: -1
+  # Message displayed to player on disconnect window when kicked for being AFK long enough.
+  # Use '%time%' placeholder for a formatted kick time.
+  Kick_Message:
+  - '<lred>You have been kicked for being AFK too long: <lorange>%time%</lorange></lred>'
+  - ''
+  - <lgreen><u>You can join back now.</u></lgreen>
+  # List of commands to execute when player enters AFK mode.
+  # Use '%player_name%' for player name.
+  # PlaceholderAPI placeholders are supported here.
+  Commands: []

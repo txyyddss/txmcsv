@@ -1,0 +1,92 @@
+title: 'Menus <black>[{{page get}}/{{page max}}]'
+
+layout: |-
+  ####*####
+  |       |
+  |       |
+  |       |
+  <#######>
+
+events:
+  post_open:
+    context set pitch to 0
+
+bindings:
+ command:
+   name: 'menus'
+   permission: 'menus.list'
+   usage: '/menus <filter>'
+
+generator:
+  source: menu
+  sortBy: id
+  filter: |-
+    any [ 
+      ctx without filter
+      check &element_id[lower] has &filter[lower]
+    ]
+  output:
+    material: paper
+    name: '<green><bold>{{&element_id}}'
+    lore: |-
+      &r
+      &8· &fRows: &a{{element *rows}}
+      &8· &fType: &3{{element *type}}
+      &8· &fVirtual: &e{{element *virtual}}
+      &r
+      &b→ &6Click to open
+    sub:
+      - if: check &last_previewed == &element_id
+        glow: true
+    action: |-
+      menu close
+      sleep 0.2s
+      menu open element id
+
+icons:
+  '#':
+    material: green stained glass pane
+    name: '<dark_gray>...'
+  '|':
+    material: gray stained glass pane
+    name: '<dark_gray>...'
+
+  '*':
+    material: sign
+    name: '<gold>Elements Filter'
+    lore: |-
+      &r
+      &7Filter: &e{{&filter}}
+      &8(left click to set / right click remove)
+      &r
+    action:
+      left:
+        catch: filter
+        signIndex: -1
+        cancel: [ 'exit', 'cancel' ]
+      right: context del filter regenerate icons refresh menu title update
+
+  '>':
+    material: black stained glass pane
+    name: '<dark_gray>...'
+    lore: '{{page current}} / {{page max}}'
+    sub:
+      - if: not page isLast
+        material: lime stained glass pane
+        name: '<green>Next page →'
+        action: |-
+          page next
+          icons refresh
+          menu title update
+  '<':
+    material: black stained glass pane
+    name: '<dark_gray>...'
+    lore: '{{page current}} / {{page max}}'
+    sub:
+      - if: not page isFirst
+        material: cyan stained glass pane
+        name: '<aqua>← Previous page'
+        action: |-
+          page previous
+          icons refresh
+          menu title update

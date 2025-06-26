@@ -135,13 +135,9 @@
   "skinsrestorer.skinsmenu_favourites_button": "<aqua><bold>[</bold> <gray>Favoritenmenü</gray> <bold>]</bold>",
   "skinsrestorer.skinsmenu_back_select_button": "<yellow><bold>«</bold> <gray>Menü wählen Sie</gray> <bold>«</bold>",
   "skinsrestorer.skin_search_message": "<dark_green>Du kannst hier Skins finden, die zu <green><search></green> passen: <newline><green><hover:show_text:'<dark_green>Klick zum Öffnen'><click:open_url:'https://namemc.com/minecraft-skins/tag/<search>'>https://namemc.com/minecraft-skins/tag/<search></click></hover><newline><newline><aqua>Falls keine Skins gefunden werden, findest du immer welche unter https://namemc.com/minecraft-skins/tag <newline>Du kannst den Skin mit diesem Skin-Link setzen:<newline>/skin https://namemc.com/skin/",
-  "skinsrestorer.skin_edit_message": "Du kannst deinen Skin über diesen Link bearbeiten:
-Um zu erfahren, wie du den bearbeiteten Skin anwendest, besuche:
-https://skinsrestorer.net/skinedit",
+  "skinsrestorer.skin_edit_message": "Du kannst deinen Skin über diesen Link bearbeiten:\nUm zu erfahren, wie du den bearbeiteten Skin anwendest, besuche:\nhttps://skinsrestorer.net/skinedit",
   "skinsrestorer.no_skin_data": "<dark_red>Fehler<dark_gray>: <red>Keine Skin Daten gefunden!",
-  "skinsrestorer.outdated": "Du verwendest eine veraltete Version von SkinsRestorer auf deiner Plattform!
-Bitte aktualisiere auf die neueste Version bei Modrinth:
-https://modrinth.com/plugin/skinsrestorer",
+  "skinsrestorer.outdated": "Du verwendest eine veraltete Version von SkinsRestorer auf deiner Plattform!\nBitte aktualisiere auf die neueste Version bei Modrinth:\nhttps://modrinth.com/plugin/skinsrestorer",
   "skinsrestorer.unsupported_java": "<dark_red>Die Java-Version (<version>) Deiner<platform> wird von SkinsRestorer nicht unterstützt!<newline><red>Bitte aktualisiere auf Java 17 oder höher, um SkinsRestorer ohne Probleme zu verwenden. Neuere Java-Versionen können auch ältere Server ausführen, so dass ein Minecraft 1.8 Server auf Java 17 laufen kann. Lesen Sie die Konsoleninfo für weitere Details.",
   "skinsrestorer.permission_player_wildcard": "Platzhalter-Berechtigung für Spieler",
   "skinsrestorer.permission_command": "Erlaubt den Zugriff auf die Haupt-\"/skin\"-Befehle.",

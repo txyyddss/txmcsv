@@ -1396,3 +1396,198 @@
 [06-07 19:19:33]: [INFO] You are running the latest version.
 [06-07 19:20:00]: [INFO:FINE] txrog logged in 127.0.0.1
 [06-07 19:21:03]: [INFO] AuthMe 5.7.0-FORK-b53 is unloaded successfully!
+[06-24 21:26:14]: [INFO] SQLite Setup finished
+[06-24 21:26:14]: [WARN] Error while hooking into Vault [PermissionHandlerException]: Could not load permissions provider service
+[06-24 21:26:14]: fr.xephi.authme.permission.handlers.PermissionHandlerException: Could not load permissions provider service
+	at AuthMe-5.7.0-FORK-Universal.jar//fr.xephi.authme.permission.handlers.VaultHandler.getVaultPermission(VaultHandler.java:45)
+	at AuthMe-5.7.0-FORK-Universal.jar//fr.xephi.authme.permission.handlers.VaultHandler.<init>(VaultHandler.java:29)
+	at AuthMe-5.7.0-FORK-Universal.jar//fr.xephi.authme.permission.PermissionsManager.createPermissionHandler(PermissionsManager.java:142)
+	at AuthMe-5.7.0-FORK-Universal.jar//fr.xephi.authme.permission.PermissionsManager.setup(PermissionsManager.java:93)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at AuthMe-5.7.0-FORK-Universal.jar//fr.xephi.authme.libs.ch.jalu.injector.utils.ReflectionUtils.invokeMethod(ReflectionUtils.java:73)
+	at AuthMe-5.7.0-FORK-Universal.jar//fr.xephi.authme.libs.ch.jalu.injector.handlers.postconstruct.PostConstructMethodInvoker.postProcess(PostConstructMethodInvoker.java:27)
+	at AuthMe-5.7.0-FORK-Universal.jar//fr.xephi.authme.libs.ch.jalu.injector.InjectorImpl.runPostConstructHandlers(InjectorImpl.java:271)
+	at AuthMe-5.7.0-FORK-Universal.jar//fr.xephi.authme.libs.ch.jalu.injector.InjectorImpl.resolveContext(InjectorImpl.java:164)
+	at AuthMe-5.7.0-FORK-Universal.jar//fr.xephi.authme.libs.ch.jalu.injector.InjectorImpl.resolveDependencies(InjectorImpl.java:186)
+	at AuthMe-5.7.0-FORK-Universal.jar//fr.xephi.authme.libs.ch.jalu.injector.InjectorImpl.resolveContext(InjectorImpl.java:158)
+	at AuthMe-5.7.0-FORK-Universal.jar//fr.xephi.authme.libs.ch.jalu.injector.InjectorImpl.resolveDependencies(InjectorImpl.java:186)
+	at AuthMe-5.7.0-FORK-Universal.jar//fr.xephi.authme.libs.ch.jalu.injector.InjectorImpl.resolveContext(InjectorImpl.java:158)
+	at AuthMe-5.7.0-FORK-Universal.jar//fr.xephi.authme.libs.ch.jalu.injector.InjectorImpl.resolve(InjectorImpl.java:133)
+	at AuthMe-5.7.0-FORK-Universal.jar//fr.xephi.authme.libs.ch.jalu.injector.InjectorImpl.getSingleton(InjectorImpl.java:72)
+	at AuthMe-5.7.0-FORK-Universal.jar//fr.xephi.authme.AuthMe.instantiateServices(AuthMe.java:299)
+	at AuthMe-5.7.0-FORK-Universal.jar//fr.xephi.authme.AuthMe.initialize(AuthMe.java:273)
+	at AuthMe-5.7.0-FORK-Universal.jar//fr.xephi.authme.AuthMe.onEnable(AuthMe.java:182)
+	at org.bukkit.plugin.java.JavaPlugin.setEnabled(JavaPlugin.java:280)
+	at io.papermc.paper.plugin.manager.PaperPluginInstanceManager.enablePlugin(PaperPluginInstanceManager.java:202)
+	at io.papermc.paper.plugin.manager.PaperPluginManagerImpl.enablePlugin(PaperPluginManagerImpl.java:109)
+	at org.bukkit.plugin.SimplePluginManager.enablePlugin(SimplePluginManager.java:519)
+	at org.bukkit.craftbukkit.CraftServer.enablePlugin(CraftServer.java:676)
+	at org.bukkit.craftbukkit.CraftServer.enablePlugins(CraftServer.java:625)
+	at net.minecraft.server.MinecraftServer.loadWorld0(MinecraftServer.java:746)
+	at net.minecraft.server.MinecraftServer.loadLevel(MinecraftServer.java:491)
+	at net.minecraft.server.dedicated.DedicatedServer.initServer(DedicatedServer.java:389)
+	at net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:1187)
+	at net.minecraft.server.MinecraftServer.lambda$spin$0(MinecraftServer.java:300)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+[06-24 21:26:14]: [INFO] No supported permissions system found! Permissions are disabled!
+[06-24 21:26:14]: [INFO] Hooked successfully into PlaceholderAPI
+[06-24 21:26:15]: [WARN] You are running an 1.13+ minecraft server, AdvancedShulkerFix won't enable.
+[06-24 21:26:15]: [INFO] 
+    ___         __  __    __  ___   
+   /   | __  __/ /_/ /_  /  |/  /__ 
+  / /| |/ / / / __/ __ \/ /|_/ / _ \
+ / ___ / /_/ / /_/ / / / /  / /  __/
+/_/  |_\__,_/\__/_/ /_/_/  /_/\___/ 
+                                    
+[06-24 21:26:15]: [INFO] AuthMeReReloaded is running on Paper
+[06-24 21:26:15]: [INFO] AuthMeReReloaded is enabled successfully!
+[06-24 21:26:15]: [INFO] GitHub: https://github.com/HaHaWTH/AuthMeReReloaded/
+[06-24 21:26:15]: [INFO] Checking for updates...
+[06-24 21:26:32]: [INFO] You are running the latest version.
+[06-24 21:27:08]: [INFO] AuthMe 5.7.0-FORK-b53 is unloaded successfully!
+[06-24 21:28:25]: [INFO] SQLite Setup finished
+[06-24 21:28:25]: [WARN] Error while hooking into Vault [PermissionHandlerException]: Could not load permissions provider service
+[06-24 21:28:25]: fr.xephi.authme.permission.handlers.PermissionHandlerException: Could not load permissions provider service
+	at AuthMe-5.7.0-FORK-Universal.jar//fr.xephi.authme.permission.handlers.VaultHandler.getVaultPermission(VaultHandler.java:45)
+	at AuthMe-5.7.0-FORK-Universal.jar//fr.xephi.authme.permission.handlers.VaultHandler.<init>(VaultHandler.java:29)
+	at AuthMe-5.7.0-FORK-Universal.jar//fr.xephi.authme.permission.PermissionsManager.createPermissionHandler(PermissionsManager.java:142)
+	at AuthMe-5.7.0-FORK-Universal.jar//fr.xephi.authme.permission.PermissionsManager.setup(PermissionsManager.java:93)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at AuthMe-5.7.0-FORK-Universal.jar//fr.xephi.authme.libs.ch.jalu.injector.utils.ReflectionUtils.invokeMethod(ReflectionUtils.java:73)
+	at AuthMe-5.7.0-FORK-Universal.jar//fr.xephi.authme.libs.ch.jalu.injector.handlers.postconstruct.PostConstructMethodInvoker.postProcess(PostConstructMethodInvoker.java:27)
+	at AuthMe-5.7.0-FORK-Universal.jar//fr.xephi.authme.libs.ch.jalu.injector.InjectorImpl.runPostConstructHandlers(InjectorImpl.java:271)
+	at AuthMe-5.7.0-FORK-Universal.jar//fr.xephi.authme.libs.ch.jalu.injector.InjectorImpl.resolveContext(InjectorImpl.java:164)
+	at AuthMe-5.7.0-FORK-Universal.jar//fr.xephi.authme.libs.ch.jalu.injector.InjectorImpl.resolveDependencies(InjectorImpl.java:186)
+	at AuthMe-5.7.0-FORK-Universal.jar//fr.xephi.authme.libs.ch.jalu.injector.InjectorImpl.resolveContext(InjectorImpl.java:158)
+	at AuthMe-5.7.0-FORK-Universal.jar//fr.xephi.authme.libs.ch.jalu.injector.InjectorImpl.resolveDependencies(InjectorImpl.java:186)
+	at AuthMe-5.7.0-FORK-Universal.jar//fr.xephi.authme.libs.ch.jalu.injector.InjectorImpl.resolveContext(InjectorImpl.java:158)
+	at AuthMe-5.7.0-FORK-Universal.jar//fr.xephi.authme.libs.ch.jalu.injector.InjectorImpl.resolve(InjectorImpl.java:133)
+	at AuthMe-5.7.0-FORK-Universal.jar//fr.xephi.authme.libs.ch.jalu.injector.InjectorImpl.getSingleton(InjectorImpl.java:72)
+	at AuthMe-5.7.0-FORK-Universal.jar//fr.xephi.authme.AuthMe.instantiateServices(AuthMe.java:299)
+	at AuthMe-5.7.0-FORK-Universal.jar//fr.xephi.authme.AuthMe.initialize(AuthMe.java:273)
+	at AuthMe-5.7.0-FORK-Universal.jar//fr.xephi.authme.AuthMe.onEnable(AuthMe.java:182)
+	at org.bukkit.plugin.java.JavaPlugin.setEnabled(JavaPlugin.java:280)
+	at io.papermc.paper.plugin.manager.PaperPluginInstanceManager.enablePlugin(PaperPluginInstanceManager.java:202)
+	at io.papermc.paper.plugin.manager.PaperPluginManagerImpl.enablePlugin(PaperPluginManagerImpl.java:109)
+	at org.bukkit.plugin.SimplePluginManager.enablePlugin(SimplePluginManager.java:519)
+	at org.bukkit.craftbukkit.CraftServer.enablePlugin(CraftServer.java:676)
+	at org.bukkit.craftbukkit.CraftServer.enablePlugins(CraftServer.java:625)
+	at net.minecraft.server.MinecraftServer.loadWorld0(MinecraftServer.java:746)
+	at net.minecraft.server.MinecraftServer.loadLevel(MinecraftServer.java:491)
+	at net.minecraft.server.dedicated.DedicatedServer.initServer(DedicatedServer.java:389)
+	at net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:1187)
+	at net.minecraft.server.MinecraftServer.lambda$spin$0(MinecraftServer.java:300)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+[06-24 21:28:25]: [INFO] No supported permissions system found! Permissions are disabled!
+[06-24 21:28:25]: [INFO] Hooked successfully into PlaceholderAPI
+[06-24 21:28:26]: [WARN] You are running an 1.13+ minecraft server, AdvancedShulkerFix won't enable.
+[06-24 21:28:26]: [INFO] 
+    ___         __  __    __  ___   
+   /   | __  __/ /_/ /_  /  |/  /__ 
+  / /| |/ / / / __/ __ \/ /|_/ / _ \
+ / ___ / /_/ / /_/ / / / /  / /  __/
+/_/  |_\__,_/\__/_/ /_/_/  /_/\___/ 
+                                    
+[06-24 21:28:26]: [INFO] AuthMeReReloaded is running on Paper
+[06-24 21:28:26]: [INFO] AuthMeReReloaded is enabled successfully!
+[06-24 21:28:26]: [INFO] GitHub: https://github.com/HaHaWTH/AuthMeReReloaded/
+[06-24 21:28:26]: [INFO] Checking for updates...
+[06-24 21:28:46]: [INFO] You are running the latest version.
+[06-24 21:29:30]: [INFO] AuthMe 5.7.0-FORK-b53 is unloaded successfully!
+[06-25 09:45:09]: [INFO] SQLite Setup finished
+[06-25 09:45:09]: [INFO] Hooked into LuckPerms!
+[06-25 09:45:09]: [INFO] Hooked successfully into PlaceholderAPI
+[06-25 09:45:09]: [WARN] You are running an 1.13+ minecraft server, AdvancedShulkerFix won't enable.
+[06-25 09:45:09]: [INFO] 
+    ___         __  __    __  ___   
+   /   | __  __/ /_/ /_  /  |/  /__ 
+  / /| |/ / / / __/ __ \/ /|_/ / _ \
+ / ___ / /_/ / /_/ / / / /  / /  __/
+/_/  |_\__,_/\__/_/ /_/_/  /_/\___/ 
+                                    
+[06-25 09:45:09]: [INFO] AuthMeReReloaded is running on Paper
+[06-25 09:45:09]: [INFO] AuthMeReReloaded is enabled successfully!
+[06-25 09:45:09]: [INFO] GitHub: https://github.com/HaHaWTH/AuthMeReReloaded/
+[06-25 09:45:09]: [INFO] Checking for updates...
+[06-25 09:45:29]: [INFO] You are running the latest version.
+[06-25 10:40:21]: [INFO:FINE] txrog logged in 127.0.0.1
+[06-25 10:52:59]: [INFO:FINE] txrog logged in 127.0.0.1
+[06-25 10:53:15]: [INFO:FINE] txrog logged in 127.0.0.1
+[06-25 10:53:26]: [INFO:FINE] txrog logged in 127.0.0.1
+[06-25 11:03:00]: [INFO] AuthMe 5.7.0-FORK-b53 is unloaded successfully!
+[06-25 11:04:46]: [INFO] SQLite Setup finished
+[06-25 11:04:46]: [INFO] Hooked into LuckPerms!
+[06-25 11:04:46]: [INFO] Hooked successfully into PlaceholderAPI
+[06-25 11:04:47]: [WARN] You are running an 1.13+ minecraft server, AdvancedShulkerFix won't enable.
+[06-25 11:04:47]: [INFO] 
+    ___         __  __    __  ___   
+   /   | __  __/ /_/ /_  /  |/  /__ 
+  / /| |/ / / / __/ __ \/ /|_/ / _ \
+ / ___ / /_/ / /_/ / / / /  / /  __/
+/_/  |_\__,_/\__/_/ /_/_/  /_/\___/ 
+                                    
+[06-25 11:04:47]: [INFO] AuthMeReReloaded is running on Paper
+[06-25 11:04:47]: [INFO] AuthMeReReloaded is enabled successfully!
+[06-25 11:04:47]: [INFO] GitHub: https://github.com/HaHaWTH/AuthMeReReloaded/
+[06-25 11:04:47]: [INFO] Checking for updates...
+[06-25 11:05:06]: [INFO] You are running the latest version.
+[06-25 11:05:26]: [INFO:FINE] txrog logged in 127.0.0.1
+[06-25 20:21:38]: [INFO] SQLite Setup finished
+[06-25 20:21:38]: [INFO] Hooked into LuckPerms!
+[06-25 20:21:39]: [INFO] Hooked successfully into PlaceholderAPI
+[06-25 20:21:39]: [WARN] You are running an 1.13+ minecraft server, AdvancedShulkerFix won't enable.
+[06-25 20:21:39]: [INFO] 
+    ___         __  __    __  ___   
+   /   | __  __/ /_/ /_  /  |/  /__ 
+  / /| |/ / / / __/ __ \/ /|_/ / _ \
+ / ___ / /_/ / /_/ / / / /  / /  __/
+/_/  |_\__,_/\__/_/ /_/_/  /_/\___/ 
+                                    
+[06-25 20:21:39]: [INFO] AuthMeReReloaded is running on Paper
+[06-25 20:21:39]: [INFO] AuthMeReReloaded is enabled successfully!
+[06-25 20:21:39]: [INFO] GitHub: https://github.com/HaHaWTH/AuthMeReReloaded/
+[06-25 20:21:39]: [INFO] Checking for updates...
+[06-25 20:21:54]: [INFO] You are running the latest version.
+[06-25 20:22:24]: [INFO:FINE] txrog logged in 127.0.0.1
+[06-25 20:29:12]: [INFO:FINE] txrog logged in 127.0.0.1
+[06-25 21:00:01]: [INFO:FINE] txrog logged in 127.0.0.1
+[06-25 21:21:14]: [INFO:FINE] txrog logged in 127.0.0.1
+[06-25 22:11:59]: [INFO] SQLite Setup finished
+[06-25 22:11:59]: [INFO] Hooked into LuckPerms!
+[06-25 22:11:59]: [INFO] Hooked successfully into PlaceholderAPI
+[06-25 22:12:00]: [WARN] You are running an 1.13+ minecraft server, AdvancedShulkerFix won't enable.
+[06-25 22:12:00]: [INFO] 
+    ___         __  __    __  ___   
+   /   | __  __/ /_/ /_  /  |/  /__ 
+  / /| |/ / / / __/ __ \/ /|_/ / _ \
+ / ___ / /_/ / /_/ / / / /  / /  __/
+/_/  |_\__,_/\__/_/ /_/_/  /_/\___/ 
+                                    
+[06-25 22:12:00]: [INFO] AuthMeReReloaded is running on Paper
+[06-25 22:12:00]: [INFO] AuthMeReReloaded is enabled successfully!
+[06-25 22:12:00]: [INFO] GitHub: https://github.com/HaHaWTH/AuthMeReReloaded/
+[06-25 22:12:00]: [INFO] Checking for updates...
+[06-25 22:12:20]: [INFO] You are running the latest version.
+[06-26 09:07:12]: [INFO] SQLite Setup finished
+[06-26 09:07:13]: [INFO] Hooked into LuckPerms!
+[06-26 09:07:13]: [INFO] Hooked successfully into PlaceholderAPI
+[06-26 09:07:14]: [WARN] You are running an 1.13+ minecraft server, AdvancedShulkerFix won't enable.
+[06-26 09:07:14]: [INFO] 
+    ___         __  __    __  ___   
+   /   | __  __/ /_/ /_  /  |/  /__ 
+  / /| |/ / / / __/ __ \/ /|_/ / _ \
+ / ___ / /_/ / /_/ / / / /  / /  __/
+/_/  |_\__,_/\__/_/ /_/_/  /_/\___/ 
+                                    
+[06-26 09:07:14]: [INFO] AuthMeReReloaded is running on Paper
+[06-26 09:07:14]: [INFO] AuthMeReReloaded is enabled successfully!
+[06-26 09:07:14]: [INFO] GitHub: https://github.com/HaHaWTH/AuthMeReReloaded/
+[06-26 09:07:14]: [INFO] Checking for updates...
+[06-26 09:07:35]: [INFO] You are running the latest version.
+[06-26 09:09:47]: [INFO:FINE] txrog logged in 127.0.0.1
+[06-26 10:51:44]: [INFO:FINE] txrog logged in 127.0.0.1
+[06-26 11:00:10]: [INFO:FINE] txrog logged in 127.0.0.1

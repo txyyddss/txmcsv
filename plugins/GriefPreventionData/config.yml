@@ -24,7 +24,7 @@ GriefPrevention:
     ProtectLlamas: true
     InitialBlocks: 100
     Claim Blocks Accrued Per Hour:
-      Default: 100
+      Default: 10
     Max Accrued Claim Blocks:
       Default: 80000
     Accrued Idle Threshold: 0
@@ -93,8 +93,8 @@ GriefPrevention:
     ProtectPetsOutsideLandClaims: false
   Economy:
     ClaimBlocksMaxBonus: 0
-    ClaimBlocksPurchaseCost: 0.0
-    ClaimBlocksSellValue: 0.0
+    ClaimBlocksPurchaseCost: 5.0
+    ClaimBlocksSellValue: 5.0
   ProtectItemsDroppedOnDeath:
     PvPWorlds: true
     NonPvPWorlds: true

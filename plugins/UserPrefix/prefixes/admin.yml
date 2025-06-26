@@ -1,0 +1,64 @@
+# 唯一标识 [必须]
+# 将用于记录玩家所选的前缀，以及用于数据的缓存。
+# 必须 必须 必须 保持唯一！
+identifier: "admin"
+
+# 名字 [必须]
+# 切换的时候左下角会弹提示 用的就是这个名字
+name: "&4&kA&r&4&n&l腐竹&r&4&kA&r&c"
+
+# 内容 [必须]
+# 显示在名字前面的内容
+content: "&4&kA&r&4&n&l腐竹&r&4&kA&r&c"
+
+# 权重 [必须]
+# 用于GUI、TabList的排序和自动前缀显示
+# 在GUI中，权重越高的会显示在越后面
+# 在TabList中，显示顺序可以在 config.yml 中自定义
+weight: 1
+
+
+# 检测的权限 [非必须]
+# 如果没有就是人人都能用，也代表不用配置“itemNoPermission”了(因为压根不可能显示没权限时候的物品)
+permission: "yc.admin"
+
+# 选择这个前缀时执行的操作 [非必须]
+#  用于在玩家选择/取消选择前缀时执行相应动作，以便于实现一些特殊的功能。
+#  具体操作类型详见介绍，前缀操作不支持限定点击类型。
+#  https://github.com/CarmJos/UserPrefix/tree/master/.documentation/ACTIONS.md
+actions:
+  - "[CONSOLE] say %player_name% 选择了 腐竹称号 ！"
+
+# 该前缀的GUI物品配置
+# 物品配置方式详见 https://github.com/CryptoMorin/XSeries/wiki/XItemStack
+item:
+
+  # 有权限时显示的物品  [必须]
+  # 当用户有权限且未选中时，会显示该物品
+  has-perm:
+    material: MACE
+    name: "&b&l腐竹"
+    lore:
+      - "&f尊贵的腐竹专属称号。"
+      - "&a➥ 点击切换到该前缀"
+
+  # 正在使用时显示的物品 [非必需]
+  # 当用户正在使用时会显示这个物品，不配置即自动加载“itemHasPermission”
+  using:
+    material: MACE
+    name: "&b&l腐竹前缀"
+    flags:
+      - HIDE_ENCHANTS # 隐藏附魔显示
+    enchants:
+      PROTECTION_ENVIRONMENTAL: 1 #加一个附魔这样看上去就像是选中了的
+    lore:
+      - "&a✔ 您正在使用该前缀"
+
+  # 没有权限时显示的物品 [非必需]
+  # 如果没有权限就会显示这个item。如果不配置该物品，则玩家没有使用权限时不会显示在GUI里面。
+  no-perm:
+    material: WEEPING_VINES
+    data: 8
+    name: "&b&l腐竹前缀 &c(未拥有)"
+    lore:
+      - "&C你不是腐竹！"

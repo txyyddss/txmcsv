@@ -1,0 +1,43 @@
+identifier: "star_voyager"
+name: "&5&l星界旅者&d"
+content: "&5&l星界旅者&d"
+weight: 10
+permission: "yc.star_voyager"
+actions:
+  - "[CONSOLE] say %player_name% 化身为星辰的使者！"
+item:
+  has-perm:
+    material: END_CRYSTAL
+    name: "&5&l星界旅者 &d称号"
+    lore:
+      - "&7穿越维度的冒险家"
+      - ""
+      - "&f见证过末地城的辉煌"
+      - "&f探索过下界堡垒的奥秘"
+      - ""
+      - "&a➥ 点击佩戴星空勋章"
+  using:
+    material: END_CRYSTAL
+    name: "&5&l星界旅者 &d称号"
+    flags:
+      - HIDE_ENCHANTS
+    enchants:
+      ARROW_INFINITE: 1
+    lore:
+      - "&7穿越维度的冒险家"
+      - ""
+      - "&f见证过末地城的辉煌"
+      - "&f探索过下界堡垒的奥秘"
+      - ""
+      - "&a✔ 星光照耀你的征途"
+  no-perm:
+    material: QUARTZ
+    name: "&8&l星界旅者 &7(未解锁)"
+    lore:
+      - "&7穿越维度的冒险家"
+      - ""
+      - "&c需要达成成就："
+      - "&c- 找到末地要塞"
+      - "&c- 收集16颗末影珍珠"
+      - ""
+      - "&e✧ 探索世界以解锁"

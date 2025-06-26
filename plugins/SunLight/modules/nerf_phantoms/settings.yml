@@ -1,0 +1,18 @@
+DisableSpawn:
+  # Sets whether or not NerfPhantoms feature is enabled.
+  Enabled: false
+  # List of disabled phantom spawn sources.
+  # https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/event/entity/CreatureSpawnEvent.SpawnReason.html
+  Sources:
+  - NATURAL
+  - DEFAULT
+DamageModifier:
+  # Sets whether or not NerfPhantoms feature is enabled.
+  Enabled: false
+  # Sets phantom's damage modifier to players. PhantomDamage * DamageModifier = Final Damage.
+  Value: 1.0
+HealthModifier:
+  # Sets whether or not NerfPhantoms feature is enabled.
+  Enabled: true
+  # Replaces phantom's health with specified value.
+  Value: 5.0
