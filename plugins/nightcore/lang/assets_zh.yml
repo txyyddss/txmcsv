@@ -48,3 +48,5 @@ DamageType:
   thrown: Thrown
   wither: Wither
   bad_respawn_point: Bad Respawn Point
+World:
+  overworld: Overworld

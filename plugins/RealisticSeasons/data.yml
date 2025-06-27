@@ -10,7 +10,7 @@ worlds:
   world: SPRING
 dates:
   world:
-    day: 3
+    day: 6
     month: 5
     year: 1
 temperature:

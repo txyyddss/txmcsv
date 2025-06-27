@@ -65,7 +65,8 @@ Teleport:
     Default_Value: 5
     Values:
       admin: 0
-      vip: 4
+      vip: 0
+      slave: 3
 BarIndicator:
   # Sets whether warmup boss bar indicator should be used.
   Enabled: true

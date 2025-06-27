@@ -127,6 +127,11 @@ fast_walking:
   # Default: true
   villager_speedwalk: true
 
+invisible_item_frame:
+  # Right clicking on an item frame with shears equipped will make it disappear.
+  # Default: true
+  enabled: true
+
 item_empty_xp_bottle:
   # Enable item empty_xp_bottle
   # Default: true

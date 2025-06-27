@@ -1,6 +1,6 @@
 # 飞行插件配置
 settings:
-  cost-per-minute: 10     # 每分钟扣除金额
+  cost-per-minute: 30     # 每分钟扣除金额
   charge-interval: 60      # 扣费间隔（秒）
-  console-logging: true     # 是否显示控制台日志
+  console-logging: false     # 是否显示控制台日志
   auto-save-interval: 300   # 自动保存数据间隔（秒）

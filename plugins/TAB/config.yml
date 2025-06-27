@@ -41,6 +41,8 @@ scoreboard-teams:
   anti-override: true
   # https://github.com/NEZNAMY/TAB/wiki/Feature-guide:-Sorting-players-in-tablist
   sorting-types:
+    - "PLACEHOLDER:%sunlight_afk_state%:no,yes"
+    - "GROUPS:admin,vip,slave,user,default"
     - "PLACEHOLDER_A_TO_Z:%player%"
   case-sensitive-sorting: true
   can-see-friendly-invisibles: false
@@ -209,11 +211,10 @@ assign-groups-by-permissions: false
 # if the option above is true, all groups are taken based on permissions and the one higher in this list is used as primary
 # Warning! This is not sorting list and has nothing to do with sorting players in tablist!
 primary-group-finding-list:
-  - Owner
-  - Admin
-  - Mod
-  - Helper
-  - default
+  - admin
+  - vip
+  - slave
+  - user
 
 # Refresh interval (in milliseconds) of:
 # - Permission checks in conditions / sorting

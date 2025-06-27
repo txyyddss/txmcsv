@@ -53,7 +53,8 @@ Creation:
     Mode: RANK
     # Sets permission prefix for the 'PERMISSION' mode.
     Permission_Prefix: sunlight.homes.amount.
-    Default_Value: 5
+    Default_Value: 3
     Values:
       admin: -1
-      premium: 3
+      vip: -1
+      slave: 6

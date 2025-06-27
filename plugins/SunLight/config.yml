@@ -86,7 +86,7 @@ Modules:
   tab: false
   scoreboard: false
   rtp: true
-  extras: true
+  extras: false
   back_location: true
   nerf_phantoms: true
   afk: true
