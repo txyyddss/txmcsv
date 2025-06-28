@@ -76,7 +76,7 @@ General:
   ConsoleName: Console
 Modules:
   bans: true
-  worlds: true
+  worlds: false
   spawns: true
   homes: true
   kits: true
