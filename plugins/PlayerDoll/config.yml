@@ -13,7 +13,7 @@ op-can-see-hidden-doll: true
 doll-permission:
 - yc.npc
 - yc.set
-- nocheatplus.check
+- nocheatplus.shortcut.bypass
 - grim.exempt
 doll-metadata:
 - ''

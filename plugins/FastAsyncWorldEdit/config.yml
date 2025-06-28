@@ -227,9 +227,9 @@ history:
   # Delete history on disk after a number of days
   delete-after-days: 7
   # Delete history in memory on logout (does not effect disk)
-  delete-on-logout: true
+  delete-on-logout: false
   # Delete history on disk on logout
-  delete-disk-on-logout: true
+  delete-disk-on-logout: false
   # If history should be enabled by default for plugins using WorldEdit:
   #  - It is faster to have disabled
   #  - It is faster to have disabled

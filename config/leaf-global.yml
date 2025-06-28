@@ -33,7 +33,6 @@ async:
     async-search-block: true
     async-search-entity: true
     queue-size: 0
-    threshold: 0
   # 异步保存玩家数据.
   async-playerdata-save:
     enabled: true
@@ -117,18 +116,17 @@ performance:
   reduce-chunk-source-updates:
     # 减少玩家跨区块移动时的区块源更新。
     enabled: true
-  preload-mob-spawning-position:
-    enabled: true
   optimized-powered-rails: true
+  optimise-random-tick: false
   # 是否优化玩家移动处理，跳过不必要的边缘检查并避免冗余的视距更新。
   optimize-player-movement: true
   # 是否只对主手和副手中的物品进行 tick / 更新，而不是整个物品栏中的所有物品。
   only-tick-items-in-hand: true
+  optimize-block-entities: true
   cache-biome:
-    enabled: false
-    mob-spawning: false
-    advancements: false
-  optimise-block-entities: true
+    enabled: true
+    mob-spawning: true
+    advancements: true
   # 更快的结构生成任务分段.
   faster-structure-gen-future-sequencing: true
   # 是否使用更快的随机生成器?
@@ -178,8 +176,6 @@ performance:
   check-survival-before-growth:
     # 在仙人掌生长前检查其是否能够存活。
     cactus-check-survival: true
-  # 生物更新现有 Brain Behavior 列表缓存的间隔.
-  entity-running-behavior-cache-update-interval: 5
 
 ###########
 #  FIXES  #
@@ -335,7 +331,7 @@ misc:
   # 切换到Linear前请备份服务器.
   region-format-settings:
     # 可用格式: MCA, LINEAR
-    region-format: LINEAR
+    region-format: MCA
     linear-compress-level: 1
     throw-on-unknown-extension-detected: false
     flush-interval-seconds: 5

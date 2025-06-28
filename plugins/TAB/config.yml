@@ -41,7 +41,7 @@ scoreboard-teams:
   anti-override: true
   # https://github.com/NEZNAMY/TAB/wiki/Feature-guide:-Sorting-players-in-tablist
   sorting-types:
-    - "PLACEHOLDER:%sunlight_afk_state%:no,yes"
+    - "PLACEHOLDER:%sunlight_afk_state%:<red>no</red>,<green>yes</green>"
     - "GROUPS:admin,vip,slave,user,default"
     - "PLACEHOLDER_A_TO_Z:%player%"
   case-sensitive-sorting: true
@@ -50,7 +50,7 @@ scoreboard-teams:
 
 # https://github.com/NEZNAMY/TAB/wiki/Feature-guide:-Playerlist-Objective
 playerlist-objective:
-  enabled: true
+  enabled: false
   value: "%ping%"
   fancy-value: "&7Ping: %ping%"
   title: "BE" # Only visible on Bedrock Edition

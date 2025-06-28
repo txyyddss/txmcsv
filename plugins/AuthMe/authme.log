@@ -1631,3 +1631,67 @@
 [06-27 20:04:58]: [INFO:FINE] §7§atxrog§7, §a-666§7.
 [06-27 20:04:58]: [INFO:FINE] -666 logged in 127.0.0.1
 [06-27 20:43:49]: [INFO] AuthMe 5.7.0-FORK-b53 is unloaded successfully!
+[06-28 14:23:58]: [INFO] SQLite Setup finished
+[06-28 14:23:58]: [INFO] Hooked into LuckPerms!
+[06-28 14:23:58]: [INFO] Hooked successfully into PlaceholderAPI
+[06-28 14:23:58]: [WARN] You are running an 1.13+ minecraft server, AdvancedShulkerFix won't enable.
+[06-28 14:23:58]: [INFO] 
+    ___         __  __    __  ___   
+   /   | __  __/ /_/ /_  /  |/  /__ 
+  / /| |/ / / / __/ __ \/ /|_/ / _ \
+ / ___ / /_/ / /_/ / / / /  / /  __/
+/_/  |_\__,_/\__/_/ /_/_/  /_/\___/ 
+                                    
+[06-28 14:23:58]: [INFO] AuthMeReReloaded is running on Paper
+[06-28 14:23:58]: [INFO] AuthMeReReloaded is enabled successfully!
+[06-28 14:23:58]: [INFO] GitHub: https://github.com/HaHaWTH/AuthMeReReloaded/
+[06-28 14:23:58]: [INFO] Checking for updates...
+[06-28 14:24:13]: [INFO] You are running the latest version.
+[06-28 14:25:55]: [INFO] SQLite Setup finished
+[06-28 14:25:55]: [INFO] Hooked into LuckPerms!
+[06-28 14:25:55]: [INFO] Hooked successfully into PlaceholderAPI
+[06-28 14:25:55]: [WARN] You are running an 1.13+ minecraft server, AdvancedShulkerFix won't enable.
+[06-28 14:25:55]: [INFO] 
+    ___         __  __    __  ___   
+   /   | __  __/ /_/ /_  /  |/  /__ 
+  / /| |/ / / / __/ __ \/ /|_/ / _ \
+ / ___ / /_/ / /_/ / / / /  / /  __/
+/_/  |_\__,_/\__/_/ /_/_/  /_/\___/ 
+                                    
+[06-28 14:25:55]: [INFO] AuthMeReReloaded is running on Paper
+[06-28 14:25:55]: [INFO] AuthMeReReloaded is enabled successfully!
+[06-28 14:25:55]: [INFO] GitHub: https://github.com/HaHaWTH/AuthMeReReloaded/
+[06-28 14:25:55]: [INFO] Checking for updates...
+[06-28 14:26:09]: [INFO] You are running the latest version.
+[06-28 14:26:43]: [INFO:FINE] The user txrog has 2 accounts:
+[06-28 14:26:43]: [INFO:FINE] §7§atxrog§7, -666.
+[06-28 14:26:43]: [INFO:FINE] txrog logged in 127.0.0.1
+[06-28 14:27:41]: [WARN] Player '-666' wasn't online during login process, aborted...
+[06-28 14:31:07]: [INFO] AuthMe 5.7.0-FORK-b53 is unloaded successfully!
+[06-28 14:32:02]: [INFO] SQLite Setup finished
+[06-28 14:32:02]: [INFO] Hooked into LuckPerms!
+[06-28 14:32:02]: [INFO] Hooked successfully into PlaceholderAPI
+[06-28 14:32:02]: [WARN] You are running an 1.13+ minecraft server, AdvancedShulkerFix won't enable.
+[06-28 14:32:02]: [INFO] 
+    ___         __  __    __  ___   
+   /   | __  __/ /_/ /_  /  |/  /__ 
+  / /| |/ / / / __/ __ \/ /|_/ / _ \
+ / ___ / /_/ / /_/ / / / /  / /  __/
+/_/  |_\__,_/\__/_/ /_/_/  /_/\___/ 
+                                    
+[06-28 14:32:02]: [INFO] AuthMeReReloaded is running on Paper
+[06-28 14:32:02]: [INFO] AuthMeReReloaded is enabled successfully!
+[06-28 14:32:02]: [INFO] GitHub: https://github.com/HaHaWTH/AuthMeReReloaded/
+[06-28 14:32:02]: [INFO] Checking for updates...
+[06-28 14:32:17]: [INFO] You are running the latest version.
+[06-28 14:32:29]: [INFO:FINE] The user txrog has 2 accounts:
+[06-28 14:32:29]: [INFO:FINE] §7§atxrog§7, -666.
+[06-28 14:32:29]: [INFO:FINE] txrog logged in 127.0.0.1
+[06-28 14:33:23]: [INFO:FINE] -aaa registered 127.0.0.1
+[06-28 14:33:23]: [INFO:FINE] The user -aaa has 3 accounts:
+[06-28 14:33:23]: [INFO:FINE] §7§atxrog§7, -666, §a-aaa§7.
+[06-28 14:33:23]: [INFO:FINE] -aaa logged in 127.0.0.1
+[06-28 14:37:32]: [INFO:FINE] -tx registered 127.0.0.1
+[06-28 14:37:32]: [INFO:FINE] The user -tx has 4 accounts:
+[06-28 14:37:32]: [INFO:FINE] §7§atxrog§7, -666, §a-aaa§7, §a-tx§7.
+[06-28 14:37:32]: [INFO:FINE] -tx logged in 127.0.0.1
