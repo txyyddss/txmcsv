@@ -1,0 +1,27 @@
+LiteralNodes:
+  add:
+    Enabled: false
+    Aliases: addfood
+    Cooldown: 0
+  set:
+    Enabled: false
+    Aliases: setfood
+    Cooldown: 0
+  restore:
+    Enabled: true
+    Aliases: feed
+    Cooldown: 0
+  remove:
+    Enabled: false
+    Aliases: removefood
+    Cooldown: 0
+RootNodes:
+  food level:
+    Enabled: true
+    Aliases: foodlevel
+    Name: Food Level
+    Childrens:
+      remove: remove
+      restore: restore
+      add: add
+      set: set

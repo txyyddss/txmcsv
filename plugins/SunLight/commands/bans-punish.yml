@@ -1,0 +1,33 @@
+LiteralNodes:
+  warn:
+    Enabled: true
+    Aliases: warn
+    Cooldown: 0
+  banip:
+    Enabled: true
+    Aliases: banip,ipban
+    Cooldown: 0
+  kick:
+    Enabled: true
+    Aliases: kick
+    Cooldown: 0
+  tempwarn:
+    Enabled: true
+    Aliases: tempwarn
+    Cooldown: 0
+  tempmute:
+    Enabled: true
+    Aliases: tempmute
+    Cooldown: 0
+  mute:
+    Enabled: true
+    Aliases: mute
+    Cooldown: 0
+  tempban:
+    Enabled: true
+    Aliases: tempban
+    Cooldown: 0
+  ban:
+    Enabled: true
+    Aliases: ban
+    Cooldown: 0

@@ -1,0 +1,13 @@
+LiteralNodes:
+  toggle:
+    Enabled: true
+    Aliases: afk
+    Cooldown: 0
+  'off':
+    Enabled: false
+    Aliases: afk-off
+    Cooldown: 0
+  'on':
+    Enabled: false
+    Aliases: afk-on
+    Cooldown: 0

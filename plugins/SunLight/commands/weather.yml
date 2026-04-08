@@ -1,0 +1,22 @@
+LiteralNodes:
+  storm:
+    Enabled: true
+    Aliases: storm
+    Cooldown: 0
+  clear:
+    Enabled: true
+    Aliases: clear
+    Cooldown: 0
+  thunderstorm:
+    Enabled: true
+    Aliases: thunderstorm
+    Cooldown: 0
+RootNodes:
+  weather:
+    Enabled: true
+    Aliases: weather
+    Name: Weather
+    Childrens:
+      clear: clear
+      storm: storm
+      thunderstorm: thunderstorm

@@ -1,0 +1,27 @@
+LiteralNodes:
+  add:
+    Enabled: false
+    Aliases: addhealth
+    Cooldown: 0
+  set:
+    Enabled: false
+    Aliases: sethealth
+    Cooldown: 0
+  restore:
+    Enabled: true
+    Aliases: heal
+    Cooldown: 0
+  remove:
+    Enabled: false
+    Aliases: removehealth
+    Cooldown: 0
+RootNodes:
+  health:
+    Enabled: true
+    Aliases: health,hp
+    Name: Health
+    Childrens:
+      remove: remove
+      restore: restore
+      add: add
+      set: set

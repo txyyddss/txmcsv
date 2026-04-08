@@ -1,0 +1,5 @@
+LiteralNodes:
+  back:
+    Enabled: true
+    Aliases: back
+    Cooldown: 0

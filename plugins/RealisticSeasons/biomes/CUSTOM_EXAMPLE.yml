@@ -6,7 +6,7 @@
 ## includes: realisticseasons:testbiome, otherplugin:rainforest, worldgenerator:coolbiome
 ## You could also use "includes: ALL" this will select all custom biomes. Much easier if you don't want to configure every single biome.
 ## Any additional custom biome file in the biomes folder will overwrite the effect of "includes: ALL" for the biomes specified.
-includes: ALL
+includes: NONE
 modify-plants: true
 freeze-in-winter: true
 temperature-difference: 0

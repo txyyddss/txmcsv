@@ -1,0 +1,50 @@
+Nametags:
+  # Sets player nametag update interval (in game ticks).
+  # [Asynchronous, Packet-Based]
+  # [1 second = 20 ticks]
+  # [Default is 100 ticks]
+  Update_Interval: 100
+  # Here you can create your own, custom player nametag formats.
+  # [*] Requires LuckPerms OR Vault with a compatible Permissions plugin for the feature to work properly.
+  # [*] You can NOT change the name of the player.
+  # [*] The game does NOT support RGB colors for tag names yet.
+  #
+  # [ SETTINGS DESCRIPTION ]
+  # ├── Priority:
+  # │     -> Sets format priority. When multiple formats are available, the one with the highest priority is used.
+  # ├── Ranks:
+  # │     -> List of ranks (permission groups) to which this format is available. Add '*' to allow all ranks.
+  # ├── Prefix + Suffix:
+  # │     -> Sets the text displayed before (Prefix) and after (Suffix) the player name of the tag.
+  # │     [>] Text Formations: https://nightexpressdev.com/nightcore/configuration/text-formation/
+  # │     [>] Placeholders Available:
+  # │         - %player_name% - Player name.
+  # │         - %player_display_name% - Player display (custom) name.
+  # │         - %player_prefix% - Player prefix.
+  # │         - %player_suffix% - Player suffix.
+  # │         - %player_world% - Player world.
+  # │         - PlaceholderAPI - https://wiki.placeholderapi.com/
+  # └── Color:
+  #       -> Color of the player name. List of available colors: https://minecraft.wiki/w/Formatting_codes#Color_codes
+  Groups:
+    default:
+      Priority: 1
+      Ranks:
+      - default
+      Prefix: <aqua>Member </aqua>
+      Suffix: <gray>Lv. </gray><aqua>%player_level%</aqua>
+      Color: white
+    admin:
+      Priority: 100
+      Ranks:
+      - admin
+      Prefix: <red>Admin </red>
+      Suffix: <gray>Lv. </gray><red>%player_level%</red>
+      Color: white
+    owner:
+      Priority: 10000
+      Ranks:
+      - owner
+      Prefix: <purple>Owner </purple>
+      Suffix: <gray>Lv. </gray><purple>%player_level%</purple>
+      Color: white

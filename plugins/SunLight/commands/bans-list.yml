@@ -1,0 +1,13 @@
+LiteralNodes:
+  banlist:
+    Enabled: true
+    Aliases: banlist
+    Cooldown: 0
+  warnlist:
+    Enabled: true
+    Aliases: warnlist
+    Cooldown: 0
+  mutelist:
+    Enabled: true
+    Aliases: mutelist
+    Cooldown: 0

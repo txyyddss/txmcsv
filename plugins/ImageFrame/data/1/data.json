@@ -1,5 +1,5 @@
 {
-  "type": "com.loohp.imageframe.objectholders.URLStaticImageMap",
+  "type": "imageframe:url_static",
   "index": 1,
   "name": "corn",
   "url": "https://corn-hub.ru/wp-content/uploads/2022/09/cornhub-logo.png",

@@ -1,0 +1,5 @@
+LiteralNodes:
+  rtp:
+    Enabled: true
+    Aliases: rtp,wild
+    Cooldown: 0

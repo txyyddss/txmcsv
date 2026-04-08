@@ -1,0 +1,22 @@
+LiteralNodes:
+  toggle:
+    Enabled: true
+    Aliases: fly,togglefly
+    Cooldown: 0
+  'off':
+    Enabled: true
+    Aliases: fly-off
+    Cooldown: 0
+  'on':
+    Enabled: true
+    Aliases: fly-on
+    Cooldown: 0
+RootNodes:
+  fly:
+    Enabled: false
+    Aliases: flymode
+    Name: Fly
+    Childrens:
+      'off': 'off'
+      'on': 'on'
+      toggle: toggle

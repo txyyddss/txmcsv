@@ -1,112 +1,21 @@
-MTN:
-  change-interval: 600
-  texts:
-  - "&cM"
-  - "&3M&cT"
-  - "&3MT "
-  - "&3MT &cN"
-  - "&3MT N&cE"
-  - "&3MT NE&cT"
-  - "&3MT NET&cW"
-  - "&3MT NETW&cO"
-  - "&3MT NETWO&cR"
-  - "&3MT NETWOR&cK"
-  - "&3MT NETWORK"
-  - "&3MT NETWORK"
-  - "&aMT NETWORK"
-  - "&bMT NETWORK"
-  - "&cMT NETWORK"
-  - "&dMT NETWORK"
-  - "&eMT NETWORK"
-  - "&3MT NETWOR_"
-  - "&3MT NETWO_"
-  - "&3MT NETW_"
-  - "&3MT NET_"
-  - "&3MT NE_"
-  - "&3MTN"
-  - "&3MTN"
-  - "&aMTN"
-  - "&bMTN"
-  - "&cMTN"
-  - "&dMTN"
-  - "&eMTN"
-  - "&3MT_"
-  - "&3M_"
-ServerName:
+mtn_title:
   change-interval: 300
   texts:
-  - '&c&lServerName'
-  - '&c&n&lServerName'
-  - '&b&lServerName'
-  - '&b&l&nServerName'
-  - '&e&lServerName'
-  - '&e&n&lServerName'
-web:
+    - "<gradient:#6EC6FF:#9BE7FF><bold>MT Network</bold></gradient>"
+    - "<gradient:#9BE7FF:#6EC6FF><bold>MT Network</bold></gradient>"
+
+mtn_tip:
+  change-interval: 2500
+  texts:
+    - "&7Java + Bedrock 生存互通"
+    - "&7圈地工具: &6金锹"
+    - "&7商店系统: &aQuickShop"
+    - "&7难度: &cHard"
+
+mtn_bar:
   change-interval: 200
   texts:
-  - '&ewww.domain.com'
-  - '&ewww.domain.com'
-  - '&ewww.domain.com'
-  - '&ewww.domain.com'
-  - '&ewww.domain.com'
-  - '&ewww.domain.com'
-  - '&6w&eww.domain.com'
-  - '&ew&6w&ew.domain.com'
-  - '&eww&6w&e.domain.com'
-  - '&ewww&6.&edomain.com'
-  - '&ewww.&6d&eomain.com'
-  - '&ewww.d&6o&emain.com'
-  - '&ewww.do&6m&eain.com'
-  - '&ewww.dom&6a&ein.com'
-  - '&ewww.doma&6i&en.com'
-  - '&ewww.domai&6n&e.com'
-  - '&ewww.domain&6.&ecom'
-  - '&ewww.domain.&6c&eom'
-  - '&ewww.domain.c&6o&em'
-  - '&ewww.domain.co&6m'
-  - '&ewww.domain.com'
-  - '&ewww.domain.com'
-  - '&ewww.domain.com'
-  - '&ewww.domain.com'
-  - '&ewww.domain.com'
-  - '&ewww.domain.com'
-vote:
-  change-interval: 1000
-  texts:
-  - '&avote.domain.com'
-  - '&a&nvote.domain.com'
-  - '&5vote.domain.com'
-  - '&5&nvote.domain.com'
-Welcome:
-  change-interval: 400
-  texts:
-  - '&7&lW_'
-  - '&7&lW_'
-  - '&7&lWe_'
-  - '&7&lWel_'
-  - '&7&lWelc_'
-  - '&7&lWelco_'
-  - '&7&lWelcom_'
-  - '&7&lWelcome_'
-  - '&7&lWelcome_'
-  - '&7&lWelcome_'
-  - '&7&lWelcome_'
-  - '&7&lWelcom_'
-  - '&7&lWelco_'
-  - '&7&lWelc_'
-  - '&7&lWel_'
-  - '&7&lWe_'
-  - '&7&lW_'
-  - '&7&lW_'
-time:
-  change-interval: 3000
-  texts:
-    - '&7Time &b%time%'
-    - '&7Date &b%date%'
-barcolors:
-  change-interval: 1000
-  texts:
-    - RED
-    - BLUE
-    - GREEN
-    - YELLOW
+    - "&8&m----------------"
+    - "&3&m----------------"
+    - "&b&m----------------"
+    - "&f&m----------------"

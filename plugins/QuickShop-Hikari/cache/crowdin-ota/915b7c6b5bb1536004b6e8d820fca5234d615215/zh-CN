@@ -5,7 +5,7 @@ disabled-in-this-world: <red>QuickShop 在这个世界中被禁用
 how-much-to-trade-for: <green>请在聊天中输入交易<yellow>{1}个{0}<green>所需的价格。
 client-language-changed: <green>QuickShop检测到您的客户端语言已更改，我们正在为您使用 {0} 语言。
 shops-backingup: 从数据库创建商店备份...
-_comment: 嗨 翻译者！如果您正在Github上或直接编辑源文件的方式进行翻译，请您前往：https://crowdin.com/project/quickshop-hikari
+_comment: 嗨 翻译者！如果您正在Github上或直接编辑源文件的方式进行翻译，请您前往：https://crowdin.com/project/qs-hikari
 unlimited-shop-owner-changed: <yellow>这个系统商店的店主已更改为 {0}。
 bad-command-usage-detailed: '<red>错误的命令参数! 尝试以下参数: <gray>{0}'
 thats-not-a-number: <red>输入的内容不是数字
@@ -52,7 +52,7 @@ quick-fill:
   header: '<yellow>您有多个名称为“<green>{0}</green>”的商店，选择其中一个继续：'
   entry-normal: ' <yellow>- <red>{0} <aqua>{1} <light_purple>'
   entry-cooperation: ' <yellow>- <red>[所有者] <aqua>{0} <light_purple>{1}'
-3rd-plugin-build-check-failed-admin: '<gray>(管理员信息) <light_purple>{0} <dark_gray>拒绝了权限检查。如果这不是预期结果，请尝试添加 <light_purple>{1} <gray> 到监听器黑名单中。配置指南：https://ghost-chu.github.io/QuickShop-Hikari-Documents/docs/modules/shops/protection-checker#resolve-the-plugin-conflicting'
+3rd-plugin-build-check-failed-admin: '<gray>(管理员信息) <light_purple>{0} <dark_gray>拒绝了权限检查。如果这不是预期结果，请尝试添加 <light_purple>{1} <gray> 到监听器黑名单中。配置指南：https://quickshop-community.github.io/QuickShop-Hikari-Documents/docs/modules/shops/protection-checker#resolve-the-plugin-conflicting'
 average-price-nearby: '<green>附近的平均价格： <yellow>{0}'
 inventory-check-global-alert: "<red>[背包检查] <gray>警告！找到QuickShop悬浮物 <gold>{2}</gold> 在背包中 <aqua>{0}</aqua> <dark_gray>[{1}]</dark_gray>，这不应该发生，这通常意味着有人恶意利用漏洞来复制悬浮物。"
 digits-reach-the-limit: <red>您的价格中的小数点后位数超过上限。
@@ -83,6 +83,7 @@ you-cant-afford-a-new-shop: <red>你需要 {0} 才能创建一个商店。
 success-created-shop: <green>已成功地创建商店。
 shop-creation-cancelled: <red>商店创建已取消。
 shop-owner-self-trade: <yellow>你正在和自己的商店进行交易，所以你的金钱可能并不会变化。
+shop-owner-self-trade-denied: <red>您不能与自己的商店进行交易。
 purchase-out-of-space: <red>这个商店空间已不足，请联系商店所有者或助手清空商店
 reloading-status:
   success: <green>重载完成，没有任何错误。
@@ -120,6 +121,7 @@ menu:
   item-holochat-data-too-large: <red>[错误] 物品NBT太长，无法显示
   stock: '<green>库存:<yellow>{0}'
   this-shop-is-buying: <green>这个商店现在正在<light_purple>收购<green>物品。
+  this-shop-is-frozen: <green>这个商店现在处于 <red>冻结模式<green>。
   successfully-sold: '<green>出售成功：'
   total-value-of-chest: '<green>共计商店数: <yellow>{0}'
 currency-not-exists: <red>无法找到您想要设置的货币，也许是拼写错误或该货币在这个世界不可用。
@@ -168,7 +170,7 @@ permission-denied-3rd-party: <red>没有权限：第三方插件 [{0}]。
 you-dont-have-that-many-items: <red>你只有 {0} 个 {1}。
 complete: <green>完成！
 translate-not-completed-yet-url: '{0} 的翻译完成度为 {1}，您想帮助我们改进翻译吗？来这里吧： {2}'
-success-removed-shop: <green>商店已删除！
+success-removed-shop: <green>商店删除成功。
 currency-set: <green>商店货币已被成功设置为 {0}。
 shop-purged-start: <green>商店清理已开始，请检查控制台获取详细信息。
 economy-transaction-failed: <red>抱歉，在处理您的交易时发生了内部错误。 交易已被取消，任何交易操作都已被回滚。如果出现这种情况，请联系服务器管理员。
@@ -184,6 +186,7 @@ player-profile-format: <aqua>{0}</aqua><gold>(<yellow>{1}</yellow>)
 shop-type:
   selling: 出售
   buying: 收购
+  frozen: 已冻结
 language:
   qa-issues: '<yellow>质量问题：<aqua>{0}%'
   code: '<yellow>代码： <gold>{0}'
@@ -253,7 +256,6 @@ translate-not-completed-yet-click: '{0} 的翻译完成度为 {1}，您想帮助
 taxaccount-invalid: <red>目标帐户无效，请输入有效的玩家名称或uuid(带有破折号)。
 player-bought-from-your-store: <red>{0} 从你的商店里购买了 {1} {2}，你因此赚得了 {3}
 reached-maximum-can-create: <red>你创建的商店数量达到上限：{0}/{1}
-reached-maximum-create-limit: <red>您已达到可以创建商店的最大数量
 translation-version: '支持版本: Hikari'
 no-double-chests: <red>你没有权限创建大箱子商店。
 price-too-cheap: <red>价格必须大于<yellow>${0}
@@ -297,7 +299,7 @@ unknown-owner: 未知所有者
 restricted-prices: '<red>物品 {0} 的价格限制为 {1}（包含）到{2}（包含）'
 nearby-shop-this-way: <green>商店距离你 {0} 格远
 owner-bypass-check: <yellow>已绕过所有检查并完成交易（因为你是商店所有者）！
-april-rick-and-roll-easter-egg: "<green>---------------------------------------------------</green>\n<rainbow><bold>限时活动 -- QuickShop-Hikari</bold></rainbow>\n<yellow>获取你的 <gold>高级</gold> 粒子效果并在所有安装 QuickShop 的服务器上使用!</yellow>\n<aqua>点击下面的链接观看领取教程视频!</aqua>\n<hover:show_text:'<gold>点击以在浏览器中打开.</gold><click:open_url:'https://www.bilibili.com/video/BV1GJ411x7h7'>https://www.bilibili.com/video/BV1GJ411x7h7</click></hover>\n<green>---------------------------------------------------</green>"
+april-rick-and-roll-easter-egg: "<hover:show_text:'在浏览器中点击打开获取限时奖励!'><click:open_url:'https://www.bilibili.com/video/BV1GJ411x7h7'><green>点击此处可以获取由 QuickShop 开发者提供的限时奖励!</green></click></hover>"
 signs:
   item-right: ''
   out-of-space: 空间不足
@@ -317,7 +319,12 @@ signs:
   status-available: <green>
   item-left: ''
 negative-amount: <red>你输入的数字是负数。
-display-turn-on: <green>成功开启商店悬浮物显示
+display-turn-on: <green>成功启用商店悬浮物显示
+display-turn-off: <green>成功关闭商店悬浮物显示
+display-turn-on-owned: <green>成功启用所有拥有商店的悬浮物显示
+display-turn-off-owned: <green>成功禁用所有拥有商店的悬浮物显示
+display-turn-on-all: <green>成功启用服务器所有商店的悬浮物显示
+display-turn-off-all: <green>成功禁用服务器所有商店的悬浮物显示
 shop-staff-deleted: <green>成功移除 {0} 的商店助手权限
 nearby-shop-header: '<green>匹配附近<aqua>{0}<green>的商店：'
 backup-failed: 无法备份数据库，请查看控制台以获取详细信息。
@@ -350,7 +357,7 @@ controlpanel:
   alwayscounting-hover: <yellow>点击以切换是否总是计算容器物品。
   alwayscounting: '<green>总是计算容器物品: {0} <yellow>[<bold><light_purple>更改</light_purple>]'
   setowner: '<green>所有者: <aqua>{0} <yellow>[<bold><light_purple>修改</light_purple></bold>]'
-  freeze: '<yellow>冻结模式： <aqua>{0} <yellow>[<bold><light_purple>切换</light_purple></bold>]'
+  freeze: '<green>冻结模式： <aqua>{0} <yellow>[<bold><light_purple>切换</light_purple></bold>]'
   price: '<green>价格: <aqua>{0} <yellow>[<bold><light_purple>修改</light_purple></bold>]'
   currency-hover: <yellow>点击以设置或移除商店使用的交易货币
   lock: '<yellow>商店锁: <aqua>{0} <yellow>[<bold><light_purple>切换</light_purple></bold>]'
@@ -365,6 +372,8 @@ controlpanel:
   remove-hover: <yellow>点击来删除商店
   toggledisplay-hover: <yellow>切换商店是否显示悬浮物
   refill: '<green>填充: 重新填充商品 <yellow>[<bold><light_purple>确认</light_purple></bold>]'
+  inventory: '<green>库存： </green><yellow>[<bold><light_purple>预览商店库存</light_purple></bold>]'
+  inventory-hover: <yellow>打开商店库存
   freeze-hover: <yellow>切换商店冻结状态。
   lock-hover: <yellow>启用/禁用商店锁
   item-hover: <yellow>点击以更改商店物品
@@ -436,6 +445,7 @@ command:
     sell: <yellow>切换到 <aqua>出售 <yellow>模式
     fetchmessage: <yellow>获取未读的商店交易日志
     staff: <yellow>管理商店助手
+    staffall: <yellow>管理您所有商店的助手
     clean: <yellow>移除所有已加载的脱销的商店
     refill: <yellow>添加一定数量的物品到商店
     help: <yellow>显示QuickShop帮助
@@ -449,10 +459,12 @@ command:
     taxaccount: <yellow>设置商店使用的税务账户
     name: <yellow>将商店命名为特定名称
     toggledisplay: <yellow>切换商店是否显示悬浮物
+    toggledisplayall: <yellow>切换所有拥有或服务器的所有商店悬浮物
     permission: <yellow>商店权限管理
     lookup: <yellow>管理物品引用查找表
     database: <yellow>查看和维护 QuickShop 数据库
     benefit: <yellow>设置商店所有者和其他玩家之间的利益分配
+    browse: <yellow>浏览此服务器上存在的商店
     tag: <yellow>添加、 删除或查询商店标签
     suggestprice: <yellow>根据其他商店的情况, 为商店提出建议价格
     history: <yellow>查看商店的历史交易记录
@@ -501,7 +513,6 @@ no-permission: <red>你没有权限这样去操作。
 chest-was-removed: <red>当前箱子已被移除。
 you-cant-afford-to-buy: <red>余额不足！购买该商店物品需要 {0}，但是你只有 {1}。
 shops-removed-in-world: <yellow>已删除世界 <aqua>{1}<yellow> 中的 <aqua>{0}<yellow> 个商店。
-display-turn-off: <green>成功关闭商店悬浮物显示
 client-language-unsupported: <yellow>QuickShop不支持您的客户端语言，我们现在退回到 {0} 语言。
 language-version: '63'
 not-managed-shop: <red>你不是该商店的所有者或助手
@@ -642,10 +653,10 @@ database:
   status-good: <green>良好
   status-bad: <yellow>需要维护
   isolated: '<yellow>孤立的数据：'
-  isolated-data-ids: '<yellow><aqua>└</aqua> 数据记录项: <gold>{0}'
-  isolated-shop-ids: '<yellow><aqua>└</aqua> 商店索引项: <gold>{0}'
-  isolated-logs: '<yellow><aqua>└</aqua> 日志项: <gold>{0}'
-  isolated-external-caches: '<yellow><aqua>└</aqua> 缓存项: <gold>{0}'
+  isolated-data-ids: '<aqua>└<yellow> 数据记录项: <gold>{0}'
+  isolated-shop-ids: '<aqua>└<yellow> 商店索引: <gold>{0}'
+  isolated-logs: '<aqua>└<yellow> 日志: <gold>{0}'
+  isolated-external-caches: '<aqua>└<yellow> 缓存项: <gold>{0}'
   last-purge-time: <yellow>最后清理时间 {0}
   report-time: <yellow>上次扫描时间 {0}
   auto-scan-alert: <yellow>此服务器上的 QuickShop 数据库需要维护。找到 <gold>{0}</gold> 个孤立的数据等待清理。
@@ -656,7 +667,7 @@ database:
   trim-exception: <red>数据库清理失败，数据库清理过程中出现异常，请检查服务器控制台。
   generated-at: '<yellow>生成于： <gold>{0}'
   purge-date: <red>您必须给出一个日期
-  purge-warning: <yellow>此操作将清除存储在数据库中的历史记录，包括商店创建/更改/删除、购买、交易和系统日志。 删除这些数据可以释放磁盘空间，但所有历史数据都会丢失，依赖计量的其它插件将停止工作。 要继续执行此操作，请执行指令以 `/quickshop database purgelogs <before-days> 确认`
+  purge-warning: <yellow>此操作将清除存储在数据库中的历史记录，包括商店创建/更改/删除、购买、交易和系统日志。 删除这些数据可以释放磁盘空间，但所有历史数据都会丢失，依赖计量的其它插件将停止工作。 要继续执行此操作，请执行指令以 `/quickshop database purgelogs <before-days> confirm`
   purge-task-created: <green>任务已创建! 数据库在控制台静默清除历史记录
   purge-done-with-line: <green>清除任务已完成，总共 <gold>{0}</gold> 行已从数据库中清除。
   purge-done-with-error: <red>清除任务失败，请检查服务器控制台获取详细信息。
@@ -684,7 +695,7 @@ transfer-ask: |-
 transferall-ask: |-
   <gold>输入 <red>/quickshop transferall accept</red> 来接受。</gold><gold>输入 <red>/quickshop transferall deny</red> 来拒绝.</gold><newline><gold>请求将在 <red>{0}</red> 秒后过期。
 transfer-single-ask: |-
-  <gold>输入 <red>/quickshop transfer accept</red> 来接受。</gold><gold>输入 <red>/quickshop transfer deny</red> 来拒绝.</gold><newline><gold>请求将在 <red>{0}</red> 秒后过期。
+  <gold>输入 <red>/quickshop transferownership accept</red> 来接受。</gold><gold>输入 <red>/quickshop transferownership deny</red> 来拒绝.</gold><newline><gold>请求将在 <red>{0}</red> 秒后过期。
 transfer-accepted-fromside: <green>玩家 <aqua>{0}</aqua> 接受了您的商店转移请求。
 transfer-accepted-toside: <green>您接受了 <aqua>{0}</aqua> 的商店转移请求。
 transfer-rejected-fromside: <red>玩家 <aqua>{0}</aqua> 拒绝了您的商店转移请求。
@@ -744,6 +755,13 @@ addon:
   lands:
     world-not-enabled: <red>你不能在这个世界中交易或创建
     creation-denied: <red>您没有在该Land区域创建商店的权限
+  quests:
+    create-quest-required: <red>你必须完成任务 <aqua>{0}</aqua> 才能创建商店
+    sell-quest-required: <red>你必须完成任务 <aqua>{0}</aqua> 才能向商店出售物品
+    buy-quest-required: <red>你必须完成任务 <aqua>{0}</aqua> 才能从商店购买物品
+  dominion:
+    creation-denied: <red>你没有权限在这个支配区创建商店。
+    trade-denied: <red>商店必须位于自治领内才能与其进行交易。
   plotsquared:
     no-plot-whitelist-creation: <red>你不能在地皮外创建商店
     no-plot-whitelist-trade: <red>你不能在地皮之外与商店交易
@@ -755,6 +773,9 @@ addon:
   superiorskyblock:
     owner-create-only: <red>只有岛屿所有者才能在这里创建商店
     owner-member-create-only: <red>只有岛屿所有者或岛屿成员才能在这里创建商店
+  fabledskyblock:
+    owner-create-only: <red>只有岛主才能在那里开店。
+    owner-member-create-only: <red>只有岛屿主人或成员才能在这里创建商店。
   worldguard:
     creation-flag-test-failed: <red>您没有在该WorldGuard区域创建商店的权限
     trade-flag-test-failed: <red>您没有在该WorldGuard区域与商店交易的权限。
@@ -1477,7 +1498,7 @@ addon:
         start-migrate: "<yellow>正在迁移商店日志（详情请检查控制台），请稍候...</yellow>"
         extract-history-files: "<gray>请等待解压并追加历史日志..."
         filter-history-files: "<gray>请等待我们筛选历史日志..."
-        filtered-history-files: "<gray>从队列中筛选出 {0} 行"
+        filtered-history-files: "<gray>从队列中筛选出 {0} 行。"
         import-entry: "<gray> - 转换 <aqua>{0}</aqua> <dark_gray>({1}/{2})</dark_gray>..."
 compat:
   advancedchests:
@@ -1526,11 +1547,179 @@ sign-type-invalid: "<red><yellow>{0}</yellow>不是有效的牌子类型。"
 delete-controlpanel-button-confirm: "<red>您真的想要删除这家商店吗？再次点击 <bold>[删除商店]</bold> 按钮并在 {0} 秒内确认。"
 cannot-suggest-price: "<red>对不起，暂时没有更多的玩家与您交易相同的物品，没有足够的数据来生成建议的价格。"
 price-suggest: "<green>基于来自 <aqua>{0}</aqua> 商店的数据 最高价格的商店价格为 <light_purple>{1}</light_purple>价格最低的商店价格为 <light_purple>{2}</light_purple>平均价格为 <light_purple>{3}</light_purple>，中位价格为 <light_purple>{4}</light_purple> <newline><yellow>建议您将价格设置在 <gold>{5}</gold>。</yellow>"
+price-suggest-multi: "<green>建议使用 {0} </green>{1}"
 suggest-wait: "<green>请稍候... 计算推荐价格。"
+gui:
+  trade:
+    title: "<dark_aqua>商店</dark_aqua>"
+    info-stock:
+      display: "<yellow>库存</yellow>"
+      lore:
+        - "<gray>可用： <white>{0}</white></gray>"
+    info-price:
+      display: "<gold>价格信息</gold>"
+      lore:
+        - "<gray>价格： <white>{0}</white></gray>"
+        - "<gray>每次交易物品数量: <white>{1} 个物品</white></gray>"
+    info-seller:
+      display: "<aqua>卖家信息</aqua>"
+      lore:
+        - "<gray>所有者: <white>{0}</white></gray>"
+    custom-amount:
+      display: "<bold><blue>自定义交易</blue></bold>"
+    quantity-button:
+      lore:
+        - "<yellow>{0}</yellow>"
+  keeper:
+    title: "<dark_aqua>商店管理</dark_aqua>"
+    change-price:
+      display: "<bold><green>更改价格</green></bold>"
+      lore:
+        - "<gray>当前价格：<white>{0}</white></gray>"
+        - ""
+        - "<yellow>点击更改价格</yellow>"
+    mode-toggle:
+      display: "<bold><green>更改模式</green></bold>"
+      lore:
+        - "<gray>当前模式： <white>{0}</white></gray>"
+        - "<gray>点击切换到： <white>{1}</white></gray>"
+    inventory:
+      display: "<bold><green>预览库存</green></bold>"
+      lore:
+        - "<gray>点击查看您的</gray>"
+        - "<gray>商店库存</gray>"
+    staff:
+      display: "<bold><aqua>商店助手</aqua></bold>"
+      lore:
+        - "<gray>点击管理您的</gray>"
+        - "<gray>商店助手列表</gray>"
+    history:
+      display: "<bold><light_purple>交易历史</light_purple></bold>"
+      lore:
+        - "<gray>点击查看您的</gray>"
+        - "<gray>商店交易历史</gray>"
+    remove:
+      display: "<bold><red>删除商店</red></bold>"
+      lore:
+        - "<gray>点击删除您的商店</gray>"
+        - "<dark_gray>您也可以破坏牌子/商店</dark_gray>"
+  staff:
+    title: "<dark_aqua>助手管理</dark_aqua>"
+    search:
+      display: "<yellow>搜索： {0}</yellow>"
+      lore:
+        - "<gray>左键点击搜索玩家</gray>"
+        - "<gray>右键单击清除搜索</gray>"
+    add-staff:
+      display: "<green>添加商店助手</green>"
+      lore:
+        - "<gray>点击添加新的</gray>"
+        - "<gray>商店助手到您的商店</gray>"
+    back:
+      display: "<white>返回商店</white>"
+  browse:
+    title: "<dark_aqua>商店浏览</dark_aqua>"
+    shop-item:
+      lore:
+        - "<green>所有者: </green>{0}<yellow></yellow>"
+        - "<green>位置： </green>{1}<yellow></yellow>"
+        - "<green>类型： </green>{2}<yellow></yellow>"
+        - "<green>价格:</green><yellow>{3}</yellow>"
+        - "<green>库存： </green><yellow>{4}</yellow>"
+    grouped-item:
+      display: "<yellow>{0}</yellow>"
+      lore-title:
+        - "<gray>商店: <white>{0}</white></gray>"
+      lore-selling:
+        - "<green>▼ 出售 ({0} 商店)</green>"
+        - "<gray> 价格: <white>{1} - {2}</white></gray>"
+        - "<gray> 平均值： <yellow>{3}</yellow></gray>"
+        - "<gray> 中间价： <gold>{4}</gold></gray>"
+        - "<gray> 库存： <aqua>{5}</aqua></gray>"
+      lore-buying:
+        - "<#FFA500>▲ 收购 ({0} 商店)</#FFA500>"
+        - "<gray> 价格: <white>{1} - {2}</white></gray>"
+        - "<gray> 平均值： <yellow>{3}</yellow></gray>"
+        - "<gray> 中间价： <gold>{4}</gold></gray>"
+      lore-footer:
+        - "<yellow>点击查看所有商店</yellow>"
+    search:
+      display: "<yellow>搜索： {0}</yellow>"
+      lore:
+        - "<gray>左键点击搜索玩家</gray>"
+        - "<gray>右键单击清除搜索</gray>"
+    sort:
+      display: "<green>排序： {0}</green>"
+      lore:
+        - "<gray>点击切换</gray>"
+      price-asc: "价格 ↑"
+      price-desc: "价格 ↓"
+      stock: "库存"
+      name: "名称"
+    filter:
+      display: "<aqua>筛选: {0}</aqua>"
+      lore:
+        - "<gray>点击切换</gray>"
+      all: "全部"
+      selling: "出售"
+      buying: "收购"
+    stock-filter:
+      display: "<gold>仅显示有货: {0}</gold>"
+      lore:
+        - "<gray>点击切换</gray>"
+    back:
+      display: "<white>返回市场</white>"
+  shared:
+    previous-page:
+      display: "<white><< 上一页</white>"
+    next-page:
+      display: "<white>下一页 >></white>"
+    page-info:
+      display: "<yellow>页 {0}/{1}</yellow>"
+    back:
+      display: "<white>返回</white>"
+    close:
+      display: "<red>关闭</red>"
+  messages:
+    #Keeper menu messages
+    keeper:
+      #Shown when player clicks "Change Price" button
+      enter-price: "<yellow>在聊天中输入新价格</yellow>"
+      #Shown when player clicks "Delete Shop" button
+      confirm-delete: "<yellow>输入 '<white>confirm</white>' 以删除你的商店. 输入其他内容取消.</yellow>"
+    #Staff menu messages
+    staff:
+      #Shown when player left-clicks "Search" button (right-click clears instantly)
+      enter-search: "<yellow>输入玩家名搜索。输入“<white>clear</white>”清空，或右键搜索按钮。</yellow>"
+      #Shown when player left-clicks a staff member to remove them
+      #{0} = staff member name
+      confirm-remove: "<yellow>输入“<white>confirm</white>”以移除商店助手 <red>{0}</red>。输入其他内容取消。</yellow>"
+      #Shown when player right-clicks a staff member to transfer ownership
+      #{0} = staff member name
+      confirm-transfer: "<yellow>输入“<white>confirm</white>”将商店所有权转让给 <green>{0}</green>。输入其他内容取消。</yellow>"
+    #Trade menu messages
+    trade:
+      #Shown when player clicks "Custom Order" button (buying)
+      #{0} = item amount per purchase
+      enter-buy: "<yellow>输入您想要购买的数量。必须是 <white>{0}</white> 的倍数。输入 <white>0</white> 即可取消。</yellow>"
+      #Shown when player clicks "Custom Order" button (selling)
+      #{0} = item amount per purchase
+      enter-sell: "<yellow>输入您想要出售的数量。必须是 <white>{0}</white> 的倍数。输入 <white>0</white> 即可取消。</yellow>"
+      #Shown when player enters invalid quantity (not multiple of item amount)
+      #{0} = item amount per purchase
+      invalid-multiple: "<red>数量无效！必须是 <white>{0}</white> 的倍数。输入 <white>0</white> 即可取消。</red>"
+      #Shown when player enters quantity exceeding stock
+      invalid-stock: "<red>数量无效！库存不足。输入 <white>0</white> 即可取消。</red>"
+    #Browse menu messages
+    browse:
+      #Shown when player left-clicks "Search" button (right-click clears instantly)
+      enter-search: "<yellow>输入物品名称搜索。输入“<white>clear</white>”清空，或右键搜索按钮。</yellow>"
 history:
   shop:
     gui-title: "查看交易记录"
     header-icon-multiple-shop: "<white>查询结果 {0} 商店</white>"
+    header-icon-shop-name: '<yellow>商店 {0}</yellow>'
+    header-icon-shop-empty-name: '<yellow>商店在世界 ''{0}'' at x: {1},: {2}, z: {3}</yellow>'
     header-icon-description:
       - "<white>类型： <yellow>{0}</yellow></white>"
       - "<white>所有者: <yellow>{1}</yellow></white>"
@@ -1545,35 +1734,45 @@ history:
       - "<white>税： <yellow>{4}</yellow></white>"
     log-icon-description-with-store-name:
       - "<white>商店： <yellow>{0}</yellow></white>"
-      - "<white>交易者: <yellow>{1}</yellow></white>"
+      - "<white>买家： <yellow>{1}</yellow></white>"
       - "<white>物品： <yellow>{2} <aqua>x{3}</aqua></yellow></white>"
-      - "<white>余额： <yellow>{4}</yellow></white>"
+      - "<white>数量: <yellow>{4}</yellow></white>"
+      - "<white>总计： <yellow>{5}</yellow></white>"
       - "<white>税： <yellow>{5}</yellow></white>"
+      - "<white>实收： <yellow>{6}</yellow></white>"
     query-icon: "<gray>请稍候，正在查询...</gray>"
-    previous-page: "<white><< 前一页</white>"
-    next-page: "<white>下一页 >></white>"
     current-page: "<white>页面 {0}</white>"
-    summary-icon-title: "<green>商店摘要"
-    recent-purchases: "<white>最近 <aqua>{0}</aqua> 购买： <yellow>{1}</yellow></white>"
-    recent-purchase-balance: "<white>最近 <aqua>{0}</aqua> 营业额： <yellow>{1}</yellow></white>"
-    total-purchases: "<white>交易总数： <yellow>{0}</yellow></white>"
-    total-balances: "<white>总营业额： <yellow>{0}</yellow></white>"
+    multi-shops-icon-title: "<yellow>多个商店</yellow>"
+    summary-icon-title: "<yellow>商店摘要</yellow>"
+    summary-icon-description:
+      - "<white>交易者总数： <yellow>{0}</yellow></white>"
+      - "<white>最近 <aqua>{2}</aqua> 购买： <yellow>{3}</yellow></white>"
+      - "<white>最近 <aqua>{4}</aqua> 购买： <yellow>{5}</yellow></white>"
+      - "<white>最近 <aqua>{6}</aqua> 购买： <yellow>{7}</yellow></white>"
+      - "<white>最近 <aqua>{8}</aqua> 购买： <yellow>{9}</yellow></white>"
+      - "<white>交易总数： <yellow>{10}</yellow></white>"
+      - "<white>最近 <aqua>{11}</aqua> 营业额： <yellow>{12}</yellow></white>"
+      - "<white>最近 <aqua>{13}</aqua> 营业额： <yellow>{14}</yellow></white>"
+      - "<white>最近 <aqua>{15}</aqua> 营业额： <yellow>{16}</yellow></white>"
+      - "<white>最近 <aqua>{17}</aqua> 营业额： <yellow>{18}</yellow></white>"
+      - "<white>总营业额： <yellow>{19}</yellow></white>"
     total-unique-purchasers: "<white>交易者总数： <yellow>{0}</yellow></white>"
+    top-n-valuable-customers-entry:
+      - "<white>- <yellow>{0}</yellow> <aqua>{1}</aqua></white>"
     top-n-valuable-customers-title: "<gold>前 {0} 个最有价值客户</gold>"
-    top-n-valuable-customers-entry: "<white>- <yellow>{0}</yellow> <aqua>{1}</aqua></white>"
     no-result: "<white>没有结果</white>"
 about:
   text:
     - "<b><aqua>QuickShop <yellow>{0}</yellow></aqua></b>"
     - "<aqua>版本 <yellow>>></yellow> <green>{1}</green></aqua>"
     - "<aqua>构建 <yellow>>></yellow> <green>{2}</green></aqua>"
-    - "<aqua>开发者 <yellow>>></yellow> <color:#218bff><hover:show_text:'<yellow>点击查看贡献者'><click:open_url:'https://github.com/Ghost-chu/QuickShop-Hikari/graphs/contributors'>[在 GitHub 上查看贡献者]</click></hover></color></aqua>"
+    - "<aqua>开发者 <yellow>>></yellow> <color:#218bff><hover:show_text:'<yellow>点击查看贡献者'><click:open_url:'https://github.com/Quickshop-Community/QuickShop-Hikari/graphs/contributors'>[在 GitHub 上查看贡献者]</click></hover></color></aqua>"
     - "<aqua>本地化成员 <gold>({4})</gold>: <yellow>>></yellow> <green>{5}</green></aqua>"
-    - "  <yellow>+ <color:#43A047><hover:show_text:'<yellow>点击打开 Crowdin 翻译页面'><click:open_url:'https://crowdin.com/project/quickshop-hikari'>[在 Crowdin 上帮助翻译]</click></hover></color></yellow>"
+    - "  <yellow>+ <color:#43A047><hover:show_text:'<yellow>点击打开 Crowdin 翻译页面'><click:open_url:'https://crowdin.com/project/qs-hikari'>[在 Crowdin 上帮助翻译]</click></hover></color></yellow>"
     - "<aqua>捐赠密钥 <yellow>>></yellow> <green>{6}</green></aqua>"
-    - "<gold>由社区提供支持</gold> <red>用 ❤</red>"
   valid-donation-key: "<color:#00AFF1>绑定到 <color:#F9C23C>{0}</color></color>"
   invalid-donation-key: "<gray>无效的捐赠密钥</gray>"
   kofi-thanks: "<gold>特别感谢那些在 Ko-Fi 上支持 QuickShop 的人 :)</gold>"
 history-command-leave-blank: "参数为空时查询所指向的商店"
+browse-command-leave-blank: "参数为空时查询所指向的商店"
 shop-information-not-shown-due-an-internal-error: "<red>发生内部错误。商店信息面板可能显示不完整，请与服务器管理员联系。"

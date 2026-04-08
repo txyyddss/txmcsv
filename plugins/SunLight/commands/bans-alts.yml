@@ -1,0 +1,5 @@
+LiteralNodes:
+  alts:
+    Enabled: true
+    Aliases: alts
+    Cooldown: 0

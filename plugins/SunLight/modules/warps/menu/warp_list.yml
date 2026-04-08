@@ -13,6 +13,9 @@ Settings:
     # Sets whether PlaceholderAPI placeholders will be applied on all items from the 'Content' section of this GUI.
     # [*] Disable if you don't use any PlaceholderAPI placeholders on your items to improve GUI performance.
     Enabled: false
+  MenuType: minecraft:generic_9x6
+  AutoRefresh:
+    Interval: 0
 Warp:
   Server:
     Name: '<lyellow><b>%warp_name%</b></lyellow> <gray>(ID: <white>%warp_id%</white>)</gray>'
@@ -90,11 +93,12 @@ Warp:
 #       - player: menu open shops
 # ==================================================
 Content:
-  Priority: 0
-  Item:
-    Material: BLACK_STAINED_GLASS_PANE
-  Slots: 0,1,2,3,4,5,6,7,8,9,14,15,17,18,23,24,26,27,32,33,35,36,37,38,39,40,41,42,43,44
-  Type: default
+  filler:
+    Priority: 0
+    Item:
+      Material: BLACK_STAINED_GLASS_PANE
+    Slots: 0,1,2,3,4,5,6,7,8,9,14,15,17,18,23,24,26,27,32,33,35,36,37,38,39,40,41,42,43,44
+    Type: default
   next_page_:
     Priority: 10
     Item:
@@ -164,3 +168,82 @@ Content:
       Display_Name: <lyellow><b>Server Warps</b></lyellow>
     Slots: '34'
     Type: server_warps
+Buttons:
+  default:
+    States:
+      default:
+        Icon:
+          Material: minecraft:black_stained_glass_pane
+          Lore: []
+    Slots: 0,1,2,3,4,5,6,7,8,9,14,15,17,18,23,24,26,27,32,33,35,36,37,38,39,40,41,42,43,44
+  next_page:
+    States:
+      default:
+        Icon:
+          Material: minecraft:player_head
+          Display_Name: <lgray>Next Page →</lgray>
+          Lore: []
+          SkinURL: f32ca66056b72863e98f7f32bd7d94c7a0d796af691c9ac3a9136331352288f9
+        Actions:
+          Base: next_page
+        Condition: has_next_page
+    Slots: '23'
+  previous_page:
+    States:
+      default:
+        Icon:
+          Material: minecraft:player_head
+          Display_Name: <lgray>← Previous Page</lgray>
+          Lore: []
+          SkinURL: 86971dd881dbaf4fd6bcaa93614493c612f869641ed59d1c9363a3666a5fa6
+        Actions:
+          Base: previous_page
+        Condition: has_previous_page
+    Slots: '18'
+  sorting_mode:
+    States:
+      default:
+        Icon:
+          Material: minecraft:player_head
+          Display_Name: <lyellow><b>Display Order</b></lyellow>
+          Lore:
+          - '<lyellow>▪ <lgray>Current: </lgray>%sorting_mode%</lyellow>'
+          - ''
+          - <lgray><lyellow>[▶]</lyellow> Click to <lyellow>toggle</lyellow>.</lgray>
+          SkinURL: 5cce7359a25de6da56308e6a369c6372e2c30906c62647040da137a32addc9
+    Slots: '16'
+  own_toggle:
+    States:
+      default:
+        Icon:
+          Material: minecraft:oak_sign
+          Display_Name: <lyellow><b>Own Only</b></lyellow>
+          Lore:
+          - '<lyellow>▪ <lgray>Enabled: </lgray>%own_only%</lyellow>'
+          - ''
+          - <lgray><lyellow>[▶]</lyellow> Click to <lyellow>toggle</lyellow>.</lgray>
+    Slots: '25'
+  player_warps:
+    States:
+      default:
+        Icon:
+          Material: minecraft:player_head
+          Display_Name: <lyellow><b>Player Warps</b></lyellow>
+          Lore:
+          - <lgray>Browse warps created by our players!</lgray>
+          - ''
+          - <lgray><lyellow>[▶]</lyellow> Click to <lyellow>navigate</lyellow>.</lgray>
+          SkinURL: 100191e52d207a0ef4972ff8393e4ed1277b1b872e72e7830aff09e938f337ec
+    Slots: '34'
+  server_warps:
+    States:
+      default:
+        Icon:
+          Material: minecraft:player_head
+          Display_Name: <lyellow><b>Server Warps</b></lyellow>
+          Lore:
+          - <lgray>Browse our official, server warps!</lgray>
+          - ''
+          - <lgray><lyellow>[▶]</lyellow> Click to <lyellow>navigate</lyellow>.</lgray>
+          SkinURL: efbf8fdcac5b1419ea1954f2b6fcff65bfdb6511b601bf4408d9bbb311de7648
+    Slots: '34'

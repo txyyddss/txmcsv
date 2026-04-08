@@ -52,10 +52,10 @@ General:
     PowerLevel:
         Skill_Mastery:
             Enabled: true
-    AprilFoolsEvent: true
-    MOTD_Enabled: true
+    AprilFoolsEvent: false
+    MOTD_Enabled: false
     EventBroadcasts: true
-    EventInfoOnPlayerJoin: true
+    EventInfoOnPlayerJoin: false
     AdminNotifications: true
     # Send a message to the player when his profile was successfully loaded
     Show_Profile_Loaded: false
@@ -709,4 +709,3 @@ Particles:
 Sounds:
     # This setting controls the master volume. 1.0 is Max,  0 would be off
     MasterVolume: 1.0
-

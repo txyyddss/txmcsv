@@ -15,6 +15,9 @@
 
 Messages-To-Hide-Filter:
 - 'coreprotect'
+- 'bluemap'
+- 'No new version available'
+- '65535'
 
 
 #Chat messages with color and format codes support.

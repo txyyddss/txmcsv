@@ -1,0 +1,5 @@
+LiteralNodes:
+  speed:
+    Enabled: true
+    Aliases: speed,walkspeed
+    Cooldown: 0

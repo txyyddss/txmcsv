@@ -30,7 +30,7 @@ Warmup:
     EffectY: 1.25
 Teleport:
   # The following teleport types will be handled by the Warmups module.
-  # Available types: [HOME,WARP,SPAWN,PTP,BACK,DEATH_BACK,OTHER]
+  # Available types: [HOME, PLAYER_WARP, WARP, SPAWN, PTP, RTP, PREVIOUS_LOCATION, DEATH_LOCATION, OTHER]
   # [*] Forced teleports (spawn on join, by admin commands, etc.) won't be handled by Warmups module.
   HandledTypes:
   - WARP

@@ -52,11 +52,13 @@ messages:
 ############
 
 # Settings for databases skin storage (recommended for large networks with a lot of skins)
-# [!] Make sure you have the correct permissions set for your MySQL user. [!]
+# Set database.type to FILE, MYSQL or POSTGRESQL.
+# [!] Make sure you have the correct permissions set for your database user. [!]
 # [!] Make sure to fill in database.connectionOptions if you're using certificate / ssl authentication. [!]
 # [!] If you're not using ssl, change sslMode=trust to sslMode=disable [!]
 database:
-    enabled: false
+    # Database backend selection. Valid values: FILE, MYSQL, POSTGRESQL.
+    type: FILE
     host: localhost
     port: 3306
     database: db
@@ -207,7 +209,8 @@ gui:
 # Enable or disable default skins
 # applyForPremium: false will only put a skin on skinless/steve players.
 # If there is more than one, the plugin will choose a random one.
-# [?] Supports custom & url.png skins, read SkinFile Generator below.
+# You can use "<random>" in the defaultSkins list to select a random SkinsRestorer recommended skin.
+# [!] url.png skins will be cached and therefore will not be updated
 storage:
     defaultSkins:
         enabled: false
@@ -284,6 +287,8 @@ login:
 api:
     # Here you can fill in your APIKey for lower MineSkin request times.
     # Key can be requested from https://mineskin.org/apikey
+    # MineSkin offers 10% off your first three months (all plans except Lite) with the coupon SKINSRESTORER10.
+    # All plans other than Lite include cape generation, higher limits, and other exclusive features.
     # [?] A key is not required, but recommended.
     mineskinAPIKey: key
     # SkinsRestorer uses MineSkin to generate usable skins from links.
@@ -296,6 +301,15 @@ api:
     # It will prevent loading of recommended skins from storage and downloading new ones.
     # Be aware that commands like /skin random will not work without this feature.
     fetchRecommendedSkins: true
+    # Window size in seconds for batching Mojang API requests to avoid rate limits.
+    # Requests are batched in windows of this duration or up to 10 requests, whichever comes first.
+    # Default is 1 second.
+    mojangBatchWindowSeconds: 1
+    # Enable Ely.by as a skin data provider.
+    # When enabled, SkinsRestorer will use Ely.by to fetch player skins instead of Mojang.
+    # This is useful for servers that support non-premium players using Ely.by accounts.
+    # Disabled by default. Enable only if your server uses Ely.by.
+    elyByEnabled: false
 
 ###############
 # Danger Zone #
@@ -324,13 +338,18 @@ advanced:
     # SkinsRestorer will only be able to access already downloaded skins.
     # This is useful for servers that are not connected to the internet or have a firewall blocking connections.
     noConnections: false
+    # <!! Warning !!>
+    # When enabled SkinsRestorer will use the new player head objects inside chat messages.
+    # While these new objects look great, they are not supported by all server software and plugins, especially older servers.
+    # This option will be on by default in the future when backwards compatibility is no longer a concern.
+    playerHeadChatObjects: false
 
 # Updater Settings
 # <!! Warning !!>
 # Using outdated version void's support, compatibility & stability.
 
 # To block all types of automatic updates (which can risk keeping an exploit):
-# Create a file called 'noupdate.txt' in the plugin directory (./plugins/SkinsRestorer/ )
+# Create a file called 'noautoupdate.txt' in the plugin directory (./plugins/SkinsRestorer/ )
 
 ################
 # DEV's corner #

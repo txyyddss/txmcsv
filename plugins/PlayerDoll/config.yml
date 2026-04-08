@@ -1,3 +1,4 @@
+server-mod: ''
 plugin-language: default
 check-update: true
 doll-identifier: '-'
@@ -6,26 +7,20 @@ preserved-doll-name:
 adjustable-max-player: true
 server-max-doll-spawn: -1
 broadcast-doll-death: true
-broadcast-doll-join: true
-broadcast-doll-disconnect: true
+broadcast-doll-join: false
+broadcast-doll-disconnect: false
 display-doll-when-ping: false
 op-can-see-hidden-doll: true
 doll-permission:
-- yc.npc
-- yc.set
-- nocheatplus.shortcut.bypass
-- grim.exempt
+- ''
 doll-metadata:
 - ''
 chat-when-join-interval: 10
 chat-when-join:
-- /upa set %name% npc
-- /register %name%114 %name%114
-- /login %name%114
+- ''
 convert-player: false
 broadcast-convert-shutdown: true
 force-proxy-ip: false
 proxy-ip: 127.0.0.1
 proxy-port: 25565
 auto-join-delay: 1
-server-mod: ''

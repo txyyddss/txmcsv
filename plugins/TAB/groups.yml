@@ -1,6 +1,6 @@
 _DEFAULT_:
-  tabprefix: '%UserPrefix_prefix%|'
-  tagprefix: '%luckperms-prefix%'
-  customtabname: '%player%'
-  tabsuffix: '%luckperms-suffix%'
-  tagsuffix: '%luckperms-suffix%'
+  tabprefix: "%luckperms-prefix%"
+  tagprefix: "%luckperms-prefix%"
+  customtabname: "%player%"
+  tabsuffix: "%luckperms-suffix%"
+  tagsuffix: "%luckperms-suffix%"

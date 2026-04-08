@@ -1,0 +1,37 @@
+LiteralNodes:
+  edit:
+    Enabled: true
+    Aliases: editwarp
+    Cooldown: 0
+  create:
+    Enabled: true
+    Aliases: setwarp
+    Cooldown: 0
+  update:
+    Enabled: false
+    Aliases: updatewarp
+    Cooldown: 0
+  menu:
+    Enabled: true
+    Aliases: warplist
+    Cooldown: 0
+  delete:
+    Enabled: true
+    Aliases: delwarp
+    Cooldown: 0
+  jump:
+    Enabled: true
+    Aliases: warp
+    Cooldown: 0
+RootNodes:
+  warps:
+    Enabled: true
+    Aliases: warps
+    Name: Warps
+    Childrens:
+      edit: edit
+      create: create
+      update: update
+      menu: menu
+      delete: delete
+      jump: jump

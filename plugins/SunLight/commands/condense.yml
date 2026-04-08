@@ -1,0 +1,5 @@
+LiteralNodes:
+  condense:
+    Enabled: true
+    Aliases: condense
+    Cooldown: 0

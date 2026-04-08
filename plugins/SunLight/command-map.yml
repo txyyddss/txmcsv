@@ -216,31 +216,6 @@ CommandMap:
       Aliases: alts
       Executor: alts
       Fallback: false
-    createworld:
-      Enabled: true
-      Aliases: createworld
-      Executor: world_create
-      Fallback: false
-    deleteworld:
-      Enabled: true
-      Aliases: deleteworld
-      Executor: world_delete
-      Fallback: false
-    editworld:
-      Enabled: true
-      Aliases: editworld
-      Executor: world_editor
-      Fallback: false
-    loadworld:
-      Enabled: true
-      Aliases: loadworld
-      Executor: world_load
-      Fallback: false
-    unloadworld:
-      Enabled: true
-      Aliases: unloadworld
-      Executor: world_unload
-      Fallback: false
     setspawn:
       Enabled: true
       Aliases: setspawn
@@ -431,30 +406,10 @@ CommandMap:
       Aliases: tptoggle
       Executor: ptp_toggle
       Fallback: false
-    scoreboard:
-      Enabled: true
-      Aliases: scoreboard,board,sb
-      Executor: scoreboard_toggle
-      Fallback: false
     rtp:
       Enabled: true
       Aliases: rtp,wild
       Executor: rtp
-      Fallback: false
-    chairs:
-      Enabled: true
-      Aliases: chairs
-      Executor: chairs_toggle
-      Fallback: false
-    sit:
-      Enabled: true
-      Aliases: sit
-      Executor: chairs_sit
-      Fallback: false
-    chestsort:
-      Enabled: true
-      Aliases: chestsort
-      Executor: chestsort_toggle
       Fallback: false
     back:
       Enabled: true
@@ -772,32 +727,6 @@ CommandMap:
       Executor: weather_thunder
       Fallback: false
   Groups:
-    worldmanager:
-      Enabled: true
-      Aliases: worldmanager
-      Description: World commands.
-      Permission: sunlight.worlds.command.worldmanager
-      Commands:
-        world_create:
-          Aliases: create
-          Executor: world_create
-          Fallback: false
-        world_delete:
-          Aliases: delete
-          Executor: world_delete
-          Fallback: false
-        world_editor:
-          Aliases: editor
-          Executor: world_editor
-          Fallback: false
-        world_load:
-          Aliases: load
-          Executor: world_load
-          Fallback: false
-        world_unload:
-          Aliases: unload
-          Executor: world_unload
-          Fallback: false
     homes:
       Enabled: true
       Aliases: homes

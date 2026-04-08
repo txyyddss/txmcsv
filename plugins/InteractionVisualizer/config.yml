@@ -97,6 +97,7 @@ Blocks:
         # Regex name match
         List:
           - "Ominous Banner|block\\.minecraft\\.ominous_banner"
+    CheckingPeriod: 20
   Barrel:
     Enabled: true
   Beacon:

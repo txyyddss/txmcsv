@@ -1,0 +1,5 @@
+LiteralNodes:
+  clearchat:
+    Enabled: true
+    Aliases: clearchat
+    Cooldown: 0

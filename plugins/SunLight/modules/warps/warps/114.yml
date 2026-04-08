@@ -13,5 +13,10 @@ Visit:
     Money: 0.0
 Icon:
   Material: COMPASS
-  Item_Flags:
-  - HIDE_ADDITIONAL_TOOLTIP
+  Hide_Components: true
+Menu:
+  Page: 1
+  Slots: ''
+Command:
+  Enabled: false
+  Label: '114'

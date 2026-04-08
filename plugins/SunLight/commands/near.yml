@@ -1,0 +1,5 @@
+LiteralNodes:
+  near:
+    Enabled: true
+    Aliases: near
+    Cooldown: 0

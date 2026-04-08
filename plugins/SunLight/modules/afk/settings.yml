@@ -1,11 +1,8 @@
 WakeUp:
-  # Sets max. amount of player's activity points to leave AFK mode.
-  # You can configure how much points every activity produces below.
+  # Sets the activity threshold that a player must reach to lose the AFK mode.
   Threshold: 3
-  # Sets the time interval during which activity points are accumulated.
-  # If player got enough activity points (see 'Threshold' value) during that time, they will leave AFK mode.
-  # Otherwise activity points will reset back to zero and player will stay in AFK mode.
-  # Example: By default player have to do 3 interactions in 5 seconds to leave AFK mode.
+  # The duration (in seconds) a player has to meet the activity threshold to leave AFK mode.
+  # If the player does not meet the threshold within this time, the timer and activity points reset, and they remain AFK until the next cycle.
   Timeout: 5
   ActivityPoints:
     # Sets how much activity points are produced by player movement.
@@ -16,14 +13,18 @@ WakeUp:
     Command: 0
     # Sets how much activity points are produced by player interactions with items, blocks or entities.
     Interaction: 1
-  # List of commands to execute when player leaves AFK mode.
-  # Use '%player_name%' for player name.
-  # PlaceholderAPI placeholders are supported here.
+  # The following commands will be dispatched right before player leave AFK mode.
+  # [*] Placeholders: '%player_name%', PlaceholderAPI
   Commands: []
+  # Sets how much activity points produced by certain player actions.
+  Activity-Points:
+    MOVEMENT: 1
+    CHAT: 5
+    COMMAND: 3
+    INTERACT: 1
 AFK:
-  # Sets auto AFK mode cooldown.
-  # This will prevent players from being moved into afk mode back soon after they leave it.
-  # This setting does NOT affect manual afk transition using commands.
+  # The cooldown period (in seconds) after a player leaves AFK mode.
+  # During this time, the player will be immune to being marked as inactive, even if they produce no activity.
   Cooldown: 60
   Placeholder:
     # Custom placeholder text for afk players.
@@ -33,10 +34,10 @@ AFK:
     # Custom placeholder text for non-afk players.
     # Used by %sunlight_afk_mode% and %sunlight_afk_since% placeholders.
     Out: ''
-  # Here you can setup auto-afk times (in seconds) based on permissions or permission groups.
-  # When player stays inactive at the same place, their idle time increased by 1.
-  # When idle time reaches suitable value (that is > 0) from the list below, player will be moved to AFK mode.
-  # Use '-1' to make players never be moved into AFK mode for idleness.
+  # Here you can set the inactivity time (in seconds) after which a player will be placed into AFK mode.
+  # You can set different times for different ranks or permissions (read comments).
+  # If multiple times are available, the greatest (or negative) one will be used.
+  # Use '-1' to make players immune to the auto-AFK mode.
   Idle_Time:
     # Available values: RANK, PERMISSION
     # ==================== RANK MODE ====================
@@ -62,10 +63,10 @@ AFK:
     Values:
       gold: 900
       vip: 600
-  # Here you can setup afk kick times based on permissions or permission groups.
-  # When player stays in AFK, their idle time is also increased by 1 every second.
-  # When idle time reaches suitable value (that is > 0) from the list below, player will be kicked from the server.
-  # Use '-1' to make players never be kicked for being AFK.
+  # Here you can set the total inactivity time (in seconds) after which a player will be kicked from the server.
+  # [*] IMPORTANT: This value sets the TOTAL time (Time before AFK + Time after AFK), not just the time starting from when the player entered AFK mode.
+  # If multiple times are available, the greatest (or negative) one will be used.
+  # Use '-1' to make players immune from being kicked due to AFK.
   Kick_Time:
     # Available values: RANK, PERMISSION
     # ==================== RANK MODE ====================
@@ -92,13 +93,18 @@ AFK:
       vip: 1500
       gold: 1800
       admin: -1
-  # Message displayed to player on disconnect window when kicked for being AFK long enough.
-  # Use '%time%' placeholder for a formatted kick time.
+  # Kick message for players kicked for being AFK long enough.
+  # [*] Placeholders: '%time%', PlaceholderAPI
   Kick_Message:
   - '<lred>You have been kicked for being AFK too long: <lorange>%time%</lorange></lred>'
   - ''
   - <lgreen><u>You can join back now.</u></lgreen>
-  # List of commands to execute when player enters AFK mode.
-  # Use '%player_name%' for player name.
-  # PlaceholderAPI placeholders are supported here.
+  # The following commands will be dispatched right before player enter AFK mode.
+  # [*] Placeholders: '%player_name%', PlaceholderAPI
   Commands: []
+  Status-Bar:
+    # Controls whether AFK status bar is enabled for AFK players.
+    Enabled: true
+    # Set AFK status bar message for AFK players.
+    # [*] Placeholders: '%time%', PlaceholderAPI
+    Text: <dark_gray>[<orange>AFK</orange>]</dark_gray> <gray>You're being AFK for </gray><orange>%time%</orange>

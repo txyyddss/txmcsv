@@ -193,7 +193,7 @@ shop:
   - remove
   
   # The cost to make a shop.
-  cost: 50
+  cost: 100
   
   # Should QS refund the player when their shops are deleted/removed/broken?
   refund: true
@@ -266,7 +266,7 @@ shop:
   display-protocol: protocollib
   
   # Allow QuickShop to automatically despawn displays when no players are in range of the shop.
-  display-auto-despawn: true
+  display-auto-despawn: false
   
   # The range at which displays will despawn.
   display-despawn-range: 40

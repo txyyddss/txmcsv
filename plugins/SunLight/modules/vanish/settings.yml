@@ -1,0 +1,10 @@
+BarIndicator:
+  # Sets whether vanish boss bar indicator should be used.
+  Enabled: true
+  Vanished:
+    # Sets vanish indicator bar title.
+    Title: <white>You're vanished!</white>
+    # Sets vanish indicator bar color.
+    Color: GREEN
+    # Sets vanish indicator bar style.
+    Style: SEGMENTED_10

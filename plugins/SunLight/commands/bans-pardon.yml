@@ -1,0 +1,17 @@
+LiteralNodes:
+  unban:
+    Enabled: true
+    Aliases: unban
+    Cooldown: 0
+  unwarn:
+    Enabled: true
+    Aliases: unwarn
+    Cooldown: 0
+  unmute:
+    Enabled: true
+    Aliases: unmute
+    Cooldown: 0
+  unbanip:
+    Enabled: true
+    Aliases: unbanip
+    Cooldown: 0

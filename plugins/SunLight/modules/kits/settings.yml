@@ -5,3 +5,6 @@ GUI:
   # Sets whether or not kits with permission requirement enabled should be hidden from
   # players that don't have permission to those kits.
   Hide_No_Permission: false
+Global:
+  Data-Save-Interval: 60
+  Kits-Save-Interval: 60

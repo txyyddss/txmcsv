@@ -12,7 +12,7 @@
 # > [Slots] : Int Array | Item slots, starts from 0. Split with commas.
 #     Slots: '0,4,9,10'
 # > [Type] : String | Defines item click action.
-#     [*] Available types: ['close', 'decline', 'accept']
+#     [*] Available types: ['close', 'user_skin', 'decline', 'accept']
 # > [Click_Commands] : Section | Executes commands on click with PlaceholderAPI support.
 #     [*] Works only if [Type] is not set (null).
 #     [*] Available click types: [LEFT, RIGHT, SHIFT_LEFT, SHIFT_RIGHT, DROP_KEY, SWAP_KEY, DRAG_N_DROP]

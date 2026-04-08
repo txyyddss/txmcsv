@@ -1,0 +1,39 @@
+# Interval (in seconds) between messages.
+Interval: 120
+# Whether messages should go in random order. Otherwise the same as defined in the config.
+RandomOrder: true
+# Player ranks (permission group names) that are allowed to see this announcer messages.
+Ranks:
+- '*'
+# Announcer messages.
+# Placeholders Available:
+# %player_name% - Player name.
+# %player_display_name% - Player display (custom) name.
+# %player_prefix% - Player prefix.
+# %player_suffix% - Player suffix.
+# PlaceholderAPI - https://wiki.placeholderapi.com/
+Texts:
+  discord:
+  - ' '
+  - <blue><b>Join Discord Server!</b></blue>
+  - <dark_gray><b>|</b></dark_gray> <gray>Stay up to date with all <blue>announcements</blue>, </gray>
+  - <dark_gray><b>|</b></dark_gray> <gray><blue>giveaways</blue>, <blue>events</blue> and much more!</gray>
+  - ' '
+  - <blue>➥ <click:open_url:"https://YOUR_DISCORD_LINK/">Click to join!</click></blue>
+  - ' '
+  vote:
+  - ' '
+  - <green><b>Vote for <ServerName></b></green>
+  - <dark_gray><b>|</b></dark_gray> <gray>Don't forget to <green>vote</green> for our</gray>
+  - <dark_gray><b>|</b></dark_gray> <gray>server daily for <green>free rewards</green>.</gray>
+  - ' '
+  - <green>➥ <click:open_url:"https://YOUR_VOTE_LINK/">Click to vote!</click></green>
+  - ' '
+  store:
+  - ' '
+  - <orange><b><ServerName> Server Store</b></orange>
+  - <dark_gray><b>|</b></dark_gray> <gray>Obtain <orange>crate keys</orange> for an opportunity to</gray>
+  - <dark_gray><b>|</b></dark_gray> <gray>acquire <orange>exciting rewards</orange> within the game.</gray>
+  - ' '
+  - <orange>➥ <click:open_url:"https://YOUR_STORE_LINK/">Click for store!</click></orange>
+  - ' '

@@ -8,7 +8,7 @@ General:
   # Must be a valid reason name from the 'Reasons' section.
   # If invalid reason provided, a reason with the 'NoReason' text field from the lang config will be used.
   Default_Reason: default
-  # Add here punishment reasons you would like to use in all punishment commands.
+  # Define here punishment reasons to use in the punishment commands.
   Reasons:
     toxic:
       Message: Toxic behavior
@@ -187,3 +187,114 @@ Database:
     # This option may have different behavior depends on the plugin.
     # By default it's days of inactivity for the plugin users.
     For_Period: 60
+Data:
+  # Sets the prefix for the database table.
+  # [Case #1] Use different prefixes on different servers to isolate data from one another.
+  # [Case #2] Use the same prefix across multiple servers to synchronize data between them.
+  Table-Prefix: sunlight_bans
+  # Sets how often (in seconds) changes to punishment data will be written to the database.
+  # This applies, for example, when the punishment status is changed through the GUI.
+  Save-Interval: 10
+Priority:
+  # Sets the priority for punishment operations executed through the console.
+  # This allows console to kick, ban, mute and warn players whose rank priority is under the console's one.
+  Console: 10000
+  # Sets the priority for punishment operations executed by players based on their rank (aka permission group).
+  # This allows players to kick, ban, mute and warn other players with smaller rank priority.
+  # The greatest value is always used.
+  # [*] Requires LuckPerms for the best experience. If LuckPerms is not installed, this feature will not work properly for offline players.
+  Ranks:
+    moderator: 50
+    owner: 999
+    admin: 100
+Time:
+  # Here you can specify custom aliases (right side only) for time units used in punishment commands. Split with comma.
+  Unit-Aliases:
+    seconds: sec,s
+    minutes: min
+    hours: hour,h
+    days: day,d
+    weeks: week,w
+    months: mon
+    years: year,y
+  Duration-Limits:
+    # Here you can set the maximum allowed time limit for each type of punishment, based on the rank of the player issuing the punishment.
+    # If a player belongs to multiple ranks, the highest available limit will be selected for them.
+    # - Limit Format: [AMOUNT] [TIME UNIT], for example: 4 DAYS
+    # - Available Time Units: [SECONDS, MINUTES, HOURS, DAYS, WEEKS, MONTHS, YEARS]
+    # - Available Punishment Types: [BAN, MUTE, WARN]
+    # [*] To remove the limit for a specific punishment type, use -1 without a time unit.
+    # [*] To remove all limits for a specific group, completely delete that group's section from the file
+    # [*] To bypass all limits, give 'sunlight.bans.bypass.duration.limit' permission.
+    # [*] Requires Vault with a compatible permissions plugin OR LuckPerms to work.
+    Ranks:
+      moderator:
+        MUTE: 1 WEEKS
+        BAN: 2 MONTHS
+        WARN: 3 MONTHS
+      helper:
+        MUTE: 1 DAYS
+        BAN: 2 WEEKS
+        WARN: 3 WEEKS
+    # Controls whether duration limit settings above should apply to pardon commands (/unban, /unmute, /unwarn).
+    # This will prevent players to /unban, /unmute or /unwarn other players if other player's remaining punishment time is greater than the one available by the limit settings.
+    Include-For-Pardon: true
+Security:
+  # List of player names/IPs/UUIDs that are immune to all punishments no matter what.
+  Immunity-List:
+  - 127.0.0.1
+  - add_your_names_or_uuids_or_ips
+  - 0.0.0.0
+Disconnect-Screen:
+  # Text to display in disconnect window for kicked players.
+  Kick:
+  - <red><b>YOU HAVE BEEN KICKED</b></red>
+  - ''
+  - <white>"%punishment_reason%"</white>
+  # Text to display in disconnect window for permanently banned players.
+  Permanent-Ban:
+  - <sprite:"items":"item/barrier"><red><b> YOU ARE PERMANENTLY BANNED </b></red><sprite:"items":"item/barrier">
+  - ''
+  - '<white>You <gray>(<yellow>%punishment_user%</yellow>)</gray> have been permanently banned <yellow>%punishment_date_created%</yellow> with the following reason: <soft_red>"%punishment_reason%"</soft_red>.</white>'
+  - ''
+  - '<white>If you believe this happened by mistake, you can appeal the ban here: <green>< INSERT YOUR URL ></green></white>'
+  # Text to display in disconnect window for temporary banned players.
+  Temp-Ban:
+  - <sprite:"items":"item/barrier"><red><b> YOU ARE TEMPORARY BANNED </b></red><sprite:"items":"item/barrier">
+  - ''
+  - '<white>You <gray>(<yellow>%punishment_user%</yellow>)</gray> have been temporary banned <yellow>%punishment_date_created%</yellow> with the following reason: <soft_red>"%punishment_reason%"</soft_red>.</white>'
+  - ''
+  - <white>You will be unbanned <gold>%punishment_date_expired%</gold><gray> (in %punishment_expires_in%)</gray></white>
+  - ''
+  - '<white>If you believe this happened by mistake, you can appeal the ban here: <green>< INSERT YOUR URL ></green></white>'
+  # Text to display in disconnect window for players with banned IPs.
+  IP-Ban:
+  - <sprite:"items":"item/barrier"><red><b> YOUR IP ADDRESS IS BANNED </b></red><sprite:"items":"item/barrier">
+  - ''
+  - '<white>Your IP address <gray>(<yellow>%punishment_user%</yellow>)</gray> has been banned <yellow>%punishment_date_created%</yellow> with the following reason: <soft_red>"%punishment_reason%"</soft_red>.</white>'
+  - ''
+  - '<white>If you believe this happened by mistake, you can appeal the ban here: <green>< INSERT YOUR URL ></green></white>'
+AltDetector:
+  # Controls whether Alt Detector feature is enabled.
+  Enabled: true
+Mute:
+  Block-Commands:
+    # Controls whether muted players will be restricted from using certain commands.
+    Enabled: true
+    # Commands to block for muted players (without the '/' slash).
+    List:
+    - broadcast
+    - me
+Warn:
+  # Sets the warn limit for a player.
+  # When this limit is reached, all active warnings are automatically reset.
+  # This setting is required for the 'Commands-For-Active-Warns' setting to function correctly.
+  # [*] Set to '-1' to disable.
+  Max-Amount-To-Reset: 5
+  # Runs the listed commands from the console when a player reaches a certain number of warns.
+  # [*] Placeholders: '%player_name%', 'Punishment (https://nightexpressdev.com/)'
+  Commands-For-Active-Warns:
+    '3':
+    - smite %player_name%
+    '5':
+    - kick %player_name%

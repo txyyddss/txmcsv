@@ -1,0 +1,128 @@
+Broadcast:
+  # Text Formations: https://nightexpressdev.com/nightcore/configuration/text-formation/
+  Format:
+  - ''
+  - <yellow><b>BROADCAST:</b></yellow>
+  - ''
+  - <gray>%message%</gray>
+  - ''
+Disposal:
+  Title: <black>Disposal</black>
+  InventorySize: 36
+Invulnerability:
+  # Controls whether the Invulnerability feature is available to use.
+  # [*] Note: The Invulnerability feature uses vanilla 'invulnerable' NBT tag. Ensure that no other plugins depends on that tag to avoid possible conflicts/issues.
+  Enabled: true
+  # List of worlds where the Invulnerability is disabled.
+  # [*] Note: It will reset player's 'invulnerable' NBT tag to 'false' when they are in specified worlds.
+  Disabled-In-Worlds:
+  - other_world
+  - world_name
+  # Controls whether players with Invulnerability can damage other players.
+  Allow-Damage-Players: false
+  # Controls whether players with Invulnerability can damage mobs.
+  Allow-Damage-Mobs: true
+  # Controls whether players with Invulnerability will keep their food level.
+  Lock-Food-Level: true
+  # Controls whether players with Invulnerability will keep their oxygen level when underwater.
+  Lock-Oxygen-Level: true
+FoodLevel:
+  Restore:
+    Saturation:
+      # Controls whether the 'foodlevel' command should also give some saturation.
+      Included: true
+      # Sets saturation amount given by the 'foodlevel' command.
+      Amount: 5.0
+Health:
+  Restore:
+    # Controls whether the 'health restore' command should remove all potion effects from player.
+    ClearEffects: true
+Near:
+  # Sets default command radius.
+  Radius: 200
+  Format:
+    # [*] Text Formations Guide: https://nightexpressdev.com/nightcore/configuration/text-formation/
+    # [*] Placeholders: '%radius%', '%amount%', 'PlaceholderAPI'
+    Normal:
+    - <dark_gray><st>--------------------------------</st></dark_gray>
+    - <gray>There are <soft_yellow><u>%amount%</u></soft_yellow> players around you:</gray>
+    - ' '
+    - '%entry%'
+    - <dark_gray><st>--------------------------------</st></dark_gray>
+    # [*] Text Formations Guide: https://nightexpressdev.com/nightcore/configuration/text-formation/
+    # [*] Placeholders: '%radius%', '%amount%', 'PlaceholderAPI'
+    Others:
+    - <dark_gray><st>--------------------------------</st></dark_gray>
+    - <gray>There are <soft_yellow><u>%amount%</u></soft_yellow> players around <white>%player_display_name%</white>:</gray>
+    - ' '
+    - '%entry%'
+    - <dark_gray><st>--------------------------------</st></dark_gray>
+    # Player entry format.
+    # [*] Text Formations Guide: https://nightexpressdev.com/nightcore/configuration/text-formation/
+    # [*] Placeholders: '%distance%', '%direction%', 'PlaceholderAPI'
+    Entry: <head:"%player_name%"> <gray>%player_prefix%<click:suggest_command:"/ptp request %player_name%"><hover:show_text:"<gray>Click to send teleport request.</gray>"><white>%player_display_name%</white></hover></click>%player_suffix% <dark_gray>(<gray>%distance% blocks %direction%</gray>)</dark_gray></gray>
+Nick:
+  Length:
+    Min: 3
+    Max: 16
+  Banned-Words:
+  - ass
+  - shit
+  - admin
+  Regex-Pattern: '[a-zA-Zа-яА-Я0-9_\s]*'
+PlayerInfo:
+  # PlaceholderAPI is supported here.
+  # [*] Text Formation Guide: https://nightexpressdev.com/nightcore/configuration/text-formation/
+  Format:
+  - <dark_gray><st>------------</st></dark_gray> <gray><soft_yellow>%player_name%</soft_yellow> Info</gray> <dark_gray><st>------------</st></dark_gray>
+  - ' '
+  - '<dark_gray>» </dark_gray><sprite:"gui":"server_list/ping_5"><gray> Status: </gray><green>%player_status%</green>'
+  - '<dark_gray>» </dark_gray><sprite:"items":"item/clock_12"><gray> Since: </gray><white>%player_last_seen%</white>'
+  - ' '
+  - '<dark_gray>» </dark_gray><gray>UUID: </gray><click:copy_to_clipboard:"%player_uuid%"><hover:show_text:"<gray>Click to copy!</gray>"><white>%player_uuid%</white></hover></click>'
+  - '<dark_gray>» </dark_gray><gray>Name: </gray><click:copy_to_clipboard:"%player_name%"><hover:show_text:"<gray>Click to copy!</gray>"><white>%player_name%</white></hover></click>'
+  - '<dark_gray>» </dark_gray><gray>Nickname: </gray><click:copy_to_clipboard:"%player_display_name%"><hover:show_text:"<gray>Click to copy!</gray>"><white>%player_display_name%</white></hover></click>'
+  - '<dark_gray>» </dark_gray><gray>IP: </gray><click:copy_to_clipboard:"%player_ip%"><hover:show_text:"<gray>Click to copy!</gray>"><white>%player_ip%</white></hover></click>'
+  - ' '
+  - '<dark_gray>» </dark_gray><sprite:"items":"item/compass_15"><gray> Location: </gray><white><red>%location_x%</red> <green>%location_y%</green> <blue>%location_z%</blue> @ %location_world%</white> <click:run_command:"/tppos %location_x% %location_y% %location_z% %location_world%"><soft_yellow>[Teleport]</soft_yellow></click>'
+  - '<dark_gray>» </dark_gray><sprite:"items":"item/nether_star"><gray> Game Mode: </gray><white>%player_gamemode%</white>'
+  - '<dark_gray>» </dark_gray><sprite:"items":"item/feather"><gray> Can Fly: </gray>%player_can_fly%'
+  - '<dark_gray>» </dark_gray><sprite:"items":"item/experience_bottle"><gray> XP Level: </gray>%player_level%'
+  - '<dark_gray>» </dark_gray><sprite:"gui":"hud/food_full"><gray> Hunger / Saturation: </gray><white>%player_food_level%</white><gray> / </gray><soft_orange>%player_saturation%</soft_orange>'
+  - '<dark_gray>» </dark_gray><sprite:"gui":"hud/heart/full"><gray> Health / Max. Health: </gray><white>%player_health%❤</white><gray> / </gray><soft_red>%player_max_health%❤</soft_red>'
+  - '<dark_gray>» </dark_gray><sprite:"gui":"mob_effect/invisibility"><gray> Vanished: </gray><white>%player_vanished%</white>'
+  - ' '
+  - <dark_gray><st>--------------------------------</st></dark_gray>
+Staff:
+  # Player ranks considered as staff.
+  IncludedRanks:
+  - admin
+  - moderator
+  - helper
+  Format:
+    # [*] Text Formations Guide: https://nightexpressdev.com/nightcore/configuration/text-formation/
+    # [*] Placeholders: '%amount%'
+    List:
+    - <dark_gray><st>--------------------------------</st></dark_gray>
+    - <gray>There are <soft_red><u>%amount%</u></soft_red> staff players online:</gray>
+    - ' '
+    - '%entry%'
+    - <dark_gray><st>--------------------------------</st></dark_gray>
+    # [*] Text Formations Guide: https://nightexpressdev.com/nightcore/configuration/text-formation/
+    # [*] Placeholders: '%player_prefix%', '%player_suffix%', 'PlaceholderAPI'
+    Entry: <head:"%player_name%"> <gray>%player_prefix%<click:suggest_command:"/msg %player_name% "><hover:show_text:"<gray>Click to write private message.</gray>"><white>%player_display_name%</white></hover></click>%player_suffix%</gray>
+Time:
+  Aliases:
+    night: 13000
+    sunrise: 23000
+    midnight: 18000
+    sunset: 12000
+    day: 1000
+    noon: 6000
+  Show:
+    Format:
+    - <dark_gray><st>------------</st></dark_gray> <gray>Time Info</gray> <dark_gray><st>------------</st></dark_gray>
+    - '<dark_gray>» </dark_gray><gray>World: <white>%world%</white></gray>'
+    - '<dark_gray>» </dark_gray><gray>World Time: <soft_yellow>%time%</soft_yellow> (<white>%ticks% ticks</white>)</gray>'
+    - '<dark_gray>» </dark_gray><gray>Server Time: <soft_blue>%global%</soft_blue></gray>'
+    - <dark_gray><st>--------------------------------</st></dark_gray>

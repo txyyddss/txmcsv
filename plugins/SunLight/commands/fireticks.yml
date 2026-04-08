@@ -1,0 +1,9 @@
+LiteralNodes:
+  ignite:
+    Enabled: true
+    Aliases: ignite
+    Cooldown: 0
+  extinguish:
+    Enabled: true
+    Aliases: extinguish
+    Cooldown: 0

@@ -1,0 +1,29 @@
+Messages:
+  # Create custom join messages here.
+  # [>] Text Formations: https://nightexpressdev.com/nightcore/configuration/text-formation/
+  # [>] Placeholders to use in messages:
+  # - %player_name% -> Player name.
+  # - %player_display_name% -> Player display (custom) name.
+  # - %player_prefix% -> Player prefix (from permissions plugin).
+  # - %player_suffix% -> Player name (from permissions plugin).
+  # - PlaceholderAPI
+  Join:
+    default:
+      Ranks:
+      - '*'
+      Priority: 0
+      Message: <gray>[<green>+</green>] %player_prefix%%player_display_name%</gray>
+  # Create custom quit messages here.
+  # [>] Text Formations: https://nightexpressdev.com/nightcore/configuration/text-formation/
+  # [>] Placeholders to use in messages:
+  # - %player_name% -> Player name.
+  # - %player_display_name% -> Player display (custom) name.
+  # - %player_prefix% -> Player prefix (from permissions plugin).
+  # - %player_suffix% -> Player name (from permissions plugin).
+  # - PlaceholderAPI
+  Quit:
+    default:
+      Ranks:
+      - '*'
+      Priority: 0
+      Message: <gray>[<red>-</red>] %player_prefix%%player_display_name%</gray>

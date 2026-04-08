@@ -48,3 +48,8 @@ Warp:
     # Sets maximal text length for warp description.
     # This setting can be bypassed with the 'sunlight.warps.bypass.description.size' permission.
     MaxSize: 40
+Warps:
+  Save-Interval: 60
+  Default-Icon:
+    Material: minecraft:ender_pearl
+    Lore: []

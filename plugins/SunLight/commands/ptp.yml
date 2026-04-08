@@ -1,0 +1,40 @@
+LiteralNodes:
+  request:
+    Enabled: true
+    Aliases: tpa,call
+    Cooldown: 0
+  ptp_accept:
+    Enabled: true
+    Aliases: tpyes
+    Cooldown: 0
+  ptp_decline:
+    Enabled: true
+    Aliases: tpno
+    Cooldown: 0
+  toggle:
+    Enabled: true
+    Aliases: tptoggle
+    Cooldown: 0
+  invite:
+    Enabled: true
+    Aliases: tpahere,tpi
+    Cooldown: 0
+  'off':
+    Enabled: true
+    Aliases: tptoggle-off
+    Cooldown: 0
+  'on':
+    Enabled: true
+    Aliases: tptoggle-on
+    Cooldown: 0
+RootNodes:
+  ptp:
+    Enabled: true
+    Aliases: ptp
+    Name: Ptp
+    Childrens:
+      request: request
+      ptp_accept: accept
+      ptp_decline: decline
+      toggle: toggle
+      invite: invite

@@ -584,3 +584,7 @@ Messages:
     Text: It seems you might be stuck inside a nether portal. We will rescue you in
       a few seconds if that is the case!
     Notes: Sent to player on join, if they left while inside a nether portal.
+  UnknownPlayerName:
+    Text: someone
+    Notes: 'Name used for unknown players. UUID will be appended if available: "someone
+      (01234567-0123-0123-0123-0123456789ab)"'

@@ -128,6 +128,41 @@ FCL:
 3. 点完成
 4. 然后点“加入服务器“
 
+## Debian 13 systemd service
+
+This repository now includes a Debian 13 friendly `systemd` service setup for running the server in place from the project directory.
+
+Java 21 or newer is required.
+
+Install and enable the service:
+
+```bash
+sudo bash ./service.sh install
+sudo systemctl start txmcsv
+```
+
+Check service state and logs:
+
+```bash
+bash ./service.sh status
+bash ./service.sh logs
+bash ./service.sh logs -f
+```
+
+Adjust heap memory without editing the unit file:
+
+```bash
+sudo bash ./service.sh memory 6G 8G
+```
+
+Remove the service files without touching worlds, plugins, or logs:
+
+```bash
+sudo bash ./service.sh uninstall
+```
+
+`server-launcher.sh` reads `TXMCSV_MIN_RAM`, `TXMCSV_MAX_RAM`, `TXMCSV_JAVA_BIN`, and `TXMCSV_EXTRA_JVM_OPTS` from `/etc/default/txmcsv` when started by `systemd`.
+
 ## Special Thanks
 - [MC开服教程](https://nitwikit.8aka.org/)
 - [Paper](https://papermc.io/)

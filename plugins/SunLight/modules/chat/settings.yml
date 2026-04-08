@@ -27,7 +27,7 @@ Roleplay_Commands:
   Enabled: true
   Format:
     # Sets format for the 'me' command.
-    Me: "<i><lcyan>%player_display_name%</lcyan> <lgray>%message%</lgray></i>"
+    Me: <i><lcyan>%player_display_name%</lcyan> <lgray>%message%</lgray></i>
 Format:
   # Create here custom components to insert them in chat format below!
   # Every component has its own placeholder like '%component_name%'.
@@ -111,9 +111,7 @@ Private_Messages:
     # Text Formations: https://nightexpressdev.com/nightcore/configuration/text-formation/
     Outgoing: '<lpurple>[Whisper]</lpurple> <lpink>You ➡ %player_display_name%: </lpink><lgray>%message%</lgray>'
 Mentions:
-  # When 'true', enables the Mentions feature.
-  # Mentions allows you to attract attention of certain players or players with certain ranks when typing their name/rank in chat.
-  # Player must have sunlight.chat.mention.* permission or sunlight.chat.mention.player.[playerName] or sunlight.chat.mention.special.[mentionName] permissions to be able to use all or certain mentions.
+  # If enabled, this allows players to mention (tag) other players or entire groups in the chat.
   Enabled: true
   # Sets the maximum amount of mentions per player message.
   # When there is more mentions than max allowed, all other mentions will have no effect.
@@ -123,17 +121,17 @@ Mentions:
   # When mention is on cooldown, it will have no effect.
   # Set this to -1 to disable.
   Cooldown: 15
-  # A prefix that mention have to be followed by to work.
-  # With default '@' mention will be: '@UserName'.
+  # The regex pattern used to identify mentions (tags) in a player's message. By default, this is @Something.
   Prefix: '@'
   # A text that will replace mention if player is valid.
   # Player name placeholders: %player_name%, %player_display_name%
   # Text Formations: https://nightexpressdev.com/nightcore/configuration/text-formation/
   Format: <lgreen>@%player_display_name%</lgreen>
-  # A list of custom mentions, that can be applied to multiple players based on their permission group.
-  # Use asterisk (*) to include all permission groups.
-  # Keys are mentions. Defaults are '@all' and '@admin'.
-  # Text Formations: https://nightexpressdev.com/nightcore/configuration/text-formation/
+  # Here you can create custom mentions that affects all players with certain ranks (permission groups).
+  # [>] Text Formations: https://nightexpressdev.com/nightcore/configuration/text-formation/
+  # [>] Options:
+  #     - Format: Mention format.
+  #     - Ranks: List of ranks (permission group names) to which this mention is applicable. Add '*' to allow any rank.
   Special:
     admin:
       Format: <lred>@Admin</lred>
@@ -143,6 +141,16 @@ Mentions:
       Format: <cyan>@All</cyan>
       Affected_Groups:
       - '*'
+  Player:
+    # Format for player mentions.
+    # [>] Text Formations: https://nightexpressdev.com/nightcore/configuration/text-formation/
+    # [>] Built-in Placeholders:
+    # - %player_name% - Player name.
+    # - %player_display_name% - Player display (custom) name.
+    # - %player_prefix% - Player prefix (from Permissions plugin)
+    # - %player_suffix% - Player suffix (from Permissions plugin)
+    # - %player_world% - Player's world name.
+    Format: <soft_green>@%player_display_name%</soft_green>
 SpyOps:
   # Enables the SpyOps feature.
   # It will add commands to enable spy mode for Private Messages, Commands and regular Chat messages.
@@ -222,3 +230,187 @@ Item_Show:
     # - %item_name% - Item display name.
     # - %item_value% - Item NBT value.
     Chat: <gray><<white><hover:show_text:"%item_value%">%item_name%</hover></white>></gray>
+Global:
+  # Sets priority for the AsyncChatEvent (Paper) / AsyncPlayerChatEvent (Spigot) handler.
+  # [>] Available values: [LOWEST, LOW, NORMAL, HIGH, HIGHEST, MONITOR]
+  # [*] Do not touch unless you're experiencing compatibility issues or you know what you're doing.
+  Chat-Event-Priority: HIGH
+  DiscordSRV:
+    # Enables DiscordSRV integration.
+    # [*] Experimental. Currently supports only Game -> Discord messages.
+    Enabled: true
+  # Disables the Chat Reports system and verification messages on join.
+  Disable-Chat-Reports: true
+Roleplay-Commands:
+  # Adds a few roleplay-like commands if enabled.
+  Enabled: true
+  Me:
+    # Format for the /me command.
+    Format: <i><soft_aqua>%player_display_name%</soft_aqua> <gray>%message%</gray></i>
+Chat:
+  Format:
+    # Here you can create custom 'components' to use in the user formats below.
+    # To insert a component into user format, wrap it into '%' brackets: %my_component%
+    # [>] Text Formations: https://nightexpressdev.com/nightcore/configuration/text-formation/
+    # [>] PlaceholderAPI Support: Yes
+    # [>] Built-in Placeholders:
+    # - %message% - Original message sent by a player.
+    # - %player_name% - Player name.
+    # - %player_display_name% - Player display (custom) name.
+    # - %player_prefix% - Player prefix (from Permissions plugin)
+    # - %player_suffix% - Player suffix (from Permissions plugin)
+    # - %player_world% - Player's world name.
+    Components:
+      player_info:
+        Text: '<hover:show_text:"<gray>Player: <light_purple>%player_name%</light_purple><br>Nickname: <light_purple>%player_display_name%</light_purple><br><br><gray>(Click to message)</gray></gray>"><click:suggest_command:"/msg %player_name% ">%player_display_name%</click></hover>'
+      rank_owner:
+        Text: <hover:show_text:"<gray>This player is the server <soft_yellow>Owner</soft_yellow></gray>">%player_prefix%</hover>
+      rank_member:
+        Text: <hover:show_text:"<gray>Type <soft_green>/ranks</soft_green> to view all special ranks.</gray>"><click:run_command:"/ranks">%player_prefix%</click></hover>
+    # Here you can create custom chat formats for players based on their permission group(s).
+    # [>] Options:
+    #     - Priority: If multiple formats available, the one with the greatest priority is used.
+    #     - Format: Chat message format. For a list of placeholders, please see the 'Format.Components' section above.
+    #     - Ranks: List of ranks (permission group names) to which this format is applicable. Add '*' to allow any rank.
+    # [>] If no format is available for a player, fallbacks to the 'Format.Fallback' setting.
+    User:
+      owner:
+        Priority: 100
+        Format: '%rank_owner%%player_info%: <gray>%message%</gray>'
+        Ranks:
+        - owner
+        - admin
+      default:
+        Priority: 0
+        Format: '%rank_member%%player_info%: <gray>%message%</gray>'
+        Ranks:
+        - '*'
+    # Fallback chat message format used when no other format is available for a player.
+    # [*] Please don't rely much on this setting, instead ensure to setup your user formats properly.
+    Fallback: '%player_name%: %message%'
+Channels:
+  # Enables the Channels feature.
+  # This allows you to create multiple chat channels with different formats, permissions, message cooldowns, etc.
+  # [*] When disabled, the chat fallbacks to the _default_ channel inside the /channels/ directory and no other channel features are available to use.
+  Enabled: true
+  # Sets which channel used by default for all player messages.
+  # [*] If invalid channel provided, fallbacks to the _default_ channel.
+  Default-Channel-Id: local
+Conversations:
+  # Enables the Conversations feature allowing players to send private messages to each other.
+  Enabled: true
+  Sound:
+    # If enabled, a sound will play whenever a player receives or sends a private message.
+    Enabled: true
+    # Sound for incoming private messages.
+    Incoming: minecraft:block.note_block.bell;0.8;1.0
+    # Sound for outgoing private messages.
+    Outgoing: minecraft:ui.button.click;0.8;1.0
+  Format:
+    # Conversation message format used in 'Incoming' and 'Outgoing' formats below.
+    # [>] Text Formations: https://nightexpressdev.com/nightcore/configuration/text-formation/
+    # [>] PlaceholderAPI Support: Yes
+    # [>] Built-in Placeholders:
+    # - %message% - Original message sent by a player.
+    # - %player_name% - Player name.
+    # - %player_display_name% - Player display (custom) name.
+    # - %player_prefix% - Player prefix (from Permissions plugin)
+    # - %player_suffix% - Player suffix (from Permissions plugin)
+    # - %player_world% - Player's world name.
+    Basic: '%message%'
+    # Format for incoming private messages.
+    # [>] Use the %format% placeholder to insert 'basic' conversation format from the 'Format.Basic' section above
+    # [*] For a list of placeholders, please see the 'Format.Basic' section above.
+    Incoming: '<light_purple>[Whisper]</light_purple> <soft_pink>%player_display_name%: </soft_pink><gray>%format%</gray> <click:suggest_command:"/msg %player_name%"><hover:show_text:"<light_purple>Click to reply!</light_purple>"><light_purple>[⬅]</light_purple></hover></click>'
+    # Format for outgoing private messages.
+    # [>] Use the %format% placeholder to insert 'basic' conversation format from the 'Format.Basic' section above
+    # [*] For a list of placeholders, please see the 'Format.Basic' section above.
+    Outgoing: '<light_purple>[Whisper]</light_purple> <soft_pink>You ➡ %player_display_name%: </soft_pink><gray>%format%</gray>'
+AutoModeration:
+  UserCache:
+    # Sets cache lifetime (in seconds) for user content tracked by the Auto-Moderation feature.
+    # [>] This includes:
+    # - Latest message sent with timestamp.
+    # - Latest command used with timestamp.
+    # [*] Disabling the cache will break some of Auto-Moderation features (e.g. Anti-Flood).
+    Life-Time: 60
+  Anti-Caps:
+    # This feature forces a player's message to lowercase if the number of uppercase characters exceeds the specified threshold.
+    Enabled: true
+    # The minimum message length required for the Anti-Caps feature to trigger.
+    Min-Message-Length: 5
+    # The minimum threshold (in %) of uppercase characters in a message required for the Anti-Caps feature to trigger.
+    Uppercase-Threshold: 70
+    # List of commands for which the Anti-Caps feature will be active.
+    Affected-Commands:
+    - me
+    - tell
+    - reply
+    - broadcast
+  Anti-Flood:
+    # This feature prevents players from sending the same (or very similar) messages and commands within a (very) short period of time.
+    Enabled: true
+    Similarity:
+      # The similarity trigger threshold (in %) for the Anti-Flood feature regarding messages and commands.
+      # If the similarity percentage between a player's last message/command and the one they are trying to send meets or exceeds this value, the message will be blocked.
+      Score-Threshold: 80.0
+      # The quantitative trigger threshold for the Anti-Flood feature for messages and commands
+      # If a player sends this specific number of similar messages or commands in a row within the time specified in 'UserCache.Life-Time', further similar messages will be blocked until the cache expires.
+      Count-Threshold: 3
+    Commands:
+      # Sets global cooldown (in milliseconds) on command usage..
+      # [Default is 500ms (0.5s)]
+      Cooldown: 500
+    # List of commands excluded from the Anti-Flood feature, so players can use them without all the Anti-Flood checks and restrictions.
+    Command-Whitelist:
+    - warp
+    - reply
+    - spawn
+    - delhome
+    - home
+    - tell
+    - sethome
+    - kit
+  Profanity-Filter:
+    # This feature enables a filter for profanity (or any specified words) in messages and commands.
+    Enabled: true
+    # The list of rule files for the Profanity Filter.
+    # [>] Rule files are stored in the /rules/ folder.
+    # [>] You can create your own files or modify existing ones.
+    Rules:
+    - default.txt
+    # List of commands for which the Profanity-Filter feature will be active.
+    Affected-Commands:
+    - me
+    - tell
+    - reply
+    - broadcast
+ItemShow:
+  # This feature allows players to use a placeholder to display the item they are currently holding in the chat.
+  Enabled: true
+  # The placeholder used to display item in chat.
+  Placeholder: '@hand'
+  # Item display format.
+  # [>] Text Formations: https://nightexpressdev.com/nightcore/configuration/text-formation/
+  # [>] Placeholders:
+  # - %item_name% - Item display name.
+  # - %item_value% - Item NBT Tag (in Base64).
+  Format: <gray><<white><hover:show_item:"%item_value%">%item_name%</hover></white>></gray>
+Spy:
+  # This feature allows you to monitor player's chat messages, used commands and conversations.
+  Enabled: true
+  # Format for Spy Modes.
+  # [>] Text Formations: https://nightexpressdev.com/nightcore/configuration/text-formation/
+  # [>] Placeholders:
+  # - %message% - Player message/command.
+  # - %target% - Target player name (for SOCIAL mode only).
+  # - %channel_name% - Channel name (for CHAT mode only).
+  # - %player_name% - Player name.
+  # - %player_display_name% - Player display (custom) name.
+  # - %player_prefix% - Player prefix (from Permissions plugin)
+  # - %player_suffix% - Player suffix (from Permissions plugin)
+  # - %player_world% - Player's world name.
+  Info-Format:
+    SOCIAL: <soft_red>[SocialSpy]</soft_red> <gray>%player_name% ➡ %target%:</gray> <gray>%message%</gray>
+    COMMAND: <soft_red>[CommandSpy]</soft_red> <gray>%player_name% executed a command:</gray> <gray>%message%</gray>
+    CHAT: <soft_red>[ChatSpy]</soft_red> <gray>[%channel_name%] %player_name%:</gray> <gray>%message%</gray>

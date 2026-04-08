@@ -1,0 +1,18 @@
+[Unit]
+Description=TXMCSV Minecraft Server
+After=network-online.target
+
+[Service]
+Type=simple
+User=__USER__
+Group=__GROUP__
+WorkingDirectory="__WORKING_DIRECTORY__"
+EnvironmentFile=-__ENV_FILE__
+ExecStart="__EXEC_START__"
+Restart=on-failure
+RestartSec=10
+KillSignal=SIGINT
+TimeoutStopSec=300
+
+[Install]
+WantedBy=multi-user.target

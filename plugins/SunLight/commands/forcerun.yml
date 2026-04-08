@@ -1,0 +1,5 @@
+LiteralNodes:
+  forcerun:
+    Enabled: true
+    Aliases: forcerun
+    Cooldown: 0

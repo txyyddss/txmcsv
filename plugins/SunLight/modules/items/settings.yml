@@ -1,0 +1,8 @@
+Commands:
+  StackSize:
+    # Sets the default stack size value for the 'stack size' command if no value argument was provided.
+    # [Default is 64]
+    DefaultValue: 64
+  # Sets the max. allowed item amount (in item stacks) for the 'get', 'give' and 'spawn' commands.
+  # [Default is 36]
+  Max-Item-Stacks-Amount: 36

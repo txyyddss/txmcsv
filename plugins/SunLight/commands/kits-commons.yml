@@ -1,0 +1,42 @@
+LiteralNodes:
+  preview:
+    Enabled: true
+    Aliases: viewkit
+    Cooldown: 0
+  editor:
+    Enabled: true
+    Aliases: editkit
+    Cooldown: 0
+  give:
+    Enabled: true
+    Aliases: givekit
+    Cooldown: 0
+  get:
+    Enabled: true
+    Aliases: kit
+    Cooldown: 0
+  reset_cooldown:
+    Enabled: false
+    Aliases: resetkitcooldown
+    Cooldown: 0
+  list:
+    Enabled: true
+    Aliases: kitlist
+    Cooldown: 0
+  set_cooldown:
+    Enabled: false
+    Aliases: setkitcooldown
+    Cooldown: 0
+RootNodes:
+  kits:
+    Enabled: true
+    Aliases: kits
+    Name: Kits
+    Childrens:
+      preview: preview
+      editor: editor
+      give: give
+      get: get
+      reset_cooldown: resetcooldown
+      list: list
+      set_cooldown: setcooldown

@@ -1,0 +1,5 @@
+LiteralNodes:
+  broadcast:
+    Enabled: true
+    Aliases: broadcast,bc
+    Cooldown: 0

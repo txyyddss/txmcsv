@@ -158,10 +158,6 @@ GriefPrevention:
   RabbitsEatCrops: true
   HardModeZombiesBreakDoors: false
   MobProjectilesChangeBlocks: false
-  Database:
-    URL: ''
-    UserName: ''
-    Password: ''
   UseBanCommand: true
   BanCommandPattern: ban %name% %reason%
   Advanced:

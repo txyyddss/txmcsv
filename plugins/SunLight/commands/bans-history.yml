@@ -1,0 +1,13 @@
+LiteralNodes:
+  mutehistory:
+    Enabled: true
+    Aliases: mutehistory
+    Cooldown: 0
+  warnhistory:
+    Enabled: true
+    Aliases: warnhistory
+    Cooldown: 0
+  banhistory:
+    Enabled: true
+    Aliases: banhistory
+    Cooldown: 0

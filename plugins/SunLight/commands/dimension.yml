@@ -1,0 +1,5 @@
+LiteralNodes:
+  dimension:
+    Enabled: true
+    Aliases: dimension,dim
+    Cooldown: 0

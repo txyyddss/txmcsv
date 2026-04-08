@@ -34,7 +34,7 @@ Settings:
   #Just the economic function.
   disable-essentials: true
   #Initial balance
-  initial-bal: 500
+  initial-bal: 100
   #Tax to be paid for pay command (0.5 means 50%, 1 means 100%)
   payment-tax: 0.05
   #Ranking size (Max value 100)

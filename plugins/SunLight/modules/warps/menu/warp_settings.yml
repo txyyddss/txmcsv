@@ -13,6 +13,9 @@ Settings:
     # Sets whether PlaceholderAPI placeholders will be applied on all items from the 'Content' section of this GUI.
     # [*] Disable if you don't use any PlaceholderAPI placeholders on your items to improve GUI performance.
     Enabled: false
+  MenuType: minecraft:generic_9x5
+  AutoRefresh:
+    Interval: 0
 # ==================== GUI CONTENT ====================
 # You can freely edit items in this section as you wish (add, remove, modify items).
 # The following values are available as button Types:
@@ -175,3 +178,202 @@ Content:
       Display_Name: <lyellow><b>Dedicated Command</b></lyellow>
     Slots: '16'
     Type: warp_change_command_shortcut
+Buttons:
+  back:
+    States:
+      default:
+        Icon:
+          Material: minecraft:player_head
+          Display_Name: <lgray><b>Return</b></lgray>
+          Lore: []
+          SkinURL: be9ae7a4be65fcbaee65181389a2f7d47e2e326db59ea3eb789a92c85ea46
+    Slots: '22'
+  warp_change_name:
+    States:
+      default:
+        Icon:
+          Material: minecraft:player_head
+          Display_Name: <lyellow><b>Display Name</b></lyellow>
+          Lore:
+          - '<lyellow>▪ <lgray>Current: </lgray>%warp_name%</lyellow>'
+          - ' '
+          - <lgray><lyellow>[▶]</lyellow> Click to <lyellow>change</lyellow>.</lgray>
+          SkinURL: f5a19af0e61ca42532c0599fa0a391753df6b71f9fa4a177f1aa9b1d81fe6ee2
+    Slots: '3'
+  warp_change_description:
+    States:
+      default:
+        Icon:
+          Material: minecraft:writable_book
+          Display_Name: <lyellow><b>Descrpition</b></lyellow>
+          Lore:
+          - '%warp_description%'
+          - ''
+          - <lgray><lyellow>[▶]</lyellow> Click to <lyellow>change</lyellow>.</lgray>
+    Slots: '4'
+  warp_change_icon:
+    States:
+      default:
+        Icon:
+          Material: minecraft:item_frame
+          Display_Name: <lyellow><b>Icon</b></lyellow>
+          Lore:
+          - <lgray><lyellow>[▶]</lyellow> Drag & Drop to <lyellow>change</lyellow>.</lgray>
+    Slots: '5'
+  warp_change_permission:
+    States:
+      default:
+        Icon:
+          Material: minecraft:redstone_torch
+          Display_Name: <lyellow><b>Permission Requirement</b></lyellow>
+          Lore:
+          - '<lyellow>▪ <lgray>Enabled: </lgray>%warp_permission_required%</lyellow>'
+          - '<lyellow>▪ <lgray>Node: </lgray>%warp_permission_node%</lyellow>'
+          - ''
+          - <lgray>Sets whether or not permission is</lgray>
+          - <lgray>required to visit this warp.</lgray>
+          - ''
+          - <lgray><lyellow>[▶]</lyellow> Click to <lyellow>toggle</lyellow>.</lgray>
+    Slots: '11'
+  warp_change_visit_cost:
+    States:
+      default:
+        Icon:
+          Material: minecraft:gold_nugget
+          Display_Name: <lyellow><b>Visit Cost</b></lyellow>
+          Lore:
+          - <lyellow>▪ <lgray>Current:</lgray> %warp_visit_cost%</lyellow>
+          - ''
+          - <lgray>Sets how much money player will have to pay</lgray>
+          - <lgray>in order to use this warp.</lgray>
+          - ''
+          - <lgray><lyellow>[▶]</lyellow> Left-Click to <lyellow>change</lyellow>.</lgray>
+          - <lgray><lyellow>[▶]</lyellow> Right-Click to <lyellow>disable</lyellow>.</lgray>
+    Slots: '12'
+  warp_change_visit_cooldown:
+    States:
+      default:
+        Icon:
+          Material: minecraft:clock
+          Display_Name: <lyellow><b>Visit Cooldown</b></lyellow>
+          Lore:
+          - '<lyellow>▪ <lgray>Current: </lgray>%warp_visit_cooldown%</lyellow>'
+          - ''
+          - <lgray>Sets the cooldown for next warp visit per a player.</lgray>
+          - ''
+          - <lgray><lyellow>[▶]</lyellow> Left-Click to <lyellow>change</lyellow>.</lgray>
+          - <lgray><lyellow>[▶]</lyellow> Right-Click to <lyellow>disable</lyellow>.</lgray>
+    Slots: '13'
+  warp_change_visit_times:
+    States:
+      default:
+        Icon:
+          Material: minecraft:daylight_detector
+          Display_Name: <lyellow><b>Visit Times</b></lyellow>
+          Lore:
+          - '%warp_visit_times%'
+          - ''
+          - <lgray>Sets the times when the warp is available for visits.</lgray>
+          - ''
+          - <lgray><lyellow>[▶]</lyellow> Left-Click to <lyellow>add time</lyellow>.</lgray>
+          - <lgray><lyellow>[▶]</lyellow> Right-Click to <lyellow>remove all</lyellow>.</lgray>
+    Slots: '14'
+  warp_change_type:
+    States:
+      default:
+        Icon:
+          Material: minecraft:beacon
+          Display_Name: <lyellow><b>Type</b></lyellow>
+          Lore:
+          - '<lyellow>▪ <lgray>Current: </lgray>%warp_type%</lyellow>'
+          - ' '
+          - <lgray><lyellow>[▶]</lyellow> Click to <lyellow>toggle</lyellow>.</lgray>
+    Slots: '15'
+  warp_change_command_shortcut:
+    States:
+      default:
+        Icon:
+          Material: minecraft:command_block
+          Display_Name: <lyellow><b>Dedicated Command</b></lyellow>
+          Lore:
+          - <lyellow>▪ <lgray>Current:</lgray> /%warp_command_shortcut%</lyellow>
+          - ''
+          - <lgray>Allows to access the warp</lgray>
+          - <lgray>using dedicated command.</lgray>
+          - ''
+          - <lgray><lyellow>[▶]</lyellow> Left-Click to <lyellow>change</lyellow>.</lgray>
+          - <lgray><lyellow>[▶]</lyellow> Right-Click to <lyellow>disable</lyellow>.</lgray>
+    Slots: '16'
+  name:
+    Slots: '20'
+    States:
+      default:
+        Icon:
+          Material: minecraft:name_tag
+          Display_Name: <gold><b>Name</b></gold>
+          Lore:
+          - '<dark_gray>» <gray>Current: </gray><white>%warp_name%</white></dark_gray>'
+          - ''
+          - <gold>→ <u>Click to edit</u></gold>
+          Hide_Components: true
+  description:
+    Slots: '21'
+    States:
+      default:
+        Icon:
+          Material: minecraft:writable_book
+          Display_Name: <gold><b>Description</b></gold>
+          Lore:
+          - '%warp_description%'
+          - ''
+          - <gold>→ <u>Click to edit</u></gold>
+          Hide_Components: true
+  icon:
+    Slots: '22'
+    States:
+      default:
+        Icon:
+          Material: minecraft:painting
+          Display_Name: <gold><b>Icon</b></gold>
+          Lore:
+          - <gray>Right click an item in your</gray>
+          - <gray>inventory to replace the icon.</gray>
+          Hide_Components: true
+  permission:
+    Slots: '23'
+    States:
+      default:
+        Icon:
+          Material: minecraft:redstone
+          Display_Name: <red><b>Permission Requirement</b></red>
+          Lore:
+          - '<dark_gray>» <gray>Enabled: </gray><white>%state%</white></dark_gray>'
+          - ''
+          - <red>→ <u>Click to toggle</u></red>
+          Hide_Components: true
+  slots:
+    Slots: '24'
+    States:
+      default:
+        Icon:
+          Material: minecraft:item_frame
+          Display_Name: <gold><b>Page & Slots</b></gold>
+          Lore:
+          - '<dark_gray>» <gray>Page: </gray><white>%page%</white></dark_gray>'
+          - '<dark_gray>» <gray>Slots: </gray><white>%slot%</white></dark_gray>'
+          - ''
+          - <gold>→ <u>Click to edit</u></gold>
+          Hide_Components: true
+  command:
+    Slots: '4'
+    States:
+      default:
+        Icon:
+          Material: minecraft:command_block
+          Display_Name: <orange><b>Command Alias</b></orange>
+          Lore:
+          - '<dark_gray>» <gray>Enabled: </gray><white>%state%</white></dark_gray>'
+          - '<dark_gray>» <gray>Current: </gray><white>%value%</white></dark_gray>'
+          - ''
+          - <orange>→ <u>Click to edit</u></orange>
+          Hide_Components: true

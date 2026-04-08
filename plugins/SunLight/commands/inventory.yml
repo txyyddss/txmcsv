@@ -1,0 +1,32 @@
+LiteralNodes:
+  repair:
+    Enabled: true
+    Aliases: repairinv,repairinventory,fixall,repairall
+    Cooldown: 0
+  clear:
+    Enabled: true
+    Aliases: clearinv,clearinventory,ci
+    Cooldown: 0
+  copy:
+    Enabled: false
+    Aliases: copyinv,copyinventory
+    Cooldown: 0
+  fill:
+    Enabled: false
+    Aliases: fillinv,fillinventory
+    Cooldown: 0
+  open:
+    Enabled: true
+    Aliases: openinv,openinventory,invsee
+    Cooldown: 0
+RootNodes:
+  inventory:
+    Enabled: true
+    Aliases: inventory,inv
+    Name: Inventory
+    Childrens:
+      open: open
+      repair: repair
+      clear: clear
+      copy: copy
+      fill: fill

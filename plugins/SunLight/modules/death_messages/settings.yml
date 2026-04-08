@@ -1,0 +1,116 @@
+Messages:
+  Damage-Type:
+    minecraft:freeze:
+      Messages:
+      - <gray>(<lred>☠</lred>) <lred>%player_display_name%</lred> frozen to death.</gray>
+      - <gray>(<lred>☠</lred>) <lred>%player_display_name%</lred> fell asleep in the snow.</gray>
+    minecraft:explosion:
+      Messages:
+      - <gray>(<lred>☠</lred>) <lred>%player_display_name%</lred> blowed up!</gray>
+    minecraft:player_attack:
+      Messages:
+      - <gray>(<lred>⚔</lred>) <lred>%source%</lred> killed <lred>%player_display_name%</lred>.</gray>
+    minecraft:drown:
+      Messages:
+      - <gray>(<lred>☠</lred>) <lred>%player_display_name%</lred> drowned.</gray>
+      - <gray>(<lred>☠</lred>) <lred>%player_display_name%</lred> forgot how to swim.</gray>
+    minecraft:in_fire:
+      Messages:
+      - <gray>(<lred>☠</lred>) <lred>%player_display_name%</lred> burned to the ground.</gray>
+    minecraft:cramming:
+      Messages:
+      - <gray>(<lred>☠</lred>) <lred>%player_display_name%</lred> trampled into the ground by a crowd.</gray>
+    minecraft:magic:
+      Messages:
+      - <gray>(<lred>☠</lred>) <lred>%player_display_name%</lred> killed by a deadly magic.</gray>
+    minecraft:falling_anvil:
+      Messages:
+      - <gray>(<lred>☠</lred>) <lred>%player_display_name%</lred> was unable to hold an Anvil.</gray>
+    minecraft:cactus:
+      Messages:
+      - <gray>(<lred>☠</lred>) <lred>%player_display_name%</lred> tried to obtain some water from cactus.</gray>
+      - <gray>(<lred>☠</lred>) <lred>%player_display_name%</lred> died when accidiently touch a cactus.</gray>
+    minecraft:starve:
+      Messages:
+      - <gray>(<lred>☠</lred>) <lred>%player_display_name%</lred> forgot to eat.</gray>
+    minecraft:mob_projectile:
+      Messages:
+      - <gray>(<lred>⚔</lred>) <lred>%player_display_name%</lred> was shot by a <lred>%source%</lred>.</gray>
+    minecraft:lightning_bolt:
+      Messages:
+      - <gray>(<lred>☠</lred>) <lred>%player_display_name%</lred> was shot by a Lightning.</gray>
+    minecraft:dragon_breath:
+      Messages:
+      - <gray>(<lred>☠</lred>) <lred>%player_display_name%</lred> was incinerated by a Dragon Breath.</gray>
+    minecraft:fly_into_wall:
+      Messages:
+      - <gray>(<lred>☠</lred>) <lred>%player_display_name%</lred> exceeded the speed limit with elytras.</gray>
+    minecraft:in_wall:
+      Messages:
+      - <gray>(<lred>☠</lred>) <lred>%player_display_name%</lred> was buried alive.</gray>
+    minecraft:arrow:
+      Messages:
+      - <gray>(<lred>⚔</lred>) <lred>%player_display_name%</lred> was shot by a <lred>%source%</lred>.</gray>
+    minecraft:fall:
+      Messages:
+      - <gray>(<lred>☠</lred>) <lred>%player_display_name%</lred> fell from a high spot.</gray>
+    minecraft:lava:
+      Messages:
+      - <gray>(<lred>☠</lred>) <lred>%player_display_name%</lred> tried to swim in lava.</gray>
+    minecraft:on_fire:
+      Messages:
+      - <gray>(<lred>☠</lred>) <lred>%player_display_name%</lred> burned to the ground.</gray>
+    minecraft:hot_floor:
+      Messages:
+      - <gray>(<lred>☠</lred>) <lred>%player_display_name%</lred> walked too long on Magma Blocks.</gray>
+    minecraft:thorns:
+      Messages:
+      - <gray>(<lred>☠</lred>) <lred>%player_display_name%</lred> died when touching <lred>%source%</lred>.</gray>
+    minecraft:sonic_boom:
+      Messages:
+      - <gray>(<lred>☠</lred>) <lred>%player_display_name%</lred>''s eardrums were exploded.</gray>
+    minecraft:mob_attack:
+      Messages:
+      - <gray>(<lred>⚔</lred>) <lred>%player_display_name%</lred> was slain by <lred>%source%</lred>.</gray>
+  Causing-Entity:
+    minecraft:zombie:
+      Messages:
+      - <gray>(<lred>⚔</lred>) <lred>%player_display_name%</lred>''s brain was eaten by Zombie.</gray>
+    minecraft:cave_spider:
+      Messages:
+      - <gray>(<lred>⚔</lred>) <lred>%player_display_name%</lred> was bited to death by a little spidee.</gray>
+      - <gray>(<lred>⚔</lred>) <lred>%player_display_name%</lred> climb down too deep in a cave with Spiders.</gray>
+    minecraft:enderman:
+      Messages:
+      - <gray>(<lred>⚔</lred>) <lred>%player_display_name%</lred> looked strange at Enderman.</gray>
+    minecraft:ghast:
+      Messages:
+      - <gray>(<lred>⚔</lred>) <lred>%player_display_name%</lred> was fireballed by a Ghast.</gray>
+    minecraft:zombie_villager:
+      Messages:
+      - <gray>(<lred>⚔</lred>) <lred>%player_display_name%</lred> tried to talk with Zombie Villager.</gray>
+    minecraft:creeper:
+      Messages:
+      - <gray>(<lred>⚔</lred>) <lred>%player_display_name%</lred> could not run away from a Creeper in time.</gray>
+    minecraft:wither:
+      Messages:
+      - <gray>(<lred>⚔</lred>) <lred>%player_display_name%</lred> could not beat Wither.</gray>
+    minecraft:blaze:
+      Messages:
+      - <gray>(<lred>⚔</lred>) <lred>%player_display_name%</lred> could not reflect Blaze''s fireball.</gray>
+      - <gray>(<lred>⚔</lred>) <lred>%player_display_name%</lred> catched a fireball with his head.</gray>
+    minecraft:bee:
+      Messages:
+      - <gray>(<lred>⚔</lred>) <lred>%player_display_name%</lred> attempted to steal honey from Bees.</gray>
+    minecraft:drowned:
+      Messages:
+      - <gray>(<lred>⚔</lred>) <lred>%player_display_name%</lred> was drowned by Drowned.</gray>
+    minecraft:piglin:
+      Messages:
+      - <gray>(<lred>⚔</lred>) <lred>%player_display_name%</lred> offered a very bad trade to Piglin.</gray>
+    minecraft:skeleton:
+      Messages:
+      - <gray>(<lred>⚔</lred>) <lred>%player_display_name%</lred> was shot by a skeleton.</gray>
+    minecraft:tnt:
+      Messages:
+      - <gray>(<lred>☠</lred>) <lred>%player_display_name%</lred> lost his limbs due to TNT explosion!</gray>

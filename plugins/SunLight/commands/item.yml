@@ -1,0 +1,66 @@
+LiteralNodes:
+  damage:
+    Enabled: false
+    Aliases: itemdamage
+    Cooldown: 0
+  give:
+    Enabled: true
+    Aliases: giveitem
+    Cooldown: 0
+  repair:
+    Enabled: true
+    Aliases: repair,fix
+    Cooldown: 0
+  amount:
+    Enabled: false
+    Aliases: itemamount
+    Cooldown: 0
+  potion:
+    Enabled: false
+    Aliases: addpotioneffect
+    Cooldown: 0
+  spawn:
+    Enabled: false
+    Aliases: dropitem
+    Cooldown: 0
+  enchant:
+    Enabled: false
+    Aliases: addenchant
+    Cooldown: 0
+  get:
+    Enabled: true
+    Aliases: getitem
+    Cooldown: 0
+  name:
+    Enabled: true
+    Aliases: rename
+    Cooldown: 0
+  unbreakable:
+    Enabled: true
+    Aliases: unbreakable
+    Cooldown: 0
+  model:
+    Enabled: false
+    Aliases: itemmodel
+    Cooldown: 0
+  disenchant:
+    Enabled: false
+    Aliases: removeenchant
+    Cooldown: 0
+RootNodes:
+  item:
+    Enabled: true
+    Aliases: item,i
+    Name: Item
+    Childrens:
+      damage: damage
+      give: give
+      repair: repair
+      amount: amount
+      spawn: spawn
+      enchant: enchant
+      get: get
+      name: name
+      unbreakable: unbreakable
+      model: model
+      disenchant: disenchant

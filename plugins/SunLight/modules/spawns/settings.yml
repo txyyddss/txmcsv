@@ -9,6 +9,7 @@ Settings:
   #
   # [*] Players always has access to the default spawn.
   Default_Spawn: default
+  Override-Player-Respawn-Location: false
 Teleport_New_Players:
   # Sets whether or not players joined the first time should be teleported to a certain spawn.
   Enabled: true

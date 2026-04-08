@@ -8,33 +8,14 @@ config-version: '3.0'
 #  ASYNC  #
 ###########
 async:
-  # **实验性功能**
-  # 启用并行世界处理以提高多核 CPU 使用率.
-  parallel-world-ticking:
-    enabled: false
-    threads: 8
-    log-container-creation-stacktraces: false
-    disable-hard-throw: false
-    async-unsafe-read-handling: BUFFERED
-  # 异步实体跟踪,
-  # 在实体数量多且密集的情况下效果明显.
-  async-entity-tracker:
+  # 使区块数据包准备和发送异步化以提高服务器性能.
+  # 当许多玩家同时加载区块时, 这可以显著减少主线程负载.
+  async-chunk-send:
     enabled: true
-    # 是否启用兼容模式,
-    # 如果你的服务器安装了 Citizens 或其他类似非发包 NPC 插件, 请开启此项.
-    compat-mode: false
-    max-threads: 4
-    keepalive: 60
-    queue-size: 0
-  # 这会将昂贵的实体目标搜索计算移至后台线程, 同时在主线程上保持实际的实体验证.
-  async-target-finding:
-    enabled: true
-    async-alert-other: true
-    async-search-block: true
-    async-search-entity: true
-    queue-size: 0
-  # 异步保存玩家数据.
-  async-playerdata-save:
+  # 是否异步化生物生成.
+  # 在实体较多的服务器上, 异步生成可最高带来 15% 的性能提升.
+  # 须在Paper配置文件中打开 per-player-mob-spawns 才能生效.
+  async-mob-spawning:
     enabled: true
   async-pathfinding:
     enabled: true
@@ -44,37 +25,114 @@ async:
     # 当队列满时, 新提交的任务将使用以下策略处理.
     # FLUSH_ALL: 所有等待中的任务都将在主线程上运行.
     # CALLER_RUNS: 新提交的任务将在主线程上运行.
-    # DISCARD: 新提交的任务会被直接丢弃.
     reject-policy: DISCARD
-  # 是否异步化生物生成.
-  # 在实体较多的服务器上, 异步生成可最高带来 15% 的性能提升.
-  # 须在Paper配置文件中打开 per-player-mob-spawns 才能生效.
-  async-mob-spawning:
+  # 异步保存玩家数据.
+  async-playerdata-save:
     enabled: true
-  # 是否启用异步结构搜索.
-  # 目前可用于 /locate 指令, 海豚寻宝和末影之眼.
-  async-locator:
+  # ** 实验性功能 **
+  # 异步实体跟踪,
+  # 在实体数量多且密集的情况下效果明显.
+  async-entity-tracker:
     enabled: true
     threads: 0
-    keepalive: 60
-  # 使区块数据包准备和发送异步化以提高服务器性能.
-  # 当许多玩家同时加载区块时, 这可以显著减少主线程负载.
-  async-chunk-send:
-    enabled: true
+  # **实验性功能**
+  # 启用并行世界处理以提高多核 CPU 使用率.
+  parallel-world-ticking:
+    enabled: false
+    threads: 8
+    log-container-creation-stacktraces: false
+    disable-hard-throw: false
+    async-unsafe-read-handling: BUFFERED
 
 ##########
 #  PERF  #
 ##########
 performance:
-  # 是否为用户验证器使用虚拟线程.
-  use-virtual-thread-for-user-authenticator: true
-  # 是否为档案查询执行器使用虚拟线程（如果可用）。
-  use-virtual-thread-for-profile-executor: true
-  # 是否为异步聊天线程使用虚拟线程.
-  use-virtual-thread-for-async-chat-executor: true
-  # 是否为异步任务调度器使用虚拟线程.
-  use-virtual-thread-for-async-scheduler: true
-  create-snapshot-on-retrieving-blockstate: true
+  check-survival-before-growth:
+    # 在仙人掌生长前检查其是否能够存活。
+    cactus-check-survival: true
+  dont-save-entity:
+    # 区块卸载时不保存掉落的方块和激活的 TNT,
+    # 可以避免在玩家掉线时机器被炸毁.
+    dont-save-primed-tnt: true
+    dont-save-falling-block: true
+  # 根据距离动态优化生物 AI
+  dab:
+    enabled: true
+    # 启用此项后, 在水中的非水生生物将不会被 DAB 影响.
+    # 可以避免距离玩家较远的生物在水里淹死.
+    dont-enable-if-in-water: true
+    # 生物距离玩家多少格 DAB 开始生效
+    start-distance: 6
+    # 最远处的实体每隔多少刻tick一次
+    max-tick-freq: 30
+    # This value defines how much distance modifies an entity's
+    # tick frequency. freq = (distanceToPlayer^2) / (2^value)",
+    # If you want further away entities to tick less often, use 7.
+    # If you want further away entities to tick more often, try 9.
+    activation-dist-mod: 7
+    # 不会被 DAB 影响的实体列表
+    blacklisted-entities: []
+  # 是否缓存Minecraft到Bukkit的实体类型转换.
+  enable-cached-minecraft-to-bukkit-entitytype-convert: true
+  fast-biome-manager-seed-obfuscation:
+    # 将原版 BiomeManager 的 SHA-256 种子混淆换成 XXHash.
+    enabled: false
+    # XXHash 的混淆种子.
+    seed-obfuscation-key: -1595516771565766115
+  # 是否使用更快的随机生成器?
+  # 需要支持 RandomGenerator 的 JVM.
+  # 一些 JRE 不支持此功能.
+  faster-random-generator:
+    enabled: true
+    # 使用什么种类的随机生成器.
+    # 请参阅 https://openjdk.org/jeps/356
+    random-generator: Xoroshiro128PlusPlus
+    # 是否为世界生成启用更快的随机生成器.
+    # 警告: 此项会影响世界生成!!!
+    enable-for-worldgen: false
+    # 是否在没有为史莱姆区块使用原版随机生成器的情况下进行警告.
+    warn-for-slime-chunk: false
+    # 是否使用原版随机生成器来生成史莱姆区块.
+    use-legacy-random-for-slime-chunk: true
+    # 使用直接随机实现而不是委派给 RandomGenerator.
+    # 这可能会提高性能, 但可能会改变 RNG 行为.
+    use-direct-implementation: true
+  # 更快的结构生成任务分段.
+  faster-structure-gen-future-sequencing: true
+  cache-biome:
+    enabled: true
+    mob-spawning: true
+    advancements: true
+  optimize-block-entities: true
+  optimize-mob-despawn: false
+  # 是否只对主手和副手中的物品进行 tick / 更新，而不是整个物品栏中的所有物品。
+  only-tick-items-in-hand: true
+  optimize-no-action-time:
+    disable-light-check: false
+  # 是否优化玩家移动处理，跳过不必要的边缘检查并避免冗余的视距更新。
+  optimize-player-movement: true
+  optimize-random-tick: false
+  optimize-waypoint: false
+  # 是否使用铁轨优化。
+  # 优化实现基于 GitHub@FxMori 的 RailOptimization 模组。
+  optimized-powered-rails: true
+  reduce-packets:
+    reduce-entity-move-packets: true
+  skip-ai-for-non-aware-mob: true
+  datapack:
+    # execute 命令执行时跳过不活跃实体.
+    # 将会提升有大量数据包函数的服务器性能.
+    skip-inactive-entity-for-execute-command: false
+  skip-map-item-data-updates-if-map-does-not-have-craftmaprenderer: true
+  throttle-hopper-when-full:
+    # 是否在目标容器已满时阻塞漏斗.
+    enabled: true
+    # 每次阻塞多少 tick.
+    skip-ticks: 8
+  # 跳过区块中重复失败次数超过 `min-failed` 的生物生成.
+  # 随机跳过这些区块中 1-`spawn-chance`% 的生物生成尝试.
+  # 达到生成限制时, 失败计数器不会增加.
   throttle-mob-spawning:
     enabled: false
     monster:
@@ -101,81 +159,15 @@ performance:
     misc:
       min-failed: 8
       spawn-chance: 25.0
-  # 是否在实体不活跃 tick 时阻塞 AI 目标选择器.
-  # 有助于提升性能, 但对游戏有轻微影响.
-  inactive-goal-selector-throttle: true
-  throttle-hopper-when-full:
-    # 是否在目标容器已满时阻塞漏斗.
-    enabled: true
-    # 每次阻塞多少 tick.
-    skip-ticks: 8
-  skip-map-item-data-updates-if-map-does-not-have-craftmaprenderer: true
-  skip-ai-for-non-aware-mob: true
-  reduce-packets:
-    reduce-entity-move-packets: true
-  reduce-chunk-source-updates:
-    # 减少玩家跨区块移动时的区块源更新。
-    enabled: true
-  optimized-powered-rails: true
-  optimise-random-tick: false
-  # 是否优化玩家移动处理，跳过不必要的边缘检查并避免冗余的视距更新。
-  optimize-player-movement: true
-  # 是否只对主手和副手中的物品进行 tick / 更新，而不是整个物品栏中的所有物品。
-  only-tick-items-in-hand: true
-  optimize-block-entities: true
-  cache-biome:
-    enabled: true
-    mob-spawning: true
-    advancements: true
-  # 更快的结构生成任务分段.
-  faster-structure-gen-future-sequencing: true
-  # 是否使用更快的随机生成器?
-  # 需要支持 RandomGenerator 的 JVM.
-  # 一些 JRE 不支持此功能.
-  faster-random-generator:
-    enabled: true
-    # 使用什么种类的随机生成器.
-    # 请参阅 https://openjdk.org/jeps/356
-    random-generator: Xoroshiro128PlusPlus
-    # 是否为世界生成启用更快的随机生成器.
-    # 警告: 此项会影响世界生成!!!
-    enable-for-worldgen: false
-    # 是否在没有为史莱姆区块使用原版随机生成器的情况下进行警告.
-    warn-for-slime-chunk: false
-    # 是否使用原版随机生成器来生成史莱姆区块.
-    use-legacy-random-for-slime-chunk: true
-    # 使用直接随机实现而不是委派给 RandomGenerator.
-    # 这可能会提高性能, 但可能会改变 RNG 行为.
-    use-direct-implementation: true
-  # 是否为 isEyeInFluid 方法启用缓存，以优化性能并减少内存使用.
-  cache-eye-fluid-status: true
-  # 是否缓存Minecraft到Bukkit的实体类型转换.
-  enable-cached-minecraft-to-bukkit-entitytype-convert: true
-  # 根据距离动态优化生物 AI
-  dab:
-    enabled: true
-    # 启用此项后, 在水中的非水生生物将不会被 DAB 影响.
-    # 可以避免距离玩家较远的生物在水里淹死.
-    dont-enable-if-in-water: true
-    # 生物距离玩家多少格 DAB 开始生效
-    start-distance: 6
-    # 最远处的实体每隔多少刻tick一次
-    max-tick-freq: 30
-    # This value defines how much distance modifies an entity's
-    # tick frequency. freq = (distanceToPlayer^2) / (2^value)",
-    # If you want further away entities to tick less often, use 7.
-    # If you want further away entities to tick more often, try 9.
-    activation-dist-mod: 7
-    # 不会被 DAB 影响的实体列表
-    blacklisted-entities: []
-  dont-save-entity:
-    # 区块卸载时不保存掉落的方块和激活的 TNT,
-    # 可以避免在玩家掉线时机器被炸毁.
-    dont-save-primed-tnt: true
-    dont-save-falling-block: true
-  check-survival-before-growth:
-    # 在仙人掌生长前检查其是否能够存活。
-    cactus-check-survival: true
+  create-snapshot-on-retrieving-blockstate: true
+  # 是否为异步任务调度器使用虚拟线程.
+  use-virtual-thread-for-async-scheduler: true
+  # 是否为异步聊天线程使用虚拟线程.
+  use-virtual-thread-for-async-chat-executor: true
+  # 是否为档案查询执行器使用虚拟线程（如果可用）。
+  use-virtual-thread-for-profile-executor: true
+  # 是否为用户验证器使用虚拟线程.
+  use-virtual-thread-for-user-authenticator: true
 
 ###########
 #  FIXES  #
@@ -190,7 +182,53 @@ fixes:
 #  GAMEPLAY  #
 ##############
 gameplay-mechanisms:
-  use-spigot-item-merging-mechanism: true
+  afk-command:
+    # 基于原版 idle-timeout 系统的 AFK 指令
+    # 剩余配置项在 Purpur 配置里
+    enabled: false
+  inventory-overflow-event:
+    # 此事件将在插件使用 Inventory#addItem 方法
+    # 添加物品到玩家背包, 但是背包已满时调用.
+    # 不建议使用此事件，请尽快迁移至使用 Inventory#addItem 方法
+    # 返回的 map
+    enabled: false
+    # 监听此物品栏物品溢出事件的完整类名.
+    listener-class: com.example.package.PlayerInventoryOverflowEvent
+  player:
+    # 玩家 UseItem 的最大距离.
+    # 设置为 -1 来禁用最大距离检测.
+    # 注意: 禁用此项后,
+    # 玩家可以使用作弊客户端的部分发包模块和 NoCom 漏洞!!
+    max-use-item-distance: 1.0000001
+  allow-tripwire-dupe: true
+  death-item-drop-knockback:
+    # 如果为 “true”，物品会在玩家死亡时随机掉落在其周围.
+    drop-around: true
+    # 随机掉落物品时水平速度的基本速度.
+    horizontal-force: 0.5
+    # 随机掉落物品的向上运动.
+    vertical-force: 0.2
+  # 控制哪些物品组件信息会被发送至客户端.
+  # 可能会导致依赖物品组件的资源包/模组无法正常工作.
+  # 可以避免一些客户端动画效果.
+  # 注意: 此项与 Paper 的 item-obfuscation 不同, 我们只从玩家背包中隐藏物品指定的组件信息.
+  hide-item-component:
+    # 被隐藏的物品组件类型列表.
+    # 该配置项接受一个物品组件列表, 格式不正确将不会启用.
+    hidden-types: []
+    # 启用后, 玩家背包内物品的指定组件信息会被隐藏.
+    enabled: false
+  knockback:
+    # 使雪球可以击退玩家.
+    snowball-knockback-players: false
+    # 使鸡蛋可以击退玩家.
+    egg-knockback-players: false
+    # 使玩家可以击退僵尸.
+    can-player-knockback-zombie: true
+    flush-location-while-knockback-player: false
+    old-blast-protection-explosion-knockback: false
+  # 是否只允许玩家被实体推动
+  only-player-pushable: false
   # 此部分包含刷怪笼生物生成的设置.
   spawner-settings:
     # 启用自定义刷怪笼设置. 设为 true 以启用以下所有功能.
@@ -213,58 +251,24 @@ gameplay-mechanisms:
     min-spawn-delay: 200
     # 刷怪笼生成怪物之间的最大延迟 (以刻为单位). 较高的值会减缓刷怪笼的速度.
     max-spawn-delay: 800
-  # 是否只允许玩家被实体推动
-  only-player-pushable: false
-  knockback:
-    # 使雪球可以击退玩家.
-    snowball-knockback-players: false
-    # 使鸡蛋可以击退玩家.
-    egg-knockback-players: false
-    # 使玩家可以击退僵尸.
-    can-player-knockback-zombie: true
-    flush-location-while-knockback-player: false
-    old-blast-protection-explosion-knockback: false
-  # 控制哪些物品组件信息会被发送至客户端.
-  # 可能会导致依赖物品组件的资源包/模组无法正常工作.
-  # 可以避免一些客户端动画效果.
-  # 注意: 此项与 Paper 的 item-obfuscation 不同, 我们只从玩家背包中隐藏物品指定的组件信息.
-  hide-item-component:
-    # 被隐藏的物品组件类型列表.
-    # 该配置项接受一个物品组件列表, 格式不正确将不会启用.
-    hidden-types: []
-    # 启用后, 玩家背包内物品的指定组件信息会被隐藏.
-    enabled: false
-  death-item-drop-knockback:
-    # 如果为 “true”，物品会在玩家死亡时随机掉落在其周围.
-    drop-around: true
-    # 随机掉落物品时水平速度的基本速度.
-    horizontal-force: 0.5
-    # 随机掉落物品的向上运动.
-    vertical-force: 0.2
-  allow-tripwire-dupe: true
-  player:
-    # 玩家 UseItem 的最大距离.
-    # 设置为 -1 来禁用最大距离检测.
-    # 注意: 禁用此项后,
-    # 玩家可以使用作弊客户端的部分发包模块和 NoCom 漏洞!!
-    max-use-item-distance: 1.0000001
-  inventory-overflow-event:
-    # 此事件将在插件使用 Inventory#addItem 方法
-    # 添加物品到玩家背包, 但是背包已满时调用.
-    # 不建议使用此事件，请尽快迁移至使用 Inventory#addItem 方法
-    # 返回的 map
-    enabled: false
-    # 监听此物品栏物品溢出事件的完整类名.
-    listener-class: com.example.package.PlayerInventoryOverflowEvent
-  afk-command:
-    # 基于原版 idle-timeout 系统的 AFK 指令
-    # 剩余配置项在 Purpur 配置里
-    enabled: false
+  use-spigot-item-merging-mechanism: true
 
 #############
 #  NETWORK  #
 #############
 network:
+  # 异步切换连接状态.
+  async-switch-state: true
+  # 是否启用聊天签名, 禁用后玩家无法进行聊天举报.
+  chat-message-signature: false
+  # 警告: 此选项与 ProtocolLib 不兼容, 并可能导致与其他修改数据包
+  # 处理的插件出现问题.
+  # 
+  # 通过使用 Netty 的 lazyExecute 方法来优化非刷新数据包的发送,
+  # 避免在调度数据包操作时进行昂贵的线程唤醒调用.
+  # 
+  # 需要重启服务器才能生效.
+  OptimizeNonFlushPacketSending: false
   protocol-support:
     jade-protocol: true
     appleskin-protocol: true
@@ -281,71 +285,23 @@ network:
     do-a-barrel-roll-force-enabled: false
     do-a-barrel-roll-force-installed: false
     do-a-barrel-roll-installed-timeout: 0
-  # 警告: 此选项与 ProtocolLib 不兼容, 并可能导致与其他修改数据包
-  # 处理的插件出现问题.
-  # 
-  # 通过使用 Netty 的 lazyExecute 方法来优化非刷新数据包的发送,
-  # 避免在调度数据包操作时进行昂贵的线程唤醒调用.
-  # 
-  # 需要重启服务器才能生效.
-  OptimizeNonFlushPacketSending: false
-  # 是否启用聊天签名, 禁用后玩家无法进行聊天举报.
-  chat-message-signature: false
-  # 异步切换连接状态.
-  async-switch-state: true
 
 ##########
 #  MISC  #
 ##########
 misc:
-  message:
-    # 发送未知命令时的消息, 使用 MiniMessage 格式, 设置为 "default" 使用原版消息.
-    # 变量:
-    # <message>, 显示命令错误所附提示消息.
-    # <detail>, 显示命令错误详细信息.
-    unknown-command: default
-  rebrand:
-    server-mod-name: MTN
-    server-gui-name: MTN Console
-  sentry:
-    # Sentry DSN (出现严重错误时将发送至配置的Sentry DSN地址) (留空关闭)
-    dsn: ''
-    # 大于等于该等级的日志会被记录.
-    log-level: WARN
-    # 是否仅记录带有 Throwable 的日志.
-    only-log-thrown: true
-  # 安全种子开启后, 所有矿物与结构都将使用1024位的种子进行生成, 无法被破解.
-  secure-seed:
-    enabled: false
-  # 移除原版的用户名验证,
-  # 让所有字符均可作为玩家名.
-  remove-vanilla-username-check: true
-  # 使服务器无需打开 bungee 模式即可让玩家加入后端服务器.
-  remove-spigot-check-bungee-config: true
-  # 移除修改无法编辑的告示牌时输出的警告.
-  remove-change-non-editable-sign-warning: false
-  # Linear 是一种使用 ZSTD 压缩而非 ZLIB 的区域文件格式.
-  # 该格式可节省约 50% 的磁盘空间.
-  # 使用前请阅读文档: https://github.com/xymb-endcrystalme/LinearRegionFileFormatTools
-  # 免责声明: 实验性功能,有可能导致区块数据丢失.
-  # 切换到Linear前请备份服务器.
-  region-format-settings:
-    # 可用格式: MCA, LINEAR
-    region-format: MCA
-    linear-compress-level: 1
-    throw-on-unknown-extension-detected: false
-    flush-interval-seconds: 5
-  # 这部分包含滞后补偿功能,
-  # 可以在卡顿情况下保障基本游戏体验.
-  lag-compensation:
-    enabled: false
-    enable-for-water: false
-    enable-for-lava: false
-  including-5s-in-get-tps: true
+  cache:
+    profile-lookup:
+      # 缓存玩家资料查询 (皮肤, 材质等) 以减少对 Mojang API 的调用.
+      enabled: false
+      # 玩家资料查询缓存过期时间. 单位: 分钟. (推荐: 1440 = 24小时)
+      timeout: 1440
+      # 最大缓存的玩家资料数量. 更高的值会使用更多内存.
+      max-size: 8192
   # 自定义加入 & 退出消息 (MiniMessage 格式), 设置为 'default' 将使用原版消息.
   # 可用的内置变量:
-  # %player_name% - 玩家名称
-  # %player_displayname% - 玩家显示名称
+  # <player_name> - 玩家名称
+  # <player_displayname> - 玩家显示名称
   connection-message:
     join:
       enabled: false
@@ -355,9 +311,51 @@ misc:
       enabled: false
       # 玩家退出服务器时的消息
       message: default
-  cache:
-    # 玩家首次加入时缓存 PlayerProfile.
-    # 正版验证服务器宕机时非常有用.
-    cache-player-profile-result: false
-    # 缓存过期时间. 单位: 分钟.
-    cache-player-profile-result-timeout: 1440
+  including-5s-in-get-tps: true
+  # 这部分包含滞后补偿功能,
+  # 可以在卡顿情况下保障基本游戏体验.
+  lag-compensation:
+    enabled: false
+    enable-for-water: false
+    enable-for-lava: false
+  # 移除修改无法编辑的告示牌时输出的警告.
+  remove-change-non-editable-sign-warning: false
+  # 使服务器无需打开 bungee 模式即可让玩家加入后端服务器.
+  remove-spigot-check-bungee-config: true
+  # 安全种子开启后, 所有矿物与结构都将使用1024位的种子进行生成, 无法被破解.
+  secure-seed:
+    enabled: false
+  sentry:
+    # Sentry DSN (出现严重错误时将发送至配置的Sentry DSN地址) (留空关闭)
+    dsn: ''
+    # 大于等于该等级的日志会被记录.
+    log-level: WARN
+    # 是否仅记录带有 Throwable 的日志.
+    only-log-thrown: true
+  rebrand:
+    server-mod-name: MTN
+    server-gui-name: MTN Console
+  message:
+    # 发送未知命令时的消息, 使用 MiniMessage 格式, 设置为 "default" 使用原版消息.
+    # 变量:
+    # <message>, 显示命令错误所附提示消息.
+    # <detail>, 显示命令错误详细信息.
+    unknown-command: default
+  vanilla-username-check:
+    # 移除原版的用户名验证,
+    # 让所有字符均可作为玩家名.
+    # 警告: 完全移除验证非常不安全, 使用风险自负!
+    remove-all-check: false
+    # 强制启用头颅验证,
+    # 避免所有者带有特殊字符的头颅导致客户端掉线.
+    enforce-skull-validation: true
+    # 允许老玩家加入修改用户名验证正则后的服务器,
+    # 即使他们的用户名不满足修改后的正则.
+    allow-old-players-join: false
+    # 使用用户名正则来验证用户名,
+    # 只允许正则指定的字符.
+    use-username-regex: false
+    # 用户名正则,
+    # 指定允许在用户名中使用的字符.
+    # 默认: ^[a-zA-Z0-9_.]*$
+    username-regex: ^[a-zA-Z0-9_.]*$

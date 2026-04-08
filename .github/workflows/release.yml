@@ -1,90 +1,66 @@
-name: Create Release with Changelog
+name: Create Bootstrap Release
 
 on:
   workflow_dispatch:
     inputs:
       version:
-        description: '版本号'
+        description: "Release version label"
         required: true
         type: string
 
+permissions:
+  contents: write
+
 jobs:
-  build:
+  release:
     runs-on: ubuntu-latest
+
     steps:
-      # 1. 检出代码
-      - name: Checkout code
-        uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # 获取完整历史以便正确处理issues
+          fetch-depth: 0
 
-      # 2. 替换版本号
-      - name: Update version in files
+      - name: Install archive tools
         run: |
-          # 替换TAB.yml中的版本号
-          if [ -f "./plugins/TAB/config.yml" ]; then
-            sed -i "s/%server_version%/${{ github.event.inputs.version }}/g" "./plugins/TAB/config.yml"
-          fi
-          
-
-      # 3. 清理plugins目录 - 只保留.yml,.conf,.txt,.jar文件和所有文件夹结构
-      - name: Clean plugins directory
-        run: |
-          if [ -d "./plugins" ]; then
-            find ./plugins -type f -not \( -name "*.yml" -o -name "*.conf" -o -name "*.txt" -o -name "*.jar" \) -delete
-          fi
-
-      # 4. 打包文件
-      - name: Create update package
-        run: |
-          # 安装7z
           sudo apt-get update
           sudo apt-get install -y p7zip-full
-          
-          # 创建排除文件列表
-          echo "README.md" > exclude.txt
-          echo ".github/" >> exclude.txt
-          echo ".git/" >> exclude.txt
-          echo ".gitattributes" >> exclude.txt
-          echo "manual.txt" >> exclude.txt
-          echo "exclude.txt" >> exclude.txt  # 确保exclude.txt自身也被排除
-          
-          # 使用7z创建压缩包，使用最高压缩级别
-          7z a -t7z -mx=9 -xr@exclude.txt update_pack.7z ./
 
-      # 5. 生成更新日志
+      - name: Build release metadata
+        run: |
+          TODAY="$(date +'%Y.%m.%d')"
+          RELEASE_TAG="${TODAY}_${{ github.event.inputs.version }}"
+          PACKAGE_NAME="txmcsv-bootstrap_${RELEASE_TAG}.7z"
+          echo "RELEASE_TAG=${RELEASE_TAG}" >> "$GITHUB_ENV"
+          echo "PACKAGE_NAME=${PACKAGE_NAME}" >> "$GITHUB_ENV"
+
       - name: Generate changelog
-        id: changelog
-        uses: actions/github-script@v6
+        uses: actions/github-script@v7
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             const fs = require('fs');
-            
-            // 获取最新的release
+
             let latestReleaseDate = null;
             try {
               const latestRelease = await github.rest.repos.getLatestRelease({
                 owner: context.repo.owner,
-                repo: context.repo.repo
+                repo: context.repo.repo,
               });
               latestReleaseDate = new Date(latestRelease.data.created_at);
-              console.log(`Latest release date: ${latestReleaseDate.toISOString()}`);
             } catch (error) {
-              console.log("No previous releases found, will include all issues");
+              core.info('No previous release found; including all matching closed issues.');
             }
-            
-            // 使用GraphQL API查询issues (替代已弃用的search/issues endpoint)
+
             const query = `
               query($owner:String!, $repo:String!, $states:[IssueState!]) {
                 repository(owner:$owner, name:$repo) {
-                  issues(states:$states, first:100, orderBy:{field:CREATED_AT, direction:DESC}) {
+                  issues(states:$states, first:100, orderBy:{field:UPDATED_AT, direction:DESC}) {
                     nodes {
                       number
                       title
-                      state
                       closedAt
-                      labels(first:10) {
+                      labels(first:20) {
                         nodes {
                           name
                         }
@@ -94,112 +70,122 @@ jobs:
                 }
               }
             `;
-            
-            const variables = {
+
+            const result = await github.graphql(query, {
               owner: context.repo.owner,
               repo: context.repo.repo,
-              states: ["CLOSED"]
-            };
-            
-            const result = await github.graphql(query, variables);
-            
-            // 处理查询结果
-            const issues = result.repository.issues.nodes
-              .filter(issue => {
-                // 只包括自上次发布后关闭的issues
-                if (latestReleaseDate && new Date(issue.closedAt) <= latestReleaseDate) {
-                  return false;
-                }
-                
-                // 排除带有wontfix或invalid标签的issues
-                const labels = issue.labels.nodes.map(label => label.name.toLowerCase());
-                return !labels.includes('🙅wontfix') && !labels.includes('❌invalid') && !labels.includes('📖potential-duplicate');
-              });
-            
-            // 分类issues
+              states: ['CLOSED'],
+            });
+
+            const issues = result.repository.issues.nodes.filter((issue) => {
+              if (!issue.closedAt) return false;
+              if (latestReleaseDate && new Date(issue.closedAt) <= latestReleaseDate) return false;
+
+              const labels = issue.labels.nodes.map((label) => label.name.toLowerCase());
+              return !labels.some((label) =>
+                label.includes('wontfix') ||
+                label.includes('invalid') ||
+                label.includes('potential-duplicate')
+              );
+            });
+
             const bugfixes = [];
             const features = [];
-            
-            for (const issue of issues) {
-              const title = issue.title
-                .replace('[Bug]: ', '')
-                .replace('[Bug]:', '')
-                .replace('[Feature request]: ', '')
-                .replace('[Feature request]:', '')
-                .trim();
-                
-              if (issue.title.toLowerCase().includes('[bug]')) {
-                bugfixes.push({ title, number: issue.number });
-              } else if (issue.title.toLowerCase().includes('[feature')) {
-                features.push({ title, number: issue.number });
-              }
-            }
-            
-            // 读取manual.txt
-            let manualContent = '';
-            try {
-              if (fs.existsSync('manual.txt')) {
-                manualContent = fs.readFileSync('manual.txt', 'utf8');
-              }
-            } catch (error) {
-              console.log('No manual.txt found or error reading it:', error);
-            }
-            
-            // 生成changelog内容
-            let changelog = '# 📦 更新内容：\n\n';
-            
-            // 手动更改部分
-            changelog += '## 非Issues更改\n';
-            if (manualContent) {
-              changelog += manualContent + '\n\n';
-            } else {
-              changelog += '无\n\n';
-            }
-            
-            // Bug修复部分
-            changelog += '## Bug修复\n';
-            if (bugfixes.length > 0) {
-              for (const bug of bugfixes) {
-                changelog += `修复了${bug.title}的问题 #${bug.number}\n`;
-              }
-            } else {
-              changelog += '无\n';
-            }
-            changelog += '\n';
-            
-            // 功能更改部分
-            changelog += '## 功能更改\n';
-            if (features.length > 0) {
-              for (const feature of features) {
-                changelog += `${feature.title} #${feature.number}\n`;
-              }
-            } else {
-              changelog += '无\n';
-            }
-            
-            // 保存到文件
-            fs.writeFileSync('CHANGELOG.md', changelog);
-            
-            return changelog;
+            const others = [];
 
-      # 6. 创建release
-      - name: Create Release
-        id: create_release
+            for (const issue of issues) {
+              const normalizedTitle = issue.title
+                .replace(/^\[bug\]:?\s*/i, '')
+                .replace(/^\[feature request\]:?\s*/i, '')
+                .trim();
+
+              if (/^\[bug\]/i.test(issue.title)) {
+                bugfixes.push(`- ${normalizedTitle} (#${issue.number})`);
+              } else if (/^\[feature/i.test(issue.title)) {
+                features.push(`- ${normalizedTitle} (#${issue.number})`);
+              } else {
+                others.push(`- ${normalizedTitle} (#${issue.number})`);
+              }
+            }
+
+            let manualContent = '';
+            if (fs.existsSync('manual.txt')) {
+              manualContent = fs.readFileSync('manual.txt', 'utf8').trim();
+            }
+
+            const sections = ['# 更新内容', ''];
+            sections.push('## 手动记录');
+            sections.push(manualContent || '- 无');
+            sections.push('');
+            sections.push('## Bug 修复');
+            sections.push(bugfixes.length ? bugfixes.join('\n') : '- 无');
+            sections.push('');
+            sections.push('## 功能与调整');
+            sections.push(features.length ? features.join('\n') : '- 无');
+
+            if (others.length) {
+              sections.push('');
+              sections.push('## 其他已关闭议题');
+              sections.push(others.join('\n'));
+            }
+
+            fs.writeFileSync('CHANGELOG.md', sections.join('\n'));
+
+      - name: Stage bootstrap package
         run: |
-          # 获取今天的日期(格式为yyyy.mm.dd)
-          TODAY=$(date +'%Y.%m.%d')
-          # 生成release标签
-          RELEASE_TAG="${TODAY}_${{ github.event.inputs.version }}"
-          echo "RELEASE_TAG=${RELEASE_TAG}" >> $GITHUB_ENV
-      - name: Upload Release
-        uses: softprops/action-gh-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          rm -rf .release-bootstrap
+          mkdir -p .release-bootstrap
+          python3 <<'PY'
+          import json
+          import fnmatch
+          import glob
+          import shutil
+          from pathlib import Path
+
+          repo = Path('.').resolve()
+          staging = repo / '.release-bootstrap'
+          manifest = json.loads((repo / '.github' / 'bootstrap-manifest.json').read_text(encoding='utf-8'))
+
+          include_patterns = manifest['include']
+          exclude_patterns = manifest['exclude']
+
+          def normalize(path: Path) -> str:
+            return path.relative_to(repo).as_posix()
+
+          def excluded(relpath: str) -> bool:
+            return any(fnmatch.fnmatch(relpath, pattern) for pattern in exclude_patterns)
+
+          files = set()
+          for pattern in include_patterns:
+            for match in glob.glob(str(repo / pattern), recursive=True):
+              path = Path(match)
+              if path.is_file():
+                relpath = normalize(path)
+                if not excluded(relpath):
+                  files.add(relpath)
+
+          for relpath in sorted(files):
+            source = repo / relpath
+            destination = staging / relpath
+            destination.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(source, destination)
+
+          print(f"Staged {len(files)} files into {staging}")
+          PY
+
+      - name: Create bootstrap archive
+        run: |
+          cd .release-bootstrap
+          7z a -t7z -mx=9 "../${PACKAGE_NAME}" ./*
+
+      - name: Upload GitHub release
+        uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ env.RELEASE_TAG }}
           name: ${{ env.RELEASE_TAG }}
           body_path: CHANGELOG.md
           draft: false
           prerelease: false
-          files: |
-            update_pack.7z
+          files: ${{ env.PACKAGE_NAME }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

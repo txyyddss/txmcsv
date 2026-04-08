@@ -1,0 +1,47 @@
+Currencies:
+  vault:
+    Settings:
+      Name: Money
+      Format: $%amount%
+      Icon:
+        Material: minecraft:gold_nugget
+        Lore: []
+  xp_level:
+    Settings:
+      Name: XP Levels
+      Format: '%amount% %name%'
+      Icon:
+        Material: minecraft:experience_bottle
+        Lore: []
+Items:
+  gold:
+    Tag:
+      Value: '{count:1,id:"minecraft:gold_ingot"}'
+      DataVersion: 4440
+    Settings:
+      Name: <lang:"item.minecraft.gold_ingot">
+      Format: '%amount%x %name%'
+      Icon:
+        Material: minecraft:gold_ingot
+        Lore: []
+  emerald:
+    Tag:
+      Value: '{count:1,id:"minecraft:emerald"}'
+      DataVersion: 4440
+    Settings:
+      Name: <lang:"item.minecraft.emerald">
+      Format: '%amount%x %name%'
+      Icon:
+        Material: minecraft:emerald
+        Lore: []
+  custom_diamond:
+    Tag:
+      Value: '{components:{"minecraft:custom_name":{bold:0b,extra:[{bold:0b,italic:0b,obfuscated:0b,strikethrough:0b,text:"<aqua>Custom Diamond<aqua>",underlined:0b}],italic:0b,obfuscated:0b,strikethrough:0b,text:"",underlined:0b}},count:1,id:"minecraft:diamond"}'
+      DataVersion: 4440
+    Settings:
+      Name: <!italic><!underlined><!strikethrough><!bold><!obfuscated><!italic><!underlined><!strikethrough><!bold><!obfuscated>\<aqua>Custom Diamond\<aqua>
+      Format: '%amount%x %name%'
+      Icon:
+        Material: minecraft:diamond
+        Display_Name: <!italic><!underlined><!strikethrough><!bold><!obfuscated><!italic><!underlined><!strikethrough><!bold><!obfuscated>\<aqua>Custom Diamond\<aqua>
+        Lore: []

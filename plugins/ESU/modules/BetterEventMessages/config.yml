@@ -4,12 +4,12 @@
 # If 'show-in-console' is false, only the online players can see the message.
 message:
   death:
-    color: '#dd9090'
+    color: '#DD9090'
     head: ''
     foot: ''
     show-in-console: true
   done-advancement:
-    color: '#edde0e'
+    color: '#EDDE0E'
     head: ''
     foot: ''
     show-in-console: true

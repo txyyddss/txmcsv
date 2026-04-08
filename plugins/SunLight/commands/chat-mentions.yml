@@ -1,0 +1,22 @@
+LiteralNodes:
+  toggle:
+    Enabled: true
+    Aliases: mentions-toggle
+    Cooldown: 0
+  'off':
+    Enabled: true
+    Aliases: mentions-off
+    Cooldown: 0
+  'on':
+    Enabled: true
+    Aliases: mentions-on
+    Cooldown: 0
+RootNodes:
+  mentions:
+    Enabled: true
+    Aliases: mentions
+    Name: Mentions
+    Childrens:
+      'off': 'off'
+      'on': 'on'
+      toggle: toggle

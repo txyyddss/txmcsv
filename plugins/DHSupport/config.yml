@@ -44,6 +44,9 @@ login_data_sync_rc_limit: 50
 # Default: 0
 max_data_transfer_speed: 0
 
+# Show warning during startup if chunk generation is enabled?
+generate_new_chunks_warning: false
+
 # Output builder activity to the server console.
 # Optional.
 # Default: true
@@ -108,4 +111,4 @@ worlds:
 scheduler_threads: 2
 
 # Don't touch :)
-config_version: 5
+config_version: 6

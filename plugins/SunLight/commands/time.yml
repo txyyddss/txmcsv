@@ -1,0 +1,46 @@
+LiteralNodes:
+  sunrise:
+    Enabled: true
+    Aliases: sunrise
+    Cooldown: 0
+  midnight:
+    Enabled: true
+    Aliases: midnight
+    Cooldown: 0
+  noon:
+    Enabled: true
+    Aliases: noon
+    Cooldown: 0
+  set:
+    Enabled: true
+    Aliases: setworldtime
+    Cooldown: 0
+  night:
+    Enabled: true
+    Aliases: night
+    Cooldown: 0
+  sunset:
+    Enabled: true
+    Aliases: sunset
+    Cooldown: 0
+  show:
+    Enabled: true
+    Aliases: worldtime
+    Cooldown: 0
+  day:
+    Enabled: true
+    Aliases: day
+    Cooldown: 0
+RootNodes:
+  time:
+    Enabled: true
+    Aliases: time
+    Name: Time
+    Childrens:
+      show: show
+      night: night
+      sunrise: sunrise
+      midnight: midnight
+      sunset: sunset
+      day: day
+      noon: noon

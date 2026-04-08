@@ -1,0 +1,17 @@
+LiteralNodes:
+  create:
+    Enabled: false
+    Aliases: setplayerhome
+    Cooldown: 0
+  delete:
+    Enabled: false
+    Aliases: delplayerhome
+    Cooldown: 0
+RootNodes:
+  homesadmin:
+    Enabled: true
+    Aliases: homes-admin
+    Name: Homesadmin
+    Childrens:
+      delete: delete
+      create: create

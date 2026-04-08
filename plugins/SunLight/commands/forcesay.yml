@@ -1,0 +1,5 @@
+LiteralNodes:
+  forcesay:
+    Enabled: true
+    Aliases: forcesay
+    Cooldown: 0

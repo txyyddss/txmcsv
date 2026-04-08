@@ -1,0 +1,5 @@
+LiteralNodes:
+  playerinfo:
+    Enabled: true
+    Aliases: playerinfo,pinfo
+    Cooldown: 0

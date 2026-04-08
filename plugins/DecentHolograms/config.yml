@@ -103,7 +103,7 @@ damage-display:
   # Do you want to display 0 (or less) damage? [true/false]
   zero-damage: false
   # How long will the hologram stay in ticks
-  duration: 40
+  duration: 15
   # Damage placeholder: {damage}
   # Animations and Placeholders DO work here
   appearance: '&c{damage}'
@@ -130,7 +130,7 @@ healing-display:
   # Do you want to display healing for mobs? [true/false]
   mobs: true
   # How long will the hologram stay in ticks
-  duration: 40
+  duration: 15
   # Heal placeholder: {heal}
   # Animations and Placeholders DO work here
   appearance: '&a+ {heal}'

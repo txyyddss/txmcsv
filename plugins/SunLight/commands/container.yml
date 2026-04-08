@@ -1,0 +1,47 @@
+LiteralNodes:
+  cartography_table:
+    Enabled: true
+    Aliases: cartographytable
+    Cooldown: 0
+  loom:
+    Enabled: true
+    Aliases: loom
+    Cooldown: 0
+  anvil:
+    Enabled: true
+    Aliases: anvil
+    Cooldown: 0
+  enchanting_table:
+    Enabled: true
+    Aliases: enchantingtable
+    Cooldown: 0
+  stonecutter:
+    Enabled: true
+    Aliases: stonecutter
+    Cooldown: 0
+  workbench:
+    Enabled: true
+    Aliases: workbench
+    Cooldown: 0
+  smithing_table:
+    Enabled: true
+    Aliases: smithingtable
+    Cooldown: 0
+  grindstone:
+    Enabled: true
+    Aliases: grindstone
+    Cooldown: 0
+RootNodes:
+  container:
+    Enabled: true
+    Aliases: container
+    Name: Container
+    Childrens:
+      cartography_table: cartographytable
+      loom: loom
+      anvil: anvil
+      enchanting_table: enchantingtable
+      stonecutter: stonecutter
+      workbench: workbench
+      smithing_table: smithingtable
+      grindstone: grindstone

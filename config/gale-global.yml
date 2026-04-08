@@ -20,6 +20,7 @@ log-to-console:
     expired-message-warning: false
     not-secure-marker: true
   ignored-advancements: true
+  invalid-legacy-text-component: true
   invalid-pool-element-error-log-level: info
   invalid-statistics: true
   legacy-material-initialization: false

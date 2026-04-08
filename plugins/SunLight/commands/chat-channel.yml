@@ -1,0 +1,17 @@
+LiteralNodes:
+  leave:
+    Enabled: false
+    Aliases: leavechannel
+    Cooldown: 0
+  join:
+    Enabled: false
+    Aliases: joinchannel
+    Cooldown: 0
+RootNodes:
+  channel:
+    Enabled: true
+    Aliases: channel
+    Name: Channel
+    Childrens:
+      join: join
+      leave: leave

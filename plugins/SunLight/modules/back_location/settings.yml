@@ -1,30 +1,31 @@
 Location:
   Previous:
-    # Sets whether or not Previous Location feature is enabled.
-    # It will track player teleports to store previous location.
-    # Players can teleport to previous location using the 'back' command.
+    # Controls whether module will track player teleportations to cache their pre-teleport locations.
+    # Disabling this setting will prevent players from accessing the /back command and their pre-teleport locations.
     Enabled: true
-    # Sets for how long (in seconds) previous location will last.
+    # Sets cache time (in seconds) for pre-teleport locations.
     Expire_Time: 3600
-    # Sets minimal distance between current and destination locations to save it.
+    # Sets min. teleport distance to cache the pre-teleport location.
+    # This might be useful to prevent location cache override by accidient or small teleports.
+    # Teleporting to another world will ignore this setting.
     Min_Distance_Difference: 10.0
-    # When Previous Location stored in any of the worlds listed below, players won't be able to use it without the 'sunlight.backlocation.bypass.previous.worlds' permission.
+    # Sets worlds to where players can't teleport back to the cached location unless they have the 'sunlight.backlocation.bypass.previous.worlds' permission.
     Disabled_Worlds:
     - my_custom_world
-    # List of teleport causes that are ignored by Previous Location.
-    # This setting can be bypassed with 'sunlight.backlocation.bypass.previous.causes' permission
+    # If a teleport was caused by any of the listed reasons, the pre-teleport location won't be cached.
+    # This might be useful to prevent location cache override in special cases, such as Ender Pearl teleports.
+    # Players with the 'sunlight.backlocation.bypass.previous.causes' permission will bypass this setting
     # https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/event/player/PlayerTeleportEvent.TeleportCause.html
     Ignored_Causes:
     - ENDER_PEARL
   Death:
-    # Sets whether or not Death Location feature is enabled.
-    # It will track player deaths to store death locations.
-    # Players can teleport to death locations using the 'deathback' command.
+    # Controls whether module will track player deaths to cache their death locations.
+    # Disabling this setting will prevent players from accessing the /deathback command and their death locations.
     Enabled: true
-    # Sets whether or not death location should be removed after use.
+    # Controls whether players can teleport to their death location only once per death.
     ResetOnUse: true
-    # Sets for how long (in seconds) death location will last.
+    # Sets cache time (in seconds) for death locations.
     Expire_Time: 3600
-    # When Death Location stored in any of the worlds listed below, players won't be able to use it without the 'sunlight.backlocation.bypass.death.worlds' permission.
+    # Sets worlds to where players can't teleport back to the death location unless they have the 'sunlight.backlocation.bypass.death.worlds' permission.
     Disabled_Worlds:
     - my_custom_world

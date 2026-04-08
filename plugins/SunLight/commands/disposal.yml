@@ -1,0 +1,5 @@
+LiteralNodes:
+  disposal:
+    Enabled: true
+    Aliases: disposal,trash
+    Cooldown: 0
