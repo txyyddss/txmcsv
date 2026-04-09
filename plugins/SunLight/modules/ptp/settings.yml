@@ -1,2 +1,0 @@
-# Sets how long (in seconds) teleport request will be valid to accept/decline it.
-Request_Timeout: 60

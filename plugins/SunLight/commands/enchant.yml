@@ -1,9 +1,0 @@
-LiteralNodes:
-  enchant:
-    Enabled: true
-    Aliases: enchant
-    Cooldown: 0
-  disenchant:
-    Enabled: true
-    Aliases: disenchant
-    Cooldown: 0
