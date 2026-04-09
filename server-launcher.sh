@@ -116,13 +116,6 @@ jvm_opts=(
   "-XX:SurvivorRatio=32"
   "-XX:+PerfDisableSharedMem"
   "-XX:MaxTenuringThreshold=1"
-  "-Dusing.aikars.flags=https://mcflags.emc.gs"
-  "-Daikars.new.flags=true"
-  "-DLeaf.library-download-repo=https://maven.aliyun.com/repository/public"
-  "-Dpaper.playerconnection.keepalive=180"
-  "-Dpaper.disableWorldSymlinkValidation=true"
-  "-Dgale.log.warning.root=false"
-  "-Dgale.log.warning.offline.mode=false"
 )
 
 extra_opts=()

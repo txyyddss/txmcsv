@@ -1,5 +1,5 @@
 [Unit]
-Description=TXMCSV Minecraft Server
+Description=MTN Server
 After=network-online.target
 
 [Service]
