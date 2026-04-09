@@ -44,10 +44,5 @@ echo Using %JAVA_EXE% ^(Java %JAVA_VERSION%^)
   -XX:InitiatingHeapOccupancyPercent=15 -XX:G1MixedGCLiveThresholdPercent=90 ^
   -XX:G1RSetUpdatingPauseTimePercent=5 -XX:SurvivorRatio=32 ^
   -XX:+PerfDisableSharedMem -XX:MaxTenuringThreshold=1 ^
-  -Dusing.aikars.flags=https://mcflags.emc.gs -Daikars.new.flags=true ^
-  -DLeaf.library-download-repo=https://maven.aliyun.com/repository/public ^
-  -Dpaper.playerconnection.keepalive=180 ^
-  -Dpaper.disableWorldSymlinkValidation=true ^
-  -Dgale.log.warning.root=false -Dgale.log.warning.offline.mode=false ^
   -jar server.jar
 pause
