@@ -1,7 +1,10 @@
+generate-leaf-litter: true
+destroy-plants-for-leaf-litter: true
+spawn-leaf-litter-under: OAK_LEAVES, BIRCH_LEAVES, DARK_OAK_LEAVES
 snowman-immune-to-water: true
 spawn-snow-on-leaves: true
 first-snowfall-sub-season: 1
-version: 11.7.0
+version: 11.9.2
 modify-blocks: true
 remove-ice-in-unloaded-chunks: false
 modify-daynight-length: true

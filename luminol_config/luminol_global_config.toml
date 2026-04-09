@@ -1,0 +1,301 @@
+	[unsupported.disable_check_for_folia_supported]
+		#Disable check for folia-supported for leaves plugin.
+		#ATTENTION: No support will be provided if you enabled this.
+		disable_for_leaves = false
+		#Disable check for folia-supported for spigot/bukkit/paper plugin.
+		#ATTENTION: No support will be provided if you enabled this.
+		disable_for_paper = false
+
+	[experiment.disable_entity_exception_catchers]
+		#If this config enabled, the server will crash directly when entity ticking has some errors instead of removing the entity to keep server running.
+		#It could prevent entity disappearing but may cause more server crashes.
+		#DO NOT ENABLE UNLESS YOU KNOW WHAT YOU ARE DOING!!!
+		enabled = false
+
+	[experiment.disable_async_catchers]
+		#Disable async catcher to prevent some crashes caused by some plugins which supports folia but has issuable logics.
+		#ATTENTION: Would cause region deadlock when getChunkAt was incorrectly called!
+		#           See: https://github.com/PaperMC/Folia/issues/280 which is resolved in folia(https://github.com/PaperMC/Folia/commit/2e7bc0721af95196c85500c7bb136aeea0bc12ce)
+		#DO NOT ENABLE UNLESS YOU KNOW WHAT YOU ARE DOING!!!
+		#
+		enabled = false
+
+	[experiment.command]
+		enable_data_command = false
+		#Force to enable command blocks.
+		#ATTENTION: WOULD CAUSE SERVER CRASHING AS SOME THREADING ISSUE!!!
+		#DO NOT ENABLE UNLESS YOU KNOW WHAT YOU ARE DOING!!!
+		#
+		enable_command_block = false
+		#Allow to use waypoint command and locator bar
+		enable_waypoints_and_waypoint_command = false
+
+	[fixes.poi_range_fixes]
+		#Do not compete POI if it's unloaded
+		#Related with https://github.com/PaperMC/Folia/issues/292
+		#
+		do_not_compete_poi_if_unloaded = true
+
+	[fixes.allow_unsafe_teleportation]
+		#Allow non player entities enter end portals if enabled.
+		#If you want to use sand duping,please turn on this.
+		#Warning: This would cause some unsafe issues, you could learn more on : https://github.com/PaperMC/Folia/issues/297
+		enabled = false
+
+	#This config is a temporary fix for those incorrect owned data in the memory of each mob, for more you can see https://github.com/PaperMC/Folia/issues/203
+	[fixes.force_cleanup_drop_non_owned_entity_memory_module]
+		#When enabled, the entity's brain will clean the memory which is typed of entity and not belong to current tickregion
+		enabled_for_entity = true
+		#When enabled, the entity's brain will clean the memory which is typed of position_tracker and not belong to current tickregion
+		enabled_for_position_tracker = true
+		#When enabled, the entity's brain will clean the memory which is typed of block_pos and not belong to current tickregion
+		enabled_for_block_pos = true
+
+	[fixes.collision_behavior]
+		#Decides which collision logics will be used(Moonrise and Paper modified this for optimization but would also break some vanilla behaviours at the same time).
+		#Would be useful for fixing improper behaviours of some huge redstone machines
+		#Available Value:
+		#VANILLA
+		#BLOCK_SHAPE_VANILLA
+		#PAPER
+		mode = "BLOCK_SHAPE_VANILLA"
+
+	[fixes.prevent_incorrect_teleport_async_calls_during_move_event]
+		throw_when_caught = true
+		#When enabled, the server would reject some incorrect teleportAsync calls during move events.
+		#And this will reduce the crashes which caused by plugins(Residence etc.)
+		#But you should notice that it might break the compatibility with some plugins.
+		enabled = false
+
+	[fixes.item_multitask]
+		#Prevent the server from interrupting the state of items
+		#during block interactions or hotbar slot changes.
+		enabled = true
+
+	[fixes.pathfinding_fixes]
+		#Recompute path or stop pathfinding when it's touching the blocks out of current tick region
+		break_down_pathfinding_when_out_of_region = true
+		#Skip pathfinding target when it's out of current tick region
+		do_not_pathfind_to_not_owned_targets = false
+
+	[fixes.fix_high_velocity_issue]
+		#A simple fix of an issue on folia 
+		#(Sometimes the entity would 
+		#have a large moment that cross the 
+		#different tick regions, and it would 
+		#make the server crashed) but sometimes it might doesn't work
+		enabled = true
+		warn_on_detected = false
+
+	[fixes.use_vanilla_random_source]
+		#Related with RNG cracks
+		enable_for_player_entity = true
+
+	[function.regionbar]
+		format = "<gray>Util<yellow>:</yellow> <util> Chunks<yellow>:</yellow> <green><chunks></green> Players<yellow>:</yellow> <green><players></green> Entities<yellow>:</yellow> <green><entities></green>"
+		enabled = false
+		util_color_list = ["GREEN", "YELLOW", "RED", "PURPLE"]
+		#Available displays: BOSS_BAR, ACTION_BAR, TAB_LIST
+		display = "BOSS_BAR"
+		update_interval_ticks = 15
+
+	[function.tripwire_dupe]
+		enabled = true
+		#Available Value:
+		#VANILLA20
+		#VANILLA21
+		#MIXED
+		behavior_mode = "VANILLA21"
+
+	[function.portal_rate_limit]
+		#If the fixed limit is not enough for use, you could define your own expression to dynamically limit the
+		#portal rate.
+		#
+		#Available variables(all is of current tickregion): e (ticking_entity_count)
+		#                     c (ticking_chunk_count)
+		#                     p (player_count)
+		#Example: 50 * (1 + sqrt(x/1000) + c/200 + p/5)
+		#
+		maximum_portal_teleports_per_tick_expression = "50 * (1 + sqrt(e/1000) + c/200 + p/5)"
+		#Whether or not to limit the portal rate when entity goes into portals
+		enable = false
+		#Decides how much portal teleportation should be handled within a tick in a single tick region,when exceed,
+		#the portal teleportation will be pushed into the next tick
+		#
+		#Note: set to -1 to use custom expressions
+		maximum_portal_teleports_per_tick = 200
+
+	[function.membar]
+		format = "<gray>Memory usage <yellow>:</yellow> <used>MB<yellow>/</yellow><available>MB"
+		memory_color_list = ["GREEN", "YELLOW", "RED", "PURPLE"]
+		enabled = false
+		#Available displays: BOSS_BAR, ACTION_BAR, TAB_LIST
+		display = "BOSS_BAR"
+		update_interval_ticks = 15
+
+	[function.region_format]
+		#Decides the compression level of the region file(Only works for LINEAR_V2 and B_LINEAR)
+		linear_compression_level = 1
+		#Decides when it will be flushed to the region file when it has been marked to save for n(default is 100) milliseconds(Only works for LINEAR_V2)
+		linear_io_flush_delay_ms = 100
+		#Decides when it will be flushed to the region file when there has been no write operations for n(default is 3000) milliseconds(Only works for B_LINEAR)
+		blinear_io_flush_delay_ms = 3000
+		#Decides the worker thread count of linear(Only works for LINEAR_V2)
+		linear_io_thread_count = 6
+		#Decides the worker thread count of buffered linear(Only works for B_LINEAR)
+		blinear_io_thread_count = 6
+		#Available choices: MCA, B_LINEAR, LINEAR_V2
+		format = "MCA"
+		#Decides if it could use virtual threads for linear format(Only works for LINEAR_V2)
+		linear_use_virtual_thread = true
+
+	[function.tpsbar]
+		ping_color_list = ["GREEN", "YELLOW", "RED", "PURPLE"]
+		#Example(if mspt is 20.00000000)(value -> result): 2 -> 20.00, 1 -> 20.0
+		precision_of_mspt_value = 2
+		#Example(if tps is 20.00000000)(value -> result): 2 -> 20.00, 1 -> 20.0
+		precision_of_tps_value = 2
+		chunkhot_color_list = ["GREEN", "YELLOW", "RED", "PURPLE"]
+		#Available displays: BOSS_BAR, ACTION_BAR, TAB_LIST
+		display = "BOSS_BAR"
+		format = "<gray>TPS<yellow>:</yellow> <tps> MSPT<yellow>:</yellow> <mspt> Ping<yellow>:</yellow> <ping>ms ChunkHot<yellow>:</yellow> <chunkhot>"
+		tps_color_list = ["GREEN", "YELLOW", "RED", "PURPLE"]
+		enabled = false
+		update_interval_ticks = 15
+
+	[function.secure_seed]
+		#Version 1: Blake2b (insecure, reversible with a GPU/ASIC cluster in minutes with enough entropy)
+		#Version 2: Blake3 with salt key derivation (recommended, irreversible)
+		#***** WARN: Switching versions will cause chunk errors! *****
+		version = 1
+		#         Once you enable secure seed, all ores and structures are generated with 1024-bit seed
+		#         instead of using 64-bit seed in vanilla, making traditional seed cracking impossible.
+		#Note: If you use V1 it will be vulnerable to terrain elevation attacks.
+		#         ***** WARN: You need keep it enabled if your old world are also using secure seed! Or it will kill your save *****
+		enabled = false
+		#Auto-generated 256-bit salt for V2 cryptographic operations.
+		#Generated once on first startup - DO NOT SHARE THIS OR MODIFY (MODIFYING THIS WILL CAUSE CHUNK ERRORS)!
+		#Used with Blake3 keyed hash to make seed irreversible.
+		salt = "g3rRgkMbgXRQDY7KZ8RR0l7/mdRvh8pr5T6bIuOPGRM="
+
+	[misc.disable_warning]
+		#Disable heightmap-check's warning
+		disable_heightmap_warning = true
+		#Disable offline warns popped in the log when starting the server
+		disable_offline_mode_warning = true
+		#Disable wrongly move warns and checks
+		disable_moved_wrongly_threshold_warning = true
+
+	[misc.server_mod_name]
+		#Decides the server mod name shown in your F3 debug screen.
+		name = "MTN"
+		#Ignore any plugin's modification and server mod name set in this config block, only force sending brand name of vanilla
+		vanilla_spoof = false
+
+	#Checks GitHub Releases for newer version's jars on a schedule.
+	#Downloads are staged under auto_update/lophine and written to auto_update/core.path,
+	#which Hyacinthusclip can consume on the next restart.
+	#If target_jar_path is set, server will also try to replace that launcher jar directly.
+	[misc.auto_update]
+		#Optional launcher jar path to replace after a successful download.
+		#Leave this blank to keep the downloaded jar staged in auto_update/lophine
+		#and let Hyacinthusclip switch to it through auto_update/core.path on restart.
+		target_jar_path = ""
+		#Whether prerelease GitHub releases are allowed when selecting an update.
+		allow_prerelease = false
+		#List of daily check times in HH:mm, based on the server's local time zone.
+		check_times = ["06:00"]
+		#Whether the server should check for updates automatically.
+		enabled = false
+
+	[misc.folia_watchdog]
+		#Decides the interval of the watchdog prints the threads dumps of tickregions in stuck
+		tick_region_time_out_ms = 5000
+
+	[misc.username_checks]
+		#Decide whether the username checks are enabled, 
+		# you could disable it if your players are using Chinese username but also notification any security impacts caused by disabling it
+		enabled = true
+
+	[misc.save_portal_tickets]
+		#whether or not to save the portal tickets when server stopping, this would make it acts like mc before 1.21.5, and won't auto active the portal chunk loader when server started again.
+		do_save = true
+
+	[misc.mojang_out_of_order_chat_check]
+		enabled = true
+
+	#Force and fully disable all packet limiters of Paper, which is used to prevent from kicking by using some quick crafting mods but 
+	#has negative impacts on security
+	[misc.force_disable_packet_limiter_of_paper]
+		force_disable = false
+
+	#Only verify the public key in online mode, could be useful when using plugins like MultiLogin with custom auth server configured
+	[misc.verify_publickey_only_in_online_mode]
+		enabled = true
+
+	[misc.sentry]
+		# Logs with a level higher than or equal to this level will be recorded.
+		log_level = "WARN"
+		# Only log with a Throwable will be recorded after enabling this.
+		only_log_thrown = true
+		# Sentry DSN for improved error logging, leave blank to disable,
+		# Obtain from https://sentry.io/
+		dsn = ""
+
+	[optimizations.cpu_affinity]
+		#Using this you could pin the threads of tick region scheduler to cpu cores listed in the config 'tickregion_affinity' following, 
+		#which is useful for those CPU with P and E cores (such as 12/13/14 gen Intel Core CPUs and so on.)
+		enabled = false
+		#The core number you want the tick region threads to bind on
+		tickregion_affinity = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13"]
+
+	#Throttles the AI goal selector in entity inactive ticks. 
+	#This can improve performance by a few percent, but has minor gameplay implications.
+	[optimizations.throttle_goal_selector_tick_in_inactive_tick]
+		enabled = true
+
+	[optimizations.use_simd]
+		enabled = true
+
+	#Lobotomizes the villager if it cannot move (Does not disable trading)
+	[optimizations.lobotomize_villager]
+		#The interval in ticks to check if a villager is lobotomized 
+		check_interval = 100
+		#Wait until a villager has been traded with before lobotomizing
+		wait_until_trade_locked = false
+		enabled = true
+
+	[optimizations.use_async_protocol_switching]
+		#Uses async protocol preparation for mc.
+		#Warn: Due to the packet sequence was changed by this optimization, it might be 
+		# uncompatible with some plugins(ViaVersion etc.)
+		enabled = false
+
+	[optimizations.lithium_sleeping_block_entity]
+		#Use sleeping blocking optimizations from lithium, 
+		# on luminol the hopper optimizations of paper were totally removed and replaced by those of lithium 
+		#and it's turned on by default
+		enabled = true
+
+	[optimizations.end_dragon]
+		optimized_dragon_respawn = true
+
+	[optimizations.projectile]
+		#Controls how many chunks a projectile can load in its lifetime before it gets automatically removed.
+		max-loads-per-projectile = 0
+		#Controls how many chunks are allowed to be sync loaded by projectiles in a tick.
+		max-loads-per-tick = 0
+
+	[optimizations.variable_entity_waking_up]
+		#If this value is set to any value > 0, waking up inactive entities happens spread over time, instead of many entities at once. This makes entities feel and behave more natural.
+		#This setting is the coefficient of variation, or σ / μ (the ratio of the standard deviation to the mean) of the inactivity duration.
+		#
+		#In other words, this setting is the value σ, so that the regular inactivity duration will be multiplied by a factor normal_distribution(μ = 1, σ).
+		#If a value ≤ 0 is given, variable entity wake-up is disabled.
+		entity_wakeup_duration_ratio_standard_deviation = 0.2
+
+	#When it is enabled, it will delete the line of sight cache less often and use a faster nearby comparison.
+	[optimizations.reduce_sensor_work]
+		#The interval of each entity to drop the cache(in ticks)
+		delay_ticks = 10
+		enabled = true

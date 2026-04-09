@@ -1,0 +1,212 @@
+	[experiment.ray_tracking_entity_tracker]
+		check_interval_ms = 10
+		skip_marker_armor_stands = true
+		hitbox_limit = 50
+		tracing_distance = 48
+		enabled = false
+
+	[experiment.command]
+		#Allow to use scoreboard command
+		scoreboard_command_enabled = false
+		#Allow to use function command
+		function_command_enabled = false
+		#Allow to use tick command
+		tick_command_enabled = false
+
+		[experiment.command.save_all_command]
+			#Log all process of save-all command to console
+			log_all_process = false
+			#Maximum seconds to save before the chunk report it is timeout.
+			save_all_command_timeout = 30
+			#Allow to use save-all command
+			enabled = false
+
+	[experiment.redstone]
+		instant-block-updater = true
+		#Is it permissible to use ClassCastException for update suppression?
+		cce-update-suppression = true
+		old-block-remove-behaviour = false
+		#Should the pre-1.20 mechanism be reintroduced:
+		#Redstone dust does not connect to adjacent redstone dust on trapdoors that are open
+		#Pre-1.20.2 mechanism: Redstone dust, redstone repeaters, and redstone comparators do not check for attachment when receiving status updates from below
+		redstone-ignore-upwards-update = true
+
+	[experiment.entity_damage_source_trace]
+		#Allow trace damage source cross different Region Scheduler.
+		enabled = true
+
+	[experiment.global_entities_counter]
+		#Always count entities.
+		#If you want to count entities loaded by chunk loader,
+		#you must to enabled it.
+		always_count = false
+		#Enable Asynchronous(maybe cause bugs)
+		async = false
+		#Enable global entities counter.
+		#You need to set per-player-mob-spawns to false on paper-world-defaults.yml or paper-world.yml
+		enabled = false
+
+	[fixes.update-suppression-crash-fix]
+		#Should crash caused by update suppression be prevented?
+		enabled = true
+
+		[function.protocol.rei]
+			#Enable Roughly Enough Items protocol support
+			enabled = true
+
+		[function.protocol.jade]
+			#Enable Jade protocol support
+			enabled = true
+
+		[function.protocol.alternative_block_placement]
+			#Specify the precise placement protocol type
+			#NONE Disable precise placement protocol
+			#CARPET Precise placement protocol version 2
+			#CARPET_FIX Enhanced precise placement protocol version 2 (requires MasaGadget installed on client)
+			#LITEMATICA Precise placement protocol version 3
+			enabled = "LITEMATICA"
+
+		[function.protocol.servux]
+			hud-update-interval = 1
+			hud-enabled-loggers = ["tps", "mob_caps"]
+			structure-protocol = false
+			hud-metadata-protocol = false
+			hud-metadata-share-seed = false
+			hud-logger-protocol = false
+
+			[function.protocol.servux.data]
+				entity-protocol = true
+
+			[function.protocol.servux.litematics]
+				litematics-enabled = true
+				litematics-max-nbt-size = 2097152
+				#The max delay ticks for printing litematics, -1 to disable
+				litematics-print-max-delay-ticks = 1200
+
+		[function.protocol.appleskin]
+			#Enable AppleSkin protocol support
+			enabled = true
+			#Set AppleSkin Synchronization Frequency (Unit: Game Ticks)
+			sync-tick-interval = 20
+
+		[function.protocol.bbor]
+			#Enable BBOR protocol support
+			enabled = true
+
+		[function.protocol.xaero-map]
+			#Enable Xaero World Map Protocol Support
+			enabled = true
+			xaeroMapServerID = -1450433707
+
+		[function.protocol.syncmatica]
+			#Maximum Projection File Size (in bytes)
+			quota-Limit = 40000000
+			#Is there a limit on the size of projection files?
+			useQuota = false
+			#Enable Syncmatica protocol support
+			enabled = true
+
+	[function.container_expansion]
+		#range: 1~6
+		enderchest_rows = 3
+		#range: 1~6
+		barrel_rows = 3
+
+		[function.container_expansion.shulker_box]
+			#range: 1~64
+			shulker_stackable_count = 1
+			same_nbt_shulker_stackable = false
+
+	[function.fakeplayer]
+		#Allow phantoms to spawn for fakeplayers
+		spawn-phantom = false
+		#Allow modifying fakeplayer config
+		modify-config = true
+		#Prefix for fakeplayer names
+		prefix = "BOT_"
+		#Allow manual save and load of fakeplayers
+		manual-save-and-load = true
+		#Suffix for fakeplayer names
+		suffix = ""
+		#Allow fakeplayers to use actions
+		use-action = true
+		#Always send data for fakeplayers
+		always-send-data = true
+		#Use skin cache for fakeplayers
+		cache-skin = true
+		#Skip sleep check for fakeplayers
+		skip-sleep-check = true
+		#Enable locator bar for fakeplayers
+		enable-locator-bar = false
+		#List of names that cannot be used for fakeplayers
+		unable-fakeplayer-names = ["player-name"]
+		#Enable fakeplayer functionality
+		enable = true
+		#Maximum number of fakeplayers allowed
+		limit = 10
+		#Allow fakeplayers to be resident
+		resident-fakeplayer = false
+		#Allow opening fakeplayer inventory
+		open-fakeplayer-inventory = true
+		#Regeneration amount for fakeplayers
+		regen-amount = 0.0
+		#Simulation distance for fakeplayers (-1 for default)
+		simulation-distance = -1
+
+	[function.creative_fly_no_clip]
+		#Whether to enable creative fly no clip.
+		#When enabled, players in creative mode will not collide with blocks while flying.
+		#This allows them to pass through blocks without obstruction.
+		enabled = true
+
+	[function.old-feature]
+		spawn_invulnerable_time = false
+		old_raid_behavior = false
+		old_zombie_reinforcement = false
+		old_explosion_damage_calculator = false
+		#Allow villager void trade.
+		villager-void-trade = true
+
+	[function.replay-api]
+		enable-cache = true
+		#Time to cache photographer profile(in seconds)
+		cache-photographer-time = 3600
+		#Maximum size of cache photographer profile
+		cache-photographer-size = 100
+
+	[function.language]
+		#Please use the key from https://minecraft.wiki/w/Language
+		#Sample of format: en_us zh_cn zh_hk zh_tw
+		lang = "zh_cn"
+
+	[function.wool-hopper-counter]
+		unlimited-speed = true
+		enabled = true
+
+	[function.redstone]
+		#Allows you to use the Shears to right-click to rotate the block.
+		shears_rotate = true
+
+	#Checks GitHub Releases for newer version's jars on a schedule.
+	#Downloads are staged under auto_update/lophine and written to auto_update/core.path,
+	#which Hyacinthusclip can consume on the next restart.
+	#
+	#ATTENTION: full config option should be edited in luminol config system >> misc >> auto_update
+	[misc.auto_update]
+		#Whether the server should check for updates automatically.
+		#You can enable it by edit this config, because they are both control the function.
+		#One of them enabled, the full function will be enabled.
+		enabled = false
+
+	[misc.disable-check]
+		#Disable the check for the operator's move check
+		disable-op-move-check = false
+		#Disable the check for the operator's fly check
+		disable-op-fly-check = false
+
+	[misc.item-entity]
+		#Due to Paper's modification of the merge radius,
+		#when the merge radius is large and stacks containing many items get stuck in an unexpected position,
+		#individual items may never reach their destination.
+		#This configuration option is added to fix this behavior.
+		follow-tick-sequence-merge = true
