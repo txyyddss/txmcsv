@@ -23,7 +23,7 @@
     "plugins/**/*.json",
     "plugins/**/*.toml",
     "plugins/**/*.xml",
-    "world/datapacks/*.zip"
+    "world/datapacks/*.zip",
     "lophine_config",
     "luminol_config"
   ],
