@@ -24,8 +24,8 @@
     "plugins/**/*.toml",
     "plugins/**/*.xml",
     "world/datapacks/*.zip",
-    "lophine_config",
-    "luminol_config"
+    "lophine_config/**",
+    "luminol_config/**"
   ],
   "exclude": [
     ".github/**",
@@ -39,7 +39,6 @@
     "logs/**",
     "syncmatics/**",
     "versions/**",
-    "world/**",
     "world_nether/**",
     "world_the_end/**",
     "plugins/**/cache/**",
