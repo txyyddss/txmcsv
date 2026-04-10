@@ -1,0 +1,57 @@
+# For more details on configuring LushRewards check out the documentation at https://docs.lushplugins.org/lush-rewards
+
+# If false then playtime will include afk/idle time
+playtime-ignore-afk: true
+# The length in seconds between reminders being sent (Set to -1 to disable)
+reminder-period: 1800
+# The sound that will be played when a player is sent a reminder
+reminder-sound: block_note_block_pling
+
+# Display items for different reward categories
+categories:
+  small:
+    material: player_head
+    skull-texture: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYTAxYzYzYzIwM2ExODQxZGUyN2EwZTA5YTI5NWY1Yjg3MzM2MjcwMjRmMTY2OGEwMWQyMDE4NmEzZjg2MzA0MCJ9fX0=
+  medium:
+    material: player_head
+    skull-texture: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZjEwMzhjZGM4NDIzNGI1YWZiM2FlYTg1M2JmM2QwNTE3NWQxOWFlN2I0ODc1YTkxYjUyZjc2NmMwN2IzZGIwYiJ9fX0=
+  large:
+    material: player_head
+    skull-texture: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNjUyODdhZjk3ZjkzZDM3MTg5NzNmNGUxM2VkMGZhM2E2ZjQzOWU3MmMxNDVmZTRjZDkwMmIwNWMxYzEwYWYxOCJ9fX0=
+
+# Display item templates (These templates can be used in any reward gui)
+item-templates:
+  # Template for upcoming reward
+  upcoming-reward:
+    lore:
+      - "&7&o- Upcoming reward"
+  # Template for border items - more items can be created like this to be used within the gui templates
+  '#':
+    material: light_blue_stained_glass_pane
+    display-name: "&7"
+
+messages:
+  prefix: "&#A5B8FE&lRewards &8» "
+  reload: "&#b7faa2LushRewards has been reloaded &#66b04f🔃"
+  reminder: "%prefix% &#ffe27aIt looks like you haven't collected all your rewards from &#ffc940/rewards claim"
+  daily-reward-given: "&#b7faa2You have collected today's daily reward"
+  playtime-reward-given: "&#b7faa2You have collected your rewards for playing &#66b04f%total_minutes% &#b7faa2minutes"
+  no-rewards-available: "&#ff6969You have no rewards to collect"
+  reset: "&#ffe27aAre you sure you want to reset &#e0c01b%target%'s &#ffe27adays? Type &#e0c01b'/rewards edit-user <module-id> reset %target% confirm' &#ffe27ato confirm"
+  set-days-confirm: "&#66b04f%target%'s &#b7faa2day number has been set to &#66b04f%day% &#b7faa2in &#66b04f%module%"
+  set-streak-confirm: "&#66b04f%target%'s &#b7faa2streak has been set to &#66b04f%streak% &#b7faa2in &#66b04f%module%"
+  set-playtime-confirm: "&#66b04f%target%'s &#b7faa2playtime has been set to &#66b04f%playtime%"
+  unknown-player: "&#ff6969Could not find &#d13636%player%"
+  no-permissions: "&#ff6969Insufficient permissions"
+  incorrect-usage: "&#ff6969Incorrect usage try &#d13636%command-usage%"
+  confirm-command: "&#ffe27aAre you sure you want to do that? Type &#e0c01b'%command%' &#ffe27ato confirm"
+
+# Performance mode only stores rewards that are currently viewable to players.
+# The config will automatically reload at the start of each day when enabled
+enable-performance-mode: false
+
+# Debug Modes: none, daily, playtime, all
+debug-mode: none
+# Updater: Disable to turn off update notifications and update command
+enable-updater: true
+

@@ -57,14 +57,25 @@ anticheat:
       hide-itemmeta-with-visual-effects: false
 chunks:
   auto-save-interval: default
-  delay-chunk-unloads-by: 8s
+  delay-chunk-unloads-by: '10'
   entity-per-chunk-save-limit:
-    arrow: -1
-    ender_pearl: -1
-    experience_orb: -1
-    fireball: -1
-    small_fireball: -1
-    snowball: -1
+    area_effect_cloud: 8
+    arrow: 16
+    dragon_fireball: 3
+    egg: 8
+    ender_pearl: 8
+    experience_bottle: 3
+    experience_orb: 16
+    eye_of_ender: 8
+    fireball: 8
+    llama_spit: 3
+    potion: 8
+    shulker_bullet: 8
+    small_fireball: 8
+    snowball: 8
+    spectral_arrow: 16
+    trident: 16
+    wither_skull: 4
   fixed-chunk-inhabited-time: -1
   flush-regions-on-save: false
   max-auto-save-chunks-per-tick: 8
@@ -80,7 +91,7 @@ command-blocks:
   permissions-level: 2
 entities:
   armor-stands:
-    do-collision-entity-lookups: true
+    do-collision-entity-lookups: false
     tick: false
   behavior:
     allow-spider-world-border-climbing: true
@@ -142,37 +153,62 @@ entities:
   spawning:
     all-chunks-are-slime-chunks: false
     alt-item-despawn-rate:
-      enabled: false
+      enabled: true
       items:
+        acacia_leaves: 300
+        andesite: 300
+        bamboo: 300
+        birch_leaves: 300
+        cactus: 300
         cobblestone: 300
+        dark_oak_leaves: 300
+        diorite: 300
+        dirt: 300
+        granite: 300
+        gravel: 300
+        jungle_leaves: 300
+        kelp: 300
+        mangrove_leaves: 300
+        melon_slice: 300
+        netherrack: 300
+        oak_leaves: 300
+        pumpkin: 300
+        red_sand: 300
+        sand: 300
+        scaffolding: 300
+        short_grass: 300
+        spruce_leaves: 300
+        sugar_cane: 300
+        twisting_vines: 300
+        weeping_vines: 300
     count-all-mobs-for-spawning: false
     creative-arrow-despawn-rate: '20'
     despawn-range-shape: ELLIPSOID
     despawn-ranges:
       ambient:
-        hard: 128
-        soft: 32
+        hard: 72
+        soft: 30
       axolotls:
-        hard: 128
-        soft: 32
+        hard: 72
+        soft: 30
       creature:
-        hard: 128
-        soft: 32
+        hard: 72
+        soft: 30
       misc:
-        hard: 128
-        soft: 32
+        hard: 72
+        soft: 30
       monster:
-        hard: 128
-        soft: 32
+        hard: 72
+        soft: 30
       underground_water_creature:
-        hard: 128
-        soft: 32
+        hard: 72
+        soft: 30
       water_ambient:
-        hard: 64
-        soft: 32
+        hard: 72
+        soft: 30
       water_creature:
-        hard: 128
-        soft: 32
+        hard: 72
+        soft: 30
     despawn-time:
       llama_spit: disabled
       snowball: disabled
@@ -188,6 +224,7 @@ entities:
     - SleepingY
     - SleepingZ
     iron-golems-can-spawn-in-air: false
+    max-arrow-despawn-invulnerability: 200
     monster-spawn-max-light-level: default
     non-player-arrow-despawn-rate: '20'
     per-player-mob-spawns: true
@@ -256,7 +293,7 @@ environment:
   locate-structures-outside-world-border: false
   max-block-ticks: 65536
   max-fluid-ticks: 65536
-  nether-ceiling-void-damage-height: 300
+  nether-ceiling-void-damage-height: 127
   optimize-explosions: true
   portal-create-radius: 16
   portal-search-radius: 128
@@ -264,8 +301,8 @@ environment:
   treasure-maps:
     enabled: true
     find-already-discovered:
-      loot-tables: default
-      villager-trade: true
+      loot-tables: 'false'
+      villager-trade: false
   void-damage-amount: 4.0
   void-damage-min-build-height-offset: -64.0
   water-over-lava-flow-speed: 5
@@ -312,7 +349,6 @@ misc:
   legacy-ender-pearl-behavior: false
   max-leash-distance: 10.0
   redstone-implementation: ALTERNATE_CURRENT
-  shield-blocking-delay: 5
   show-sign-click-command-failure-msgs-to-player: false
   update-pathfinding-on-block-update: false
 scoreboards:
@@ -320,19 +356,23 @@ scoreboards:
   use-vanilla-world-scoreboard-name-coloring: false
 spawn:
   allow-using-signs-inside-spawn-protection: false
-  keep-spawn-loaded: false
-  keep-spawn-loaded-range: 16
+spawner-nerfed-mobs-should-jump: false
 tick-rates:
   behavior:
     villager:
-      validatenearbypoi: -1
-  container-update: 1
+      acquirepoi: 120
+      validatenearbypoi: 60
+  container-update: 2
   dry-farmland: 1
-  grass-spread: 1
+  grass-spread: 4
   mob-spawner: 2
   sensor:
     villager:
-      secondarypoisensor: 40
+      nearestbedsensor: 80
+      nearestlivingentitysensor: 40
+      playersensor: 40
+      secondarypoisensor: 80
+      villagerbabiessensor: 40
   wet-farmland: 1
 unsupported-settings:
   disable-world-ticking-when-empty: false

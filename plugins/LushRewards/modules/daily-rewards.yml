@@ -1,0 +1,204 @@
+# Daily Rewards: Rewards that are given daily
+type: daily-rewards
+enabled: true
+
+# Reward mode changes the way that reward days are increased
+# - default: Increases every day
+# - streak: Resets if a day is missed
+# - on_claim_only: Increases every day that a reward is claimed
+# - online_only: Increases every day that the player is online
+reward-mode: streak
+# Resets player back to day 1, this does not affect streaks (Set to -1 to disable)
+reset-days-at: -1
+# Whether players will receive all rewards on a day or just the one with the highest priority
+allow-reward-stacking: false
+# Whether streaks will continue to increase following missed days (This is intended for use during server maintenance periods)
+streak-bypass: false
+
+# The redeem sound to play if unspecified
+default-redeem-sound: ENTITY_PLAYER_LEVELUP
+# Whether notifications should be sent when rewards are claimable
+enable-notifications: true
+
+# Upcoming category to display
+upcoming-category: large
+
+reward-placeholders:
+  claimed: "true" # %claimed% (When reward day is claimed)
+  unclaimed: "false" # %claimed% (When reward day is unclaimed)
+
+# List of rewards (%player% - The user being given the reward)
+daily-rewards:
+  default:
+    category: small
+    display-item:
+      lore:
+        - "&#bdbebfRewards:"
+        - "&#bdbebf- $50"
+    redeem-sound: ENTITY_EXPERIENCE_ORB_PICKUP
+    rewards:
+      - type: command
+        commands:
+          - "money give %player% 50"
+
+  day-1:
+    on-day-num: 1
+    category: small
+    display-item:
+      lore:
+        - "&#bdbebfRewards:"
+        - "&#bdbebf- $100"
+    rewards:
+      - type: command
+        commands:
+          - "money give %player% 100"
+
+  day-2:
+    on-day-num: 2
+    category: small
+    display-item:
+      lore:
+        - "&#bdbebfRewards:"
+        - "&#bdbebf- $150"
+    rewards:
+      - type: command
+        commands:
+          - "money give %player% 150"
+
+  day-3:
+    on-day-num: 3
+    category: small
+    display-item:
+      lore:
+        - "&#bdbebfRewards:"
+        - "&#bdbebf- $200"
+    rewards:
+      - type: command
+        commands:
+          - "money give %player% 200"
+
+  day-4:
+    on-day-num: 4
+    category: small
+    display-item:
+      lore:
+        - "&#bdbebfRewards:"
+        - "&#bdbebf- $250"
+    rewards:
+      - type: command
+        commands:
+          - "money give %player% 250"
+
+  day-5:
+    on-day-num: 5
+    category: small
+    display-item:
+      lore:
+        - "&#bdbebfRewards:"
+        - "&#bdbebf- $300"
+    rewards:
+      - type: command
+        commands:
+          - "money give %player% 300"
+
+  day-6:
+    on-day-num: 6
+    category: small
+    display-item:
+      lore:
+        - "&#bdbebfRewards:"
+        - "&#bdbebf- $350"
+    rewards:
+      - type: command
+        commands:
+          - "money give %player% 350"
+
+  day-7:
+    on-day-num: 7
+    category: small
+    display-item:
+      lore:
+        - "&#bdbebfRewards:"
+        - "&#bdbebf- $500"
+    rewards:
+      - type: command
+        commands:
+          - "money give %player% 500"
+
+  day-12:
+    on-day-num: 12
+    category: medium
+    display-item:
+      lore:
+        - "&#bdbebfRewards:"
+        - "&#bdbebf- $1,000"
+    rewards:
+      - type: command
+        commands:
+          - "money give %player% 1000"
+
+  day-24:
+    on-day-num: 24
+    category: medium
+    display-item:
+      lore:
+        - "&#bdbebfRewards:"
+        - "&#bdbebf- $2,000"
+    rewards:
+      - type: command
+        commands:
+          - "money give %player% 2000"
+
+  day-30:
+    on-day-num: 30
+    priority: 1
+    category: large
+    display-item:
+      lore:
+        - "&#85eb73Rewards:"
+        - "&#85eb73- $5,000"
+    rewards:
+      - type: command
+        commands:
+          - "money give %player% 5000"
+
+gui:
+  title: "          &#529bf2&lDaily Rewards"
+  # Displays the date of the month as the amount of the item stack
+  date-as-amount: false
+  # Sets first day of gui (DAY: Starts at current day, MONTH: Starts at beginning of current month, GRID: Starts on day 1 and loops when passing end of page)
+  scroll-type: GRID
+  # Available templates: DEFAULT, COMPACT, COMPACT_PROFILE, BORDERED, BORDERED_DAILY, DAILY_REWARDS_PLUS, NDAILY_REWARDS, CUSTOM
+  # Read https://docs.lushplugins.org/lush-rewards/configuring/gui-templates#custom-templates for more info on
+  # creating and using templates
+  template: "DEFAULT"
+  item-templates:
+    # Template for default rewards
+    default-reward:
+      display-name: "&#A5B8FEDay %day%"
+    # Template for collectable rewards
+    redeemable-reward:
+      material: player_head
+      skull-texture: e3RleHR1cmVzOntTS0lOOnt1cmw6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMmI1N2Y0ODVlOWVjY2E1MzIzNDQ4NTBjNTFhYjQ0ZGQ2YWE1ZDQ1MTRiMzFjNmRmOWZjMjBlMzZiM2E4OWQ4YyJ9fX0=
+      display-name: "&#f5e389Day %day% - Redeemable"
+      enchanted: true
+    # Template for collected rewards
+    collected-reward:
+      material: player_head
+      skull-texture: e3RleHR1cmVzOntTS0lOOnt1cmw6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZWZkNTEyY2NlNGU3OTUyOGI2MGIzNWRmZTZmN2JmYzg0M2IyOTY4NDIxMDViMWNkMjY4MjdiNTkwOGIxMzU0ZCJ9fX0=
+      display-name: "&#f5e389Day %day% - Collected"
+      enchanted: false
+    # Template for missed rewards
+    missed-reward:
+      material: player_head
+      skull-texture: e3RleHR1cmVzOntTS0lOOnt1cmw6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZGRkMzBhYWMyYTFmMmQxOGM3NzU1Y2ZjYTJiYzYwOWZjMzkxZjQxOTg5YjA2NmNlOTMxNjA3NzY5MDZiZTg1YSJ9fX0=
+      display-name: "&7Day %day% &8(Missed)"
+    'P':
+      material: player_head
+      display-name: "&#A5B8FE&lProfile:"
+      skull-texture: mirror
+      lore:
+        - "&#c4f8ffDay Number: &f%lushrewards_daily-rewards_day_num%"
+        - "&#c4f8ffCollected: &f%lushrewards_daily-rewards_collected%"
+        - "&#c4f8ffCurrent Streak: &f%lushrewards_daily-rewards_streak%"
+        - "&#c4f8ffHighest Streak: &f%lushrewards_daily-rewards_highest_streak%"

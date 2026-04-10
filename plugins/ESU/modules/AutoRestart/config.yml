@@ -1,5 +1,7 @@
+module-enabled: false
 commands:
   - stop
+kick-players-on-restart: true
 notify-restart-at:
   - 10m
   - 5m
@@ -8,4 +10,3 @@ notify-restart-at:
   - 5s
 restart-at: 05:00
 restart-interval: 3d
-module-enabled: false

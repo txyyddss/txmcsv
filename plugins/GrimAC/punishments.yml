@@ -1,98 +1,118 @@
 # %check_name% - 检查名称
+# %description% - 检查的介绍
 # %vl% - 违规
 # %verbose% - 额外信息
 # %player% - 玩家名字
 # [alert] - 警告的特殊命令
 # [webhook] - 警告discord webhook 的特殊命令
-# [proxy] - special command to alert to other servers connected to your proxy (BungeeCord/Velocity)
+# [proxy] - 用于使用(BungeeCord/Velocity)服务器时的警报
 Punishments:
   Simulation:
-    # 当达到多少VL时移除玩家
+    # 多少秒后重置VL
     remove-violations-after: 300
-    # This section will match all checks with the name,
-    # To exclude a check that would otherwise be matched, put an exclamation mark in front of the name
-    # For example, !BadPacketsN
+    # 这个部分将会匹配检查的名字
+    # 要关闭掉一个检查就在检查前面加感叹号
+    # 例如, !BadPacketsN
     checks:
+      - "Simulation"
+      - "GroundSpoof"
+      - "Timer"
+      - "TimerLimit"
       - "NoFall"
-    # Threshold:Interval Command
+    # 最大vl:下一次执行需要的vl
     #
     # 这是个例子, 当到达100VL时为了以 "incorrect movement!" 为理由踢出玩家
     # commands:
     # - "100:0 kick %player% incorrect movement!"
-    # 0 means execute exactly once
+    # 后面的数如果使用0就代表只执行一次
     # - "100:50 say %player% is cheating"
-    # Execute when the user hits flag 100, and after that, every 50th flag after 100
+    # 在100vl后执行say %player% is cheating,之后的每50vl都执行一次say %player% is cheating
     #
     commands:
-      - "1:1 matrix notify &e%player% NoFall Check : &d%vl%"
-      - "30:30 matrix delay 3 Kick %player% &6&lC&f &cAntiCheat &c&lDetection"
-      - "20:20 vulcan rotate %player%"
+      - "100:40 [alert]"
+      - "100:40 [log]"
+      - "100:100 [webhook]"
+      - "100:100 [proxy]"
   Knockback:
     remove-violations-after: 300
     checks:
       - "Knockback"
       - "Explosion"
     commands:
-      - "matrix notify &e%player% AntiKB Check : &d%vl%"
-      - "15:15 vulcan rotate %player%"
-      - "20:20 matrix delay 3 Kick %player% &6&lC&f &cAntiCheat &c&lDetection"
+      - "5:5 [alert]"
+      - "5:5 [log]"
+      - "20:20 [webhook]"
+      - "20:20 [proxy]"
   Post:
     remove-violations-after: 300
     checks:
       - "Post"
     commands:
-      - "5:5 matrix notify &e%player% Post Check : &d%vl%"
-      - "30:30 matrix delay 3 Kick %player% &6&lC&f &cAntiCheat &c&lDetection"
+      - "20:20 [alert]"
+      - "20:20 [log]"
+      - "40:40 [webhook]"
+      - "40:40 [proxy]"
   BadPackets:
     remove-violations-after: 300
     checks:
       - "BadPackets"
+      - "PacketOrder"
       - "Crash"
     commands:
-      - "10:10 matrix notify &e%player% Packets Check : &d%vl%"
-      - "190:190 matrix delay 3 Kick %player% &6&lC&f &cAntiCheat &c&lDetection"
+      - "20:20 [alert]"
+      - "20:20 [log]"
+      - "40:40 [webhook]"
+      - "40:40 [proxy]"
   Reach:
-    remove-violations-after: 650
+    remove-violations-after: 300
     checks:
-     - "Reach"
+      - "Reach"
     commands:
-      - "1:1 matrix notify &e%player% Reach Check : &d%vl%"
-      - "9:9 vulcan shuffle %player%"
-    #//- "6:6 vulcan rotate %player%" 惩罚机制(转头)
-    #//- "7:7 tp %player% ~ -120 ~" 惩罚机制(虚空)
-      - "20:20 matrix delay 3 Kick %player% &6&lC&f &cAntiCheat &c&lDetection"
+      - "1:1 [alert]"
+      - "1:1 [log]"
+      - "1:1 [webhook]"
+      - "1:1 [proxy]"
+  Hitboxes:
+    remove-violations-after: 300
+    checks:
+      - "Hitboxes"
+    commands:
+      - "5:3 [alert]"
+      - "5:3 [log]"
+      - "5:3 [webhook]"
+      - "5:3 [proxy]"
   Misc:
     remove-violations-after: 300
     checks:
-      - "EntityControl"
+      - "Vehicle"
       - "NoSlow"
-      - "FastBreak"
+      - "Sprint"
+      - "MultiActions"
+      - "Place"
+      - "Baritone"
+      - "Break"
+      - "TransactionOrder"
+      - "Elytra"
+      - "Chat"
+      - "Exploit"
     commands:
-      - "10:10 matrix notify &e%player% Other Check : &d%vl%"
-      - "30:30 matrix delay 3 Kick %player% &6&lC&f &cAntiCheat &c&lDetection"
+      - "10:5 [alert]"
+      - "10:5 [log]"
+      - "20:10 [webhook]"
+      - "20:10 [proxy]"
   Combat:
     remove-violations-after: 300
     checks:
-      - "Killaura"
-      - "Baritone"
-      - "Timer"
+      - "Interact"
+      - "Aim"
     commands:
-      - "10:10 matrix notify &e%player% Timer Check : &d%vl%"
-      - "120:120 vulcan rotate %player%"
-      - "150:150 matrix delay 3 Kick %player% &6&lC&f &cAntiCheat &c&lDetection"
-  Movement:
-    remove-violations-after: 300
-    checks:
-      - "GroundSpoof"
-    commands:
-      - "10:10 matrix notify &e%player% SpoofGround Check : &d%vl%"
-      - "15:15 vulcan rotate %player%"
-      - "30:30 matrix delay 3 Kick %player% &6&lC&f &cAntiCheat &c&lDetection"
+      - "20:40 [alert]"
+      - "20:40 [log]"
   # Grim2.0.10版本 没有连点器检查，Grim将在未来添加
   Autoclicker:
     remove-violations-after: 300
     checks:
       - "Autoclicker"
     commands:
-      - "1:1 matrix notify"
       - "20:40 [alert]"
+      - "20:40 [log]"

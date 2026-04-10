@@ -1,0 +1,58 @@
+unsafe-teleport-spot: <ec>Cannot find a safe spot for teleport.
+teleporting-player: <tc>Teleporting <tdc><player></tdc>...
+teleport-failed-unknown: <ec>Failed to teleport.
+client-locale:
+  message: <pdc><player><pc>'s client locale is <sdc><locale>
+dimension-travel:
+  unsupported-the-end: <ec>Dimension travel is not possible from the end.
+feed:
+  fed: <pc>You have been fed.
+  fed-player: <pc>Fed <pdc><player></pc>.
+heal:
+  healed: <pc>You have been healed.
+  healed-player: <pc>Healed <pdc><player></pc>.
+invulnerable:
+  enabled-for-player: <pc>Enabled invulnerable mode for <pdc><player><pc>.
+  disabled-for-player: <pc>Disabled invulnerable mode for <pdc><player><pc>.
+  enabled: <pc>You no longer receives any damage.
+  disabled: <pc>You are now receiving damage.
+ip:
+  message: <pdc><player><pc>'s ip is <sdc><address>
+ip-group:
+  no-same-ip: <pc>There's no players on same ip.
+  entry: '<tdc><address><tc>: <players>'
+  player-prefix: <sdc>
+  player-separator: <pc>, <sdc>
+kill:
+  killed-player: <pc>Killed player <pdc><player></pdc> .
+no-fall:
+  enabled-for-player: <pc>Enabled no fall for <pdc><player><pc>.
+  disabled-for-player: <pc>Disabled no fall for <pdc><player><pc>.
+  enabled: <pc>You no longer receives fall damage.
+  disabled: <pc>You are now receiving fall damage.
+ping:
+  message: <pdc><player><pc>'s ping is <sdc><ping><sc>ms
+player-chunk-tickets:
+  gen-rate-top:
+    no-data: <pc>There's no chunk generates at this moment.
+    header: '<pdc>[player]<pc>: <sc>[chunk generate tickets/sec]'
+    entry: '<tdc><player><tc>: <sdc><rate>'
+  load-rate-top:
+    no-data: <pc>There's no chunk loads at this moment.
+    header: '<pdc>[player]<pc>: <sc>[chunk load tickets/sec]'
+    entry: '<tdc><player><tc>: <sdc><rate>'
+spectate:
+  cannot-spectate-self: <ec>You cannot spectate yourself!
+  spectating-target: <pc>Spectating <pdc><target></pdc> now.
+speed:
+  speed-get: <pc><capitalize:'<type>'> speed of <pdc><player><pc> is <pdc><value><pc>.
+  speed-set: <pc>Set <type> speed of <pdc><player><pc> to <pdc><value><pc>.
+  walk-speed:
+    type-name: walk
+  fly-speed:
+    type-name: fly
+suicide:
+  placeholders:
+    suicided: (suicided)
+  confirm-button: <edc><hover:show_text:'<ec>GoodBye...'>[Confirm]
+  confirm-suicide: <ec>Are you sure to commit suicide? All your items will be lost! <confirm>

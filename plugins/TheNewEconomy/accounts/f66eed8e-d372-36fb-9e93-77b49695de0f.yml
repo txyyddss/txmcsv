@@ -1,0 +1,13 @@
+Info:
+  ID: f66eed8e-d372-36fb-9e93-77b49695de0f
+  Name: txro
+  Type: player
+  Status: normal
+  CreationDate: 1775812974628
+  Pin: ''
+  LastOnline: 1775816172337
+Holdings:
+  Main Server:
+    world:
+      25537dbf-8a84-4372-9ccf-fbc386fd78d9:
+        tne:VIRTUAL_HOLDINGS: '200.0'

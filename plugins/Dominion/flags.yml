@@ -1,0 +1,330 @@
+environment:
+  animal_spawn: # 动物生成（繁殖）-是否允许动物生成（包括繁殖）
+    default: true
+    enable: false
+    material: COW_SPAWN_EGG
+  animal_move: # 动物移动-是否允许动物在（向）领地内移动
+    default: true
+    enable: false
+    material: CHERRY_FENCE
+  villager_spawn: # 村民繁殖-是否允许村民繁殖（包括村民蛋）
+    default: true
+    enable: false
+    material: VILLAGER_SPAWN_EGG
+  monster_spawn: # 怪物生成-是否可以生成怪物
+    default: false
+    enable: false
+    material: ZOMBIE_SPAWN_EGG
+  monster_move: # 怪物移动-是否可以在（向）领地内移动
+    default: true
+    enable: false
+    material: CRIMSON_FENCE
+  monster_damage: # 怪物对玩家造成伤害-是否可以对玩家造成伤害
+    default: true
+    enable: false
+    material: SKELETON_SPAWN_EGG
+  ender_man: # 末影人行为-包含：末影人是否可以生成、瞬移
+    default: false
+    enable: true
+    material: ENDERMAN_SPAWN_EGG
+  tnt_explode: # TNT爆炸-TNT是否可以爆炸
+    default: false
+    enable: true
+    material: TNT
+  wither_spawn: # 凋零生成-凋零生成以及凋零生成时产生的爆炸
+    default: false
+    enable: true
+    material: WITHER_SKELETON_SKULL
+  creeper_explode: # 生物破坏/非TNT爆炸-包含：苦力怕/凋零头颅/末影水晶/火球/床/重生锚爆炸等
+    default: false
+    enable: true
+    material: CREEPER_HEAD
+  dragon_break_block: # 末影龙破坏方块-末影龙冲撞是否可以破坏方块
+    default: false
+    enable: true
+    material: ENDER_DRAGON_SPAWN_EGG
+  fire_spread: # 火焰蔓延-是否可以火焰蔓延
+    default: false
+    enable: true
+    material: CAMPFIRE
+  flow_in_protection: # 外部流体是否可以进入-包含：岩浆、水（不会阻止领地内部的流体蔓延）
+    default: false
+    enable: true
+    material: WATER_BUCKET
+  gravity_block: # 允许外部重力方块落入-如果禁止则领地外重力方块进入领地会变为掉落物
+    default: false
+    enable: true
+    material: SAND
+  ice_melt: # 冰融化-是否允许冰融化
+    default: false
+    enable: false
+    material: ICE
+  ice_form: # 冰生成-是否允许冰生成（防止冰霜行者）
+    default: false
+    enable: true
+    material: PACKED_ICE
+  snow_accumulation: # 积雪-是否允许生成积雪
+    default: false
+    enable: false
+    material: SNOW
+  snow_melt: # 积雪融化-是否允许积雪融化
+    default: false
+    enable: false
+    material: SNOW_BLOCK
+  trample: # 作物践踏-是否可以践踏作物（关闭意味着保护耕地）
+    default: false
+    enable: true
+    material: FARMLAND
+  decay: # 树叶腐烂-是否允许树叶自然腐烂
+    default: false
+    enable: true
+    material: OAK_LEAVES
+  hopper_outside: # 领地外漏斗对领地内箱子是否生效-领地外的漏斗是否可以对领地内的箱子生效
+    default: false
+    enable: true
+    material: HOPPER
+  piston_outside: # 活塞是否可以跨领地推动方块-活塞是否可以往领地内推东西或推东西到领地外
+    default: false
+    enable: true
+    material: PISTON
+  trig_pressure_proj: # 投掷物触发压力板-投掷物（箭/风弹/雪球）是否可以触发压力板
+    default: false
+    enable: true
+    material: BIRCH_PRESSURE_PLATE
+  trig_pressure_mob: # 生物触发压力板-生物（不包含玩家）是否可以触发压力板
+    default: false
+    enable: true
+    material: HEAVY_WEIGHTED_PRESSURE_PLATE
+  trig_pressure_drop: # 掉落物触发压力板-掉落物是否可以触发压力板
+    default: false
+    enable: true
+    material: LIGHT_WEIGHTED_PRESSURE_PLATE
+  item_frame_proj_damage: # 投掷物是否可以破坏展示框/画-非玩家发出的投掷物是否可以破坏展示框/画等悬挂物
+    default: false
+    enable: true
+    material: ITEM_FRAME
+  mob_drop_item: # 生物战利品掉落-生物死亡时是否产生掉落物
+    default: true
+    enable: true
+    material: DIAMOND
+  show_border: # 显示领地边界-是否显示领地边界
+    default: true
+    enable: true
+    material: BRICK_WALL
+  show_on_web: # Show On Web Map-Whether to show this dominion on web map.
+    default: true
+    enable: true
+    material: MAP
+privilege:
+  admin: # 管理员-管理领地内的其他成员权限
+    default: false
+    enable: true
+    material: NETHER_STAR
+  move: # 移动-是否可以移动
+    default: true
+    enable: true
+    material: LEATHER_BOOTS
+  teleport: # 领地传送-是否开启领地传送
+    default: false
+    enable: true
+    material: ENDER_EYE
+  fly: # 飞行-不是翅鞘飞行，是类似于创造模式的飞行
+    default: true
+    enable: true
+    material: ELYTRA
+  riding: # 骑乘载具-是否可以骑乘各种载具
+    default: false
+    enable: true
+    material: SADDLE
+  ender_pearl: # 投掷末影珍珠-是否可以使用末影珍珠
+    default: false
+    enable: true
+    material: ENDER_PEARL
+  place: # 放置方块-是否可以放置方块（包括：一般方块、展示框、岩浆、水）
+    default: false
+    enable: true
+    material: GRASS_BLOCK
+  break: # 破坏方块-是否可以破坏方块（包括：一般方块、展示框、盔甲架）
+    default: false
+    enable: true
+    material: IRON_PICKAXE
+  ignite: # 点燃-是否可以使用打火石点火
+    default: false
+    enable: true
+    material: FLINT_AND_STEEL
+  pick_up: # 拾取物品-是否可以拾取地上的物品
+    default: true
+    enable: true
+    material: DIAMOND_PICKAXE
+  drop_item: # 丢弃物品-是否可以丢弃背包中的物品
+    default: true
+    enable: true
+    material: IRON_INGOT
+  door: # 门交互-是否可以使用各种材质的门（包括活板门）
+    default: false
+    enable: true
+    material: OAK_DOOR
+  button: # 使用按钮-是否可以使用各种材质的按钮
+    default: false
+    enable: true
+    material: STONE_BUTTON
+  lever: # 使用拉杆-是否可以使用拉杆
+    default: false
+    enable: true
+    material: LEVER
+  pressure: # 压力板交互-是否可以触发各种材质的压力板
+    default: false
+    enable: true
+    material: STONE_PRESSURE_PLATE
+  repeater: # 中继器交互-是否可以与中继器交互
+    default: false
+    enable: true
+    material: REPEATER
+  comparer: # 比较器交互-是否可以修改比较器状态
+    default: false
+    enable: true
+    material: COMPARATOR
+  note_block: # 点击音符盒-红石音乐或者某些红石机器会用到...
+    default: false
+    enable: true
+    material: NOTE_BLOCK
+  container: # 一般容器-包含：箱子/木桶/潜影盒/盔甲架/展示框
+    default: false
+    enable: true
+    material: CHEST
+  hopper: # 特殊容器-包含：漏斗/熔炉/发射器/投掷器/高炉/烟熏炉
+    default: false
+    enable: true
+    material: HOPPER
+  craft: # 使用工作台-是否可以使用工作台
+    default: false
+    enable: true
+    material: CRAFTING_TABLE
+  crafter: # 合成器-是否可以修改自动合成器
+    default: false
+    enable: true
+    material: CRAFTING_TABLE
+  anvil: # 使用铁砧-是否允许使用铁砧
+    default: false
+    enable: true
+    material: ANVIL
+  enchant: # 使用附魔台-是否可以使用附魔台
+    default: false
+    enable: true
+    material: ENCHANTING_TABLE
+  brew: # 使用酿造台-是否可以使用酿造台
+    default: false
+    enable: true
+    material: BREWING_STAND
+  beacon: # 信标交互-是否允许与信标交互
+    default: false
+    enable: true
+    material: BEACON
+  jukebox: # 唱片机-是否可以使用唱片机
+    default: false
+    enable: true
+    material: JUKEBOX
+  lectern: # 讲台-是否可以使用讲台
+    default: false
+    enable: true
+    material: LECTERN
+  bookshelf: # 雕纹书架-是否可以与雕纹书架交互
+    default: false
+    enable: true
+    material: CHISELED_BOOKSHELF
+  dragon_egg: # 触碰龙蛋-是否可以触碰龙蛋
+    default: false
+    enable: true
+    material: DRAGON_EGG
+  item_frame_interactive: # 展示框交互-是否可以与物品展示框交互（旋转展示框的东西）
+    default: false
+    enable: true
+    material: ITEM_FRAME
+  edit_sign: # 编辑告示牌-是否可以编辑告示牌
+    default: false
+    enable: true
+    material: OAK_SIGN
+  bed: # 床交互-是否允许使用床睡觉或设置重生点
+    default: false
+    enable: true
+    material: RED_BED
+  anchor: # 重生锚-是否允许设置/使用重生锚
+    default: false
+    enable: true
+    material: RESPAWN_ANCHOR
+  vehicle_spawn: # 生成载具-是否可以生成载具（主要是矿车）
+    default: false
+    enable: true
+    material: MINECART
+  vehicle_destroy: # 破坏载具-是否可以破坏载具（主要是矿车）
+    default: false
+    enable: true
+    material: IRON_AXE
+  harvest: # 收获-收获庄稼、作物
+    default: false
+    enable: true
+    material: WHEAT
+  sowing: # 播种-是否可以播种（放置种子）各种作物
+    default: false
+    enable: true
+    material: WHEAT_SEEDS
+  feed: # 喂养动物-是否可以喂养动物
+    default: false
+    enable: true
+    material: WHEAT
+  shear: # 剪羊毛-是否可以剪羊毛
+    default: false
+    enable: true
+    material: SHEARS
+  leash: # 拴绳-是否可以使用拴绳/牵引（包括：动物、盔甲架、船等）
+    default: false
+    enable: true
+    material: LEAD
+  dye: # 染色-是否可以使用染料（对羊、狗项圈、猫项圈）染色
+    default: false
+    enable: true
+    material: LIGHT_BLUE_DYE
+  honey: # 蜂巢交互-是否可以采蜂蜜
+    default: false
+    enable: true
+    material: HONEY_BOTTLE
+  cake: # 吃蛋糕-是否可以吃蛋糕
+    default: false
+    enable: true
+    material: CAKE
+  trade: # 村民交易-是否可以与村民交易
+    default: false
+    enable: true
+    material: EMERALD
+  shoot: # 投掷型武器-包括：射箭/雪球/三叉戟/风弹
+    default: false
+    enable: true
+    material: BOW
+  egg: # 扔鸡蛋-是否可以扔鸡蛋
+    default: false
+    enable: true
+    material: EGG
+  hook: # 使用钓钩-是否可以使用钓钩
+    default: false
+    enable: true
+    material: FISHING_ROD
+  pvp: # 玩家伤害-玩家之间是否可以造成伤害
+    default: false
+    enable: true
+    material: DIAMOND_SWORD
+  monster_killing: # 对怪物造成伤害-玩家是否可以对怪物造成伤害
+    default: false
+    enable: true
+    material: IRON_SWORD
+  animal_killing: # 对动物造成伤害-是否允许对动物造成伤害
+    default: false
+    enable: true
+    material: COOKED_BEEF
+  villager_killing: # 对村民造成伤害-是否可以对村民造成伤害
+    default: false
+    enable: true
+    material: WOODEN_SWORD
+  glow: # 玩家发光-类似光灵箭的高亮效果
+    default: false
+    enable: true
+    material: SPECTRAL_ARROW

@@ -7,16 +7,21 @@ plugin:
    # 语言
    # Language
   language: 'zh_CN'
-   # 启动服务器时检测更新
-   # Check update when starting the server
-  check-update: true
    # 填写正在使用的基础插件
    # 可选值: auto/cmi/essentialsx/huskhomes/advancedteleport/sunlight/none
    # auto为自动检测 none为没有基础插件(即关闭功能)
    # Fill in the basic plugins currently in use
    # Optional value: auto/cmi/essentialsx/huskhomes/advancedteleport/sunlight/none
    # auto is for automatic detection, none for no basic plugin (i.e. disable function)
-  basic: 'sunlight'
+  basic: 'auto'
+   # 启动服务器时检测更新
+   # Check update when starting the server
+  check-update: true
+   # 启用表单支持 PlaceholderAPI
+   # 启用后可以在表单内使用 PlaceholderAPI
+   # Enable form support PlaceholderAPI
+   # Enable to use PlaceholderAPI within form
+  support-papi: true
    # 填写正在使用的登录插件
    # 可选值: auto/authme/catseedlogin/nexauth/other/none
    # auto 为自动检测, other 为其他登录插件, none 为没有登录插件(即关闭功能)
@@ -25,35 +30,20 @@ plugin:
    # Optional value: auto/authme/catseedlogin/nexauth/other/none
    # auto is for automatic detection, other is for other login plugins. none is for no login plugin (i.e. disable function)
    # When using other login plugins, the automatic registration function cannot be used, and only the automatic login function can be used
-  auth: 'authme'
-   # 启用表单支持 PlaceholderAPI
-   # 启用后可以在表单内使用 PlaceholderAPI
-   # Enable form support PlaceholderAPI
-   # Enable to use PlaceholderAPI within form
-  support-papi: true
+  auth: 'auto'
 
 form:
-  home:
-     # 启用基岩版家表单(/homegui)
-     # Enable bedrock home form (/homegui)
-    enable: true
-
-  msg:
-     # 启用基岩版消息表单(/msggui)
-     # Enable bedrock msg form (/msggui)
-    enable: true
-
-  money:
-     # 启用基岩版经济支付表单(/paygui)
-     # Enable bedrock economy pay form (/paygui)
+  points:
+     # 启用基岩版点券支付表单(/pointsgui)
+     # Enable bedrock points pay form (/pointsgui)
     enable: false
-     # 经济支付命令(玩家发送)
-     # 在此处填写你使用的经济插件的支付命令
-     # 可用变量: %playerName% 玩家名, %amount% 金额
-     # The economy pay command (send by player)
-     # Fill in the payment command of the economy plugin you are using here
+     # 点券支付命令(玩家发送)
+     # 在此处填写你使用的点券插件的支付命令
+     # 可用变量: %playerName% 玩家名, %amount% 点券数
+     # The points pay command (send by player)
+     # Fill in the payment command of the points plugin you are using here
      # Available variables: %playerName% player name, %amount% amount
-    pay-command: 'pay %playerName% %amount%'
+    pay-command: '/points pay %playerName% %amount%'
 
   teleport:
      # 启用基岩版TP表单(/tpgui)
@@ -70,46 +60,22 @@ form:
      # Enable support cross server teleport of form
     cross-server: false
 
-  kit:
-     # 启用基岩版礼包表单(/kitgui)
-     # 只有 CMI / EssentialsX / SunLight 可用
-     # Enable bedrock kit form (/kitgui)
-     # Only CMI / EssentialsX / SunLight is available
-    enable: false
-
-  points:
-     # 启用基岩版点券支付表单(/pointsgui)
-     # Enable bedrock points pay form (/pointsgui)
-    enable: false
-     # 点券支付命令(玩家发送)
-     # 在此处填写你使用的点券插件的支付命令
-     # 可用变量: %playerName% 玩家名, %amount% 点券数
-     # The points pay command (send by player)
-     # Fill in the payment command of the points plugin you are using here
+  money:
+     # 启用基岩版经济支付表单(/paygui)
+     # Enable bedrock economy pay form (/paygui)
+    enable: true
+     # 经济支付命令(玩家发送)
+     # 在此处填写你使用的经济插件的支付命令
+     # 可用变量: %playerName% 玩家名, %amount% 金额
+     # The economy pay command (send by player)
+     # Fill in the payment command of the economy plugin you are using here
      # Available variables: %playerName% player name, %amount% amount
-    pay-command: '/points pay %playerName% %amount%'
+    pay-command: 'money give %playerName% %amount%'
 
-  warp:
-     # 启用基岩版传送点表单(/warpgui)
-     # Enable bedrock warp form (/warpgui)
+  home:
+     # 启用基岩版家表单(/homegui)
+     # Enable bedrock home form (/homegui)
     enable: true
-
-  back:
-     # 启用基岩版返回死亡点表单(玩家死亡复活后自动打开表单)
-     # Enable bedrock back death location form (Automatically open form after player's death and respawn)
-    enable: true
-     # 返回死亡点表单打开延迟时间(单位: 刻, 20刻 = 1秒)
-     # 默认为 20 刻, 但部分服务器加载世界较慢, 20刻不足以加载完世界
-     # 若复活后表单没有打开, 请尝试调高此值
-     # The open delay time of back death location form
-     # The default value is 20 ticks, but some servers load the world slowly, 20 ticks is not enough to load the world completely
-     # If the form does not open after player respawn, please try increasing this value
-    open-delay-time: 20
-     # 返回死亡点命令
-     # 部分插件会用 /dback 或 其他命令, 请在此处替换
-     # The command of back death location
-     # If the command of back death location is /dback or other command, please replace it here
-    command: '/dback'
 
   phome:
      # 启用基岩版公共家表单(/phomegui)
@@ -117,6 +83,40 @@ form:
      # Enable bedrock public home form (/phomegui)
      # Only available when the basic plugin is HuskHomes
     enable: true
+
+  back:
+     # 启用基岩版返回死亡点表单(玩家死亡复活后自动打开表单)
+     # Enable bedrock back death location form (Automatically open form after player's death and respawn)
+    enable: true
+     # 返回死亡点命令
+     # 部分插件会用 /dback 或 其他命令, 请在此处替换
+     # The command of back death location
+     # If the command of back death location is /dback or other command, please replace it here
+    command: '/back'
+     # 返回死亡点表单打开延迟时间(单位: 刻, 20刻 = 1秒)
+     # 默认为 20 刻, 但部分服务器加载世界较慢, 20刻不足以加载完世界
+     # 若复活后表单没有打开, 请尝试调高此值
+     # The open delay time of back death location form
+     # The default value is 20 ticks, but some servers load the world slowly, 20 ticks is not enough to load the world completely
+     # If the form does not open after player respawn, please try increasing this value
+    open-delay-time: 20
+
+  warp:
+     # 启用基岩版传送点表单(/warpgui)
+     # Enable bedrock warp form (/warpgui)
+    enable: true
+
+  msg:
+     # 启用基岩版消息表单(/msggui)
+     # Enable bedrock msg form (/msggui)
+    enable: true
+
+  kit:
+     # 启用基岩版礼包表单(/kitgui)
+     # 只有 CMI / EssentialsX / SunLight 可用
+     # Enable bedrock kit form (/kitgui)
+     # Only CMI / EssentialsX / SunLight is available
+    enable: false
 
 
 general:
@@ -162,15 +162,10 @@ general:
 
 
 auth:
-  register:
-     # 启用基岩版玩家自动注册功能
-     # Enable bedrock player automatic register function
-    enable: true
-     # 随机的密码的长度
-     # The length of random password
-    password-length: 16
-
   login:
+     # 启用基岩版玩家自动登录功能
+     # Enable bedrock player automatic login function
+    enable: false
      # 自动登录命令(控制台发送)
      # 验证插件设置为 other 时会调用此处命令
      # 在此处填写你使用的登录插件的强制登录命令
@@ -180,8 +175,13 @@ auth:
      # Fill in the force login command for the auth plugin you are using here
      # Available variable: %playerName% player name
     command: 'forcelogin %playerName%'
-     # 启用基岩版玩家自动登录功能
-     # Enable bedrock player automatic login function
-    enable: true
+
+  register:
+     # 启用基岩版玩家自动注册功能
+     # Enable bedrock player automatic register function
+    enable: false
+     # 随机的密码的长度
+     # The length of random password
+    password-length: 16
 
 

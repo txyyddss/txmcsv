@@ -1,0 +1,598 @@
+# Thanks for using HeadDrop.
+# For bug report or suggestion, join https://discord.gg/fV4P2yMSgR
+
+Config:
+  Version: 26.1 # Version of the config. don't change this
+  Require-Killer-Player: true # Need to be killed by a player to drop head
+  Enable-Looting: true # Enable looting enchant buff
+  Baby-HeadDrop: true # Baby mobs will drop heads too
+  Enable-Perm-Chance: false # headdrop.chance.{number} will add extra chance for a player. 1-100
+  Nerf-Spawner: false # Stop mobs from dropping heads spawned from spawnner
+  Bounties: false # Enable bounties feature (Premium version only)
+  Disable-Worlds: # Disable headdrop is certain worlds
+    - demoWorld
+    - demoWorld2
+
+Require-Weapon: #required weapons to drop head
+  Enable: false
+  Weapons:
+  - Diamond_Axe
+
+Database: #Database function
+  Enable: true
+  Online: false # If your server is in offline mode, set this false
+  URL: jdbc:sqlite:HeadDrop.sqlite
+  User: null
+  Password: null
+  Cleanup: 30 #Auto cleanup database if player is inactive for x days
+
+Web: # Website for leaderboard
+  Enable: false
+  Port: 8080
+  Endpoint: leaderboard
+
+Bot: #Notify about headdrop in discord. Required DiscordUtils plugin
+  Enable: false
+  Channel-ID: ''
+  Title: HeadDrop
+  Description: '{KILLER} killed {MOB} using {WEAPON} and got a head!'
+  Footer: HeadDrop by RRS
+
+Effects: #Show a particle effect on head drop (Premium version only)
+  Enabled: true
+  Particle: FLAME
+  Count: 10
+  OffsetX: 0.5
+  OffsetY: 0.5
+  OffsetZ: 0.5
+  Speed: 0.1
+  Sound: ENTITY_PLAYER_LEVELUP
+  Volume: 1.0
+  Pitch: 1.0
+
+Lores: # add a blank line/lore if you want to disable lore.
+  - 
+
+
+# Drop -> Disabling it will behave vanilla
+# Chance -> Chances for dropping head
+# Sound -> Sound for the head in note block
+# Point -> Point for each head drop (Need to enable database)
+PLAYER:
+  Drop: true
+  Chance: 100.0
+  Point: 1
+
+ZOMBIE:
+  Drop: true
+  Chance: 100.0
+  Sound: default
+  Point: 1
+
+WITHER_SKELETON:
+  Drop: false
+  Chance: 100.0
+  Sound: default
+  Point: 1
+
+CREEPER:
+  Drop: true
+  Chance: 100.0
+  Sound: default
+  Point: 1
+
+SKELETON:
+  Drop: true
+  Chance: 100.0
+  Sound: default
+  Point: 1
+
+AXOLOTL:
+  Drop: true
+  Chance: 100.0
+  Sound: default
+  Point: 1
+
+BAT:
+  Drop: true
+  Chance: 100.0
+  Sound: default
+  Point: 1
+
+BEE:
+  Drop: true
+  Chance: 100.0
+  Sound: default
+  Point: 1
+
+BLAZE:
+  Drop: true
+  Chance: 100.0
+  Sound: default
+  Point: 1
+
+CAT:
+  Drop: true
+  Chance: 100.0
+  Sound: default
+  Point: 1
+
+DOLPHIN:
+  Drop: true
+  Chance: 100.0
+  Sound: default
+  Point: 1
+
+DROWNED:
+  Drop: true
+  Chance: 100.0
+  Sound: default
+  Point: 1
+
+SPIDER:
+  Drop: true
+  Chance: 100.0
+  Sound: default
+  Point: 1
+
+CAVE_SPIDER:
+  Drop: true
+  Chance: 100.0
+  Sound: default
+  Point: 1
+
+CHICKEN:
+  Drop: true
+  Chance: 100.0
+  Sound: default
+  Point: 1
+
+ENDERMAN:
+  Drop: true
+  Chance: 100.0
+  Sound: default
+  Point: 1
+
+COW:
+  Drop: true
+  Chance: 100.0
+  Sound: default
+  Point: 1
+
+ENDERMITE:
+  Drop: true
+  Chance: 100.0
+  Sound: default
+  Point: 1
+
+EVOKER:
+  Drop: true
+  Chance: 100.0
+  Sound: default
+  Point: 1
+
+DONKEY:
+  Drop: true
+  Chance: 100.0
+  Sound: default
+  Point: 1
+
+FOX:
+  Drop: true
+  Chance: 100.0
+  Sound: default
+  Point: 1
+
+SHEEP:
+  Drop: true
+  Chance: 100.0
+  Sound: default
+  Point: 1
+
+GIANT:
+  Drop: true
+  Chance: 100.0
+  Sound: default
+  Point: 1
+
+HOGLIN:
+  Drop: true
+  Chance: 100.0
+  Sound: default
+  Point: 1
+
+HUSK:
+  Drop: true
+  Chance: 100.0
+  Sound: default
+  Point: 1
+
+GOAT:
+  Drop: true
+  Chance: 100.0
+  Sound: default
+  Point: 1
+
+IRON_GOLEM:
+  Drop: true
+  Chance: 100.0
+  Sound: default
+  Point: 1
+
+ILLUSIONER:
+  Drop: true
+  Chance: 100.0
+  Sound: default
+  Point: 1
+
+HORSE:
+  Drop: true
+  Chance: 100.0
+  Sound: default
+  Point: 1
+
+GUARDIAN:
+  Drop: true
+  Chance: 100.0
+  Sound: default
+  Point: 1
+
+MOOSHROOM:
+  Drop: true
+  Chance: 100.0
+  Sound: default
+  Point: 1
+
+OCELOT:
+  Drop: true
+  Chance: 100.0
+  Sound: default
+  Point: 1
+
+PHANTOM:
+  Drop: true
+  Chance: 100.0
+  Sound: default
+  Point: 1
+
+GLOW_SQUID:
+  Drop: true
+  Chance: 100.0
+  Sound: default
+  Point: 1
+
+PIG:
+  Drop: true
+  Chance: 100.0
+  Sound: default
+  Point: 1
+
+LLAMA:
+  Drop: true
+  Chance: 100.0
+  Sound: default
+  Point: 1
+
+MULE:
+  Drop: true
+  Chance: 100.0
+  Sound: default
+  Point: 1
+
+PIGLIN:
+  Drop: true
+  Chance: 100.0
+  Sound: default
+  Point: 1
+
+PIGLIN_BRUTE:
+  Drop: true
+  Chance: 100.0
+  Sound: default
+  Point: 1
+
+ELDER_GUARDIAN:
+  Drop: true
+  Chance: 100.0
+  Sound: default
+  Point: 1
+
+PUFFERFISH:
+  Drop: true
+  Chance: 100.0
+  Sound: default
+  Point: 1
+
+SILVERFISH:
+  Drop: true
+  Chance: 100.0
+  Sound: default
+  Point: 1
+
+POLAR_BEAR:
+  Drop: true
+  Chance: 100.0
+  Sound: default
+  Point: 1
+
+SALMON:
+  Drop: true
+  Chance: 100.0
+  Sound: default
+  Point: 1
+
+SHULKER:
+  Drop: true
+  Chance: 100.0
+  Sound: default
+  Point: 1
+
+STRAY:
+  Drop: true
+  Chance: 100.0
+  Sound: default
+  Point: 1
+
+STRIDER:
+  Drop: true
+  Chance: 100.0
+  Sound: default
+  Point: 1
+
+SKELETON_HORSE:
+  Drop: true
+  Chance: 100.0
+  Sound: default
+  Point: 1
+
+PILLAGER:
+  Drop: true
+  Chance: 100.0
+  Sound: default
+  Point: 1
+
+SQUID:
+  Drop: true
+  Chance: 100.0
+  Sound: default
+  Point: 1
+
+WANDERING_TRADER:
+  Drop: true
+  Chance: 100.0
+  Sound: default
+  Point: 1
+
+TURTLE:
+  Drop: true
+  Chance: 100.0
+  Sound: default
+  Point: 1
+
+SLIME:
+  Drop: true
+  Chance: 100.0
+  Sound: default
+  Point: 1
+
+COD:
+  Drop: true
+  Chance: 100.0
+  Sound: default
+  Point: 1
+
+RAVAGER:
+  Drop: true
+  Chance: 100.0
+  Sound: default
+  Point: 1
+
+WITCH:
+  Drop: true
+  Chance: 100.0
+  Sound: default
+  Point: 1
+
+GHAST:
+  Drop: true
+  Chance: 100.0
+  Sound: default
+  Point: 1
+
+ZOMBIE_HORSE:
+  Drop: true
+  Chance: 100.0
+  Sound: default
+  Point: 1
+
+WOLF:
+  Drop: true
+  Chance: 100.0
+  Sound: default
+  Point: 1
+
+VINDICATOR:
+  Drop: true
+  Chance: 100.0
+  Sound: default
+  Point: 1
+
+ZOGLIN:
+  Drop: true
+  Chance: 100.0
+  Sound: default
+  Point: 1
+
+TRADER_LLAMA:
+  Drop: true
+  Chance: 100.0
+  Sound: default
+  Point: 1
+
+ZOMBIE_VILLAGER:
+  Drop: true
+  Chance: 100.0
+  Sound: default
+  Point: 1
+
+ENDER_DRAGON:
+  Drop: true
+  Chance: 100.0
+  Sound: default
+  Point: 1
+
+WITHER:
+  Drop: true
+  Chance: 100.0
+  Sound: default
+  Point: 1
+
+VILLAGER:
+  Drop: true
+  Chance: 100.0
+  Sound: default
+  Point: 1
+
+PARROT:
+  Drop: true
+  Chance: 100.0
+  Sound: default
+  Point: 1
+
+TROPICAL_FISH:
+  Drop: true
+  Chance: 100.0
+  Sound: default
+  Point: 1
+
+VEX:
+  Drop: true
+  Chance: 100.0
+  Sound: default
+  Point: 1
+
+ZOMBIFIED_PIGLIN:
+  Drop: true
+  Chance: 100.0
+  Sound: default
+  Point: 1
+
+MAGMA_CUBE:
+  Drop: true
+  Chance: 100.0
+  Sound: default
+  Point: 1
+
+PANDA:
+  Drop: true
+  Chance: 100.0
+  Sound: default
+  Point: 1
+
+SNOW_GOLEM:
+  Drop: true
+  Chance: 100.0
+  Sound: default
+  Point: 1
+
+RABBIT:
+  Drop: true
+  Chance: 100.0
+  Sound: default
+  Point: 1
+
+ALLAY:
+  Drop: true
+  Chance: 100.0
+  Sound: default
+  Point: 1
+
+TADPOLE:
+  Drop: true
+  Chance: 100.0
+  Sound: default
+  Point: 1
+
+FROG:
+  Drop: true
+  Chance: 100.0
+  Sound: default
+  Point: 1
+
+WARDEN:
+  Drop: true
+  Chance: 100.0
+  Sound: default
+  Point: 1
+
+CAMEL:
+  Drop: true
+  Chance: 100.0
+  Sound: default
+  Point: 1
+
+SNIFFER:
+  Drop: true
+  Chance: 100.0
+  Sound: default
+  Point: 1
+
+BREEZE:
+  Drop: true
+  Chance: 100.0
+  Sound: default
+  Point: 1
+
+BOGGED:
+  Drop: true
+  Chance: 100.0
+  Sound: default
+  Point: 1
+
+ARMADILLO:
+  Drop: true
+  Chance: 100.0
+  Sound: default
+  Point: 1
+
+CREAKING:
+  Drop: true
+  Chance: 50.0
+  Sound: default
+  Point: 1
+
+HAPPY_GHAST:
+  Drop: true
+  Chance: 50.0
+  Sound: default
+  Point: 1
+
+COPPER_GOLEM:
+  Drop: true
+  Chance: 50.0
+  Sound: default
+  Point: 1
+
+NAUTILUS:
+  Drop: true
+  Chance: 50.0
+  Sound: default
+  Point: 1
+
+PARCHED:
+  Drop: true
+  Chance: 50.0
+  Sound: default
+  Point: 1
+
+ZOMBIE_NAUTILUS:
+  Drop: true
+  Chance: 50.0
+  Sound: default
+  Point: 1
+
+CAMEL_HUSK:
+  Drop: true
+  Chance: 50.0
+  Sound: default
+  Point: 1

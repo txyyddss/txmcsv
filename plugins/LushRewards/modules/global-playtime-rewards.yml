@@ -1,0 +1,58 @@
+# Global Playtime Rewards: playtime goals that do not reset
+type: playtime-rewards
+enabled: true
+
+# How often (in days) to reset (0 to disable)
+reset-playtime-at: 0
+# Time in minutes between checking whether any online players need to receive rewards (-1 to disable)
+refresh-time: 30
+# Whether notifications should be sent when rewards are claimable
+enable-notifications: true
+
+goals:
+  - play-minutes: 600 # 10 Hours
+    display-item:
+      material: clock
+      amount: 1
+      lore:
+        - "&#bdbebfRewards:"
+        - "&#bdbebf- $1,000"
+    rewards:
+      - type: command
+        commands:
+          - "money give %player% 1000"
+  - play-minutes: 1440 # 24 Hours
+    display-item:
+      material: clock
+      amount: 1
+      lore:
+        - "&#bdbebfRewards:"
+        - "&#bdbebf- $2,000"
+    rewards:
+      - type: command
+        commands:
+          - "money give %player% 2000"
+
+gui:
+  title: "   &#529bf2&lGlobal Playtime Rewards"
+  scroll-type: FIXED
+  # Available templates: DEFAULT, COMPACT
+  # Read https://docs.lushplugins.org/lush-rewards/configuring/gui-templates#custom-templates for more info on
+  # creating and using templates
+  template: "BORDERED_LARGE"
+  item-templates:
+    default-reward:
+      material: clock
+      display-name: "&#f5e389%minutes% Minutes"
+    redeemable-reward:
+      material: clock
+      display-name: "&#f5e389%minutes% Minutes - Redeemable"
+    collected-reward:
+      material: clock
+      display-name: "&#f5e389%minutes% Minutes - Collected"
+    'P':
+      material: player_head
+      display-name: "&#A5B8FE&lProfile:"
+      skull-texture: mirror
+      lore:
+        - "&#c4f8ffNext Reward in: &f%lushrewards_global-playtime-rewards_time_until_next_reward%"

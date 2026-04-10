@@ -1,0 +1,29 @@
+# 用于 <pd:player_key>.
+player-display: <hover:show_text:'<pc>点击私聊 <pdc><player_key>'><click:suggest_command:/m <player_key_name> ><player_key></hover>
+chat:
+  placeholders:
+    shout: <pc><hover:show_text:'<pc>公屏喊话消息'>📣 </hover>
+emote:
+  placeholders:
+    prefix: <pc><hover:show_text:'<pc>玩家 me 动作消息'>* </hover>
+whisper:
+  placeholders:
+    prefix: <sdc><hover:show_text:'<pc>私聊频道'>📨 </hover>
+  reply-no-last-target: <ec>找不到上一个私聊对象。
+  receiver-offline: <ec>私聊接收者已离线。
+  receiver-blocked: <ec>你已被该私聊对象屏蔽。
+  spy:
+    placeholders:
+      prefix: '<sc>[<sdc>监听<sc>] '
+    enabled: <pl:prefix><pc>已<pdc>开启 <user></pdc> 的私聊监听功能。
+    disabled: <pl:prefix><pc>已<pdc>关闭 <user></pdc> 的私聊监听功能。
+    already-enabled: <pl:prefix><edc><user> <ec>已经开启私聊监听功能了。
+    already-disabled: <pl:prefix><edc><user> <ec>已经关闭私聊监听功能了。
+ignore:
+  placeholders:
+    prefix: '<sc>[<sdc>屏蔽<sc>] '
+  cannot-ignore-self: <pl:prefix><ec>你不可以屏蔽你自己。
+  ignore-player: <pl:prefix><pc>现在开始<vnc>屏蔽</vnc> <pdc><player></pdc> 的消息。
+  receive-player: <pl:prefix><pc>现在开始<vpc>接收</vpc> <pdc><player></pdc> 的消息。
+  already-ignoring-player: <pl:prefix><ec>你已经屏蔽过 <edc><player></edc> 了。
+  already-receiving-player: <pl:prefix><ec>你没有屏蔽 <edc><player></edc> 。

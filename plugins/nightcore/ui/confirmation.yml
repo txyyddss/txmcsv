@@ -24,7 +24,7 @@
 #       - player: warp shop
 # ==================================================
 Settings:
-  MenuType: hopper
+  MenuType: minecraft:hopper
   Title: <black>Are you sure?</black>
   Auto_Refresh: -1
   PlaceholderAPI:

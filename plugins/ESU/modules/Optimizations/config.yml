@@ -1,0 +1,166 @@
+module-enabled: false
+anti-lag:
+  waterlogged:
+    enabled: false
+
+    # 若启用此选项，将禁止含水方块中的水流动。
+    disable-water-spread: false
+
+    # 若启用此选项，将阻止活塞推动含水方块。
+    # 可阻止“水墙机”、“铺水机”的运作。
+    disable-waterlogged-block-push: false
+vanilla-tweaks:
+  # 修改生物群系的生物自然生成表。使用指令 /esu optimizations biomeSpawners export <biome>
+  # 可导出服务器中当前的设置，然后可在 biome_spawners 目录中修改它。
+  biome-spawners:
+    enabled: false
+
+  # 更改服务器标签类型设置。
+  # 标签用于控制区块的加载。详情请参阅 https://zh.minecraft.wiki/w/区块#标签
+  ticket-type:
+    ticket-type-commands: false
+
+    # 调整标签类型的过期/超时游戏刻设置。
+    # 设置 expiry-ticks 为 0 或负数将使得区块永久加载，直到标签被手动移除。
+    expiry-ticks:
+      enabled: false
+      overrides:
+        dragon: 0
+        portal: 300
+        folia:region_scheduler_api_hold: 0
+        player_spawn: 20
+        plugin_ticket: 0
+        chunk_load: 0
+        player_loading: 0
+        ender_pearl: 40
+        future_await: 0
+        post_teleport: 5
+        folia:delay: 5
+        player_simulation: 0
+        plugin: 600
+        unknown: 1
+        forced: 0
+        spawn_search: 1
+
+    # 调整标签类型的区块加载设置。
+    # 由于 Moonrise 区块系统优化，在 Paper 服务端上修改 loads-chunk 或 ticks-chunk 不会产生作用。
+    chunk-loads:
+      enabled: false
+      overrides:
+        dragon:
+          persist: false
+          loads-chunk: true
+          ticks-chunk: true
+        portal:
+          persist: true
+          loads-chunk: true
+          ticks-chunk: true
+        folia:region_scheduler_api_hold:
+          persist: false
+          loads-chunk: true
+          ticks-chunk: true
+        player_spawn:
+          persist: false
+          loads-chunk: true
+          ticks-chunk: false
+        plugin_ticket:
+          persist: false
+          loads-chunk: true
+          ticks-chunk: true
+        chunk_load:
+          persist: false
+          loads-chunk: true
+          ticks-chunk: false
+        player_loading:
+          persist: false
+          loads-chunk: true
+          ticks-chunk: false
+        ender_pearl:
+          persist: false
+          loads-chunk: true
+          ticks-chunk: true
+        future_await:
+          persist: false
+          loads-chunk: true
+          ticks-chunk: true
+        post_teleport:
+          persist: false
+          loads-chunk: true
+          ticks-chunk: true
+        folia:delay:
+          persist: false
+          loads-chunk: true
+          ticks-chunk: true
+        player_simulation:
+          persist: false
+          loads-chunk: false
+          ticks-chunk: true
+        plugin:
+          persist: false
+          loads-chunk: true
+          ticks-chunk: true
+        unknown:
+          persist: false
+          loads-chunk: true
+          ticks-chunk: false
+        forced:
+          persist: true
+          loads-chunk: true
+          ticks-chunk: true
+        spawn_search:
+          persist: false
+          loads-chunk: true
+          ticks-chunk: false
+
+    # 引入在 Minecraft 1.21.9 加入的更多设置.
+    chunk-unloads:
+      enabled: false
+      overrides:
+        dragon:
+          keeps-dimension-active: false
+          expires-if-unloaded: false
+        portal:
+          keeps-dimension-active: true
+          expires-if-unloaded: false
+        folia:region_scheduler_api_hold:
+          keeps-dimension-active: false
+          expires-if-unloaded: false
+        player_spawn:
+          keeps-dimension-active: false
+          expires-if-unloaded: false
+        plugin_ticket:
+          keeps-dimension-active: false
+          expires-if-unloaded: false
+        chunk_load:
+          keeps-dimension-active: false
+          expires-if-unloaded: false
+        player_loading:
+          keeps-dimension-active: false
+          expires-if-unloaded: false
+        ender_pearl:
+          keeps-dimension-active: true
+          expires-if-unloaded: false
+        future_await:
+          keeps-dimension-active: false
+          expires-if-unloaded: false
+        post_teleport:
+          keeps-dimension-active: false
+          expires-if-unloaded: false
+        folia:delay:
+          keeps-dimension-active: false
+          expires-if-unloaded: false
+        player_simulation:
+          keeps-dimension-active: true
+          expires-if-unloaded: false
+        plugin:
+          keeps-dimension-active: false
+          expires-if-unloaded: false
+        unknown:
+          keeps-dimension-active: false
+          expires-if-unloaded: true
+        forced:
+          keeps-dimension-active: true
+          expires-if-unloaded: false
+        spawn_search:
+          keeps-dimension-active: false
+          expires-if-unloaded: false

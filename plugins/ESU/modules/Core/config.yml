@@ -1,0 +1,15 @@
+# This module will provides some important information for other modules to use,
+# which doesn't create performance impact to your server.
+# This is enabled by default, do not change if you don't know what you are doing.
+
+module-enabled: true
+
+# Enable this to store core player data to database.
+# This helps modules to work more powerful.
+persistent-storage:
+  enabled: true
+
+  # Set this to the name in proxy of this server.
+  # If you have servers which syncs player data between,
+  #  you can use the same server name here.
+  server-name: 'MTN'

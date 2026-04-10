@@ -1,0 +1,15 @@
+module-enabled: false
+spawn-wither-nerf:
+  - radius: 256
+    max-amount: 0
+    speed-modifier: 0.5
+    follow-range-modifier: 0.25
+  - radius: 1024
+    max-amount: 1
+    speed-modifier: 0.5
+    follow-range-modifier: 0.25
+waterlogged:
+  # Disable pushing waterlogged blocks in spawn circle range.
+  # set to -1 to disable the limit.
+  # This is to prevent ocean maker machine.
+  disable-spawn-push-radius: -1

@@ -1,0 +1,94 @@
+# This is the configuration file of Dominion.
+# For more information, please refer to the documentation.
+# https://dominion.lunadeer.cn/en/notes/doc/owner/config-ref/overview/
+#
+# If you want to control player's privilege, please refer to the limitations configuration.
+
+# Do not modify this value.
+version: 2
+# The settings of the database.
+database:
+  # Supported types: sqlite, mysql, pgsql
+  type: sqlite
+  # The host of the database.
+  host: localhost
+  # The port of the database.
+  port: '3306'
+  # The database name.
+  database: dominion
+  # The username of the database.
+  username: dominion
+  # The password of the database.
+  password: dominion
+  # The connection pool size of the database.
+  connection-pool-size: 10
+# The settings of the multi server.
+# If you have multiple servers proxied by BungeeCord, you can configure and enable this.
+# Player can manage/teleport across multi-servers.
+# Database with type sqlite is not supported in multi-server mode.
+# For migration of existing data, please refer to the documentation.
+# https://dominion.lunadeer.cn/notes/doc/owner/other/multi-server/
+multi-server:
+  # Enable multi server mode.
+  enable: false
+  # The name of this server.
+  # This should be the same as configured in BC (Velocity).
+  server-name: server
+  # The id of this server, must be unique among all servers.
+  # Must be positive integer. > 0
+  # DO NOT CHANGE THIS AFTER THERE ARE DATA IN THE DATABASE.
+  server-id: 1
+# Language of the plugin, see others in the plugins/Dominion/languages folder.
+language: zh_cn
+# Radius of the auto create dominion. -1 to disable.
+auto-create-radius: 10
+# If player don't login for this days, his dominion will be auto cleaned.
+# Set to -1 to disable.
+auto-clean-after-days: 180
+# Prevent player from creating dominion around the spawn point.
+server-spawn-protection-radius: 10
+# Tool used to select position for creating dominion.
+select-tool: ARROW
+# Tool used to show information of clicked dominion.
+info-tool: STRING
+# The settings of the player default using UI. (For bedrock player, will always be CUI.)
+# If set to CUI or TUI, player can not change their UI type.
+# BY_PLAYER: Decide by player themselves.
+# CUI: Chest GUI.
+# TUI: Text GUI.
+default-ui-type: BY_PLAYER
+# The settings of the plugin message.
+plugin-message:
+  # The default message when player enter/leave dominion.
+  # Variables: {OWNER} - owner of the dominion, {DOM} - name of the dominion.
+  default-enter-message: '&3{OWNER}: Welcome to {DOM}!'
+  default-leave-message: '&3{OWNER}: Leaving {DOM}...'
+  # Where to show the message.
+  # Supported types: BOSS_BAR, ACTION_BAR, TITLE, SUBTITLE, CHAT
+  no-permission-display-place: ACTION_BAR
+  enter-leave-display-place: ACTION_BAR
+# Weather the player can migrate residence data to dominion.
+residence-migration: false
+# Weather the player have dominion.admin permission can bypass the dominion limitation.
+admin-bypass: true
+# The settings of the group title.
+# Player can use there group name as title in tab list.
+group-title:
+  enable: false
+  prefix: '['
+  suffix: ']'
+# The settings of the external link.
+external-links:
+  command-help: ''
+  documentation: https://dominion.lunadeer.cn/notes/doc/player/
+# Player with these permission nodes won't be affected by dominion's fly limitation.
+fly-permission-nodes:
+- essentials.fly
+- cmi.command.fly
+- domfly.use
+# Check for updates by internet.
+check-update: true
+# Debug mode, if report bugs turn this on.
+debug: false
+# Performance recorder, don't open this unless you are debugging.
+timer: false

@@ -1,21 +1,86 @@
+# ============================================
+#  MT Network - TAB Animations
+#  Enhanced with typing, shimmer, pulse effects
+# ============================================
+
+# --- Server Title: Gradient shimmer wave ---
 mtn_title:
-  change-interval: 300
+  change-interval: 150
   texts:
     - "<gradient:#6EC6FF:#9BE7FF><bold>MT Network</bold></gradient>"
-    - "<gradient:#9BE7FF:#6EC6FF><bold>MT Network</bold></gradient>"
+    - "<gradient:#78CAFF:#A5EAFF><bold>MT Network</bold></gradient>"
+    - "<gradient:#84CEFF:#B0EDFF><bold>MT Network</bold></gradient>"
+    - "<gradient:#9BD6FF:#BFF2FF><bold>MT Network</bold></gradient>"
+    - "<gradient:#B0DEFF:#D0F6FF><bold>MT Network</bold></gradient>"
+    - "<gradient:#C8E8FF:#E0FAFF><bold>MT Network</bold></gradient>"
+    - "<gradient:#E0F0FF:#F0FDFF><bold>MT Network</bold></gradient>"
+    - "<gradient:#FFFFFF:#FFFFFF><bold>MT Network</bold></gradient>"
+    - "<gradient:#E0F0FF:#F0FDFF><bold>MT Network</bold></gradient>"
+    - "<gradient:#C8E8FF:#E0FAFF><bold>MT Network</bold></gradient>"
+    - "<gradient:#B0DEFF:#D0F6FF><bold>MT Network</bold></gradient>"
+    - "<gradient:#9BD6FF:#BFF2FF><bold>MT Network</bold></gradient>"
+    - "<gradient:#84CEFF:#B0EDFF><bold>MT Network</bold></gradient>"
+    - "<gradient:#78CAFF:#A5EAFF><bold>MT Network</bold></gradient>"
+    - "<gradient:#6EC6FF:#9BE7FF><bold>MT Network</bold></gradient>"
+    - "<gradient:#5EBCFF:#8FE2FF><bold>MT Network</bold></gradient>"
+    - "<gradient:#4EB2FF:#7FDDFF><bold>MT Network</bold></gradient>"
+    - "<gradient:#3EA8FF:#6FD8FF><bold>MT Network</bold></gradient>"
+    - "<gradient:#4EB2FF:#7FDDFF><bold>MT Network</bold></gradient>"
+    - "<gradient:#5EBCFF:#8FE2FF><bold>MT Network</bold></gradient>"
 
-mtn_tip:
-  change-interval: 2500
-  texts:
-    - "&7Java + Bedrock 生存互通"
-    - "&7圈地工具: &6金锹"
-    - "&7商店系统: &aQuickShop"
-    - "&7难度: &cHard"
 
-mtn_bar:
-  change-interval: 200
+# --- Server Status: Color-coded pulse indicators ---
+server_status:
+  change-interval: 800
   texts:
-    - "&8&m----------------"
-    - "&3&m----------------"
-    - "&b&m----------------"
-    - "&f&m----------------"
+    # TPS display with pulsing dot
+    - "&8● &7TPS: &a%tps%"
+    - "&8◉ &7TPS: &a%tps%"
+    - "&8● &7TPS: &a%tps%"
+    - "&8◉ &7TPS: &a%tps%"
+    - "&8● &7TPS: &a%tps%"
+    # MSPT display
+    - "&8● &7MSPT: &e%mspt%"
+    - "&8◉ &7MSPT: &e%mspt%"
+    - "&8● &7MSPT: &e%mspt%"
+    - "&8◉ &7MSPT: &e%mspt%"
+    - "&8● &7MSPT: &e%mspt%"
+    # RAM display
+    - "&8● &7RAM: &b%memory-used%&8/&3%memory-max%"
+    - "&8◉ &7RAM: &b%memory-used%&8/&3%memory-max%"
+    - "&8● &7RAM: &b%memory-used%&8/&3%memory-max%"
+    - "&8◉ &7RAM: &b%memory-used%&8/&3%memory-max%"
+    - "&8● &7RAM: &b%memory-used%&8/&3%memory-max%"
+
+# --- Balance: Coin sparkle animation ---
+balance:
+  change-interval: 500
+  texts:
+    # Balance with sparkle cycle
+    - "&8✧ &6余额: &e%tne_balance_formatted%"
+    - "&8✦ &6余额: &f%tne_balance_formatted%"
+    - "&8✧ &6余额: &e%tne_balance_formatted%"
+    - "&8✦ &6余额: &f%tne_balance_formatted%"
+    - "&8✧ &6余额: &e%tne_balance_formatted%"
+    - "&8✧ &6余额: &e%tne_balance_formatted%"
+    - "&8✧ &6余额: &e%tne_balance_formatted%"
+    - "&8✧ &6余额: &e%tne_balance_formatted%"
+    - "&8✧ &6排名: &e%tne_toppos_MTB%"
+    - "&8✦ &6排名: &f%tne_toppos_MTB%"
+    - "&8✧ &6排名: &e%tne_toppos_MTB%"
+    - "&8✦ &6排名: &f%tne_toppos_MTB%"
+    - "&8✧ &6排名: &e%tne_toppos_MTB%"
+    - "&8✧ &6排名: &e%tne_toppos_MTB%"
+    - "&8✧ &6排名: &e%tne_toppos_MTB%"
+    - "&8✧ &6排名: &e%tne_toppos_MTB%"
+
+# --- WorldGuard: Smooth color fade rotation ---
+worldguard:
+  change-interval: 2000
+  texts:
+    - "&8◈ &f区域: <gradient:#55FF55:#00AA00>%worldguard_region_name%</gradient>"
+    - "&8◈ &f区域: <gradient:#00AA00:#55FF55>%worldguard_region_name%</gradient>"
+    - "&8◆ &f主人: <gradient:#FFFF55:#FFAA00>%worldguard_region_owner%</gradient>"
+    - "&8◆ &f主人: <gradient:#FFAA00:#FFFF55>%worldguard_region_owner%</gradient>"
+    - "&8◇ &f成员: <gradient:#55FFFF:#00AAAA>%worldguard_region_members%</gradient>"
+    - "&8◇ &f成员: <gradient:#00AAAA:#55FFFF>%worldguard_region_members%</gradient>"

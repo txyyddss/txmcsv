@@ -1,7 +1,12 @@
+# Where should the plugin store its database file?
+# Required.
+# Default: "{datadir}/data.sqlite"
+database_path: "{datadir}/data.sqlite"
+
 # Maximum supported render distance. Clients will be capped to this value.
 # Required.
 # Default: 1024
-render_distance: 2560
+render_distance: 1024
 
 # Are LOD features enabled at all?
 # Disable if you only want to use the plugin for level key info in a proxied setup.
@@ -19,7 +24,7 @@ full_data_request_concurrency_limit: 20
 # Default: true
 real_time_updates_enabled: true
 
-# Currently unsupported.
+# How close to an update players have to be in order to receive it.
 # Required.
 # Default: 128
 real_time_update_radius: 128
@@ -44,41 +49,85 @@ login_data_sync_rc_limit: 50
 # Default: 0
 max_data_transfer_speed: 0
 
-# Show warning during startup if chunk generation is enabled?
-generate_new_chunks_warning: false
-
-# Output builder activity to the server console.
+# Should new chunks be generated to build LODs?
+# If you disable this, the plugin will not be able to create LODs in areas where chunks don't already exist.
 # Optional.
 # Default: true
-show_builder_activity: false
+#generate_new_chunks: false
+
+# Show warning during startup if chunk generation is enabled?
+# Optional.
+# Default: true
+#generate_new_chunks_warning: false
+
+# Specs for a fake LOD to send when chunk generation is disabled and LOD requests otherwise would have been rejected.
+# Optional.
+# Default: Disabled
+#dummy_chunk:
+#  - "0-4,bedrock"
+#  - "5-79,stone"
+#  - "80-126,water"
+
+# How frequently (in seconds) should LODs be updated if world changes are detected?
+# Required.
+# Default: 5
+lod_refresh_interval: 15
 
 # Select which LOD builder to use.
 # Valid options are: FullBuilder, FastOverworldBuilder, and None.
 # Required.
 # Default: FullBuilder
-builder_type: FastOverworldBuilder
+builder_type: FullBuilder
 
 # Number of blocks to advance between each sample on the Y axis when generating LODs.
 # A setting of 1 will sample every block, while 2 will sample every other block, and so on.
+# CURRENTLY BROKEN. THIS VALUE IS IGNORED.
 # Required.
 # Default: 2
-builder_resolution: 3
+builder_resolution: 2
 
 # Whether to include non-colliding blocks when they are the top-most block.
 # True means tall grass, flowers, and snow will color the block below them.
 # Optional.
 # Default: true
-include_non-colliding_top_layer: false
+#include_non-colliding_top_layer: false
 
-# Should beacons be included in LOD data?
-# It's recommended to leave this disabled for the initial LOD generation, then enable it afterward.
+# If your server is accessible via multiple different addresses, consider setting a level key to let clients know
+# that even though the address is different; it's the same server.
+# This value must be GLOBALLY UNIQUE! No other server on planet Earth should have the same server key as you.
 # Optional.
-# Default: false
-include_beacons: true
+#server_key:
 
 # When running DHS on a proxied server, set this to a value that is unique to this specific server.
 # Optional.
 #level_key_prefix:
+
+# Use the vanilla world border of the respective world.
+# Optional.
+# Default: true
+#use_vanilla_world_border: false
+
+# How many chunks beyond the vanilla world border can we see (if it's enabled)?. If set to auto, it uses the server's
+# view distance, which effectively means that if standing at the border you can see as far as the server would generate
+# chunks naturally.
+# Optional.
+# Default: auto
+#vanilla_world_border_expansion: 12
+
+# List of blocks to replace with other blocks during LOD building.
+# Useful to hide ugly blocks or valuable resources.
+# Don't use the "minecraft:" prefix for vanilla blocks.
+# DO use the namespace prefix for custom blocks.
+# Optional.
+# Default: Hide bamboo, seagrass, kelp, and iron + diamond ores.
+material_map:
+  bamboo: air
+  seagrass: water
+  tall_seagrass: water
+  kelp: water
+  kelp_plant: water
+  iron_ore: stone
+  diamond_ore: stone
 
 # World specific settings.
 # You can override any of the above settings on a per-world basis.
@@ -87,11 +136,23 @@ worlds:
     # Use builder that is optimized for overworld.
     builder_type: FastOverworldBuilder
 
+    # Should biome be checked for every data point, or just once per column?
+    # Enable if your world has 3d/vertical biomes.
+    # Optional.
+    # Default: false
+    #sample_biomes_3d: true
+
     # When using the FastOverworldBuilder, should LODs always contain data down to at least sea level?
     # Enable if your world has floating islands or mountains/structures with large overhangs above sea level.
     # Optional.
     # Default: false
-    scan_to_sea_level: true
+    #scan_to_sea_level: true
+
+    # When using the FastOverworldBuilder, should the bottom data point be stretched to the lowest permitted build
+    # height? This will make the LODs look more complete, and gives a theoretical boost to render performance.
+    # Optional.
+    # Default: true
+    #fast_underfill: false
 
     # Limit LOD generation to within this area.
     # Optional.
@@ -99,16 +160,63 @@ worlds:
     #border_center_z: 0
     #border_radius: 5000
 
-  # It might make sense to have a lower view distance in the nether, since visibility will be low simply because of
-  # the level design anyway.
   world_nether:
-    render_distance: 128
+    # It might make sense to have a lower view distance in the nether, since visibility will be low simply because of
+    # the level design anyway.
+    render_distance: 64
+
+    # This is a hack to prevent light from shining through ceilings, mostly noticeable on the nether ceiling.
+    # Only works with the FullBuilder, should only be used with builder_resolution=1, and does have some side effects.
+    #perform_underglow_hack: true
+    #builder_resolution: 1
+
+# List of events that should trigger LOD updates.
+# Required.
+# Default: A bunch (:
+update_events:
+  - org.bukkit.event.block.BlockPlaceEvent
+  - org.bukkit.event.block.BlockBreakEvent
+#  - org.bukkit.event.block.TNTPrimeEvent
+  - org.bukkit.event.block.BlockExplodeEvent
+#  - org.bukkit.event.block.BlockIgniteEvent
+#  - org.bukkit.event.block.BlockBurnEvent
+#  - org.bukkit.event.block.LeavesDecayEvent
+#  - org.bukkit.event.block.BlockFadeEvent
+#  - org.bukkit.event.block.BlockGrowEvent
+#  - org.bukkit.event.block.MoistureChangeEvent
+#  - org.bukkit.event.block.BlockRedstoneEvent
+  - org.bukkit.event.block.BlockPistonExtendEvent
+  - org.bukkit.event.block.BlockPistonRetractEvent
+#  - org.bukkit.event.block.SpongeAbsorbEvent
+#  - org.bukkit.event.inventory.FurnaceBurnEvent
+  - org.bukkit.event.world.StructureGrowEvent
 
 # Number of worker threads used to generate LODs.
-# Does not affect Folia servers.
 # Required.
-# Default: 2
-scheduler_threads: 2
+# Default: 4
+scheduler_threads: 4
+
+# Show a message to players who join if they don't have Distant Horizons installed?
+# Optional.
+# Default: Disabled
+#ad_message:
+#  - "§aThis server supports §bDistant Horizons§a!"
+#  - "§aVisit §nhttp://dh-mod.com/§r§a to learn more."
+
+# If a user uses /dh should we give them a help text?
+# Optional.
+# Default: true
+#enable_dh_command_help_text: false
+
+# Should we notify server admins when a new version of the plugin is available?
+# Optional.
+# Default: true
+#check_for_updates: false
+
+# Enable debug logging?
+# Optional.
+# Default: false
+#debug: true
 
 # Don't touch :)
-config_version: 6
+config_version: 10

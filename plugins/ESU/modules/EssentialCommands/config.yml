@@ -1,0 +1,28 @@
+module-enabled: true
+client-locale: true
+dimension-travel: true
+feed: true
+heal: true
+invulnerable:
+  enabled: true
+
+  # 在玩家离开服务器或插件禁用时重置玩家的无敌状态。
+  # 若设为 false, 则修改后的玩家无敌状态可能永久保留。
+  auto-reset-invulnerable: true
+ip: true
+ip-group: true
+kill: true
+no-fall: true
+ping: true
+player-chunk-tickets: true
+spectate: true
+speed:
+  enabled: true
+
+  # 在玩家离开服务器或插件禁用时重置玩家速度。
+  # 若设为 false, 则修改后的玩家速度可能永久保留。
+  auto-reset-speed: true
+suicide:
+  enabled: true
+  suicide-death-message: <message> <pl:suicided>
+tp-chunk: true

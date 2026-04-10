@@ -1,8 +1,5 @@
-# AuthmeReloaded帮助文件汉化
-# Translated By CH1
-# -------------------------------------------------------
 common:
-    header: '==========[ AuthMeReloaded ]=========='
+    header: '======================================'
     optional: '可选'
     hasPermission: '您拥有权限去使用这个指令'
     noPermission: '您没有权限使用这个指令'

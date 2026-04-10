@@ -1,7 +1,8 @@
-# This module will automatically reload the plugins that depend
-# on ESU when ESU is reloaded with a plugin management plugin.
-# PlugMan/PlugManX is required to enable this.
+# 当使用插件管理插件重新加载 ESU 时，此模块将自动重新加载依赖 ESU 的插件。
+# 此外，此模块还可改善 ESU 热加载/热更新的兼容性。
+# 
+# 启用此功能需要 PlugMan/PlugManX。
 
+module-enabled: false
 plugin-blacklist:
   - EsuAddonPlugin
-module-enabled: false

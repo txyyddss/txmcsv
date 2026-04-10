@@ -25,7 +25,7 @@ Combat Tag:
   # Sets the player glowing while tagged, for MC 1.9+
   Glowing: true
   # Will untag the player when they kill their current enemies
-  Untag On Kill: false
+  Untag On Kill: true
   # Allow players to tag themselves with a bow, enderpearl, etc
   Self Tag: false
   # If enabled, will retag the player when they throw an enderpearl
@@ -110,7 +110,7 @@ Combat Tag:
 ##################################
 Combat Log Punishments:
   # Money lost on combat log, you can use less or equal to 1 for percentages like 0.05 for 5%, 1 for 100% (0 to disable)
-  Money Penalty: 0.0
+  Money Penalty: 0.2
   # Should the player be killed and, if so, what will the player drop
   Kill on Logout:
     Enabled: true
@@ -185,7 +185,7 @@ Anti Border Hopping:
 Newbie Protection:
   Enabled: true
   # How many seconds should newbie protection last, persists through restarts
-  Time: 600
+  Time: 1800
   # If players should be allowed to remove their protection with /newbie disable
   Allow Player Disable: true
   # Block players from picking up items or place blocks while they have protection
@@ -232,13 +232,13 @@ Item Cooldowns:
 # Section with settings triggered when a player kills another player
 Player Kills:
   # Money won as reward, use less or equal to 1 for percentage like 0.05 for 5%, 1 for 100% (0 to disable)
-  Money Reward: 0.0
+  Money Reward: 0.1
   # Money lost on PvP death, use less or equal to 1 for percentage like 0.1 for 10%, 1 for 100% (0 to disable)
-  Money Penalty: 0.0
+  Money Penalty: 0.15
   # Should the amount won from money reward be stolen from the dead player
-  Money Steal: false
+  Money Steal: true
   # Similar to how money steal works, get a percentage of XP from the player you killed, 1 for 100% (0 to disable)
-  Exp Steal: 0.0
+  Exp Steal: 0.1
   Commands On Kill:
     # Time in seconds between kill commands, -1 to disable cooldown
     Cooldown: -1
@@ -282,10 +282,10 @@ Other Settings:
   # mode 'KEEP' - (Players keep items when killed in PvP but not in PvE),
   # mode 'TRANSFER' - (Same as 'DROP' but transfer items(not exp) directly to killer's inventory without drops)
   # mode 'CLEAR' - (Clear all drops and exp on death, this DELETES everything on death so make sure it is what you want)
-  Player Drop Mode: ALWAYS
+  Player Drop Mode: KEEP
   # Show player health, uses scoreboards so might conflict with other plugins
   Show health under name:
-    Enabled: false
+    Enabled: true
     Display Name: '&c❤'
 
 # What should be disabled when a player enters PvP

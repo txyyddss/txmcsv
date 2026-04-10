@@ -1,4 +1,4 @@
+module-enabled: false
 view-distance: disabled
 simulation-distance: disabled
 difficulty: disabled
-module-enabled: false

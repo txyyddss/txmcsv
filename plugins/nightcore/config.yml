@@ -1,10 +1,25 @@
 DataFixer:
   MissingVersion: 4189
   UnknownVersion: 10000
+General:
+  DateTimeFormat: dd/MM/yyyy HH:mm
 Menu:
   # Sets cooldown (in milliseconds) for player clicks in GUIs.
   # [Default is 150ms]
   Click_Cooldown: 150
+Integrations:
+  Economy:
+    # List of economy/currency IDs that will not be handled by the nightcore and it's child plugins.
+    DisabledProviders:
+    - custom_economy
+    - example_currency
+    # Whether to apply PlaceholderAPI placeholders in currency's Format setting.
+    PlaceholderAPI_In_Format: true
+  Items:
+    # List of custom item plugins that will not be handled by the nightcore and it's child plugins.
+    DisabledProviders:
+    - CustomSuperItems
+    - UltimateItemsPlugin
 UserData:
   Cache:
     # [ OUTDATED, MOVED IN PER-PLUGIN engine.yml ]
@@ -47,21 +62,6 @@ Number:
     quadrillion:
       Magnitude: 5
       Name: q
-General:
-  DateTimeFormat: dd/MM/yyyy HH:mm
-Integrations:
-  Economy:
-    # List of economy/currency IDs that will not be handled by the nightcore and it's child plugins.
-    DisabledProviders:
-    - custom_economy
-    - example_currency
-    # Whether to apply PlaceholderAPI placeholders in currency's Format setting.
-    PlaceholderAPI_In_Format: true
-  Items:
-    # List of custom item plugins that will not be handled by the nightcore and it's child plugins.
-    DisabledProviders:
-    - CustomSuperItems
-    - UltimateItemsPlugin
 Profiles:
   Cache:
     # Sets expire time (in minutes) for cached player profiles before they will make a call to the Mojang API to update their name and textures.

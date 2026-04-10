@@ -1,3 +1,4 @@
+module-enabled: false
 blocking-commands:
   - # The message key to send to users. You need to set the message in locale configs.
     blocked-message: no-suicide
@@ -6,4 +7,3 @@ blocking-commands:
       - ^(.+:)?suicide$
       - ^(.+:)?kill$
     console-user-excluded: true
-module-enabled: false

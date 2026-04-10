@@ -1,6 +1,9 @@
+module-enabled: false
+
+# Enable to notify console anti-spam messages
 notify-console: true
-user-data-expires-after: 1200000
-base-mute-duration: 600000
+user-data-expires-after: 20m
+base-mute-duration: 10m
 expire-size:
   chat-request: 10
   filtered: -1
@@ -8,30 +11,38 @@ expire-size:
   whisper-target: -1
   score: 10
 expire-time:
-  chat-request: 360000
-  filtered: 270000
+  chat-request: 6m
+  filtered: 4m 30s
 
   # Using base value(hard) plus quadratic function to check expired with a rate.
   # Default: 60 + 840 seconds(15m in total) to fully expire
   message-record:
-    hard-expire-time: 60000
+    hard-expire-time: 1m
     quadratic-divider-offset: 60000.0
     quadratic-divider: 90000.0
     quadratic-height: 100.0
-  whisper-target: 240000
+    afk-duration-multiplier:
+      10m: 2.0
+      5m: 1.5
+  whisper-target: 4m
   score: -1
+
+# Remove one oldest filtered record if the player sends multiple unfiltered chat message in a row.
+# Set to non-positive value to disable this, and record only expires after configured time above.
+consecutive-unfiltered-threshold: 3
 mute-handler:
-  base-mute-duration: 600000
+  base-mute-duration: 10m
   mute-on-filtered-size: 8
   mute-duration-multiplier:
     # Last Mute must within this interval to trigger a multiplier
-    max-mute-interval: 900000
+    max-mute-interval: 4m
     multiplier: 2.0
+    multiplier-max: 32.0
   spam-score:
     calculate-size: 6
     mute-on-average-score: 0.5625
 
-    # Make sure the player get muted can be scored in this range after unmute
+    # Ensure the player get muted can be scored in this range after unmute
     safe-score-on-mute: 0.3
   keep-message-records: true
   keep-scores: true
@@ -43,13 +54,13 @@ spam-check:
     fixed-request-mute:
       enabled: true
       conditions:
-        - drift: 2000
-          min-request-interval: 20000
-          samples: 5
+        - drift: 2s
+          min-request-interval: 25s
+          samples: 6
     frequency:
       max-messages: 8
-      max-messages-per: 25000
-      minimal-interval: 1500
+      max-messages-per: 25s
+      minimal-interval: 250ms
     illegal-characters:
       enabled: true
     letter-case:
@@ -60,13 +71,16 @@ spam-check:
       remove-random-characters-on-check: true
     similarity-check:
       block-on-disallow-count:
-        6: 6
-        14: 4
-        36: 2
+        8: 6
+        20: 4
+        48: 2
         32767: 1
       allow-rate-reduce-per-record: 0.015
       base-allow-rate: 0.8
       lowest-allow-rate: 0.55
+      afk-rate-multiplier:
+        10m: 1.5
+        5m: 1.25
     spaces:
       remove-extra-spaces-on-check: true
       min-length: 9
@@ -79,4 +93,3 @@ whisper-targets:
   max-targets: 10
   safe-targets: 2
   safe-targets-max: 6
-module-enabled: false

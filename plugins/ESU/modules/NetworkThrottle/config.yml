@@ -1,82 +1,204 @@
-# Helps to reduce chunk upload bandwidth. Plugin will compress invisible blocks in chunk data packet.
-# If necessary, we send a full chunk data again.
-# This can save about 50% bandwidth usage in overworld and 30% in nether averagely.
-# Make sure you enabled network-compression on proxy or this server.
-chunk-data-throttle:
+module-enabled: true
+
+# 限制对挂机玩家的数据包发送，以降低上传带宽使用率。
+# 在挂机节能模式下的玩家，将会看到延迟的、不同步的世界变更。
+afk-efficiency:
   enabled: true
 
-  # Plugin will resent whole chunk data if resent block amount exceeds this value.
-  # Set it to -1 will never resent chunk but keep updating nearby blocks, 
-  #  0 to always resent chunks.
-  threshold-to-resent-whole-chunk: 448
+  # 玩家至少需要挂机的时长，以触发挂机节能模式。
+  afk-duration: 30s
 
-  # How many distance of blocks to update while necessary.
-  update-distance: 2
+  # The minimum activation delay for players who just joined the server.
+  minimum-activate-delay: 30s
 
-  # The bedrock level(minimal height) is never visible unless you are in void.
-  # We would skip the check, and if you don't like it you can enable it.
-  minimal-height-invisible-check: true
+  # 隐藏所有距离玩家较远的实体。
+  entity-tracking:
+    enabled: true
 
-  # Same with minimal-height but it's for nether roof.
-  nether-roof-invisible-check: true
+    # 玩家只能看到此距离内的实体。
+    visible-entity-distance: 7.0
 
-  # Minecraft 1.18+ indexes and maps block types for chunk sections to improve compression,
-  # However the mapping is not created based on the amount of blocks.
-  # If this option is enabled, we will rebuild the mapping by sorted blocks amount.
-  # This may slightly help with the compression rate, especially since we are changing the blocks too.
-  # It also reduces the probability of ghost chunks(full chunk with portals [with sound], eta.) .
-  # This could easily double the process time, if you care about the extra about ~0.2ms, disable it.
-  #  * We are planing to enhance this by another two approaches, which may help more.
-  rebuild-palette-mappings: true
+    # 更新玩家附近实体的游戏刻间隔。
+    update-interval-ticks: 5
+  limited-packet:
+    enabled: true
 
-  # Plugin will convert chunks with all non-visible blocks to single-valued palette format,
-  # This could save a lot of bandwidth. And since we are conflicting with anti-xray things,
-  # you can use this for some kind of substitution.
-  # We choose a random block from the list and make it of a 16*16*16 chunk section.
-  single-valued-section-block-list:
-    _default:
-      - bedrock
-    world:
-      - coal_ore
-      - copper_ore
-      - iron_ore
-      - gold_ore
-      - emerald_ore
-      - diamond_ore
-      - redstone_ore
-      - lapis_ore
-      - deepslate_coal_ore
-      - deepslate_copper_ore
-      - deepslate_iron_ore
-      - deepslate_gold_ore
-      - deepslate_emerald_ore
-      - deepslate_diamond_ore
-      - deepslate_redstone_ore
-      - deepslate_lapis_ore
-    world_nether:
-      - nether_quartz_ore
-      - nether_gold_ore
-    world_the_end:
-      - end_stone
+    # 限制距离玩家较远的世界更新数据包。
+    # 设置为 -1 以禁用特定数据包类型的修改，0 以取消所有特定类型的数据包，
+    #  或者根据玩家与数据包的产生点距离判定玩家是否可接收此数据包。
+    ranged-packets:
+      particle: 0.0
+      sound-effect: 8.0
+      entity-sound-effect: 10.0
+      hurt-animation: 0.0
+      damage-event: 0.0
+      entity-head-look: 0.0
 
-# Enable DynamicChunkSendRate. Make sure you have velocity mode on, and installed ESU on velocity.
+    # 设为 false 以取消特定数据包类型。
+    global-packets:
+      time-update: true
+      player-info-update:
+        update-game-mode: true
+        update-latency: false
+
+# 有助于降低区块上传带宽。插件会压缩区块数据包中的不可见的方块数据。
+# 在必要时，再次发送完整的区块数据。
+# 平均可以节省约 50% 的主世界带宽使用量和 30% 的下界带宽使用量。
+# 确保您已在群组服务器或本服务器上启用网络压缩(network-compression)。
+chunk-data-throttle:
+  enabled: true
+  chunk-handler:
+    # 如果重新发送的方块数量超过此值，将直接重新发送整个区块的完整原始数据。
+    # 设置为 -1 表示永远不会重新发送整个区块，而是持续更新相邻方块；
+    # 设置为 0 表示始终重新发送完整的原始区块。
+    # 设置为较大的值可以避免持续发送方块更新数据包，但尚未确定是否有益。
+    # 此外，原始区块不会包含假矿功能。建议保留为 -1 。
+    threshold-to-resent-whole-chunk: -1
+
+    # 当玩家开始挖掘一个方块时，我们会立即更新相邻的方块。
+    # 如果启用此选项，我们将通过粗略计算来检查该方块是否在玩家的合法交互范围内。
+    update-on-legal-interact-only: true
+
+    # 每次更新方块时，更新多少距离内的相邻方块。
+    update-distance: 2
+
+    # 除非身处虚空，否则基岩层（世界最小高度）永远不可见。
+    # 默认我们会跳过这项检查，如果你不喜欢，可以启用。
+    minimal-height-invisible-check: false
+
+    # 与 minimal-height 相似，适用于下界的基岩顶层. 为了开箱即用，默认为 true。
+    # 如果您不允许玩家上基岩层，强烈建议将此选项设为 FALSE。
+    nether-roof-invisible-check: true
+
+    # 如果一个透明方块被非透明方块包围，则明显中心方块不可见。
+    # 此外，是否应该认为所有相邻的方块对于该方块面是不可见的？
+    # 除非玩家加入游戏时视线在这个中心方块内，否则永远不会看到相邻方块。
+    # 此步骤额外耗时约 0.02 毫秒，因此默认情况下不启用。
+    # 启用此选项有助于节省下界的带宽，因为下界中有很多单方块的熔岩。
+    detect-invisible-single-block: true
+
+    # 检测熔岩池，将被覆盖的熔岩方块视为不可见。
+    # 此步骤额外耗时约 0.03 毫秒，因此默认情况下不启用。
+    # 这还会要求插件在玩家每次移动时检测附近的方块。
+    # 启用此功能有助于节省带宽，尤其是在下界。
+    detect-lava-pool: true
+
+    # 此功能不支持与其他任何假矿插件同时运行。
+    # 您必须使用我们提供的假矿功能。
+
+    # 我们会将不可见的方块替换为此列表中的随机一个方块。
+    # 如果您不想启用假矿，可将列表设置为 'bedrock' 。
+    anti-xray-random-block-list:
+      _default:
+        - bedrock
+      world:
+        - coal_ore
+        - copper_ore
+        - iron_ore
+        - gold_ore
+        - emerald_ore
+        - diamond_ore
+        - redstone_ore
+        - lapis_ore
+        - deepslate_coal_ore
+        - deepslate_copper_ore
+        - deepslate_iron_ore
+        - deepslate_gold_ore
+        - deepslate_emerald_ore
+        - deepslate_diamond_ore
+        - deepslate_redstone_ore
+        - deepslate_lapis_ore
+      world_nether:
+        - nether_quartz_ore
+        - nether_gold_ore
+        - ancient_debris
+      world_the_end:
+        - end_stone
+
+    # 若启用，在不增加子区块“调色板”位数时，可添加一个随机方块类型。
+    # 可大幅增强假矿效果，同时仅占用额外少量字节的带宽。
+    enhanced-anti-xray: true
+
+    # 在此列表中添加的任何方块在处理时会被忽略。
+    # 可以添加任何不想被隐藏的方块。
+    # 例如，你可以添加任何矿石，这样就不会产生反矿透效果。
+    # *警告*：添加任何方块都可能严重降低带宽压缩率，请三思。
+    non-invisible-blocks-overrides: []
+
+# 启用动态区块发送速率。需要在 ESU 的 velocity 插件端也开启此功能。
 dynamic-chunk-send-rate:
   enabled: false
 
-# Adjust the settings the players with high latency to lower value.
-# So they won't affect average quality of all players.
+# 智能遮挡剔除，可降低上行带宽占用。
+# 插件会对玩家隐藏他们不可见的实体。
+entity-culling:
+  enabled: true
+  raytrace-handler:
+    # 用于计算实体可见性的异步线程数量。越多则越快。
+    raytrace-threads: 4
+
+    # 每秒的更新次数上限。
+    # 数字越大，即时性越高，但也会造成更多的性能占用。
+    updates-per-second: 15
+
+    # 启用 fast-raytrace 则使用固定步长判断可见性，计算速度快一倍，
+    # 但透过拐角的实体可能不会隐藏，同时亦可防止经过拐角后实体突然出现。
+    # 设为 false 则使用 3D-DDA 算法，适合需要判定更精确的场景。
+    fast-raytrace: true
+
+    # 列表中的实体类型总是可见。
+    visible-entity-types:
+      - wither
+
+    # 在该半径范围内的实体总是可见。
+    force-visible-distance: 8.0
+
+    # 模拟并预测玩家在后续游戏刻的位置。
+    # 实体在玩家当前位置和预测位置都不可见时，
+    # 才会被判定为被遮挡状态。
+    # 可以降低实体突然出现的可能性，
+    # 根据玩家速度可能造成额外一倍的处理时间。
+    # 需要 Minecraft 1.21+ 以获取客户端移动向量。
+    predicate-player-positon: true
+
+    # 玩家的可见实体必须达到这个数量，才为他们剔除遮挡实体。
+    # 设为 -1 则始终遮挡剔除。
+    cull-threshold: -1
+entity-tracking-range:
+  enabled: false
+
+  # 修改实体类型的客户端追踪距离(Client Tracking Range).
+  # 单位为区块.
+  client-tracking-range-override:
+    pig: 10
+entity-update-interval:
+  enabled: false
+
+  # 控制实体类型位置更新数据包发送的游戏刻间隔。
+  # 更高的数字意味着更高的实体移动数据包，亦是更高的不同步，
+  # 以换取更少的网络占用。
+  entity-type-update-interval:
+    pig: 3
+    zombie: 3
+
+# 将延迟较高的玩家的视距设置调整为较低的值。
+# 由此防止到影响所有玩家的平均网络质量。
 high-latency-adjust:
   enabled: true
 
-  # Trigger a adjust when player's ping is greater than or equal this.
-  latency-threshold: 150
+  # 当玩家的延迟高于或等于此值时触发一次调整。
+  latency-threshold: 100
 
-  # The high ping must keep for the duration to trigger a adjust finally.
-  duration: 1m
+  # 高延迟必须持续这段时间，最终才触发调整。
+  duration: 30s
 
-  # Plugin detects CLIENT_SETTINGS packets to reset the view distance for players.
-  # If true, player must change the client view distance for a reset;
-  # If false, any new settings could reset the view distance for the player.
-  new-view-distance-to-reset: true
+  # 插件会检测 CLIENT_SETTINGS 数据包来重置玩家的视野距离。
+  # 若为 true，则玩家必须更改客户端视野距离才能重置视距；
+  # 若为 false，则任何新设置都可以重置玩家的视距。
+  new-view-distance-to-reset: false
   min-view-distance: 5
-module-enabled: true
+
+# 启用该功能可滤过不必要的数据包，这些数据包不会为客户端带来任何改变。
+# 目前仅过滤实际上实体未移动的实体位置数据包。
+skip-unnecessary-packets:
+  enabled: true

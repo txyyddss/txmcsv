@@ -1,0 +1,43 @@
+book-news:
+  no-news-set: <ec>This server has no news set.
+  layout: |-
+    <pdc><shadow:black>Server News <check>
+    <new-placeholder><reset><content>
+  check-button: <vpdc>[Check]
+  new-placeholder: <dark_green><bold>NEW!<br>
+  checked-nothing: <ec>You have nothing to check.
+  checked: <pc>You have mark the news as checked. We won't notify you again until there's something new.
+  editor:
+    book-layout:
+      empty-layout: |-
+        <pc>There's no any news yet.
+
+        <new>
+      page-layout: |-
+        <pdc><id> <new> <edit> <delete>
+        <reset><content>
+      preview-layout: |-
+        <pdc><b>Preview</b> <id> <pc><lang>
+         <confirm> <edit> <cancel>
+        <reset><content>
+      button:
+        new: <pdc>[New]
+        edit: <pdc>[Edit]
+        delete: <vndc>[Del]
+        confirm: <vpdc>[Save]
+        cancel: <vndc>[Cancel]
+    change-lang:
+      format: '<pc>Current editing lang: <pdc><current-lang><chat><pc>Select the lang: <languages>'
+      exists-lang: '<vpc><click:run_command:''/news editor changelang <lang>''><hover:show_text:''<pc>Click to edit <lang>''><lang><reset> '
+      not-exists-lang: '<vnc><click:run_command:''/news editor changelang <lang>''><hover:show_text:''<pc>Click to edit <lang>''><lang><reset> '
+      changed-lang: <pc>Changed the lang to <pdc><lang>
+    edit-item:
+      display-name: <!i><pdc><b>Editor </b><tc>- <pc>right click to open
+    edit-start: <pc>Right-click with the book item and start the edit.<chat><pc>Click <lang:gui.done> when you are done.<chat><sc><click:run_command:'/news
+      editor changelang'>Click here if you want to change the lang editing.
+    edit-cancelled: <sc>You have cancelled the edit.
+    not-editing: <ec>You are not editing any news.
+    nothing-to-confirm: <ec>You have nothing to confirm.
+    unknown-news-id: <ec>Unknown news with ID <edc><id></edc>, operate again in gui?
+    delete-news-confirm: <ec>Are you sure to delete the news <id>? <click:run_command:'/news editor delete <id> confirm'><edc>[Confirm]
+    deleted-news: <pc>Deleted the news <pdc><id></pdc>.

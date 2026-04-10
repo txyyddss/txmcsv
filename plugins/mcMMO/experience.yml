@@ -35,6 +35,7 @@ ExploitFix:
     # Of course, mcMMO doesn't know for sure whether something is an NPC, it checks a few known things, see our source code to see how
     PreventPluginNPCInteraction: true
     LimitTallPlantFarming: true
+    PreventMannequinInteraction: true
 Fishing_ExploitFix_Options:
     MoveRange: 3
     OverFishLimit: 10
@@ -125,6 +126,10 @@ Experience_Bars:
         Enable: true
         Color: GREEN
         BarStyle: SEGMENTED_6
+    Spears:
+        Enable: true
+        Color: BLUE
+        BarStyle: SEGMENTED_6
 #
 #  Settings for XP formula
 # ##
@@ -146,11 +151,13 @@ Experience_Formula:
     
     # Cumulative experience curves will use a players power level instead of their skill level,
     # players with high power levels will have to gain a lot more experience to reach the next level in every skill.
-    Cumulative_Curve: false
+    # Enabled: high power-level players must grind more per skill — prevents fast max-out
+    Cumulative_Curve: true
     
     # Experience gained in every skill will get multiplied by this value. 1.0 by default, 2.0 means two times as much
+    # Slightly reduced to slow overall progression and make each level feel earned
     Multiplier:
-        Global: 1.0
+        Global: 0.85
         PVP: 1.0
     
     # Experience gained from mobs not naturally spawned will get multiplied by this value. 0 by default.
@@ -181,6 +188,7 @@ Experience_Formula:
         Repair: 1.0
         Fishing: 1.0
         Alchemy: 1.0
+        Spears: 1.0
     
     # XP earned by players with the permission mcmmo.perks.xp.customboost.<skillname> will get multiplied
     # with 1.25 by default, resulting in a 25% XP boost
@@ -191,33 +199,34 @@ Experience_Formula:
 # Settings for Diminished Returns
 # ##
 Diminished_Returns:
-    # This is the minimum amount of XP a player will earn after reaching the timed threshold (this is to prevent punishing a player too hard for earning XP)
-    # # A value of 1 would mean that a player gets FULL XP, which defeats the purpose of diminished returns, the default value is 0.05 (5% minimum XP)
-    # ## Set this value to 0 to turn it off
-    Guaranteed_Minimum_Percentage: 0.05
-    Enabled: false
+    # Minimum XP retained after hitting the threshold — 10% so grinding still has some reward
+    Guaranteed_Minimum_Percentage: 0.1
+    # Enabled: stops players from AFK/loop farming a single skill for hours
+    Enabled: true
     
-    # Limit the amount of experience a player can earn:
-    # Threshold (amount of experience) per Time_Interval (in minutes)
+    # XP ceiling per Time_Interval (minutes). Combat skills capped lower to prevent PvP XP farms.
+    # Gathering skills capped slightly higher to allow active play sessions.
     Threshold:
-        Swords: 20000
-        Taming: 20000
-        Acrobatics: 20000
-        Excavation: 20000
-        Herbalism: 20000
-        Unarmed: 20000
-        Woodcutting: 20000
-        Mining: 20000
-        Archery: 20000
-        Axes: 20000
-        Repair: 20000
-        Fishing: 20000
-        Alchemy: 20000
-        Crossbows: 20000
-        Tridents: 20000
-        Maces: 20000
+        Swords: 12000
+        Taming: 10000
+        Acrobatics: 10000
+        Excavation: 15000
+        Herbalism: 15000
+        Unarmed: 10000
+        Woodcutting: 15000
+        Mining: 15000
+        Archery: 10000
+        Axes: 12000
+        Repair: 10000
+        Fishing: 12000
+        Alchemy: 10000
+        Crossbows: 10000
+        Tridents: 10000
+        Maces: 10000
+        Spears: 10000
     
-    Time_Interval: 10
+    # 15-minute rolling window — reward active play, not idle grinding
+    Time_Interval: 15
 
 #
 #  Settings for XP conversion with '/mcconvert experience'
@@ -428,6 +437,16 @@ Experience_Values:
         Pale_Hanging_Moss: 150
         Pale_Moss_Block: 10
         Pale_Moss_Carpet: 10
+        Bush: 11
+        Cactus_Flower: 60
+        Firefly_Bush: 15
+        Leaf_Litter: 2
+        Short_Dry_Grass: 6
+        Tall_Dry_Grass: 12
+        Wildflowers: 15
+        Open_Eyeblossom: 66
+        Closed_Eyeblossom: 66
+        Beetroot: 50
     Mining:
         Sculk: 4
         Sculk_Vein: 3
@@ -541,6 +560,7 @@ Experience_Values:
         Leather: 1.6
         String: 1.8
         Other: 1.5
+        Copper: 2.0
     Smelting:
         Raw_Copper: 75
         Deepslate_Redstone_Ore: 30
@@ -566,6 +586,7 @@ Experience_Values:
         Redstone_Ore: 15
         Nether_Gold_Ore: 35
         Cobbled_Deepslate: 5
+        Copper_Nugget: 85
     Taming:
         Animal_Taming:
             Camel: 1300
@@ -587,6 +608,9 @@ Experience_Values:
             Goat: 250
             Axolotl: 600
             Frog: 900
+            Camel_Husk: 1300
+            Nautilus: 1700
+            Zombie_Nautilus: 1700
     Combat:
         Multiplier:
             Animals: 1.0
@@ -669,3 +693,10 @@ Experience_Values:
             Camel: 1.2
             Bogged: 2.0
             Breeze: 4.0
+            Parched: 2.5
+            Happy_Ghast: 1.0
+            Ghastling: 0.5
+            Copper_Golem: 1.0
+            Camel_Husk: 1.25
+            Armor_Stand: 0.0
+            Mannequin: 0.0

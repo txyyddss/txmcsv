@@ -47,8 +47,7 @@ messages:
   outdated-server: Outdated server! I'm still on {0}
 commands:
   silent-commandblock-console: false
-  spam-exclusions:
-  - /skill
+  spam-exclusions: '[]'
   log: true
   replace-commands:
   - setblock
@@ -74,7 +73,7 @@ world-settings:
     merge-radius:
       item: 5.5
       exp: 10
-    mob-spawn-range: 6
+    mob-spawn-range: 3
     item-despawn-rate: 6000
     nerf-spawner-mobs: true
     arrow-despawn-rate: 1200
@@ -103,13 +102,13 @@ world-settings:
       glowberry-modifier: 100
       pitcherplant-modifier: 100
     entity-activation-range:
-      animals: 32
-      monsters: 32
+      animals: 16
+      monsters: 24
       raiders: 48
-      misc: 16
-      water: 16
-      villagers: 32
-      flying-monsters: 32
+      misc: 8
+      water: 8
+      villagers: 16
+      flying-monsters: 48
       wake-up-inactive:
         animals-max-per-tick: 4
         animals-every: 1200
@@ -130,7 +129,7 @@ world-settings:
       ignore-spectators: false
     ticks-per:
       hopper-transfer: 8
-      hopper-check: 1
+      hopper-check: 8
     hopper-amount: 1
     hopper-can-load-chunks: false
     seed-village: 10387312

@@ -1,12 +1,12 @@
 DataSource:
     # What type of database do you want to use?
     # Valid values: H2, SQLITE, MARIADB, MYSQL, POSTGRESQL
-    backend: SQLITE
+    backend: H2
     # Enable the database caching system, should be disabled on bungeecord environments
     # or when a website integration is being used.
     caching: true
     # Should we try to use VirtualThreads(Java 21+) for database cache loader?
-    useVirtualThreadsCache: false
+    useVirtualThreadsCache: true
     # Database host address
     mySQLHost: 127.0.0.1
     # Database port
@@ -112,7 +112,7 @@ ExternalBoardOptions:
         # Should we execute /help command when unregistered players press Shift+F?
         # This keeps compatibility with some menu plugins
         # If you are using TrMenu, don't enable this because TrMenu already implemented this.
-        menuPlugins: true
+        menuPlugins: false
     features:
         i18nMessages:
             # Send i18n messages to player based on their client settings, this option will override `settings.messagesLanguage`
@@ -144,7 +144,7 @@ ExternalBoardOptions:
         antiGhostPlayer: true
         # (MC1.13- only)
         # Should we fix the shulker crash bug with advanced method?
-        advancedShulkerFix: true
+        advancedShulkerFix: false
         loginLocationFix:
             # Should we fix the location when players logged in the portal?
             fixPortalStuck: true
@@ -161,7 +161,7 @@ settings:
         enabled: true
         # After how many minutes should a session expire?
         # A player's session ends after the timeout or if his IP has changed
-        timeout: 1440
+        timeout: 43200
     # Message language, available languages:
     # https://github.com/AuthMe/AuthMeReloaded/blob/master/docs/translations.md
     # Example: zhcn, en
@@ -171,19 +171,19 @@ settings:
     # Log level: INFO, FINE, DEBUG. Use INFO for general messages,
     # FINE for some additional detailed ones (like password failed),
     # and DEBUG for debugging
-    logLevel: INFO
+    logLevel: FINE
     # By default we schedule async tasks when talking to the database. If you want
     # typical communication with the database to happen synchronously, set this to false
     useAsyncTasks: true
     # The name of the server, used in some placeholders.
-    serverName: Your Minecraft Server
+    serverName: MTN
     restrictions:
         # Can not authenticated players chat?
         # Keep in mind that this feature also blocks all commands not
         # listed in the list below.
         allowChat: false
         # Hide the chat log from players who are not authenticated?
-        hideChat: true
+        hideChat: false
         # Allowed commands for unauthenticated players
         allowCommands: 
         - /login
@@ -201,7 +201,7 @@ settings:
         # Minimum allowed username length
         minNicknameLength: 1
         # Maximum allowed username length
-        maxNicknameLength: 18
+        maxNicknameLength: 16
         # When this setting is enabled, online players can't be kicked out
         # due to "Logged in from another Location"
         # This setting will prevent potential security exploits.
@@ -220,10 +220,10 @@ settings:
             - world_nether
             - world_the_end
         # This option will save the quit location of the players.
-        SaveQuitLocation: false
+        SaveQuitLocation: true
         # To activate the restricted user feature you need
         # to enable this option and configure the AllowedRestrictedUser field.
-        AllowRestrictedUser: false
+        AllowRestrictedUser: true
         # The restricted user feature will kick players listed below
         # if they don't match the defined IP address. Names are case-insensitive.
         # You can use * as wildcard (127.0.0.*), or regex with a "regex:" prefix regex:127\.0\.0\..*
@@ -231,40 +231,58 @@ settings:
         #     AllowedRestrictedUser:
         #     - playername;127.0.0.1
         #     - playername;regex:127\.0\.0\..*
-        AllowedRestrictedUser: []
+        AllowedRestrictedUser: 
+        - server_land;127.0.0.1
+        - server;127.0.0.1
+        - bukkit;127.0.0.1
+        - purpur;127.0.0.1
+        - system;127.0.0.1
+        - admin;127.0.0.1
+        - md_5;127.0.0.1
+        - administrator;127.0.0.1
+        - notch;127.0.0.1
+        - spigot;127.0.0.1
+        - bukkitcraft;127.0.0.1
+        - paperclip;127.0.0.1
+        - papermc;127.0.0.1
+        - spigotmc;127.0.0.1
+        - root;127.0.0.1
+        - console;127.0.0.1
+        - authme;127.0.0.1
+        - owner;127.0.0.1
         # Ban unknown IPs trying to log in with a restricted username?
         banUnsafedIP: false
         # Should unregistered players be kicked immediately?
         kickNonRegistered: false
         # Should players be kicked on wrong password?
-        kickOnWrongPassword: true
+        kickOnWrongPassword: false
         # Should not logged in players be teleported to the spawn?
         # After the authentication they will be teleported back to
         # their normal position.
-        teleportUnAuthedToSpawn: false
+        teleportUnAuthedToSpawn: true
         # Can unregistered players walk around?
         allowMovement: false
         # After how many seconds should players who fail to login or register
         # be kicked? Set to 0 to disable.
-        timeout: 30
+        timeout: 120
         # Regex pattern of allowed characters in the player name.
-        allowedNicknameCharacters: '^-?[a-zA-Z0-9_]+$'
+        allowedNicknameCharacters: '[a-zA-Z0-9_]*'
         # How far can unregistered players walk?
         # Set to 0 for unlimited radius
-        allowedMovementRadius: 100
+        allowedMovementRadius: 0
         # Should we protect the player inventory before logging in? Requires ProtocolLib.
         ProtectInventoryBeforeLogIn: true
         # Should we deny the tabcomplete feature before logging in? Requires ProtocolLib.
-        DenyTabCompleteBeforeLogin: false
+        DenyTabCompleteBeforeLogin: true
         # Should we display all other accounts from a player when he joins?
         # permission: /authme.admin.accounts
-        displayOtherAccounts: true
+        displayOtherAccounts: false
         # Spawn priority; values: authme, essentials, cmi, multiverse, default
         spawnPriority: authme,essentials,cmi,multiverse,default
         # Maximum Login authorized by IP
-        maxLoginPerIp: 0
+        maxLoginPerIp: 11451
         # Maximum Join authorized by IP
-        maxJoinPerIp: 0
+        maxJoinPerIp: 11451
         # AuthMe will NEVER teleport players if set to true!
         noTeleport: false
         # Regex syntax for allowed chars in passwords. The default [!-~] allows all visible ASCII
@@ -275,7 +293,7 @@ settings:
         allowedEmailCharacters: ^([a-zA-Z0-9_.+-]+)@([a-zA-Z0-9-]+)\.([a-zA-Z]{2,})$
     GameMode:
         # Force survival gamemode when player joins?
-        ForceSurvivalMode: false
+        ForceSurvivalMode: true
     unrestrictions:
         # Below you can list all account names that AuthMe will ignore
         # for registration or login. Configure it at your own risk!!
@@ -297,9 +315,9 @@ settings:
         StrictUnrestrictedInventoriesCheck: true
     security:
         # Minimum length of password
-        minPasswordLength: 5
+        minPasswordLength: 1
         # Maximum length of password
-        passwordMaxLength: 30
+        passwordMaxLength: 16
         # Possible values: SHA256, BCRYPT, BCRYPT2Y, PBKDF2, SALTEDSHA512,
         # MYBB, IPB3, PHPBB, PHPFUSION, SMF, XENFORO, XAUTH, JOOMLA, WBB3, WBB4, MD5VB,
         # PBKDF2DJANGO, WORDPRESS, ROYALAUTH, ARGON2, NOCRYPT, CUSTOM (for developers only). See full list at
@@ -323,13 +341,19 @@ settings:
         # - 'password'
         # - 'help'
         unsafePasswords: 
-        - '123456'
+        - '12345678'
         - password
-        - qwerty
-        - '12345'
-        - '54321'
+        - qwertyui
         - '123456789'
-        - help
+        - '87654321'
+        - '1234567890'
+        - asdfghjkl
+        - zxcvbnm,
+        - asdfghjk
+        - '12312312'
+        - '123123123'
+        - '32132132'
+        - '321321321'
     registration:
         # Enable registration on the server?
         enabled: true
@@ -359,11 +383,11 @@ settings:
             unregisterAfterMinutes: 10
         # Do we force kick a player after a successful registration?
         # Do not use with login feature below
-        forceKickAfterRegister: false
+        forceKickAfterRegister: true
         # Does AuthMe need to enforce a /login after a successful registration?
         forceLoginAfterRegister: false
     # Should we delay the join message and display it once the player has logged in?
-    delayJoinMessage: false
+    delayJoinMessage: true
     # The custom join message that will be sent after a successful login,
     # keep empty to use the original one.
     # Available variables:
@@ -372,16 +396,16 @@ settings:
     # {DISPLAYNAMENOCOLOR}: the player display name (without colors)
     customJoinMessage: ''
     # Should we remove the leave messages of unlogged users?
-    removeUnloggedLeaveMessage: false
+    removeUnloggedLeaveMessage: true
     # Should we remove join messages altogether?
-    removeJoinMessage: false
+    removeJoinMessage: true
     # Should we remove leave messages altogether?
-    removeLeaveMessage: false
+    removeLeaveMessage: true
     # Do we need to add potion effect Blinding before login/register?
-    applyBlindEffect: false
+    applyBlindEffect: true
     # Do we need to prevent people to login with another case?
     # If Xephi is registered, then Xephi can login, but not XEPHI/xephi/XePhI
-    preventOtherCase: false
+    preventOtherCase: true
 GroupOptions:
     # Enables switching a player to defined permission groups before they log in.
     # See below for a detailed explanation.
@@ -402,7 +426,7 @@ GroupOptions:
     unregisteredPlayerGroup: ''
 Email:
     # Email SMTP server host
-    mailSMTP: smtp.gmail.com
+    mailSMTP: smtp.163.com
     # Email SMTP server port
     mailPort: 465
     # Only affects port 25: enable TLS/STARTTLS?
@@ -416,7 +440,7 @@ Email:
     # Custom sender name, replacing the mailAccount name in the email
     mailSenderName: ''
     # Recovery password length
-    RecoveryPasswordLength: 8
+    RecoveryPasswordLength: 12
     # Mail Subject
     mailSubject: Your new AuthMe password
     # Like maxRegPerIP but with email
@@ -435,7 +459,7 @@ Email:
     shutDownEmailAddress: your@mail.com
 Hooks:
     # Do we need to hook with multiverse for spawn checking?
-    multiverse: true
+    multiverse: false
     # Do we need to hook with PlaceholderAPI for AuthMe placeholders?
     placeholderapi: true
     # Do we need to hook with BungeeCord?
@@ -461,14 +485,12 @@ Protection:
     # Enable some servers protection (country based login, antibot)
     enableProtection: false
     # Apply the protection also to registered usernames
-    enableProtectionRegistered: true
+    enableProtectionRegistered: false
     # Countries allowed to join the server and register. For country codes, see
     # https://dev.maxmind.com/geoip/legacy/codes/iso3166/
     # Use "LOCALHOST" for local addresses.
     # PLEASE USE QUOTES!
     countries: 
-    - US
-    - GB
     - LOCALHOST
     # Countries not allowed to join the server and register
     # PLEASE USE QUOTES!
@@ -510,7 +532,7 @@ Security:
         # Stop the server if we can't contact the sql database
         # Take care with this, if you set this to false,
         # AuthMe will automatically disable and the server won't be protected!
-        stopServer: true
+        stopServer: false
     console:
         # Copy AuthMe log output in a separate file as well?
         logConsole: true
@@ -527,20 +549,20 @@ Security:
             required: true
     captcha:
         # Enable captcha when a player uses wrong password too many times
-        useCaptcha: false
+        useCaptcha: true
         # Max allowed tries before a captcha is required
-        maxLoginTry: 5
+        maxLoginTry: 8
         # Captcha length
-        captchaLength: 5
+        captchaLength: 6
         # Minutes after which login attempts count is reset for a player
-        captchaCountReset: 60
+        captchaCountReset: 120
         # Require captcha before a player may register?
         requireForRegistration: false
     tempban:
         # Tempban a user's IP address if they enter the wrong password too many times
         enableTempban: false
         # How many times a user can attempt to login before their IP being tempbanned
-        maxLoginTries: 10
+        maxLoginTries: 8
         # The length of time a IP address will be tempbanned in minutes
         # Default: 480 minutes, or 8 hours
         tempbanLength: 480
@@ -554,13 +576,13 @@ Security:
         # Number of characters a recovery code should have (0 to disable)
         length: 8
         # How many hours is a recovery code valid for?
-        validForHours: 4
+        validForHours: 6
         # Max number of tries to enter recovery code
-        maxTries: 3
+        maxTries: 4
         # How long a player has after password recovery to change their password
         # without logging in. This is in minutes.
         # Default: 2 minutes
-        passwordChangeTimeout: 2
+        passwordChangeTimeout: 5
     emailRecovery:
         # Seconds a user has to wait for before a password recovery mail may be sent again
         # This prevents an attacker from abusing AuthMe's email feature.
@@ -619,7 +641,7 @@ limbo:
     restoreWalkSpeed: RESTORE_NO_ZERO
 BackupSystem:
     # General configuration for backups: if false, no backups are possible
-    ActivateBackup: false
+    ActivateBackup: true
     # Create backup at every start of server
     OnServerStart: false
     # Create backup at every stop of server

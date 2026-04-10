@@ -5,14 +5,9 @@ header-footer:
     default:
       header:
         - "%animation:mtn_title%"
-        - "&7Java + Bedrock 私人生存服"
+        - "&7MTN纯净生存互通服"
         - "&f欢迎，&b%player%"
-        - "&7在线 &8| &a%online% &8· &7TPS &8| %server_tps_1_colored%"
-        - ""
       footer:
-        - "%animation:mtn_tip%"
-        - "&7余额 &8| &6$%vault_eco_balance_formatted%"
-        - "&7圈地方块 &8| &a%griefprevention_remainingclaims_formatted%"
         - "&7时间 &8| &f%date% %time%"
 
 tablist-name-formatting:
@@ -64,47 +59,23 @@ scoreboard:
   delay-on-join-milliseconds: 1500
   scoreboards:
     java-modern:
-      title: "<gradient:#6EC6FF:#9BE7FF><bold>MTN</bold></gradient>"
+      title: "%animation:mtn_title%"
       display-condition: "%bedrock%=false;%player-version-id%>=765"
       lines:
         - "&7%date%"
         - "&f%time%"
         - ""
         - "&b在线&7:||%online%"
-        - "&bTPS&7:||%server_tps_1_colored%"
-        - "&6余额&7:||$%vault_eco_balance_formatted%"
-        - "&a圈地方块&7:||%griefprevention_remainingclaims_formatted%"
-        - "&3当前领地&7:||%griefprevention_currentclaim_ownername%"
-        - "&d世界&7:||%world%"
+        - "%animation:server_status%"
+        - "%animation:balance%"
+        - "%animation:worldguard%"
         - "&e延迟&7:||%ping%ms"
-        - "%animation:mtn_bar%"
-    java-legacy:
-      title: "&bMTN"
-      display-condition: "%bedrock%=false;%player-version-id%<765"
-      lines:
-        - "&7%date%"
-        - "&f%time%"
-        - ""
-        - "&b在线&7: &f%online%"
-        - "&bTPS&7: &f%server_tps_1_colored%"
-        - "&6余额&7: &f$%vault_eco_balance_formatted%"
-        - "&a圈地方块&7: &f%griefprevention_remainingclaims_formatted%"
-        - "&3当前领地&7: &f%griefprevention_currentclaim_ownername%"
-        - "&d世界&7: &f%world%"
-        - "&e延迟&7: &f%ping%ms"
-        - "%animation:mtn_bar%"
     bedrock:
       title: "&bMTN"
       display-condition: "%bedrock%=true"
       lines:
-        - "&7%time%"
         - "&b在线&7: &f%online%"
-        - "&bTPS&7: &f%server_tps_1_colored%"
-        - "&6余额&7: &f$%vault_eco_balance_formatted%"
-        - "&a圈地方块&7: &f%griefprevention_remainingclaims_formatted%"
-        - "&3当前领地&7: &f%griefprevention_currentclaim_ownername%"
-        - "&d世界&7: &f%world%"
-        - "%animation:mtn_bar%"
+        - "%animation:balance%"
 
 layout:
   enabled: false

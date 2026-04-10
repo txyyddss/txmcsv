@@ -1,0 +1,5 @@
+module-enabled: false
+broadcasts:
+  - interval: 1m
+    messages:
+      - message-1

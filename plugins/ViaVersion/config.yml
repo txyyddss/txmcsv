@@ -20,7 +20,7 @@ block-versions: []
 # List of all Minecraft protocol versions: https://minecraft.wiki/w/Protocol_version, or use a generator: https://via.krusic22.com
 block-protocols: []
 # Change the blocked disconnect message
-block-disconnect-msg: You are using an unsupported Minecraft version!
+block-disconnect-msg: Change to a supported MC version!
 # If you use ProtocolLib, we can't reload without kicking the players.
 # (We don't suggest using reload either, use a plugin manager)
 # You can customize the message we kick people with if you use ProtocolLib here.
@@ -91,7 +91,7 @@ packet-size-limiter:
 #
 # Should we enable our hologram patch?
 # If they're in the wrong place, enable this
-hologram-patch: false
+hologram-patch: true
 # This is the offset, should work as default when enabled.
 hologram-y: -0.96
 # Whether to make sure ViaVersion's UserConnection object is already available in the PlayerJoinEvent.
@@ -175,7 +175,7 @@ handle-invalid-item-count: false
 hide-scoreboard-numbers: false
 #
 # Fixes 1.21+ clients on 1.20.5 servers placing water/lava buckets at the wrong location when moving fast, NOTE: This may cause issues with anti-cheat plugins.
-fix-1_21-placement-rotation: false
+fix-1_21-placement-rotation: true
 #
 # If enabled, cancel swing packets sent while having an inventory opened on 1.15.2 and below servers. This can cause false positives with anti-cheat plugins.
 cancel-swing-in-inventory: true
@@ -206,7 +206,7 @@ nms-player-ticking: true
 # Should we patch boss bars so they work? (Default: true, disable if you're having issues)
 bossbar-patch: true
 # If your boss bar flickers on 1.9+, set this to 'true'. It will keep all boss bars on 100% (not recommended)
-bossbar-anti-flicker: false
+bossbar-anti-flicker: true
 # This will show the new effect indicator in the top-right corner for 1.9+ players.
 use-new-effect-indicator: true
 # Show the new death messages for 1.9+ on the death screen

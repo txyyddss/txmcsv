@@ -1,0 +1,24 @@
+# Enable this filter file.
+enabled: false
+
+# Block renaming items in anvils.
+block-anvil-rename: true
+
+# Block chat texts, including chat/emote/whisper .
+block-chat: true
+
+# Block writing texts on sign blocks.
+block-sign: true
+
+# Ignore case on matching texts.
+ignore-case: true
+
+# Normalize text to fix bypassing by characters like blank.
+normalize-text: true
+
+# The message to send when blocked by this file.
+# This is the key in the 'blocked-message' map in lang files.
+blocked-message-key: bad-keywords
+keywords:
+  - A keyword to block
+  - Another keyword to block

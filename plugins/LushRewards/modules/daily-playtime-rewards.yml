@@ -1,0 +1,105 @@
+# Daily Playtime Rewards: Hourly playtime goals that reset daily
+type: playtime-rewards
+enabled: true
+
+# How often (in days) to reset (0 to disable)
+reset-playtime-at: 1
+# Time in minutes between checking whether any online players need to receive rewards (-1 to disable)
+refresh-time: 1
+# Whether notifications should be sent when rewards are claimable
+enable-notifications: true
+
+goals:
+  - play-minutes: 60 # 1 Hour
+    display-item:
+      lore:
+        - "&#bdbebfRewards:"
+        - "&#bdbebf- $50"
+    rewards:
+      - type: command
+        commands:
+          - "money give %player% 50"
+  - play-minutes: 120 # 2 Hours
+    display-item:
+      amount: 2
+      lore:
+        - "&#bdbebfRewards:"
+        - "&#bdbebf- $100"
+    rewards:
+      - type: command
+        commands:
+          - "money give %player% 100"
+  - play-minutes: 180 # 3 Hours
+    display-item:
+      amount: 3
+      lore:
+        - "&#bdbebfRewards:"
+        - "&#bdbebf- $150"
+    rewards:
+      - type: command
+        commands:
+          - "money give %player% 150"
+  - play-minutes: 240 # 4 Hours
+    display-item:
+      amount: 4
+      lore:
+        - "&#bdbebfRewards:"
+        - "&#bdbebf- $200"
+    rewards:
+      - type: command
+        commands:
+          - "money give %player% 200"
+  - play-minutes: 360 # 6 Hours
+    display-item:
+      amount: 6
+      lore:
+        - "&#bdbebfRewards:"
+        - "&#bdbebf- $300"
+    rewards:
+      - type: command
+        commands:
+          - "money give %player% 300"
+  - play-minutes: 480 # 8 Hours
+    display-item:
+      amount: 8
+      lore:
+        - "&#bdbebfRewards:"
+        - "&#bdbebf- $400"
+    rewards:
+      - type: command
+        commands:
+          - "money give %player% 400"
+  - play-minutes: 600 # 10 Hours
+    display-item:
+      amount: 10
+      lore:
+        - "&#bdbebfRewards:"
+        - "&#bdbebf- $500"
+    rewards:
+      - type: command
+        commands:
+          - "money give %player% 500"
+
+gui:
+  title: "    &#529bf2&lDaily Playtime Rewards"
+  scroll-type: FIXED
+  # Available templates: DEFAULT, COMPACT
+  # Read https://docs.lushplugins.org/lush-rewards/configuring/gui-templates#custom-templates for more info on
+  # creating and using templates
+  template: "BORDERED_LARGE"
+  item-templates:
+    default-reward:
+      material: clock
+      display-name: "&#f5e389%minutes% Minutes"
+    redeemable-reward:
+      material: clock
+      display-name: "&#f5e389%minutes% Minutes - Redeemable"
+    collected-reward:
+      material: clock
+      display-name: "&#f5e389%minutes% Minutes - Collected"
+    'P':
+      material: player_head
+      display-name: "&#A5B8FE&lProfile:"
+      skull-texture: mirror
+      lore:
+        - "&#c4f8ffNext Reward in: &f%lushrewards_daily-playtime-rewards_time_until_next_reward%"

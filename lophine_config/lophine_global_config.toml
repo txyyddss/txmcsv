@@ -8,6 +8,8 @@
 	[experiment.command]
 		#Allow to use scoreboard command
 		scoreboard_command_enabled = false
+		#Allow to use waypoint command and locator bar
+		waypoint_command_enabled = false
 		#Allow to use function command
 		function_command_enabled = false
 		#Allow to use tick command
@@ -196,7 +198,7 @@
 		#Whether the server should check for updates automatically.
 		#You can enable it by edit this config, because they are both control the function.
 		#One of them enabled, the full function will be enabled.
-		enabled = false
+		enabled = true
 
 	[misc.disable-check]
 		#Disable the check for the operator's move check

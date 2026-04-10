@@ -210,45 +210,50 @@ MySQL:
 # ##
 Hardcore:
     Death_Stat_Loss:
-        Penalty_Percentage: 75.0
-        Level_Threshold: 0
+        # Lose 25% of skill XP on death — meaningful penalty without being crushing
+        Penalty_Percentage: 25.0
+        # Only lose stats if player is above level 0 (protects new players)
+        Level_Threshold: 10
         Enabled:
-            Acrobatics: false
-            Alchemy: false
-            Archery: false
-            Axes: false
-            Excavation: false
-            Fishing: false
-            Herbalism: false
-            Mining: false
-            Repair: false
-            Swords: false
-            Taming: false
-            Unarmed: false
-            Woodcutting: false
-            Tridents: false
-            Crossbows: false
-            Maces: false
+            Acrobatics: true
+            Alchemy: true
+            Archery: true
+            Axes: true
+            Excavation: true
+            Fishing: true
+            Herbalism: true
+            Mining: true
+            Repair: true
+            Swords: true
+            Taming: true
+            Unarmed: true
+            Woodcutting: true
+            Tridents: true
+            Crossbows: true
+            Maces: true
+            Spears: true
     Vampirism:
-        Leech_Percentage: 5.0
-        Level_Threshold: 0
+        # PvP killers leech 7% of the victim's skill XP — rewards combat mastery
+        Leech_Percentage: 7.0
+        Level_Threshold: 10
         Enabled:
             Acrobatics: false
             Alchemy: false
-            Archery: false
-            Axes: false
+            Archery: true
+            Axes: true
             Excavation: false
             Fishing: false
             Herbalism: false
             Mining: false
             Repair: false
-            Swords: false
-            Taming: false
-            Unarmed: false
+            Swords: true
+            Taming: true
+            Unarmed: true
             Woodcutting: false
-            Tridents: false
-            Crossbows: false
-            Maces: false
+            Tridents: true
+            Crossbows: true
+            Maces: true
+            Spears: true
 
 #
 #  Settings for SMP Mods
@@ -324,16 +329,18 @@ Abilities:
     Enabled: true
     Messages: true
     Activation:
-        Only_Activate_When_Sneaking: false
+        # Require sneaking to activate abilities — prevents accidental/spammy use
+        Only_Activate_When_Sneaking: true
     Cooldowns:
-        Berserk: 240
-        Blast_Mining: 60
-        Giga_Drill_Breaker: 240
-        Green_Terra: 240
-        Serrated_Strikes: 240
-        Skull_Splitter: 240
-        Super_Breaker: 240
-        Tree_Feller: 240
+        # Longer cooldowns make super abilities feel more impactful and less spammable
+        Berserk: 300
+        Blast_Mining: 120
+        Giga_Drill_Breaker: 300
+        Green_Terra: 300
+        Serrated_Strikes: 300
+        Skull_Splitter: 300
+        Super_Breaker: 300
+        Tree_Feller: 300
     Max_Seconds:
         Berserk: 0
         Blast_Mining: 0
@@ -461,6 +468,7 @@ Skills:
         Level_Cap: 0
         Block_Cracker:
             SmoothBrick_To_CrackedBrick: true
+            Allow_Block_Cracker: true
         # When using Unarmed, picked up items will automatically get moved to a free slot instead of going in the slot
         # of your hand. Should item pickup be disabled when your entire inventory - except for your hand - is full?
         Item_Pickup_Disabled_Full_Inventory: true
@@ -468,6 +476,10 @@ Skills:
         Items_As_Unarmed: false
     Woodcutting:
         Tree_Feller_Sounds: true
+        Level_Cap: 0
+    Spears:
+        Enabled_For_PVP: true
+        Enabled_For_PVE: true
         Level_Cap: 0
 
 # Disable or Enable the Green Thumb auto replant feature for specific crops, use the name of the block not the crop itemstack
@@ -478,6 +490,7 @@ Green_Thumb_Replanting_Crops:
     Potatoes: true
     Beetroots: true
     Cocoa: true
+    Sweet_Berry_Bush: true
 #
 #  Settings for Double Drops
 # ##
@@ -540,6 +553,15 @@ Bonus_Drops:
         Peony: true
         Lily_Of_The_Valley: true
         Eyeblossom: true
+        Bush: true
+        Cactus_Flower: true
+        Firefly_Bush: true
+        Leaf_Litter: true
+        Short_Dry_Grass: true
+        Tall_Dry_Grass: true
+        Wildflowers: true
+        Open_Eyeblossom: true
+        Closed_Eyeblossom: true
     Mining:
         Tuff: true
         Deepslate_Redstone_Ore: true

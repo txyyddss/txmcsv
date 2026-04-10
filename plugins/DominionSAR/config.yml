@@ -1,0 +1,9 @@
+map-provider:
+  # https://bluemap.bluecolored.de/
+  blue-map: false
+  # https://www.spigotmc.org/resources/dynmap%C2%AE.274/
+  dynmap: false
+  # https://modrinth.com/plugin/squaremap
+  square-map: false
+  # https://modrinth.com/plugin/pl3xmap
+  pl3x-map: false

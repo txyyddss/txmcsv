@@ -13,7 +13,7 @@
 # Discord: https://discord.gg/papermc
 # Website: https://papermc.io/
 
-_version: 30
+_version: 31
 anticheat:
   obfuscation:
     items:
@@ -43,7 +43,6 @@ chunk-loading-basic:
   player-max-chunk-load-rate: 100.0
   player-max-chunk-send-rate: 75.0
 chunk-system:
-  gen-parallelism: default
   io-threads: 1
   worker-threads: -1
 collisions:
@@ -63,7 +62,7 @@ item-validation:
     page: 16384
     title: 8192
   book-size:
-    page-max: 2560
+    page-max: 1024
     total-multiplier: 0.98
   display-name: 8192
   lore-line: 8192
@@ -85,8 +84,10 @@ misc:
     chat-executor-max-size: -1
   client-interaction-leniency-distance: default
   compression-level: 1
+  enable-nether: true
+  fix-far-end-terrain-generation: true
   load-permissions-yml-before-plugins: true
-  max-joins-per-tick: 1
+  max-joins-per-tick: 3
   prevent-negative-villager-demand: false
   region-file-cache-size: 512
   send-full-pos-for-item-entities: false
@@ -101,6 +102,14 @@ packet-limiter:
     max-packet-rate: 1000.0
   kick-message: <red><lang:disconnect.exceeded_packet_rate>
   overrides:
+    ServerboundCommandSuggestionPacket:
+      action: DROP
+      interval: '1.0'
+      max-packet-rate: '15.0'
+    ServerboundPlaceRecipePacket:
+      action: DROP
+      interval: '4.0'
+      max-packet-rate: '5.0'
     minecraft:place_recipe:
       action: DROP
       interval: 4.0
@@ -128,6 +137,10 @@ spam-limiter:
 spark:
   enable-immediately: false
   enabled: true
+threaded-regions:
+  grid-exponent: 4
+  scheduler: EDF
+  threads: -1
 timings:
   enabled: false
   hidden-config-entries:
@@ -146,11 +159,15 @@ unsupported-settings:
   allow-piston-duplication: false
   allow-unsafe-end-portal-teleportation: false
   compression-format: LZ4
+  oversized-item-component-sanitizer:
+    dont-sanitize: []
   perform-username-validation: false
   simplify-remote-item-matching: false
   skip-tripwire-hook-placement-validation: false
   skip-vanilla-damage-tick-when-shield-blocked: true
   update-equipment-on-player-actions: true
+update-checker:
+  enabled: true
 watchdog:
   early-warning-delay: 10000
   early-warning-every: 5000

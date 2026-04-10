@@ -1,0 +1,29 @@
+# This is being used with <pd:player_key>.
+player-display: <hover:show_text:'<pc>Click to whisper <pdc><player_key>'><click:suggest_command:/m <player_key_name> ><player_key></hover>
+chat:
+  placeholders:
+    shout: <pc><hover:show_text:'<pc>Shout chat message'>📣 </hover>
+emote:
+  placeholders:
+    prefix: <pc><hover:show_text:'<pc>Emote message'>* </hover>
+whisper:
+  placeholders:
+    prefix: <sdc><hover:show_text:'<pc>Whisper channel'>📨 </hover>
+  reply-no-last-target: <ec>There's no last direct message target.
+  receiver-offline: <ec>The receiver is not online.
+  receiver-blocked: <ec>You have been blocked by the receiver.
+  spy:
+    placeholders:
+      prefix: '<sc>[<sdc>SPY<sc>] '
+    enabled: <pl:prefix><pdc>Enabled <pc>spy for <pdc><user></pdc>.
+    disabled: <pl:prefix><pdc>Disabled <pc>spy for <pdc><user></pdc>.
+    already-enabled: <pl:prefix><edc><user> <ec>has already enabled spy.
+    already-disabled: <pl:prefix><edc><user> <ec>has already disabled spy.
+ignore:
+  placeholders:
+    prefix: '<sc>[<sdc>Ignore<sc>] '
+  cannot-ignore-self: <pl:prefix><ec>You cannot ignore yourself.
+  ignore-player: <pl:prefix><pc>You are now <vnc>ignoring</vnc> <pdc><player></pdc>.
+  receive-player: <pl:prefix><pc>You are now <vpc>receiving</vpc> <pdc><player></pdc>.
+  already-ignoring-player: <pl:prefix><ec>You are already ignoring <edc><player></edc>.
+  already-receiving-player: <pl:prefix><ec>You are already receiving <edc><player></edc>.
