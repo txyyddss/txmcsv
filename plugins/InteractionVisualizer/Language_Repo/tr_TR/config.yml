@@ -1,0 +1,89 @@
+#Turkish Language default "config.yml" translated by Over_Brave
+#Replace the original "config.yml" to use!
+
+LightUpdate:
+  Period: 10
+Database:
+  Type: SQLITE
+  MYSQL:
+    Host: localhost
+    Port: 3306
+    Database: InteractionVisualizer
+    Username: mysql
+    Password: password
+Messages:
+  NoPermission: '&cBu komutu kullanmak için yetkin yok!'
+  Reload: '&aInteractionVisualizer başarıyla güncellendi!'
+  Toggle:
+    Usage: '&cDoğru kullanım &8- &a/interactionvisualizer toggle <itemstand/itemdrop/hologram>'
+    Modes: '&cAç/Kapat yapabileceğin görünümler &8- &aitemstand, itemdrop, hologram'
+    Console: '&cLütfen oyuncu adını girin &8- &a/interactionvisualizer toggle <mode>
+      [player]'
+    ToggleOn: '&e&l(!) &a%s &9açıldı.'
+    ToggleOff: '&e&l(!) &a%s &ckapatıldı.'
+    PlayerNotFound: '&cOyuncu aktif değil!'
+GarbageCollector:
+  Period: 600
+TileEntityUpdate:
+  ChunksPerTick: 4
+  LoadTileEntitiesAsync: true
+Blocks:
+  Anvil:
+    Enabled: true
+  Beacon:
+    Enabled: true
+    CheckingPeriod: 20
+  BlastFurnace:
+    Enabled: true
+    CheckingPeriod: 20
+  BrewingStand:
+    Enabled: true
+    CheckingPeriod: 20
+  CartographyTable:
+    Enabled: true
+  Chest:
+    Enabled: true
+  CraftingTable:
+    Enabled: true
+  DoubleChest:
+    Enabled: true
+  EnchantmentTable:
+    Enabled: true
+  EnderChest:
+    Enabled: true
+  Furnace:
+    Enabled: true
+    CheckingPeriod: 20
+  Grindstone:
+    Enabled: true
+  JukeBox:
+    Enabled: true
+    CheckingPeriod: 20
+  Loom:
+    Enabled: true
+  NoteBlock:
+    Enabled: true
+  SmithingTable:
+    Enabled: true
+  Smoker:
+    Enabled: true
+    CheckingPeriod: 20
+  Stonecutter:
+    Enabled: true
+  ShulkerBox:
+    Enabled: true
+Entities:
+  Villager:
+    Enabled: true
+Modules:
+  ItemStand:
+    Enabled: true
+  ItemDrop:
+    Enabled: true
+  Hologram:
+    Enabled: true
+Settings:
+  UseHandSwingAnimation: true
+Options:
+  Updater: true
+  DownloadLanguageFiles: true

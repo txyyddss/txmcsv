@@ -21,6 +21,7 @@ backup
 /libraries
 /world_nether
 /world_the_end
+/world
 /bluemap.7z
 /plugins/.paper-remapped
 *.exe

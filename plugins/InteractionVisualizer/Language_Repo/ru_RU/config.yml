@@ -1,0 +1,98 @@
+#Russian Language default config translated by imDaniX
+#https://www.spigotmc.org/members/imdanix.99979/
+#Replace the original "config.yml" to use!
+
+Database:
+  #Тип хранилища данных игроков, MYSQL или SQLITE
+  Type: SQLITE
+  MYSQL:
+    Host: localhost
+    Port: 3306
+    Database: InteractionVisualizer
+    Username: mysql
+    Password: password
+
+Messages:
+  NoPermission: "&cУ вас недостаточно прав для использования этой команды!"
+  Reload: "&aInteractionVisualizer успешно перезагружен!"
+  Toggle:
+    Usage: "&cИспользование: /interactionvisualizer toggle <itemstand/itemdrop/hologram>"
+    Modes: "&cПереключение режимов: itemstand, itemdrop, hologram"
+    Console: "&cПожалуйста, укажите никнейм игрока: /interactionvisualizer toggle <режим> [игрок]"
+    ToggleOn: "&aВключено у %s"
+    ToggleOff: "&eОтключено у %s"
+    PlayerNotFound: "&cЭтот игрок не онлайн!"
+
+GarbageCollector:
+  #Как часто плагин должен подчищать тайл-энтити, за которыми больше не требуется следить
+  #В тиках, 20 тиков = 1 секунда
+  #Отрегулируйте если ваш сервер не может справиться с нагрузкой
+  Period: 600
+
+TileEntityUpdate:
+  #Как часто плагин должен собирать информацию о тайл-энтити со времен прошлой проверки
+  #Плагин в первую очередь соберет все активные чанки (3x3 чанки возле каждого игрока)
+  #После плагин загрузит все тайл-энтити в этих чанках в асинхронном режиме
+  #Учтите, что период работы больше, чем просто значение ChunksPerTick - обработка и прочие вещи занимают больше времени 
+  #Отрегулируйте если ваш сервер не может справиться с нагрузкой
+  ChunksPerTick: 4
+
+#Включение InteractionVisualizer для следующих блоков
+Blocks:
+  Anvil:
+    Enabled: true
+  Beacon:
+    Enabled: true
+  BlastFurnace:
+    Enabled: true
+  BrewingStand:
+    Enabled: true
+  CartographyTable:
+    Enabled: true
+  Chest:
+    Enabled: true
+  CraftingTable:
+    Enabled: true
+  DoubleChest:
+    Enabled: true
+  EnchantmentTable:
+    Enabled: true
+  EnderChest:
+    Enabled: true
+  Furnace:
+    Enabled: true
+  Grindstone:
+    Enabled: true
+  JukeBox:
+    Enabled: true
+  Loom:
+    Enabled: true
+  NoteBlock:
+    Enabled: true
+  Smoker:
+    Enabled: true
+  Stonecutter:
+    Enabled: true
+  ShulkerBox:
+    Enabled: true
+
+Entities:
+  Villager: 
+    Enabled: true
+
+#Включите эти модули для отображения InteractionVisualizer
+#ItemStand отвечает за отображения с использованием стоек для брони и рамок
+#ItemDrop отвечает за отображения с использованием выброшенных предметов
+#Hologram отвечает за голограммы с использованием стоек для брони
+Modules:
+  ItemStand:
+    Enabled: true
+  ItemDrop:
+    Enabled: true
+  Hologram:
+    Enabled: true
+
+Options:
+  Updater: true
+  DownloadLanguageFiles: true
+  

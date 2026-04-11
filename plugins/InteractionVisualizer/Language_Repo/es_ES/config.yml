@@ -1,0 +1,86 @@
+Database:
+  Type: SQLITE
+  MYSQL:
+    Host: localhost
+    Port: 3306
+    Database: InteractionVisualizer
+    Username: mysql
+    Password: password
+    
+Messages:
+  NoPermission: '&c¡No tienes permisos para usar este comando!'
+  Reload: '&a¡InteractionVisualizer se recargó exitosamente!'
+  Toggle:
+    Usage: '&cUso: /interactionvisualizer toggle <itemstand/itemdrop/hologram>'
+    Modes: '&cModos que se pueden alternar: itemstand, itemdrop, hologram'
+    Console: '&cPor favor propociona el nombre de un jugador: /interactionvisualizer
+      toggle <modo> [jugador]'
+    ToggleOn: '&a%s se habilitó'
+    ToggleOff: '&e%s se deshabilitó'
+    PlayerNotFound: '&c¡El jugador no esta en línea!'
+    
+GarbageCollector:
+  Period: 600
+
+TileEntityUpdate:
+  ChunksPerTick: 4
+    
+Blocks:
+  Beacon:
+    Enabled: true
+    CheckingPeriod: 20
+  JukeBox:
+    Enabled: true
+    CheckingPeriod: 20
+  NoteBlock:
+    Enabled: true
+  ShulkerBox:
+    Enabled: true
+  EnderChest:
+    Enabled: true
+  Anvil:
+    Enabled: true
+  BlastFurnace:
+    CheckingPeriod: 20
+    Enabled: true
+  BrewingStand:
+    CheckingPeriod: 20
+    Enabled: true
+  CartographyTable:
+    Enabled: true
+  Chest:
+    Enabled: true
+  CraftingTable:
+    Enabled: true
+  DoubleChest:
+    Enabled: true
+  EnchantmentTable:
+    Enabled: true
+  Furnace:
+    CheckingPeriod: 20
+    Enabled: true
+  Grindstone:
+    Enabled: true
+  Loom:
+    Enabled: true
+  Smoker:
+    CheckingPeriod: 20
+    Enabled: true
+  Stonecutter:
+    Enabled: true
+    
+Entities:
+  Villager:
+    Enabled: true
+    
+Modules:
+  ItemStand:
+    Enabled: true
+  ItemDrop:
+    Enabled: true
+  Hologram:
+    Enabled: true
+    
+Options:
+  DownloadLanguageFiles: true
+  Updater: true

@@ -1,0 +1,18 @@
+ # These instrument names will be used in the noteblock display
+Instruments:
+  BANJO: Bendžo
+  BASS_DRUM: Buben
+  BASS_GUITAR: Basová kytara
+  BELL: Zvonkohra
+  BIT: Bit
+  CHIME: Zvonkohra
+  COW_BELL: Kravský zvonec
+  DIDGERIDOO: Didgeridoo
+  FLUTE: Flétna
+  GUITAR: Kytara
+  IRON_XYLOPHONE: Železný xylofon
+  PIANO: Piano
+  PLING: Elektrické piano
+  SNARE_DRUM: Malý bubínek
+  STICKS: Hůlky
+  XYLOPHONE: Xylofon

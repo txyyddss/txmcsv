@@ -5,7 +5,6 @@ header-footer:
     default:
       header:
         - "%animation:mtn_title%"
-        - "&7MTN纯净生存互通服"
         - "&f欢迎，&b%player%"
       footer:
         - "&7时间 &8| &f%date% %time%"
@@ -58,24 +57,44 @@ scoreboard:
   hidden-by-default: false
   delay-on-join-milliseconds: 1500
   scoreboards:
+    # Combat Scoreboard (Highest Priority)
+    pvp:
+      title: "&c&l⚔ COMBAT ⚔"
+      display-condition: "%pvpmanager_in_combat%=true"
+      lines:
+        - "&b剩余&7: &c%pvpmanager_combat_timeleft%秒"
+        - ""
+        - "&a你的生命&7: &f%pvpmanager_player_health% &c❤"
+        - "&e你的敌人&7: &f%pvpmanager_current_enemy%"
+        - "&e敌人生命&7: &f%pvpmanager_current_enemy_health% &c❤"
+        
+    # Java 
     java-modern:
       title: "%animation:mtn_title%"
-      display-condition: "%bedrock%=false;%player-version-id%>=765"
+      display-condition: "%bedrock%=false"
       lines:
-        - "&7%date%"
-        - "&f%time%"
+        - "&7%date% &8| &f%time%"
         - ""
-        - "&b在线&7:||%online%"
-        - "%animation:server_status%"
-        - "%animation:balance%"
-        - "%animation:worldguard%"
-        - "&e延迟&7:||%ping%ms"
+        - "&b在线&7:||&f%online%"
+        - "&eMSPT&7:||&f%mspt%"
+        - "&eRAM&7:||&b%memory-used%&8/&3%memory-max%"
+        - "&e延迟&7:||&a%ping% &7ms"
+        - "&e光照&7:||&f%player_light_level%"
+        - "&e群系&7:||&f%world_biome%"
+        - "&e技能等级&7:||&f%mcmmo_power_level%"
+        - "&e余额&7:||&f%tne_balance_formatted%&e (#%tne_toppos_MTB%)"
+        - "%animation:skills%"
+
+    # Bedrock Edition (Geyser)
     bedrock:
-      title: "&bMTN"
+      title: "&b&lMTN"
       display-condition: "%bedrock%=true"
       lines:
         - "&b在线&7: &f%online%"
-        - "%animation:balance%"
+        - "&e光照&7: &f%player_light_level%"
+        - "&e群系&7: &f%world_biome%"
+        - "&e余额&7: &f%tne_balance_formatted%&e (#%tne_toppos_MTB%)"
+        - "%animation:skills%"
 
 layout:
   enabled: false
@@ -114,13 +133,6 @@ conditions: {}
 
 placeholder-refresh-intervals:
   default-refresh-interval: 1000
-  "%server_tps_1_colored%": 1000
-  "%server_uptime%": 5000
-  "%vault_eco_balance_formatted%": 2000
-  "%griefprevention_remainingclaims_formatted%": 3000
-  "%griefprevention_currentclaim_ownername%": 1500
-  "%player_ping%": 1000
-  "%vault_prefix%": 1000
 
 assign-groups-by-permissions: false
 

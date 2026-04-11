@@ -8,9 +8,9 @@
 
 General Settings:
   # Changes the language, to see all options use '/pmr locale' ingame
-  Locale: EN
+  Locale: ZH
   # Controls if the plugin will use teams, needed for changing nametags and some other things, disable if there are conflicts with other plugins
-  Use Scoreboard Teams: true
+  Use Scoreboard Teams: false
   # List of worlds where PvPManager will have no effect
   World Exclusions:
     - 'example'
@@ -37,25 +37,25 @@ Combat Tag:
 
   # Allows for a fair fight between only two combat tagged players, without third party interference
   # Useful for FFA or mass PvP scenarios
-  Duel Mode: false
+  Duel Mode: true
   
   Display:
     # Adds a prefix or suffix while the player is in combat
     Nametags:
-      Enabled: true
+      Enabled: false
       # Choose the player's nametag prefix while tagged, '&c' would just color their name red
       # The TAB plugin is required to use placeholders in the nametag
       Prefix: '&4⚔ &8(&7%pvpmanager_combat_timeleft%s&8) &c'
       Suffix: ' &f%pvpmanager_player_health%&c❤'
     Action Bar:
-      Enabled: true
+      Enabled: false
       # You can use any PlaceholderAPI placeholders here
       Message: '&8[&c&lCOMBAT&8] &7<time>s &8• &a<barsLeft>&#AA5555<barsPassed> &8• &7%pvpmanager_current_enemy% &8(&c%pvpmanager_current_enemy_health%❤&8)'
       # Symbol to use for the progress bar and how many times to repeat it. Other symbols ▊,▮,▯,|
       Symbol: '▊'
       Total Bars: 20
     Boss Bar:
-      Enabled: true
+      Enabled: false
       # You can use any PlaceholderAPI placeholders here
       Message: '&8&l[&c&lCOMBAT&8&l] &e&l<time> seconds'
       # See here for bar color options - https://hub.spigotmc.org/javadocs/spigot/org/bukkit/boss/BarColor.html
@@ -66,7 +66,7 @@ Combat Tag:
   # Section is self-explanatory, what actions to block in combat
   Actions Blocked:
     EnderPearls: false
-    ChorusFruits: false
+    ChorusFruits: true
     Teleport: true
     # Blocks more types of teleports, not just commands. Can conflict with some plugins
     Unsafe Teleports: false
@@ -110,14 +110,14 @@ Combat Tag:
 ##################################
 Combat Log Punishments:
   # Money lost on combat log, you can use less or equal to 1 for percentages like 0.05 for 5%, 1 for 100% (0 to disable)
-  Money Penalty: 0.2
+  Money Penalty: 0.05
   # Should the player be killed and, if so, what will the player drop
   Kill on Logout:
     Enabled: true
     Player Drops:
-      Inventory: true
-      Experience: true
-      Armor: true
+      Inventory: false
+      Experience: false
+      Armor: false
   # Punish the player even if he gets kicked by other plugins or by an admin
   Punish On Kick:
     Enabled: true
@@ -139,7 +139,7 @@ PvP Toggle:
   # Leave it at true unless you want no PvP for new players
   Default PvP: true
   # How many seconds until players can use the command again
-  Cooldown: 15
+  Cooldown: 60
   # What should the player's prefix/suffix be when pvp is on/off
   # You can leave one of them empty '' to disable one of the nametags, or set 'Enabled' to false to disable both
   NameTags:
@@ -151,12 +151,12 @@ PvP Toggle:
   PvP Disabled Money Fee: 0
   # Command list to execute on PvP toggle, use '{player}' for player name
   Commands PvP On:
-    - 'examplecommand {player} turned pvp on'
+    - ''
   Commands PvP Off:
-    - 'examplecommand {player} turned pvp off'
+    - ''
   # PvP Toggle is forcibly enabled on an attack in all regions with WG's pvp flag set to ALLOW
   # If you want it only on specific regions instead, set WorldGuard Overrides to false and use the pvp-protection flag set to DENY
-  WorldGuard Overrides: true
+  WorldGuard Overrides: false
 
 ###############################
 ####  Anti Border Hopping  ####
@@ -185,9 +185,9 @@ Anti Border Hopping:
 Newbie Protection:
   Enabled: true
   # How many seconds should newbie protection last, persists through restarts
-  Time: 1800
+  Time: 7200
   # If players should be allowed to remove their protection with /newbie disable
-  Allow Player Disable: true
+  Allow Player Disable: false
   # Block players from picking up items or place blocks while they have protection
   Block Pick Items: false
   Block Place Blocks: false
@@ -232,13 +232,13 @@ Item Cooldowns:
 # Section with settings triggered when a player kills another player
 Player Kills:
   # Money won as reward, use less or equal to 1 for percentage like 0.05 for 5%, 1 for 100% (0 to disable)
-  Money Reward: 0.1
+  Money Reward: 0.05
   # Money lost on PvP death, use less or equal to 1 for percentage like 0.1 for 10%, 1 for 100% (0 to disable)
-  Money Penalty: 0.15
+  Money Penalty: 0.07
   # Should the amount won from money reward be stolen from the dead player
   Money Steal: true
   # Similar to how money steal works, get a percentage of XP from the player you killed, 1 for 100% (0 to disable)
-  Exp Steal: 0.1
+  Exp Steal: 0
   Commands On Kill:
     # Time in seconds between kill commands, -1 to disable cooldown
     Cooldown: -1
@@ -264,7 +264,7 @@ Player Kills:
     Commands on Abuse:
       - 'kick {player} &cKill Abuse Is Not Allowed!'
     # After respawn, how many seconds should players be protected (0 to disable)
-    Respawn Protection: 3
+    Respawn Protection: 8
 
 ##########################
 ####  Other Settings  ####
@@ -285,7 +285,7 @@ Other Settings:
   Player Drop Mode: KEEP
   # Show player health, uses scoreboards so might conflict with other plugins
   Show health under name:
-    Enabled: true
+    Enabled: false
     Display Name: '&c❤'
 
 # What should be disabled when a player enters PvP
@@ -302,7 +302,7 @@ Disable On Hit:
   # Makes player fall down if they're tagged while elytra gliding
   Elytra: false
   # Invisibility potions, defaults to false as it's a vanilla feature
-  Invisibility: false
+  Invisibility: true
 
 Database:
   # Database type, supported databases: SQLite or MySQL
@@ -318,8 +318,8 @@ Database:
 # PlaceholderAPI boolean formatting
 Placeholders:
   Boolean Format:
-    True: '#6fc93e✓'
-    False: '#c9453e✗'
+    True: 'true'
+    False: 'false'
 
 # Should PvPManager be allowed to check for updates and tell you about them
 # Auto Update - After checking should the update be downloaded automatically for you?

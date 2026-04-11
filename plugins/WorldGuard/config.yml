@@ -20,7 +20,7 @@ regions:
     set-parent-on-claim: ''
     location-flags-only-inside-regions: false
     max-region-count-per-player:
-        default: 7
+        default: 114
 auto-invincible: false
 auto-invincible-group: false
 auto-no-drowning-group: false
@@ -85,7 +85,7 @@ mobs:
     block-windcharge-explosions: false
     anti-wolf-dumbness: false
     allow-tamed-spawns: true
-    disable-enderman-griefing: false
+    disable-enderman-griefing: true
     disable-snowman-trails: false
     block-painting-destroy: false
     block-item-frame-destroy: false

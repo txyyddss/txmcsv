@@ -733,12 +733,11 @@ message:
     players:
       samples:
       - name: "<RED>Developed & Matintained by txrog"
-      - name: "<BLUE>Our fucking MTN players:"
       - name: "<players>"
       full: "<color:#ff7171>The server is full"
     # https://flectone.net/pulse/docs/message/status/version
     version:
-      name: "MTN Homeserver"
+      name: "MTNetwork"
   # https://flectone.net/pulse/docs/message/tab
   tab:
     # https://flectone.net/pulse/docs/message/tab/header

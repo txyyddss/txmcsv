@@ -84,3 +84,177 @@ worldguard:
     - "&8◆ &f主人: <gradient:#FFAA00:#FFFF55>%worldguard_region_owner%</gradient>"
     - "&8◇ &f成员: <gradient:#55FFFF:#00AAAA>%worldguard_region_members%</gradient>"
     - "&8◇ &f成员: <gradient:#00AAAA:#55FFFF>%worldguard_region_members%</gradient>"
+
+
+skills:
+  change-interval: 350
+  texts:
+    # ==========================================
+    # Power Level (Global)
+    # ==========================================
+    - "&8✧ &ePower Level: &f%mcmmo_power_level%"
+    - "&8✦ &6Power Level: &e%mcmmo_power_level%"
+    - "&8✧ &ePower Level: &f%mcmmo_power_level%"
+    - "&8✦ &6Power Level: &e%mcmmo_power_level%"
+    - "&8✧ &ePower Level: &f%mcmmo_power_level%"
+    - "&8✧ &ePower Level: &f%mcmmo_power_level%"
+
+    # ==========================================
+    # Acrobatics (Aqua Theme)
+    # ==========================================
+    - "&8✧ &bAcrobatics: &f%mcmmo_level_acrobatics% &8(#&e%mcmmo_rank_acrobatics%&8)"
+    - "&8✦ &3Acrobatics: &b%mcmmo_level_acrobatics% &8(#&f%mcmmo_rank_acrobatics%&8)"
+    - "&8✧ &bAcrobatics: &f%mcmmo_level_acrobatics% &8(#&e%mcmmo_rank_acrobatics%&8)"
+    - "&8✦ &3Acrobatics: &b%mcmmo_level_acrobatics% &8(#&f%mcmmo_rank_acrobatics%&8)"
+    - "&8✧ &bAcrobatics: &f%mcmmo_level_acrobatics% &8(#&e%mcmmo_rank_acrobatics%&8)"
+    - "&8✧ &bAcrobatics: &f%mcmmo_level_acrobatics% &8(#&e%mcmmo_rank_acrobatics%&8)"
+
+    # ==========================================
+    # Alchemy (Purple Theme)
+    # ==========================================
+    - "&8✧ &dAlchemy: &f%mcmmo_level_alchemy% &8(#&e%mcmmo_rank_alchemy%&8)"
+    - "&8✦ &5Alchemy: &d%mcmmo_level_alchemy% &8(#&f%mcmmo_rank_alchemy%&8)"
+    - "&8✧ &dAlchemy: &f%mcmmo_level_alchemy% &8(#&e%mcmmo_rank_alchemy%&8)"
+    - "&8✦ &5Alchemy: &d%mcmmo_level_alchemy% &8(#&f%mcmmo_rank_alchemy%&8)"
+    - "&8✧ &dAlchemy: &f%mcmmo_level_alchemy% &8(#&e%mcmmo_rank_alchemy%&8)"
+    - "&8✧ &dAlchemy: &f%mcmmo_level_alchemy% &8(#&e%mcmmo_rank_alchemy%&8)"
+
+    # ==========================================
+    # Archery (Green Theme)
+    # ==========================================
+    - "&8✧ &aArchery: &f%mcmmo_level_archery% &8(#&e%mcmmo_rank_archery%&8)"
+    - "&8✦ &2Archery: &a%mcmmo_level_archery% &8(#&f%mcmmo_rank_archery%&8)"
+    - "&8✧ &aArchery: &f%mcmmo_level_archery% &8(#&e%mcmmo_rank_archery%&8)"
+    - "&8✦ &2Archery: &a%mcmmo_level_archery% &8(#&f%mcmmo_rank_archery%&8)"
+    - "&8✧ &aArchery: &f%mcmmo_level_archery% &8(#&e%mcmmo_rank_archery%&8)"
+    - "&8✧ &aArchery: &f%mcmmo_level_archery% &8(#&e%mcmmo_rank_archery%&8)"
+
+    # ==========================================
+    # Axes (Red Theme)
+    # ==========================================
+    - "&8✧ &cAxes: &f%mcmmo_level_axes% &8(#&e%mcmmo_rank_axes%&8)"
+    - "&8✦ &4Axes: &c%mcmmo_level_axes% &8(#&f%mcmmo_rank_axes%&8)"
+    - "&8✧ &cAxes: &f%mcmmo_level_axes% &8(#&e%mcmmo_rank_axes%&8)"
+    - "&8✦ &4Axes: &c%mcmmo_level_axes% &8(#&f%mcmmo_rank_axes%&8)"
+    - "&8✧ &cAxes: &f%mcmmo_level_axes% &8(#&e%mcmmo_rank_axes%&8)"
+    - "&8✧ &cAxes: &f%mcmmo_level_axes% &8(#&e%mcmmo_rank_axes%&8)"
+
+    # ==========================================
+    # Crossbows (Dark Green Theme)
+    # ==========================================
+    - "&8✧ &2Crossbows: &f%mcmmo_level_crossbows% &8(#&e%mcmmo_rank_crossbows%&8)"
+    - "&8✦ &aCrossbows: &2%mcmmo_level_crossbows% &8(#&f%mcmmo_rank_crossbows%&8)"
+    - "&8✧ &2Crossbows: &f%mcmmo_level_crossbows% &8(#&e%mcmmo_rank_crossbows%&8)"
+    - "&8✦ &aCrossbows: &2%mcmmo_level_crossbows% &8(#&f%mcmmo_rank_crossbows%&8)"
+    - "&8✧ &2Crossbows: &f%mcmmo_level_crossbows% &8(#&e%mcmmo_rank_crossbows%&8)"
+    - "&8✧ &2Crossbows: &f%mcmmo_level_crossbows% &8(#&e%mcmmo_rank_crossbows%&8)"
+
+    # ==========================================
+    # Excavation (Gold Theme)
+    # ==========================================
+    - "&8✧ &6Excavation: &f%mcmmo_level_excavation% &8(#&e%mcmmo_rank_excavation%&8)"
+    - "&8✦ &eExcavation: &6%mcmmo_level_excavation% &8(#&f%mcmmo_rank_excavation%&8)"
+    - "&8✧ &6Excavation: &f%mcmmo_level_excavation% &8(#&e%mcmmo_rank_excavation%&8)"
+    - "&8✦ &eExcavation: &6%mcmmo_level_excavation% &8(#&f%mcmmo_rank_excavation%&8)"
+    - "&8✧ &6Excavation: &f%mcmmo_level_excavation% &8(#&e%mcmmo_rank_excavation%&8)"
+    - "&8✧ &6Excavation: &f%mcmmo_level_excavation% &8(#&e%mcmmo_rank_excavation%&8)"
+
+    # ==========================================
+    # Fishing (Blue Theme)
+    # ==========================================
+    - "&8✧ &9Fishing: &f%mcmmo_level_fishing% &8(#&e%mcmmo_rank_fishing%&8)"
+    - "&8✦ &bFishing: &9%mcmmo_level_fishing% &8(#&f%mcmmo_rank_fishing%&8)"
+    - "&8✧ &9Fishing: &f%mcmmo_level_fishing% &8(#&e%mcmmo_rank_fishing%&8)"
+    - "&8✦ &bFishing: &9%mcmmo_level_fishing% &8(#&f%mcmmo_rank_fishing%&8)"
+    - "&8✧ &9Fishing: &f%mcmmo_level_fishing% &8(#&e%mcmmo_rank_fishing%&8)"
+    - "&8✧ &9Fishing: &f%mcmmo_level_fishing% &8(#&e%mcmmo_rank_fishing%&8)"
+
+    # ==========================================
+    # Herbalism (Light Green Theme)
+    # ==========================================
+    - "&8✧ &aHerbalism: &f%mcmmo_level_herbalism% &8(#&e%mcmmo_rank_herbalism%&8)"
+    - "&8✦ &2Herbalism: &a%mcmmo_level_herbalism% &8(#&f%mcmmo_rank_herbalism%&8)"
+    - "&8✧ &aHerbalism: &f%mcmmo_level_herbalism% &8(#&e%mcmmo_rank_herbalism%&8)"
+    - "&8✦ &2Herbalism: &a%mcmmo_level_herbalism% &8(#&f%mcmmo_rank_herbalism%&8)"
+    - "&8✧ &aHerbalism: &f%mcmmo_level_herbalism% &8(#&e%mcmmo_rank_herbalism%&8)"
+    - "&8✧ &aHerbalism: &f%mcmmo_level_herbalism% &8(#&e%mcmmo_rank_herbalism%&8)"
+
+    # ==========================================
+    # Maces (Dark Gray/Silver Theme)
+    # ==========================================
+    - "&8✧ &7Maces: &f%mcmmo_level_maces% &8(#&e%mcmmo_rank_maces%&8)"
+    - "&8✦ &8Maces: &7%mcmmo_level_maces% &8(#&f%mcmmo_rank_maces%&8)"
+    - "&8✧ &7Maces: &f%mcmmo_level_maces% &8(#&e%mcmmo_rank_maces%&8)"
+    - "&8✦ &8Maces: &7%mcmmo_level_maces% &8(#&f%mcmmo_rank_maces%&8)"
+    - "&8✧ &7Maces: &f%mcmmo_level_maces% &8(#&e%mcmmo_rank_maces%&8)"
+    - "&8✧ &7Maces: &f%mcmmo_level_maces% &8(#&e%mcmmo_rank_maces%&8)"
+
+    # ==========================================
+    # Mining (Cyan Theme)
+    # ==========================================
+    - "&8✧ &3Mining: &f%mcmmo_level_mining% &8(#&e%mcmmo_rank_mining%&8)"
+    - "&8✦ &bMining: &3%mcmmo_level_mining% &8(#&f%mcmmo_rank_mining%&8)"
+    - "&8✧ &3Mining: &f%mcmmo_level_mining% &8(#&e%mcmmo_rank_mining%&8)"
+    - "&8✦ &bMining: &3%mcmmo_level_mining% &8(#&f%mcmmo_rank_mining%&8)"
+    - "&8✧ &3Mining: &f%mcmmo_level_mining% &8(#&e%mcmmo_rank_mining%&8)"
+    - "&8✧ &3Mining: &f%mcmmo_level_mining% &8(#&e%mcmmo_rank_mining%&8)"
+
+    # ==========================================
+    # Repair (Iron/Gray Theme)
+    # ==========================================
+    - "&8✧ &7Repair: &f%mcmmo_level_repair% &8(#&e%mcmmo_rank_repair%&8)"
+    - "&8✦ &8Repair: &7%mcmmo_level_repair% &8(#&f%mcmmo_rank_repair%&8)"
+    - "&8✧ &7Repair: &f%mcmmo_level_repair% &8(#&e%mcmmo_rank_repair%&8)"
+    - "&8✦ &8Repair: &7%mcmmo_level_repair% &8(#&f%mcmmo_rank_repair%&8)"
+    - "&8✧ &7Repair: &f%mcmmo_level_repair% &8(#&e%mcmmo_rank_repair%&8)"
+    - "&8✧ &7Repair: &f%mcmmo_level_repair% &8(#&e%mcmmo_rank_repair%&8)"
+
+    # ==========================================
+    # Swords (Yellow Theme)
+    # ==========================================
+    - "&8✧ &eSwords: &f%mcmmo_level_swords% &8(#&e%mcmmo_rank_swords%&8)"
+    - "&8✦ &6Swords: &e%mcmmo_level_swords% &8(#&f%mcmmo_rank_swords%&8)"
+    - "&8✧ &eSwords: &f%mcmmo_level_swords% &8(#&e%mcmmo_rank_swords%&8)"
+    - "&8✦ &6Swords: &e%mcmmo_level_swords% &8(#&f%mcmmo_rank_swords%&8)"
+    - "&8✧ &eSwords: &f%mcmmo_level_swords% &8(#&e%mcmmo_rank_swords%&8)"
+    - "&8✧ &eSwords: &f%mcmmo_level_swords% &8(#&e%mcmmo_rank_swords%&8)"
+
+    # ==========================================
+    # Taming (Pink Theme)
+    # ==========================================
+    - "&8✧ &dTaming: &f%mcmmo_level_taming% &8(#&e%mcmmo_rank_taming%&8)"
+    - "&8✦ &5Taming: &d%mcmmo_level_taming% &8(#&f%mcmmo_rank_taming%&8)"
+    - "&8✧ &dTaming: &f%mcmmo_level_taming% &8(#&e%mcmmo_rank_taming%&8)"
+    - "&8✦ &5Taming: &d%mcmmo_level_taming% &8(#&f%mcmmo_rank_taming%&8)"
+    - "&8✧ &dTaming: &f%mcmmo_level_taming% &8(#&e%mcmmo_rank_taming%&8)"
+    - "&8✧ &dTaming: &f%mcmmo_level_taming% &8(#&e%mcmmo_rank_taming%&8)"
+
+    # ==========================================
+    # Tridents (Prismarine Aqua Theme)
+    # ==========================================
+    - "&8✧ &bTridents: &f%mcmmo_level_tridents% &8(#&e%mcmmo_rank_tridents%&8)"
+    - "&8✦ &3Tridents: &b%mcmmo_level_tridents% &8(#&f%mcmmo_rank_tridents%&8)"
+    - "&8✧ &bTridents: &f%mcmmo_level_tridents% &8(#&e%mcmmo_rank_tridents%&8)"
+    - "&8✦ &3Tridents: &b%mcmmo_level_tridents% &8(#&f%mcmmo_rank_tridents%&8)"
+    - "&8✧ &bTridents: &f%mcmmo_level_tridents% &8(#&e%mcmmo_rank_tridents%&8)"
+    - "&8✧ &bTridents: &f%mcmmo_level_tridents% &8(#&e%mcmmo_rank_tridents%&8)"
+
+    # ==========================================
+    # Unarmed (Light Red Theme)
+    # ==========================================
+    - "&8✧ &cUnarmed: &f%mcmmo_level_unarmed% &8(#&e%mcmmo_rank_unarmed%&8)"
+    - "&8✦ &4Unarmed: &c%mcmmo_level_unarmed% &8(#&f%mcmmo_rank_unarmed%&8)"
+    - "&8✧ &cUnarmed: &f%mcmmo_level_unarmed% &8(#&e%mcmmo_rank_unarmed%&8)"
+    - "&8✦ &4Unarmed: &c%mcmmo_level_unarmed% &8(#&f%mcmmo_rank_unarmed%&8)"
+    - "&8✧ &cUnarmed: &f%mcmmo_level_unarmed% &8(#&e%mcmmo_rank_unarmed%&8)"
+    - "&8✧ &cUnarmed: &f%mcmmo_level_unarmed% &8(#&e%mcmmo_rank_unarmed%&8)"
+
+    # ==========================================
+    # Woodcutting (Orange Theme)
+    # ==========================================
+    - "&8✧ &6Woodcutting: &f%mcmmo_level_woodcutting% &8(#&e%mcmmo_rank_woodcutting%&8)"
+    - "&8✦ &eWoodcutting: &6%mcmmo_level_woodcutting% &8(#&f%mcmmo_rank_woodcutting%&8)"
+    - "&8✧ &6Woodcutting: &f%mcmmo_level_woodcutting% &8(#&e%mcmmo_rank_woodcutting%&8)"
+    - "&8✦ &eWoodcutting: &6%mcmmo_level_woodcutting% &8(#&f%mcmmo_rank_woodcutting%&8)"
+    - "&8✧ &6Woodcutting: &f%mcmmo_level_woodcutting% &8(#&e%mcmmo_rank_woodcutting%&8)"
+    - "&8✧ &6Woodcutting: &f%mcmmo_level_woodcutting% &8(#&e%mcmmo_rank_woodcutting%&8)"

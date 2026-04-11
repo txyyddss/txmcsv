@@ -434,7 +434,7 @@ status:
   players:
     enable: true
     control: true
-    max: 11451
+    max: 114514
     online: ""
   # https://flectone.net/pulse/docs/message/status/version
   version:

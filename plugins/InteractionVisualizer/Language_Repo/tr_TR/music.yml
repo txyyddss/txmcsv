@@ -1,0 +1,20 @@
+#Turkish Language default "music.yml" translated by Over_Brave
+#Replace the original "music.yml" to use!
+
+Instruments:
+  BANJO: Banjo
+  BASS_DRUM: Bas davul
+  BASS_GUITAR: Bas gitar
+  BELL: Glockenspiel
+  BIT: Bit
+  CHIME: Çan
+  COW_BELL: İnek Çanı
+  DIDGERIDOO: Didgeridoo
+  FLUTE: Flüt
+  GUITAR: Gitar
+  IRON_XYLOPHONE: Demir Ksilofon
+  PIANO: Piano
+  PLING: Elektrikli Piano
+  SNARE_DRUM: Trampet
+  STICKS: Çubuklar
+  XYLOPHONE: Ksilofon

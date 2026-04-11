@@ -1,0 +1,18 @@
+# これらの楽器名は、音符ブロックの表示に使われます。
+Instruments:
+  BANJO: バンジョー
+  BASS_DRUM: バスドラム
+  BASS_GUITAR: バスギター
+  BELL: ベル
+  BIT: ビット(電子音)
+  CHIME: チャイム
+  COW_BELL: カウベル
+  DIDGERIDOO: ディジュリドゥ
+  FLUTE: フルート
+  GUITAR: ギター
+  IRON_XYLOPHONE: 鉄琴
+  PIANO: ピアノ
+  PLING: 電子ピアノ
+  SNARE_DRUM: スネアドラム
+  STICKS: スティック
+  XYLOPHONE: 木琴

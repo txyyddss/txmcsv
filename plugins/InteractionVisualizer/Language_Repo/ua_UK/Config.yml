@@ -1,0 +1,255 @@
+# БЛОК НАЛАШТУВАНЬ БАЗИ ДАНИХ
+# Цей розділ відповідає за те, де будуть зберігатися дані гравців.
+# Ви можете вибрати між локальним файлом (SQLITE) або зовнішньою базою даних (MYSQL).
+Database:
+  # Тип сховища даних гравців: MYSQL або SQLITE
+  Type: SQLITE
+  MYSQL:
+    Host: localhost
+    Port: 3306
+    Database: InteractionVisualizer
+    Username: mysql
+    Password: password
+
+# БЛОК ПОВІДОМЛЕНЬ
+# Тут знаходяться всі текстові повідомлення, які бачать гравці та адміністратори.
+# Ви можете змінювати кольори та текст.
+Messages:
+  NoPermission: "&cУ вас немає дозволу на використання цієї команди!"
+  Reload: "&aInteractionVisualizer успішно перезавантажено!"
+  Toggle:
+    Usage: "&cВикористання: /interactionvisualizer toggle <itemstand/itemdrop/hologram>"
+    Modes: "&cРежими перемикання: itemstand, itemdrop, hologram"
+    Console: "&cБудь ласка, вкажіть ім'я гравця: /interactionvisualizer toggle <mode> [player]"
+    ToggleOn: "&aУвімкнено %s"
+    ToggleOff: "&eВимкнено %s"
+    PlayerNotFound: "&cЦього гравця немає в мережі!"
+
+# ЗБИРАЧ СМІТТЯ (ОПТИМІЗАЦІЯ)
+# Цей блок налаштовує автоматичне очищення старих даних для оптимізації роботи сервера.
+GarbageCollector:
+  # Як часто плагін повинен очищати блоки сутностей, які більше не потрібно відстежувати
+  # Вимірюється в тіках, 20 тіків = 1 секунда
+  # Змініть це, якщо ваш сервер не справляється зі швидкими оновленнями
+  Period: 600
+
+# ОНОВЛЕННЯ СУТНОСТЕЙ (TILE ENTITY)
+# Налаштування того, як плагін оновлює візуалізацію при русі гравця.
+TileEntityUpdate:
+  # Плагін ігноруватиме гравців, які рухаються швидше за цю швидкість,
+  # під час оновлення сутностей блоків. Це горизонтальна швидкість.
+  IgnoreMovementSpeed:
+    Normal: 1.31
+    Flying: 1.49
+    Gliding: 1.23
+  # Діапазон, у якому перевіряються сутності в чанках навколо гравця.
+  # Діапазон 0 означає, що перевіряється тільки той чанк, де стоїть гравець.
+  CheckingRange: 1
+
+# ОНОВЛЕННЯ ОСВІТЛЕННЯ
+# Налаштування частоти оновлення світла для блоків, які цього вимагають.
+LightUpdate:
+  # Як часто плагін повинен оновлювати рівень освітлення блоку, якщо це необхідно.
+  # Вимірюється в тіках, 20 тіків = 1 секунда.
+  # Змініть це, якщо ваш сервер не справляється зі швидкими оновленнями світла.
+  Period: 10
+
+# НАЛАШТУВАННЯ БЛОКІВ
+# У цьому розділі вмикається або вимикається візуалізація для конкретних блоків (верстак, піч тощо).
+# Також тут можна налаштувати кольори та символи прогрес-барів.
+Blocks:
+  Anvil: # Ковадло
+    Enabled: true
+  Banner: # Банер
+    Enabled: true
+  Beacon: # Маяк
+    Enabled: true
+    # Як часто плагін повинен перевіряти оновлення блоку (в тіках)
+    CheckingPeriod: 20
+    # Як текст повинен слідувати за гравцем: FACE (обличчям), SQUARE (квадрат), CIRCLE (коло)
+    PathType: FACE
+  BeeHive: # Вулик
+    Enabled: true
+    CheckingPeriod: 20
+    Options:
+      HoneyLevelCharacter: "\u2b1b"
+      EmptyColor: "&7"
+      FilledColor: "&e"
+      NoCampfireColor: "&c"
+      BeeCountText: "&e{Current}&6/{Max}"
+  BeeNest: # Бджолине гніздо
+    Enabled: true
+    CheckingPeriod: 20
+    Options:
+      HoneyLevelCharacter: "\u2b1b"
+      EmptyColor: "&7"
+      FilledColor: "&e"
+      NoCampfireColor: "&c"
+      BeeCountText: "&e{Current}&6/{Max}"
+  BlastFurnace: # Плавильна піч
+    Enabled: true
+    CheckingPeriod: 10
+    Options:
+      ProgressBarCharacter: "\u258e"
+      EmptyColor: "&7"
+      FilledColor: "&e"
+      NoFuelColor: "&c"
+      ProgressBarLength: 10
+      AmountPending: " &7+{Amount}"
+  BrewingStand: # Варочна стійка
+    Enabled: true
+    CheckingPeriod: 20
+    Options:
+      ProgressBarCharacter: "\u258e"
+      EmptyColor: "&7"
+      FilledColor: "&6"
+      NoFuelColor: "&c"
+      ProgressBarLength: 10
+  Campfire: # Вогнище
+    Enabled: true
+    CheckingPeriod: 20
+    Options:
+      ProgressBarCharacter: "\uff5c"
+      EmptyColor: "&7"
+      FilledColor: "&e"
+      ProgressBarLength: 10
+  CartographyTable: # Стіл картографа
+    Enabled: true
+  Chest: # Скриня
+    Enabled: true
+  Conduit: # Морський провідник
+    Enabled: true
+    CheckingPeriod: 20
+    PathType: CIRCLE
+  CraftingTable: # Верстак
+    Enabled: true
+  Dispenser: # Роздавальник
+    Enabled: true
+  DoubleChest: # Подвійна скриня
+    Enabled: true
+  Dropper: # Викидач
+    Enabled: true
+  EnchantmentTable: # Стіл зачарування
+    Enabled: true
+  EnderChest: # Ендер-скриня
+    Enabled: true
+  Furnace: # Піч
+    Enabled: true
+    CheckingPeriod: 20
+    Options:
+      ProgressBarCharacter: "\u258e"
+      EmptyColor: "&7"
+      FilledColor: "&e"
+      NoFuelColor: "&c"
+      ProgressBarLength: 10
+      AmountPending: " &7+{Amount}"
+  Grindstone: # Точило
+    Enabled: true
+  Hopper: # Воронка
+    Enabled: true
+  JukeBox: # Програвач
+    Enabled: true
+    CheckingPeriod: 20
+    Options:
+      # Чи показувати назву платівки
+      ShowDiscName: true
+  Lectern: # Кафедра
+    Enabled: true
+    CheckingPeriod: 20
+    Options:
+      Line1: "&e{Title}"
+      Line2: "&7&o- {Author}"
+  Loom: # Ткацький верстат
+    Enabled: true
+  NoteBlock: # Нотний блок
+    Enabled: true
+  ShulkerBox: # Скриня шалкера
+    Enabled: true
+  SmithingTable: # Стіл коваля
+    Enabled: true
+  Smoker: # Коптильня
+    Enabled: true
+    CheckingPeriod: 10
+    Options:
+      ProgressBarCharacter: "\u258e"
+      EmptyColor: "&7"
+      FilledColor: "&e"
+      NoFuelColor: "&c"
+      ProgressBarLength: 10
+      AmountPending: " &7+{Amount}"
+  SoulCampfire: # Вогнище душ
+    Enabled: true
+    CheckingPeriod: 20
+    Options:
+      ProgressBarCharacter: "\uff5c"
+      EmptyColor: "&7"
+      FilledColor: "&b"
+      ProgressBarLength: 10
+  Spawner: # Спаунер
+    Enabled: true
+    CheckingPeriod: 20
+    PathType: FACE
+    Options:
+      ProgressBarCharacter: "\u258e"
+      EmptyColor: "&c"
+      FilledColor: "&a"
+      ProgressBarLength: 10
+      SpawnRange: " &f{SpawnRange}м"
+  Stonecutter: # Каменеріз
+    Enabled: true
+
+# НАЛАШТУВАННЯ СУТНОСТЕЙ (ENTITIES)
+# Цей блок відповідає за відображення інформації про предмети, що лежать на землі,
+# або про інших мобів (наприклад, жителів).
+Entities:
+  Item:
+    Enabled: true
+    Options:
+      # Предмети, що відповідають цим умовам, не матимуть візуалізації
+      Blacklist:
+        # Видаляти коди кольорів при перевірці назв
+        StripColorWhenMatching: true
+        # Перевірка назв за допомогою Regex (регулярних виразів)
+        List:
+          - ["^ALTAR Probe.*", "NETHER_STAR"]
+          - ["^Blacklisted Item$", "*"]
+      RegularFormat: "{Item} &bx{Amount} &6[{Timer}&6]"
+      SingularFormat: "{Item} &6[{Timer}&6]"
+      ToolsFormat: "{Item} &6[{Durability}&6]"
+      # Приховати, якщо в одному блоці знаходиться більше вказаної кількості предметів
+      Cramping: 6
+      Color:
+        High: "&a"
+        Medium: "&e"
+        Low: "&c"
+  Villager:
+    Enabled: true
+
+# МОДУЛІ
+# Увімкніть ці модулі для відображення InteractionVisualizer.
+# ItemStand відповідає за всі відображення, що використовують стійки для броні та рамки.
+# ItemDrop відповідає за відображення, що використовують викинуті предмети.
+# Hologram відповідає за всі голографічні відображення, що використовують стійки для броні.
+Modules:
+  ItemStand:
+    Enabled: true
+  ItemDrop:
+    Enabled: true
+  Hologram:
+    Enabled: true
+
+# ЗАГАЛЬНІ НАЛАШТУВАННЯ
+# Тут знаходяться налаштування анімацій, мови та інших глобальних параметрів.
+Settings:
+  UseHandSwingAnimation: true
+  PickupAnimationPlayerYOffset: 0
+  DisabledWorlds: []
+  HideIfViewObstructed: false
+  # Мова за замовчуванням
+  # Не працює на Minecraft 1.13+ (використовуються клієнтські переклади, де це можливо)
+  Language: uk_ua
+
+# ОПЦІЇ ОНОВЛЕННЯ
+Options:
+  Updater: true
+  DownloadLanguageFiles: true

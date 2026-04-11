@@ -54,7 +54,7 @@ general:
   # Whether users require a permission (huskhomes.warp.<warp_name>) to use warps
   permission_restrict_warps: false
   # How long a player has to stand still and not take damage for when teleporting (in seconds) 
-  teleport_warmup_time: 5
+  teleport_warmup_time: 3
   # Whether the teleport warmup timer should be cancelled if the player takes damage
   teleport_warmup_cancel_on_damage: true
   # Whether the teleport warmup timer should be cancelled if the player moves
@@ -62,7 +62,7 @@ general:
   # Where the teleport warmup timer should display (CHAT, ACTION_BAR, TITLE, SUBTITLE or NONE)
   teleport_warmup_display: ACTION_BAR
   # How long the player should be invulnerable for after teleporting (in seconds)
-  teleport_invulnerability_time: 0
+  teleport_invulnerability_time: 5
   # How long before received teleport requests expire (in seconds)
   teleport_request_expiry_time: 60
   # Whether /tpa should use the location of the sender when accepted. 
@@ -151,7 +151,7 @@ rtp:
   # If no /spawn has been set, (0, 0) will be used instead.
   region:
     min: 500
-    max: 5000
+    max: 8000
   # Mean of the normal distribution used to calculate the distance from the center of the world
   distribution_mean: 0.75
   # Standard deviation of the normal distribution for distributing players randomly
@@ -165,6 +165,7 @@ rtp:
   # List of worlds in which /rtp is disabled.
   restricted_worlds:
   - world_the_end
+  - world_nether
   # Whether or not RTP should perform cross-server.
   cross_server: false
   # List of server in which /rtp is allowed. (Only relevant when using cross server mode WITH REDIS)
@@ -190,7 +191,7 @@ economy:
   economy_costs:
     ADDITIONAL_HOME_SLOT: 500.0
     MAKE_HOME_PUBLIC: 100.0
-    RANDOM_TELEPORT: 50.0
+    RANDOM_TELEPORT: 100.0
   # Specify how many homes players can set for free, before they need to pay for more slots
   free_home_slots: 5
 # Plan hook settings. Docs: https://william278.net/docs/huskhomes/plan-hook

@@ -15,8 +15,15 @@
 
 Messages-To-Hide-Filter:
   contains:
-    - 'First example message'
+    - 'Could not pass event'
     - 'Second example message'
+    - 'Failed to process class bytes'
+    - 'Thread starvation or clock leap detected'
+    - 'An exception occurred while executing event'
+    - 'MapSerializer'
+    - 'Failed to load function'
+    - 'java.lang.NullPointerException'
+
   regex:
     - '^Third example message$'
     - '^\[.*\] Fourth example message$'

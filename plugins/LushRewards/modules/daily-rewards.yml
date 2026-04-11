@@ -34,39 +34,15 @@ daily-rewards:
     display-item:
       lore:
         - "&#bdbebfRewards:"
-        - "&#bdbebf- $50"
-    redeem-sound: ENTITY_EXPERIENCE_ORB_PICKUP
-    rewards:
-      - type: command
-        commands:
-          - "money give %player% 50"
-
-  day-1:
-    on-day-num: 1
-    category: small
-    display-item:
-      lore:
-        - "&#bdbebfRewards:"
-        - "&#bdbebf- $100"
-    rewards:
-      - type: command
-        commands:
-          - "money give %player% 100"
-
-  day-2:
-    on-day-num: 2
-    category: small
-    display-item:
-      lore:
-        - "&#bdbebfRewards:"
         - "&#bdbebf- $150"
+    redeem-sound: ENTITY_EXPERIENCE_ORB_PICKUP
     rewards:
       - type: command
         commands:
           - "money give %player% 150"
 
-  day-3:
-    on-day-num: 3
+  day-1:
+    on-day-num: 1
     category: small
     display-item:
       lore:
@@ -77,8 +53,8 @@ daily-rewards:
         commands:
           - "money give %player% 200"
 
-  day-4:
-    on-day-num: 4
+  day-2:
+    on-day-num: 2
     category: small
     display-item:
       lore:
@@ -89,8 +65,8 @@ daily-rewards:
         commands:
           - "money give %player% 250"
 
-  day-5:
-    on-day-num: 5
+  day-3:
+    on-day-num: 3
     category: small
     display-item:
       lore:
@@ -101,8 +77,8 @@ daily-rewards:
         commands:
           - "money give %player% 300"
 
-  day-6:
-    on-day-num: 6
+  day-4:
+    on-day-num: 4
     category: small
     display-item:
       lore:
@@ -112,6 +88,30 @@ daily-rewards:
       - type: command
         commands:
           - "money give %player% 350"
+
+  day-5:
+    on-day-num: 5
+    category: small
+    display-item:
+      lore:
+        - "&#bdbebfRewards:"
+        - "&#bdbebf- $400"
+    rewards:
+      - type: command
+        commands:
+          - "money give %player% 400"
+
+  day-6:
+    on-day-num: 6
+    category: small
+    display-item:
+      lore:
+        - "&#bdbebfRewards:"
+        - "&#bdbebf- $450"
+    rewards:
+      - type: command
+        commands:
+          - "money give %player% 450"
 
   day-7:
     on-day-num: 7

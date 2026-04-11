@@ -1,0 +1,24 @@
+id: a418bb5f-f4e7-4a52-895c-79d5e78114a4
+time: 1775871320164
+type: give
+source:
+  type: plugin
+  name: Dominion
+archive: false
+voided: false
+to:
+  id: 28fcb19f-8a07-3f1c-9403-66c0f1275aa2
+  tax: '0'
+  starting:
+    world:
+      25537dbf-8a84-4372-9ccf-fbc386fd78d9:
+        tne:VIRTUAL_HOLDINGS: '1928.40'
+  ending:
+    world:
+      25537dbf-8a84-4372-9ccf-fbc386fd78d9:
+        tne:VIRTUAL_HOLDINGS: '2254.80'
+  modifier:
+    region: world
+    currency: 25537dbf-8a84-4372-9ccf-fbc386fd78d9
+    modifier: '326.40'
+    operation: ADD

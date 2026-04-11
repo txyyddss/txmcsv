@@ -1,0 +1,363 @@
+Database:
+  # Player data storage type, MYSQL or SQLITE
+  Type: SQLITE
+  MYSQL:
+    Host: localhost
+    Port: 3306
+    Database: InteractionVisualizer
+    Username: mysql
+    Password: password
+Messages:
+  NoPermission: '&cNemáš oprávnění k použití tohoto příkazu!'
+  Reload: '&aInteractionVisualizer byl úspěšně znovu načten!'
+  Toggle:
+    Usage: '&cPoužití: /interactionvisualizer toggle <itemstand/itemdrop/hologram>'
+    Modes: '&cPřepnout mezi režimy: itemstand, itemdrop, hologram'
+    Entries: '&cPovolené moduly: %s'
+    Console: '&cProsím zadej jméno hráče: /interactionvisualizer toggle <mode> [hráč]'
+    ToggleOn: '&aModul %e %m byl zapnut'
+    ToggleOff: '&eModul %e %m byl vypnut'
+    PlayerNotFound: '&cHráč není online!'
+    All: Všechny
+  # User friendly names for the modules
+  ModuleName:
+    hologram: Holograms
+    itemstand: ItemStands
+    itemdrop: ItemDrops
+  # User friendly names for the entries
+  EntryName:
+    interactionvisualizer:crafting_table: Crafting Table
+    interactionvisualizer:loom: Loom
+    interactionvisualizer:enchantment_table: Enchantment Table
+    interactionvisualizer:cartography_table: Cartography Table
+    interactionvisualizer:anvil: Anvil
+    interactionvisualizer:grindstone: Grindstone
+    interactionvisualizer:stonecutter: Stonecutter
+    interactionvisualizer:brewing_stand: Brewing Stand
+    interactionvisualizer:chest: Chest
+    interactionvisualizer:double_chest: Double Chest
+    interactionvisualizer:furnace: Furnace
+    interactionvisualizer:blast_furnace: Blast Furnace
+    interactionvisualizer:smoker: Smoker
+    interactionvisualizer:ender_chest: Ender Chest
+    interactionvisualizer:shulker_box: Shulker Box
+    interactionvisualizer:dispenser: Dispenser
+    interactionvisualizer:dropper: Dropper
+    interactionvisualizer:hopper: Hopper
+    interactionvisualizer:beacon: Beacon
+    interactionvisualizer:note_block: Note Block
+    interactionvisualizer:jukebox: Jukebox
+    interactionvisualizer:smithing_table: Smithing Table
+    interactionvisualizer:bee_nest: Bee Nest
+    interactionvisualizer:beehive: Beehive
+    interactionvisualizer:lectern: Lectern
+    interactionvisualizer:campfire: Campfire
+    interactionvisualizer:soul_campfire: Soul Campfire
+    interactionvisualizer:spawner: Spawner
+    interactionvisualizer:conduit: Conduit
+    interactionvisualizer:banner: Banner
+    interactionvisualizer:item: Item
+    interactionvisualizer:villager: Villager
+    bookshelf:bookshelf: Bookshelf
+GarbageCollector:
+  # How often should the plugin sweep up and remove tile entity blocks that no longer needs to be tracked
+  # Measured in ticks, 20 ticks = 1 second
+  # Adjust this if your server is unable to handle fast updates
+  Period: 600
+TileEntityUpdate:
+  # The plugin will ignore players that are travelling faster than this speed
+  # when updating tile entities
+  # This is horizontal speed
+  IgnoreMovementSpeed:
+    Normal: 1.31
+    Flying: 1.49
+    Gliding: 1.23
+  # The range in which tile entities in chunks around the player are checked
+  # A range of 0 means only the chunk where the player is standing in is checked
+  CheckingRange: 1
+LightUpdate:
+  # How often should the plugin update the light level a block that requires it is used
+  # Only used if LightAPI is installed
+  # Measured in ticks, 20 ticks = 1 second
+  # Adjust this if your server is unable to handle fast light updates
+  Period: 10
+ # Enable InteractionVisualizer for these blocks
+# You might have to restart for changes to take effect
+Blocks:
+  Anvil:
+    Enabled: true
+  Banner:
+    Enabled: true
+    Options:
+      # Banners that matches will not have the display shown
+      Blacklist:
+        # Strip color codes when matching names
+        StripColorWhenMatching: true
+        # Regex name match
+        List:
+          - Ominous Banner
+  Beacon:
+    Enabled: true
+    # How often should the plugin check for block updates
+    # Measured in ticks, 20 ticks = 1 second
+    # Adjust this if your server is unable to handle fast updates / can handle faster updates
+    CheckingPeriod: 20
+    # How should the display text follow the player
+    # Accepts FACE, SQUARE, CIRCLE
+    PathType: FACE
+  BeeHive:
+    Enabled: true
+    CheckingPeriod: 20
+    Options:
+      HoneyLevelCharacter: ⬛
+      EmptyColor: '&7'
+      FilledColor: '&e'
+      NoCampfireColor: '&c'
+      BeeCountText: '&e{Current}&6/{Max}'
+  BeeNest:
+    Enabled: true
+    CheckingPeriod: 20
+    Options:
+      HoneyLevelCharacter: ⬛
+      EmptyColor: '&7'
+      FilledColor: '&e'
+      NoCampfireColor: '&c'
+      BeeCountText: '&e{Current}&6/{Max}'
+  BlastFurnace:
+    Enabled: true
+    CheckingPeriod: 10
+    Options:
+      ProgressBarCharacter: ▎
+      EmptyColor: '&7'
+      FilledColor: '&e'
+      NoFuelColor: '&c'
+      ProgressBarLength: 10
+      AmountPending: ' &7+{Amount}'
+  BrewingStand:
+    Enabled: true
+    CheckingPeriod: 20
+    Options:
+      ProgressBarCharacter: ▎
+      EmptyColor: '&7'
+      FilledColor: '&6'
+      NoFuelColor: '&c'
+      ProgressBarLength: 10
+  Campfire:
+    Enabled: true
+    CheckingPeriod: 20
+    Options:
+      ProgressBarCharacter: ｜
+      EmptyColor: '&7'
+      FilledColor: '&e'
+      ProgressBarLength: 10
+  CartographyTable:
+    Enabled: true
+  Chest:
+    Enabled: true
+  Conduit:
+    Enabled: true
+    CheckingPeriod: 20
+    PathType: CIRCLE
+  CraftingTable:
+    Enabled: true
+  Dispenser:
+    Enabled: true
+  DoubleChest:
+    Enabled: true
+  Dropper:
+    Enabled: true
+  EnchantmentTable:
+    Enabled: true
+    Options:
+      TranslatableEnchantments:
+        - enchantment.damage.all
+        - enchantment.damage.undead
+        - enchantment.damage.arthropods
+        - enchantment.knockback
+        - enchantment.fire
+        - enchantment.sweeping
+        - enchantment.protect.all
+        - enchantment.protect.fire
+        - enchantment.protect.fall
+        - enchantment.protect.explosion
+        - enchantment.protect.projectile
+        - enchantment.oxygen
+        - enchantment.waterWorker
+        - enchantment.waterWalker
+        - enchantment.frostWalker
+        - enchantment.digging
+        - enchantment.untouching
+        - enchantment.durability
+        - enchantment.lootBonus
+        - enchantment.lootBonusDigger
+        - enchantment.lootBonusFishing
+        - enchantment.fishingSpeed
+        - enchantment.arrowDamage
+        - enchantment.arrowFire
+        - enchantment.arrowKnockback
+        - enchantment.arrowInfinite
+        - enchantment.thorns
+        - enchantment.mending
+        - enchantment.binding_curse
+        - enchantment.vanishing_curse
+        - enchantment.minecraft.sharpness
+        - enchantment.minecraft.smite
+        - enchantment.minecraft.bane_of_arthropods
+        - enchantment.minecraft.knockback
+        - enchantment.minecraft.fire_aspect
+        - enchantment.minecraft.sweeping
+        - enchantment.minecraft.protection
+        - enchantment.minecraft.fire_protection
+        - enchantment.minecraft.feather_falling
+        - enchantment.minecraft.blast_protection
+        - enchantment.minecraft.projectile_protection
+        - enchantment.minecraft.respiration
+        - enchantment.minecraft.aqua_affinity
+        - enchantment.minecraft.depth_strider
+        - enchantment.minecraft.frost_walker
+        - enchantment.minecraft.soul_speed
+        - enchantment.minecraft.efficiency
+        - enchantment.minecraft.silk_touch
+        - enchantment.minecraft.unbreaking
+        - enchantment.minecraft.looting
+        - enchantment.minecraft.fortune
+        - enchantment.minecraft.luck_of_the_sea
+        - enchantment.minecraft.lure
+        - enchantment.minecraft.power
+        - enchantment.minecraft.flame
+        - enchantment.minecraft.punch
+        - enchantment.minecraft.infinity
+        - enchantment.minecraft.thorns
+        - enchantment.minecraft.mending
+        - enchantment.minecraft.binding_curse
+        - enchantment.minecraft.vanishing_curse
+        - enchantment.minecraft.loyalty
+        - enchantment.minecraft.impaling
+        - enchantment.minecraft.riptide
+        - enchantment.minecraft.channeling
+        - enchantment.minecraft.multishot
+        - enchantment.minecraft.quick_charge
+        - enchantment.minecraft.piercing
+  EnderChest:
+    Enabled: true
+  Furnace:
+    Enabled: true
+    CheckingPeriod: 20
+    Options:
+      ProgressBarCharacter: ▎
+      EmptyColor: '&7'
+      FilledColor: '&e'
+      NoFuelColor: '&c'
+      ProgressBarLength: 10
+      AmountPending: ' &7+{Amount}'
+  Grindstone:
+    Enabled: true
+  Hopper:
+    Enabled: true
+  JukeBox:
+    Enabled: true
+    CheckingPeriod: 20
+    Options:
+      # Whether to have the name of the disc displayed or not
+      ShowDiscName: true
+  Lectern:
+    Enabled: true
+    CheckingPeriod: 20
+    Options:
+      Line1: '&e{Title}'
+      Line2: '&7&o- {Author}'
+  Loom:
+    Enabled: true
+  NoteBlock:
+    Enabled: true
+  ShulkerBox:
+    Enabled: true
+  SmithingTable:
+    Enabled: true
+  Smoker:
+    Enabled: true
+    CheckingPeriod: 10
+    Options:
+      ProgressBarCharacter: ▎
+      EmptyColor: '&7'
+      FilledColor: '&e'
+      NoFuelColor: '&c'
+      ProgressBarLength: 10
+      AmountPending: ' &7+{Amount}'
+  SoulCampfire:
+    Enabled: true
+    CheckingPeriod: 20
+    Options:
+      ProgressBarCharacter: ｜
+      EmptyColor: '&7'
+      FilledColor: '&b'
+      ProgressBarLength: 10
+  Spawner:
+    Enabled: true
+    CheckingPeriod: 20
+    PathType: FACE
+    Options:
+      ProgressBarCharacter: ▎
+      EmptyColor: '&c'
+      FilledColor: '&a'
+      ProgressBarLength: 10
+      SpawnRange: ' &f{SpawnRange}m'
+  Stonecutter:
+    Enabled: true
+Entities:
+  Item:
+    Enabled: true
+    Options:
+      # Items that matches will not have the display shown
+      Blacklist:
+        # Strip color codes when matching names
+        StripColorWhenMatching: true
+        # Regex name match and material match
+        # The first entry in each item on the list is a regex matching the item's name
+        # The second entry is the material name
+        List:
+          -
+            - ^ALTAR Probe.*
+            - NETHER_STAR
+          -
+            - ^Blacklisted Item$
+            - '*'
+      RegularFormat: '{Item} &bx{Amount} &6[{Timer}&6]'
+      SingularFormat: '{Item} &6[{Timer}&6]'
+      ToolsFormat: '{Item} &6[{Durability}&6]'
+      # Hide if there is more than this defined amount of item entities in one block
+      Cramping: 6
+      Color:
+        High: '&a'
+        Medium: '&e'
+        Low: '&c'
+  Villager:
+    Enabled: true
+ # Enable these modules for InteractionVisualizer displays
+# ItemStand represents all displays using armorstands and itemframes
+# ItemDrop represents all displays using dropped items
+# Hologram represents all holograpgic displays using armorstands
+Modules:
+  ItemStand:
+    Enabled: true
+  ItemDrop:
+    Enabled: true
+  Hologram:
+    Enabled: true
+Settings:
+  # Whether everything should be disabled to the player by default
+  DefaultDisableAll: false
+  # Set to true if you are having async issues
+  SendAllPacketsInSync: false
+  UseHandSwingAnimation: true
+  PickupAnimationPlayerYOffset: 0
+  DisabledWorlds: []
+  # Might be resource intensive
+  HideIfViewObstructed: false
+  # The default language
+  # Doesn't do anything on Minecraft 1.13+
+  Language: en_us
+Options:
+  Updater: true
+  DownloadLanguageFiles: true
+  

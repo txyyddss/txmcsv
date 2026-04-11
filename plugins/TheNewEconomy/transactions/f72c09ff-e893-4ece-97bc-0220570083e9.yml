@@ -1,0 +1,24 @@
+id: f72c09ff-e893-4ece-97bc-0220570083e9
+time: 1775869124761
+type: give
+source:
+  type: player
+  name: d8a70112-b126-3164-b0a6-ac91ea054bb3
+archive: false
+voided: false
+to:
+  id: 28fcb19f-8a07-3f1c-9403-66c0f1275aa2
+  tax: '0'
+  starting:
+    world:
+      25537dbf-8a84-4372-9ccf-fbc386fd78d9:
+        tne:VIRTUAL_HOLDINGS: '650.00'
+  ending:
+    world:
+      25537dbf-8a84-4372-9ccf-fbc386fd78d9:
+        tne:VIRTUAL_HOLDINGS: '1300.00'
+  modifier:
+    region: world
+    currency: 25537dbf-8a84-4372-9ccf-fbc386fd78d9
+    modifier: '650.00'
+    operation: ADD

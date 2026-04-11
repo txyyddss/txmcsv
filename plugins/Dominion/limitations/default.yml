@@ -12,7 +12,7 @@ priority: 0
 economy:
   enable: true
   # The price per block to claim dominion.
-  price-per-block: 25.0
+  price-per-block: 0.05
   # Only count the square blocks, ignore the height.
   square-only: false
   # The refund rate when player contract or delete dominion.
@@ -24,9 +24,9 @@ teleportation:
   # Enable the teleportation feature.
   enable: true
   # The cooldown time of teleportation in seconds. 0 means no cooldown.
-  cooldown: 60
+  cooldown: 30
   # Delay time before teleportation in seconds. 0 means no delay.
-  delay: 5
+  delay: 3
 # How many dominions a player can create all over the world.
 # Set -1 means no limitation.
 amount-all-over-the-world: -1
@@ -51,13 +51,13 @@ world-limitations:
     no-lower-than: -64
     # The maximum size of dominion in X axis (East-West).
     # Set -1 means no limitation. Should be larger than size-min-x and 0.
-    size-max-x: 128
+    size-max-x: -1
     # The maximum size of dominion in Y axis (Height).
     # Set -1 means no limitation. Should be larger than size-min-y and 0.
-    size-max-y: 64
+    size-max-y: -1
     # The maximum size of dominion in Z axis (North-South).
     # Set -1 means no limitation. Should be larger than size-min-z and 0.
-    size-max-z: 128
+    size-max-z: -1
     # The minimum size of dominion in X axis (East-West).
     # Should be smaller than size-max-x and larger than 0.
     size-min-x: 4

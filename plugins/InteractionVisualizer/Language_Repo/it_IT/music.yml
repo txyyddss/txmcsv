@@ -1,0 +1,19 @@
+#music.yml in Italiano
+
+Instruments:
+  BANJO: Banjo
+  BASS_DRUM: Grancassa
+  BASS_GUITAR: Basso
+  BELL: Glockenspiel
+  BIT: Bit
+  CHIME: Carillon
+  COW_BELL: Campanaccio
+  DIDGERIDOO: Didgeridoo
+  FLUTE: Flauto
+  GUITAR: Chitarra
+  IRON_XYLOPHONE: Xilofono di metallo
+  PIANO: Pianoforte
+  PLING: Pianoforte elettrico
+  SNARE_DRUM: Rullante
+  STICKS: Bastoncini
+  XYLOPHONE: Xilofono

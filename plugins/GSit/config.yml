@@ -65,7 +65,7 @@ Options:
     allow-sit-npc: true
 
     # Maximum number of players that can be stacked (0 means unlimited)
-    max-stack: 0
+    max-stack: 3
 
     # Force eject passengers when sneaking
     sneak-ejects: true

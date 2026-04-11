@@ -1,0 +1,16 @@
+config-version: 1
+scheduler:
+  max-threads: 4
+  cleanup-interval: 30
+  container-ttl: 30
+  max-cull-time: 45
+  max-transfer-factor: 0.7
+  max-merge-factor: 0.5
+culling:
+  nametag-visibility-distance: 64.0
+  blacklisted-worlds: []
+updater:
+  enabled: true
+  notify-admins: true
+  interval-hours: 24
+waypoint-mode: HIDDEN

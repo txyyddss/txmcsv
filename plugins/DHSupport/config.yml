@@ -6,7 +6,7 @@ database_path: "{datadir}/data.sqlite"
 # Maximum supported render distance. Clients will be capped to this value.
 # Required.
 # Default: 1024
-render_distance: 1024
+render_distance: 128
 
 # Are LOD features enabled at all?
 # Disable if you only want to use the plugin for level key info in a proxied setup.
@@ -77,14 +77,14 @@ lod_refresh_interval: 15
 # Valid options are: FullBuilder, FastOverworldBuilder, and None.
 # Required.
 # Default: FullBuilder
-builder_type: FullBuilder
+builder_type: FastOverworldBuilder
 
 # Number of blocks to advance between each sample on the Y axis when generating LODs.
 # A setting of 1 will sample every block, while 2 will sample every other block, and so on.
 # CURRENTLY BROKEN. THIS VALUE IS IGNORED.
 # Required.
 # Default: 2
-builder_resolution: 2
+builder_resolution: 3
 
 # Whether to include non-colliding blocks when they are the top-most block.
 # True means tall grass, flowers, and snow will color the block below them.
@@ -194,7 +194,7 @@ update_events:
 # Number of worker threads used to generate LODs.
 # Required.
 # Default: 4
-scheduler_threads: 4
+scheduler_threads: 8
 
 # Show a message to players who join if they don't have Distant Horizons installed?
 # Optional.

@@ -1,0 +1,401 @@
+# 简体中文 Chinese (Simplified) Language 默认配置文件
+# 译者：金羿Eilles (github.com/EillesWan)
+# 适用插件之版本：InteractionVisualizer 1.18.15.0
+# 使用时，请将插件配置目录下原“config.yml”替换即可
+
+# 作者的话：
+# 即便配置文件已经过时
+# 在大多数情况下，也依旧可以将其直接替换在配置目录中
+# 因为新的插件会自动在文件中补全缺失的配置项
+
+# 请注意，后续翻译注释时请在井号标识“#”后添加空格
+# 请注意汉英混合时，请将英文单词用空格隔开，汉字与数字混合时的空格同理
+# 部分不清楚的内容，请务必在括号中留下原文
+
+Database:
+  # 玩家数据的存储类型，支持 MYSQL 或 SQLITE
+  Type: SQLITE
+  MYSQL:
+    Host: localhost
+    Port: 3306
+    Database: InteractionVisualizer
+    Username: mysql
+    Password: password
+
+Messages:
+  NoPermission: "&c你没有使用该命令的权限。"
+  Reload: "&aInteractionVisualizer 插件重载成功。"
+  Toggle:
+    Usage: "&c用法：/interactionvisualizer toggle <itemstand/itemdrop/hologram> <block/entry> <true/false>"
+    Modes: "&c切换模式：itemstand, itemdrop, hologram"
+    Entries: "&c切换项目：%s"
+    Console: "&c请提供玩家名称参数：/interactionvisualizer toggle <模式> <block/entry> <true/false> [玩家名称]"
+    ToggleOn: "&a已切换至 %e %m 开启"
+    ToggleOff: "&e已切换至 %e %m 关闭"
+    PlayerNotFound: "&c该玩家已离线。"
+    All: 全部
+  # 下列组件（该插件的组件）的用户友好名称
+  ModuleName:
+    hologram: 全息像Holograms
+    itemstand: 物品架ItemStands
+    itemdrop: 掉落物ItemDrops
+  # 下列物品（项目键）的用户友好名称
+  EntryName:
+    "interactionvisualizer:crafting_table": 工作台
+    "interactionvisualizer:crafter": 合成器
+    "interactionvisualizer:loom": 织布机
+    "interactionvisualizer:enchantment_table": 附魔台
+    "interactionvisualizer:cartography_table": 制图台
+    "interactionvisualizer:anvil": 铁砧
+    "interactionvisualizer:grindstone": 砂轮
+    "interactionvisualizer:stonecutter": 切石机
+    "interactionvisualizer:brewing_stand": 酿造台
+    "interactionvisualizer:chest": 箱子
+    "interactionvisualizer:double_chest": 大箱子
+    "interactionvisualizer:furnace": 熔炉
+    "interactionvisualizer:blast_furnace": 高炉
+    "interactionvisualizer:smoker": 烟熏炉
+    "interactionvisualizer:ender_chest": 末影箱
+    "interactionvisualizer:shulker_box": 潜影盒
+    "interactionvisualizer:dispenser": 发射器
+    "interactionvisualizer:dropper": 投掷器
+    "interactionvisualizer:hopper": 漏斗
+    "interactionvisualizer:beacon": 信标
+    "interactionvisualizer:note_block": 音符盒
+    "interactionvisualizer:jukebox": 唱片机
+    "interactionvisualizer:smithing_table": 锻造台
+    "interactionvisualizer:bee_nest": 蜂巢
+    "interactionvisualizer:beehive": 蜂箱
+    "interactionvisualizer:lectern": 讲台
+    "interactionvisualizer:campfire": 篝火
+    "interactionvisualizer:soul_campfire": 灵魂篝火
+    "interactionvisualizer:spawner": 刷怪笼
+    "interactionvisualizer:conduit": 海洋核心
+    "interactionvisualizer:banner": 旗帜
+    "interactionvisualizer:item": 掉落物
+    "interactionvisualizer:villager": 村民
+    "bookshelf:bookshelf": 书架
+
+GarbageCollector:
+  # 插件移除并清理无需监听的方块实体块（？啥玩意？tile entity blocks）之速率
+  # 以运行刻为单位，大约 20 刻为一秒
+  # 当服务器无法处理过快的更新速度时调整此数据
+  Period: 600
+
+TileEntityUpdate:
+  # 若玩家移速超过指定值，插件将在更新方块实体时忽略之
+  # 该速度为水平移动之速度
+  IgnoreMovementSpeed:
+    Normal: 1.31
+    Flying: 1.49
+    Gliding: 1.23
+  # 玩家周围区块中，遍历方块实体的范围
+  # 值为零时意为仅有玩家所处之区块会被遍历到
+  CheckingRange: 1
+
+LightUpdate:
+  # 插件更新所需方块的光照水平之速率
+  # 仅当 LightAPI 已安装时启用该配置项
+  # 以运行刻为单位，大约 20 刻为一秒
+  # 当服务器无法处理过快的更新速度时调整此数据
+  Period: 10
+
+# 对以下方块启用本插件之功能
+# 若更改此处，需要重启服务器以生效
+Blocks:
+  Anvil:
+    Enabled: true
+  Banner:
+    Enabled: true
+    Options:
+      # 符合黑名单之旗帜将不会显示标题
+      Blacklist:
+        # 仅匹配名字，忽略颜色代码
+        StripColorWhenMatching: true
+        # 使用正则表达式进行名称匹配
+        # 这里默认的黑名单是 不详旗帜
+        List:
+          - "Ominous Banner|block\\.minecraft\\.ominous_banner"
+  Barrel:
+    Enabled: true
+  Beacon:
+    Enabled: true
+    # 插件遍历该方块的速率
+    # 以运行刻为单位，大约 20 刻为一秒
+    # 当服务器无法处理过快的更新速度（服务器拉跨）、或可处理之速度更高（服务器牛逼）时调整此数据
+    CheckingPeriod: 20
+    # 悬浮展示之文字应如何跟随玩家
+    # 该项可为：FACE, SQUARE, CIRCLE
+    PathType: FACE
+  BeeHive:
+    Enabled: true
+    CheckingPeriod: 20
+    Options:
+      HoneyLevelCharacter: "\u2b1b"
+      EmptyColor: "&7"
+      FilledColor: "&e"
+      NoCampfireColor: "&c"
+      BeeCountText: "&e{Current}&6/{Max}"
+  BeeNest:
+    Enabled: true
+    CheckingPeriod: 20
+    Options:
+      HoneyLevelCharacter: "\u2b1b"
+      EmptyColor: "&7"
+      FilledColor: "&e"
+      NoCampfireColor: "&c"
+      BeeCountText: "&e{Current}&6/{Max}"
+  BlastFurnace:
+    Enabled: true
+    CheckingPeriod: 10
+    Options:
+      ProgressBarCharacter: "\u258e"
+      EmptyColor: "&7"
+      FilledColor: "&e"
+      NoFuelColor: "&c"
+      ProgressBarLength: 10
+      AmountPending: " &7+{Amount}"
+  BrewingStand:
+    Enabled: true
+    CheckingPeriod: 20
+    Options:
+      ProgressBarCharacter: "\u258e"
+      EmptyColor: "&7"
+      FilledColor: "&6"
+      NoFuelColor: "&c"
+      ProgressBarLength: 10
+  Campfire:
+    Enabled: true
+    CheckingPeriod: 20
+    Options:
+      ProgressBarCharacter: "\u007c"
+      EmptyColor: "&7"
+      FilledColor: "&e"
+      ProgressBarLength: 10
+  CartographyTable:
+    Enabled: true
+  Chest:
+    Enabled: true
+  Conduit:
+    Enabled: true
+    CheckingPeriod: 20
+    PathType: CIRCLE
+  CraftingTable:
+    Enabled: true
+  Crafter:
+    Enabled: true
+    CheckingPeriod: 20
+  Dispenser:
+    Enabled: true
+  DoubleChest:
+    Enabled: true
+  Dropper:
+    Enabled: true
+  EnchantmentTable:
+    Enabled: true
+    Options:
+      TranslatableEnchantments:
+        - enchantment.damage.all
+        - enchantment.damage.undead
+        - enchantment.damage.arthropods
+        - enchantment.knockback
+        - enchantment.fire
+        - enchantment.sweeping
+        - enchantment.protect.all
+        - enchantment.protect.fire
+        - enchantment.protect.fall
+        - enchantment.protect.explosion
+        - enchantment.protect.projectile
+        - enchantment.oxygen
+        - enchantment.waterWorker
+        - enchantment.waterWalker
+        - enchantment.frostWalker
+        - enchantment.digging
+        - enchantment.untouching
+        - enchantment.durability
+        - enchantment.lootBonus
+        - enchantment.lootBonusDigger
+        - enchantment.lootBonusFishing
+        - enchantment.fishingSpeed
+        - enchantment.arrowDamage
+        - enchantment.arrowFire
+        - enchantment.arrowKnockback
+        - enchantment.arrowInfinite
+        - enchantment.thorns
+        - enchantment.mending
+        - enchantment.binding_curse
+        - enchantment.vanishing_curse
+        - enchantment.minecraft.sharpness
+        - enchantment.minecraft.smite
+        - enchantment.minecraft.bane_of_arthropods
+        - enchantment.minecraft.knockback
+        - enchantment.minecraft.fire_aspect
+        - enchantment.minecraft.sweeping
+        - enchantment.minecraft.protection
+        - enchantment.minecraft.fire_protection
+        - enchantment.minecraft.feather_falling
+        - enchantment.minecraft.blast_protection
+        - enchantment.minecraft.projectile_protection
+        - enchantment.minecraft.respiration
+        - enchantment.minecraft.aqua_affinity
+        - enchantment.minecraft.depth_strider
+        - enchantment.minecraft.frost_walker
+        - enchantment.minecraft.soul_speed
+        - enchantment.minecraft.efficiency
+        - enchantment.minecraft.silk_touch
+        - enchantment.minecraft.unbreaking
+        - enchantment.minecraft.looting
+        - enchantment.minecraft.fortune
+        - enchantment.minecraft.luck_of_the_sea
+        - enchantment.minecraft.lure
+        - enchantment.minecraft.power
+        - enchantment.minecraft.flame
+        - enchantment.minecraft.punch
+        - enchantment.minecraft.infinity
+        - enchantment.minecraft.thorns
+        - enchantment.minecraft.mending
+        - enchantment.minecraft.binding_curse
+        - enchantment.minecraft.vanishing_curse
+        - enchantment.minecraft.loyalty
+        - enchantment.minecraft.impaling
+        - enchantment.minecraft.riptide
+        - enchantment.minecraft.channeling
+        - enchantment.minecraft.multishot
+        - enchantment.minecraft.quick_charge
+        - enchantment.minecraft.piercing
+      # 若存在自定义附魔，在此处添加
+      CustomDefinedEnchantmentNames:
+        "myplugin:mycustomenchant": 一处自定义附魔项
+  EnderChest:
+    Enabled: true
+  Furnace:
+    Enabled: true
+    CheckingPeriod: 20
+    Options:
+      ProgressBarCharacter: "\u258e"
+      EmptyColor: "&7"
+      FilledColor: "&e"
+      NoFuelColor: "&c"
+      ProgressBarLength: 10
+      AmountPending: " &7+{Amount}"
+  Grindstone:
+    Enabled: true
+  Hopper:
+    Enabled: true
+  JukeBox:
+    Enabled: true
+    CheckingPeriod: 20
+    Options:
+      # 是否浮空显示唱片名称
+      ShowDiscName: true
+  Lectern:
+    Enabled: true
+    CheckingPeriod: 20
+    Options:
+      Line1: "&e{Title}"
+      Line2: "&7&o- {Author}"
+  Loom:
+    Enabled: true
+  NoteBlock:
+    Enabled: true
+  ShulkerBox:
+    Enabled: true
+  SmithingTable:
+    Enabled: true
+  Smoker:
+    Enabled: true
+    CheckingPeriod: 10
+    Options:
+      ProgressBarCharacter: "\u258e"
+      EmptyColor: "&7"
+      FilledColor: "&e"
+      NoFuelColor: "&c"
+      ProgressBarLength: 10
+      AmountPending: " &7+{Amount}"
+  SoulCampfire:
+    Enabled: true
+    CheckingPeriod: 20
+    Options:
+      ProgressBarCharacter: "\u007c"
+      EmptyColor: "&7"
+      FilledColor: "&b"
+      ProgressBarLength: 10
+  Spawner:
+    Enabled: true
+    CheckingPeriod: 20
+    PathType: FACE
+    Options:
+      ProgressBarCharacter: "\u258e"
+      EmptyColor: "&c"
+      FilledColor: "&a"
+      ProgressBarLength: 10
+      SpawnRange: " &f{SpawnRange}m"
+  Stonecutter:
+    Enabled: true
+
+Entities:
+  Item:
+    Enabled: true
+    Options:
+      # 黑名单中的物品将不会显示
+      Blacklist:
+        # 仅匹配名字，忽略颜色代码
+        StripColorWhenMatching: true
+        # 使用正则表达式匹配名称或材料
+        # 每个物品的第一个项用于匹配名称，第二个项用于匹配材料
+        List:
+          - [^ALTAR Probe.*, NETHER_STAR]
+          - ["^Blacklisted Item$", *]
+      RegularFormat: "{Item} &bx{Amount} &6[{Timer}&6]"
+      SingularFormat: "{Item} &6[{Timer}&6]"
+      ToolsFormat: "{Item} &6[{Durability}&6]"
+      # 若单个方块中的物品实体多于以下指定值则隐藏之
+      Cramping: 6
+      # 物品显示的刷新速率
+      # 以运行刻为单位，大约 20 刻为一秒
+      # 若此值过低，可能会影响性能（？观感？Setting this too low might impact performance）
+      UpdateRate: 20
+      Color:
+        High: "&a"
+        Medium: "&e"
+        Low: "&c"
+  Villager:
+    Enabled: true
+
+# 本插件启用的显示模块，若不启用相应模块，则对应显示方式不会生效
+# Hologram “全息像” 是用 盔甲架 进行*全息*展示的模块
+# ItemStand “物品架” 是用 盔甲架 或 展示框 进行展示的模块
+# ItemDrop “掉落物” 是用 掉落物 进行展示的模块
+# 参数 OverridingDisabled 可接受一系列的项目键（entry keys）
+# 无视玩家观感，强制性地禁止这些项目键所对应的显示方式
+# 项目键例如：“interactionvisualizer:crafting_table”，见上方 Message 项中定义之内容。
+Modules:
+  ItemStand:
+    Enabled: true
+    OverridingDisabled: []
+  ItemDrop:
+    Enabled: true
+    OverridingDisabled: []
+  Hologram:
+    Enabled: true
+    OverridingDisabled: []
+
+Settings:
+  # 是否默认对玩家禁用一切内容
+  DefaultDisableAll: false
+  # 当有异步调用之问题时，将此项设置为 true
+  SendAllPacketsInSync: false
+  UseHandSwingAnimation: true
+  PickupAnimationPlayerYOffset: 0
+  DisabledWorlds: []
+  # 可能产生极大资源开销
+  # 重要的事情说三遍（以下是原文😋）
+  # MIGHT BE RESOURCE INTENSIVE
+  # MIGHT BE RESOURCE INTENSIVE
+  # MIGHT BE RESOURCE INTENSIVE
+  HideIfViewObstructed: false
+
+Options:
+  # 启用自动联网更新
+  Updater: true
+  DownloadLanguageFiles: true

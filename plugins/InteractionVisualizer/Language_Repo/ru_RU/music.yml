@@ -1,0 +1,21 @@
+#Russian Language default music.yml translated by imDaniX
+#https://www.spigotmc.org/members/imdanix.99979/
+#Replace the original "music.yml" to use!
+
+Instruments:
+  BANJO: Банджо
+  BASS_DRUM: Басовый Барабан
+  BASS_GUITAR: Бас-Гитара
+  BELL: Глокеншпиль
+  BIT: Бит
+  CHIME: Колокольчик
+  COW_BELL: Ковбелл
+  DIDGERIDOO: Диджериду
+  FLUTE: Флейта
+  GUITAR: Гитара
+  IRON_XYLOPHONE: Железный Ксилофон
+  PIANO: Пианино
+  PLING: Цифровое Фортепиано
+  SNARE_DRUM: Малый Барабан
+  STICKS: Палочки
+  XYLOPHONE: Ксилофон

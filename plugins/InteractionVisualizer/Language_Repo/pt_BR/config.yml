@@ -1,0 +1,71 @@
+#Brazilian Portuguese Language default config translated by fabricio9898
+#https://www.spigotmc.org/members/fabricio9898.440987/
+#Replace the original "config.yml" to use!
+
+Database:
+  Type: SQLITE
+  MYSQL:
+    Host: localhost
+    Port: 3306
+    Database: InteractionVisualizer
+    Username: mysql
+    Password: password
+Messages:
+  NoPermission: '&cNão tem permissão para fazer isso!'
+  Reload: '&aitem animado recarregado com sucesso!'
+  Toggle:
+    Usage: '&cuse: /iv toggle <itemstand/itemdrop/hologram>'
+    Modes: '&cModos de Alternar: itemstand, itemdrop, hologram'
+    Console: '&cuse qual animação quer ativar/desativar: /iv toggle <mode> [player]'
+    ToggleOn: '&aExibir %s Sim'
+    ToggleOff: '&cExibir %s Não'
+    PlayerNotFound: '&cO jogador não está online!'
+Blocks:
+  Anvil:
+    Enabled: true
+  Beacon:
+    Enabled: true
+  BlastFurnace:
+    Enabled: true
+  BrewingStand:
+    Enabled: true
+  CartographyTable:
+    Enabled: true
+  Chest:
+    Enabled: true
+  CraftingTable:
+    Enabled: true
+  DoubleChest:
+    Enabled: true
+  EnchantmentTable:
+    Enabled: true
+  EnderChest:
+    Enabled: true
+  Furnace:
+    Enabled: true
+  Grindstone:
+    Enabled: true
+  JukeBox:
+    Enabled: true
+  Loom:
+    Enabled: true
+  NoteBlock:
+    Enabled: true
+  Smoker:
+    Enabled: true
+  Stonecutter:
+    Enabled: true
+  ShulkerBox:
+    Enabled: true
+Entities:
+  Villager:
+    Enabled: true
+Modules:
+  ItemStand:
+    Enabled: true
+  ItemDrop:
+    Enabled: true
+  Hologram:
+    Enabled: true
+Options:
+  Updater: true

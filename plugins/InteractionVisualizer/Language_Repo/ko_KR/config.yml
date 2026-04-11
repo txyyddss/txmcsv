@@ -1,0 +1,242 @@
+#dd397이 번역한 한국어 기본 컨피그
+#https://www.spigotmc.org/members/packpingmc.1894424/
+#원본 "config.yml"을 교체하여 사용하세요!
+
+Database:
+  #플레이어 데이터 저장 유형, MYSQL 또는 SQLITE
+  Type: SQLITE
+  MYSQL:
+    Host: localhost
+    Port: 3306
+    Database: InteractionVisualizer
+    Username: mysql
+    Password: password
+
+Messages:
+  NoPermission: "&c해당 명령을 사용할 권한이 없습니다!"
+  Reload: "&aInteractionVisualizer가 성공적으로 리로드되었습니다!"
+  Toggle:
+    Usage: "&c용법: /interactionvisualizer toggle <itemstand/itemdrop/hologram>"
+    Modes: "&c전환 모드: itemstand, itemdrop, hologram"
+    Console: "&c플레이어 이름을 입력하세요: /interactionvisualizer toggle <mode> [player]"
+    ToggleOn: "&a켜짐"
+    ToggleOff: "&e꺼짐"
+    PlayerNotFound: "&c플레이어가 온라인 상태가 아닙니다!"
+
+GarbageCollector:
+  #플러그인이 더 이상 추적할 필요가 없는 타일 엔티티 블록을 청소하고 제거하는 주기
+  #틱 단위로 측정, 20틱 = 1초
+  #서버가 빠르게 업데이트를 처리할 수 없는 경우 이를 조정하세요.
+  Period: 600
+
+TileEntityUpdate:
+  #플러그인은 타일 ​​엔티티를 업데이트할 때 이 속도보다 빠르게 이동하는 플레이어를 무시합니다.
+  #수평속도입니다.
+  IgnoreMovementSpeed:
+    Normal: 1.31
+    Flying: 1.49
+    Gliding: 1.23
+  #플레이어 주변의 청크에 있는 타일 개체가 확인되는 범위
+  #범위가 0이면 플레이어가 서 있는 청크만 확인됩니다.
+  CheckingRange: 1
+
+LightUpdate:
+  #플러그인이 사용되는 블록의 빛 수준을 업데이트하는 주기
+  #틱 단위로 측정, 20틱 = 1초
+  #서버가 빠르게 빛 업데이트를 처리할 수 없는 경우 이를 조정하세요.
+  Period: 10
+
+#블록 InteractionVisualizer 활성화 구성
+Blocks:
+  Anvil:
+    Enabled: true
+  Banner:
+    Enabled: true
+  Beacon:
+    Enabled: true
+    #플러그인이 블록 업데이트를 확인하는 주기
+    #틱 단위로 측정, 20틱 = 1초
+    #서버가 빠르게 업데이트를 처리할 수 없거나 더 빠른 업데이트를 처리할 수 있는 경우 이를 조정하세요.
+    CheckingPeriod: 20
+    #표시 텍스트가 플레이어를 따르는 방법
+    #FACE, SQUARE, CIRCLE ​​허용
+    PathType: FACE
+  BeeHive:
+    Enabled: true
+    CheckingPeriod: 20
+    Options:
+      HoneyLevelCharacter: "\u2b1b"
+      EmptyColor: "&7"
+      FilledColor: "&e"
+      NoCampfireColor: "&c"
+      BeeCountText: "&e{Current}&6/{Max}"
+  BeeNest:
+    Enabled: true
+    CheckingPeriod: 20
+    Options:
+      HoneyLevelCharacter: "\u2b1b"
+      EmptyColor: "&7"
+      FilledColor: "&e"
+      NoCampfireColor: "&c"
+      BeeCountText: "&e{Current}&6/{Max}"
+  BlastFurnace:
+    Enabled: true
+    CheckingPeriod: 10
+    Options:
+      ProgressBarCharacter: "\u258e"
+      EmptyColor: "&7"
+      FilledColor: "&e"
+      NoFuelColor: "&c"
+      ProgressBarLength: 10
+      AmountPending: " &7+{Amount}"
+  BrewingStand:
+    Enabled: true
+    CheckingPeriod: 20
+    Options:
+      ProgressBarCharacter: "\u258e"
+      EmptyColor: "&7"
+      FilledColor: "&6"
+      NoFuelColor: "&c"
+      ProgressBarLength: 10
+  Campfire:
+    Enabled: true
+    CheckingPeriod: 20
+    Options:
+      ProgressBarCharacter: "\uff5c"
+      EmptyColor: "&7"
+      FilledColor: "&e"
+      ProgressBarLength: 10
+  CartographyTable:
+    Enabled: true
+  Chest:
+    Enabled: true
+  Conduit:
+    Enabled: true
+    CheckingPeriod: 20
+    PathType: CIRCLE
+  CraftingTable:
+    Enabled: true
+  Dispenser:
+    Enabled: true
+  DoubleChest:
+    Enabled: true
+  Dropper:
+    Enabled: true
+  EnchantmentTable:
+    Enabled: true
+  EnderChest:
+    Enabled: true
+  Furnace:
+    Enabled: true
+    CheckingPeriod: 20
+    Options:
+      ProgressBarCharacter: "\u258e"
+      EmptyColor: "&7"
+      FilledColor: "&e"
+      NoFuelColor: "&c"
+      ProgressBarLength: 10
+      AmountPending: " &7+{Amount}"
+  Grindstone:
+    Enabled: true
+  Hopper:
+    Enabled: true
+  JukeBox:
+    Enabled: true
+    CheckingPeriod: 20
+    Options:
+      #디스크 이름을 표시할지의 여부
+      ShowDiscName: true
+  Lectern:
+    Enabled: true
+    CheckingPeriod: 20
+    Options:
+      Line1: "&e{Title}"
+      Line2: "&7&o- {Author}"
+  Loom:
+    Enabled: true
+  NoteBlock:
+    Enabled: true
+  ShulkerBox:
+    Enabled: true
+  SmithingTable:
+    Enabled: true
+  Smoker:
+    Enabled: true
+    CheckingPeriod: 10
+    Options:
+      ProgressBarCharacter: "\u258e"
+      EmptyColor: "&7"
+      FilledColor: "&e"
+      NoFuelColor: "&c"
+      ProgressBarLength: 10
+      AmountPending: " &7+{Amount}"
+  SoulCampfire:
+    Enabled: true
+    CheckingPeriod: 20
+    Options:
+      ProgressBarCharacter: "\uff5c"
+      EmptyColor: "&7"
+      FilledColor: "&b"
+      ProgressBarLength: 10
+  Spawner:
+    Enabled: true
+    CheckingPeriod: 20
+    PathType: FACE
+    Options:
+      ProgressBarCharacter: "\u258e"
+      EmptyColor: "&c"
+      FilledColor: "&a"
+      ProgressBarLength: 10
+      SpawnRange: " &f{SpawnRange}m"
+  Stonecutter:
+    Enabled: true
+
+Entities:
+  Item:
+    Enabled: true
+    Options:
+      #일치하는 아이템에는 디스플레이가 표시되지 않음
+      Blacklist:
+        #이름이 일치할 때 색상 코드 제거
+        StripColorWhenMatching: true
+        #정규식 이름 일치
+        List:
+          - ["^ALTAR Probe.*", "NETHER_STAR"]
+          - ["^Blacklisted Item$", "*"]
+      RegularFormat: "{Item} &bx{Amount} &6[{Timer}&6]"
+      SingularFormat: "{Item} &6[{Timer}&6]"
+      ToolsFormat: "{Item} &6[{Durability}&6]"
+      #한 블록에 정의된 양보다 많은 항목 엔터티가 있는 경우 숨기기
+      Cramping: 6
+      Color:
+        High: "&a"
+        Medium: "&e"
+        Low: "&c"
+  Villager:
+    Enabled: true
+
+#InteractionVisualizer 디스플레이를 위해 아래 모듈들을 활성화하세요.
+#ItemStand는 갑옷 거치대와 아이템 액자을 사용하여 모든 디스플레이를 나타냅니다.
+#ItemDrop은 드롭된 항목을 사용하는 모든 디스플레이를 나타냅니다.
+#Hologram은 갑옷 스탠드를 사용하여 모든 홀로그램 디스플레이를 나타냅니다.
+Modules:
+  ItemStand:
+    Enabled: true
+  ItemDrop:
+    Enabled: true
+  Hologram:
+    Enabled: true
+
+Settings:
+  UseHandSwingAnimation: true
+  PickupAnimationPlayerYOffset: 0
+  DisabledWorlds: []
+  HideIfViewObstructed: false
+  #기본 언어
+  #Minecraft 1.13+에서는 아무 작업도 수행되지 않습니다.
+  Language: ko_KR
+
+Options:
+  Updater: true
+  DownloadLanguageFiles: true
+  

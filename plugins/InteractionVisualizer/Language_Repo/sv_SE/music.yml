@@ -1,0 +1,21 @@
+#Swedish Language default "music.yml" translated by Luracasmus
+#https://luracasmus.wixsite.com/luracasmus
+#Ersätt den originala "music.yml" för att använda!
+
+Instruments:
+  BANJO: Banjo
+  BASS_DRUM: Bastrumma
+  BASS_GUITAR: Bas
+  BELL: Klockspel
+  BIT: Bit
+  CHIME: Klocka
+  COW_BELL: Koklocka
+  DIDGERIDOO: Didgeridoo
+  FLUTE: Flöjt
+  GUITAR: Gitarr
+  IRON_XYLOPHONE: Järnxylofon
+  PIANO: Piano
+  PLING: Elektriskt Piano
+  SNARE_DRUM: Virveltrumma
+  STICKS: Pinnar
+  XYLOPHONE: Xylofon

@@ -70,7 +70,7 @@ form:
      # The economy pay command (send by player)
      # Fill in the payment command of the economy plugin you are using here
      # Available variables: %playerName% player name, %amount% amount
-    pay-command: 'money give %playerName% %amount%'
+    pay-command: '/pay %playerName% %amount%'
 
   home:
      # 启用基岩版家表单(/homegui)
@@ -125,7 +125,7 @@ general:
      # 可用变量: %playerName% 玩家名
      # Enable bedrock player join commands
      # Available variables: %playerName% player name
-    enable: false
+    enable: true
      # 基岩版进入服务器时执行的命令
      # 可用变量: %playerName% 玩家名
      # 格式: [执行方] 命令
@@ -137,8 +137,7 @@ general:
      # Console execution: [CONSOLE] say Welcome Bedrock Player %playerName%
      # Player execution: [PLAYER] me I'm a Bedrock Player %playerName%
     commands:
-      - '[CONSOLE] say Welcome Bedrock Player %playerName%'
-      - '[PLAYER] me I''m a Bedrock Player %playerName%'
+      - '[PLAYER] I am a Bedrock Player %floodgate_username%, using %floodgate_device%, language %floodgate_locale%'
 
   quit-commands:
      # 启用基岩版退出服务器时执行命令

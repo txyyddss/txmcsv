@@ -1,6 +1,6 @@
 afk-efficiency:
-  afk-efficiency-enabled: <tc>Efficiency mode activated, world changes are delayed.<title:0:365d:0><subtitle><tc>Efficiency mode activating
-  afk-efficiency-disabled: <title:0:1s:0.5s><subtitle><pdc>Efficiency mode disabled<sound:minecraft:block.note_block.bell:master:0.5>
+  afk-efficiency-enabled: <tc><tc>
+  afk-efficiency-disabled: <tc><tc>
 entity-tracking-range:
   updated-tracked-entities: <pc>Updated all tracked entities.
   client-tracking-range:
