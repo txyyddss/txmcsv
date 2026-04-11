@@ -14,6 +14,14 @@ backup
 *.db
 .db
 *.bat
+.sqlite
+*.sqlite
+.mv.db
+*.mv.db
+*.mca
+.mca
+*.mcm
+.mcm
 .bat
 # Don't want include
 /bluemap
