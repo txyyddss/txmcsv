@@ -45,12 +45,10 @@ body:
         示例 1：工作台有序配方
         左上：末地烛
         中中：活塞
-        输出：1 个示例物品
 
         示例 2：烧炼配方
         输入：腐肉
         燃料：任意
-        输出：皮革 ×1
       render: markdown
     validations:
       required: true
