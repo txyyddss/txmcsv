@@ -1,0 +1,100 @@
+name: Crafting Formula
+description: 🍀 请求添加 Minecraft 合成/加工配方
+title: "[Crafting]: "
+labels:
+  - "🪄enhancement"
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## 🍀 合成表添加申请
+
+        请尽量写清楚配方类型、材料摆放方式、输出物品和添加原因。
+        如果描述不清楚，维护者可能无法准确判断是否适合加入。
+
+  - type: dropdown
+    id: recipe_type
+    attributes:
+      label: 配方类型
+      description: 请选择你想添加的配方类型。
+      options:
+        - 工作台有序配方
+        - 工作台无序配方
+        - 烧炼配方
+        - 锻造配方
+        - 切石配方
+        - 酿造配方
+        - 铁砧配方
+    validations:
+      required: true
+
+  - type: textarea
+    id: recipe_content
+    attributes:
+      label: 配方内容
+      description: |
+        请写清楚材料、摆放位置和输出物品。
+
+        工作台有序配方建议使用：
+        左上 / 中上 / 右上
+        左中 / 中中 / 右中
+        左下 / 中下 / 右下
+
+        无序、烧炼、锻造、切石、酿造、铁砧配方可以直接描述输入物品和输出物品。
+      placeholder: |
+        示例 1：工作台有序配方
+        左上：末地烛
+        中中：活塞
+        输出：1 个示例物品
+
+        示例 2：烧炼配方
+        输入：腐肉
+        燃料：任意
+        输出：皮革 ×1
+      render: markdown
+    validations:
+      required: true
+
+  - type: input
+    id: output_item
+    attributes:
+      label: 输出物品
+      description: 请填写该配方最终获得的物品名称和数量。
+      placeholder: "例如：迪克 ×1"
+    validations:
+      required: true
+
+  - type: textarea
+    id: reason
+    attributes:
+      label: 添加原因
+      description: 提供合理原因可以让这个配方更容易通过审核。
+      placeholder: |
+        例如：
+        - 原版获取方式过于繁琐
+        - 服务器玩法需要该物品
+        - 可以改善生存体验
+        - 不会明显破坏平衡
+      render: markdown
+    validations:
+      required: false
+
+  - type: textarea
+    id: balance
+    attributes:
+      label: 平衡性说明
+      description: 说明这个配方是否可能影响服务器经济、生存难度或物品稀有度。
+      placeholder: "例如：材料成本较高，不会导致物品泛滥。"
+      render: markdown
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: 提交前确认
+      options:
+        - label: 我已经确认该配方不会明显破坏服务器平衡。
+          required: true
+        - label: 我已经尽量写清楚了材料、位置和输出物品。
+          required: true
