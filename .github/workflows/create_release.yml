@@ -1,0 +1,122 @@
+name: 发布版本
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: '版本号，例如 8.0.0（不含日期）'
+        required: true
+        type: string
+      notes:
+        description: '手动记录，例如：重构'
+        default: '无'
+        type: string
+      bug_label:
+        description: 'Bug 标签；填 * 则统计所有已完成 Issue'
+        default: 'bug'
+        required: true
+        type: string
+      timezone:
+        description: '发布日期时区'
+        default: 'Asia/Shanghai'
+        required: true
+        type: string
+
+permissions:
+  contents: write
+  issues: read
+
+concurrency:
+  group: publish-release
+  cancel-in-progress: false
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: 汇总并发布
+        uses: actions/github-script@v8
+        env:
+          VERSION: ${{ inputs.version }}
+          NOTES: ${{ inputs.notes }}
+          BUG_LABEL: ${{ inputs.bug_label }}
+          TIMEZONE: ${{ inputs.timezone }}
+        with:
+          script: |
+            const { owner, repo } = context.repo;
+            if (context.ref !== 'refs/heads/' + context.payload.repository.default_branch) {
+              throw new Error('请在默认分支运行此工作流。');
+            }
+            const version = process.env.VERSION.trim();
+            if (!/^\d+\.\d+\.\d+$/.test(version)) {
+              throw new Error('版本号格式必须为 数字.数字.数字，例如 8.0.0。');
+            }
+            const cutoff = new Date();
+            const parts = new Intl.DateTimeFormat('en-US', {
+              timeZone: process.env.TIMEZONE.trim(),
+              year: 'numeric', month: '2-digit', day: '2-digit'
+            }).formatToParts(cutoff);
+            const part = type => parts.find(item => item.type === type).value;
+            const tag = [part('year'), part('month'), part('day')].join('.') + '_' + version;
+            const releases = await github.paginate(github.rest.repos.listReleases, {
+              owner, repo, per_page: 100
+            });
+            if (releases.some(release => release.tag_name === tag)) {
+              throw new Error('Release 已存在：' + tag);
+            }
+            try {
+              await github.rest.git.getRef({ owner, repo, ref: 'tags/' + tag });
+              throw new Error('Tag 已存在，不会复用：' + tag);
+            } catch (error) {
+              if (error.status !== 404) throw error;
+            }
+            const previous = releases
+              .filter(release => !release.draft && !release.prerelease && release.published_at)
+              .sort((first, second) => Date.parse(second.published_at) - Date.parse(first.published_at))[0];
+            const marker = previous?.body?.match(/<!-- issue-cutoff: ([^\s]+) -->/);
+            const since = marker ? marker[1] : previous?.published_at;
+            const lowerBound = since ? Date.parse(since) : 0;
+            if (!Number.isFinite(lowerBound) || lowerBound > cutoff.getTime()) {
+              throw new Error('上次发布的统计时间无效，请检查 issue-cutoff。');
+            }
+            const issues = await github.paginate(github.rest.issues.listForRepo, {
+              owner, repo, state: 'closed', per_page: 100,
+              sort: 'updated', direction: 'desc',
+              ...(since ? { since: new Date(lowerBound).toISOString() } : {})
+            });
+            const completed = issues.filter(issue => {
+              const closedAt = Date.parse(issue.closed_at);
+              return !issue.pull_request && issue.state_reason === 'completed'
+                && closedAt > lowerBound && closedAt <= cutoff.getTime();
+            }).sort((first, second) => first.number - second.number);
+            const bugLabel = process.env.BUG_LABEL.trim().toLowerCase();
+            if (!bugLabel) throw new Error('Bug 标签不能为空。');
+            const labelsOf = issue => issue.labels.map(label =>
+              (typeof label === 'string' ? label : label.name || '').toLowerCase()
+            );
+            const isBug = issue => bugLabel === '*' || labelsOf(issue).includes(bugLabel);
+            const bugs = completed.filter(isBug);
+            const features = completed.filter(issue => !isBug(issue)
+              && labelsOf(issue).some(label => ['enhancement', 'feature'].includes(label)));
+            const escapeTitle = title => title.replace(/[\r\n]+/g, ' ')
+              .replace(/[\\`*_{}\[\]()<>!#|~]/g, '\\$&');
+            const render = entries => entries.length
+              ? entries.map(issue => '- ' + escapeTitle(issue.title)
+                + ' ([#' + issue.number + '](' + issue.html_url + '))').join('\n')
+              : '无';
+            const body = [
+              '## 更新内容', '',
+              '### 手动记录', '', process.env.NOTES.trim() || '无', '',
+              '### Bug 修复', '', render(bugs), '',
+              '### 功能与调整', '', render(features), '',
+              '<!-- issue-cutoff: ' + cutoff.toISOString() + ' -->'
+            ].join('\n');
+            const { data: release } = await github.rest.repos.createRelease({
+              owner, repo, tag_name: tag, name: tag, target_commitish: context.sha,
+              body, draft: false, prerelease: false, make_latest: 'true'
+            });
+            core.info('已发布 ' + release.html_url);
+            await core.summary.addHeading(tag).addLink('查看 Release', release.html_url)
+              .addRaw('\n\nBug 修复：' + bugs.length + '；功能与调整：' + features.length + '\n')
+              .write();
