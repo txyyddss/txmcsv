@@ -1,0 +1,142 @@
+style:
+  primary-color: '#0094D5'
+  secondary-color: '#7A7A7A'
+  action-color: '#FBFF8B'
+  severe-color: '#FF6048'
+  normal-color: '#8BFF7B'
+menu-tui-text:
+  title: 領地主選單
+  button: 選單
+  admin-only-section: 以下內容僅管理員才能看見
+  document-button: 文件連結
+  document-description: 在瀏覽器中開啟插件文件頁面
+  command-help-button: 指令說明
+  command-help-description: 在瀏覽器中開啟插件指令說明頁面
+  switch-to-cui-button: 切換至 CUI 🆕
+  fail-to-switch-message: 切換至 {0} 失敗：{1}
+dominion-list-tui-text:
+  title: 你的領地列表
+  button: 領地列表
+  description: 列出你所有的領地(含可管理的領地)
+  delete-button: 刪除
+  admin-section: 以下為你可管理的領地
+  server-section: 以下為你在伺服器 {0} 的領地
+dominion-manage-tui-text:
+  title: 管理領地 {0}
+  button: 管理領地
+  set-tp-button: 設定傳送點
+  set-tp-description: 將你目前所在位置設定為領地傳送點
+set-size-tui-text:
+  title: 修改領地 {0} 大小
+  button: 修改大小
+  north: 北 (z-)
+  south: 南 (z+)
+  west: 西 (x-)
+  east: 東 (x+)
+  up: 上 (y+)
+  down: 下 (y-)
+  expand: 擴張
+  contract: 縮小
+env-setting-tui-text:
+  title: 領地 {0} 環境行為
+  button: 環境行為
+  description: 設定領地環境行為
+guest-setting-tui-text:
+  title: 領地 {0} 通用權限
+  button: 通用權限
+  description: 設定領地通用權限
+size-info-tui-text:
+  title: 領地 {0} 尺寸資訊
+  button: 領地尺寸
+  description: 檢視領地尺寸資訊
+  owner-name: 該領地擁有者：{0}
+  info-lwh: 尺寸：{0} x {1} x {2}
+  info-height: 高度範圍：{0} ~ {1}
+  square: 面積：{0}
+  volume: 體積：{0}
+migrate-list-tui-text:
+  title: 從 Residence 遷移
+  description: 將 Residence 的領地資料遷移至 Dominion
+  button: 遷移
+  not-enabled: 伺服器管理員未啟用遷移功能
+  no-data: 無可遷移的領地資料
+  cant-migrate: 子領地需與父領地一併遷移
+  migrate-all: 一鍵遷移
+member-list-tui-text:
+  title: 領地 {0} 成員列表
+  description: 列出該領地所有成員
+  button: 成員列表
+  remove: 移除
+  remove-description: 將此玩家從領地成員移除
+  owner-only: 僅領地擁有者可管理領地管理員
+  group-only: 該成員屬於權限組 {0}，無法單獨管理
+  tag-admin: 領地管理員
+  tag-normal: 普通成員
+  tag-ban: 黑名單成員(無移動權限)
+  tag-group: 此成員屬於權限組
+select-player-tui-text:
+  title: 選擇玩家
+  button: 新增成員
+  description: 選擇一位曾登入的玩家加入領地
+  back: 返回
+member-setting-tui-text:
+  title: 成員 {0} 權限設定
+  description: 設定此成員在領地內的權限
+  button: 權限設定
+template-list-tui-text:
+  title: 權限範本列表
+  button: 權限範本
+  description: 透過預設範本快速設定成員權限
+  delete-button: 刪除
+select-template-tui-text:
+  title: 選擇範本
+  description: 選擇一個權限範本套用至成員
+  button: 套用範本
+  back: 返回
+  apply: 套用
+group-list-tui-text:
+  title: 領地 {0} 權限組列表
+  description: 列出該領地所有權限組
+  button: 權限組
+  delete-button: 刪除
+  delete-description: 刪除權限組 {0}，成員將恢復普通成員
+  remove-member-description: 將成員 {0} 從權限組 {1} 移出，恢復普通成員
+group-setting-tui-text:
+  title: 權限組 {0} 設定
+  description: 管理權限組 {0} 的權限設定
+  button: 設定
+select-member-tui-text:
+  title: 選擇成員
+  description: 選擇成員加入權限組
+  back: 返回
+title-list-tui-text:
+  title: 權限組稱號
+  description: 可用的權限組稱號列表
+  button: 稱號列表
+  use-button: 使用
+  disuse-button: 卸下
+  from-dominion: 來自領地 {0}
+all-dominion-tui-text:
+  title: 伺服器所有領地
+  description: 列出伺服器上的所有領地
+  button: 所有領地
+template-setting-tui-text:
+  title: 範本設定
+  button: 設定
+  not-found: 找不到範本 {0}
+copy-menu-tui-text:
+  button: 複製設定
+  description: 從其他領地複製設定至目前領地
+  title: 選擇要複製的設定類型
+dominion-copy-tui-text:
+  back: 返回
+  copy: 選擇
+  title: 選擇要從哪個領地複製
+  env-button: 環境設定
+  env-description: 複製其他領地的環境設定
+  group-button: 權限組設定
+  group-description: 複製其他領地的權限組設定(含成員)
+  guest-button: 通用設定
+  guest-description: 複製其他領地的通用權限設定
+  member-button: 成員設定
+  member-description: 複製其他領地的成員設定(含權限)  

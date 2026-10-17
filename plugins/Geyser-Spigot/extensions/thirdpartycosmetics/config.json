@@ -1,0 +1,28 @@
+{
+  "customCapes": true,
+  "customEars": true,
+  "cape_urls": [
+    {
+      "name": "optifine",
+      "priority": 0,
+      "url": "https://optifine.net/capes/{username}.png"
+    },
+    {
+      "name": "minecraftcapes",
+      "priority": 1,
+      "url": "https://api.minecraftcapes.net/profile/{uuid}/cape"
+    },
+    {
+      "name": "labymod",
+      "priority": 2,
+      "url": "https://dl.labymod.net/capes/{full_uuid}"
+    }
+  ],
+  "ears_urls": [
+    {
+      "name": "minecraftcapes",
+      "priority": 0,
+      "url": "https://api.minecraftcapes.net/profile/{uuid}/ears"
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+-- MySQL dump 10.13  Distrib 8.4.10, for Linux (x86_64)
+--
+-- Host: localhost    Database: Authme
+-- ------------------------------------------------------
+-- Server version	8.4.10-0ubuntu0.26.04.1
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8mb4 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `authme`
+--
+
+DROP TABLE IF EXISTS `authme`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `authme` (
+  `id` mediumint unsigned NOT NULL AUTO_INCREMENT,
+  `username` varchar(255) NOT NULL,
+  `realname` varchar(255) NOT NULL,
+  `password` varchar(255) CHARACTER SET ascii COLLATE ascii_bin NOT NULL,
+  `ip` varchar(40) CHARACTER SET ascii COLLATE ascii_bin DEFAULT NULL,
+  `lastlogin` bigint DEFAULT NULL,
+  `x` double NOT NULL DEFAULT '0',
+  `y` double NOT NULL DEFAULT '0',
+  `z` double NOT NULL DEFAULT '0',
+  `world` varchar(255) NOT NULL DEFAULT 'world',
+  `regdate` bigint NOT NULL DEFAULT '0',
+  `regip` varchar(40) CHARACTER SET ascii COLLATE ascii_bin DEFAULT NULL,
+  `yaw` float DEFAULT NULL,
+  `pitch` float DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `isLogged` smallint NOT NULL DEFAULT '0',
+  `hasSession` smallint NOT NULL DEFAULT '0',
+  `totp` varchar(32) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `username` (`username`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `authme`
+--
+
+LOCK TABLES `authme` WRITE;
+/*!40000 ALTER TABLE `authme` DISABLE KEYS */;
+INSERT INTO `authme` VALUES (1,'mc9957','mc9957','$2a$12$AWHUr.xp.pStYeVbSSuIfuYY/s1HSc9PLgiSKmTqM9Bx.WfY04vhi','114.114.51.116',1784732322298,-297.30000001192093,74,-35.23742139167366,'world',1782497126777,'192.168.9.25',-139.2,6.59999,NULL,0,1,NULL),(2,'hehawellgood','HEHAWellgood','$2a$12$NHT.K2Uhy6rtsT0PuzVYPe8.c5pkNNMUx0mUJYy.2SuM6XSWTd4.i','114.114.51.201',1784286456694,-1265.4996103024023,63,1856.640165260508,'world',1784286408730,'114.114.51.201',-172.05,76.2,NULL,0,1,NULL),(3,'gold3nflame','Gold3nflame','$2a$12$e597fJkDp3sIAErTN8zLDe.gG0wibNxBJgjHcZG1ucaawze5PlnTK','114.114.51.239',1784709525803,-331.8340003733031,71,-161.17127079825335,'world',1784707553409,'114.114.51.239',-134.244,1.24944,NULL,0,1,NULL);
+/*!40000 ALTER TABLE `authme` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2026-07-22 23:20:56

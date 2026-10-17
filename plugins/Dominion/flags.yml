@@ -1,0 +1,1214 @@
+environment:
+  animal_spawn: # 动物生成（繁殖）-是否允许动物生成（包括繁殖）
+    default: true
+    enable: false
+    material: COW_SPAWN_EGG
+    dialog-ui-icon: minecraft:items/item/cow_spawn_egg
+  animal_move: # 动物移动-是否允许动物在（向）领地内移动
+    default: true
+    enable: false
+    material: CHERRY_FENCE
+    dialog-ui-icon: minecraft:blocks/block/cherry_planks
+  villager_spawn: # 村民繁殖-是否允许村民繁殖（包括村民蛋）
+    default: true
+    enable: false
+    material: VILLAGER_SPAWN_EGG
+    dialog-ui-icon: minecraft:items/item/villager_spawn_egg
+  monster_spawn: # 怪物生成-是否可以生成怪物
+    default: false
+    enable: false
+    material: ZOMBIE_SPAWN_EGG
+    dialog-ui-icon: minecraft:items/item/zombie_spawn_egg
+  monster_move: # 怪物移动-是否可以在（向）领地内移动
+    default: true
+    enable: false
+    material: CRIMSON_FENCE
+    dialog-ui-icon: minecraft:blocks/block/crimson_planks
+  monster_damage: # 怪物对玩家造成伤害-是否可以对玩家造成伤害
+    default: true
+    enable: false
+    material: SKELETON_SPAWN_EGG
+    dialog-ui-icon: minecraft:items/item/skeleton_spawn_egg
+  ender_man: # 末影人行为-包含：末影人是否可以生成、瞬移
+    default: false
+    enable: true
+    material: ENDERMAN_SPAWN_EGG
+  tnt_explode: # TNT爆炸-TNT是否可以爆炸
+    default: false
+    enable: true
+    material: TNT
+    dialog-ui-icon: minecraft:blocks/block/tnt_side
+  wither_spawn: # 凋零生成-凋零生成以及凋零生成时产生的爆炸
+    default: false
+    enable: true
+    material: WITHER_SKELETON_SKULL
+    dialog-ui-icon: minecraft:blocks/block/stone
+  creeper_explode: # 生物破坏/非TNT爆炸-包含：苦力怕/凋零头颅/末影水晶/火球/床/重生锚爆炸等
+    default: false
+    enable: true
+    material: CREEPER_HEAD
+    dialog-ui-icon: minecraft:blocks/block/stone
+  dragon_break_block: # 末影龙破坏方块-末影龙冲撞是否可以破坏方块
+    default: false
+    enable: true
+    material: ENDER_DRAGON_SPAWN_EGG
+    dialog-ui-icon: minecraft:items/item/ender_dragon_spawn_egg
+  fire_spread: # 火焰蔓延-是否可以火焰蔓延
+    default: false
+    enable: true
+    material: CAMPFIRE
+    dialog-ui-icon: minecraft:items/item/flint_and_steel
+  flow_in_protection: # 外部流体是否可以进入-包含：岩浆、水（不会阻止领地内部的流体蔓延）
+    default: false
+    enable: true
+    material: WATER_BUCKET
+  gravity_block: # 允许外部重力方块落入-如果禁止则领地外重力方块进入领地会变为掉落物
+    default: false
+    enable: true
+    material: SAND
+    dialog-ui-icon: minecraft:blocks/block/sand
+  ice_melt: # 冰融化-是否允许冰融化
+    default: false
+    enable: false
+    material: ICE
+    dialog-ui-icon: minecraft:blocks/block/ice
+  ice_form: # 冰生成-是否允许冰生成（防止冰霜行者）
+    default: false
+    enable: true
+    material: PACKED_ICE
+  snow_accumulation: # 积雪-是否允许生成积雪
+    default: false
+    enable: false
+    material: SNOW
+    dialog-ui-icon: minecraft:blocks/block/snow
+  snow_melt: # 积雪融化-是否允许积雪融化
+    default: false
+    enable: false
+    material: SNOW_BLOCK
+    dialog-ui-icon: minecraft:blocks/block/stone
+  trample: # 作物践踏-是否可以践踏作物（关闭意味着保护耕地）
+    default: false
+    enable: true
+    material: FARMLAND
+    dialog-ui-icon: minecraft:blocks/block/farmland
+  decay: # 树叶腐烂-是否允许树叶自然腐烂
+    default: false
+    enable: true
+    material: OAK_LEAVES
+    dialog-ui-icon: minecraft:blocks/block/oak_leaves
+  hopper_outside: # 领地外漏斗对领地内箱子是否生效-领地外的漏斗是否可以对领地内的箱子生效
+    default: false
+    enable: true
+    material: HOPPER
+    dialog-ui-icon: minecraft:items/item/hopper
+  piston_outside: # 活塞是否可以跨领地推动方块-活塞是否可以往领地内推东西或推东西到领地外
+    default: false
+    enable: true
+    material: PISTON
+    dialog-ui-icon: minecraft:blocks/block/piston_side
+  trig_pressure_proj: # 投掷物触发压力板-投掷物（箭/风弹/雪球）是否可以触发压力板
+    default: false
+    enable: true
+    material: BIRCH_PRESSURE_PLATE
+    dialog-ui-icon: minecraft:blocks/block/birch_planks
+  trig_pressure_mob: # 生物触发压力板-生物（不包含玩家）是否可以触发压力板
+    default: false
+    enable: true
+    material: HEAVY_WEIGHTED_PRESSURE_PLATE
+    dialog-ui-icon: minecraft:blocks/block/iron_block
+  trig_pressure_drop: # 掉落物触发压力板-掉落物是否可以触发压力板
+    default: false
+    enable: true
+    material: LIGHT_WEIGHTED_PRESSURE_PLATE
+    dialog-ui-icon: minecraft:blocks/block/gold_block
+  item_frame_proj_damage: # 投掷物是否可以破坏展示框/画-非玩家发出的投掷物是否可以破坏展示框/画等悬挂物
+    default: false
+    enable: true
+    material: ITEM_FRAME
+  mob_drop_item: # 生物战利品掉落-生物死亡时是否产生掉落物
+    default: true
+    enable: true
+    material: DIAMOND
+    dialog-ui-icon: minecraft:items/item/diamond
+  show_border: # 显示领地边界-是否显示领地边界
+    default: true
+    enable: true
+    material: BRICK_WALL
+    dialog-ui-icon: minecraft:blocks/block/bricks
+  show_on_web: # Show On Web Map-Whether to show this dominion on web map.
+    default: true
+    enable: true
+    material: MAP
+  animal_breed: # Animal Breeding-Whether animal breeding can create offspring.
+    default: true
+    enable: false
+    material: WHEAT
+    dialog-ui-icon: minecraft:items/item/wheat
+  animal_spawner: # Animal Spawner-Whether animals can spawn from monster spawners.
+    default: true
+    enable: false
+    material: SPAWNER
+    dialog-ui-icon: minecraft:blocks/block/spawner
+  animal_spawn_egg: # Animal Spawn Egg-Whether animals can be created with spawn eggs.
+    default: true
+    enable: false
+    material: COW_SPAWN_EGG
+    dialog-ui-icon: minecraft:items/item/cow_spawn_egg
+  villager_breed: # Villager Breeding-Whether villager breeding can create children.
+    default: true
+    enable: false
+    material: BREAD
+    dialog-ui-icon: minecraft:items/item/bread
+  villager_spawner: # Villager Spawner-Whether villagers can spawn from monster spawners.
+    default: true
+    enable: false
+    material: SPAWNER
+    dialog-ui-icon: minecraft:blocks/block/spawner
+  villager_spawn_egg: # Villager Spawn Egg-Whether villagers can be created with spawn eggs.
+    default: true
+    enable: false
+    material: VILLAGER_SPAWN_EGG
+    dialog-ui-icon: minecraft:items/item/villager_spawn_egg
+  monster_spawner: # Monster Spawner-Whether monsters can spawn from monster spawners.
+    default: false
+    enable: false
+    material: SPAWNER
+    dialog-ui-icon: minecraft:blocks/block/spawner
+  monster_spawn_egg: # Monster Spawn Egg-Whether monsters can be created with spawn eggs.
+    default: false
+    enable: false
+    material: ZOMBIE_SPAWN_EGG
+    dialog-ui-icon: minecraft:items/item/zombie_spawn_egg
+  ender_man_pickup_block: # Enderman Pick Up Block-Whether Endermen can pick up blocks.
+    default: false
+    enable: true
+    material: ENDERMAN_SPAWN_EGG
+    dialog-ui-icon: minecraft:items/item/enderman_spawn_egg
+  ender_man_place_block: # Enderman Place Block-Whether Endermen can place blocks.
+    default: false
+    enable: true
+    material: ENDERMAN_SPAWN_EGG
+    dialog-ui-icon: minecraft:items/item/enderman_spawn_egg
+  ender_man_spawn: # Enderman Spawn-Whether endermen can spawn.
+    default: false
+    enable: true
+    material: ENDERMAN_SPAWN_EGG
+    dialog-ui-icon: minecraft:items/item/enderman_spawn_egg
+  ender_man_teleport: # Enderman Teleport-Whether endermen can teleport.
+    default: false
+    enable: true
+    material: ENDER_PEARL
+    dialog-ui-icon: minecraft:items/item/ender_pearl
+  tnt_damage_entity: # TNT Entity Damage-Whether TNT explosions can damage entities other than armor stands and hanging entities.
+    default: false
+    enable: true
+    material: TNT
+    dialog-ui-icon: minecraft:blocks/block/tnt_side
+  wither_explode: # Wither Spawn Explosion-Whether a spawning wither can destroy blocks.
+    default: false
+    enable: true
+    material: NETHER_STAR
+    dialog-ui-icon: minecraft:items/item/nether_star
+  wither_break_block: # Wither Block Breaking-Whether a harmed wither can break blocks.
+    default: false
+    enable: true
+    material: WITHER_SKELETON_SKULL
+    dialog-ui-icon: minecraft:blocks/block/stone
+  creeper_damage_entity: # Creeper Entity Damage-Whether creeper explosions can damage entities other than armor stands and hanging entities.
+    default: false
+    enable: true
+    material: CREEPER_HEAD
+    dialog-ui-icon: minecraft:blocks/block/stone
+  wither_skull_explode: # Wither Skull Block Damage-Whether wither skull explosions can destroy blocks.
+    default: false
+    enable: true
+    material: WITHER_SKELETON_SKULL
+    dialog-ui-icon: minecraft:blocks/block/stone
+  wither_skull_damage_entity: # Wither Skull Entity Damage-Whether wither skull explosions can damage entities other than armor stands and hanging entities.
+    default: false
+    enable: true
+    material: WITHER_SKELETON_SKULL
+    dialog-ui-icon: minecraft:blocks/block/stone
+  ender_crystal_explode: # End Crystal Block Damage-Whether end crystal explosions can destroy blocks.
+    default: false
+    enable: true
+    material: END_CRYSTAL
+    dialog-ui-icon: minecraft:items/item/end_crystal
+  ender_crystal_damage_entity: # End Crystal Entity Damage-Whether end crystal explosions can damage entities other than armor stands and hanging entities.
+    default: false
+    enable: true
+    material: END_CRYSTAL
+    dialog-ui-icon: minecraft:items/item/end_crystal
+  fireball_explode: # Fireball Block Damage-Whether fireball explosions can destroy blocks.
+    default: false
+    enable: true
+    material: FIRE_CHARGE
+    dialog-ui-icon: minecraft:items/item/fire_charge
+  fireball_damage_entity: # Fireball Entity Damage-Whether fireball explosions can damage entities other than armor stands and hanging entities.
+    default: false
+    enable: true
+    material: FIRE_CHARGE
+    dialog-ui-icon: minecraft:items/item/fire_charge
+  tnt_damage_armor_stand: # TNT Armor Stand Damage-Whether TNT explosions can damage armor stands.
+    default: false
+    enable: true
+    material: TNT
+    dialog-ui-icon: minecraft:blocks/block/tnt_side
+  tnt_damage_hanging_entity: # TNT Hanging Entity Damage-Whether TNT explosions can damage hanging entities.
+    default: false
+    enable: true
+    material: TNT
+    dialog-ui-icon: minecraft:blocks/block/tnt_side
+  creeper_damage_armor_stand: # Creeper Armor Stand Damage-Whether creeper explosions can damage armor stands.
+    default: false
+    enable: true
+    material: CREEPER_HEAD
+    dialog-ui-icon: minecraft:blocks/block/stone
+  creeper_damage_hanging_entity: # Creeper Hanging Entity Damage-Whether creeper explosions can damage hanging entities.
+    default: false
+    enable: true
+    material: CREEPER_HEAD
+    dialog-ui-icon: minecraft:blocks/block/stone
+  wither_skull_damage_armor_stand: # Wither Skull Armor Stand Damage-Whether wither skull explosions can damage armor stands.
+    default: false
+    enable: true
+    material: WITHER_SKELETON_SKULL
+    dialog-ui-icon: minecraft:blocks/block/stone
+  wither_skull_damage_hanging_entity: # Wither Skull Hanging Entity Damage-Whether wither skull explosions can damage hanging entities.
+    default: false
+    enable: true
+    material: WITHER_SKELETON_SKULL
+    dialog-ui-icon: minecraft:blocks/block/stone
+  ender_crystal_damage_armor_stand: # End Crystal Armor Stand Damage-Whether end crystal explosions can damage armor stands.
+    default: false
+    enable: true
+    material: END_CRYSTAL
+    dialog-ui-icon: minecraft:items/item/end_crystal
+  ender_crystal_damage_hanging_entity: # End Crystal Hanging Entity Damage-Whether end crystal explosions can damage hanging entities.
+    default: false
+    enable: true
+    material: END_CRYSTAL
+    dialog-ui-icon: minecraft:items/item/end_crystal
+  fireball_damage_armor_stand: # Fireball Armor Stand Damage-Whether fireball explosions can damage armor stands.
+    default: false
+    enable: true
+    material: FIRE_CHARGE
+    dialog-ui-icon: minecraft:items/item/fire_charge
+  fireball_damage_hanging_entity: # Fireball Hanging Entity Damage-Whether fireball explosions can damage hanging entities.
+    default: false
+    enable: true
+    material: FIRE_CHARGE
+    dialog-ui-icon: minecraft:items/item/fire_charge
+  bed_explode: # Bed Explosion Block Damage-Whether beds can explode and destroy blocks in this dominion.
+    default: false
+    enable: true
+    material: RED_BED
+    dialog-ui-icon: minecraft:blocks/block/red_bed_foot_east
+  anchor_explode: # Respawn Anchor Explosion Block Damage-Whether respawn anchors can explode and destroy blocks in this dominion.
+    default: false
+    enable: true
+    material: RESPAWN_ANCHOR
+    dialog-ui-icon: minecraft:blocks/block/respawn_anchor_top
+  burn_block: # Burn Block-Whether blocks can burn.
+    default: false
+    enable: true
+    material: FIRE_CHARGE
+    dialog-ui-icon: minecraft:items/item/fire_charge
+  burn_entity_fire: # Burn Entity (Fire)-Whether entities other than players can burn or take fire damage.
+    default: true
+    enable: true
+    material: CAMPFIRE
+    dialog-ui-icon: minecraft:items/item/campfire
+  burn_entity_lava: # Burn Entity (Lava)-Whether entities other than players can take lava or hot-floor damage.
+    default: true
+    enable: true
+    material: LAVA_BUCKET
+    dialog-ui-icon: minecraft:items/item/lava_bucket
+  flow_in_water: # Water Flow In-Whether external water can flow into this dominion.
+    default: false
+    enable: true
+    material: WATER_BUCKET
+    dialog-ui-icon: minecraft:items/item/water_bucket
+  flow_in_lava: # Lava Flow In-Whether external lava can flow into this dominion.
+    default: false
+    enable: true
+    material: LAVA_BUCKET
+    dialog-ui-icon: minecraft:items/item/lava_bucket
+  ice_form_natural: # Natural Ice Form-Whether ice can form through natural environmental changes.
+    default: false
+    enable: true
+    material: ICE
+    dialog-ui-icon: minecraft:blocks/block/ice
+  ice_form_frost_walker: # Frost Walker Ice Form-Whether Frost Walker can create ice.
+    default: false
+    enable: true
+    material: PACKED_ICE
+    dialog-ui-icon: minecraft:blocks/block/packed_ice
+  mob_trample: # Mob Trample Farmland-Whether non-player entities can trample farmland.
+    default: false
+    enable: true
+    material: FARMLAND
+    dialog-ui-icon: minecraft:blocks/block/farmland
+  armor_stand_mob_damage: # Armor Stand Mob Damage-Whether non-player entities can damage armor stands.
+    default: false
+    enable: true
+    material: ARMOR_STAND
+    dialog-ui-icon: minecraft:items/item/armor_stand
+  hanging_entity_mob_damage: # Hanging Entity Mob Damage-Whether non-player entities can damage hanging entities.
+    default: false
+    enable: true
+    material: ITEM_FRAME
+    dialog-ui-icon: minecraft:items/item/item_frame
+privilege:
+  admin: # 管理员-管理领地内的其他成员权限
+    default: false
+    enable: true
+    material: NETHER_STAR
+    dialog-ui-icon: minecraft:items/item/nether_star
+  move: # 移动-是否可以移动
+    default: true
+    enable: true
+    material: LEATHER_BOOTS
+    dialog-ui-icon: minecraft:items/item/leather_boots
+  teleport: # 领地传送-是否开启领地传送
+    default: false
+    enable: true
+    material: ENDER_EYE
+    dialog-ui-icon: minecraft:items/item/ender_eye
+  fly: # 飞行-不是翅鞘飞行，是类似于创造模式的飞行
+    default: true
+    enable: true
+    material: ELYTRA
+    dialog-ui-icon: minecraft:items/item/elytra
+  riding: # 骑乘载具-是否可以骑乘各种载具
+    default: false
+    enable: true
+    material: SADDLE
+    dialog-ui-icon: minecraft:items/item/saddle
+  ender_pearl: # 投掷末影珍珠-是否可以使用末影珍珠
+    default: false
+    enable: true
+    material: ENDER_PEARL
+    dialog-ui-icon: minecraft:items/item/ender_pearl
+  place: # 放置方块-是否可以放置方块（包括：一般方块、展示框、岩浆、水）
+    default: false
+    enable: true
+    material: GRASS_BLOCK
+    dialog-ui-icon: minecraft:blocks/block/grass_block_side
+  break: # 破坏方块-是否可以破坏方块（包括：一般方块、展示框、盔甲架）
+    default: false
+    enable: true
+    material: IRON_PICKAXE
+    dialog-ui-icon: minecraft:items/item/iron_pickaxe
+  ignite: # 点燃-是否可以使用打火石点火
+    default: false
+    enable: true
+    material: FLINT_AND_STEEL
+    dialog-ui-icon: minecraft:items/item/flint_and_steel
+  pick_up: # 拾取物品-是否可以拾取地上的物品
+    default: true
+    enable: true
+    material: DIAMOND_PICKAXE
+    dialog-ui-icon: minecraft:items/item/diamond_pickaxe
+  drop_item: # 丢弃物品-是否可以丢弃背包中的物品
+    default: true
+    enable: true
+    material: IRON_INGOT
+    dialog-ui-icon: minecraft:items/item/iron_ingot
+  door: # 门交互-是否可以使用各种材质的门（包括活板门）
+    default: false
+    enable: true
+    material: OAK_DOOR
+    dialog-ui-icon: minecraft:items/item/oak_door
+  button: # 使用按钮-是否可以使用各种材质的按钮
+    default: false
+    enable: true
+    material: STONE_BUTTON
+    dialog-ui-icon: minecraft:blocks/block/stone
+  lever: # 使用拉杆-是否可以使用拉杆
+    default: false
+    enable: true
+    material: LEVER
+    dialog-ui-icon: minecraft:blocks/block/lever
+  pressure: # 压力板交互-是否可以触发各种材质的压力板
+    default: false
+    enable: true
+    material: STONE_PRESSURE_PLATE
+    dialog-ui-icon: minecraft:blocks/block/stone
+  repeater: # 中继器交互-是否可以与中继器交互
+    default: false
+    enable: true
+    material: REPEATER
+    dialog-ui-icon: minecraft:items/item/repeater
+  comparer: # 比较器交互-是否可以修改比较器状态
+    default: false
+    enable: true
+    material: COMPARATOR
+    dialog-ui-icon: minecraft:items/item/comparator
+  note_block: # 点击音符盒-红石音乐或者某些红石机器会用到...
+    default: false
+    enable: true
+    material: NOTE_BLOCK
+    dialog-ui-icon: minecraft:blocks/block/note_block
+  container: # 一般容器-包含：箱子/木桶/潜影盒/盔甲架/展示框
+    default: false
+    enable: true
+    material: CHEST
+  hopper: # 特殊容器-包含：漏斗/熔炉/发射器/投掷器/高炉/烟熏炉
+    default: false
+    enable: true
+    material: HOPPER
+    dialog-ui-icon: minecraft:items/item/hopper
+  craft: # 使用工作台-是否可以使用工作台
+    default: false
+    enable: true
+    material: CRAFTING_TABLE
+    dialog-ui-icon: minecraft:blocks/block/crafting_table_side
+  crafter: # 合成器-是否可以修改自动合成器
+    default: false
+    enable: true
+    material: CRAFTING_TABLE
+    dialog-ui-icon: minecraft:blocks/block/crafting_table_side
+  anvil: # 使用铁砧-是否允许使用铁砧
+    default: false
+    enable: true
+    material: ANVIL
+    dialog-ui-icon: minecraft:blocks/block/anvil
+  enchant: # 使用附魔台-是否可以使用附魔台
+    default: false
+    enable: true
+    material: ENCHANTING_TABLE
+    dialog-ui-icon: minecraft:blocks/block/enchanting_table_side
+  brew: # 使用酿造台-是否可以使用酿造台
+    default: false
+    enable: true
+    material: BREWING_STAND
+    dialog-ui-icon: minecraft:items/item/brewing_stand
+  beacon: # 信标交互-是否允许与信标交互
+    default: false
+    enable: true
+    material: BEACON
+    dialog-ui-icon: minecraft:blocks/block/beacon
+  jukebox: # 唱片机-是否可以使用唱片机
+    default: false
+    enable: true
+    material: JUKEBOX
+    dialog-ui-icon: minecraft:blocks/block/jukebox_side
+  lectern: # 讲台-是否可以使用讲台
+    default: false
+    enable: true
+    material: LECTERN
+    dialog-ui-icon: minecraft:blocks/block/lectern_front
+  bookshelf: # 雕纹书架-是否可以与雕纹书架交互
+    default: false
+    enable: true
+    material: CHISELED_BOOKSHELF
+    dialog-ui-icon: minecraft:blocks/block/chiseled_bookshelf_side
+  dragon_egg: # 触碰龙蛋-是否可以触碰龙蛋
+    default: false
+    enable: true
+    material: DRAGON_EGG
+    dialog-ui-icon: minecraft:blocks/block/dragon_egg
+  item_frame_interactive: # 展示框交互-是否可以与物品展示框交互（旋转展示框的东西）
+    default: false
+    enable: true
+    material: ITEM_FRAME
+    dialog-ui-icon: minecraft:items/item/item_frame
+  edit_sign: # 编辑告示牌-是否可以编辑告示牌
+    default: false
+    enable: true
+    material: OAK_SIGN
+    dialog-ui-icon: minecraft:items/item/oak_sign
+  bed: # 床交互-是否允许使用床睡觉或设置重生点
+    default: false
+    enable: true
+    material: RED_BED
+    dialog-ui-icon: minecraft:blocks/block/red_bed_foot_east
+  anchor: # 重生锚-是否允许设置/使用重生锚
+    default: false
+    enable: true
+    material: RESPAWN_ANCHOR
+    dialog-ui-icon: minecraft:blocks/block/respawn_anchor_top
+  vehicle_spawn: # 生成载具-是否可以生成载具（主要是矿车）
+    default: false
+    enable: true
+    material: MINECART
+    dialog-ui-icon: minecraft:items/item/minecart
+  vehicle_destroy: # 破坏载具-是否可以破坏载具（主要是矿车）
+    default: false
+    enable: true
+    material: IRON_AXE
+    dialog-ui-icon: minecraft:items/item/iron_axe
+  harvest: # 收获-收获庄稼、作物
+    default: false
+    enable: true
+    material: WHEAT
+    dialog-ui-icon: minecraft:items/item/wheat
+  sowing: # 播种-是否可以播种（放置种子）各种作物
+    default: false
+    enable: true
+    material: WHEAT_SEEDS
+    dialog-ui-icon: minecraft:items/item/wheat_seeds
+  feed: # 喂养动物-是否可以喂养动物
+    default: false
+    enable: true
+    material: WHEAT
+    dialog-ui-icon: minecraft:items/item/wheat
+  shear: # 剪羊毛-是否可以剪羊毛
+    default: false
+    enable: true
+    material: SHEARS
+    dialog-ui-icon: minecraft:items/item/shears
+  leash: # 拴绳-是否可以使用拴绳/牵引（包括：动物、盔甲架、船等）
+    default: false
+    enable: true
+    material: LEAD
+    dialog-ui-icon: minecraft:items/item/lead
+  dye: # 染色-是否可以使用染料（对羊、狗项圈、猫项圈）染色
+    default: false
+    enable: true
+    material: LIGHT_BLUE_DYE
+    dialog-ui-icon: minecraft:items/item/light_blue_dye
+  honey: # 蜂巢交互-是否可以采蜂蜜
+    default: false
+    enable: true
+    material: HONEY_BOTTLE
+    dialog-ui-icon: minecraft:items/item/honey_bottle
+  cake: # 吃蛋糕-是否可以吃蛋糕
+    default: false
+    enable: true
+    material: CAKE
+    dialog-ui-icon: minecraft:items/item/cake
+  trade: # 村民交易-是否可以与村民交易
+    default: false
+    enable: true
+    material: EMERALD
+    dialog-ui-icon: minecraft:items/item/emerald
+  shoot: # 投掷型武器-包括：射箭/雪球/三叉戟/风弹
+    default: false
+    enable: true
+    material: BOW
+  egg: # 扔鸡蛋-是否可以扔鸡蛋
+    default: false
+    enable: true
+    material: EGG
+    dialog-ui-icon: minecraft:items/item/egg
+  hook: # 使用钓钩-是否可以使用钓钩
+    default: false
+    enable: true
+    material: FISHING_ROD
+    dialog-ui-icon: minecraft:items/item/fishing_rod
+  pvp: # 玩家伤害-玩家之间是否可以造成伤害
+    default: false
+    enable: true
+    material: DIAMOND_SWORD
+    dialog-ui-icon: minecraft:items/item/diamond_sword
+  monster_killing: # 对怪物造成伤害-玩家是否可以对怪物造成伤害
+    default: false
+    enable: true
+    material: IRON_SWORD
+    dialog-ui-icon: minecraft:items/item/iron_sword
+  animal_killing: # 对动物造成伤害-是否允许对动物造成伤害
+    default: false
+    enable: true
+    material: COOKED_BEEF
+    dialog-ui-icon: minecraft:items/item/cooked_beef
+  villager_killing: # 对村民造成伤害-是否可以对村民造成伤害
+    default: false
+    enable: true
+    material: WOODEN_SWORD
+    dialog-ui-icon: minecraft:items/item/wooden_sword
+  glow: # 玩家发光-类似光灵箭的高亮效果
+    default: false
+    enable: true
+    material: SPECTRAL_ARROW
+  items_in_signs: # Items in signs-Whether can insert and take items from sings
+    default: false
+    enable: true
+    material: SPRUCE_HANGING_SIGN
+  resize: # Resize Dominion-Member with this flag can resize dominion.
+    default: false
+    enable: true
+    material: OAK_SIGN
+    dialog-ui-icon: minecraft:items/item/oak_sign
+  rename_dominion: # Rename Dominion-Member with this flag can rename dominion.
+    default: false
+    enable: true
+    material: NAME_TAG
+    dialog-ui-icon: minecraft:items/item/name_tag
+  create_sub: # Create Sub-Dominion-Member with this flag can create sub-dominion.
+    default: false
+    enable: true
+    material: GREEN_DYE
+    dialog-ui-icon: minecraft:items/item/green_dye
+  delete_sub: # Delete Sub-Dominion-Member with this flag can delete sub-dominion.
+    default: false
+    enable: true
+    material: RED_DYE
+    dialog-ui-icon: minecraft:items/item/red_dye
+  resize_sub: # Resize Sub-Dominion-Member with this flag can resize sub-dominion.
+    default: false
+    enable: true
+    material: BAMBOO_SIGN
+    dialog-ui-icon: minecraft:items/item/bamboo_sign
+  rename_sub: # Rename Sub-Dominion-Member with this flag can rename sub-dominion.
+    default: false
+    enable: true
+    material: WRITABLE_BOOK
+    dialog-ui-icon: minecraft:items/item/writable_book
+  raid: # Raid-Whether can trigger raid.
+    default: false
+    enable: true
+    material: IRON_AXE
+    dialog-ui-icon: minecraft:items/item/iron_axe
+  place_flower_pot_content: # Place Flower Pot Content-Whether flowers and other contents can be placed into flower pots.
+    default: false
+    enable: true
+    material: FLOWER_POT
+    dialog-ui-icon: minecraft:blocks/block/flower_pot
+  place_liquid: # Place Liquid-Whether water and lava can be placed.
+    default: false
+    enable: true
+    material: WATER_BUCKET
+    dialog-ui-icon: minecraft:items/item/water_bucket
+  place_armor_stand: # Place Armor Stand-Whether armor stands can be placed.
+    default: false
+    enable: true
+    material: ARMOR_STAND
+    dialog-ui-icon: minecraft:items/item/armor_stand
+  place_hanging_entity: # Place Hanging Entity-Whether hanging entities can be placed.
+    default: false
+    enable: true
+    material: ITEM_FRAME
+    dialog-ui-icon: minecraft:items/item/item_frame
+  break_flower_pot_content: # Break Flower Pot Content-Whether flowers and other contents can be removed from flower pots.
+    default: false
+    enable: true
+    material: FLOWER_POT
+    dialog-ui-icon: minecraft:blocks/block/flower_pot
+  break_liquid: # Collect Liquid-Whether water and lava can be collected.
+    default: false
+    enable: true
+    material: BUCKET
+    dialog-ui-icon: minecraft:items/item/bucket
+  armor_stand_direct_break: # Directly Break Armor Stand-Whether players can directly break armor stands.
+    default: false
+    enable: true
+    material: ARMOR_STAND
+    dialog-ui-icon: minecraft:items/item/armor_stand
+  armor_stand_projectile_break: # Projectile Break Armor Stand-Whether player-fired projectiles can break armor stands.
+    default: false
+    enable: true
+    material: BOW
+    dialog-ui-icon: minecraft:items/item/bow
+  hanging_entity_direct_break: # Directly Break Hanging Entity-Whether players can directly break hanging entities.
+    default: false
+    enable: true
+    material: ITEM_FRAME
+    dialog-ui-icon: minecraft:items/item/item_frame
+  hanging_entity_projectile_break: # Projectile Break Hanging Entity-Whether player-fired projectiles can break hanging entities.
+    default: false
+    enable: true
+    material: BOW
+    dialog-ui-icon: minecraft:items/item/bow
+  trapdoor: # Trapdoor-Whether can interact with trapdoors.
+    default: false
+    enable: true
+    material: OAK_TRAPDOOR
+    dialog-ui-icon: minecraft:items/item/oak_trapdoor
+  fence_gate: # Fence Gate-Whether can interact with fence gates.
+    default: false
+    enable: true
+    material: OAK_FENCE_GATE
+    dialog-ui-icon: minecraft:items/item/oak_fence_gate
+  red_stone_powder: # Red Stone Powder-Whether can interact with red stone powder.
+    default: false
+    enable: true
+    material: REDSTONE
+    dialog-ui-icon: minecraft:items/item/redstone
+  chest: # Chest-Whether chests can be opened.
+    default: false
+    enable: true
+    material: CHEST
+    dialog-ui-icon: minecraft:chests/entity/chest/normal
+  barrel: # Barrel-Whether barrels can be opened.
+    default: false
+    enable: true
+    material: BARREL
+    dialog-ui-icon: minecraft:blocks/block/barrel_side
+  shulker_box: # Shulker Box-Whether shulker boxes can be opened.
+    default: false
+    enable: true
+    material: SHULKER_BOX
+    dialog-ui-icon: minecraft:blocks/block/shulker_box
+  armor_stand_interactive: # Armor Stand Interaction-Whether equipment on armor stands can be changed.
+    default: false
+    enable: true
+    material: ARMOR_STAND
+    dialog-ui-icon: minecraft:items/item/armor_stand
+  item_frame_content: # Item Frame Content-Whether items can be inserted into or removed from item frames.
+    default: false
+    enable: true
+    material: ITEM_FRAME
+    dialog-ui-icon: minecraft:items/item/item_frame
+  dropper: # Dropper-Whether droppers can be opened.
+    default: false
+    enable: true
+    material: DROPPER
+    dialog-ui-icon: minecraft:blocks/block/dropper_front
+  dispenser: # Dispenser-Whether dispensers can be opened.
+    default: false
+    enable: true
+    material: DISPENSER
+    dialog-ui-icon: minecraft:blocks/block/dispenser_front
+  furnace: # Furnace-Whether furnaces can be opened.
+    default: false
+    enable: true
+    material: FURNACE
+    dialog-ui-icon: minecraft:blocks/block/furnace_front
+  blast_furnace: # Blast Furnace-Whether blast furnaces can be opened.
+    default: false
+    enable: true
+    material: BLAST_FURNACE
+    dialog-ui-icon: minecraft:blocks/block/blast_furnace_front
+  smoker: # Smoker-Whether smokers can be opened.
+    default: false
+    enable: true
+    material: SMOKER
+    dialog-ui-icon: minecraft:blocks/block/smoker_front
+  flower_pot: # Flower Pot-Whether flower pots can be opened.
+    default: false
+    enable: true
+    material: FLOWER_POT
+    dialog-ui-icon: minecraft:blocks/block/flower_pot
+  copper_chest: # Copper Chest-Whether copper chests can be opened.
+    default: false
+    enable: true
+    material: CHEST
+    dialog-ui-icon: minecraft:chests/entity/chest/normal
+  shelf: # Shelf-Whether shelves can be opened.
+    default: false
+    enable: true
+    material: BOOKSHELF
+    dialog-ui-icon: minecraft:blocks/block/chiseled_bookshelf_side
+  fertilizer: # Fertilizer-Whether bone meal and other fertilizer can be used.
+    default: false
+    enable: true
+    material: BONE_MEAL
+    dialog-ui-icon: minecraft:items/item/bone_meal
+  plant_tree: # Plant Tree-Whether saplings and similar tree plants can be planted.
+    default: false
+    enable: true
+    material: OAK_SAPLING
+    dialog-ui-icon: minecraft:blocks/block/oak_sapling
+  projectile_charge: # Charge Bow or Crossbow-Whether players can charge bows and crossbows.
+    default: false
+    enable: true
+    material: BOW
+    dialog-ui-icon: minecraft:items/item/bow
+  arrow_launch: # Launch Arrow-Whether players can launch arrows.
+    default: false
+    enable: true
+    material: ARROW
+    dialog-ui-icon: minecraft:items/item/arrow
+  arrow_hit: # Arrow Impact-Whether player-fired arrows can impact blocks or entities.
+    default: false
+    enable: true
+    material: ARROW
+    dialog-ui-icon: minecraft:items/item/arrow
+  arrow_damage: # Arrow Damage-Whether player-fired arrows can damage entities.
+    default: false
+    enable: true
+    material: ARROW
+    dialog-ui-icon: minecraft:items/item/arrow
+  trident_launch: # Launch Trident-Whether players can launch tridents.
+    default: false
+    enable: true
+    material: TRIDENT
+    dialog-ui-icon: minecraft:items/item/trident
+  trident_hit: # Trident Impact-Whether player-fired tridents can impact blocks or entities.
+    default: false
+    enable: true
+    material: TRIDENT
+    dialog-ui-icon: minecraft:items/item/trident
+  fireball_launch: # Launch Fireball-Whether players can launch fireballs.
+    default: false
+    enable: true
+    material: FIRE_CHARGE
+    dialog-ui-icon: minecraft:items/item/fire_charge
+  fireball_hit: # Fireball Impact-Whether player-fired fireballs can impact blocks or entities.
+    default: false
+    enable: true
+    material: FIRE_CHARGE
+    dialog-ui-icon: minecraft:items/item/fire_charge
+  wind_charge_launch: # Launch Wind Charge-Whether players can launch wind charges.
+    default: false
+    enable: true
+    material: FIRE_CHARGE
+    dialog-ui-icon: minecraft:items/item/fire_charge
+  wind_charge_hit: # Wind Charge Impact-Whether player-fired wind charges can impact blocks or entities.
+    default: false
+    enable: true
+    material: FIRE_CHARGE
+    dialog-ui-icon: minecraft:items/item/fire_charge
+  wind_charge_explode: # Wind Charge Explosion-Whether player-fired wind charges can explode.
+    default: false
+    enable: true
+    material: FIRE_CHARGE
+    dialog-ui-icon: minecraft:items/item/fire_charge
+schema-version: 5
+groups:
+  environment:
+    creature-spawning:
+      material: SPAWNER
+      dialog-ui-icon: minecraft:blocks/block/spawner
+      flags:
+      - animal_spawn
+      - animal_breed
+      - animal_spawner
+      - animal_spawn_egg
+      - villager_spawn
+      - villager_breed
+      - villager_spawner
+      - villager_spawn_egg
+      - monster_spawn
+      - monster_spawner
+      - monster_spawn_egg
+      - ender_man_spawn
+      - wither_spawn
+    creature-behavior:
+      material: LEAD
+      dialog-ui-icon: minecraft:items/item/lead
+      flags:
+      - animal_move
+      - monster_move
+      - monster_damage
+      - ender_man_pickup_block
+      - ender_man_place_block
+      - ender_man_teleport
+      - wither_break_block
+      - dragon_break_block
+      - mob_drop_item
+      - mob_trample
+    mob-griefing:
+      material: ENDERMAN_SPAWN_EGG
+      dialog-ui-icon: minecraft:items/item/enderman_spawn_egg
+      flags:
+      - ender_man_pickup_block
+      - ender_man_place_block
+      - wither_break_block
+      - dragon_break_block
+      - mob_trample
+    explosions:
+      material: TNT
+      dialog-ui-icon: minecraft:blocks/block/tnt_side
+      flags:
+      - tnt_explode
+      - tnt_damage_entity
+      - creeper_explode
+      - creeper_damage_entity
+      - wither_explode
+      - wither_skull_explode
+      - wither_skull_damage_entity
+      - ender_crystal_explode
+      - ender_crystal_damage_entity
+      - fireball_explode
+      - fireball_damage_entity
+      - bed_explode
+      - anchor_explode
+      - tnt_damage_armor_stand
+      - tnt_damage_hanging_entity
+      - creeper_damage_armor_stand
+      - creeper_damage_hanging_entity
+      - wither_skull_damage_armor_stand
+      - wither_skull_damage_hanging_entity
+      - ender_crystal_damage_armor_stand
+      - ender_crystal_damage_hanging_entity
+      - fireball_damage_armor_stand
+      - fireball_damage_hanging_entity
+    explosion-block-damage:
+      material: TNT
+      dialog-ui-icon: minecraft:blocks/block/tnt_side
+      flags:
+      - tnt_explode
+      - creeper_explode
+      - wither_explode
+      - wither_skull_explode
+      - ender_crystal_explode
+      - fireball_explode
+      - bed_explode
+      - anchor_explode
+    explosion-entity-damage:
+      material: TNT
+      dialog-ui-icon: minecraft:blocks/block/tnt_side
+      flags:
+      - tnt_damage_entity
+      - creeper_damage_entity
+      - wither_skull_damage_entity
+      - ender_crystal_damage_entity
+      - fireball_damage_entity
+      - tnt_damage_armor_stand
+      - tnt_damage_hanging_entity
+      - creeper_damage_armor_stand
+      - creeper_damage_hanging_entity
+      - wither_skull_damage_armor_stand
+      - wither_skull_damage_hanging_entity
+      - ender_crystal_damage_armor_stand
+      - ender_crystal_damage_hanging_entity
+      - fireball_damage_armor_stand
+      - fireball_damage_hanging_entity
+    fire:
+      material: FLINT_AND_STEEL
+      dialog-ui-icon: minecraft:items/item/flint_and_steel
+      flags:
+      - fire_spread
+      - burn_block
+      - burn_entity_fire
+      - burn_entity_lava
+    natural-changes:
+      material: GRASS_BLOCK
+      dialog-ui-icon: minecraft:blocks/block/grass_block_side
+      flags:
+      - flow_in_water
+      - flow_in_lava
+      - gravity_block
+      - ice_melt
+      - ice_form_natural
+      - ice_form_frost_walker
+      - snow_accumulation
+      - snow_melt
+      - trample
+      - mob_trample
+      - decay
+    fluid-flow:
+      material: WATER_BUCKET
+      dialog-ui-icon: minecraft:items/item/water_bucket
+      flags:
+      - flow_in_water
+      - flow_in_lava
+    ice-and-snow:
+      material: PACKED_ICE
+      dialog-ui-icon: minecraft:blocks/block/packed_ice
+      flags:
+      - ice_melt
+      - ice_form_natural
+      - ice_form_frost_walker
+      - snow_accumulation
+      - snow_melt
+    farmland:
+      material: FARMLAND
+      dialog-ui-icon: minecraft:blocks/block/farmland
+      flags:
+      - trample
+      - mob_trample
+    mechanisms:
+      material: REDSTONE
+      dialog-ui-icon: minecraft:items/item/redstone
+      flags:
+      - hopper_outside
+      - piston_outside
+      - trig_pressure_proj
+      - trig_pressure_mob
+      - trig_pressure_drop
+    entity-protection:
+      material: ARMOR_STAND
+      dialog-ui-icon: minecraft:items/item/armor_stand
+      flags:
+      - armor_stand_mob_damage
+      - hanging_entity_mob_damage
+      - tnt_damage_armor_stand
+      - tnt_damage_hanging_entity
+      - creeper_damage_armor_stand
+      - creeper_damage_hanging_entity
+      - wither_skull_damage_armor_stand
+      - wither_skull_damage_hanging_entity
+      - ender_crystal_damage_armor_stand
+      - ender_crystal_damage_hanging_entity
+      - fireball_damage_armor_stand
+      - fireball_damage_hanging_entity
+    general:
+      material: BEACON
+      dialog-ui-icon: minecraft:blocks/block/beacon
+      flags:
+      - show_border
+  privilege:
+    administration:
+      material: NETHER_STAR
+      dialog-ui-icon: minecraft:items/item/nether_star
+      flags:
+      - admin
+      - resize
+      - rename_dominion
+      - create_sub
+      - delete_sub
+      - resize_sub
+      - rename_sub
+    movement:
+      material: LEATHER_BOOTS
+      dialog-ui-icon: minecraft:items/item/leather_boots
+      flags:
+      - move
+      - teleport
+      - fly
+      - riding
+      - ender_pearl
+    building:
+      material: BRICKS
+      dialog-ui-icon: minecraft:blocks/block/bricks
+      flags:
+      - place
+      - place_flower_pot_content
+      - place_liquid
+      - place_armor_stand
+      - place_hanging_entity
+      - break
+      - break_flower_pot_content
+      - break_liquid
+      - armor_stand_direct_break
+      - armor_stand_projectile_break
+      - hanging_entity_direct_break
+      - hanging_entity_projectile_break
+      - ignite
+    item-management:
+      material: DIAMOND
+      dialog-ui-icon: minecraft:items/item/diamond
+      flags:
+      - pick_up
+      - drop_item
+    access:
+      material: OAK_DOOR
+      dialog-ui-icon: minecraft:items/item/oak_door
+      flags:
+      - door
+      - trapdoor
+      - fence_gate
+      - button
+      - lever
+      - pressure
+    redstone:
+      material: REDSTONE
+      dialog-ui-icon: minecraft:items/item/redstone
+      flags:
+      - button
+      - lever
+      - pressure
+      - red_stone_powder
+      - repeater
+      - comparer
+      - note_block
+    storage:
+      material: CHEST
+      dialog-ui-icon: minecraft:chests/entity/chest/normal
+      flags:
+      - chest
+      - barrel
+      - shulker_box
+      - hopper
+      - dropper
+      - dispenser
+      - furnace
+      - blast_furnace
+      - smoker
+      - copper_chest
+      - shelf
+      - bookshelf
+    workstations:
+      material: CRAFTING_TABLE
+      dialog-ui-icon: minecraft:blocks/block/crafting_table_side
+      flags:
+      - craft
+      - crafter
+      - anvil
+      - enchant
+      - brew
+      - beacon
+      - lectern
+    decoration:
+      material: ITEM_FRAME
+      dialog-ui-icon: minecraft:items/item/item_frame
+      flags:
+      - place_armor_stand
+      - place_hanging_entity
+      - place_flower_pot_content
+      - break_flower_pot_content
+      - armor_stand_direct_break
+      - armor_stand_projectile_break
+      - hanging_entity_direct_break
+      - hanging_entity_projectile_break
+      - armor_stand_interactive
+      - item_frame_content
+      - item_frame_interactive
+      - flower_pot
+      - jukebox
+      - lectern
+      - bookshelf
+      - shelf
+      - dragon_egg
+      - edit_sign
+    rest:
+      material: RED_BED
+      dialog-ui-icon: minecraft:blocks/block/red_bed_foot_east
+      flags:
+      - bed
+      - anchor
+    vehicles:
+      material: MINECART
+      dialog-ui-icon: minecraft:items/item/minecart
+      flags:
+      - riding
+      - vehicle_spawn
+      - vehicle_destroy
+    farming:
+      material: WHEAT
+      dialog-ui-icon: minecraft:items/item/wheat
+      flags:
+      - harvest
+      - sowing
+      - fertilizer
+      - plant_tree
+      - honey
+    animal-care:
+      material: SADDLE
+      dialog-ui-icon: minecraft:items/item/saddle
+      flags:
+      - feed
+      - shear
+      - leash
+      - dye
+    food:
+      material: CAKE
+      dialog-ui-icon: minecraft:items/item/cake
+      flags:
+      - cake
+    trading:
+      material: EMERALD
+      dialog-ui-icon: minecraft:items/item/emerald
+      flags:
+      - trade
+    projectiles:
+      material: BOW
+      dialog-ui-icon: minecraft:items/item/bow
+      flags:
+      - projectile_charge
+      - arrow_launch
+      - arrow_hit
+      - arrow_damage
+      - trident_launch
+      - trident_hit
+      - fireball_launch
+      - fireball_hit
+      - wind_charge_launch
+      - wind_charge_hit
+      - wind_charge_explode
+      - egg
+      - ender_pearl
+      - hook
+    combat:
+      material: DIAMOND_SWORD
+      dialog-ui-icon: minecraft:items/item/diamond_sword
+      flags:
+      - pvp
+      - monster_killing
+      - animal_killing
+      - villager_killing
+      - raid

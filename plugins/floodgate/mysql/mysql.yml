@@ -1,0 +1,4 @@
+hostname: "localhost"
+database: "Floodgate"
+username: "Floodgate"
+password: "8b24091873b6d89388d54fcb11d8b5b47f58e37d540935b5"

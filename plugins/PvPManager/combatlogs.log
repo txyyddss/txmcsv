@@ -1,0 +1,29 @@
+This file logs every player that disconnected during combat
+You can disable the logging in the config file
+
+[2026/04/14 08:42:22] mc9957 tried to escape combat! (2.500s left) | In combat with: [wor114514] | World:world, X:-271.70, Y:85.00, Z:-415.51
+[2026/04/17 22:21:00] BE_DF738383 tried to escape combat! (14.797s left) | In combat with: [txrog] | World:world, X:150.59, Y:63.00, Z:-229.55
+[2026/04/19 00:24:33] EisenGovernment1 tried to escape combat! (14.397s left) | In combat with: [txrog] | World:world, X:138.16, Y:63.30, Z:-240.48
+[2026/04/19 09:11:31] wc tried to escape combat! (9.334s left) | In combat with: [Gold3nflame] | World:world, X:-201.43, Y:83.00, Z:-398.82
+[2026/04/22 18:45:57] Gold3nflame tried to escape combat! (0.696s left) | In combat with: [wor114514] | World:world, X:188.89, Y:116.96, Z:-312.44
+[2026/04/28 20:30:59] txro tried to escape combat! (14.473s left) | In combat with: [wor114514] | World:world, X:-264.22, Y:64.00, Z:653.27
+[2026/04/28 20:32:49] txro tried to escape combat! (13.969s left) | In combat with: [wor114514] | World:world, X:-289.98, Y:69.00, Z:653.00
+[2026/04/28 23:36:12] txro tried to escape combat! (14.529s left) | In combat with: [wor114514] | World:world, X:-1632.63, Y:96.06, Z:931.71
+[2026/05/07 15:09:33] BE_IECY1816 tried to escape combat! (7.881s left) | In combat with: [wor114514] | World:world, X:308.43, Y:65.00, Z:-257.79
+[2026/05/30 17:02:24] Gold3nflame tried to escape combat! (10.042s left) | In combat with: [Daquavis] | World:world, X:44.81, Y:76.00, Z:-201.69
+[2026/05/31 16:19:07] mc9957 tried to escape combat! (2.737s left) | In combat with: [WemmBu] | World:world, X:-299.48, Y:64.00, Z:-68.86
+[2026/06/05 20:08:33] Gold3nflame tried to escape combat! (13.481s left) | In combat with: [Lockdown] | World:world, X:-2854.03, Y:63.00, Z:-1263.67
+[2026/06/06 13:36:00] Gold3nflame tried to escape combat! (4.387s left) | In combat with: [Lockdown] | World:world, X:149.26, Y:60.00, Z:-8.64
+[2026/06/06 15:56:57] Lockdown tried to escape combat! (5.488s left) | In combat with: [Gold3nflame] | World:world, X:138.38, Y:60.00, Z:-11.95
+[2026/06/06 16:54:25] Lockdown tried to escape combat! (2.830s left) | In combat with: [wor114514] | World:world, X:-312.37, Y:64.00, Z:-61.35
+[2026/06/07 15:47:04] Lockdown tried to escape combat! (9.787s left) | In combat with: [Gold3nflame] | World:world, X:-316.33, Y:70.02, Z:-51.35
+[2026/06/07 16:03:40] Lockdown tried to escape combat! (11.487s left) | In combat with: [Gold3nflame] | World:world, X:356.80, Y:92.00, Z:-342.06
+[2026/06/12 21:28:24] Lockdown tried to escape combat! (7.674s left) | In combat with: [Gold3nflame] | World:world, X:-108212.80, Y:-21.50, Z:-493.58
+[2026/06/17 12:05:21] BE_Jacqueeee1856 tried to escape combat! (8.148s left) | In combat with: [Gold3nflame] | World:world, X:-478.82, Y:65.00, Z:-174.76
+[2026/06/17 12:12:24] BE_Jacqueeee1856 tried to escape combat! (13.153s left) | In combat with: [Gold3nflame] | World:world, X:-486.50, Y:63.00, Z:-177.50
+[2026/06/17 13:33:49] Gold3nflame tried to escape combat! (14.089s left) | In combat with: [BE_Jacqueeee1856] | World:world, X:-477.16, Y:43.00, Z:-15.88
+[2026/08/02 17:15:18] Gold3nflame tried to escape combat! (10.737s left) | In combat with: [wor114514] | World:world, X:-740.79, Y:63.00, Z:-301.05
+[2026/08/21 21:13:52] mc9957 tried to escape combat! (10.040s left) | In combat with: [Lockdown] | World:world, X:137.80, Y:169.94, Z:-27.33
+[2026/08/28 13:11:55] HEHAWellgood tried to escape combat! (4.444s left) | In combat with: [Lockdown] | World:world, X:750.62, Y:119.00, Z:3673.78
+[2026/08/30 15:03:59] Gold3nflame tried to escape combat! (6.146s left) | In combat with: [HEHAWellgood] | World:world, X:-1265.60, Y:63.00, Z:1856.94
+[2026/09/05 19:11:47] Gold3nflame tried to escape combat! (7.693s left) | In combat with: [Lockdown] | World:world, X:-1026.68, Y:79.00, Z:-390.33

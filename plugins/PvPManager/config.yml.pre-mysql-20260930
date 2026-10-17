@@ -1,0 +1,357 @@
+# +--------------------------------------------------------------------------+ #
+# <                     PvPManager Configuration File                        > #
+# <--------------------------------------------------------------------------> #
+# <                  For help with the config options go to                  > #
+# <            https://www.spigotmc.org/threads/pvpmanager.25420/            > #
+# <                  or Discord https://discord.gg/w7gyBuw                   > #
+# +--------------------------------------------------------------------------+ #
+
+General Settings:
+  # Changes the language, to see all options use '/pmr locale' ingame
+  Locale: EN
+  # Controls if the plugin will use teams, needed for changing nametags and some other things, disable if there are conflicts with other plugins
+  Use Scoreboard Teams: false
+  # List of worlds where PvPManager will have no effect
+  World Exclusions:
+    - 'example'
+
+######################
+####  Combat Tag  ####
+######################
+Combat Tag:
+  Enabled: true
+  # How long should the combat tag last in seconds
+  Time: 15
+  # Sets the player glowing while tagged, for MC 1.9+
+  Glowing: true
+  # Will untag the player when they kill their current enemies
+  Untag On Kill: true
+  # Allow players to tag themselves with a bow, enderpearl, etc
+  Self Tag: false
+  # If enabled, will retag the player when they throw an enderpearl
+  EnderPearl Renews Tag: true
+  # If enabled, will retag the player when they use a wind charge
+  WindCharge Renews Tag: true
+  # Automatically close the player inventory and chat when they get tagged
+  Close Inventory On Tag: true
+
+  # Allows for a fair fight between only two combat tagged players, without third party interference
+  # Useful for FFA or mass PvP scenarios
+  Duel Mode: false
+  
+  Display:
+    # Adds a prefix or suffix while the player is in combat
+    Nametags:
+      Enabled: false
+      # Choose the player's nametag prefix while tagged, '&c' would just color their name red
+      # The TAB plugin is required to use placeholders in the nametag
+      Prefix: '&4⚔ &8(&7%pvpmanager_combat_timeleft%s&8) &c'
+      Suffix: ' &f%pvpmanager_player_health%&c❤'
+    Action Bar:
+      Enabled: false
+      # You can use any PlaceholderAPI placeholders here
+      Message: '&8[&c&lCOMBAT&8] &7<time>s &8• &a<barsLeft>&#AA5555<barsPassed> &8• &7%pvpmanager_current_enemy% &8(&c%pvpmanager_current_enemy_health%❤&8)'
+      # Symbol to use for the progress bar and how many times to repeat it. Other symbols ▊,▮,▯,|
+      Symbol: '▊'
+      Total Bars: 20
+    Boss Bar:
+      Enabled: false
+      # You can use any PlaceholderAPI placeholders here
+      Message: '&8&l[&c&lCOMBAT&8&l] &e&l<time> seconds'
+      # See here for bar color options - https://hub.spigotmc.org/javadocs/spigot/org/bukkit/boss/BarColor.html
+      BarColor: RED
+      # See here for bar style options - https://hub.spigotmc.org/javadocs/spigot/org/bukkit/boss/BarStyle.html
+      BarStyle: SOLID
+  
+  # Section is self-explanatory, what actions to block in combat
+  Actions Blocked:
+    EnderPearls: false
+    ChorusFruits: true
+    Teleport: true
+    # Blocks more types of teleports, not just commands. Can conflict with some plugins
+    Unsafe Teleports: false
+    Eat: false
+    Totem of Undying: false
+    Place Blocks: false
+    Break Blocks: false
+    Open Inventory: false
+    Elytra:
+      # Prevents players from gliding with elytra while in combat, will unequip elytra if players spam glide
+      Block Gliding: false
+      # Prevents players from using firework rockets while gliding in combat
+      Block Fireworks: false
+      # Maximum firework power level allowed while in combat (-1 = no limit, 1-3 = max power)
+      # This setting is ignored if Block Fireworks is true
+      Firework Power Limit: -1
+    Interact:
+      Enabled: false
+      # List of materials to block interaction, adding DOOR means all materials that end with DOOR like IRON_DOOR and so on
+      # Also blocks physical interactions, having PRESSURE_PLATE also allows blocking the activation of pressure plates
+      List:
+        - 'DOOR'
+        - 'FENCE_GATE'
+        - 'BUTTON'
+        - 'BED'
+        - 'PRESSURE_PLATE'
+        - 'SLAB'
+        - 'STAIRS'
+        - 'CARPET'
+    # Command whitelist is recursive, allowing 'tell' will allow 'tell' with any number of arguments
+    Commands:
+      Enabled: true
+      Whitelist: true
+      Command List:
+        - 'tell'
+        - 'msg'
+        - 'combattag'
+
+##################################
+####  Combat Log Punishments  ####
+##################################
+Combat Log Punishments:
+  # Money lost on combat log, you can use less or equal to 1 for percentages like 0.05 for 5%, 1 for 100% (0 to disable)
+  Money Penalty: 0.05
+  # Should the player be killed and, if so, what will the player drop
+  Kill on Logout:
+    Enabled: true
+    Player Drops:
+      Inventory: false
+      Experience: false
+      Armor: false
+  # Punish the player even if he gets kicked by other plugins or by an admin
+  Punish On Kick:
+    Enabled: true
+    # If Match Kick Reason is enabled, the punishment will be applied only if the kick reason matches the list below
+    Match Kick Reason: false
+    Kick Reasons:
+      - 'Kicked for spamming'
+      - 'disconnect.spam'
+  # List of commands to execute on combat log, use '{player}' for player name
+  # The 'announce' command can be optionally used to broadcast, you can add more or to disable just delete the command
+  Commands On Combat Log:
+    - 'announce {prefix} #f09a11{player} #ed5e26tried to escape combat!'
+
+######################
+####  PvP Toggle  ####
+######################
+# Section for PvP Toggle feature - /pvp or /pvptoggle
+PvP Toggle:
+  # Leave it at true unless you want no PvP for new players
+  Default PvP: true
+  # How many seconds until players can use the command again
+  Cooldown: 60
+  # What should the player's prefix/suffix be when pvp is on/off
+  # You can leave one of them empty '' to disable one of the nametags, or set 'Enabled' to false to disable both
+  NameTags:
+    Enabled: false
+    Prefix On: '&4PvP On ⚔ '
+    Prefix Off: '&2PvP Off ⚔ '
+  # This setting runs every hour and applies a money fee to every player with PvP disabled, it's a very simplified system 
+  # so it doesn't track how long PvP has been off for that player. Leave as 0 to disable
+  PvP Disabled Money Fee: 50
+  # Command list to execute on PvP toggle, use '{player}' for player name
+  Commands PvP On:
+    - ''
+  Commands PvP Off:
+    - ''
+  # PvP Toggle is forcibly enabled on an attack in all regions with WG's pvp flag set to ALLOW
+  # If you want it only on specific regions instead, set WorldGuard Overrides to false and use the pvp-protection flag set to DENY
+  WorldGuard Overrides: false
+
+###############################
+####  Anti Border Hopping  ####
+###############################
+# Here you can choose which methods to use to stop 'border hopping' while players are tagged
+# Border hopping is when a player enters combat and tries to run into a safe zone to escape
+# Block barriers, like red glass blocks around a region, is a feature only on the premium version for MC 1.13+
+Anti Border Hopping:
+  # Makes players still vulnerable to PvP inside safe zones
+  Vulnerable:
+    Enabled: true
+    # Toggles whether combat tagging renews while fighting in a safe zone. Works for WorldGuard only
+    Renew Combat Tag: true
+  # Players will be launched back when trying to enter a safe zone
+  Push Back:
+    Enabled: true
+    # How much force for the pushback (Minimum 0.1 and Maximum 4)
+    Force: 1.2
+    # Takes elytra from player chest slot and puts it in their inventory
+    Remove Elytra: false
+
+#############################
+####  Newbie Protection  ####
+#############################
+# Should new players on your server be protected from PvP (If they want to PvP they can use /newbie disable)
+Newbie Protection:
+  Enabled: true
+  # How many seconds should newbie protection last, persists through restarts
+  Time: 1800
+  # If players should be allowed to remove their protection with /newbie disable
+  Allow Player Disable: false
+  # Block players from picking up items or place blocks while they have protection
+  Block Pick Items: false
+  Block Place Blocks: false
+  Block Break Blocks: false
+  # Protect newbies from all types of damage including PvE, essentially godmode
+  Protect From Everything: false
+  # Display a boss bar showing remaining newbie protection time
+  Boss Bar:
+    Enabled: true
+    # Message to show in the boss bar. Use <time> placeholder for remaining time (auto-formatted as min:sec)
+    Message: '&6✦ &a&lNewbie Protection &6✦ &e&l<time>'
+    # See here for bar color options - https://hub.spigotmc.org/javadocs/spigot/org/bukkit/boss/BarColor.html
+    BarColor: GREEN
+    # See here for bar style options - https://hub.spigotmc.org/javadocs/spigot/org/bukkit/boss/BarStyle.html
+    BarStyle: SOLID
+  Command Blacklist:
+    - 'examplecommand'
+
+#####################
+####  Cooldowns  ####
+#####################
+# Here you can set a cooldown, in seconds, to ANY item, such as golden apples and enchanted golden apples
+# You can add other material types from here: https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Material.html
+# If the item is not edible the cooldown will only be activated for right clicks
+# Combat section sets cooldowns only while in combat, global means cooldowns will always apply
+# You can disable the Minecraft builtin cooldown for an item by setting it to 0, like for enderpearls, or -1 for default cooldown
+# You can also specify an item data value using `NAME-DATA`, e.g. `WOOL-14` for red wool or `POTION-16421` for a legacy potion.
+# On older server versions `ENCHANTED_GOLDEN_APPLE` will be automatically mapped to `GOLDEN_APPLE-1`.
+Item Cooldowns:
+  Combat:
+    ENDER_PEARL: 5
+    WIND_CHARGE: 1
+    GOLDEN_APPLE: 30
+    ENCHANTED_GOLDEN_APPLE: 60
+  Global:
+    GOLDEN_APPLE: 30
+    ENCHANTED_GOLDEN_APPLE: 60
+
+########################
+####  Player Kills  ####
+########################
+# Section with settings triggered when a player kills another player
+Player Kills:
+  # Money won as reward, use less or equal to 1 for percentage like 0.05 for 5%, 1 for 100% (0 to disable)
+  Money Reward: 0.05
+  # Money lost on PvP death, use less or equal to 1 for percentage like 0.1 for 10%, 1 for 100% (0 to disable)
+  Money Penalty: 0.07
+  # Should the amount won from money reward be stolen from the dead player
+  Money Steal: true
+  # Similar to how money steal works, get a percentage of XP from the player you killed, 1 for 100% (0 to disable)
+  Exp Steal: 0
+  Commands On Kill:
+    # Time in seconds between kill commands, -1 to disable cooldown
+    Cooldown: -1
+    # Commands to execute on kill ({player} is the killer, {victim} is the victim, {item} is the item material in hand)
+    Commands:
+      - 'examplecommand {player} killed {victim} with {item}'
+  # Commands to execute on respawn (<player> is the respawning player)
+  Commands On Respawn:
+    - 'examplecommand {player} respawned after dying in PvP combat'
+  # WorldGuard regions where rewards, penalties and commands will not be executed
+  WorldGuard Exclusions:
+    - 'exampleregion'
+    
+  # Prevent player abuse by killing the same player several times to rise in rank or even just grief
+  # Example - If a player X kills player Y more than 5 times under the time limit, it executes the commands defined (kick, jail, etc)
+  Anti Kill Abuse:
+    Enabled: true
+    Max Kills: 5
+    Time Limit: 20
+    # Warn the player 1 kill before they are punished with the commands
+    Warn Before: true
+    # Possible variables are {player} and {victim}
+    Commands on Abuse:
+      - 'kick {player} &cKill Abuse Is Not Allowed!'
+    # After respawn, how many seconds should players be protected (0 to disable)
+    Respawn Protection: 8
+
+##########################
+####  Other Settings  ####
+##########################
+Other Settings:
+  # Enable blood particles on PvP hits
+  PvP Blood: true
+  # Ignore hits from snowballs, eggs, fishing rod and others
+  Ignore No Damage Hits: true
+  # Send protection messages (PvP disabled, newbie protection, etc.) to action bar instead of chat
+  Protection Messages to Action Bar: true
+  # Player Drop Mode -> What happens to a player's drops and exp on death
+  # The options are 'ALWAYS' - (PvPManager does nothing, feature is disabled, usually best to avoid conflicts with death chest plugins, etc),
+  # mode 'DROP' - (Players drop items when killed in PvP but not in PvE),
+  # mode 'KEEP' - (Players keep items when killed in PvP but not in PvE),
+  # mode 'TRANSFER' - (Same as 'DROP' but transfer items(not exp) directly to killer's inventory without drops)
+  # mode 'CLEAR' - (Clear all drops and exp on death, this DELETES everything on death so make sure it is what you want)
+  Player Drop Mode: KEEP
+  # Show player health, uses scoreboards so might conflict with other plugins
+  Show health under name:
+    Enabled: false
+    Display Name: '&c❤'
+
+# What should be disabled when a player enters PvP
+Disable On Hit:
+  Fly: true
+  # Whether to restore flight after combat ends. Set to false if you have items that grant temporary flight
+  Restore Fly: true
+  # Anything not Survival gets disabled
+  GameMode: true
+  # Disguises from LibsDisguises
+  Disguise: true
+  # GodMode from Essentials or CMI (in premium version)
+  GodMode: true
+  # Makes player fall down if they're tagged while elytra gliding
+  Elytra: false
+  # Invisibility potions, defaults to false as it's a vanilla feature
+  Invisibility: true
+
+Database:
+  # Database type, supported databases: SQLite or MySQL
+  Type: SQLite
+  # Only fill this section if using MySQL
+  MySQL:
+    Host: 127.0.0.1
+    Port: 3306
+    Username: PvPManager
+    Password: 'AdBaZc5fBiD6zJrR'
+    Database: PvPManager
+
+# PlaceholderAPI boolean formatting
+Placeholders:
+  Boolean Format:
+    True: 'true'
+    False: 'false'
+
+# Should PvPManager be allowed to check for updates and tell you about them
+# Auto Update - After checking should the update be downloaded automatically for you?
+Update Check:
+  Enabled: true
+  Auto Update: true
+
+Metrics:
+  Opt-out: false
+  
+# Potions considered harmful, players will be tagged by them and protected from them
+# See list here https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/potion/PotionEffectType.html
+Harmful Potions:
+  - SLOW
+  - SLOWNESS # SLOW 1.20.5+
+  - SLOW_DIGGING
+  - MINING_FATIGUE # SLOW_DIGGING 1.20.5+
+  - CONFUSION
+  - NAUSEA # CONFUSION 1.20.5+
+  - BLINDNESS
+  - HUNGER
+  - WEAKNESS
+  - POISON
+  - WITHER
+  - GLOWING
+  - LEVITATION
+  - UNLUCK
+  - BAD_OMEN
+  - INFESTED
+
+Debug Mode: false
+
+# Informs PvPManager if the config is updated, do not touch it unless you want to reset the config
+Config Version: 206
+Database Version: 1

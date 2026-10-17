@@ -1,0 +1,29 @@
+{
+  "storage-type": "SQLite",
+  "abbreviate-balance": true,
+  "scientific-numbers": false,
+  "minimum-payment-amount": 0.01,
+  "max-loan-amount": 250.0,
+  "start-balance": 1000.0,
+  "minimum-prune-days": 30,
+  "balance-aliases": [
+    "bal",
+    "money"
+  ],
+  "accounts": {
+    "auto-create": true,
+    "per-world": false
+  },
+  "balance-top": {
+    "entries-per-page": 10,
+    "show-empty-accounts": false
+  },
+  "banks": {
+    "enabled": true
+  },
+  "currency": {
+    "currency-symbol": "✦",
+    "minimum-fractional-digits": 0,
+    "maximum-fractional-digits": 2
+  }
+}

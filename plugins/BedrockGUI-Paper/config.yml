@@ -1,0 +1,341 @@
+forms:
+  dom:
+    type: "CUSTOM"
+    title: "领地"
+    components:
+      domname:
+        type: "input"
+        text: "领地名称"
+        placeholder: "输入"
+        default: ""
+      domaction:
+        type: "dropdown"
+        text: "操作"
+        options:
+          - "create"
+          - "set_tp"
+          - "tp"
+        default: 0
+      component_2:
+        type: "label"
+        text: "执行"
+        onClick:
+          - |-
+            command {
+              - "dom $domaction $domname"
+            }
+  skin:
+    type: "CUSTOM"
+    title: "设置皮肤"
+    components:
+      skinaction:
+        type: "dropdown"
+        text: "操作"
+        options:
+          - "set"
+          - "url"
+        default: 0
+      skinname:
+        type: "input"
+        text: "正版玩家名(set)/皮肤链接(url)"
+        placeholder: "输入"
+        default: ""
+      component_2:
+        type: "label"
+        text: "执行"
+        onClick:
+          - |-
+            command {
+              - "skin $skinaction $skinname"
+            }
+  homeprivacy:
+    type: "CUSTOM"
+    title: "设置传送点公私有"
+    components:
+      name:
+        type: "input"
+        text: "传送点名称"
+        placeholder: "输入..."
+        default: ""
+      privacy:
+        type: "dropdown"
+        text: "公有/私有"
+        options:
+          - "public"
+          - "private"
+        default: 0
+      component_2:
+        type: "label"
+        text: "执行"
+        onClick:
+          - |-
+            command {
+              - "edithome $name privacy $privacy"
+            }
+  imagepaint:
+    type: "CUSTOM"
+    title: "创建地图画"
+    components:
+      name:
+        type: "input"
+        text: "名称"
+        placeholder: "输入地图画名称..."
+        default: ""
+      link:
+        type: "input"
+        text: "链接"
+        placeholder: "输入图片链接..."
+        default: ""
+      width:
+        type: "slider"
+        text: "宽(方块)"
+        min: 1
+        max: 20
+        step: 1
+        default: 1
+      length:
+        type: "slider"
+        text: "高(方块)"
+        min: 1
+        max: 20
+        step: 1
+        default: 1
+      comp:
+        type: "label"
+        text: "执行 (扣除500余额)"
+        onClick:
+          - |-
+            economy {
+              - "check:500"
+              - "remove:500"
+            }
+          - |-
+            command {
+              - "if create $name $link $width $length"
+            }
+  main:
+    command: "cd"
+    type: "SIMPLE"
+    title: "基岩GUI菜单"
+    description: "点击打开菜单/执行操作"
+    buttons:
+      button_1:
+        text: "公开传送点GUI"
+        onClick:
+          - |-
+            command {
+              - "warpgui"
+            }
+      button_2:
+        text: "传送GUI"
+        onClick:
+          - |-
+            command {
+              - "tpgui"
+            }
+      button_3:
+        text: "个人家GUI"
+        onClick:
+          - |-
+            command {
+              - "homegui"
+            }
+      button_4:
+        text: "公共家GUI"
+        onClick:
+          - |-
+            command {
+              - "phomegui"
+            }
+      button_5:
+        text: "消息GUI"
+        onClick:
+          - |-
+            command {
+              - "msggui"
+            }
+      button_6:
+        text: "当前位置领地信息"
+        onClick:
+          - |-
+            command {
+              - "dom info"
+            }
+      button_7:
+        text: "每日任务箱子GUI"
+        onClick:
+          - |-
+            command {
+              - "dq me"
+            }
+      button_8:
+        text: "重置当前皮肤"
+        onClick:
+          - |-
+            command {
+              - "skin clear"
+            }
+      button_9:
+        text: "每日签到"
+        onClick:
+          - |-
+            command {
+              - "rewards claim"
+            }
+      button_10:
+        text: "领地GUI"
+        onClick:
+          - |-
+            open {
+              - "dom"
+            }
+      button_11:
+        text: "皮肤GUI"
+        onClick:
+          - |-
+            open {
+              - "skin"
+            }
+      button_12:
+        text: "家公开/私有切换GUI"
+        onClick:
+          - |-
+            open {
+              - "homeprivacy"
+            }
+      button_13:
+        text: "地图画创建GUI"
+        onClick:
+          - |-
+            open {
+              - "imagepaint"
+            }
+      button_14:
+        text: "服务器官网链接"
+        onClick:
+          - |-
+            message {
+              - "§b服务器官网: https://public.mcmtn.net/"
+            }
+  shop:
+    type: "CUSTOM"
+    title: "商店"
+    components:
+      component_1:
+        type: "label"
+        text: "一组经验瓶 - 2000"
+        onClick:
+          - |-
+            economy {
+              - "check:2000"
+              - "remove:2000"
+            }
+          - |-
+            inventory {
+              - "give:experience_bottle:1"
+            }
+      component_2:
+        type: "label"
+        text: "一个龙头 - 100000"
+        onClick:
+          - |-
+            economy {
+              - "check:100000"
+              - "remove:100000"
+            }
+          - |-
+            inventory {
+              - "give:dragon_head:1"
+            }
+    java:
+      type: "CHEST"
+      title: "商店"
+      size: 9
+      items:
+        "0":
+          material: "EXPERIENCE_BOTTLE"
+          name: "一组经验瓶"
+          amount: "64"
+          lore:
+            - "一组经验瓶 - 2000"
+          onClick:
+            - |-
+              economy {
+                - "check:2000"
+                - "remove:2000"
+              }
+            - |-
+              server {
+                - "time set day"
+              }
+        "1":
+          material: "ENDER_DRAGON_SPAWN_EGG"
+          amount: "1"
+          name: "一个龙头"
+          lore:
+            - "一个龙头 - 10000"
+          onClick:
+            - |-
+              economy {
+                - "check:100000"
+                - "remove:100000"
+              }
+            - |-
+              inventory {
+                - "give:dragon_head:1"
+              }
+  dual_demo:
+    type: "SIMPLE"
+    title: "§a§lDual Platform Demo"
+    content: "§7Bedrock sees this form; Java sees inventory menu."
+    buttons:
+      info:
+        text: "§aBedrock: Info"
+        onClick:
+          - |
+            message {
+              - "§aYou are viewing the Bedrock form!"
+            }
+    java:
+      type: "CHEST"
+      title: "§6§lJava Demo Shop"
+      size: "27"
+      items:
+        11:
+          material: "DIAMOND_SWORD"
+          amount: "1"
+          name: "§aBuy Sword"
+          lore:
+            - "§7Cost: §b$100"
+          glow: "true"
+          onClick:
+            - |
+              conditional {
+                check: "placeholder:{vault_eco_balance} >= 100"
+                true:
+                  - |
+                    economy {
+                      - "remove:100"
+                    }
+                false:
+                  - |
+                    actionbar {
+                      - "§cInsufficient funds"
+                    }
+              }
+        15:
+          material: "GOLDEN_APPLE"
+          amount: "1"
+          name: "§6Buy Golden Apple"
+          lore:
+            - "§7Cost: §b$25"
+          glow: "false"
+          onClick:
+            - |
+              economy {
+                - "remove:25"
+              }
+            - |
+              message {
+                - "§ePurchased a golden apple for $25"
+              }

@@ -1,0 +1,149 @@
+header-footer:
+  enabled: true
+  designs:
+    default:
+      header:
+      - '%animation:mtn_title%'
+      - '&f欢迎，&b%player%'
+      footer: null
+tablist-name-formatting:
+  enabled: true
+  disable-condition: ''
+scoreboard-teams:
+  enabled: true
+  enable-collision: true
+  invisible-nametags: false
+  sorting-types:
+  - GROUPS:admin,contributor,default
+  - PLACEHOLDER_A_TO_Z:%player%
+  case-sensitive-sorting: false
+  can-see-friendly-invisibles: false
+  disable-condition: ''
+playerlist-objective:
+  enabled: true
+  value: '%ping%'
+  fancy-value: '&a%ping%ms'
+  title: 延迟
+  render-type: INTEGER
+  disable-condition: ''
+belowname-objective:
+  enabled: false
+  value: '%health%'
+  fancy-value: '&c%health%'
+  fancy-value-default: NPC
+  title: '&c生命'
+  disable-condition: ''
+  view-distance: 10
+prevent-spectator-effect:
+  enabled: false
+bossbar:
+  enabled: false
+  toggle-command: /bossbar
+  remember-toggle-choice: false
+  hidden-by-default: false
+  bars: {}
+scoreboard:
+  enabled: true
+  toggle-command: /sb
+  remember-toggle-choice: true
+  hidden-by-default: false
+  delay-on-join-milliseconds: 1500
+  scoreboards:
+    pvp:
+      title: '&c&l⚔ %pvpmanager_current_enemy% ⚔'
+      display-condition: '%pvpmanager_in_combat%=true'
+      lines:
+      - '&b剩余&7: &c%pvpmanager_combat_timeleft%秒'
+      - '&a你的生命&7: &f%pvpmanager_player_health% &c❤'
+      - '&e敌人生命&7: &f%pvpmanager_current_enemy_health% &c❤'
+    java-modern:
+      title: '%animation:mtn_title%'
+      display-condition: '%bedrock%=false'
+      lines:
+      - '&7%date% &8| &f%time%'
+      - ''
+      - '&b在线&7:||&f%online%'
+      - '&eMSPT&7:||&f%mspt%'
+      - '&e延迟&7:||&a%ping% &7ms'
+      - '&e光照&7:||&f%player_light_level%'
+      - '&e群系&7:||&f%world_biome%'
+      - '&e技能等级&7:||&f%mcmmo_power_level%'
+      - '&e余额&7:||&f✦%serviceio_balance_formatted%&e'
+    bedrock:
+      title: '&b&lMTN%floodgate_version%'
+      display-condition: '%bedrock%=true'
+      lines:
+      - '&b在线&7: &f%online%'
+      - '&e延迟&7:||&a%ping% &7ms'
+      - '&e光照&7: &f%player_light_level%'
+      - '&e群系&7: &f%world_biome%'
+      - '&e余额&7: &f✦%serviceio_balance_formatted%&e'
+layout:
+  enabled: false
+  direction: COLUMNS
+  default-skin: mineskin:37e93c8e12cd426cb28fce31969e0674
+  enable-remaining-players-text: true
+  remaining-players-text: '... and %s more'
+  empty-slot-ping-value: 1000
+  layouts: {}
+ping-spoof:
+  enabled: false
+  value: 0
+global-playerlist:
+  enabled: false
+  display-others-as-spectators: false
+  display-vanished-players-as-spectators: true
+  isolate-unlisted-servers: false
+  update-latency: false
+  spy-servers: []
+  server-groups: {}
+placeholders:
+  date-format: yyyy-MM-dd
+  time-format: HH:mm:ss
+  time-offset: 0
+  register-tab-expansion: true
+  locale: zh-CN
+placeholder-output-replacements:
+  '%griefprevention_currentclaim_ownername%':
+    Unclaimed: '&7未圈地'
+conditions: {}
+placeholder-refresh-intervals:
+  default-refresh-interval: 1000
+assign-groups-by-permissions: false
+primary-group-finding-list:
+- admin
+- vip
+- default
+permission-refresh-interval: 1000
+debug: false
+mysql:
+  enabled: false
+  host: 127.0.0.1
+  port: 3306
+  database: tab
+  username: user
+  password: password
+  useSSL: true
+proxy-support:
+  enabled: false
+  channel-name-suffix: TAB
+  type: PLUGIN
+  plugin:
+    name: RedisBungee
+  redis:
+    url: redis://:password@localhost:6379/0
+  rabbitmq:
+    exchange: plugin
+    url: amqp://guest:guest@localhost:5672/%2F
+components:
+  minimessage-support: true
+  disable-shadow-for-heads: true
+config-version: 7
+per-world-playerlist:
+  enabled: false
+  allow-bypass-permission: false
+  ignore-effect-in-worlds: []
+  shared-playerlist-world-groups: {}
+compensate-for-packetevents-bug: false
+use-bukkit-permissions-manager: false
+use-online-uuid-in-tablist: true

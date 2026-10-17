@@ -1,0 +1,11 @@
+libraries/
+versions/
+logs/
+cache/
+world/
+world_nether/
+world_the_end/
+*.sqlite
+*.sqlite-journal
+*.db
+plugins/DHSupport/data.sqlite
